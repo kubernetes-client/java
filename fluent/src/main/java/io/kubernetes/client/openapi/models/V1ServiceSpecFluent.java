@@ -45,6 +45,7 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
   private Map<String,String> selector;
   private String sessionAffinity;
   private V1SessionAffinityConfigBuilder sessionAffinityConfig;
+  private String trafficDistribution;
   private String type;
   
   protected void copyInstance(V1ServiceSpec instance) {
@@ -68,6 +69,7 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
           this.withSelector(instance.getSelector());
           this.withSessionAffinity(instance.getSessionAffinity());
           this.withSessionAffinityConfig(instance.getSessionAffinityConfig());
+          this.withTrafficDistribution(instance.getTrafficDistribution());
           this.withType(instance.getType());
         }
   }
@@ -819,6 +821,19 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
     return withNewSessionAffinityConfigLike(java.util.Optional.ofNullable(buildSessionAffinityConfig()).orElse(item));
   }
   
+  public String getTrafficDistribution() {
+    return this.trafficDistribution;
+  }
+  
+  public A withTrafficDistribution(String trafficDistribution) {
+    this.trafficDistribution = trafficDistribution;
+    return (A) this;
+  }
+  
+  public boolean hasTrafficDistribution() {
+    return this.trafficDistribution != null;
+  }
+  
   public String getType() {
     return this.type;
   }
@@ -855,12 +870,13 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
     if (!java.util.Objects.equals(selector, that.selector)) return false;
     if (!java.util.Objects.equals(sessionAffinity, that.sessionAffinity)) return false;
     if (!java.util.Objects.equals(sessionAffinityConfig, that.sessionAffinityConfig)) return false;
+    if (!java.util.Objects.equals(trafficDistribution, that.trafficDistribution)) return false;
     if (!java.util.Objects.equals(type, that.type)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocateLoadBalancerNodePorts,  clusterIP,  clusterIPs,  externalIPs,  externalName,  externalTrafficPolicy,  healthCheckNodePort,  internalTrafficPolicy,  ipFamilies,  ipFamilyPolicy,  loadBalancerClass,  loadBalancerIP,  loadBalancerSourceRanges,  ports,  publishNotReadyAddresses,  selector,  sessionAffinity,  sessionAffinityConfig,  type,  super.hashCode());
+    return java.util.Objects.hash(allocateLoadBalancerNodePorts,  clusterIP,  clusterIPs,  externalIPs,  externalName,  externalTrafficPolicy,  healthCheckNodePort,  internalTrafficPolicy,  ipFamilies,  ipFamilyPolicy,  loadBalancerClass,  loadBalancerIP,  loadBalancerSourceRanges,  ports,  publishNotReadyAddresses,  selector,  sessionAffinity,  sessionAffinityConfig,  trafficDistribution,  type,  super.hashCode());
   }
   
   public String toString() {
@@ -884,6 +900,7 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
     if (selector != null && !selector.isEmpty()) { sb.append("selector:"); sb.append(selector + ","); }
     if (sessionAffinity != null) { sb.append("sessionAffinity:"); sb.append(sessionAffinity + ","); }
     if (sessionAffinityConfig != null) { sb.append("sessionAffinityConfig:"); sb.append(sessionAffinityConfig + ","); }
+    if (trafficDistribution != null) { sb.append("trafficDistribution:"); sb.append(trafficDistribution + ","); }
     if (type != null) { sb.append("type:"); sb.append(type); }
     sb.append("}");
     return sb.toString();

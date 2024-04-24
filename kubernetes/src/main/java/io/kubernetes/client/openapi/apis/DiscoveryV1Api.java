@@ -187,7 +187,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedEndpointSliceRequest
          */
         public APIcreateNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -464,7 +464,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedEndpointSliceRequest
          */
         public APIdeleteCollectionNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -798,7 +798,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedEndpointSliceRequest
          */
         public APIdeleteNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -1272,7 +1272,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistEndpointSliceForAllNamespacesRequest
          */
         public APIlistEndpointSliceForAllNamespacesRequest pretty(String pretty) {
@@ -1547,7 +1547,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedEndpointSliceRequest
          */
         public APIlistNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -1857,7 +1857,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedEndpointSliceRequest
          */
         public APIpatchNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -2086,7 +2086,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedEndpointSliceRequest
          */
         public APIreadNamespacedEndpointSliceRequest pretty(String pretty) {
@@ -2292,7 +2292,7 @@ public class DiscoveryV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedEndpointSliceRequest
          */
         public APIreplaceNamespacedEndpointSliceRequest pretty(String pretty) {

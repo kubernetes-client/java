@@ -183,7 +183,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateIngressClassRequest
          */
         public APIcreateIngressClassRequest pretty(String pretty) {
@@ -420,7 +420,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedIngressRequest
          */
         public APIcreateNamespacedIngressRequest pretty(String pretty) {
@@ -658,7 +658,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedNetworkPolicyRequest
          */
         public APIcreateNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -927,7 +927,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionIngressClassRequest
          */
         public APIdeleteCollectionIngressClassRequest pretty(String pretty) {
@@ -1292,7 +1292,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedIngressRequest
          */
         public APIdeleteCollectionNamespacedIngressRequest pretty(String pretty) {
@@ -1658,7 +1658,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedNetworkPolicyRequest
          */
         public APIdeleteCollectionNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -1984,7 +1984,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteIngressClassRequest
          */
         public APIdeleteIngressClassRequest pretty(String pretty) {
@@ -2243,7 +2243,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedIngressRequest
          */
         public APIdeleteNamespacedIngressRequest pretty(String pretty) {
@@ -2503,7 +2503,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedNetworkPolicyRequest
          */
         public APIdeleteNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -2927,7 +2927,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistIngressClassRequest
          */
         public APIlistIngressClassRequest pretty(String pretty) {
@@ -3294,7 +3294,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistIngressForAllNamespacesRequest
          */
         public APIlistIngressForAllNamespacesRequest pretty(String pretty) {
@@ -3569,7 +3569,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedIngressRequest
          */
         public APIlistNamespacedIngressRequest pretty(String pretty) {
@@ -3895,7 +3895,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedNetworkPolicyRequest
          */
         public APIlistNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -4263,7 +4263,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNetworkPolicyForAllNamespacesRequest
          */
         public APIlistNetworkPolicyForAllNamespacesRequest pretty(String pretty) {
@@ -4514,7 +4514,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchIngressClassRequest
          */
         public APIpatchIngressClassRequest pretty(String pretty) {
@@ -4770,7 +4770,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedIngressRequest
          */
         public APIpatchNamespacedIngressRequest pretty(String pretty) {
@@ -5027,7 +5027,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedIngressStatusRequest
          */
         public APIpatchNamespacedIngressStatusRequest pretty(String pretty) {
@@ -5284,7 +5284,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedNetworkPolicyRequest
          */
         public APIpatchNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -5505,7 +5505,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadIngressClassRequest
          */
         public APIreadIngressClassRequest pretty(String pretty) {
@@ -5687,7 +5687,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedIngressRequest
          */
         public APIreadNamespacedIngressRequest pretty(String pretty) {
@@ -5870,7 +5870,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedIngressStatusRequest
          */
         public APIreadNamespacedIngressStatusRequest pretty(String pretty) {
@@ -6053,7 +6053,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedNetworkPolicyRequest
          */
         public APIreadNamespacedNetworkPolicyRequest pretty(String pretty) {
@@ -6251,7 +6251,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceIngressClassRequest
          */
         public APIreplaceIngressClassRequest pretty(String pretty) {
@@ -6492,7 +6492,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedIngressRequest
          */
         public APIreplaceNamespacedIngressRequest pretty(String pretty) {
@@ -6734,7 +6734,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedIngressStatusRequest
          */
         public APIreplaceNamespacedIngressStatusRequest pretty(String pretty) {
@@ -6976,7 +6976,7 @@ public class NetworkingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedNetworkPolicyRequest
          */
         public APIreplaceNamespacedNetworkPolicyRequest pretty(String pretty) {

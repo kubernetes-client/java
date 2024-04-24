@@ -27,6 +27,7 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuild
     buildable.setMountPropagation(fluent.getMountPropagation());
     buildable.setName(fluent.getName());
     buildable.setReadOnly(fluent.getReadOnly());
+    buildable.setRecursiveReadOnly(fluent.getRecursiveReadOnly());
     buildable.setSubPath(fluent.getSubPath());
     buildable.setSubPathExpr(fluent.getSubPathExpr());
     return buildable;

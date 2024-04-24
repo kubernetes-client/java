@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * JobStatus represents the current state of a Job.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -110,7 +110,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pending and running pods.
+   * The number of pending and running pods which are not terminating (without a deletionTimestamp). The value is zero for finished jobs.
    * @return active
   **/
   @jakarta.annotation.Nullable
@@ -152,7 +152,7 @@ public class V1JobStatus {
   }
 
    /**
-   * Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is only set when the job finishes successfully.
+   * Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is set when the job finishes successfully, and only then. The value cannot be updated or removed. The value indicates the same or later point in time as the startTime field.
    * @return completionTime
   **/
   @jakarta.annotation.Nullable
@@ -181,7 +181,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The latest available observations of an object&#39;s current state. When a Job fails, one of the conditions will have type \&quot;Failed\&quot; and status true. When a Job is suspended, one of the conditions will have type \&quot;Suspended\&quot; and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \&quot;Complete\&quot; and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+   * The latest available observations of an object&#39;s current state. When a Job fails, one of the conditions will have type \&quot;Failed\&quot; and status true. When a Job is suspended, one of the conditions will have type \&quot;Suspended\&quot; and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \&quot;Complete\&quot; and status true.  A job is considered finished when it is in a terminal condition, either \&quot;Complete\&quot; or \&quot;Failed\&quot;. A Job cannot have both the \&quot;Complete\&quot; and \&quot;Failed\&quot; conditions. Additionally, it cannot be in the \&quot;Complete\&quot; and \&quot;FailureTarget\&quot; conditions. The \&quot;Complete\&quot;, \&quot;Failed\&quot; and \&quot;FailureTarget\&quot; conditions cannot be disabled.  More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * @return conditions
   **/
   @jakarta.annotation.Nullable
@@ -202,7 +202,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pods which reached phase Failed.
+   * The number of pods which reached phase Failed. The value increases monotonically.
    * @return failed
   **/
   @jakarta.annotation.Nullable
@@ -223,7 +223,7 @@ public class V1JobStatus {
   }
 
    /**
-   * FailedIndexes holds the failed indexes when backoffLimitPerIndex&#x3D;true. The indexes are represented in the text format analogous as for the &#x60;completedIndexes&#x60; field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * FailedIndexes holds the failed indexes when spec.backoffLimitPerIndex is set. The indexes are represented in the text format analogous as for the &#x60;completedIndexes&#x60; field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;. The set of failed indexes cannot overlap with the set of completed indexes.  This field is beta-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (enabled by default).
    * @return failedIndexes
   **/
   @jakarta.annotation.Nullable
@@ -244,7 +244,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pods which have a Ready condition.  This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).
+   * The number of pods which have a Ready condition.
    * @return ready
   **/
   @jakarta.annotation.Nullable
@@ -265,7 +265,7 @@ public class V1JobStatus {
   }
 
    /**
-   * Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.
+   * Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.  Once set, the field can only be removed when the job is suspended. The field cannot be modified while the job is unsuspended or finished.
    * @return startTime
   **/
   @jakarta.annotation.Nullable
@@ -286,7 +286,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pods which reached phase Succeeded.
+   * The number of pods which reached phase Succeeded. The value increases monotonically for a given spec. However, it may decrease in reaction to scale down of elastic indexed jobs.
    * @return succeeded
   **/
   @jakarta.annotation.Nullable
@@ -307,7 +307,7 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).
+   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is beta-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (enabled by default).
    * @return terminating
   **/
   @jakarta.annotation.Nullable

@@ -179,7 +179,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateAPIServiceRequest
          */
         public APIcreateAPIServiceRequest pretty(String pretty) {
@@ -415,7 +415,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteAPIServiceRequest
          */
         public APIdeleteAPIServiceRequest pretty(String pretty) {
@@ -698,7 +698,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionAPIServiceRequest
          */
         public APIdeleteCollectionAPIServiceRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistAPIServiceRequest
          */
         public APIlistAPIServiceRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchAPIServiceRequest
          */
         public APIpatchAPIServiceRequest pretty(String pretty) {
@@ -1744,7 +1744,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchAPIServiceStatusRequest
          */
         public APIpatchAPIServiceStatusRequest pretty(String pretty) {
@@ -1964,7 +1964,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadAPIServiceRequest
          */
         public APIreadAPIServiceRequest pretty(String pretty) {
@@ -2138,7 +2138,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadAPIServiceStatusRequest
          */
         public APIreadAPIServiceStatusRequest pretty(String pretty) {
@@ -2335,7 +2335,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceAPIServiceRequest
          */
         public APIreplaceAPIServiceRequest pretty(String pretty) {
@@ -2568,7 +2568,7 @@ public class ApiregistrationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceAPIServiceStatusRequest
          */
         public APIreplaceAPIServiceStatusRequest pretty(String pretty) {

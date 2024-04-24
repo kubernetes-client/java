@@ -52,6 +52,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   private V1ScaleIOPersistentVolumeSourceBuilder scaleIO;
   private String storageClassName;
   private V1StorageOSPersistentVolumeSourceBuilder storageos;
+  private String volumeAttributesClassName;
   private String volumeMode;
   private V1VsphereVirtualDiskVolumeSourceBuilder vsphereVolume;
   
@@ -86,6 +87,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
           this.withScaleIO(instance.getScaleIO());
           this.withStorageClassName(instance.getStorageClassName());
           this.withStorageos(instance.getStorageos());
+          this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
           this.withVolumeMode(instance.getVolumeMode());
           this.withVsphereVolume(instance.getVsphereVolume());
         }
@@ -1262,6 +1264,19 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
     return withNewStorageosLike(java.util.Optional.ofNullable(buildStorageos()).orElse(item));
   }
   
+  public String getVolumeAttributesClassName() {
+    return this.volumeAttributesClassName;
+  }
+  
+  public A withVolumeAttributesClassName(String volumeAttributesClassName) {
+    this.volumeAttributesClassName = volumeAttributesClassName;
+    return (A) this;
+  }
+  
+  public boolean hasVolumeAttributesClassName() {
+    return this.volumeAttributesClassName != null;
+  }
+  
   public String getVolumeMode() {
     return this.volumeMode;
   }
@@ -1348,13 +1363,14 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
     if (!java.util.Objects.equals(scaleIO, that.scaleIO)) return false;
     if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
     if (!java.util.Objects.equals(storageos, that.storageos)) return false;
+    if (!java.util.Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName)) return false;
     if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
     if (!java.util.Objects.equals(vsphereVolume, that.vsphereVolume)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  awsElasticBlockStore,  azureDisk,  azureFile,  capacity,  cephfs,  cinder,  claimRef,  csi,  fc,  flexVolume,  flocker,  gcePersistentDisk,  glusterfs,  hostPath,  iscsi,  local,  mountOptions,  nfs,  nodeAffinity,  persistentVolumeReclaimPolicy,  photonPersistentDisk,  portworxVolume,  quobyte,  rbd,  scaleIO,  storageClassName,  storageos,  volumeMode,  vsphereVolume,  super.hashCode());
+    return java.util.Objects.hash(accessModes,  awsElasticBlockStore,  azureDisk,  azureFile,  capacity,  cephfs,  cinder,  claimRef,  csi,  fc,  flexVolume,  flocker,  gcePersistentDisk,  glusterfs,  hostPath,  iscsi,  local,  mountOptions,  nfs,  nodeAffinity,  persistentVolumeReclaimPolicy,  photonPersistentDisk,  portworxVolume,  quobyte,  rbd,  scaleIO,  storageClassName,  storageos,  volumeAttributesClassName,  volumeMode,  vsphereVolume,  super.hashCode());
   }
   
   public String toString() {
@@ -1388,6 +1404,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
     if (scaleIO != null) { sb.append("scaleIO:"); sb.append(scaleIO + ","); }
     if (storageClassName != null) { sb.append("storageClassName:"); sb.append(storageClassName + ","); }
     if (storageos != null) { sb.append("storageos:"); sb.append(storageos + ","); }
+    if (volumeAttributesClassName != null) { sb.append("volumeAttributesClassName:"); sb.append(volumeAttributesClassName + ","); }
     if (volumeMode != null) { sb.append("volumeMode:"); sb.append(volumeMode + ","); }
     if (vsphereVolume != null) { sb.append("vsphereVolume:"); sb.append(vsphereVolume); }
     sb.append("}");

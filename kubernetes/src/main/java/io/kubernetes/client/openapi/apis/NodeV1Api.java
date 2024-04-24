@@ -179,7 +179,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateRuntimeClassRequest
          */
         public APIcreateRuntimeClassRequest pretty(String pretty) {
@@ -447,7 +447,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionRuntimeClassRequest
          */
         public APIdeleteCollectionRuntimeClassRequest pretty(String pretty) {
@@ -772,7 +772,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteRuntimeClassRequest
          */
         public APIdeleteRuntimeClassRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistRuntimeClassRequest
          */
         public APIlistRuntimeClassRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchRuntimeClassRequest
          */
         public APIpatchRuntimeClassRequest pretty(String pretty) {
@@ -1716,7 +1716,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadRuntimeClassRequest
          */
         public APIreadRuntimeClassRequest pretty(String pretty) {
@@ -1913,7 +1913,7 @@ public class NodeV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceRuntimeClassRequest
          */
         public APIreplaceRuntimeClassRequest pretty(String pretty) {

@@ -22,8 +22,11 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ContainerState;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
+import io.kubernetes.client.openapi.models.V1VolumeMountStatus;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -54,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerStatus contains details for the current status of this container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -99,6 +102,10 @@ public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
+
+  public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
+  @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
+  private List<V1VolumeMountStatus> volumeMounts;
 
   public V1ContainerStatus() {
   }
@@ -342,6 +349,35 @@ public class V1ContainerStatus {
   }
 
 
+  public V1ContainerStatus volumeMounts(List<V1VolumeMountStatus> volumeMounts) {
+
+    this.volumeMounts = volumeMounts;
+    return this;
+  }
+
+  public V1ContainerStatus addVolumeMountsItem(V1VolumeMountStatus volumeMountsItem) {
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList<>();
+    }
+    this.volumeMounts.add(volumeMountsItem);
+    return this;
+  }
+
+   /**
+   * Status of volume mounts.
+   * @return volumeMounts
+  **/
+  @jakarta.annotation.Nullable
+  public List<V1VolumeMountStatus> getVolumeMounts() {
+    return volumeMounts;
+  }
+
+
+  public void setVolumeMounts(List<V1VolumeMountStatus> volumeMounts) {
+    this.volumeMounts = volumeMounts;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -362,12 +398,13 @@ public class V1ContainerStatus {
         Objects.equals(this.resources, v1ContainerStatus.resources) &&
         Objects.equals(this.restartCount, v1ContainerStatus.restartCount) &&
         Objects.equals(this.started, v1ContainerStatus.started) &&
-        Objects.equals(this.state, v1ContainerStatus.state);
+        Objects.equals(this.state, v1ContainerStatus.state) &&
+        Objects.equals(this.volumeMounts, v1ContainerStatus.volumeMounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state);
+    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, volumeMounts);
   }
 
   @Override
@@ -385,6 +422,7 @@ public class V1ContainerStatus {
     sb.append("    restartCount: ").append(toIndentedString(restartCount)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    volumeMounts: ").append(toIndentedString(volumeMounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -418,6 +456,7 @@ public class V1ContainerStatus {
     openapiFields.add("restartCount");
     openapiFields.add("started");
     openapiFields.add("state");
+    openapiFields.add("volumeMounts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -478,6 +517,20 @@ public class V1ContainerStatus {
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
         V1ContainerState.validateJsonObject(jsonObj.getAsJsonObject("state"));
+      }
+      if (jsonObj.get("volumeMounts") != null && !jsonObj.get("volumeMounts").isJsonNull()) {
+        JsonArray jsonArrayvolumeMounts = jsonObj.getAsJsonArray("volumeMounts");
+        if (jsonArrayvolumeMounts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("volumeMounts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `volumeMounts` to be an array in the JSON string but got `%s`", jsonObj.get("volumeMounts").toString()));
+          }
+
+          // validate the optional field `volumeMounts` (array)
+          for (int i = 0; i < jsonArrayvolumeMounts.size(); i++) {
+            V1VolumeMountStatus.validateJsonObject(jsonArrayvolumeMounts.get(i).getAsJsonObject());
+          };
+        }
       }
   }
 

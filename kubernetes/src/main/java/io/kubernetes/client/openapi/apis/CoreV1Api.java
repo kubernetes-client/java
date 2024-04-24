@@ -9234,7 +9234,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespaceRequest
          */
         public APIcreateNamespaceRequest pretty(String pretty) {
@@ -9501,7 +9501,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedBindingRequest
          */
         public APIcreateNamespacedBindingRequest pretty(String pretty) {
@@ -9709,7 +9709,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedConfigMapRequest
          */
         public APIcreateNamespacedConfigMapRequest pretty(String pretty) {
@@ -9947,7 +9947,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedEndpointsRequest
          */
         public APIcreateNamespacedEndpointsRequest pretty(String pretty) {
@@ -10185,7 +10185,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedEventRequest
          */
         public APIcreateNamespacedEventRequest pretty(String pretty) {
@@ -10423,7 +10423,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedLimitRangeRequest
          */
         public APIcreateNamespacedLimitRangeRequest pretty(String pretty) {
@@ -10661,7 +10661,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPersistentVolumeClaimRequest
          */
         public APIcreateNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -10899,7 +10899,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodRequest
          */
         public APIcreateNamespacedPodRequest pretty(String pretty) {
@@ -11175,7 +11175,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodBindingRequest
          */
         public APIcreateNamespacedPodBindingRequest pretty(String pretty) {
@@ -11422,7 +11422,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodEvictionRequest
          */
         public APIcreateNamespacedPodEvictionRequest pretty(String pretty) {
@@ -11631,7 +11631,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodTemplateRequest
          */
         public APIcreateNamespacedPodTemplateRequest pretty(String pretty) {
@@ -11869,7 +11869,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedReplicationControllerRequest
          */
         public APIcreateNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -12107,7 +12107,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedResourceQuotaRequest
          */
         public APIcreateNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -12345,7 +12345,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedSecretRequest
          */
         public APIcreateNamespacedSecretRequest pretty(String pretty) {
@@ -12583,7 +12583,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedServiceRequest
          */
         public APIcreateNamespacedServiceRequest pretty(String pretty) {
@@ -12821,7 +12821,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedServiceAccountRequest
          */
         public APIcreateNamespacedServiceAccountRequest pretty(String pretty) {
@@ -13097,7 +13097,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedServiceAccountTokenRequest
          */
         public APIcreateNamespacedServiceAccountTokenRequest pretty(String pretty) {
@@ -13298,7 +13298,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNodeRequest
          */
         public APIcreateNodeRequest pretty(String pretty) {
@@ -13527,7 +13527,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreatePersistentVolumeRequest
          */
         public APIcreatePersistentVolumeRequest pretty(String pretty) {
@@ -13803,7 +13803,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedConfigMapRequest
          */
         public APIdeleteCollectionNamespacedConfigMapRequest pretty(String pretty) {
@@ -14169,7 +14169,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedEndpointsRequest
          */
         public APIdeleteCollectionNamespacedEndpointsRequest pretty(String pretty) {
@@ -14535,7 +14535,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedEventRequest
          */
         public APIdeleteCollectionNamespacedEventRequest pretty(String pretty) {
@@ -14901,7 +14901,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedLimitRangeRequest
          */
         public APIdeleteCollectionNamespacedLimitRangeRequest pretty(String pretty) {
@@ -15267,7 +15267,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedPersistentVolumeClaimRequest
          */
         public APIdeleteCollectionNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -15633,7 +15633,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedPodRequest
          */
         public APIdeleteCollectionNamespacedPodRequest pretty(String pretty) {
@@ -15999,7 +15999,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedPodTemplateRequest
          */
         public APIdeleteCollectionNamespacedPodTemplateRequest pretty(String pretty) {
@@ -16365,7 +16365,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedReplicationControllerRequest
          */
         public APIdeleteCollectionNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -16731,7 +16731,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedResourceQuotaRequest
          */
         public APIdeleteCollectionNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -17097,7 +17097,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedSecretRequest
          */
         public APIdeleteCollectionNamespacedSecretRequest pretty(String pretty) {
@@ -17463,7 +17463,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedServiceRequest
          */
         public APIdeleteCollectionNamespacedServiceRequest pretty(String pretty) {
@@ -17829,7 +17829,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedServiceAccountRequest
          */
         public APIdeleteCollectionNamespacedServiceAccountRequest pretty(String pretty) {
@@ -18187,7 +18187,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNodeRequest
          */
         public APIdeleteCollectionNodeRequest pretty(String pretty) {
@@ -18544,7 +18544,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionPersistentVolumeRequest
          */
         public APIdeleteCollectionPersistentVolumeRequest pretty(String pretty) {
@@ -18869,7 +18869,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespaceRequest
          */
         public APIdeleteNamespaceRequest pretty(String pretty) {
@@ -19128,7 +19128,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedConfigMapRequest
          */
         public APIdeleteNamespacedConfigMapRequest pretty(String pretty) {
@@ -19388,7 +19388,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedEndpointsRequest
          */
         public APIdeleteNamespacedEndpointsRequest pretty(String pretty) {
@@ -19648,7 +19648,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedEventRequest
          */
         public APIdeleteNamespacedEventRequest pretty(String pretty) {
@@ -19908,7 +19908,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedLimitRangeRequest
          */
         public APIdeleteNamespacedLimitRangeRequest pretty(String pretty) {
@@ -20168,7 +20168,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedPersistentVolumeClaimRequest
          */
         public APIdeleteNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -20428,7 +20428,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedPodRequest
          */
         public APIdeleteNamespacedPodRequest pretty(String pretty) {
@@ -20688,7 +20688,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedPodTemplateRequest
          */
         public APIdeleteNamespacedPodTemplateRequest pretty(String pretty) {
@@ -20948,7 +20948,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedReplicationControllerRequest
          */
         public APIdeleteNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -21208,7 +21208,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedResourceQuotaRequest
          */
         public APIdeleteNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -21468,7 +21468,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedSecretRequest
          */
         public APIdeleteNamespacedSecretRequest pretty(String pretty) {
@@ -21728,7 +21728,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedServiceRequest
          */
         public APIdeleteNamespacedServiceRequest pretty(String pretty) {
@@ -21988,7 +21988,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedServiceAccountRequest
          */
         public APIdeleteNamespacedServiceAccountRequest pretty(String pretty) {
@@ -22240,7 +22240,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNodeRequest
          */
         public APIdeleteNodeRequest pretty(String pretty) {
@@ -22491,7 +22491,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeletePersistentVolumeRequest
          */
         public APIdeletePersistentVolumeRequest pretty(String pretty) {
@@ -22964,7 +22964,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistComponentStatusRequest
          */
         public APIlistComponentStatusRequest pretty(String pretty) {
@@ -23281,7 +23281,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistConfigMapForAllNamespacesRequest
          */
         public APIlistConfigMapForAllNamespacesRequest pretty(String pretty) {
@@ -23598,7 +23598,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistEndpointsForAllNamespacesRequest
          */
         public APIlistEndpointsForAllNamespacesRequest pretty(String pretty) {
@@ -23915,7 +23915,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistEventForAllNamespacesRequest
          */
         public APIlistEventForAllNamespacesRequest pretty(String pretty) {
@@ -24232,7 +24232,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistLimitRangeForAllNamespacesRequest
          */
         public APIlistLimitRangeForAllNamespacesRequest pretty(String pretty) {
@@ -24499,7 +24499,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespaceRequest
          */
         public APIlistNamespaceRequest pretty(String pretty) {
@@ -24824,7 +24824,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedConfigMapRequest
          */
         public APIlistNamespacedConfigMapRequest pretty(String pretty) {
@@ -25150,7 +25150,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedEndpointsRequest
          */
         public APIlistNamespacedEndpointsRequest pretty(String pretty) {
@@ -25476,7 +25476,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedEventRequest
          */
         public APIlistNamespacedEventRequest pretty(String pretty) {
@@ -25802,7 +25802,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedLimitRangeRequest
          */
         public APIlistNamespacedLimitRangeRequest pretty(String pretty) {
@@ -26128,7 +26128,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedPersistentVolumeClaimRequest
          */
         public APIlistNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -26454,7 +26454,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedPodRequest
          */
         public APIlistNamespacedPodRequest pretty(String pretty) {
@@ -26780,7 +26780,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedPodTemplateRequest
          */
         public APIlistNamespacedPodTemplateRequest pretty(String pretty) {
@@ -27106,7 +27106,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedReplicationControllerRequest
          */
         public APIlistNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -27432,7 +27432,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedResourceQuotaRequest
          */
         public APIlistNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -27758,7 +27758,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedSecretRequest
          */
         public APIlistNamespacedSecretRequest pretty(String pretty) {
@@ -28084,7 +28084,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedServiceRequest
          */
         public APIlistNamespacedServiceRequest pretty(String pretty) {
@@ -28410,7 +28410,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedServiceAccountRequest
          */
         public APIlistNamespacedServiceAccountRequest pretty(String pretty) {
@@ -28728,7 +28728,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNodeRequest
          */
         public APIlistNodeRequest pretty(String pretty) {
@@ -29045,7 +29045,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPersistentVolumeRequest
          */
         public APIlistPersistentVolumeRequest pretty(String pretty) {
@@ -29412,7 +29412,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPersistentVolumeClaimForAllNamespacesRequest
          */
         public APIlistPersistentVolumeClaimForAllNamespacesRequest pretty(String pretty) {
@@ -29729,7 +29729,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPodForAllNamespacesRequest
          */
         public APIlistPodForAllNamespacesRequest pretty(String pretty) {
@@ -30046,7 +30046,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPodTemplateForAllNamespacesRequest
          */
         public APIlistPodTemplateForAllNamespacesRequest pretty(String pretty) {
@@ -30363,7 +30363,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistReplicationControllerForAllNamespacesRequest
          */
         public APIlistReplicationControllerForAllNamespacesRequest pretty(String pretty) {
@@ -30680,7 +30680,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistResourceQuotaForAllNamespacesRequest
          */
         public APIlistResourceQuotaForAllNamespacesRequest pretty(String pretty) {
@@ -30997,7 +30997,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistSecretForAllNamespacesRequest
          */
         public APIlistSecretForAllNamespacesRequest pretty(String pretty) {
@@ -31314,7 +31314,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistServiceAccountForAllNamespacesRequest
          */
         public APIlistServiceAccountForAllNamespacesRequest pretty(String pretty) {
@@ -31631,7 +31631,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistServiceForAllNamespacesRequest
          */
         public APIlistServiceForAllNamespacesRequest pretty(String pretty) {
@@ -31882,7 +31882,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespaceRequest
          */
         public APIpatchNamespaceRequest pretty(String pretty) {
@@ -32130,7 +32130,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespaceStatusRequest
          */
         public APIpatchNamespaceStatusRequest pretty(String pretty) {
@@ -32386,7 +32386,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedConfigMapRequest
          */
         public APIpatchNamespacedConfigMapRequest pretty(String pretty) {
@@ -32643,7 +32643,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedEndpointsRequest
          */
         public APIpatchNamespacedEndpointsRequest pretty(String pretty) {
@@ -32900,7 +32900,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedEventRequest
          */
         public APIpatchNamespacedEventRequest pretty(String pretty) {
@@ -33157,7 +33157,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedLimitRangeRequest
          */
         public APIpatchNamespacedLimitRangeRequest pretty(String pretty) {
@@ -33414,7 +33414,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPersistentVolumeClaimRequest
          */
         public APIpatchNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -33671,7 +33671,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPersistentVolumeClaimStatusRequest
          */
         public APIpatchNamespacedPersistentVolumeClaimStatusRequest pretty(String pretty) {
@@ -33928,7 +33928,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodRequest
          */
         public APIpatchNamespacedPodRequest pretty(String pretty) {
@@ -34185,7 +34185,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodEphemeralcontainersRequest
          */
         public APIpatchNamespacedPodEphemeralcontainersRequest pretty(String pretty) {
@@ -34442,7 +34442,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodStatusRequest
          */
         public APIpatchNamespacedPodStatusRequest pretty(String pretty) {
@@ -34699,7 +34699,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodTemplateRequest
          */
         public APIpatchNamespacedPodTemplateRequest pretty(String pretty) {
@@ -34956,7 +34956,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicationControllerRequest
          */
         public APIpatchNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -35213,7 +35213,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicationControllerScaleRequest
          */
         public APIpatchNamespacedReplicationControllerScaleRequest pretty(String pretty) {
@@ -35470,7 +35470,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicationControllerStatusRequest
          */
         public APIpatchNamespacedReplicationControllerStatusRequest pretty(String pretty) {
@@ -35727,7 +35727,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedResourceQuotaRequest
          */
         public APIpatchNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -35984,7 +35984,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedResourceQuotaStatusRequest
          */
         public APIpatchNamespacedResourceQuotaStatusRequest pretty(String pretty) {
@@ -36241,7 +36241,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedSecretRequest
          */
         public APIpatchNamespacedSecretRequest pretty(String pretty) {
@@ -36498,7 +36498,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedServiceRequest
          */
         public APIpatchNamespacedServiceRequest pretty(String pretty) {
@@ -36755,7 +36755,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedServiceAccountRequest
          */
         public APIpatchNamespacedServiceAccountRequest pretty(String pretty) {
@@ -37012,7 +37012,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedServiceStatusRequest
          */
         public APIpatchNamespacedServiceStatusRequest pretty(String pretty) {
@@ -37261,7 +37261,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNodeRequest
          */
         public APIpatchNodeRequest pretty(String pretty) {
@@ -37509,7 +37509,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNodeStatusRequest
          */
         public APIpatchNodeStatusRequest pretty(String pretty) {
@@ -37757,7 +37757,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPersistentVolumeRequest
          */
         public APIpatchPersistentVolumeRequest pretty(String pretty) {
@@ -38005,7 +38005,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPersistentVolumeStatusRequest
          */
         public APIpatchPersistentVolumeStatusRequest pretty(String pretty) {
@@ -38225,7 +38225,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadComponentStatusRequest
          */
         public APIreadComponentStatusRequest pretty(String pretty) {
@@ -38399,7 +38399,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespaceRequest
          */
         public APIreadNamespaceRequest pretty(String pretty) {
@@ -38573,7 +38573,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespaceStatusRequest
          */
         public APIreadNamespaceStatusRequest pretty(String pretty) {
@@ -38755,7 +38755,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedConfigMapRequest
          */
         public APIreadNamespacedConfigMapRequest pretty(String pretty) {
@@ -38938,7 +38938,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedEndpointsRequest
          */
         public APIreadNamespacedEndpointsRequest pretty(String pretty) {
@@ -39121,7 +39121,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedEventRequest
          */
         public APIreadNamespacedEventRequest pretty(String pretty) {
@@ -39304,7 +39304,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedLimitRangeRequest
          */
         public APIreadNamespacedLimitRangeRequest pretty(String pretty) {
@@ -39487,7 +39487,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPersistentVolumeClaimRequest
          */
         public APIreadNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -39670,7 +39670,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPersistentVolumeClaimStatusRequest
          */
         public APIreadNamespacedPersistentVolumeClaimStatusRequest pretty(String pretty) {
@@ -39853,7 +39853,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodRequest
          */
         public APIreadNamespacedPodRequest pretty(String pretty) {
@@ -40036,7 +40036,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodEphemeralcontainersRequest
          */
         public APIreadNamespacedPodEphemeralcontainersRequest pretty(String pretty) {
@@ -40300,7 +40300,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodLogRequest
          */
         public APIreadNamespacedPodLogRequest pretty(String pretty) {
@@ -40523,7 +40523,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodStatusRequest
          */
         public APIreadNamespacedPodStatusRequest pretty(String pretty) {
@@ -40706,7 +40706,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodTemplateRequest
          */
         public APIreadNamespacedPodTemplateRequest pretty(String pretty) {
@@ -40889,7 +40889,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicationControllerRequest
          */
         public APIreadNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -41072,7 +41072,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicationControllerScaleRequest
          */
         public APIreadNamespacedReplicationControllerScaleRequest pretty(String pretty) {
@@ -41255,7 +41255,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicationControllerStatusRequest
          */
         public APIreadNamespacedReplicationControllerStatusRequest pretty(String pretty) {
@@ -41438,7 +41438,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedResourceQuotaRequest
          */
         public APIreadNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -41621,7 +41621,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedResourceQuotaStatusRequest
          */
         public APIreadNamespacedResourceQuotaStatusRequest pretty(String pretty) {
@@ -41804,7 +41804,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedSecretRequest
          */
         public APIreadNamespacedSecretRequest pretty(String pretty) {
@@ -41987,7 +41987,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedServiceRequest
          */
         public APIreadNamespacedServiceRequest pretty(String pretty) {
@@ -42170,7 +42170,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedServiceAccountRequest
          */
         public APIreadNamespacedServiceAccountRequest pretty(String pretty) {
@@ -42353,7 +42353,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedServiceStatusRequest
          */
         public APIreadNamespacedServiceStatusRequest pretty(String pretty) {
@@ -42528,7 +42528,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNodeRequest
          */
         public APIreadNodeRequest pretty(String pretty) {
@@ -42702,7 +42702,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNodeStatusRequest
          */
         public APIreadNodeStatusRequest pretty(String pretty) {
@@ -42876,7 +42876,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPersistentVolumeRequest
          */
         public APIreadPersistentVolumeRequest pretty(String pretty) {
@@ -43050,7 +43050,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPersistentVolumeStatusRequest
          */
         public APIreadPersistentVolumeStatusRequest pretty(String pretty) {
@@ -43247,7 +43247,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespaceRequest
          */
         public APIreplaceNamespaceRequest pretty(String pretty) {
@@ -43510,7 +43510,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespaceFinalizeRequest
          */
         public APIreplaceNamespaceFinalizeRequest pretty(String pretty) {
@@ -43713,7 +43713,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespaceStatusRequest
          */
         public APIreplaceNamespaceStatusRequest pretty(String pretty) {
@@ -43954,7 +43954,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedConfigMapRequest
          */
         public APIreplaceNamespacedConfigMapRequest pretty(String pretty) {
@@ -44196,7 +44196,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedEndpointsRequest
          */
         public APIreplaceNamespacedEndpointsRequest pretty(String pretty) {
@@ -44438,7 +44438,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedEventRequest
          */
         public APIreplaceNamespacedEventRequest pretty(String pretty) {
@@ -44680,7 +44680,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedLimitRangeRequest
          */
         public APIreplaceNamespacedLimitRangeRequest pretty(String pretty) {
@@ -44922,7 +44922,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPersistentVolumeClaimRequest
          */
         public APIreplaceNamespacedPersistentVolumeClaimRequest pretty(String pretty) {
@@ -45164,7 +45164,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPersistentVolumeClaimStatusRequest
          */
         public APIreplaceNamespacedPersistentVolumeClaimStatusRequest pretty(String pretty) {
@@ -45406,7 +45406,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodRequest
          */
         public APIreplaceNamespacedPodRequest pretty(String pretty) {
@@ -45648,7 +45648,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodEphemeralcontainersRequest
          */
         public APIreplaceNamespacedPodEphemeralcontainersRequest pretty(String pretty) {
@@ -45890,7 +45890,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodStatusRequest
          */
         public APIreplaceNamespacedPodStatusRequest pretty(String pretty) {
@@ -46132,7 +46132,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodTemplateRequest
          */
         public APIreplaceNamespacedPodTemplateRequest pretty(String pretty) {
@@ -46374,7 +46374,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicationControllerRequest
          */
         public APIreplaceNamespacedReplicationControllerRequest pretty(String pretty) {
@@ -46616,7 +46616,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicationControllerScaleRequest
          */
         public APIreplaceNamespacedReplicationControllerScaleRequest pretty(String pretty) {
@@ -46858,7 +46858,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicationControllerStatusRequest
          */
         public APIreplaceNamespacedReplicationControllerStatusRequest pretty(String pretty) {
@@ -47100,7 +47100,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedResourceQuotaRequest
          */
         public APIreplaceNamespacedResourceQuotaRequest pretty(String pretty) {
@@ -47342,7 +47342,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedResourceQuotaStatusRequest
          */
         public APIreplaceNamespacedResourceQuotaStatusRequest pretty(String pretty) {
@@ -47584,7 +47584,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedSecretRequest
          */
         public APIreplaceNamespacedSecretRequest pretty(String pretty) {
@@ -47826,7 +47826,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedServiceRequest
          */
         public APIreplaceNamespacedServiceRequest pretty(String pretty) {
@@ -48068,7 +48068,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedServiceAccountRequest
          */
         public APIreplaceNamespacedServiceAccountRequest pretty(String pretty) {
@@ -48310,7 +48310,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedServiceStatusRequest
          */
         public APIreplaceNamespacedServiceStatusRequest pretty(String pretty) {
@@ -48544,7 +48544,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNodeRequest
          */
         public APIreplaceNodeRequest pretty(String pretty) {
@@ -48777,7 +48777,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNodeStatusRequest
          */
         public APIreplaceNodeStatusRequest pretty(String pretty) {
@@ -49010,7 +49010,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePersistentVolumeRequest
          */
         public APIreplacePersistentVolumeRequest pretty(String pretty) {
@@ -49243,7 +49243,7 @@ public class CoreV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePersistentVolumeStatusRequest
          */
         public APIreplacePersistentVolumeStatusRequest pretty(String pretty) {

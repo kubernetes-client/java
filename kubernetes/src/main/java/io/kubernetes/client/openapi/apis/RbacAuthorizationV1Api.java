@@ -185,7 +185,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateClusterRoleRequest
          */
         public APIcreateClusterRoleRequest pretty(String pretty) {
@@ -414,7 +414,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateClusterRoleBindingRequest
          */
         public APIcreateClusterRoleBindingRequest pretty(String pretty) {
@@ -651,7 +651,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedRoleRequest
          */
         public APIcreateNamespacedRoleRequest pretty(String pretty) {
@@ -889,7 +889,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedRoleBindingRequest
          */
         public APIcreateNamespacedRoleBindingRequest pretty(String pretty) {
@@ -1126,7 +1126,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteClusterRoleRequest
          */
         public APIdeleteClusterRoleRequest pretty(String pretty) {
@@ -1377,7 +1377,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteClusterRoleBindingRequest
          */
         public APIdeleteClusterRoleBindingRequest pretty(String pretty) {
@@ -1660,7 +1660,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionClusterRoleRequest
          */
         public APIdeleteCollectionClusterRoleRequest pretty(String pretty) {
@@ -2017,7 +2017,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionClusterRoleBindingRequest
          */
         public APIdeleteCollectionClusterRoleBindingRequest pretty(String pretty) {
@@ -2382,7 +2382,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedRoleRequest
          */
         public APIdeleteCollectionNamespacedRoleRequest pretty(String pretty) {
@@ -2748,7 +2748,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedRoleBindingRequest
          */
         public APIdeleteCollectionNamespacedRoleBindingRequest pretty(String pretty) {
@@ -3082,7 +3082,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedRoleRequest
          */
         public APIdeleteNamespacedRoleRequest pretty(String pretty) {
@@ -3342,7 +3342,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedRoleBindingRequest
          */
         public APIdeleteNamespacedRoleBindingRequest pretty(String pretty) {
@@ -3766,7 +3766,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistClusterRoleRequest
          */
         public APIlistClusterRoleRequest pretty(String pretty) {
@@ -4083,7 +4083,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistClusterRoleBindingRequest
          */
         public APIlistClusterRoleBindingRequest pretty(String pretty) {
@@ -4408,7 +4408,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedRoleRequest
          */
         public APIlistNamespacedRoleRequest pretty(String pretty) {
@@ -4734,7 +4734,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedRoleBindingRequest
          */
         public APIlistNamespacedRoleBindingRequest pretty(String pretty) {
@@ -5102,7 +5102,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistRoleBindingForAllNamespacesRequest
          */
         public APIlistRoleBindingForAllNamespacesRequest pretty(String pretty) {
@@ -5419,7 +5419,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistRoleForAllNamespacesRequest
          */
         public APIlistRoleForAllNamespacesRequest pretty(String pretty) {
@@ -5670,7 +5670,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchClusterRoleRequest
          */
         public APIpatchClusterRoleRequest pretty(String pretty) {
@@ -5918,7 +5918,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchClusterRoleBindingRequest
          */
         public APIpatchClusterRoleBindingRequest pretty(String pretty) {
@@ -6174,7 +6174,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedRoleRequest
          */
         public APIpatchNamespacedRoleRequest pretty(String pretty) {
@@ -6431,7 +6431,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedRoleBindingRequest
          */
         public APIpatchNamespacedRoleBindingRequest pretty(String pretty) {
@@ -6652,7 +6652,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadClusterRoleRequest
          */
         public APIreadClusterRoleRequest pretty(String pretty) {
@@ -6826,7 +6826,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadClusterRoleBindingRequest
          */
         public APIreadClusterRoleBindingRequest pretty(String pretty) {
@@ -7008,7 +7008,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedRoleRequest
          */
         public APIreadNamespacedRoleRequest pretty(String pretty) {
@@ -7191,7 +7191,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedRoleBindingRequest
          */
         public APIreadNamespacedRoleBindingRequest pretty(String pretty) {
@@ -7389,7 +7389,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceClusterRoleRequest
          */
         public APIreplaceClusterRoleRequest pretty(String pretty) {
@@ -7622,7 +7622,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceClusterRoleBindingRequest
          */
         public APIreplaceClusterRoleBindingRequest pretty(String pretty) {
@@ -7863,7 +7863,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedRoleRequest
          */
         public APIreplaceNamespacedRoleRequest pretty(String pretty) {
@@ -8105,7 +8105,7 @@ public class RbacAuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedRoleBindingRequest
          */
         public APIreplaceNamespacedRoleBindingRequest pretty(String pretty) {

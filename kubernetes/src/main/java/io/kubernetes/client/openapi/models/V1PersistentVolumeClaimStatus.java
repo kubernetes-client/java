@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1ModifyVolumeStatus;
 import io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -76,6 +77,14 @@ public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1PersistentVolumeClaimCondition> conditions;
+
+  public static final String SERIALIZED_NAME_CURRENT_VOLUME_ATTRIBUTES_CLASS_NAME = "currentVolumeAttributesClassName";
+  @SerializedName(SERIALIZED_NAME_CURRENT_VOLUME_ATTRIBUTES_CLASS_NAME)
+  private String currentVolumeAttributesClassName;
+
+  public static final String SERIALIZED_NAME_MODIFY_VOLUME_STATUS = "modifyVolumeStatus";
+  @SerializedName(SERIALIZED_NAME_MODIFY_VOLUME_STATUS)
+  private V1ModifyVolumeStatus modifyVolumeStatus;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
@@ -215,7 +224,7 @@ public class V1PersistentVolumeClaimStatus {
   }
 
    /**
-   * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;ResizeStarted&#39;.
+   * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;Resizing&#39;.
    * @return conditions
   **/
   @jakarta.annotation.Nullable
@@ -226,6 +235,48 @@ public class V1PersistentVolumeClaimStatus {
 
   public void setConditions(List<V1PersistentVolumeClaimCondition> conditions) {
     this.conditions = conditions;
+  }
+
+
+  public V1PersistentVolumeClaimStatus currentVolumeAttributesClassName(String currentVolumeAttributesClassName) {
+
+    this.currentVolumeAttributesClassName = currentVolumeAttributesClassName;
+    return this;
+  }
+
+   /**
+   * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @return currentVolumeAttributesClassName
+  **/
+  @jakarta.annotation.Nullable
+  public String getCurrentVolumeAttributesClassName() {
+    return currentVolumeAttributesClassName;
+  }
+
+
+  public void setCurrentVolumeAttributesClassName(String currentVolumeAttributesClassName) {
+    this.currentVolumeAttributesClassName = currentVolumeAttributesClassName;
+  }
+
+
+  public V1PersistentVolumeClaimStatus modifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
+
+    this.modifyVolumeStatus = modifyVolumeStatus;
+    return this;
+  }
+
+   /**
+   * Get modifyVolumeStatus
+   * @return modifyVolumeStatus
+  **/
+  @jakarta.annotation.Nullable
+  public V1ModifyVolumeStatus getModifyVolumeStatus() {
+    return modifyVolumeStatus;
+  }
+
+
+  public void setModifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
+    this.modifyVolumeStatus = modifyVolumeStatus;
   }
 
 
@@ -265,12 +316,14 @@ public class V1PersistentVolumeClaimStatus {
         Objects.equals(this.allocatedResources, v1PersistentVolumeClaimStatus.allocatedResources) &&
         Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity) &&
         Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions) &&
+        Objects.equals(this.currentVolumeAttributesClassName, v1PersistentVolumeClaimStatus.currentVolumeAttributesClassName) &&
+        Objects.equals(this.modifyVolumeStatus, v1PersistentVolumeClaimStatus.modifyVolumeStatus) &&
         Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, phase);
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, modifyVolumeStatus, phase);
   }
 
   @Override
@@ -282,6 +335,8 @@ public class V1PersistentVolumeClaimStatus {
     sb.append("    allocatedResources: ").append(toIndentedString(allocatedResources)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    currentVolumeAttributesClassName: ").append(toIndentedString(currentVolumeAttributesClassName)).append("\n");
+    sb.append("    modifyVolumeStatus: ").append(toIndentedString(modifyVolumeStatus)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,6 +365,8 @@ public class V1PersistentVolumeClaimStatus {
     openapiFields.add("allocatedResources");
     openapiFields.add("capacity");
     openapiFields.add("conditions");
+    openapiFields.add("currentVolumeAttributesClassName");
+    openapiFields.add("modifyVolumeStatus");
     openapiFields.add("phase");
 
     // a set of required properties/fields (JSON key names)
@@ -353,6 +410,13 @@ public class V1PersistentVolumeClaimStatus {
             V1PersistentVolumeClaimCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
           };
         }
+      }
+      if ((jsonObj.get("currentVolumeAttributesClassName") != null && !jsonObj.get("currentVolumeAttributesClassName").isJsonNull()) && !jsonObj.get("currentVolumeAttributesClassName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currentVolumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currentVolumeAttributesClassName").toString()));
+      }
+      // validate the optional field `modifyVolumeStatus`
+      if (jsonObj.get("modifyVolumeStatus") != null && !jsonObj.get("modifyVolumeStatus").isJsonNull()) {
+        V1ModifyVolumeStatus.validateJsonObject(jsonObj.getAsJsonObject("modifyVolumeStatus"));
       }
       if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));

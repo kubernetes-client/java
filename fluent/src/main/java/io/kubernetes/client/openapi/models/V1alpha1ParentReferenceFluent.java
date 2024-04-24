@@ -20,7 +20,6 @@ public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFlue
   private String name;
   private String namespace;
   private String resource;
-  private String uid;
   
   protected void copyInstance(V1alpha1ParentReference instance) {
     instance = (instance != null ? instance : new V1alpha1ParentReference());
@@ -29,7 +28,6 @@ public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFlue
           this.withName(instance.getName());
           this.withNamespace(instance.getNamespace());
           this.withResource(instance.getResource());
-          this.withUid(instance.getUid());
         }
   }
   
@@ -85,19 +83,6 @@ public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFlue
     return this.resource != null;
   }
   
-  public String getUid() {
-    return this.uid;
-  }
-  
-  public A withUid(String uid) {
-    this.uid = uid;
-    return (A) this;
-  }
-  
-  public boolean hasUid() {
-    return this.uid != null;
-  }
-  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -107,12 +92,11 @@ public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFlue
     if (!java.util.Objects.equals(name, that.name)) return false;
     if (!java.util.Objects.equals(namespace, that.namespace)) return false;
     if (!java.util.Objects.equals(resource, that.resource)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(group,  name,  namespace,  resource,  uid,  super.hashCode());
+    return java.util.Objects.hash(group,  name,  namespace,  resource,  super.hashCode());
   }
   
   public String toString() {
@@ -121,8 +105,7 @@ public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFlue
     if (group != null) { sb.append("group:"); sb.append(group + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
-    if (resource != null) { sb.append("resource:"); sb.append(resource + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (resource != null) { sb.append("resource:"); sb.append(resource); }
     sb.append("}");
     return sb.toString();
   }

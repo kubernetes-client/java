@@ -1,14 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
-import io.kubernetes.client.custom.Quantity;
+import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
-import java.lang.Integer;
+import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.lang.Object;
+import java.util.Iterator;
+import java.util.List;
 import java.lang.Boolean;
+import io.kubernetes.client.custom.Quantity;
+import java.lang.Integer;
+import java.util.Collection;
+import java.lang.Object;
 import java.util.Map;
 
 /**
@@ -33,6 +39,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   private Integer restartCount;
   private Boolean started;
   private V1ContainerStateBuilder state;
+  private ArrayList<V1VolumeMountStatusBuilder> volumeMounts;
   
   protected void copyInstance(V1ContainerStatus instance) {
     instance = (instance != null ? instance : new V1ContainerStatus());
@@ -48,6 +55,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
           this.withRestartCount(instance.getRestartCount());
           this.withStarted(instance.getStarted());
           this.withState(instance.getState());
+          this.withVolumeMounts(instance.getVolumeMounts());
         }
   }
   
@@ -299,6 +307,157 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(item));
   }
   
+  public A addToVolumeMounts(int index,V1VolumeMountStatus item) {
+    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").add(index, builder); volumeMounts.add(index, builder);}
+    return (A)this;
+  }
+  
+  public A setToVolumeMounts(int index,V1VolumeMountStatus item) {
+    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").set(index, builder); volumeMounts.set(index, builder);}
+    return (A)this;
+  }
+  
+  public A addToVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... items) {
+    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").add(builder);this.volumeMounts.add(builder);} return (A)this;
+  }
+  
+  public A addAllToVolumeMounts(Collection<V1VolumeMountStatus> items) {
+    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").add(builder);this.volumeMounts.add(builder);} return (A)this;
+  }
+  
+  public A removeFromVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... items) {
+    if (this.volumeMounts == null) return (A)this;
+    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").remove(builder); this.volumeMounts.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromVolumeMounts(Collection<V1VolumeMountStatus> items) {
+    if (this.volumeMounts == null) return (A)this;
+    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").remove(builder); this.volumeMounts.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromVolumeMounts(Predicate<V1VolumeMountStatusBuilder> predicate) {
+    if (volumeMounts == null) return (A) this;
+    final Iterator<V1VolumeMountStatusBuilder> each = volumeMounts.iterator();
+    final List visitables = _visitables.get("volumeMounts");
+    while (each.hasNext()) {
+      V1VolumeMountStatusBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1VolumeMountStatus> buildVolumeMounts() {
+    return this.volumeMounts != null ? build(volumeMounts) : null;
+  }
+  
+  public V1VolumeMountStatus buildVolumeMount(int index) {
+    return this.volumeMounts.get(index).build();
+  }
+  
+  public V1VolumeMountStatus buildFirstVolumeMount() {
+    return this.volumeMounts.get(0).build();
+  }
+  
+  public V1VolumeMountStatus buildLastVolumeMount() {
+    return this.volumeMounts.get(volumeMounts.size() - 1).build();
+  }
+  
+  public V1VolumeMountStatus buildMatchingVolumeMount(Predicate<V1VolumeMountStatusBuilder> predicate) {
+      for (V1VolumeMountStatusBuilder item : volumeMounts) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingVolumeMount(Predicate<V1VolumeMountStatusBuilder> predicate) {
+      for (V1VolumeMountStatusBuilder item : volumeMounts) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withVolumeMounts(List<V1VolumeMountStatus> volumeMounts) {
+    if (this.volumeMounts != null) {
+      this._visitables.get("volumeMounts").clear();
+    }
+    if (volumeMounts != null) {
+        this.volumeMounts = new ArrayList();
+        for (V1VolumeMountStatus item : volumeMounts) {
+          this.addToVolumeMounts(item);
+        }
+    } else {
+      this.volumeMounts = null;
+    }
+    return (A) this;
+  }
+  
+  public A withVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... volumeMounts) {
+    if (this.volumeMounts != null) {
+        this.volumeMounts.clear();
+        _visitables.remove("volumeMounts");
+    }
+    if (volumeMounts != null) {
+      for (V1VolumeMountStatus item : volumeMounts) {
+        this.addToVolumeMounts(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasVolumeMounts() {
+    return this.volumeMounts != null && !this.volumeMounts.isEmpty();
+  }
+  
+  public VolumeMountsNested<A> addNewVolumeMount() {
+    return new VolumeMountsNested(-1, null);
+  }
+  
+  public VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMountStatus item) {
+    return new VolumeMountsNested(-1, item);
+  }
+  
+  public VolumeMountsNested<A> setNewVolumeMountLike(int index,V1VolumeMountStatus item) {
+    return new VolumeMountsNested(index, item);
+  }
+  
+  public VolumeMountsNested<A> editVolumeMount(int index) {
+    if (volumeMounts.size() <= index) throw new RuntimeException("Can't edit volumeMounts. Index exceeds size.");
+    return setNewVolumeMountLike(index, buildVolumeMount(index));
+  }
+  
+  public VolumeMountsNested<A> editFirstVolumeMount() {
+    if (volumeMounts.size() == 0) throw new RuntimeException("Can't edit first volumeMounts. The list is empty.");
+    return setNewVolumeMountLike(0, buildVolumeMount(0));
+  }
+  
+  public VolumeMountsNested<A> editLastVolumeMount() {
+    int index = volumeMounts.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last volumeMounts. The list is empty.");
+    return setNewVolumeMountLike(index, buildVolumeMount(index));
+  }
+  
+  public VolumeMountsNested<A> editMatchingVolumeMount(Predicate<V1VolumeMountStatusBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<volumeMounts.size();i++) { 
+    if (predicate.test(volumeMounts.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching volumeMounts. No match found.");
+    return setNewVolumeMountLike(index, buildVolumeMount(index));
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -315,11 +474,12 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (!java.util.Objects.equals(restartCount, that.restartCount)) return false;
     if (!java.util.Objects.equals(started, that.started)) return false;
     if (!java.util.Objects.equals(state, that.state)) return false;
+    if (!java.util.Objects.equals(volumeMounts, that.volumeMounts)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocatedResources,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  super.hashCode());
+    return java.util.Objects.hash(allocatedResources,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  volumeMounts,  super.hashCode());
   }
   
   public String toString() {
@@ -335,7 +495,8 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
     if (restartCount != null) { sb.append("restartCount:"); sb.append(restartCount + ","); }
     if (started != null) { sb.append("started:"); sb.append(started + ","); }
-    if (state != null) { sb.append("state:"); sb.append(state); }
+    if (state != null) { sb.append("state:"); sb.append(state + ","); }
+    if (volumeMounts != null && !volumeMounts.isEmpty()) { sb.append("volumeMounts:"); sb.append(volumeMounts); }
     sb.append("}");
     return sb.toString();
   }
@@ -390,6 +551,24 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     }
     
     public N endState() {
+      return and();
+    }
+    
+  
+  }
+  public class VolumeMountsNested<N> extends V1VolumeMountStatusFluent<VolumeMountsNested<N>> implements Nested<N>{
+    VolumeMountsNested(int index,V1VolumeMountStatus item) {
+      this.index = index;
+      this.builder = new V1VolumeMountStatusBuilder(this, item);
+    }
+    V1VolumeMountStatusBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1ContainerStatusFluent.this.setToVolumeMounts(index,builder.build());
+    }
+    
+    public N endVolumeMount() {
       return and();
     }
     

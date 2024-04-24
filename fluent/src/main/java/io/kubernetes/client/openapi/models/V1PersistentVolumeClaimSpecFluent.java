@@ -24,9 +24,10 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   private List<String> accessModes;
   private V1TypedLocalObjectReferenceBuilder dataSource;
   private V1TypedObjectReferenceBuilder dataSourceRef;
-  private V1ResourceRequirementsBuilder resources;
+  private V1VolumeResourceRequirementsBuilder resources;
   private V1LabelSelectorBuilder selector;
   private String storageClassName;
+  private String volumeAttributesClassName;
   private String volumeMode;
   private String volumeName;
   
@@ -39,6 +40,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
           this.withResources(instance.getResources());
           this.withSelector(instance.getSelector());
           this.withStorageClassName(instance.getStorageClassName());
+          this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
           this.withVolumeMode(instance.getVolumeMode());
           this.withVolumeName(instance.getVolumeName());
         }
@@ -218,14 +220,14 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     return withNewDataSourceRefLike(java.util.Optional.ofNullable(buildDataSourceRef()).orElse(item));
   }
   
-  public V1ResourceRequirements buildResources() {
+  public V1VolumeResourceRequirements buildResources() {
     return this.resources != null ? this.resources.build() : null;
   }
   
-  public A withResources(V1ResourceRequirements resources) {
+  public A withResources(V1VolumeResourceRequirements resources) {
     this._visitables.remove("resources");
     if (resources != null) {
-        this.resources = new V1ResourceRequirementsBuilder(resources);
+        this.resources = new V1VolumeResourceRequirementsBuilder(resources);
         this._visitables.get("resources").add(this.resources);
     } else {
         this.resources = null;
@@ -242,7 +244,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     return new ResourcesNested(null);
   }
   
-  public ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
+  public ResourcesNested<A> withNewResourcesLike(V1VolumeResourceRequirements item) {
     return new ResourcesNested(item);
   }
   
@@ -251,10 +253,10 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public ResourcesNested<A> editOrNewResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
+    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1VolumeResourceRequirementsBuilder().build()));
   }
   
-  public ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
+  public ResourcesNested<A> editOrNewResourcesLike(V1VolumeResourceRequirements item) {
     return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(item));
   }
   
@@ -311,6 +313,19 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     return this.storageClassName != null;
   }
   
+  public String getVolumeAttributesClassName() {
+    return this.volumeAttributesClassName;
+  }
+  
+  public A withVolumeAttributesClassName(String volumeAttributesClassName) {
+    this.volumeAttributesClassName = volumeAttributesClassName;
+    return (A) this;
+  }
+  
+  public boolean hasVolumeAttributesClassName() {
+    return this.volumeAttributesClassName != null;
+  }
+  
   public String getVolumeMode() {
     return this.volumeMode;
   }
@@ -348,13 +363,14 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     if (!java.util.Objects.equals(resources, that.resources)) return false;
     if (!java.util.Objects.equals(selector, that.selector)) return false;
     if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
+    if (!java.util.Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName)) return false;
     if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
     if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  dataSource,  dataSourceRef,  resources,  selector,  storageClassName,  volumeMode,  volumeName,  super.hashCode());
+    return java.util.Objects.hash(accessModes,  dataSource,  dataSourceRef,  resources,  selector,  storageClassName,  volumeAttributesClassName,  volumeMode,  volumeName,  super.hashCode());
   }
   
   public String toString() {
@@ -366,6 +382,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
     if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
     if (storageClassName != null) { sb.append("storageClassName:"); sb.append(storageClassName + ","); }
+    if (volumeAttributesClassName != null) { sb.append("volumeAttributesClassName:"); sb.append(volumeAttributesClassName + ","); }
     if (volumeMode != null) { sb.append("volumeMode:"); sb.append(volumeMode + ","); }
     if (volumeName != null) { sb.append("volumeName:"); sb.append(volumeName); }
     sb.append("}");
@@ -403,11 +420,11 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     
   
   }
-  public class ResourcesNested<N> extends V1ResourceRequirementsFluent<ResourcesNested<N>> implements Nested<N>{
-    ResourcesNested(V1ResourceRequirements item) {
-      this.builder = new V1ResourceRequirementsBuilder(this, item);
+  public class ResourcesNested<N> extends V1VolumeResourceRequirementsFluent<ResourcesNested<N>> implements Nested<N>{
+    ResourcesNested(V1VolumeResourceRequirements item) {
+      this.builder = new V1VolumeResourceRequirementsBuilder(this, item);
     }
-    V1ResourceRequirementsBuilder builder;
+    V1VolumeResourceRequirementsBuilder builder;
     
     public N and() {
       return (N) V1PersistentVolumeClaimSpecFluent.this.withResources(builder.build());

@@ -35,6 +35,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   private ArrayList<V1ContainerImageBuilder> images;
   private V1NodeSystemInfoBuilder nodeInfo;
   private String phase;
+  private ArrayList<V1NodeRuntimeHandlerBuilder> runtimeHandlers;
   private ArrayList<V1AttachedVolumeBuilder> volumesAttached;
   private List<String> volumesInUse;
   
@@ -50,6 +51,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
           this.withImages(instance.getImages());
           this.withNodeInfo(instance.getNodeInfo());
           this.withPhase(instance.getPhase());
+          this.withRuntimeHandlers(instance.getRuntimeHandlers());
           this.withVolumesAttached(instance.getVolumesAttached());
           this.withVolumesInUse(instance.getVolumesInUse());
         }
@@ -715,6 +717,157 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return this.phase != null;
   }
   
+  public A addToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
+    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+    if (index < 0 || index >= runtimeHandlers.size()) { _visitables.get("runtimeHandlers").add(builder); runtimeHandlers.add(builder); } else { _visitables.get("runtimeHandlers").add(index, builder); runtimeHandlers.add(index, builder);}
+    return (A)this;
+  }
+  
+  public A setToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
+    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+    if (index < 0 || index >= runtimeHandlers.size()) { _visitables.get("runtimeHandlers").add(builder); runtimeHandlers.add(builder); } else { _visitables.get("runtimeHandlers").set(index, builder); runtimeHandlers.set(index, builder);}
+    return (A)this;
+  }
+  
+  public A addToRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... items) {
+    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").add(builder);this.runtimeHandlers.add(builder);} return (A)this;
+  }
+  
+  public A addAllToRuntimeHandlers(Collection<V1NodeRuntimeHandler> items) {
+    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").add(builder);this.runtimeHandlers.add(builder);} return (A)this;
+  }
+  
+  public A removeFromRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... items) {
+    if (this.runtimeHandlers == null) return (A)this;
+    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").remove(builder); this.runtimeHandlers.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromRuntimeHandlers(Collection<V1NodeRuntimeHandler> items) {
+    if (this.runtimeHandlers == null) return (A)this;
+    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").remove(builder); this.runtimeHandlers.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromRuntimeHandlers(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
+    if (runtimeHandlers == null) return (A) this;
+    final Iterator<V1NodeRuntimeHandlerBuilder> each = runtimeHandlers.iterator();
+    final List visitables = _visitables.get("runtimeHandlers");
+    while (each.hasNext()) {
+      V1NodeRuntimeHandlerBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1NodeRuntimeHandler> buildRuntimeHandlers() {
+    return this.runtimeHandlers != null ? build(runtimeHandlers) : null;
+  }
+  
+  public V1NodeRuntimeHandler buildRuntimeHandler(int index) {
+    return this.runtimeHandlers.get(index).build();
+  }
+  
+  public V1NodeRuntimeHandler buildFirstRuntimeHandler() {
+    return this.runtimeHandlers.get(0).build();
+  }
+  
+  public V1NodeRuntimeHandler buildLastRuntimeHandler() {
+    return this.runtimeHandlers.get(runtimeHandlers.size() - 1).build();
+  }
+  
+  public V1NodeRuntimeHandler buildMatchingRuntimeHandler(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
+      for (V1NodeRuntimeHandlerBuilder item : runtimeHandlers) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingRuntimeHandler(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
+      for (V1NodeRuntimeHandlerBuilder item : runtimeHandlers) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withRuntimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
+    if (this.runtimeHandlers != null) {
+      this._visitables.get("runtimeHandlers").clear();
+    }
+    if (runtimeHandlers != null) {
+        this.runtimeHandlers = new ArrayList();
+        for (V1NodeRuntimeHandler item : runtimeHandlers) {
+          this.addToRuntimeHandlers(item);
+        }
+    } else {
+      this.runtimeHandlers = null;
+    }
+    return (A) this;
+  }
+  
+  public A withRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... runtimeHandlers) {
+    if (this.runtimeHandlers != null) {
+        this.runtimeHandlers.clear();
+        _visitables.remove("runtimeHandlers");
+    }
+    if (runtimeHandlers != null) {
+      for (V1NodeRuntimeHandler item : runtimeHandlers) {
+        this.addToRuntimeHandlers(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasRuntimeHandlers() {
+    return this.runtimeHandlers != null && !this.runtimeHandlers.isEmpty();
+  }
+  
+  public RuntimeHandlersNested<A> addNewRuntimeHandler() {
+    return new RuntimeHandlersNested(-1, null);
+  }
+  
+  public RuntimeHandlersNested<A> addNewRuntimeHandlerLike(V1NodeRuntimeHandler item) {
+    return new RuntimeHandlersNested(-1, item);
+  }
+  
+  public RuntimeHandlersNested<A> setNewRuntimeHandlerLike(int index,V1NodeRuntimeHandler item) {
+    return new RuntimeHandlersNested(index, item);
+  }
+  
+  public RuntimeHandlersNested<A> editRuntimeHandler(int index) {
+    if (runtimeHandlers.size() <= index) throw new RuntimeException("Can't edit runtimeHandlers. Index exceeds size.");
+    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+  }
+  
+  public RuntimeHandlersNested<A> editFirstRuntimeHandler() {
+    if (runtimeHandlers.size() == 0) throw new RuntimeException("Can't edit first runtimeHandlers. The list is empty.");
+    return setNewRuntimeHandlerLike(0, buildRuntimeHandler(0));
+  }
+  
+  public RuntimeHandlersNested<A> editLastRuntimeHandler() {
+    int index = runtimeHandlers.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last runtimeHandlers. The list is empty.");
+    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+  }
+  
+  public RuntimeHandlersNested<A> editMatchingRuntimeHandler(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<runtimeHandlers.size();i++) { 
+    if (predicate.test(runtimeHandlers.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching runtimeHandlers. No match found.");
+    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+  }
+  
   public A addToVolumesAttached(int index,V1AttachedVolume item) {
     if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
@@ -974,13 +1127,14 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     if (!java.util.Objects.equals(images, that.images)) return false;
     if (!java.util.Objects.equals(nodeInfo, that.nodeInfo)) return false;
     if (!java.util.Objects.equals(phase, that.phase)) return false;
+    if (!java.util.Objects.equals(runtimeHandlers, that.runtimeHandlers)) return false;
     if (!java.util.Objects.equals(volumesAttached, that.volumesAttached)) return false;
     if (!java.util.Objects.equals(volumesInUse, that.volumesInUse)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addresses,  allocatable,  capacity,  conditions,  config,  daemonEndpoints,  images,  nodeInfo,  phase,  volumesAttached,  volumesInUse,  super.hashCode());
+    return java.util.Objects.hash(addresses,  allocatable,  capacity,  conditions,  config,  daemonEndpoints,  images,  nodeInfo,  phase,  runtimeHandlers,  volumesAttached,  volumesInUse,  super.hashCode());
   }
   
   public String toString() {
@@ -995,6 +1149,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     if (images != null && !images.isEmpty()) { sb.append("images:"); sb.append(images + ","); }
     if (nodeInfo != null) { sb.append("nodeInfo:"); sb.append(nodeInfo + ","); }
     if (phase != null) { sb.append("phase:"); sb.append(phase + ","); }
+    if (runtimeHandlers != null && !runtimeHandlers.isEmpty()) { sb.append("runtimeHandlers:"); sb.append(runtimeHandlers + ","); }
     if (volumesAttached != null && !volumesAttached.isEmpty()) { sb.append("volumesAttached:"); sb.append(volumesAttached + ","); }
     if (volumesInUse != null && !volumesInUse.isEmpty()) { sb.append("volumesInUse:"); sb.append(volumesInUse); }
     sb.append("}");
@@ -1097,6 +1252,24 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     }
     
     public N endNodeInfo() {
+      return and();
+    }
+    
+  
+  }
+  public class RuntimeHandlersNested<N> extends V1NodeRuntimeHandlerFluent<RuntimeHandlersNested<N>> implements Nested<N>{
+    RuntimeHandlersNested(int index,V1NodeRuntimeHandler item) {
+      this.index = index;
+      this.builder = new V1NodeRuntimeHandlerBuilder(this, item);
+    }
+    V1NodeRuntimeHandlerBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1NodeStatusFluent.this.setToRuntimeHandlers(index,builder.build());
+    }
+    
+    public N endRuntimeHandler() {
       return and();
     }
     

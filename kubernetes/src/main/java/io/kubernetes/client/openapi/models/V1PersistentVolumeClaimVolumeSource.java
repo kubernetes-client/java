@@ -49,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeClaimVolumeSource references the user&#39;s PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1PersistentVolumeClaimVolumeSource {
   public static final String SERIALIZED_NAME_CLAIM_NAME = "claimName";
   @SerializedName(SERIALIZED_NAME_CLAIM_NAME)

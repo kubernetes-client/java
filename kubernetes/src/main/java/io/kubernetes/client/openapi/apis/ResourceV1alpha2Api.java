@@ -34,10 +34,16 @@ import io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContext;
 import io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContextList;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClaim;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimList;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimParameters;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimParametersList;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimTemplate;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimTemplateList;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClass;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClassList;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceClassParameters;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceClassParametersList;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceSlice;
+import io.kubernetes.client.openapi.models.V1alpha2ResourceSliceList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -193,7 +199,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodSchedulingContextRequest
          */
         public APIcreateNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -431,7 +437,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedResourceClaimRequest
          */
         public APIcreateNamespacedResourceClaimRequest pretty(String pretty) {
@@ -559,6 +565,244 @@ public class ResourceV1alpha2Api {
     public APIcreateNamespacedResourceClaimRequest createNamespacedResourceClaim(String namespace, V1alpha2ResourceClaim body) {
         return new APIcreateNamespacedResourceClaimRequest(namespace, body);
     }
+    private okhttp3.Call createNamespacedResourceClaimParametersCall(String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createNamespacedResourceClaimParametersValidateBeforeCall(String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createNamespacedResourceClaimParameters(Async)");
+        }
+
+        return createNamespacedResourceClaimParametersCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParameters> createNamespacedResourceClaimParametersWithHttpInfo(String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createNamespacedResourceClaimParametersValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createNamespacedResourceClaimParametersAsync(String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createNamespacedResourceClaimParametersValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateNamespacedResourceClaimParametersRequest {
+        private final String namespace;
+        private final V1alpha2ResourceClaimParameters body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIcreateNamespacedResourceClaimParametersRequest(String namespace, V1alpha2ResourceClaimParameters body) {
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIcreateNamespacedResourceClaimParametersRequest
+         */
+        public APIcreateNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIcreateNamespacedResourceClaimParametersRequest
+         */
+        public APIcreateNamespacedResourceClaimParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIcreateNamespacedResourceClaimParametersRequest
+         */
+        public APIcreateNamespacedResourceClaimParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIcreateNamespacedResourceClaimParametersRequest
+         */
+        public APIcreateNamespacedResourceClaimParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for createNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createNamespacedResourceClaimParametersCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute createNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParameters> localVarResp = createNamespacedResourceClaimParametersWithHttpInfo(namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParameters> executeWithHttpInfo() throws ApiException {
+            return createNamespacedResourceClaimParametersWithHttpInfo(namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute createNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+            return createNamespacedResourceClaimParametersAsync(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * create ResourceClaimParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIcreateNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcreateNamespacedResourceClaimParametersRequest createNamespacedResourceClaimParameters(String namespace, V1alpha2ResourceClaimParameters body) {
+        return new APIcreateNamespacedResourceClaimParametersRequest(namespace, body);
+    }
     private okhttp3.Call createNamespacedResourceClaimTemplateCall(String namespace, V1alpha2ResourceClaimTemplate body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -669,7 +913,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedResourceClaimTemplateRequest
          */
         public APIcreateNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -797,6 +1041,244 @@ public class ResourceV1alpha2Api {
     public APIcreateNamespacedResourceClaimTemplateRequest createNamespacedResourceClaimTemplate(String namespace, V1alpha2ResourceClaimTemplate body) {
         return new APIcreateNamespacedResourceClaimTemplateRequest(namespace, body);
     }
+    private okhttp3.Call createNamespacedResourceClassParametersCall(String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createNamespacedResourceClassParametersValidateBeforeCall(String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createNamespacedResourceClassParameters(Async)");
+        }
+
+        return createNamespacedResourceClassParametersCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParameters> createNamespacedResourceClassParametersWithHttpInfo(String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createNamespacedResourceClassParametersValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createNamespacedResourceClassParametersAsync(String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createNamespacedResourceClassParametersValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateNamespacedResourceClassParametersRequest {
+        private final String namespace;
+        private final V1alpha2ResourceClassParameters body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIcreateNamespacedResourceClassParametersRequest(String namespace, V1alpha2ResourceClassParameters body) {
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIcreateNamespacedResourceClassParametersRequest
+         */
+        public APIcreateNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIcreateNamespacedResourceClassParametersRequest
+         */
+        public APIcreateNamespacedResourceClassParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIcreateNamespacedResourceClassParametersRequest
+         */
+        public APIcreateNamespacedResourceClassParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIcreateNamespacedResourceClassParametersRequest
+         */
+        public APIcreateNamespacedResourceClassParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for createNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createNamespacedResourceClassParametersCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute createNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParameters> localVarResp = createNamespacedResourceClassParametersWithHttpInfo(namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParameters> executeWithHttpInfo() throws ApiException {
+            return createNamespacedResourceClassParametersWithHttpInfo(namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute createNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+            return createNamespacedResourceClassParametersAsync(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * create ResourceClassParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIcreateNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcreateNamespacedResourceClassParametersRequest createNamespacedResourceClassParameters(String namespace, V1alpha2ResourceClassParameters body) {
+        return new APIcreateNamespacedResourceClassParametersRequest(namespace, body);
+    }
     private okhttp3.Call createResourceClassCall(V1alpha2ResourceClass body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -899,7 +1381,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateResourceClassRequest
          */
         public APIcreateResourceClassRequest pretty(String pretty) {
@@ -1025,6 +1507,235 @@ public class ResourceV1alpha2Api {
      */
     public APIcreateResourceClassRequest createResourceClass(V1alpha2ResourceClass body) {
         return new APIcreateResourceClassRequest(body);
+    }
+    private okhttp3.Call createResourceSliceCall(V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createResourceSliceValidateBeforeCall(V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createResourceSlice(Async)");
+        }
+
+        return createResourceSliceCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSlice> createResourceSliceWithHttpInfo(V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createResourceSliceValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createResourceSliceAsync(V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createResourceSliceValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateResourceSliceRequest {
+        private final V1alpha2ResourceSlice body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIcreateResourceSliceRequest(V1alpha2ResourceSlice body) {
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIcreateResourceSliceRequest
+         */
+        public APIcreateResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIcreateResourceSliceRequest
+         */
+        public APIcreateResourceSliceRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIcreateResourceSliceRequest
+         */
+        public APIcreateResourceSliceRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIcreateResourceSliceRequest
+         */
+        public APIcreateResourceSliceRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for createResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createResourceSliceCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute createResourceSlice request
+         * @return V1alpha2ResourceSlice
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSlice execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSlice> localVarResp = createResourceSliceWithHttpInfo(body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSlice&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSlice> executeWithHttpInfo() throws ApiException {
+            return createResourceSliceWithHttpInfo(body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute createResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+            return createResourceSliceAsync(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * create a ResourceSlice
+     * @param body  (required)
+     * @return APIcreateResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcreateResourceSliceRequest createResourceSlice(V1alpha2ResourceSlice body) {
+        return new APIcreateResourceSliceRequest(body);
     }
     private okhttp3.Call deleteCollectionNamespacedPodSchedulingContextCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1175,7 +1886,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedPodSchedulingContextRequest
          */
         public APIdeleteCollectionNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -1541,7 +2252,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedResourceClaimRequest
          */
         public APIdeleteCollectionNamespacedResourceClaimRequest pretty(String pretty) {
@@ -1758,6 +2469,372 @@ public class ResourceV1alpha2Api {
     public APIdeleteCollectionNamespacedResourceClaimRequest deleteCollectionNamespacedResourceClaim(String namespace) {
         return new APIdeleteCollectionNamespacedResourceClaimRequest(namespace);
     }
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimParametersCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimParametersValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedResourceClaimParameters(Async)");
+        }
+
+        return deleteCollectionNamespacedResourceClaimParametersCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClaimParametersWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimParametersValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimParametersAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimParametersValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteCollectionNamespacedResourceClaimParametersRequest {
+        private final String namespace;
+        private String pretty;
+        private String _continue;
+        private String dryRun;
+        private String fieldSelector;
+        private Integer gracePeriodSeconds;
+        private String labelSelector;
+        private Integer limit;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private V1DeleteOptions body;
+
+        private APIdeleteCollectionNamespacedResourceClaimParametersRequest(String namespace) {
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimParametersRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteCollectionNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCollectionNamespacedResourceClaimParametersCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClaimParameters request
+         * @return V1Status
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1Status execute() throws ApiException {
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClaimParametersWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1Status&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
+            return deleteCollectionNamespacedResourceClaimParametersWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
+            return deleteCollectionNamespacedResourceClaimParametersAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete collection of ResourceClaimParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIdeleteCollectionNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteCollectionNamespacedResourceClaimParametersRequest deleteCollectionNamespacedResourceClaimParameters(String namespace) {
+        return new APIdeleteCollectionNamespacedResourceClaimParametersRequest(namespace);
+    }
     private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1907,7 +2984,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedResourceClaimTemplateRequest
          */
         public APIdeleteCollectionNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -2124,6 +3201,372 @@ public class ResourceV1alpha2Api {
     public APIdeleteCollectionNamespacedResourceClaimTemplateRequest deleteCollectionNamespacedResourceClaimTemplate(String namespace) {
         return new APIdeleteCollectionNamespacedResourceClaimTemplateRequest(namespace);
     }
+    private okhttp3.Call deleteCollectionNamespacedResourceClassParametersCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCollectionNamespacedResourceClassParametersValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedResourceClassParameters(Async)");
+        }
+
+        return deleteCollectionNamespacedResourceClassParametersCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClassParametersWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClassParametersValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteCollectionNamespacedResourceClassParametersAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClassParametersValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteCollectionNamespacedResourceClassParametersRequest {
+        private final String namespace;
+        private String pretty;
+        private String _continue;
+        private String dryRun;
+        private String fieldSelector;
+        private Integer gracePeriodSeconds;
+        private String labelSelector;
+        private Integer limit;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private V1DeleteOptions body;
+
+        private APIdeleteCollectionNamespacedResourceClassParametersRequest(String namespace) {
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClassParametersRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteCollectionNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCollectionNamespacedResourceClassParametersCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClassParameters request
+         * @return V1Status
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1Status execute() throws ApiException {
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClassParametersWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1Status&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
+            return deleteCollectionNamespacedResourceClassParametersWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+        }
+
+        /**
+         * Execute deleteCollectionNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
+            return deleteCollectionNamespacedResourceClassParametersAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete collection of ResourceClassParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIdeleteCollectionNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteCollectionNamespacedResourceClassParametersRequest deleteCollectionNamespacedResourceClassParameters(String namespace) {
+        return new APIdeleteCollectionNamespacedResourceClassParametersRequest(namespace);
+    }
     private okhttp3.Call deleteCollectionResourceClassCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2265,7 +3708,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionResourceClassRequest
          */
         public APIdeleteCollectionResourceClassRequest pretty(String pretty) {
@@ -2481,6 +3924,363 @@ public class ResourceV1alpha2Api {
     public APIdeleteCollectionResourceClassRequest deleteCollectionResourceClass() {
         return new APIdeleteCollectionResourceClassRequest();
     }
+    private okhttp3.Call deleteCollectionResourceSliceCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCollectionResourceSliceValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1Status> deleteCollectionResourceSliceWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteCollectionResourceSliceAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteCollectionResourceSliceRequest {
+        private String pretty;
+        private String _continue;
+        private String dryRun;
+        private String fieldSelector;
+        private Integer gracePeriodSeconds;
+        private String labelSelector;
+        private Integer limit;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private V1DeleteOptions body;
+
+        private APIdeleteCollectionResourceSliceRequest() {
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteCollectionResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+
+        /**
+         * Execute deleteCollectionResourceSlice request
+         * @return V1Status
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1Status execute() throws ApiException {
+            ApiResponse<V1Status> localVarResp = deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCollectionResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1Status&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
+            return deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+        }
+
+        /**
+         * Execute deleteCollectionResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
+            return deleteCollectionResourceSliceAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete collection of ResourceSlice
+     * @return APIdeleteCollectionResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteCollectionResourceSliceRequest deleteCollectionResourceSlice() {
+        return new APIdeleteCollectionResourceSliceRequest();
+    }
     private okhttp3.Call deleteNamespacedPodSchedulingContextCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2598,7 +4398,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedPodSchedulingContextRequest
          */
         public APIdeleteNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -2858,7 +4658,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedResourceClaimRequest
          */
         public APIdeleteNamespacedResourceClaimRequest pretty(String pretty) {
@@ -3001,6 +4801,266 @@ public class ResourceV1alpha2Api {
     public APIdeleteNamespacedResourceClaimRequest deleteNamespacedResourceClaim(String name, String namespace) {
         return new APIdeleteNamespacedResourceClaimRequest(name, namespace);
     }
+    private okhttp3.Call deleteNamespacedResourceClaimParametersCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteNamespacedResourceClaimParametersValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedResourceClaimParameters(Async)");
+        }
+
+        return deleteNamespacedResourceClaimParametersCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParameters> deleteNamespacedResourceClaimParametersWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteNamespacedResourceClaimParametersAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteNamespacedResourceClaimParametersRequest {
+        private final String name;
+        private final String namespace;
+        private String pretty;
+        private String dryRun;
+        private Integer gracePeriodSeconds;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private V1DeleteOptions body;
+
+        private APIdeleteNamespacedResourceClaimParametersRequest(String name, String namespace) {
+            this.name = name;
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteNamespacedResourceClaimParametersRequest
+         */
+        public APIdeleteNamespacedResourceClaimParametersRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteNamespacedResourceClaimParametersCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParameters> localVarResp = deleteNamespacedResourceClaimParametersWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParameters> executeWithHttpInfo() throws ApiException {
+            return deleteNamespacedResourceClaimParametersWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+            return deleteNamespacedResourceClaimParametersAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete ResourceClaimParameters
+     * @param name name of the ResourceClaimParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIdeleteNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteNamespacedResourceClaimParametersRequest deleteNamespacedResourceClaimParameters(String name, String namespace) {
+        return new APIdeleteNamespacedResourceClaimParametersRequest(name, namespace);
+    }
     private okhttp3.Call deleteNamespacedResourceClaimTemplateCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3118,7 +5178,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedResourceClaimTemplateRequest
          */
         public APIdeleteNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -3261,6 +5321,266 @@ public class ResourceV1alpha2Api {
     public APIdeleteNamespacedResourceClaimTemplateRequest deleteNamespacedResourceClaimTemplate(String name, String namespace) {
         return new APIdeleteNamespacedResourceClaimTemplateRequest(name, namespace);
     }
+    private okhttp3.Call deleteNamespacedResourceClassParametersCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteNamespacedResourceClassParametersValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedResourceClassParameters(Async)");
+        }
+
+        return deleteNamespacedResourceClassParametersCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParameters> deleteNamespacedResourceClassParametersWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteNamespacedResourceClassParametersValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteNamespacedResourceClassParametersAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteNamespacedResourceClassParametersValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteNamespacedResourceClassParametersRequest {
+        private final String name;
+        private final String namespace;
+        private String pretty;
+        private String dryRun;
+        private Integer gracePeriodSeconds;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private V1DeleteOptions body;
+
+        private APIdeleteNamespacedResourceClassParametersRequest(String name, String namespace) {
+            this.name = name;
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteNamespacedResourceClassParametersRequest
+         */
+        public APIdeleteNamespacedResourceClassParametersRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteNamespacedResourceClassParametersCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParameters> localVarResp = deleteNamespacedResourceClassParametersWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParameters> executeWithHttpInfo() throws ApiException {
+            return deleteNamespacedResourceClassParametersWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+        }
+
+        /**
+         * Execute deleteNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+            return deleteNamespacedResourceClassParametersAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete ResourceClassParameters
+     * @param name name of the ResourceClassParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIdeleteNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteNamespacedResourceClassParametersRequest deleteNamespacedResourceClassParameters(String name, String namespace) {
+        return new APIdeleteNamespacedResourceClassParametersRequest(name, namespace);
+    }
     private okhttp3.Call deleteResourceClassCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3370,7 +5690,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteResourceClassRequest
          */
         public APIdeleteResourceClassRequest pretty(String pretty) {
@@ -3511,6 +5831,257 @@ public class ResourceV1alpha2Api {
      */
     public APIdeleteResourceClassRequest deleteResourceClass(String name) {
         return new APIdeleteResourceClassRequest(name);
+    }
+    private okhttp3.Call deleteResourceSliceCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (gracePeriodSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
+        }
+
+        if (orphanDependents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
+        }
+
+        if (propagationPolicy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteResourceSliceValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteResourceSlice(Async)");
+        }
+
+        return deleteResourceSliceCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSlice> deleteResourceSliceWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteResourceSliceValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteResourceSliceAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteResourceSliceValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteResourceSliceRequest {
+        private final String name;
+        private String pretty;
+        private String dryRun;
+        private Integer gracePeriodSeconds;
+        private Boolean orphanDependents;
+        private String propagationPolicy;
+        private V1DeleteOptions body;
+
+        private APIdeleteResourceSliceRequest(String name) {
+            this.name = name;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set gracePeriodSeconds
+         * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+            this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set orphanDependents
+         * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest orphanDependents(Boolean orphanDependents) {
+            this.orphanDependents = orphanDependents;
+            return this;
+        }
+
+        /**
+         * Set propagationPolicy
+         * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest propagationPolicy(String propagationPolicy) {
+            this.propagationPolicy = propagationPolicy;
+            return this;
+        }
+
+        /**
+         * Set body
+         * @param body  (optional)
+         * @return APIdeleteResourceSliceRequest
+         */
+        public APIdeleteResourceSliceRequest body(V1DeleteOptions body) {
+            this.body = body;
+            return this;
+        }
+
+        /**
+         * Build call for deleteResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteResourceSliceCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+
+        /**
+         * Execute deleteResourceSlice request
+         * @return V1alpha2ResourceSlice
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSlice execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSlice> localVarResp = deleteResourceSliceWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSlice&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSlice> executeWithHttpInfo() throws ApiException {
+            return deleteResourceSliceWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+        }
+
+        /**
+         * Execute deleteResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+            return deleteResourceSliceAsync(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        }
+    }
+
+    /**
+     *
+     * delete a ResourceSlice
+     * @param name name of the ResourceSlice (required)
+     * @return APIdeleteResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteResourceSliceRequest deleteResourceSlice(String name) {
+        return new APIdeleteResourceSliceRequest(name);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3801,7 +6372,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedPodSchedulingContextRequest
          */
         public APIlistNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -4127,7 +6698,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedResourceClaimRequest
          */
         public APIlistNamespacedResourceClaimRequest pretty(String pretty) {
@@ -4314,6 +6885,332 @@ public class ResourceV1alpha2Api {
     public APIlistNamespacedResourceClaimRequest listNamespacedResourceClaim(String namespace) {
         return new APIlistNamespacedResourceClaimRequest(namespace);
     }
+    private okhttp3.Call listNamespacedResourceClaimParametersCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNamespacedResourceClaimParametersValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedResourceClaimParameters(Async)");
+        }
+
+        return listNamespacedResourceClaimParametersCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParametersList> listNamespacedResourceClaimParametersWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listNamespacedResourceClaimParametersValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParametersList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listNamespacedResourceClaimParametersAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha2ResourceClaimParametersList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNamespacedResourceClaimParametersValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParametersList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistNamespacedResourceClaimParametersRequest {
+        private final String namespace;
+        private String pretty;
+        private Boolean allowWatchBookmarks;
+        private String _continue;
+        private String fieldSelector;
+        private String labelSelector;
+        private Integer limit;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private Boolean watch;
+
+        private APIlistNamespacedResourceClaimParametersRequest(String namespace) {
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set allowWatchBookmarks
+         * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+            this.allowWatchBookmarks = allowWatchBookmarks;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set watch
+         * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+         * @return APIlistNamespacedResourceClaimParametersRequest
+         */
+        public APIlistNamespacedResourceClaimParametersRequest watch(Boolean watch) {
+            this.watch = watch;
+            return this;
+        }
+
+        /**
+         * Build call for listNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listNamespacedResourceClaimParametersCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+
+        /**
+         * Execute listNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParametersList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParametersList execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParametersList> localVarResp = listNamespacedResourceClaimParametersWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParametersList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParametersList> executeWithHttpInfo() throws ApiException {
+            return listNamespacedResourceClaimParametersWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+        }
+
+        /**
+         * Execute listNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParametersList> _callback) throws ApiException {
+            return listNamespacedResourceClaimParametersAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+    }
+
+    /**
+     *
+     * list or watch objects of kind ResourceClaimParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIlistNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistNamespacedResourceClaimParametersRequest listNamespacedResourceClaimParameters(String namespace) {
+        return new APIlistNamespacedResourceClaimParametersRequest(namespace);
+    }
     private okhttp3.Call listNamespacedResourceClaimTemplateCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4453,7 +7350,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedResourceClaimTemplateRequest
          */
         public APIlistNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -4640,6 +7537,332 @@ public class ResourceV1alpha2Api {
     public APIlistNamespacedResourceClaimTemplateRequest listNamespacedResourceClaimTemplate(String namespace) {
         return new APIlistNamespacedResourceClaimTemplateRequest(namespace);
     }
+    private okhttp3.Call listNamespacedResourceClassParametersCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNamespacedResourceClassParametersValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedResourceClassParameters(Async)");
+        }
+
+        return listNamespacedResourceClassParametersCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParametersList> listNamespacedResourceClassParametersWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listNamespacedResourceClassParametersValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParametersList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listNamespacedResourceClassParametersAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha2ResourceClassParametersList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNamespacedResourceClassParametersValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParametersList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistNamespacedResourceClassParametersRequest {
+        private final String namespace;
+        private String pretty;
+        private Boolean allowWatchBookmarks;
+        private String _continue;
+        private String fieldSelector;
+        private String labelSelector;
+        private Integer limit;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private Boolean watch;
+
+        private APIlistNamespacedResourceClassParametersRequest(String namespace) {
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set allowWatchBookmarks
+         * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+            this.allowWatchBookmarks = allowWatchBookmarks;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set watch
+         * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+         * @return APIlistNamespacedResourceClassParametersRequest
+         */
+        public APIlistNamespacedResourceClassParametersRequest watch(Boolean watch) {
+            this.watch = watch;
+            return this;
+        }
+
+        /**
+         * Build call for listNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listNamespacedResourceClassParametersCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+
+        /**
+         * Execute listNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParametersList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParametersList execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParametersList> localVarResp = listNamespacedResourceClassParametersWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParametersList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParametersList> executeWithHttpInfo() throws ApiException {
+            return listNamespacedResourceClassParametersWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+        }
+
+        /**
+         * Execute listNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParametersList> _callback) throws ApiException {
+            return listNamespacedResourceClassParametersAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+    }
+
+    /**
+     *
+     * list or watch objects of kind ResourceClassParameters
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIlistNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistNamespacedResourceClassParametersRequest listNamespacedResourceClassParameters(String namespace) {
+        return new APIlistNamespacedResourceClassParametersRequest(namespace);
+    }
     private okhttp3.Call listPodSchedulingContextForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4821,7 +8044,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPodSchedulingContextForAllNamespacesRequest
          */
         public APIlistPodSchedulingContextForAllNamespacesRequest pretty(String pretty) {
@@ -5138,7 +8361,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistResourceClaimForAllNamespacesRequest
          */
         public APIlistResourceClaimForAllNamespacesRequest pretty(String pretty) {
@@ -5273,6 +8496,323 @@ public class ResourceV1alpha2Api {
      */
     public APIlistResourceClaimForAllNamespacesRequest listResourceClaimForAllNamespaces() {
         return new APIlistResourceClaimForAllNamespacesRequest();
+    }
+    private okhttp3.Call listResourceClaimParametersForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceclaimparameters";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listResourceClaimParametersForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceClaimParametersForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParametersList> listResourceClaimParametersForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceClaimParametersForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParametersList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listResourceClaimParametersForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha2ResourceClaimParametersList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listResourceClaimParametersForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParametersList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistResourceClaimParametersForAllNamespacesRequest {
+        private Boolean allowWatchBookmarks;
+        private String _continue;
+        private String fieldSelector;
+        private String labelSelector;
+        private Integer limit;
+        private String pretty;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private Boolean watch;
+
+        private APIlistResourceClaimParametersForAllNamespacesRequest() {
+        }
+
+        /**
+         * Set allowWatchBookmarks
+         * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+            this.allowWatchBookmarks = allowWatchBookmarks;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set watch
+         * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+         * @return APIlistResourceClaimParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClaimParametersForAllNamespacesRequest watch(Boolean watch) {
+            this.watch = watch;
+            return this;
+        }
+
+        /**
+         * Build call for listResourceClaimParametersForAllNamespaces
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listResourceClaimParametersForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+
+        /**
+         * Execute listResourceClaimParametersForAllNamespaces request
+         * @return V1alpha2ResourceClaimParametersList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParametersList execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParametersList> localVarResp = listResourceClaimParametersForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listResourceClaimParametersForAllNamespaces request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParametersList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParametersList> executeWithHttpInfo() throws ApiException {
+            return listResourceClaimParametersForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+        }
+
+        /**
+         * Execute listResourceClaimParametersForAllNamespaces request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParametersList> _callback) throws ApiException {
+            return listResourceClaimParametersForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+    }
+
+    /**
+     *
+     * list or watch objects of kind ResourceClaimParameters
+     * @return APIlistResourceClaimParametersForAllNamespacesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistResourceClaimParametersForAllNamespacesRequest listResourceClaimParametersForAllNamespaces() {
+        return new APIlistResourceClaimParametersForAllNamespacesRequest();
     }
     private okhttp3.Call listResourceClaimTemplateForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -5455,7 +8995,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistResourceClaimTemplateForAllNamespacesRequest
          */
         public APIlistResourceClaimTemplateForAllNamespacesRequest pretty(String pretty) {
@@ -5722,7 +9262,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistResourceClassRequest
          */
         public APIlistResourceClassRequest pretty(String pretty) {
@@ -5908,6 +9448,640 @@ public class ResourceV1alpha2Api {
     public APIlistResourceClassRequest listResourceClass() {
         return new APIlistResourceClassRequest();
     }
+    private okhttp3.Call listResourceClassParametersForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceclassparameters";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listResourceClassParametersForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceClassParametersForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParametersList> listResourceClassParametersForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceClassParametersForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParametersList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listResourceClassParametersForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha2ResourceClassParametersList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listResourceClassParametersForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParametersList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistResourceClassParametersForAllNamespacesRequest {
+        private Boolean allowWatchBookmarks;
+        private String _continue;
+        private String fieldSelector;
+        private String labelSelector;
+        private Integer limit;
+        private String pretty;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private Boolean watch;
+
+        private APIlistResourceClassParametersForAllNamespacesRequest() {
+        }
+
+        /**
+         * Set allowWatchBookmarks
+         * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+            this.allowWatchBookmarks = allowWatchBookmarks;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set watch
+         * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+         * @return APIlistResourceClassParametersForAllNamespacesRequest
+         */
+        public APIlistResourceClassParametersForAllNamespacesRequest watch(Boolean watch) {
+            this.watch = watch;
+            return this;
+        }
+
+        /**
+         * Build call for listResourceClassParametersForAllNamespaces
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listResourceClassParametersForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+
+        /**
+         * Execute listResourceClassParametersForAllNamespaces request
+         * @return V1alpha2ResourceClassParametersList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParametersList execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParametersList> localVarResp = listResourceClassParametersForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listResourceClassParametersForAllNamespaces request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParametersList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParametersList> executeWithHttpInfo() throws ApiException {
+            return listResourceClassParametersForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+        }
+
+        /**
+         * Execute listResourceClassParametersForAllNamespaces request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParametersList> _callback) throws ApiException {
+            return listResourceClassParametersForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+    }
+
+    /**
+     *
+     * list or watch objects of kind ResourceClassParameters
+     * @return APIlistResourceClassParametersForAllNamespacesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistResourceClassParametersForAllNamespacesRequest listResourceClassParametersForAllNamespaces() {
+        return new APIlistResourceClassParametersForAllNamespacesRequest();
+    }
+    private okhttp3.Call listResourceSliceCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (sendInitialEvents != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listResourceSliceValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSliceList> listResourceSliceWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSliceList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listResourceSliceAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha2ResourceSliceList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSliceList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistResourceSliceRequest {
+        private String pretty;
+        private Boolean allowWatchBookmarks;
+        private String _continue;
+        private String fieldSelector;
+        private String labelSelector;
+        private Integer limit;
+        private String resourceVersion;
+        private String resourceVersionMatch;
+        private Boolean sendInitialEvents;
+        private Integer timeoutSeconds;
+        private Boolean watch;
+
+        private APIlistResourceSliceRequest() {
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set allowWatchBookmarks
+         * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+            this.allowWatchBookmarks = allowWatchBookmarks;
+            return this;
+        }
+
+        /**
+         * Set _continue
+         * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest _continue(String _continue) {
+            this._continue = _continue;
+            return this;
+        }
+
+        /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set resourceVersion
+         * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest resourceVersion(String resourceVersion) {
+            this.resourceVersion = resourceVersion;
+            return this;
+        }
+
+        /**
+         * Set resourceVersionMatch
+         * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest resourceVersionMatch(String resourceVersionMatch) {
+            this.resourceVersionMatch = resourceVersionMatch;
+            return this;
+        }
+
+        /**
+         * Set sendInitialEvents
+         * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest sendInitialEvents(Boolean sendInitialEvents) {
+            this.sendInitialEvents = sendInitialEvents;
+            return this;
+        }
+
+        /**
+         * Set timeoutSeconds
+         * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest timeoutSeconds(Integer timeoutSeconds) {
+            this.timeoutSeconds = timeoutSeconds;
+            return this;
+        }
+
+        /**
+         * Set watch
+         * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest watch(Boolean watch) {
+            this.watch = watch;
+            return this;
+        }
+
+        /**
+         * Build call for listResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+
+        /**
+         * Execute listResourceSlice request
+         * @return V1alpha2ResourceSliceList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSliceList execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSliceList> localVarResp = listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSliceList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSliceList> executeWithHttpInfo() throws ApiException {
+            return listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+        }
+
+        /**
+         * Execute listResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSliceList> _callback) throws ApiException {
+            return listResourceSliceAsync(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        }
+    }
+
+    /**
+     *
+     * list or watch objects of kind ResourceSlice
+     * @return APIlistResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistResourceSliceRequest listResourceSlice() {
+        return new APIlistResourceSliceRequest();
+    }
     private okhttp3.Call patchNamespacedPodSchedulingContextCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -6031,7 +10205,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodSchedulingContextRequest
          */
         public APIpatchNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -6288,7 +10462,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodSchedulingContextStatusRequest
          */
         public APIpatchNamespacedPodSchedulingContextStatusRequest pretty(String pretty) {
@@ -6545,7 +10719,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedResourceClaimRequest
          */
         public APIpatchNamespacedResourceClaimRequest pretty(String pretty) {
@@ -6679,6 +10853,263 @@ public class ResourceV1alpha2Api {
     public APIpatchNamespacedResourceClaimRequest patchNamespacedResourceClaim(String name, String namespace, V1Patch body) {
         return new APIpatchNamespacedResourceClaimRequest(name, namespace, body);
     }
+    private okhttp3.Call patchNamespacedResourceClaimParametersCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchNamespacedResourceClaimParametersValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling patchNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedResourceClaimParameters(Async)");
+        }
+
+        return patchNamespacedResourceClaimParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParameters> patchNamespacedResourceClaimParametersWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchNamespacedResourceClaimParametersAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchNamespacedResourceClaimParametersRequest {
+        private final String name;
+        private final String namespace;
+        private final V1Patch body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+        private Boolean force;
+
+        private APIpatchNamespacedResourceClaimParametersRequest(String name, String namespace, V1Patch body) {
+            this.name = name;
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIpatchNamespacedResourceClaimParametersRequest
+         */
+        public APIpatchNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIpatchNamespacedResourceClaimParametersRequest
+         */
+        public APIpatchNamespacedResourceClaimParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+         * @return APIpatchNamespacedResourceClaimParametersRequest
+         */
+        public APIpatchNamespacedResourceClaimParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIpatchNamespacedResourceClaimParametersRequest
+         */
+        public APIpatchNamespacedResourceClaimParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Set force
+         * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
+         * @return APIpatchNamespacedResourceClaimParametersRequest
+         */
+        public APIpatchNamespacedResourceClaimParametersRequest force(Boolean force) {
+            this.force = force;
+            return this;
+        }
+
+        /**
+         * Build call for patchNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchNamespacedResourceClaimParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+
+        /**
+         * Execute patchNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParameters> localVarResp = patchNamespacedResourceClaimParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParameters> executeWithHttpInfo() throws ApiException {
+            return patchNamespacedResourceClaimParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
+        }
+
+        /**
+         * Execute patchNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+            return patchNamespacedResourceClaimParametersAsync(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+    }
+
+    /**
+     *
+     * partially update the specified ResourceClaimParameters
+     * @param name name of the ResourceClaimParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIpatchNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchNamespacedResourceClaimParametersRequest patchNamespacedResourceClaimParameters(String name, String namespace, V1Patch body) {
+        return new APIpatchNamespacedResourceClaimParametersRequest(name, namespace, body);
+    }
     private okhttp3.Call patchNamespacedResourceClaimStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -6802,7 +11233,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedResourceClaimStatusRequest
          */
         public APIpatchNamespacedResourceClaimStatusRequest pretty(String pretty) {
@@ -7059,7 +11490,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedResourceClaimTemplateRequest
          */
         public APIpatchNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -7193,6 +11624,263 @@ public class ResourceV1alpha2Api {
     public APIpatchNamespacedResourceClaimTemplateRequest patchNamespacedResourceClaimTemplate(String name, String namespace, V1Patch body) {
         return new APIpatchNamespacedResourceClaimTemplateRequest(name, namespace, body);
     }
+    private okhttp3.Call patchNamespacedResourceClassParametersCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchNamespacedResourceClassParametersValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling patchNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedResourceClassParameters(Async)");
+        }
+
+        return patchNamespacedResourceClassParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParameters> patchNamespacedResourceClassParametersWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedResourceClassParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchNamespacedResourceClassParametersAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchNamespacedResourceClassParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchNamespacedResourceClassParametersRequest {
+        private final String name;
+        private final String namespace;
+        private final V1Patch body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+        private Boolean force;
+
+        private APIpatchNamespacedResourceClassParametersRequest(String name, String namespace, V1Patch body) {
+            this.name = name;
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIpatchNamespacedResourceClassParametersRequest
+         */
+        public APIpatchNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIpatchNamespacedResourceClassParametersRequest
+         */
+        public APIpatchNamespacedResourceClassParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+         * @return APIpatchNamespacedResourceClassParametersRequest
+         */
+        public APIpatchNamespacedResourceClassParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIpatchNamespacedResourceClassParametersRequest
+         */
+        public APIpatchNamespacedResourceClassParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Set force
+         * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
+         * @return APIpatchNamespacedResourceClassParametersRequest
+         */
+        public APIpatchNamespacedResourceClassParametersRequest force(Boolean force) {
+            this.force = force;
+            return this;
+        }
+
+        /**
+         * Build call for patchNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchNamespacedResourceClassParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+
+        /**
+         * Execute patchNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParameters> localVarResp = patchNamespacedResourceClassParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParameters> executeWithHttpInfo() throws ApiException {
+            return patchNamespacedResourceClassParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
+        }
+
+        /**
+         * Execute patchNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+            return patchNamespacedResourceClassParametersAsync(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+    }
+
+    /**
+     *
+     * partially update the specified ResourceClassParameters
+     * @param name name of the ResourceClassParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIpatchNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchNamespacedResourceClassParametersRequest patchNamespacedResourceClassParameters(String name, String namespace, V1Patch body) {
+        return new APIpatchNamespacedResourceClassParametersRequest(name, namespace, body);
+    }
     private okhttp3.Call patchResourceClassCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -7308,7 +11996,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchResourceClassRequest
          */
         public APIpatchResourceClassRequest pretty(String pretty) {
@@ -7441,6 +12129,254 @@ public class ResourceV1alpha2Api {
     public APIpatchResourceClassRequest patchResourceClass(String name, V1Patch body) {
         return new APIpatchResourceClassRequest(name, body);
     }
+    private okhttp3.Call patchResourceSliceCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchResourceSliceValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling patchResourceSlice(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling patchResourceSlice(Async)");
+        }
+
+        return patchResourceSliceCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSlice> patchResourceSliceWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchResourceSliceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchResourceSliceAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchResourceSliceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchResourceSliceRequest {
+        private final String name;
+        private final V1Patch body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+        private Boolean force;
+
+        private APIpatchResourceSliceRequest(String name, V1Patch body) {
+            this.name = name;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIpatchResourceSliceRequest
+         */
+        public APIpatchResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIpatchResourceSliceRequest
+         */
+        public APIpatchResourceSliceRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+         * @return APIpatchResourceSliceRequest
+         */
+        public APIpatchResourceSliceRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIpatchResourceSliceRequest
+         */
+        public APIpatchResourceSliceRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Set force
+         * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
+         * @return APIpatchResourceSliceRequest
+         */
+        public APIpatchResourceSliceRequest force(Boolean force) {
+            this.force = force;
+            return this;
+        }
+
+        /**
+         * Build call for patchResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchResourceSliceCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+
+        /**
+         * Execute patchResourceSlice request
+         * @return V1alpha2ResourceSlice
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSlice execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSlice> localVarResp = patchResourceSliceWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSlice&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSlice> executeWithHttpInfo() throws ApiException {
+            return patchResourceSliceWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
+        }
+
+        /**
+         * Execute patchResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+            return patchResourceSliceAsync(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+    }
+
+    /**
+     *
+     * partially update the specified ResourceSlice
+     * @param name name of the ResourceSlice (required)
+     * @param body  (required)
+     * @return APIpatchResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchResourceSliceRequest patchResourceSlice(String name, V1Patch body) {
+        return new APIpatchResourceSliceRequest(name, body);
+    }
     private okhttp3.Call readNamespacedPodSchedulingContextCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -7536,7 +12472,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodSchedulingContextRequest
          */
         public APIreadNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -7719,7 +12655,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodSchedulingContextStatusRequest
          */
         public APIreadNamespacedPodSchedulingContextStatusRequest pretty(String pretty) {
@@ -7902,7 +12838,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedResourceClaimRequest
          */
         public APIreadNamespacedResourceClaimRequest pretty(String pretty) {
@@ -7989,6 +12925,189 @@ public class ResourceV1alpha2Api {
      */
     public APIreadNamespacedResourceClaimRequest readNamespacedResourceClaim(String name, String namespace) {
         return new APIreadNamespacedResourceClaimRequest(name, namespace);
+    }
+    private okhttp3.Call readNamespacedResourceClaimParametersCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readNamespacedResourceClaimParametersValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling readNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedResourceClaimParameters(Async)");
+        }
+
+        return readNamespacedResourceClaimParametersCall(name, namespace, pretty, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParameters> readNamespacedResourceClaimParametersWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+        okhttp3.Call localVarCall = readNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, pretty, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call readNamespacedResourceClaimParametersAsync(String name, String namespace, String pretty, final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, pretty, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreadNamespacedResourceClaimParametersRequest {
+        private final String name;
+        private final String namespace;
+        private String pretty;
+
+        private APIreadNamespacedResourceClaimParametersRequest(String name, String namespace) {
+            this.name = name;
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreadNamespacedResourceClaimParametersRequest
+         */
+        public APIreadNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Build call for readNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return readNamespacedResourceClaimParametersCall(name, namespace, pretty, _callback);
+        }
+
+        /**
+         * Execute readNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParameters> localVarResp = readNamespacedResourceClaimParametersWithHttpInfo(name, namespace, pretty);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute readNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParameters> executeWithHttpInfo() throws ApiException {
+            return readNamespacedResourceClaimParametersWithHttpInfo(name, namespace, pretty);
+        }
+
+        /**
+         * Execute readNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+            return readNamespacedResourceClaimParametersAsync(name, namespace, pretty, _callback);
+        }
+    }
+
+    /**
+     *
+     * read the specified ResourceClaimParameters
+     * @param name name of the ResourceClaimParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIreadNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreadNamespacedResourceClaimParametersRequest readNamespacedResourceClaimParameters(String name, String namespace) {
+        return new APIreadNamespacedResourceClaimParametersRequest(name, namespace);
     }
     private okhttp3.Call readNamespacedResourceClaimStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -8085,7 +13204,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedResourceClaimStatusRequest
          */
         public APIreadNamespacedResourceClaimStatusRequest pretty(String pretty) {
@@ -8268,7 +13387,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedResourceClaimTemplateRequest
          */
         public APIreadNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -8355,6 +13474,189 @@ public class ResourceV1alpha2Api {
      */
     public APIreadNamespacedResourceClaimTemplateRequest readNamespacedResourceClaimTemplate(String name, String namespace) {
         return new APIreadNamespacedResourceClaimTemplateRequest(name, namespace);
+    }
+    private okhttp3.Call readNamespacedResourceClassParametersCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readNamespacedResourceClassParametersValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling readNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedResourceClassParameters(Async)");
+        }
+
+        return readNamespacedResourceClassParametersCall(name, namespace, pretty, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParameters> readNamespacedResourceClassParametersWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+        okhttp3.Call localVarCall = readNamespacedResourceClassParametersValidateBeforeCall(name, namespace, pretty, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call readNamespacedResourceClassParametersAsync(String name, String namespace, String pretty, final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readNamespacedResourceClassParametersValidateBeforeCall(name, namespace, pretty, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreadNamespacedResourceClassParametersRequest {
+        private final String name;
+        private final String namespace;
+        private String pretty;
+
+        private APIreadNamespacedResourceClassParametersRequest(String name, String namespace) {
+            this.name = name;
+            this.namespace = namespace;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreadNamespacedResourceClassParametersRequest
+         */
+        public APIreadNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Build call for readNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return readNamespacedResourceClassParametersCall(name, namespace, pretty, _callback);
+        }
+
+        /**
+         * Execute readNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParameters> localVarResp = readNamespacedResourceClassParametersWithHttpInfo(name, namespace, pretty);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute readNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParameters> executeWithHttpInfo() throws ApiException {
+            return readNamespacedResourceClassParametersWithHttpInfo(name, namespace, pretty);
+        }
+
+        /**
+         * Execute readNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+            return readNamespacedResourceClassParametersAsync(name, namespace, pretty, _callback);
+        }
+    }
+
+    /**
+     *
+     * read the specified ResourceClassParameters
+     * @param name name of the ResourceClassParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @return APIreadNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreadNamespacedResourceClassParametersRequest readNamespacedResourceClassParameters(String name, String namespace) {
+        return new APIreadNamespacedResourceClassParametersRequest(name, namespace);
     }
     private okhttp3.Call readResourceClassCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -8443,7 +13745,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadResourceClassRequest
          */
         public APIreadResourceClassRequest pretty(String pretty) {
@@ -8529,6 +13831,180 @@ public class ResourceV1alpha2Api {
      */
     public APIreadResourceClassRequest readResourceClass(String name) {
         return new APIreadResourceClassRequest(name);
+    }
+    private okhttp3.Call readResourceSliceCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readResourceSliceValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling readResourceSlice(Async)");
+        }
+
+        return readResourceSliceCall(name, pretty, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSlice> readResourceSliceWithHttpInfo(String name, String pretty) throws ApiException {
+        okhttp3.Call localVarCall = readResourceSliceValidateBeforeCall(name, pretty, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call readResourceSliceAsync(String name, String pretty, final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readResourceSliceValidateBeforeCall(name, pretty, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreadResourceSliceRequest {
+        private final String name;
+        private String pretty;
+
+        private APIreadResourceSliceRequest(String name) {
+            this.name = name;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreadResourceSliceRequest
+         */
+        public APIreadResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Build call for readResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return readResourceSliceCall(name, pretty, _callback);
+        }
+
+        /**
+         * Execute readResourceSlice request
+         * @return V1alpha2ResourceSlice
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSlice execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSlice> localVarResp = readResourceSliceWithHttpInfo(name, pretty);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute readResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSlice&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSlice> executeWithHttpInfo() throws ApiException {
+            return readResourceSliceWithHttpInfo(name, pretty);
+        }
+
+        /**
+         * Execute readResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+            return readResourceSliceAsync(name, pretty, _callback);
+        }
+    }
+
+    /**
+     *
+     * read the specified ResourceSlice
+     * @param name name of the ResourceSlice (required)
+     * @return APIreadResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreadResourceSliceRequest readResourceSlice(String name) {
+        return new APIreadResourceSliceRequest(name);
     }
     private okhttp3.Call replaceNamespacedPodSchedulingContextCall(String name, String namespace, V1alpha2PodSchedulingContext body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -8648,7 +14124,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodSchedulingContextRequest
          */
         public APIreplaceNamespacedPodSchedulingContextRequest pretty(String pretty) {
@@ -8890,7 +14366,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodSchedulingContextStatusRequest
          */
         public APIreplaceNamespacedPodSchedulingContextStatusRequest pretty(String pretty) {
@@ -9132,7 +14608,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedResourceClaimRequest
          */
         public APIreplaceNamespacedResourceClaimRequest pretty(String pretty) {
@@ -9256,6 +14732,248 @@ public class ResourceV1alpha2Api {
     public APIreplaceNamespacedResourceClaimRequest replaceNamespacedResourceClaim(String name, String namespace, V1alpha2ResourceClaim body) {
         return new APIreplaceNamespacedResourceClaimRequest(name, namespace, body);
     }
+    private okhttp3.Call replaceNamespacedResourceClaimParametersCall(String name, String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call replaceNamespacedResourceClaimParametersValidateBeforeCall(String name, String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling replaceNamespacedResourceClaimParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedResourceClaimParameters(Async)");
+        }
+
+        return replaceNamespacedResourceClaimParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClaimParameters> replaceNamespacedResourceClaimParametersWithHttpInfo(String name, String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call replaceNamespacedResourceClaimParametersAsync(String name, String namespace, V1alpha2ResourceClaimParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = replaceNamespacedResourceClaimParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClaimParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreplaceNamespacedResourceClaimParametersRequest {
+        private final String name;
+        private final String namespace;
+        private final V1alpha2ResourceClaimParameters body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIreplaceNamespacedResourceClaimParametersRequest(String name, String namespace, V1alpha2ResourceClaimParameters body) {
+            this.name = name;
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreplaceNamespacedResourceClaimParametersRequest
+         */
+        public APIreplaceNamespacedResourceClaimParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIreplaceNamespacedResourceClaimParametersRequest
+         */
+        public APIreplaceNamespacedResourceClaimParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIreplaceNamespacedResourceClaimParametersRequest
+         */
+        public APIreplaceNamespacedResourceClaimParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIreplaceNamespacedResourceClaimParametersRequest
+         */
+        public APIreplaceNamespacedResourceClaimParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for replaceNamespacedResourceClaimParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return replaceNamespacedResourceClaimParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClaimParameters request
+         * @return V1alpha2ResourceClaimParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClaimParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClaimParameters> localVarResp = replaceNamespacedResourceClaimParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClaimParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClaimParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClaimParameters> executeWithHttpInfo() throws ApiException {
+            return replaceNamespacedResourceClaimParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClaimParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClaimParameters> _callback) throws ApiException {
+            return replaceNamespacedResourceClaimParametersAsync(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * replace the specified ResourceClaimParameters
+     * @param name name of the ResourceClaimParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIreplaceNamespacedResourceClaimParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreplaceNamespacedResourceClaimParametersRequest replaceNamespacedResourceClaimParameters(String name, String namespace, V1alpha2ResourceClaimParameters body) {
+        return new APIreplaceNamespacedResourceClaimParametersRequest(name, namespace, body);
+    }
     private okhttp3.Call replaceNamespacedResourceClaimStatusCall(String name, String namespace, V1alpha2ResourceClaim body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -9374,7 +15092,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedResourceClaimStatusRequest
          */
         public APIreplaceNamespacedResourceClaimStatusRequest pretty(String pretty) {
@@ -9616,7 +15334,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedResourceClaimTemplateRequest
          */
         public APIreplaceNamespacedResourceClaimTemplateRequest pretty(String pretty) {
@@ -9740,6 +15458,248 @@ public class ResourceV1alpha2Api {
     public APIreplaceNamespacedResourceClaimTemplateRequest replaceNamespacedResourceClaimTemplate(String name, String namespace, V1alpha2ResourceClaimTemplate body) {
         return new APIreplaceNamespacedResourceClaimTemplateRequest(name, namespace, body);
     }
+    private okhttp3.Call replaceNamespacedResourceClassParametersCall(String name, String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call replaceNamespacedResourceClassParametersValidateBeforeCall(String name, String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling replaceNamespacedResourceClassParameters(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedResourceClassParameters(Async)");
+        }
+
+        return replaceNamespacedResourceClassParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceClassParameters> replaceNamespacedResourceClassParametersWithHttpInfo(String name, String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedResourceClassParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call replaceNamespacedResourceClassParametersAsync(String name, String namespace, V1alpha2ResourceClassParameters body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = replaceNamespacedResourceClassParametersValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceClassParameters>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreplaceNamespacedResourceClassParametersRequest {
+        private final String name;
+        private final String namespace;
+        private final V1alpha2ResourceClassParameters body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIreplaceNamespacedResourceClassParametersRequest(String name, String namespace, V1alpha2ResourceClassParameters body) {
+            this.name = name;
+            this.namespace = namespace;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreplaceNamespacedResourceClassParametersRequest
+         */
+        public APIreplaceNamespacedResourceClassParametersRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIreplaceNamespacedResourceClassParametersRequest
+         */
+        public APIreplaceNamespacedResourceClassParametersRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIreplaceNamespacedResourceClassParametersRequest
+         */
+        public APIreplaceNamespacedResourceClassParametersRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIreplaceNamespacedResourceClassParametersRequest
+         */
+        public APIreplaceNamespacedResourceClassParametersRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for replaceNamespacedResourceClassParameters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return replaceNamespacedResourceClassParametersCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClassParameters request
+         * @return V1alpha2ResourceClassParameters
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceClassParameters execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceClassParameters> localVarResp = replaceNamespacedResourceClassParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClassParameters request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceClassParameters&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceClassParameters> executeWithHttpInfo() throws ApiException {
+            return replaceNamespacedResourceClassParametersWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute replaceNamespacedResourceClassParameters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceClassParameters> _callback) throws ApiException {
+            return replaceNamespacedResourceClassParametersAsync(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * replace the specified ResourceClassParameters
+     * @param name name of the ResourceClassParameters (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @return APIreplaceNamespacedResourceClassParametersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreplaceNamespacedResourceClassParametersRequest replaceNamespacedResourceClassParameters(String name, String namespace, V1alpha2ResourceClassParameters body) {
+        return new APIreplaceNamespacedResourceClassParametersRequest(name, namespace, body);
+    }
     private okhttp3.Call replaceResourceClassCall(String name, V1alpha2ResourceClass body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -9850,7 +15810,7 @@ public class ResourceV1alpha2Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceResourceClassRequest
          */
         public APIreplaceResourceClassRequest pretty(String pretty) {
@@ -9972,5 +15932,238 @@ public class ResourceV1alpha2Api {
      */
     public APIreplaceResourceClassRequest replaceResourceClass(String name, V1alpha2ResourceClass body) {
         return new APIreplaceResourceClassRequest(name, body);
+    }
+    private okhttp3.Call replaceResourceSliceCall(String name, V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/resource.k8s.io/v1alpha2/resourceslices/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call replaceResourceSliceValidateBeforeCall(String name, V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling replaceResourceSlice(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling replaceResourceSlice(Async)");
+        }
+
+        return replaceResourceSliceCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1alpha2ResourceSlice> replaceResourceSliceWithHttpInfo(String name, V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceResourceSliceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call replaceResourceSliceAsync(String name, V1alpha2ResourceSlice body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = replaceResourceSliceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1alpha2ResourceSlice>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreplaceResourceSliceRequest {
+        private final String name;
+        private final V1alpha2ResourceSlice body;
+        private String pretty;
+        private String dryRun;
+        private String fieldManager;
+        private String fieldValidation;
+
+        private APIreplaceResourceSliceRequest(String name, V1alpha2ResourceSlice body) {
+            this.name = name;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreplaceResourceSliceRequest
+         */
+        public APIreplaceResourceSliceRequest pretty(String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIreplaceResourceSliceRequest
+         */
+        public APIreplaceResourceSliceRequest dryRun(String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIreplaceResourceSliceRequest
+         */
+        public APIreplaceResourceSliceRequest fieldManager(String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIreplaceResourceSliceRequest
+         */
+        public APIreplaceResourceSliceRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for replaceResourceSlice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return replaceResourceSliceCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute replaceResourceSlice request
+         * @return V1alpha2ResourceSlice
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1alpha2ResourceSlice execute() throws ApiException {
+            ApiResponse<V1alpha2ResourceSlice> localVarResp = replaceResourceSliceWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute replaceResourceSlice request with HTTP info returned
+         * @return ApiResponse&lt;V1alpha2ResourceSlice&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1alpha2ResourceSlice> executeWithHttpInfo() throws ApiException {
+            return replaceResourceSliceWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute replaceResourceSlice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1alpha2ResourceSlice> _callback) throws ApiException {
+            return replaceResourceSliceAsync(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * replace the specified ResourceSlice
+     * @param name name of the ResourceSlice (required)
+     * @param body  (required)
+     * @return APIreplaceResourceSliceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreplaceResourceSliceRequest replaceResourceSlice(String name, V1alpha2ResourceSlice body) {
+        return new APIreplaceResourceSliceRequest(name, body);
     }
 }

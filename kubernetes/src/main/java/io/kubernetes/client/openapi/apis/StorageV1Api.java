@@ -187,7 +187,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateCSIDriverRequest
          */
         public APIcreateCSIDriverRequest pretty(String pretty) {
@@ -416,7 +416,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateCSINodeRequest
          */
         public APIcreateCSINodeRequest pretty(String pretty) {
@@ -653,7 +653,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedCSIStorageCapacityRequest
          */
         public APIcreateNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -883,7 +883,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateStorageClassRequest
          */
         public APIcreateStorageClassRequest pretty(String pretty) {
@@ -1112,7 +1112,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateVolumeAttachmentRequest
          */
         public APIcreateVolumeAttachmentRequest pretty(String pretty) {
@@ -1348,7 +1348,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCSIDriverRequest
          */
         public APIdeleteCSIDriverRequest pretty(String pretty) {
@@ -1599,7 +1599,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCSINodeRequest
          */
         public APIdeleteCSINodeRequest pretty(String pretty) {
@@ -1882,7 +1882,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionCSIDriverRequest
          */
         public APIdeleteCollectionCSIDriverRequest pretty(String pretty) {
@@ -2239,7 +2239,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionCSINodeRequest
          */
         public APIdeleteCollectionCSINodeRequest pretty(String pretty) {
@@ -2604,7 +2604,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedCSIStorageCapacityRequest
          */
         public APIdeleteCollectionNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -2962,7 +2962,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionStorageClassRequest
          */
         public APIdeleteCollectionStorageClassRequest pretty(String pretty) {
@@ -3319,7 +3319,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionVolumeAttachmentRequest
          */
         public APIdeleteCollectionVolumeAttachmentRequest pretty(String pretty) {
@@ -3652,7 +3652,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedCSIStorageCapacityRequest
          */
         public APIdeleteNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -3904,7 +3904,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteStorageClassRequest
          */
         public APIdeleteStorageClassRequest pretty(String pretty) {
@@ -4155,7 +4155,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteVolumeAttachmentRequest
          */
         public APIdeleteVolumeAttachmentRequest pretty(String pretty) {
@@ -4578,7 +4578,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCSIDriverRequest
          */
         public APIlistCSIDriverRequest pretty(String pretty) {
@@ -4895,7 +4895,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCSINodeRequest
          */
         public APIlistCSINodeRequest pretty(String pretty) {
@@ -5262,7 +5262,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCSIStorageCapacityForAllNamespacesRequest
          */
         public APIlistCSIStorageCapacityForAllNamespacesRequest pretty(String pretty) {
@@ -5537,7 +5537,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedCSIStorageCapacityRequest
          */
         public APIlistNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -5855,7 +5855,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistStorageClassRequest
          */
         public APIlistStorageClassRequest pretty(String pretty) {
@@ -6172,7 +6172,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistVolumeAttachmentRequest
          */
         public APIlistVolumeAttachmentRequest pretty(String pretty) {
@@ -6473,7 +6473,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCSIDriverRequest
          */
         public APIpatchCSIDriverRequest pretty(String pretty) {
@@ -6721,7 +6721,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCSINodeRequest
          */
         public APIpatchCSINodeRequest pretty(String pretty) {
@@ -6977,7 +6977,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedCSIStorageCapacityRequest
          */
         public APIpatchNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -7226,7 +7226,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchStorageClassRequest
          */
         public APIpatchStorageClassRequest pretty(String pretty) {
@@ -7474,7 +7474,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchVolumeAttachmentRequest
          */
         public APIpatchVolumeAttachmentRequest pretty(String pretty) {
@@ -7722,7 +7722,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchVolumeAttachmentStatusRequest
          */
         public APIpatchVolumeAttachmentStatusRequest pretty(String pretty) {
@@ -7942,7 +7942,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCSIDriverRequest
          */
         public APIreadCSIDriverRequest pretty(String pretty) {
@@ -8116,7 +8116,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCSINodeRequest
          */
         public APIreadCSINodeRequest pretty(String pretty) {
@@ -8298,7 +8298,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedCSIStorageCapacityRequest
          */
         public APIreadNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -8473,7 +8473,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadStorageClassRequest
          */
         public APIreadStorageClassRequest pretty(String pretty) {
@@ -8647,7 +8647,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadVolumeAttachmentRequest
          */
         public APIreadVolumeAttachmentRequest pretty(String pretty) {
@@ -8821,7 +8821,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadVolumeAttachmentStatusRequest
          */
         public APIreadVolumeAttachmentStatusRequest pretty(String pretty) {
@@ -9018,7 +9018,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCSIDriverRequest
          */
         public APIreplaceCSIDriverRequest pretty(String pretty) {
@@ -9251,7 +9251,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCSINodeRequest
          */
         public APIreplaceCSINodeRequest pretty(String pretty) {
@@ -9492,7 +9492,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedCSIStorageCapacityRequest
          */
         public APIreplaceNamespacedCSIStorageCapacityRequest pretty(String pretty) {
@@ -9726,7 +9726,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceStorageClassRequest
          */
         public APIreplaceStorageClassRequest pretty(String pretty) {
@@ -9959,7 +9959,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceVolumeAttachmentRequest
          */
         public APIreplaceVolumeAttachmentRequest pretty(String pretty) {
@@ -10192,7 +10192,7 @@ public class StorageV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceVolumeAttachmentStatusRequest
          */
         public APIreplaceVolumeAttachmentStatusRequest pretty(String pretty) {

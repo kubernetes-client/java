@@ -189,7 +189,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedCronJobRequest
          */
         public APIcreateNamespacedCronJobRequest pretty(String pretty) {
@@ -427,7 +427,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedJobRequest
          */
         public APIcreateNamespacedJobRequest pretty(String pretty) {
@@ -704,7 +704,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedCronJobRequest
          */
         public APIdeleteCollectionNamespacedCronJobRequest pretty(String pretty) {
@@ -1070,7 +1070,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedJobRequest
          */
         public APIdeleteCollectionNamespacedJobRequest pretty(String pretty) {
@@ -1404,7 +1404,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedCronJobRequest
          */
         public APIdeleteNamespacedCronJobRequest pretty(String pretty) {
@@ -1664,7 +1664,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedJobRequest
          */
         public APIdeleteNamespacedJobRequest pretty(String pretty) {
@@ -2138,7 +2138,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCronJobForAllNamespacesRequest
          */
         public APIlistCronJobForAllNamespacesRequest pretty(String pretty) {
@@ -2455,7 +2455,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistJobForAllNamespacesRequest
          */
         public APIlistJobForAllNamespacesRequest pretty(String pretty) {
@@ -2730,7 +2730,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedCronJobRequest
          */
         public APIlistNamespacedCronJobRequest pretty(String pretty) {
@@ -3056,7 +3056,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedJobRequest
          */
         public APIlistNamespacedJobRequest pretty(String pretty) {
@@ -3366,7 +3366,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedCronJobRequest
          */
         public APIpatchNamespacedCronJobRequest pretty(String pretty) {
@@ -3623,7 +3623,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedCronJobStatusRequest
          */
         public APIpatchNamespacedCronJobStatusRequest pretty(String pretty) {
@@ -3880,7 +3880,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedJobRequest
          */
         public APIpatchNamespacedJobRequest pretty(String pretty) {
@@ -4137,7 +4137,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedJobStatusRequest
          */
         public APIpatchNamespacedJobStatusRequest pretty(String pretty) {
@@ -4366,7 +4366,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedCronJobRequest
          */
         public APIreadNamespacedCronJobRequest pretty(String pretty) {
@@ -4549,7 +4549,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedCronJobStatusRequest
          */
         public APIreadNamespacedCronJobStatusRequest pretty(String pretty) {
@@ -4732,7 +4732,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedJobRequest
          */
         public APIreadNamespacedJobRequest pretty(String pretty) {
@@ -4915,7 +4915,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedJobStatusRequest
          */
         public APIreadNamespacedJobStatusRequest pretty(String pretty) {
@@ -5121,7 +5121,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedCronJobRequest
          */
         public APIreplaceNamespacedCronJobRequest pretty(String pretty) {
@@ -5363,7 +5363,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedCronJobStatusRequest
          */
         public APIreplaceNamespacedCronJobStatusRequest pretty(String pretty) {
@@ -5605,7 +5605,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedJobRequest
          */
         public APIreplaceNamespacedJobRequest pretty(String pretty) {
@@ -5847,7 +5847,7 @@ public class BatchV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedJobStatusRequest
          */
         public APIreplaceNamespacedJobStatusRequest pretty(String pretty) {

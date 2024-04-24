@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ADDRESS_TYPE = "addressType";
   @SerializedName(SERIALIZED_NAME_ADDRESS_TYPE)

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1AppArmorProfile;
 import io.kubernetes.client.openapi.models.V1SELinuxOptions;
 import io.kubernetes.client.openapi.models.V1SeccompProfile;
 import io.kubernetes.client.openapi.models.V1Sysctl;
@@ -55,8 +56,12 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1PodSecurityContext {
+  public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
+  @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
+  private V1AppArmorProfile appArmorProfile;
+
   public static final String SERIALIZED_NAME_FS_GROUP = "fsGroup";
   @SerializedName(SERIALIZED_NAME_FS_GROUP)
   private Long fsGroup;
@@ -99,6 +104,27 @@ public class V1PodSecurityContext {
 
   public V1PodSecurityContext() {
   }
+
+  public V1PodSecurityContext appArmorProfile(V1AppArmorProfile appArmorProfile) {
+
+    this.appArmorProfile = appArmorProfile;
+    return this;
+  }
+
+   /**
+   * Get appArmorProfile
+   * @return appArmorProfile
+  **/
+  @jakarta.annotation.Nullable
+  public V1AppArmorProfile getAppArmorProfile() {
+    return appArmorProfile;
+  }
+
+
+  public void setAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this.appArmorProfile = appArmorProfile;
+  }
+
 
   public V1PodSecurityContext fsGroup(Long fsGroup) {
 
@@ -336,7 +362,8 @@ public class V1PodSecurityContext {
       return false;
     }
     V1PodSecurityContext v1PodSecurityContext = (V1PodSecurityContext) o;
-    return Objects.equals(this.fsGroup, v1PodSecurityContext.fsGroup) &&
+    return Objects.equals(this.appArmorProfile, v1PodSecurityContext.appArmorProfile) &&
+        Objects.equals(this.fsGroup, v1PodSecurityContext.fsGroup) &&
         Objects.equals(this.fsGroupChangePolicy, v1PodSecurityContext.fsGroupChangePolicy) &&
         Objects.equals(this.runAsGroup, v1PodSecurityContext.runAsGroup) &&
         Objects.equals(this.runAsNonRoot, v1PodSecurityContext.runAsNonRoot) &&
@@ -350,13 +377,14 @@ public class V1PodSecurityContext {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, supplementalGroups, sysctls, windowsOptions);
+    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, supplementalGroups, sysctls, windowsOptions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PodSecurityContext {\n");
+    sb.append("    appArmorProfile: ").append(toIndentedString(appArmorProfile)).append("\n");
     sb.append("    fsGroup: ").append(toIndentedString(fsGroup)).append("\n");
     sb.append("    fsGroupChangePolicy: ").append(toIndentedString(fsGroupChangePolicy)).append("\n");
     sb.append("    runAsGroup: ").append(toIndentedString(runAsGroup)).append("\n");
@@ -389,6 +417,7 @@ public class V1PodSecurityContext {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("appArmorProfile");
     openapiFields.add("fsGroup");
     openapiFields.add("fsGroupChangePolicy");
     openapiFields.add("runAsGroup");
@@ -423,6 +452,10 @@ public class V1PodSecurityContext {
         if (!V1PodSecurityContext.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSecurityContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `appArmorProfile`
+      if (jsonObj.get("appArmorProfile") != null && !jsonObj.get("appArmorProfile").isJsonNull()) {
+        V1AppArmorProfile.validateJsonObject(jsonObj.getAsJsonObject("appArmorProfile"));
       }
       if ((jsonObj.get("fsGroupChangePolicy") != null && !jsonObj.get("fsGroupChangePolicy").isJsonNull()) && !jsonObj.get("fsGroupChangePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fsGroupChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupChangePolicy").toString()));

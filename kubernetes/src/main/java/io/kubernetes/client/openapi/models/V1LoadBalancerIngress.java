@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1LoadBalancerIngress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -61,6 +61,10 @@ public class V1LoadBalancerIngress {
   public static final String SERIALIZED_NAME_IP = "ip";
   @SerializedName(SERIALIZED_NAME_IP)
   private String ip;
+
+  public static final String SERIALIZED_NAME_IP_MODE = "ipMode";
+  @SerializedName(SERIALIZED_NAME_IP_MODE)
+  private String ipMode;
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
@@ -111,6 +115,27 @@ public class V1LoadBalancerIngress {
   }
 
 
+  public V1LoadBalancerIngress ipMode(String ipMode) {
+
+    this.ipMode = ipMode;
+    return this;
+  }
+
+   /**
+   * IPMode specifies how the load-balancer IP behaves, and may only be specified when the ip field is specified. Setting this to \&quot;VIP\&quot; indicates that traffic is delivered to the node with the destination set to the load-balancer&#39;s IP and port. Setting this to \&quot;Proxy\&quot; indicates that traffic is delivered to the node or pod with the destination set to the node&#39;s IP and node port or the pod&#39;s IP and port. Service implementations may use this information to adjust traffic routing.
+   * @return ipMode
+  **/
+  @jakarta.annotation.Nullable
+  public String getIpMode() {
+    return ipMode;
+  }
+
+
+  public void setIpMode(String ipMode) {
+    this.ipMode = ipMode;
+  }
+
+
   public V1LoadBalancerIngress ports(List<V1PortStatus> ports) {
 
     this.ports = ports;
@@ -152,12 +177,13 @@ public class V1LoadBalancerIngress {
     V1LoadBalancerIngress v1LoadBalancerIngress = (V1LoadBalancerIngress) o;
     return Objects.equals(this.hostname, v1LoadBalancerIngress.hostname) &&
         Objects.equals(this.ip, v1LoadBalancerIngress.ip) &&
+        Objects.equals(this.ipMode, v1LoadBalancerIngress.ipMode) &&
         Objects.equals(this.ports, v1LoadBalancerIngress.ports);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostname, ip, ports);
+    return Objects.hash(hostname, ip, ipMode, ports);
   }
 
   @Override
@@ -166,6 +192,7 @@ public class V1LoadBalancerIngress {
     sb.append("class V1LoadBalancerIngress {\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    ipMode: ").append(toIndentedString(ipMode)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -191,6 +218,7 @@ public class V1LoadBalancerIngress {
     openapiFields = new HashSet<String>();
     openapiFields.add("hostname");
     openapiFields.add("ip");
+    openapiFields.add("ipMode");
     openapiFields.add("ports");
 
     // a set of required properties/fields (JSON key names)
@@ -222,6 +250,9 @@ public class V1LoadBalancerIngress {
       }
       if ((jsonObj.get("ip") != null && !jsonObj.get("ip").isJsonNull()) && !jsonObj.get("ip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip").toString()));
+      }
+      if ((jsonObj.get("ipMode") != null && !jsonObj.get("ipMode").isJsonNull()) && !jsonObj.get("ipMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ipMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ipMode").toString()));
       }
       if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonNull()) {
         JsonArray jsonArrayports = jsonObj.getAsJsonArray("ports");

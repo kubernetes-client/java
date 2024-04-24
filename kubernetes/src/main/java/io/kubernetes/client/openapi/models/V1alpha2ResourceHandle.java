@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha2StructuredResourceHandle;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -49,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceHandle holds opaque resource data for processing by a specific kubelet plugin.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1alpha2ResourceHandle {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -58,6 +59,10 @@ public class V1alpha2ResourceHandle {
   public static final String SERIALIZED_NAME_DRIVER_NAME = "driverName";
   @SerializedName(SERIALIZED_NAME_DRIVER_NAME)
   private String driverName;
+
+  public static final String SERIALIZED_NAME_STRUCTURED_DATA = "structuredData";
+  @SerializedName(SERIALIZED_NAME_STRUCTURED_DATA)
+  private V1alpha2StructuredResourceHandle structuredData;
 
   public V1alpha2ResourceHandle() {
   }
@@ -104,6 +109,27 @@ public class V1alpha2ResourceHandle {
   }
 
 
+  public V1alpha2ResourceHandle structuredData(V1alpha2StructuredResourceHandle structuredData) {
+
+    this.structuredData = structuredData;
+    return this;
+  }
+
+   /**
+   * Get structuredData
+   * @return structuredData
+  **/
+  @jakarta.annotation.Nullable
+  public V1alpha2StructuredResourceHandle getStructuredData() {
+    return structuredData;
+  }
+
+
+  public void setStructuredData(V1alpha2StructuredResourceHandle structuredData) {
+    this.structuredData = structuredData;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -115,12 +141,13 @@ public class V1alpha2ResourceHandle {
     }
     V1alpha2ResourceHandle v1alpha2ResourceHandle = (V1alpha2ResourceHandle) o;
     return Objects.equals(this.data, v1alpha2ResourceHandle.data) &&
-        Objects.equals(this.driverName, v1alpha2ResourceHandle.driverName);
+        Objects.equals(this.driverName, v1alpha2ResourceHandle.driverName) &&
+        Objects.equals(this.structuredData, v1alpha2ResourceHandle.structuredData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, driverName);
+    return Objects.hash(data, driverName, structuredData);
   }
 
   @Override
@@ -129,6 +156,7 @@ public class V1alpha2ResourceHandle {
     sb.append("class V1alpha2ResourceHandle {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    driverName: ").append(toIndentedString(driverName)).append("\n");
+    sb.append("    structuredData: ").append(toIndentedString(structuredData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,6 +181,7 @@ public class V1alpha2ResourceHandle {
     openapiFields = new HashSet<String>();
     openapiFields.add("data");
     openapiFields.add("driverName");
+    openapiFields.add("structuredData");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -183,6 +212,10 @@ public class V1alpha2ResourceHandle {
       }
       if ((jsonObj.get("driverName") != null && !jsonObj.get("driverName").isJsonNull()) && !jsonObj.get("driverName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `driverName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driverName").toString()));
+      }
+      // validate the optional field `structuredData`
+      if (jsonObj.get("structuredData") != null && !jsonObj.get("structuredData").isJsonNull()) {
+        V1alpha2StructuredResourceHandle.validateJsonObject(jsonObj.getAsJsonObject("structuredData"));
       }
   }
 

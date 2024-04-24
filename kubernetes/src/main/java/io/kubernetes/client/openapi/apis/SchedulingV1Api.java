@@ -179,7 +179,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreatePriorityClassRequest
          */
         public APIcreatePriorityClassRequest pretty(String pretty) {
@@ -447,7 +447,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionPriorityClassRequest
          */
         public APIdeleteCollectionPriorityClassRequest pretty(String pretty) {
@@ -772,7 +772,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeletePriorityClassRequest
          */
         public APIdeletePriorityClassRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPriorityClassRequest
          */
         public APIlistPriorityClassRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPriorityClassRequest
          */
         public APIpatchPriorityClassRequest pretty(String pretty) {
@@ -1716,7 +1716,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPriorityClassRequest
          */
         public APIreadPriorityClassRequest pretty(String pretty) {
@@ -1913,7 +1913,7 @@ public class SchedulingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePriorityClassRequest
          */
         public APIreplacePriorityClassRequest pretty(String pretty) {

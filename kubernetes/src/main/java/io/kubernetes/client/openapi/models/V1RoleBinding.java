@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.RbacV1Subject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1RoleRef;
-import io.kubernetes.client.openapi.models.V1Subject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -74,7 +74,7 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<V1Subject> subjects;
+  private List<RbacV1Subject> subjects;
 
   public V1RoleBinding() {
   }
@@ -163,13 +163,13 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
   }
 
 
-  public V1RoleBinding subjects(List<V1Subject> subjects) {
+  public V1RoleBinding subjects(List<RbacV1Subject> subjects) {
 
     this.subjects = subjects;
     return this;
   }
 
-  public V1RoleBinding addSubjectsItem(V1Subject subjectsItem) {
+  public V1RoleBinding addSubjectsItem(RbacV1Subject subjectsItem) {
     if (this.subjects == null) {
       this.subjects = new ArrayList<>();
     }
@@ -182,12 +182,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
    * @return subjects
   **/
   @jakarta.annotation.Nullable
-  public List<V1Subject> getSubjects() {
+  public List<RbacV1Subject> getSubjects() {
     return subjects;
   }
 
 
-  public void setSubjects(List<V1Subject> subjects) {
+  public void setSubjects(List<RbacV1Subject> subjects) {
     this.subjects = subjects;
   }
 
@@ -305,7 +305,7 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
 
           // validate the optional field `subjects` (array)
           for (int i = 0; i < jsonArraysubjects.size(); i++) {
-            V1Subject.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
+            RbacV1Subject.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
           };
         }
       }

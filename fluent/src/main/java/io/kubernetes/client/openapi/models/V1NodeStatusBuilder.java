@@ -32,6 +32,7 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluent<V1NodeStatusBuilder>
     buildable.setImages(fluent.buildImages());
     buildable.setNodeInfo(fluent.buildNodeInfo());
     buildable.setPhase(fluent.getPhase());
+    buildable.setRuntimeHandlers(fluent.buildRuntimeHandlers());
     buildable.setVolumesAttached(fluent.buildVolumesAttached());
     buildable.setVolumesInUse(fluent.getVolumesInUse());
     return buildable;

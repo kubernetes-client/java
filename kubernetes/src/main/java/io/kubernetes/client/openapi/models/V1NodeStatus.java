@@ -26,6 +26,7 @@ import io.kubernetes.client.openapi.models.V1NodeAddress;
 import io.kubernetes.client.openapi.models.V1NodeCondition;
 import io.kubernetes.client.openapi.models.V1NodeConfigStatus;
 import io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints;
+import io.kubernetes.client.openapi.models.V1NodeRuntimeHandler;
 import io.kubernetes.client.openapi.models.V1NodeSystemInfo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeStatus is information about the current status of a node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -98,6 +99,10 @@ public class V1NodeStatus {
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
   private String phase;
+
+  public static final String SERIALIZED_NAME_RUNTIME_HANDLERS = "runtimeHandlers";
+  @SerializedName(SERIALIZED_NAME_RUNTIME_HANDLERS)
+  private List<V1NodeRuntimeHandler> runtimeHandlers;
 
   public static final String SERIALIZED_NAME_VOLUMES_ATTACHED = "volumesAttached";
   @SerializedName(SERIALIZED_NAME_VOLUMES_ATTACHED)
@@ -339,6 +344,35 @@ public class V1NodeStatus {
   }
 
 
+  public V1NodeStatus runtimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
+
+    this.runtimeHandlers = runtimeHandlers;
+    return this;
+  }
+
+  public V1NodeStatus addRuntimeHandlersItem(V1NodeRuntimeHandler runtimeHandlersItem) {
+    if (this.runtimeHandlers == null) {
+      this.runtimeHandlers = new ArrayList<>();
+    }
+    this.runtimeHandlers.add(runtimeHandlersItem);
+    return this;
+  }
+
+   /**
+   * The available runtime handlers.
+   * @return runtimeHandlers
+  **/
+  @jakarta.annotation.Nullable
+  public List<V1NodeRuntimeHandler> getRuntimeHandlers() {
+    return runtimeHandlers;
+  }
+
+
+  public void setRuntimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
+    this.runtimeHandlers = runtimeHandlers;
+  }
+
+
   public V1NodeStatus volumesAttached(List<V1AttachedVolume> volumesAttached) {
 
     this.volumesAttached = volumesAttached;
@@ -416,13 +450,14 @@ public class V1NodeStatus {
         Objects.equals(this.images, v1NodeStatus.images) &&
         Objects.equals(this.nodeInfo, v1NodeStatus.nodeInfo) &&
         Objects.equals(this.phase, v1NodeStatus.phase) &&
+        Objects.equals(this.runtimeHandlers, v1NodeStatus.runtimeHandlers) &&
         Objects.equals(this.volumesAttached, v1NodeStatus.volumesAttached) &&
         Objects.equals(this.volumesInUse, v1NodeStatus.volumesInUse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, images, nodeInfo, phase, volumesAttached, volumesInUse);
+    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
   }
 
   @Override
@@ -438,6 +473,7 @@ public class V1NodeStatus {
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+    sb.append("    runtimeHandlers: ").append(toIndentedString(runtimeHandlers)).append("\n");
     sb.append("    volumesAttached: ").append(toIndentedString(volumesAttached)).append("\n");
     sb.append("    volumesInUse: ").append(toIndentedString(volumesInUse)).append("\n");
     sb.append("}");
@@ -471,6 +507,7 @@ public class V1NodeStatus {
     openapiFields.add("images");
     openapiFields.add("nodeInfo");
     openapiFields.add("phase");
+    openapiFields.add("runtimeHandlers");
     openapiFields.add("volumesAttached");
     openapiFields.add("volumesInUse");
 
@@ -554,6 +591,20 @@ public class V1NodeStatus {
       }
       if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
+      }
+      if (jsonObj.get("runtimeHandlers") != null && !jsonObj.get("runtimeHandlers").isJsonNull()) {
+        JsonArray jsonArrayruntimeHandlers = jsonObj.getAsJsonArray("runtimeHandlers");
+        if (jsonArrayruntimeHandlers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("runtimeHandlers").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `runtimeHandlers` to be an array in the JSON string but got `%s`", jsonObj.get("runtimeHandlers").toString()));
+          }
+
+          // validate the optional field `runtimeHandlers` (array)
+          for (int i = 0; i < jsonArrayruntimeHandlers.size(); i++) {
+            V1NodeRuntimeHandler.validateJsonObject(jsonArrayruntimeHandlers.get(i).getAsJsonObject());
+          };
+        }
       }
       if (jsonObj.get("volumesAttached") != null && !jsonObj.get("volumesAttached").isJsonNull()) {
         JsonArray jsonArrayvolumesAttached = jsonObj.getAsJsonArray("volumesAttached");

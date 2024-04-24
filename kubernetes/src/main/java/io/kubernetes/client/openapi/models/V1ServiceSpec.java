@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServiceSpec describes the attributes that a user creates on a service.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS = "allocateLoadBalancerNodePorts";
   @SerializedName(SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS)
@@ -128,6 +128,10 @@ public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_SESSION_AFFINITY_CONFIG = "sessionAffinityConfig";
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY_CONFIG)
   private V1SessionAffinityConfig sessionAffinityConfig;
+
+  public static final String SERIALIZED_NAME_TRAFFIC_DISTRIBUTION = "trafficDistribution";
+  @SerializedName(SERIALIZED_NAME_TRAFFIC_DISTRIBUTION)
+  private String trafficDistribution;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -562,6 +566,27 @@ public class V1ServiceSpec {
   }
 
 
+  public V1ServiceSpec trafficDistribution(String trafficDistribution) {
+
+    this.trafficDistribution = trafficDistribution;
+    return this;
+  }
+
+   /**
+   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are topologically close (e.g., same zone).
+   * @return trafficDistribution
+  **/
+  @jakarta.annotation.Nullable
+  public String getTrafficDistribution() {
+    return trafficDistribution;
+  }
+
+
+  public void setTrafficDistribution(String trafficDistribution) {
+    this.trafficDistribution = trafficDistribution;
+  }
+
+
   public V1ServiceSpec type(String type) {
 
     this.type = type;
@@ -611,12 +636,13 @@ public class V1ServiceSpec {
         Objects.equals(this.selector, v1ServiceSpec.selector) &&
         Objects.equals(this.sessionAffinity, v1ServiceSpec.sessionAffinity) &&
         Objects.equals(this.sessionAffinityConfig, v1ServiceSpec.sessionAffinityConfig) &&
+        Objects.equals(this.trafficDistribution, v1ServiceSpec.trafficDistribution) &&
         Objects.equals(this.type, v1ServiceSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocateLoadBalancerNodePorts, clusterIP, clusterIPs, externalIPs, externalName, externalTrafficPolicy, healthCheckNodePort, internalTrafficPolicy, ipFamilies, ipFamilyPolicy, loadBalancerClass, loadBalancerIP, loadBalancerSourceRanges, ports, publishNotReadyAddresses, selector, sessionAffinity, sessionAffinityConfig, type);
+    return Objects.hash(allocateLoadBalancerNodePorts, clusterIP, clusterIPs, externalIPs, externalName, externalTrafficPolicy, healthCheckNodePort, internalTrafficPolicy, ipFamilies, ipFamilyPolicy, loadBalancerClass, loadBalancerIP, loadBalancerSourceRanges, ports, publishNotReadyAddresses, selector, sessionAffinity, sessionAffinityConfig, trafficDistribution, type);
   }
 
   @Override
@@ -641,6 +667,7 @@ public class V1ServiceSpec {
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    sessionAffinity: ").append(toIndentedString(sessionAffinity)).append("\n");
     sb.append("    sessionAffinityConfig: ").append(toIndentedString(sessionAffinityConfig)).append("\n");
+    sb.append("    trafficDistribution: ").append(toIndentedString(trafficDistribution)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -682,6 +709,7 @@ public class V1ServiceSpec {
     openapiFields.add("selector");
     openapiFields.add("sessionAffinity");
     openapiFields.add("sessionAffinityConfig");
+    openapiFields.add("trafficDistribution");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -765,6 +793,9 @@ public class V1ServiceSpec {
       // validate the optional field `sessionAffinityConfig`
       if (jsonObj.get("sessionAffinityConfig") != null && !jsonObj.get("sessionAffinityConfig").isJsonNull()) {
         V1SessionAffinityConfig.validateJsonObject(jsonObj.getAsJsonObject("sessionAffinityConfig"));
+      }
+      if ((jsonObj.get("trafficDistribution") != null && !jsonObj.get("trafficDistribution").isJsonNull()) && !jsonObj.get("trafficDistribution").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trafficDistribution` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trafficDistribution").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

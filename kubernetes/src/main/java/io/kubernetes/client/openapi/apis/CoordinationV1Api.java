@@ -187,7 +187,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedLeaseRequest
          */
         public APIcreateNamespacedLeaseRequest pretty(String pretty) {
@@ -464,7 +464,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedLeaseRequest
          */
         public APIdeleteCollectionNamespacedLeaseRequest pretty(String pretty) {
@@ -798,7 +798,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedLeaseRequest
          */
         public APIdeleteNamespacedLeaseRequest pretty(String pretty) {
@@ -1272,7 +1272,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistLeaseForAllNamespacesRequest
          */
         public APIlistLeaseForAllNamespacesRequest pretty(String pretty) {
@@ -1547,7 +1547,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedLeaseRequest
          */
         public APIlistNamespacedLeaseRequest pretty(String pretty) {
@@ -1857,7 +1857,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedLeaseRequest
          */
         public APIpatchNamespacedLeaseRequest pretty(String pretty) {
@@ -2086,7 +2086,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedLeaseRequest
          */
         public APIreadNamespacedLeaseRequest pretty(String pretty) {
@@ -2292,7 +2292,7 @@ public class CoordinationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedLeaseRequest
          */
         public APIreplaceNamespacedLeaseRequest pretty(String pretty) {

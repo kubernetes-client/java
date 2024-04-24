@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1AppArmorProfile;
 import io.kubernetes.client.openapi.models.V1Capabilities;
 import io.kubernetes.client.openapi.models.V1SELinuxOptions;
 import io.kubernetes.client.openapi.models.V1SeccompProfile;
@@ -53,11 +54,15 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION = "allowPrivilegeEscalation";
   @SerializedName(SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION)
   private Boolean allowPrivilegeEscalation;
+
+  public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
+  @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
+  private V1AppArmorProfile appArmorProfile;
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
@@ -120,6 +125,27 @@ public class V1SecurityContext {
 
   public void setAllowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
     this.allowPrivilegeEscalation = allowPrivilegeEscalation;
+  }
+
+
+  public V1SecurityContext appArmorProfile(V1AppArmorProfile appArmorProfile) {
+
+    this.appArmorProfile = appArmorProfile;
+    return this;
+  }
+
+   /**
+   * Get appArmorProfile
+   * @return appArmorProfile
+  **/
+  @jakarta.annotation.Nullable
+  public V1AppArmorProfile getAppArmorProfile() {
+    return appArmorProfile;
+  }
+
+
+  public void setAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this.appArmorProfile = appArmorProfile;
   }
 
 
@@ -344,6 +370,7 @@ public class V1SecurityContext {
     }
     V1SecurityContext v1SecurityContext = (V1SecurityContext) o;
     return Objects.equals(this.allowPrivilegeEscalation, v1SecurityContext.allowPrivilegeEscalation) &&
+        Objects.equals(this.appArmorProfile, v1SecurityContext.appArmorProfile) &&
         Objects.equals(this.capabilities, v1SecurityContext.capabilities) &&
         Objects.equals(this.privileged, v1SecurityContext.privileged) &&
         Objects.equals(this.procMount, v1SecurityContext.procMount) &&
@@ -358,7 +385,7 @@ public class V1SecurityContext {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowPrivilegeEscalation, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
+    return Objects.hash(allowPrivilegeEscalation, appArmorProfile, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
   }
 
   @Override
@@ -366,6 +393,7 @@ public class V1SecurityContext {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1SecurityContext {\n");
     sb.append("    allowPrivilegeEscalation: ").append(toIndentedString(allowPrivilegeEscalation)).append("\n");
+    sb.append("    appArmorProfile: ").append(toIndentedString(appArmorProfile)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    privileged: ").append(toIndentedString(privileged)).append("\n");
     sb.append("    procMount: ").append(toIndentedString(procMount)).append("\n");
@@ -399,6 +427,7 @@ public class V1SecurityContext {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allowPrivilegeEscalation");
+    openapiFields.add("appArmorProfile");
     openapiFields.add("capabilities");
     openapiFields.add("privileged");
     openapiFields.add("procMount");
@@ -433,6 +462,10 @@ public class V1SecurityContext {
         if (!V1SecurityContext.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SecurityContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `appArmorProfile`
+      if (jsonObj.get("appArmorProfile") != null && !jsonObj.get("appArmorProfile").isJsonNull()) {
+        V1AppArmorProfile.validateJsonObject(jsonObj.getAsJsonObject("appArmorProfile"));
       }
       // validate the optional field `capabilities`
       if (jsonObj.get("capabilities") != null && !jsonObj.get("capabilities").isJsonNull()) {

@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * IPAddressSpec describe the attributes in an IP Address.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1alpha1IPAddressSpec {
   public static final String SERIALIZED_NAME_PARENT_REF = "parentRef";
   @SerializedName(SERIALIZED_NAME_PARENT_REF)
@@ -69,7 +69,7 @@ public class V1alpha1IPAddressSpec {
    * Get parentRef
    * @return parentRef
   **/
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public V1alpha1ParentReference getParentRef() {
     return parentRef;
   }
@@ -129,6 +129,7 @@ public class V1alpha1IPAddressSpec {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("parentRef");
   }
 
  /**
@@ -151,10 +152,15 @@ public class V1alpha1IPAddressSpec {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1IPAddressSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // validate the optional field `parentRef`
-      if (jsonObj.get("parentRef") != null && !jsonObj.get("parentRef").isJsonNull()) {
-        V1alpha1ParentReference.validateJsonObject(jsonObj.getAsJsonObject("parentRef"));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1alpha1IPAddressSpec.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
       }
+      // validate the required field `parentRef`
+      V1alpha1ParentReference.validateJsonObject(jsonObj.getAsJsonObject("parentRef"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

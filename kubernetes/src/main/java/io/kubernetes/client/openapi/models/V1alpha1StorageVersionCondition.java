@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Describes the state of the storageVersion at a certain point.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1alpha1StorageVersionCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -110,7 +110,7 @@ public class V1alpha1StorageVersionCondition {
    * A human readable message indicating details about the transition.
    * @return message
   **/
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getMessage() {
     return message;
   }
@@ -269,6 +269,7 @@ public class V1alpha1StorageVersionCondition {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("message");
     openapiRequiredFields.add("reason");
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("type");
@@ -301,7 +302,7 @@ public class V1alpha1StorageVersionCondition {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+      if (!jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       if (!jsonObj.get("reason").isJsonPrimitive()) {

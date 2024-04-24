@@ -4,6 +4,7 @@ import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.Boolean;
 
 /**
  * Generated
@@ -19,6 +20,7 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
   private String fieldPath;
   private String message;
   private String messageExpression;
+  private Boolean optionalOldSelf;
   private String reason;
   private String rule;
   
@@ -28,6 +30,7 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
           this.withFieldPath(instance.getFieldPath());
           this.withMessage(instance.getMessage());
           this.withMessageExpression(instance.getMessageExpression());
+          this.withOptionalOldSelf(instance.getOptionalOldSelf());
           this.withReason(instance.getReason());
           this.withRule(instance.getRule());
         }
@@ -72,6 +75,19 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
     return this.messageExpression != null;
   }
   
+  public Boolean getOptionalOldSelf() {
+    return this.optionalOldSelf;
+  }
+  
+  public A withOptionalOldSelf(Boolean optionalOldSelf) {
+    this.optionalOldSelf = optionalOldSelf;
+    return (A) this;
+  }
+  
+  public boolean hasOptionalOldSelf() {
+    return this.optionalOldSelf != null;
+  }
+  
   public String getReason() {
     return this.reason;
   }
@@ -106,13 +122,14 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
     if (!java.util.Objects.equals(fieldPath, that.fieldPath)) return false;
     if (!java.util.Objects.equals(message, that.message)) return false;
     if (!java.util.Objects.equals(messageExpression, that.messageExpression)) return false;
+    if (!java.util.Objects.equals(optionalOldSelf, that.optionalOldSelf)) return false;
     if (!java.util.Objects.equals(reason, that.reason)) return false;
     if (!java.util.Objects.equals(rule, that.rule)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fieldPath,  message,  messageExpression,  reason,  rule,  super.hashCode());
+    return java.util.Objects.hash(fieldPath,  message,  messageExpression,  optionalOldSelf,  reason,  rule,  super.hashCode());
   }
   
   public String toString() {
@@ -121,10 +138,15 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
     if (fieldPath != null) { sb.append("fieldPath:"); sb.append(fieldPath + ","); }
     if (message != null) { sb.append("message:"); sb.append(message + ","); }
     if (messageExpression != null) { sb.append("messageExpression:"); sb.append(messageExpression + ","); }
+    if (optionalOldSelf != null) { sb.append("optionalOldSelf:"); sb.append(optionalOldSelf + ","); }
     if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
     if (rule != null) { sb.append("rule:"); sb.append(rule); }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withOptionalOldSelf() {
+    return withOptionalOldSelf(true);
   }
   
 

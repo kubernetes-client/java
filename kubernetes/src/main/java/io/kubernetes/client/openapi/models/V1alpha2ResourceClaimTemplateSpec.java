@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1alpha2ResourceClaimTemplateSpec {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)

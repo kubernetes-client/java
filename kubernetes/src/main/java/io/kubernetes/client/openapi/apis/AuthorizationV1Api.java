@@ -216,7 +216,7 @@ public class AuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
          */
         public APIcreateNamespacedLocalSubjectAccessReviewRequest pretty(String pretty) {
@@ -446,7 +446,7 @@ public class AuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSelfSubjectAccessReviewRequest
          */
         public APIcreateSelfSubjectAccessReviewRequest pretty(String pretty) {
@@ -675,7 +675,7 @@ public class AuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSelfSubjectRulesReviewRequest
          */
         public APIcreateSelfSubjectRulesReviewRequest pretty(String pretty) {
@@ -904,7 +904,7 @@ public class AuthorizationV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSubjectAccessReviewRequest
          */
         public APIcreateSubjectAccessReviewRequest pretty(String pretty) {

@@ -187,7 +187,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
          */
         public APIcreateNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -464,7 +464,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
         public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -798,7 +798,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
         public APIdeleteNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -1272,7 +1272,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
         public APIlistHorizontalPodAutoscalerForAllNamespacesRequest pretty(String pretty) {
@@ -1547,7 +1547,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
         public APIlistNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -1857,7 +1857,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
         public APIpatchNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -2114,7 +2114,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
         public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {
@@ -2343,7 +2343,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedHorizontalPodAutoscalerRequest
          */
         public APIreadNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -2526,7 +2526,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedHorizontalPodAutoscalerStatusRequest
          */
         public APIreadNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {
@@ -2732,7 +2732,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
          */
         public APIreplaceNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
@@ -2974,7 +2974,7 @@ public class AutoscalingV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
          */
         public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {

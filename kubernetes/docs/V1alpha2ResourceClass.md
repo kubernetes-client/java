@@ -13,6 +13,7 @@ ResourceClass is used by administrators to influence how resources are allocated
 |**kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |  [optional] |
 |**metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  |  [optional] |
 |**parametersRef** | [**V1alpha2ResourceClassParametersReference**](V1alpha2ResourceClassParametersReference.md) |  |  [optional] |
+|**structuredParameters** | **Boolean** | If and only if allocation of claims using this class is handled via structured parameters, then StructuredParameters must be set to true. |  [optional] |
 |**suitableNodes** | [**V1NodeSelector**](V1NodeSelector.md) |  |  [optional] |
 
 

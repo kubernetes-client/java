@@ -181,7 +181,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateValidatingAdmissionPolicyRequest
          */
         public APIcreateValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -410,7 +410,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateValidatingAdmissionPolicyBindingRequest
          */
         public APIcreateValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -678,7 +678,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionValidatingAdmissionPolicyRequest
          */
         public APIdeleteCollectionValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -1035,7 +1035,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionValidatingAdmissionPolicyBindingRequest
          */
         public APIdeleteCollectionValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -1360,7 +1360,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteValidatingAdmissionPolicyRequest
          */
         public APIdeleteValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -1611,7 +1611,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteValidatingAdmissionPolicyBindingRequest
          */
         public APIdeleteValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -2034,7 +2034,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistValidatingAdmissionPolicyRequest
          */
         public APIlistValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -2351,7 +2351,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistValidatingAdmissionPolicyBindingRequest
          */
         public APIlistValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -2652,7 +2652,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchValidatingAdmissionPolicyRequest
          */
         public APIpatchValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -2900,7 +2900,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchValidatingAdmissionPolicyBindingRequest
          */
         public APIpatchValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -3148,7 +3148,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchValidatingAdmissionPolicyStatusRequest
          */
         public APIpatchValidatingAdmissionPolicyStatusRequest pretty(String pretty) {
@@ -3368,7 +3368,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadValidatingAdmissionPolicyRequest
          */
         public APIreadValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -3542,7 +3542,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadValidatingAdmissionPolicyBindingRequest
          */
         public APIreadValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -3716,7 +3716,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadValidatingAdmissionPolicyStatusRequest
          */
         public APIreadValidatingAdmissionPolicyStatusRequest pretty(String pretty) {
@@ -3913,7 +3913,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceValidatingAdmissionPolicyRequest
          */
         public APIreplaceValidatingAdmissionPolicyRequest pretty(String pretty) {
@@ -4146,7 +4146,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceValidatingAdmissionPolicyBindingRequest
          */
         public APIreplaceValidatingAdmissionPolicyBindingRequest pretty(String pretty) {
@@ -4379,7 +4379,7 @@ public class AdmissionregistrationV1beta1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceValidatingAdmissionPolicyStatusRequest
          */
         public APIreplaceValidatingAdmissionPolicyStatusRequest pretty(String pretty) {

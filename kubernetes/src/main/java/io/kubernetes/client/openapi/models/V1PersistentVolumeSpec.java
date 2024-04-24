@@ -78,7 +78,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -191,6 +191,10 @@ public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_STORAGEOS = "storageos";
   @SerializedName(SERIALIZED_NAME_STORAGEOS)
   private V1StorageOSPersistentVolumeSource storageos;
+
+  public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME = "volumeAttributesClassName";
+  @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME)
+  private String volumeAttributesClassName;
 
   public static final String SERIALIZED_NAME_VOLUME_MODE = "volumeMode";
   @SerializedName(SERIALIZED_NAME_VOLUME_MODE)
@@ -815,6 +819,27 @@ public class V1PersistentVolumeSpec {
   }
 
 
+  public V1PersistentVolumeSpec volumeAttributesClassName(String volumeAttributesClassName) {
+
+    this.volumeAttributesClassName = volumeAttributesClassName;
+    return this;
+  }
+
+   /**
+   * Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @return volumeAttributesClassName
+  **/
+  @jakarta.annotation.Nullable
+  public String getVolumeAttributesClassName() {
+    return volumeAttributesClassName;
+  }
+
+
+  public void setVolumeAttributesClassName(String volumeAttributesClassName) {
+    this.volumeAttributesClassName = volumeAttributesClassName;
+  }
+
+
   public V1PersistentVolumeSpec volumeMode(String volumeMode) {
 
     this.volumeMode = volumeMode;
@@ -895,13 +920,14 @@ public class V1PersistentVolumeSpec {
         Objects.equals(this.scaleIO, v1PersistentVolumeSpec.scaleIO) &&
         Objects.equals(this.storageClassName, v1PersistentVolumeSpec.storageClassName) &&
         Objects.equals(this.storageos, v1PersistentVolumeSpec.storageos) &&
+        Objects.equals(this.volumeAttributesClassName, v1PersistentVolumeSpec.volumeAttributesClassName) &&
         Objects.equals(this.volumeMode, v1PersistentVolumeSpec.volumeMode) &&
         Objects.equals(this.vsphereVolume, v1PersistentVolumeSpec.vsphereVolume);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, awsElasticBlockStore, azureDisk, azureFile, capacity, cephfs, cinder, claimRef, csi, fc, flexVolume, flocker, gcePersistentDisk, glusterfs, hostPath, iscsi, local, mountOptions, nfs, nodeAffinity, persistentVolumeReclaimPolicy, photonPersistentDisk, portworxVolume, quobyte, rbd, scaleIO, storageClassName, storageos, volumeMode, vsphereVolume);
+    return Objects.hash(accessModes, awsElasticBlockStore, azureDisk, azureFile, capacity, cephfs, cinder, claimRef, csi, fc, flexVolume, flocker, gcePersistentDisk, glusterfs, hostPath, iscsi, local, mountOptions, nfs, nodeAffinity, persistentVolumeReclaimPolicy, photonPersistentDisk, portworxVolume, quobyte, rbd, scaleIO, storageClassName, storageos, volumeAttributesClassName, volumeMode, vsphereVolume);
   }
 
   @Override
@@ -936,6 +962,7 @@ public class V1PersistentVolumeSpec {
     sb.append("    scaleIO: ").append(toIndentedString(scaleIO)).append("\n");
     sb.append("    storageClassName: ").append(toIndentedString(storageClassName)).append("\n");
     sb.append("    storageos: ").append(toIndentedString(storageos)).append("\n");
+    sb.append("    volumeAttributesClassName: ").append(toIndentedString(volumeAttributesClassName)).append("\n");
     sb.append("    volumeMode: ").append(toIndentedString(volumeMode)).append("\n");
     sb.append("    vsphereVolume: ").append(toIndentedString(vsphereVolume)).append("\n");
     sb.append("}");
@@ -988,6 +1015,7 @@ public class V1PersistentVolumeSpec {
     openapiFields.add("scaleIO");
     openapiFields.add("storageClassName");
     openapiFields.add("storageos");
+    openapiFields.add("volumeAttributesClassName");
     openapiFields.add("volumeMode");
     openapiFields.add("vsphereVolume");
 
@@ -1120,6 +1148,9 @@ public class V1PersistentVolumeSpec {
       // validate the optional field `storageos`
       if (jsonObj.get("storageos") != null && !jsonObj.get("storageos").isJsonNull()) {
         V1StorageOSPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("storageos"));
+      }
+      if ((jsonObj.get("volumeAttributesClassName") != null && !jsonObj.get("volumeAttributesClassName").isJsonNull()) && !jsonObj.get("volumeAttributesClassName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
       }
       if ((jsonObj.get("volumeMode") != null && !jsonObj.get("volumeMode").isJsonNull()) && !jsonObj.get("volumeMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumeMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeMode").toString()));

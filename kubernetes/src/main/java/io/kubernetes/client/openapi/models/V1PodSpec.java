@@ -68,7 +68,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSpec is a description of a pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -428,7 +428,7 @@ public class V1PodSpec {
   }
 
    /**
-   * HostAliases is an optional list of hosts and IPs that will be injected into the pod&#39;s hosts file if specified. This is only valid for non-hostNetwork pods.
+   * HostAliases is an optional list of hosts and IPs that will be injected into the pod&#39;s hosts file if specified.
    * @return hostAliases
   **/
   @jakarta.annotation.Nullable
@@ -904,7 +904,7 @@ public class V1PodSpec {
   }
 
    /**
-   * SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.  SchedulingGates can only be set at pod creation time, and be removed only afterwards.  This is a beta feature enabled by the PodSchedulingReadiness feature gate.
+   * SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.  SchedulingGates can only be set at pod creation time, and be removed only afterwards.
    * @return schedulingGates
   **/
   @jakarta.annotation.Nullable
@@ -946,7 +946,7 @@ public class V1PodSpec {
   }
 
    /**
-   * DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.
+   * DeprecatedServiceAccount is a deprecated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.
    * @return serviceAccount
   **/
   @jakarta.annotation.Nullable

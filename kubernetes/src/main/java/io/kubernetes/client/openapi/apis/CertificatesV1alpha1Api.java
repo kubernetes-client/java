@@ -179,7 +179,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateClusterTrustBundleRequest
          */
         public APIcreateClusterTrustBundleRequest pretty(String pretty) {
@@ -415,7 +415,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteClusterTrustBundleRequest
          */
         public APIdeleteClusterTrustBundleRequest pretty(String pretty) {
@@ -698,7 +698,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionClusterTrustBundleRequest
          */
         public APIdeleteCollectionClusterTrustBundleRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistClusterTrustBundleRequest
          */
         public APIlistClusterTrustBundleRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchClusterTrustBundleRequest
          */
         public APIpatchClusterTrustBundleRequest pretty(String pretty) {
@@ -1716,7 +1716,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadClusterTrustBundleRequest
          */
         public APIreadClusterTrustBundleRequest pretty(String pretty) {
@@ -1913,7 +1913,7 @@ public class CertificatesV1alpha1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceClusterTrustBundleRequest
          */
         public APIreplaceClusterTrustBundleRequest pretty(String pretty) {

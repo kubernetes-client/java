@@ -20,6 +20,7 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
     this.copyInstance(instance);
   }
   private Boolean allowPrivilegeEscalation;
+  private V1AppArmorProfileBuilder appArmorProfile;
   private V1CapabilitiesBuilder capabilities;
   private Boolean privileged;
   private String procMount;
@@ -35,6 +36,7 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
     instance = (instance != null ? instance : new V1SecurityContext());
     if (instance != null) {
           this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
+          this.withAppArmorProfile(instance.getAppArmorProfile());
           this.withCapabilities(instance.getCapabilities());
           this.withPrivileged(instance.getPrivileged());
           this.withProcMount(instance.getProcMount());
@@ -59,6 +61,46 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   
   public boolean hasAllowPrivilegeEscalation() {
     return this.allowPrivilegeEscalation != null;
+  }
+  
+  public V1AppArmorProfile buildAppArmorProfile() {
+    return this.appArmorProfile != null ? this.appArmorProfile.build() : null;
+  }
+  
+  public A withAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this._visitables.remove("appArmorProfile");
+    if (appArmorProfile != null) {
+        this.appArmorProfile = new V1AppArmorProfileBuilder(appArmorProfile);
+        this._visitables.get("appArmorProfile").add(this.appArmorProfile);
+    } else {
+        this.appArmorProfile = null;
+        this._visitables.get("appArmorProfile").remove(this.appArmorProfile);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasAppArmorProfile() {
+    return this.appArmorProfile != null;
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfile() {
+    return new AppArmorProfileNested(null);
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfileLike(V1AppArmorProfile item) {
+    return new AppArmorProfileNested(item);
+  }
+  
+  public AppArmorProfileNested<A> editAppArmorProfile() {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(null));
+  }
+  
+  public AppArmorProfileNested<A> editOrNewAppArmorProfile() {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
+  }
+  
+  public AppArmorProfileNested<A> editOrNewAppArmorProfileLike(V1AppArmorProfile item) {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(item));
   }
   
   public V1Capabilities buildCapabilities() {
@@ -305,6 +347,7 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
     if (!super.equals(o)) return false;
     V1SecurityContextFluent that = (V1SecurityContextFluent) o;
     if (!java.util.Objects.equals(allowPrivilegeEscalation, that.allowPrivilegeEscalation)) return false;
+    if (!java.util.Objects.equals(appArmorProfile, that.appArmorProfile)) return false;
     if (!java.util.Objects.equals(capabilities, that.capabilities)) return false;
     if (!java.util.Objects.equals(privileged, that.privileged)) return false;
     if (!java.util.Objects.equals(procMount, that.procMount)) return false;
@@ -319,13 +362,14 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allowPrivilegeEscalation,  capabilities,  privileged,  procMount,  readOnlyRootFilesystem,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  windowsOptions,  super.hashCode());
+    return java.util.Objects.hash(allowPrivilegeEscalation,  appArmorProfile,  capabilities,  privileged,  procMount,  readOnlyRootFilesystem,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  windowsOptions,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (allowPrivilegeEscalation != null) { sb.append("allowPrivilegeEscalation:"); sb.append(allowPrivilegeEscalation + ","); }
+    if (appArmorProfile != null) { sb.append("appArmorProfile:"); sb.append(appArmorProfile + ","); }
     if (capabilities != null) { sb.append("capabilities:"); sb.append(capabilities + ","); }
     if (privileged != null) { sb.append("privileged:"); sb.append(privileged + ","); }
     if (procMount != null) { sb.append("procMount:"); sb.append(procMount + ","); }
@@ -354,6 +398,22 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   
   public A withRunAsNonRoot() {
     return withRunAsNonRoot(true);
+  }
+  public class AppArmorProfileNested<N> extends V1AppArmorProfileFluent<AppArmorProfileNested<N>> implements Nested<N>{
+    AppArmorProfileNested(V1AppArmorProfile item) {
+      this.builder = new V1AppArmorProfileBuilder(this, item);
+    }
+    V1AppArmorProfileBuilder builder;
+    
+    public N and() {
+      return (N) V1SecurityContextFluent.this.withAppArmorProfile(builder.build());
+    }
+    
+    public N endAppArmorProfile() {
+      return and();
+    }
+    
+  
   }
   public class CapabilitiesNested<N> extends V1CapabilitiesFluent<CapabilitiesNested<N>> implements Nested<N>{
     CapabilitiesNested(V1Capabilities item) {

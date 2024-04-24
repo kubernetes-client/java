@@ -179,7 +179,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateCustomResourceDefinitionRequest
          */
         public APIcreateCustomResourceDefinitionRequest pretty(String pretty) {
@@ -447,7 +447,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionCustomResourceDefinitionRequest
          */
         public APIdeleteCollectionCustomResourceDefinitionRequest pretty(String pretty) {
@@ -772,7 +772,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCustomResourceDefinitionRequest
          */
         public APIdeleteCustomResourceDefinitionRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCustomResourceDefinitionRequest
          */
         public APIlistCustomResourceDefinitionRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCustomResourceDefinitionRequest
          */
         public APIpatchCustomResourceDefinitionRequest pretty(String pretty) {
@@ -1744,7 +1744,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCustomResourceDefinitionStatusRequest
          */
         public APIpatchCustomResourceDefinitionStatusRequest pretty(String pretty) {
@@ -1964,7 +1964,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCustomResourceDefinitionRequest
          */
         public APIreadCustomResourceDefinitionRequest pretty(String pretty) {
@@ -2138,7 +2138,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCustomResourceDefinitionStatusRequest
          */
         public APIreadCustomResourceDefinitionStatusRequest pretty(String pretty) {
@@ -2335,7 +2335,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCustomResourceDefinitionRequest
          */
         public APIreplaceCustomResourceDefinitionRequest pretty(String pretty) {
@@ -2568,7 +2568,7 @@ public class ApiextensionsV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCustomResourceDefinitionStatusRequest
          */
         public APIreplaceCustomResourceDefinitionStatusRequest pretty(String pretty) {

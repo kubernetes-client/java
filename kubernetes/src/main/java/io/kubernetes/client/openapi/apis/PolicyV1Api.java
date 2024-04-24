@@ -187,7 +187,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedPodDisruptionBudgetRequest
          */
         public APIcreateNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -464,7 +464,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedPodDisruptionBudgetRequest
          */
         public APIdeleteCollectionNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -798,7 +798,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedPodDisruptionBudgetRequest
          */
         public APIdeleteNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -1230,7 +1230,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedPodDisruptionBudgetRequest
          */
         public APIlistNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -1598,7 +1598,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPodDisruptionBudgetForAllNamespacesRequest
          */
         public APIlistPodDisruptionBudgetForAllNamespacesRequest pretty(String pretty) {
@@ -1857,7 +1857,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodDisruptionBudgetRequest
          */
         public APIpatchNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -2114,7 +2114,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedPodDisruptionBudgetStatusRequest
          */
         public APIpatchNamespacedPodDisruptionBudgetStatusRequest pretty(String pretty) {
@@ -2343,7 +2343,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodDisruptionBudgetRequest
          */
         public APIreadNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -2526,7 +2526,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedPodDisruptionBudgetStatusRequest
          */
         public APIreadNamespacedPodDisruptionBudgetStatusRequest pretty(String pretty) {
@@ -2732,7 +2732,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodDisruptionBudgetRequest
          */
         public APIreplaceNamespacedPodDisruptionBudgetRequest pretty(String pretty) {
@@ -2974,7 +2974,7 @@ public class PolicyV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedPodDisruptionBudgetStatusRequest
          */
         public APIreplaceNamespacedPodDisruptionBudgetStatusRequest pretty(String pretty) {

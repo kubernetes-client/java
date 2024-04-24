@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ClusterTrustBundleProjection;
 import io.kubernetes.client.openapi.models.V1ConfigMapProjection;
 import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
 import io.kubernetes.client.openapi.models.V1SecretProjection;
@@ -53,8 +54,12 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Projection that may be projected along with other supported volume types
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1VolumeProjection {
+  public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
+  private V1ClusterTrustBundleProjection clusterTrustBundle;
+
   public static final String SERIALIZED_NAME_CONFIG_MAP = "configMap";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP)
   private V1ConfigMapProjection configMap;
@@ -73,6 +78,27 @@ public class V1VolumeProjection {
 
   public V1VolumeProjection() {
   }
+
+  public V1VolumeProjection clusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+
+    this.clusterTrustBundle = clusterTrustBundle;
+    return this;
+  }
+
+   /**
+   * Get clusterTrustBundle
+   * @return clusterTrustBundle
+  **/
+  @jakarta.annotation.Nullable
+  public V1ClusterTrustBundleProjection getClusterTrustBundle() {
+    return clusterTrustBundle;
+  }
+
+
+  public void setClusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+    this.clusterTrustBundle = clusterTrustBundle;
+  }
+
 
   public V1VolumeProjection configMap(V1ConfigMapProjection configMap) {
 
@@ -168,7 +194,8 @@ public class V1VolumeProjection {
       return false;
     }
     V1VolumeProjection v1VolumeProjection = (V1VolumeProjection) o;
-    return Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
+    return Objects.equals(this.clusterTrustBundle, v1VolumeProjection.clusterTrustBundle) &&
+        Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
         Objects.equals(this.downwardAPI, v1VolumeProjection.downwardAPI) &&
         Objects.equals(this.secret, v1VolumeProjection.secret) &&
         Objects.equals(this.serviceAccountToken, v1VolumeProjection.serviceAccountToken);
@@ -176,13 +203,14 @@ public class V1VolumeProjection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configMap, downwardAPI, secret, serviceAccountToken);
+    return Objects.hash(clusterTrustBundle, configMap, downwardAPI, secret, serviceAccountToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1VolumeProjection {\n");
+    sb.append("    clusterTrustBundle: ").append(toIndentedString(clusterTrustBundle)).append("\n");
     sb.append("    configMap: ").append(toIndentedString(configMap)).append("\n");
     sb.append("    downwardAPI: ").append(toIndentedString(downwardAPI)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
@@ -209,6 +237,7 @@ public class V1VolumeProjection {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("clusterTrustBundle");
     openapiFields.add("configMap");
     openapiFields.add("downwardAPI");
     openapiFields.add("secret");
@@ -237,6 +266,10 @@ public class V1VolumeProjection {
         if (!V1VolumeProjection.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeProjection` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `clusterTrustBundle`
+      if (jsonObj.get("clusterTrustBundle") != null && !jsonObj.get("clusterTrustBundle").isJsonNull()) {
+        V1ClusterTrustBundleProjection.validateJsonObject(jsonObj.getAsJsonObject("clusterTrustBundle"));
       }
       // validate the optional field `configMap`
       if (jsonObj.get("configMap") != null && !jsonObj.get("configMap").isJsonNull()) {

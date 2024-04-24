@@ -29,6 +29,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
   private String deprecationWarning;
   private String name;
   private V1CustomResourceValidationBuilder schema;
+  private ArrayList<V1SelectableFieldBuilder> selectableFields;
   private Boolean served;
   private Boolean storage;
   private V1CustomResourceSubresourcesBuilder subresources;
@@ -41,6 +42,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
           this.withDeprecationWarning(instance.getDeprecationWarning());
           this.withName(instance.getName());
           this.withSchema(instance.getSchema());
+          this.withSelectableFields(instance.getSelectableFields());
           this.withServed(instance.getServed());
           this.withStorage(instance.getStorage());
           this.withSubresources(instance.getSubresources());
@@ -277,6 +279,157 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
     return withNewSchemaLike(java.util.Optional.ofNullable(buildSchema()).orElse(item));
   }
   
+  public A addToSelectableFields(int index,V1SelectableField item) {
+    if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
+    V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+    if (index < 0 || index >= selectableFields.size()) { _visitables.get("selectableFields").add(builder); selectableFields.add(builder); } else { _visitables.get("selectableFields").add(index, builder); selectableFields.add(index, builder);}
+    return (A)this;
+  }
+  
+  public A setToSelectableFields(int index,V1SelectableField item) {
+    if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
+    V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+    if (index < 0 || index >= selectableFields.size()) { _visitables.get("selectableFields").add(builder); selectableFields.add(builder); } else { _visitables.get("selectableFields").set(index, builder); selectableFields.set(index, builder);}
+    return (A)this;
+  }
+  
+  public A addToSelectableFields(io.kubernetes.client.openapi.models.V1SelectableField... items) {
+    if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
+    for (V1SelectableField item : items) {V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);_visitables.get("selectableFields").add(builder);this.selectableFields.add(builder);} return (A)this;
+  }
+  
+  public A addAllToSelectableFields(Collection<V1SelectableField> items) {
+    if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
+    for (V1SelectableField item : items) {V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);_visitables.get("selectableFields").add(builder);this.selectableFields.add(builder);} return (A)this;
+  }
+  
+  public A removeFromSelectableFields(io.kubernetes.client.openapi.models.V1SelectableField... items) {
+    if (this.selectableFields == null) return (A)this;
+    for (V1SelectableField item : items) {V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);_visitables.get("selectableFields").remove(builder); this.selectableFields.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromSelectableFields(Collection<V1SelectableField> items) {
+    if (this.selectableFields == null) return (A)this;
+    for (V1SelectableField item : items) {V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);_visitables.get("selectableFields").remove(builder); this.selectableFields.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromSelectableFields(Predicate<V1SelectableFieldBuilder> predicate) {
+    if (selectableFields == null) return (A) this;
+    final Iterator<V1SelectableFieldBuilder> each = selectableFields.iterator();
+    final List visitables = _visitables.get("selectableFields");
+    while (each.hasNext()) {
+      V1SelectableFieldBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1SelectableField> buildSelectableFields() {
+    return this.selectableFields != null ? build(selectableFields) : null;
+  }
+  
+  public V1SelectableField buildSelectableField(int index) {
+    return this.selectableFields.get(index).build();
+  }
+  
+  public V1SelectableField buildFirstSelectableField() {
+    return this.selectableFields.get(0).build();
+  }
+  
+  public V1SelectableField buildLastSelectableField() {
+    return this.selectableFields.get(selectableFields.size() - 1).build();
+  }
+  
+  public V1SelectableField buildMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
+      for (V1SelectableFieldBuilder item : selectableFields) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
+      for (V1SelectableFieldBuilder item : selectableFields) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withSelectableFields(List<V1SelectableField> selectableFields) {
+    if (this.selectableFields != null) {
+      this._visitables.get("selectableFields").clear();
+    }
+    if (selectableFields != null) {
+        this.selectableFields = new ArrayList();
+        for (V1SelectableField item : selectableFields) {
+          this.addToSelectableFields(item);
+        }
+    } else {
+      this.selectableFields = null;
+    }
+    return (A) this;
+  }
+  
+  public A withSelectableFields(io.kubernetes.client.openapi.models.V1SelectableField... selectableFields) {
+    if (this.selectableFields != null) {
+        this.selectableFields.clear();
+        _visitables.remove("selectableFields");
+    }
+    if (selectableFields != null) {
+      for (V1SelectableField item : selectableFields) {
+        this.addToSelectableFields(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSelectableFields() {
+    return this.selectableFields != null && !this.selectableFields.isEmpty();
+  }
+  
+  public SelectableFieldsNested<A> addNewSelectableField() {
+    return new SelectableFieldsNested(-1, null);
+  }
+  
+  public SelectableFieldsNested<A> addNewSelectableFieldLike(V1SelectableField item) {
+    return new SelectableFieldsNested(-1, item);
+  }
+  
+  public SelectableFieldsNested<A> setNewSelectableFieldLike(int index,V1SelectableField item) {
+    return new SelectableFieldsNested(index, item);
+  }
+  
+  public SelectableFieldsNested<A> editSelectableField(int index) {
+    if (selectableFields.size() <= index) throw new RuntimeException("Can't edit selectableFields. Index exceeds size.");
+    return setNewSelectableFieldLike(index, buildSelectableField(index));
+  }
+  
+  public SelectableFieldsNested<A> editFirstSelectableField() {
+    if (selectableFields.size() == 0) throw new RuntimeException("Can't edit first selectableFields. The list is empty.");
+    return setNewSelectableFieldLike(0, buildSelectableField(0));
+  }
+  
+  public SelectableFieldsNested<A> editLastSelectableField() {
+    int index = selectableFields.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last selectableFields. The list is empty.");
+    return setNewSelectableFieldLike(index, buildSelectableField(index));
+  }
+  
+  public SelectableFieldsNested<A> editMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<selectableFields.size();i++) { 
+    if (predicate.test(selectableFields.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching selectableFields. No match found.");
+    return setNewSelectableFieldLike(index, buildSelectableField(index));
+  }
+  
   public Boolean getServed() {
     return this.served;
   }
@@ -353,6 +506,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
     if (!java.util.Objects.equals(deprecationWarning, that.deprecationWarning)) return false;
     if (!java.util.Objects.equals(name, that.name)) return false;
     if (!java.util.Objects.equals(schema, that.schema)) return false;
+    if (!java.util.Objects.equals(selectableFields, that.selectableFields)) return false;
     if (!java.util.Objects.equals(served, that.served)) return false;
     if (!java.util.Objects.equals(storage, that.storage)) return false;
     if (!java.util.Objects.equals(subresources, that.subresources)) return false;
@@ -360,7 +514,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(additionalPrinterColumns,  deprecated,  deprecationWarning,  name,  schema,  served,  storage,  subresources,  super.hashCode());
+    return java.util.Objects.hash(additionalPrinterColumns,  deprecated,  deprecationWarning,  name,  schema,  selectableFields,  served,  storage,  subresources,  super.hashCode());
   }
   
   public String toString() {
@@ -371,6 +525,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
     if (deprecationWarning != null) { sb.append("deprecationWarning:"); sb.append(deprecationWarning + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (schema != null) { sb.append("schema:"); sb.append(schema + ","); }
+    if (selectableFields != null && !selectableFields.isEmpty()) { sb.append("selectableFields:"); sb.append(selectableFields + ","); }
     if (served != null) { sb.append("served:"); sb.append(served + ","); }
     if (storage != null) { sb.append("storage:"); sb.append(storage + ","); }
     if (subresources != null) { sb.append("subresources:"); sb.append(subresources); }
@@ -418,6 +573,24 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
     }
     
     public N endSchema() {
+      return and();
+    }
+    
+  
+  }
+  public class SelectableFieldsNested<N> extends V1SelectableFieldFluent<SelectableFieldsNested<N>> implements Nested<N>{
+    SelectableFieldsNested(int index,V1SelectableField item) {
+      this.index = index;
+      this.builder = new V1SelectableFieldBuilder(this, item);
+    }
+    V1SelectableFieldBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1CustomResourceDefinitionVersionFluent.this.setToSelectableFields(index,builder.build());
+    }
+    
+    public N endSelectableField() {
       return and();
     }
     

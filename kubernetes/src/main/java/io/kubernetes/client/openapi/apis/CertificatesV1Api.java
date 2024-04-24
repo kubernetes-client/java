@@ -179,7 +179,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateCertificateSigningRequestRequest
          */
         public APIcreateCertificateSigningRequestRequest pretty(String pretty) {
@@ -415,7 +415,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCertificateSigningRequestRequest
          */
         public APIdeleteCertificateSigningRequestRequest pretty(String pretty) {
@@ -698,7 +698,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionCertificateSigningRequestRequest
          */
         public APIdeleteCollectionCertificateSigningRequestRequest pretty(String pretty) {
@@ -1195,7 +1195,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistCertificateSigningRequestRequest
          */
         public APIlistCertificateSigningRequestRequest pretty(String pretty) {
@@ -1496,7 +1496,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCertificateSigningRequestRequest
          */
         public APIpatchCertificateSigningRequestRequest pretty(String pretty) {
@@ -1744,7 +1744,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCertificateSigningRequestApprovalRequest
          */
         public APIpatchCertificateSigningRequestApprovalRequest pretty(String pretty) {
@@ -1992,7 +1992,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchCertificateSigningRequestStatusRequest
          */
         public APIpatchCertificateSigningRequestStatusRequest pretty(String pretty) {
@@ -2212,7 +2212,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCertificateSigningRequestRequest
          */
         public APIreadCertificateSigningRequestRequest pretty(String pretty) {
@@ -2386,7 +2386,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCertificateSigningRequestApprovalRequest
          */
         public APIreadCertificateSigningRequestApprovalRequest pretty(String pretty) {
@@ -2560,7 +2560,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadCertificateSigningRequestStatusRequest
          */
         public APIreadCertificateSigningRequestStatusRequest pretty(String pretty) {
@@ -2757,7 +2757,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCertificateSigningRequestRequest
          */
         public APIreplaceCertificateSigningRequestRequest pretty(String pretty) {
@@ -2990,7 +2990,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCertificateSigningRequestApprovalRequest
          */
         public APIreplaceCertificateSigningRequestApprovalRequest pretty(String pretty) {
@@ -3223,7 +3223,7 @@ public class CertificatesV1Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceCertificateSigningRequestStatusRequest
          */
         public APIreplaceCertificateSigningRequestStatusRequest pretty(String pretty) {

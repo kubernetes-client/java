@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ExecAction;
 import io.kubernetes.client.openapi.models.V1HTTPGetAction;
+import io.kubernetes.client.openapi.models.V1SleepAction;
 import io.kubernetes.client.openapi.models.V1TCPSocketAction;
 import java.io.IOException;
 
@@ -52,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
   @SerializedName(SERIALIZED_NAME_EXEC)
@@ -61,6 +62,10 @@ public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_HTTP_GET = "httpGet";
   @SerializedName(SERIALIZED_NAME_HTTP_GET)
   private V1HTTPGetAction httpGet;
+
+  public static final String SERIALIZED_NAME_SLEEP = "sleep";
+  @SerializedName(SERIALIZED_NAME_SLEEP)
+  private V1SleepAction sleep;
 
   public static final String SERIALIZED_NAME_TCP_SOCKET = "tcpSocket";
   @SerializedName(SERIALIZED_NAME_TCP_SOCKET)
@@ -111,6 +116,27 @@ public class V1LifecycleHandler {
   }
 
 
+  public V1LifecycleHandler sleep(V1SleepAction sleep) {
+
+    this.sleep = sleep;
+    return this;
+  }
+
+   /**
+   * Get sleep
+   * @return sleep
+  **/
+  @jakarta.annotation.Nullable
+  public V1SleepAction getSleep() {
+    return sleep;
+  }
+
+
+  public void setSleep(V1SleepAction sleep) {
+    this.sleep = sleep;
+  }
+
+
   public V1LifecycleHandler tcpSocket(V1TCPSocketAction tcpSocket) {
 
     this.tcpSocket = tcpSocket;
@@ -144,12 +170,13 @@ public class V1LifecycleHandler {
     V1LifecycleHandler v1LifecycleHandler = (V1LifecycleHandler) o;
     return Objects.equals(this.exec, v1LifecycleHandler.exec) &&
         Objects.equals(this.httpGet, v1LifecycleHandler.httpGet) &&
+        Objects.equals(this.sleep, v1LifecycleHandler.sleep) &&
         Objects.equals(this.tcpSocket, v1LifecycleHandler.tcpSocket);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exec, httpGet, tcpSocket);
+    return Objects.hash(exec, httpGet, sleep, tcpSocket);
   }
 
   @Override
@@ -158,6 +185,7 @@ public class V1LifecycleHandler {
     sb.append("class V1LifecycleHandler {\n");
     sb.append("    exec: ").append(toIndentedString(exec)).append("\n");
     sb.append("    httpGet: ").append(toIndentedString(httpGet)).append("\n");
+    sb.append("    sleep: ").append(toIndentedString(sleep)).append("\n");
     sb.append("    tcpSocket: ").append(toIndentedString(tcpSocket)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,6 +211,7 @@ public class V1LifecycleHandler {
     openapiFields = new HashSet<String>();
     openapiFields.add("exec");
     openapiFields.add("httpGet");
+    openapiFields.add("sleep");
     openapiFields.add("tcpSocket");
 
     // a set of required properties/fields (JSON key names)
@@ -216,6 +245,10 @@ public class V1LifecycleHandler {
       // validate the optional field `httpGet`
       if (jsonObj.get("httpGet") != null && !jsonObj.get("httpGet").isJsonNull()) {
         V1HTTPGetAction.validateJsonObject(jsonObj.getAsJsonObject("httpGet"));
+      }
+      // validate the optional field `sleep`
+      if (jsonObj.get("sleep") != null && !jsonObj.get("sleep").isJsonNull()) {
+        V1SleepAction.validateJsonObject(jsonObj.getAsJsonObject("sleep"));
       }
       // validate the optional field `tcpSocket`
       if (jsonObj.get("tcpSocket") != null && !jsonObj.get("tcpSocket").isJsonNull()) {

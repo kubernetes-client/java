@@ -181,7 +181,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateFlowSchemaRequest
          */
         public APIcreateFlowSchemaRequest pretty(String pretty) {
@@ -410,7 +410,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreatePriorityLevelConfigurationRequest
          */
         public APIcreatePriorityLevelConfigurationRequest pretty(String pretty) {
@@ -678,7 +678,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
         public APIdeleteCollectionFlowSchemaRequest pretty(String pretty) {
@@ -1035,7 +1035,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
         public APIdeleteCollectionPriorityLevelConfigurationRequest pretty(String pretty) {
@@ -1360,7 +1360,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteFlowSchemaRequest
          */
         public APIdeleteFlowSchemaRequest pretty(String pretty) {
@@ -1611,7 +1611,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
         public APIdeletePriorityLevelConfigurationRequest pretty(String pretty) {
@@ -2034,7 +2034,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistFlowSchemaRequest
          */
         public APIlistFlowSchemaRequest pretty(String pretty) {
@@ -2351,7 +2351,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
         public APIlistPriorityLevelConfigurationRequest pretty(String pretty) {
@@ -2652,7 +2652,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchFlowSchemaRequest
          */
         public APIpatchFlowSchemaRequest pretty(String pretty) {
@@ -2900,7 +2900,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
         public APIpatchFlowSchemaStatusRequest pretty(String pretty) {
@@ -3148,7 +3148,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
         public APIpatchPriorityLevelConfigurationRequest pretty(String pretty) {
@@ -3396,7 +3396,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
         public APIpatchPriorityLevelConfigurationStatusRequest pretty(String pretty) {
@@ -3616,7 +3616,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadFlowSchemaRequest
          */
         public APIreadFlowSchemaRequest pretty(String pretty) {
@@ -3790,7 +3790,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadFlowSchemaStatusRequest
          */
         public APIreadFlowSchemaStatusRequest pretty(String pretty) {
@@ -3964,7 +3964,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPriorityLevelConfigurationRequest
          */
         public APIreadPriorityLevelConfigurationRequest pretty(String pretty) {
@@ -4138,7 +4138,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPriorityLevelConfigurationStatusRequest
          */
         public APIreadPriorityLevelConfigurationStatusRequest pretty(String pretty) {
@@ -4335,7 +4335,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceFlowSchemaRequest
          */
         public APIreplaceFlowSchemaRequest pretty(String pretty) {
@@ -4568,7 +4568,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceFlowSchemaStatusRequest
          */
         public APIreplaceFlowSchemaStatusRequest pretty(String pretty) {
@@ -4801,7 +4801,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePriorityLevelConfigurationRequest
          */
         public APIreplacePriorityLevelConfigurationRequest pretty(String pretty) {
@@ -5034,7 +5034,7 @@ public class FlowcontrolApiserverV1beta3Api {
 
         /**
          * Set pretty
-         * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePriorityLevelConfigurationStatusRequest
          */
         public APIreplacePriorityLevelConfigurationStatusRequest pretty(String pretty) {
