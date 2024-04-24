@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
  */
 @ApiModel(description = "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class CoreV1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)

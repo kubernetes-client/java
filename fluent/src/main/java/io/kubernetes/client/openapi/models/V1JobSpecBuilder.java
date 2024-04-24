@@ -28,12 +28,14 @@ public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implemen
     buildable.setBackoffLimitPerIndex(fluent.getBackoffLimitPerIndex());
     buildable.setCompletionMode(fluent.getCompletionMode());
     buildable.setCompletions(fluent.getCompletions());
+    buildable.setManagedBy(fluent.getManagedBy());
     buildable.setManualSelector(fluent.getManualSelector());
     buildable.setMaxFailedIndexes(fluent.getMaxFailedIndexes());
     buildable.setParallelism(fluent.getParallelism());
     buildable.setPodFailurePolicy(fluent.buildPodFailurePolicy());
     buildable.setPodReplacementPolicy(fluent.getPodReplacementPolicy());
     buildable.setSelector(fluent.buildSelector());
+    buildable.setSuccessPolicy(fluent.buildSuccessPolicy());
     buildable.setSuspend(fluent.getSuspend());
     buildable.setTemplate(fluent.buildTemplate());
     buildable.setTtlSecondsAfterFinished(fluent.getTtlSecondsAfterFinished());

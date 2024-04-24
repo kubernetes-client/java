@@ -28,7 +28,7 @@ import java.io.IOException;
  * IngressStatus describe the current state of the Ingress.
  */
 @ApiModel(description = "IngressStatus describe the current state of the Ingress.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1IngressStatus {
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)

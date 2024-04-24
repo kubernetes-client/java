@@ -23,6 +23,7 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluent<V1Po
   
   public V1PodSecurityContext build() {
     V1PodSecurityContext buildable = new V1PodSecurityContext();
+    buildable.setAppArmorProfile(fluent.buildAppArmorProfile());
     buildable.setFsGroup(fluent.getFsGroup());
     buildable.setFsGroupChangePolicy(fluent.getFsGroupChangePolicy());
     buildable.setRunAsGroup(fluent.getRunAsGroup());

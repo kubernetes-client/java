@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **images** | [**List&lt;V1ContainerImage&gt;**](V1ContainerImage.md) | List of container images on this node |  [optional]
 **nodeInfo** | [**V1NodeSystemInfo**](V1NodeSystemInfo.md) |  |  [optional]
 **phase** | **String** | NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated. |  [optional]
+**runtimeHandlers** | [**List&lt;V1NodeRuntimeHandler&gt;**](V1NodeRuntimeHandler.md) | The available runtime handlers. |  [optional]
 **volumesAttached** | [**List&lt;V1AttachedVolume&gt;**](V1AttachedVolume.md) | List of volumes that are attached to the node. |  [optional]
 **volumesInUse** | **List&lt;String&gt;** | List of attachable volumes in use (mounted) by the node. |  [optional]
 

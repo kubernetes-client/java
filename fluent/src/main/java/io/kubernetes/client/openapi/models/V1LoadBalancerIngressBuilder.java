@@ -25,6 +25,7 @@ public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluent<V1
     V1LoadBalancerIngress buildable = new V1LoadBalancerIngress();
     buildable.setHostname(fluent.getHostname());
     buildable.setIp(fluent.getIp());
+    buildable.setIpMode(fluent.getIpMode());
     buildable.setPorts(fluent.buildPorts());
     return buildable;
   }

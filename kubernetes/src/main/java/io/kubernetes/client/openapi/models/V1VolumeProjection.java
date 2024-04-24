@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ClusterTrustBundleProjection;
 import io.kubernetes.client.openapi.models.V1ConfigMapProjection;
 import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
 import io.kubernetes.client.openapi.models.V1SecretProjection;
@@ -31,8 +32,12 @@ import java.io.IOException;
  * Projection that may be projected along with other supported volume types
  */
 @ApiModel(description = "Projection that may be projected along with other supported volume types")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1VolumeProjection {
+  public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
+  @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
+  private V1ClusterTrustBundleProjection clusterTrustBundle;
+
   public static final String SERIALIZED_NAME_CONFIG_MAP = "configMap";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP)
   private V1ConfigMapProjection configMap;
@@ -48,6 +53,29 @@ public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN = "serviceAccountToken";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN)
   private V1ServiceAccountTokenProjection serviceAccountToken;
+
+
+  public V1VolumeProjection clusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+
+    this.clusterTrustBundle = clusterTrustBundle;
+    return this;
+  }
+
+   /**
+   * Get clusterTrustBundle
+   * @return clusterTrustBundle
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1ClusterTrustBundleProjection getClusterTrustBundle() {
+    return clusterTrustBundle;
+  }
+
+
+  public void setClusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+    this.clusterTrustBundle = clusterTrustBundle;
+  }
 
 
   public V1VolumeProjection configMap(V1ConfigMapProjection configMap) {
@@ -151,7 +179,8 @@ public class V1VolumeProjection {
       return false;
     }
     V1VolumeProjection v1VolumeProjection = (V1VolumeProjection) o;
-    return Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
+    return Objects.equals(this.clusterTrustBundle, v1VolumeProjection.clusterTrustBundle) &&
+        Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
         Objects.equals(this.downwardAPI, v1VolumeProjection.downwardAPI) &&
         Objects.equals(this.secret, v1VolumeProjection.secret) &&
         Objects.equals(this.serviceAccountToken, v1VolumeProjection.serviceAccountToken);
@@ -159,7 +188,7 @@ public class V1VolumeProjection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configMap, downwardAPI, secret, serviceAccountToken);
+    return Objects.hash(clusterTrustBundle, configMap, downwardAPI, secret, serviceAccountToken);
   }
 
 
@@ -167,6 +196,7 @@ public class V1VolumeProjection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1VolumeProjection {\n");
+    sb.append("    clusterTrustBundle: ").append(toIndentedString(clusterTrustBundle)).append("\n");
     sb.append("    configMap: ").append(toIndentedString(configMap)).append("\n");
     sb.append("    downwardAPI: ").append(toIndentedString(downwardAPI)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");

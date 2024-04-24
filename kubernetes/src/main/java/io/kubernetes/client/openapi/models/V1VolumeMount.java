@@ -27,7 +27,7 @@ import java.io.IOException;
  * VolumeMount describes a mounting of a Volume within a container.
  */
 @ApiModel(description = "VolumeMount describes a mounting of a Volume within a container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1VolumeMount {
   public static final String SERIALIZED_NAME_MOUNT_PATH = "mountPath";
   @SerializedName(SERIALIZED_NAME_MOUNT_PATH)
@@ -44,6 +44,10 @@ public class V1VolumeMount {
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
   private Boolean readOnly;
+
+  public static final String SERIALIZED_NAME_RECURSIVE_READ_ONLY = "recursiveReadOnly";
+  @SerializedName(SERIALIZED_NAME_RECURSIVE_READ_ONLY)
+  private String recursiveReadOnly;
 
   public static final String SERIALIZED_NAME_SUB_PATH = "subPath";
   @SerializedName(SERIALIZED_NAME_SUB_PATH)
@@ -83,11 +87,11 @@ public class V1VolumeMount {
   }
 
    /**
-   * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+   * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10. When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None).
    * @return mountPropagation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.")
+  @ApiModelProperty(value = "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10. When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None).")
 
   public String getMountPropagation() {
     return mountPropagation;
@@ -141,6 +145,29 @@ public class V1VolumeMount {
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
+  }
+
+
+  public V1VolumeMount recursiveReadOnly(String recursiveReadOnly) {
+
+    this.recursiveReadOnly = recursiveReadOnly;
+    return this;
+  }
+
+   /**
+   * RecursiveReadOnly specifies whether read-only mounts should be handled recursively.  If ReadOnly is false, this field has no meaning and must be unspecified.  If ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.  If this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).  If this field is not specified, it is treated as an equivalent of Disabled.
+   * @return recursiveReadOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RecursiveReadOnly specifies whether read-only mounts should be handled recursively.  If ReadOnly is false, this field has no meaning and must be unspecified.  If ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.  If this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).  If this field is not specified, it is treated as an equivalent of Disabled.")
+
+  public String getRecursiveReadOnly() {
+    return recursiveReadOnly;
+  }
+
+
+  public void setRecursiveReadOnly(String recursiveReadOnly) {
+    this.recursiveReadOnly = recursiveReadOnly;
   }
 
 
@@ -203,13 +230,14 @@ public class V1VolumeMount {
         Objects.equals(this.mountPropagation, v1VolumeMount.mountPropagation) &&
         Objects.equals(this.name, v1VolumeMount.name) &&
         Objects.equals(this.readOnly, v1VolumeMount.readOnly) &&
+        Objects.equals(this.recursiveReadOnly, v1VolumeMount.recursiveReadOnly) &&
         Objects.equals(this.subPath, v1VolumeMount.subPath) &&
         Objects.equals(this.subPathExpr, v1VolumeMount.subPathExpr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mountPath, mountPropagation, name, readOnly, subPath, subPathExpr);
+    return Objects.hash(mountPath, mountPropagation, name, readOnly, recursiveReadOnly, subPath, subPathExpr);
   }
 
 
@@ -221,6 +249,7 @@ public class V1VolumeMount {
     sb.append("    mountPropagation: ").append(toIndentedString(mountPropagation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    recursiveReadOnly: ").append(toIndentedString(recursiveReadOnly)).append("\n");
     sb.append("    subPath: ").append(toIndentedString(subPath)).append("\n");
     sb.append("    subPathExpr: ").append(toIndentedString(subPathExpr)).append("\n");
     sb.append("}");

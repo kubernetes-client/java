@@ -56,7 +56,7 @@ import java.util.Map;
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -169,6 +169,10 @@ public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_STORAGEOS = "storageos";
   @SerializedName(SERIALIZED_NAME_STORAGEOS)
   private V1StorageOSPersistentVolumeSource storageos;
+
+  public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME = "volumeAttributesClassName";
+  @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME)
+  private String volumeAttributesClassName;
 
   public static final String SERIALIZED_NAME_VOLUME_MODE = "volumeMode";
   @SerializedName(SERIALIZED_NAME_VOLUME_MODE)
@@ -847,6 +851,29 @@ public class V1PersistentVolumeSpec {
   }
 
 
+  public V1PersistentVolumeSpec volumeAttributesClassName(String volumeAttributesClassName) {
+
+    this.volumeAttributesClassName = volumeAttributesClassName;
+    return this;
+  }
+
+   /**
+   * Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @return volumeAttributesClassName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is an alpha field and requires enabling VolumeAttributesClass feature.")
+
+  public String getVolumeAttributesClassName() {
+    return volumeAttributesClassName;
+  }
+
+
+  public void setVolumeAttributesClassName(String volumeAttributesClassName) {
+    this.volumeAttributesClassName = volumeAttributesClassName;
+  }
+
+
   public V1PersistentVolumeSpec volumeMode(String volumeMode) {
 
     this.volumeMode = volumeMode;
@@ -930,13 +957,14 @@ public class V1PersistentVolumeSpec {
         Objects.equals(this.scaleIO, v1PersistentVolumeSpec.scaleIO) &&
         Objects.equals(this.storageClassName, v1PersistentVolumeSpec.storageClassName) &&
         Objects.equals(this.storageos, v1PersistentVolumeSpec.storageos) &&
+        Objects.equals(this.volumeAttributesClassName, v1PersistentVolumeSpec.volumeAttributesClassName) &&
         Objects.equals(this.volumeMode, v1PersistentVolumeSpec.volumeMode) &&
         Objects.equals(this.vsphereVolume, v1PersistentVolumeSpec.vsphereVolume);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, awsElasticBlockStore, azureDisk, azureFile, capacity, cephfs, cinder, claimRef, csi, fc, flexVolume, flocker, gcePersistentDisk, glusterfs, hostPath, iscsi, local, mountOptions, nfs, nodeAffinity, persistentVolumeReclaimPolicy, photonPersistentDisk, portworxVolume, quobyte, rbd, scaleIO, storageClassName, storageos, volumeMode, vsphereVolume);
+    return Objects.hash(accessModes, awsElasticBlockStore, azureDisk, azureFile, capacity, cephfs, cinder, claimRef, csi, fc, flexVolume, flocker, gcePersistentDisk, glusterfs, hostPath, iscsi, local, mountOptions, nfs, nodeAffinity, persistentVolumeReclaimPolicy, photonPersistentDisk, portworxVolume, quobyte, rbd, scaleIO, storageClassName, storageos, volumeAttributesClassName, volumeMode, vsphereVolume);
   }
 
 
@@ -972,6 +1000,7 @@ public class V1PersistentVolumeSpec {
     sb.append("    scaleIO: ").append(toIndentedString(scaleIO)).append("\n");
     sb.append("    storageClassName: ").append(toIndentedString(storageClassName)).append("\n");
     sb.append("    storageos: ").append(toIndentedString(storageos)).append("\n");
+    sb.append("    volumeAttributesClassName: ").append(toIndentedString(volumeAttributesClassName)).append("\n");
     sb.append("    volumeMode: ").append(toIndentedString(volumeMode)).append("\n");
     sb.append("    vsphereVolume: ").append(toIndentedString(vsphereVolume)).append("\n");
     sb.append("}");

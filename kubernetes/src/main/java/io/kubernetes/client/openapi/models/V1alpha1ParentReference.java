@@ -27,7 +27,7 @@ import java.io.IOException;
  * ParentReference describes a reference to a parent object.
  */
 @ApiModel(description = "ParentReference describes a reference to a parent object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1alpha1ParentReference {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -44,10 +44,6 @@ public class V1alpha1ParentReference {
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
   private String resource;
-
-  public static final String SERIALIZED_NAME_UID = "uid";
-  @SerializedName(SERIALIZED_NAME_UID)
-  private String uid;
 
 
   public V1alpha1ParentReference group(String group) {
@@ -83,8 +79,7 @@ public class V1alpha1ParentReference {
    * Name is the name of the object being referenced.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name is the name of the object being referenced.")
+  @ApiModelProperty(required = true, value = "Name is the name of the object being referenced.")
 
   public String getName() {
     return name;
@@ -129,8 +124,7 @@ public class V1alpha1ParentReference {
    * Resource is the resource of the object being referenced.
    * @return resource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Resource is the resource of the object being referenced.")
+  @ApiModelProperty(required = true, value = "Resource is the resource of the object being referenced.")
 
   public String getResource() {
     return resource;
@@ -139,29 +133,6 @@ public class V1alpha1ParentReference {
 
   public void setResource(String resource) {
     this.resource = resource;
-  }
-
-
-  public V1alpha1ParentReference uid(String uid) {
-
-    this.uid = uid;
-    return this;
-  }
-
-   /**
-   * UID is the uid of the object being referenced.
-   * @return uid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UID is the uid of the object being referenced.")
-
-  public String getUid() {
-    return uid;
-  }
-
-
-  public void setUid(String uid) {
-    this.uid = uid;
   }
 
 
@@ -177,13 +148,12 @@ public class V1alpha1ParentReference {
     return Objects.equals(this.group, v1alpha1ParentReference.group) &&
         Objects.equals(this.name, v1alpha1ParentReference.name) &&
         Objects.equals(this.namespace, v1alpha1ParentReference.namespace) &&
-        Objects.equals(this.resource, v1alpha1ParentReference.resource) &&
-        Objects.equals(this.uid, v1alpha1ParentReference.uid);
+        Objects.equals(this.resource, v1alpha1ParentReference.resource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, name, namespace, resource, uid);
+    return Objects.hash(group, name, namespace, resource);
   }
 
 
@@ -195,7 +165,6 @@ public class V1alpha1ParentReference {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
-    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

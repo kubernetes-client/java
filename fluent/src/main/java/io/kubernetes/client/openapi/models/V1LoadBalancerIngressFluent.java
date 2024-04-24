@@ -25,6 +25,7 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
   }
   private String hostname;
   private String ip;
+  private String ipMode;
   private ArrayList<V1PortStatusBuilder> ports;
   
   protected void copyInstance(V1LoadBalancerIngress instance) {
@@ -32,6 +33,7 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
     if (instance != null) {
           this.withHostname(instance.getHostname());
           this.withIp(instance.getIp());
+          this.withIpMode(instance.getIpMode());
           this.withPorts(instance.getPorts());
         }
   }
@@ -60,6 +62,19 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
   
   public boolean hasIp() {
     return this.ip != null;
+  }
+  
+  public String getIpMode() {
+    return this.ipMode;
+  }
+  
+  public A withIpMode(String ipMode) {
+    this.ipMode = ipMode;
+    return (A) this;
+  }
+  
+  public boolean hasIpMode() {
+    return this.ipMode != null;
   }
   
   public A addToPorts(int index,V1PortStatus item) {
@@ -220,12 +235,13 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
     V1LoadBalancerIngressFluent that = (V1LoadBalancerIngressFluent) o;
     if (!java.util.Objects.equals(hostname, that.hostname)) return false;
     if (!java.util.Objects.equals(ip, that.ip)) return false;
+    if (!java.util.Objects.equals(ipMode, that.ipMode)) return false;
     if (!java.util.Objects.equals(ports, that.ports)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(hostname,  ip,  ports,  super.hashCode());
+    return java.util.Objects.hash(hostname,  ip,  ipMode,  ports,  super.hashCode());
   }
   
   public String toString() {
@@ -233,6 +249,7 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
     sb.append("{");
     if (hostname != null) { sb.append("hostname:"); sb.append(hostname + ","); }
     if (ip != null) { sb.append("ip:"); sb.append(ip + ","); }
+    if (ipMode != null) { sb.append("ipMode:"); sb.append(ipMode + ","); }
     if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports); }
     sb.append("}");
     return sb.toString();

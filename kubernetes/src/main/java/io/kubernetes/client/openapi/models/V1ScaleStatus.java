@@ -27,7 +27,7 @@ import java.io.IOException;
  * ScaleStatus represents the current status of a scale subresource.
  */
 @ApiModel(description = "ScaleStatus represents the current status of a scale subresource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1ScaleStatus {
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
   @SerializedName(SERIALIZED_NAME_REPLICAS)

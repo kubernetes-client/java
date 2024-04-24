@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * PersistentVolumeClaimCondition contains details about state of pvc
  */
 @ApiModel(description = "PersistentVolumeClaimCondition contains details about state of pvc")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PersistentVolumeClaimCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
@@ -131,11 +131,11 @@ public class V1PersistentVolumeClaimCondition {
   }
 
    /**
-   * reason is a unique, this should be a short, machine understandable string that gives the reason for condition&#39;s last transition. If it reports \&quot;ResizeStarted\&quot; that means the underlying persistent volume is being resized.
+   * reason is a unique, this should be a short, machine understandable string that gives the reason for condition&#39;s last transition. If it reports \&quot;Resizing\&quot; that means the underlying persistent volume is being resized.
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.")
+  @ApiModelProperty(value = "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"Resizing\" that means the underlying persistent volume is being resized.")
 
   public String getReason() {
     return reason;

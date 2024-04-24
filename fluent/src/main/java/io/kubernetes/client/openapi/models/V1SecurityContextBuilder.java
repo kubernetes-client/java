@@ -24,6 +24,7 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluent<V1Security
   public V1SecurityContext build() {
     V1SecurityContext buildable = new V1SecurityContext();
     buildable.setAllowPrivilegeEscalation(fluent.getAllowPrivilegeEscalation());
+    buildable.setAppArmorProfile(fluent.buildAppArmorProfile());
     buildable.setCapabilities(fluent.buildCapabilities());
     buildable.setPrivileged(fluent.getPrivileged());
     buildable.setProcMount(fluent.getProcMount());

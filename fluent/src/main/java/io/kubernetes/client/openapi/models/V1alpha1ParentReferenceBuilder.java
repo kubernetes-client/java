@@ -27,7 +27,6 @@ public class V1alpha1ParentReferenceBuilder extends V1alpha1ParentReferenceFluen
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());
     buildable.setResource(fluent.getResource());
-    buildable.setUid(fluent.getUid());
     return buildable;
   }
   

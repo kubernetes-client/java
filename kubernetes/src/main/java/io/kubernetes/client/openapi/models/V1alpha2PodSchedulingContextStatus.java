@@ -30,7 +30,7 @@ import java.util.List;
  * PodSchedulingContextStatus describes where resources for the Pod can be allocated.
  */
 @ApiModel(description = "PodSchedulingContextStatus describes where resources for the Pod can be allocated.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1alpha2PodSchedulingContextStatus {
   public static final String SERIALIZED_NAME_RESOURCE_CLAIMS = "resourceClaims";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIMS)

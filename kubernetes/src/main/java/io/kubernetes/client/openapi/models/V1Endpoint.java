@@ -34,7 +34,7 @@ import java.util.Map;
  * Endpoint represents a single logical \&quot;backend\&quot; implementing a service.
  */
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)

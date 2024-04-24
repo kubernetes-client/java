@@ -28,7 +28,7 @@ import java.io.IOException;
  * HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.
  */
 @ApiModel(description = "HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1HTTPIngressPath {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
   @SerializedName(SERIALIZED_NAME_BACKEND)

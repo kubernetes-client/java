@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |  [optional]
 **metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  |  [optional]
 **roleRef** | [**V1RoleRef**](V1RoleRef.md) |  | 
-**subjects** | [**List&lt;V1Subject&gt;**](V1Subject.md) | Subjects holds references to the objects the role applies to. |  [optional]
+**subjects** | [**List&lt;RbacV1Subject&gt;**](RbacV1Subject.md) | Subjects holds references to the objects the role applies to. |  [optional]
 
 
 ## Implemented Interfaces

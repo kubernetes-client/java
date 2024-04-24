@@ -22,9 +22,11 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ContainerState;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
+import io.kubernetes.client.openapi.models.V1VolumeMountStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +35,7 @@ import java.util.Map;
  * ContainerStatus contains details for the current status of this container.
  */
 @ApiModel(description = "ContainerStatus contains details for the current status of this container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -78,6 +80,10 @@ public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
+
+  public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
+  @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
+  private List<V1VolumeMountStatus> volumeMounts = null;
 
 
   public V1ContainerStatus allocatedResources(Map<String, Quantity> allocatedResources) {
@@ -336,6 +342,37 @@ public class V1ContainerStatus {
   }
 
 
+  public V1ContainerStatus volumeMounts(List<V1VolumeMountStatus> volumeMounts) {
+
+    this.volumeMounts = volumeMounts;
+    return this;
+  }
+
+  public V1ContainerStatus addVolumeMountsItem(V1VolumeMountStatus volumeMountsItem) {
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList<>();
+    }
+    this.volumeMounts.add(volumeMountsItem);
+    return this;
+  }
+
+   /**
+   * Status of volume mounts.
+   * @return volumeMounts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Status of volume mounts.")
+
+  public List<V1VolumeMountStatus> getVolumeMounts() {
+    return volumeMounts;
+  }
+
+
+  public void setVolumeMounts(List<V1VolumeMountStatus> volumeMounts) {
+    this.volumeMounts = volumeMounts;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -355,12 +392,13 @@ public class V1ContainerStatus {
         Objects.equals(this.resources, v1ContainerStatus.resources) &&
         Objects.equals(this.restartCount, v1ContainerStatus.restartCount) &&
         Objects.equals(this.started, v1ContainerStatus.started) &&
-        Objects.equals(this.state, v1ContainerStatus.state);
+        Objects.equals(this.state, v1ContainerStatus.state) &&
+        Objects.equals(this.volumeMounts, v1ContainerStatus.volumeMounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state);
+    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, volumeMounts);
   }
 
 
@@ -379,6 +417,7 @@ public class V1ContainerStatus {
     sb.append("    restartCount: ").append(toIndentedString(restartCount)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    volumeMounts: ").append(toIndentedString(volumeMounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,11 +30,19 @@ import java.util.List;
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
  */
 @ApiModel(description = "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
   private V1LabelSelector labelSelector;
+
+  public static final String SERIALIZED_NAME_MATCH_LABEL_KEYS = "matchLabelKeys";
+  @SerializedName(SERIALIZED_NAME_MATCH_LABEL_KEYS)
+  private List<String> matchLabelKeys = null;
+
+  public static final String SERIALIZED_NAME_MISMATCH_LABEL_KEYS = "mismatchLabelKeys";
+  @SerializedName(SERIALIZED_NAME_MISMATCH_LABEL_KEYS)
+  private List<String> mismatchLabelKeys = null;
 
   public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
   @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
@@ -69,6 +77,68 @@ public class V1PodAffinityTerm {
 
   public void setLabelSelector(V1LabelSelector labelSelector) {
     this.labelSelector = labelSelector;
+  }
+
+
+  public V1PodAffinityTerm matchLabelKeys(List<String> matchLabelKeys) {
+
+    this.matchLabelKeys = matchLabelKeys;
+    return this;
+  }
+
+  public V1PodAffinityTerm addMatchLabelKeysItem(String matchLabelKeysItem) {
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList<>();
+    }
+    this.matchLabelKeys.add(matchLabelKeysItem);
+    return this;
+  }
+
+   /**
+   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with &#x60;labelSelector&#x60; as &#x60;key in (value)&#x60; to select the group of existing pods which pods will be taken into consideration for the incoming pod&#39;s pod (anti) affinity. Keys that don&#39;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn&#39;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.
+   * @return matchLabelKeys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.")
+
+  public List<String> getMatchLabelKeys() {
+    return matchLabelKeys;
+  }
+
+
+  public void setMatchLabelKeys(List<String> matchLabelKeys) {
+    this.matchLabelKeys = matchLabelKeys;
+  }
+
+
+  public V1PodAffinityTerm mismatchLabelKeys(List<String> mismatchLabelKeys) {
+
+    this.mismatchLabelKeys = mismatchLabelKeys;
+    return this;
+  }
+
+  public V1PodAffinityTerm addMismatchLabelKeysItem(String mismatchLabelKeysItem) {
+    if (this.mismatchLabelKeys == null) {
+      this.mismatchLabelKeys = new ArrayList<>();
+    }
+    this.mismatchLabelKeys.add(mismatchLabelKeysItem);
+    return this;
+  }
+
+   /**
+   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with &#x60;labelSelector&#x60; as &#x60;key notin (value)&#x60; to select the group of existing pods which pods will be taken into consideration for the incoming pod&#39;s pod (anti) affinity. Keys that don&#39;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn&#39;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.
+   * @return mismatchLabelKeys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.")
+
+  public List<String> getMismatchLabelKeys() {
+    return mismatchLabelKeys;
+  }
+
+
+  public void setMismatchLabelKeys(List<String> mismatchLabelKeys) {
+    this.mismatchLabelKeys = mismatchLabelKeys;
   }
 
 
@@ -158,6 +228,8 @@ public class V1PodAffinityTerm {
     }
     V1PodAffinityTerm v1PodAffinityTerm = (V1PodAffinityTerm) o;
     return Objects.equals(this.labelSelector, v1PodAffinityTerm.labelSelector) &&
+        Objects.equals(this.matchLabelKeys, v1PodAffinityTerm.matchLabelKeys) &&
+        Objects.equals(this.mismatchLabelKeys, v1PodAffinityTerm.mismatchLabelKeys) &&
         Objects.equals(this.namespaceSelector, v1PodAffinityTerm.namespaceSelector) &&
         Objects.equals(this.namespaces, v1PodAffinityTerm.namespaces) &&
         Objects.equals(this.topologyKey, v1PodAffinityTerm.topologyKey);
@@ -165,7 +237,7 @@ public class V1PodAffinityTerm {
 
   @Override
   public int hashCode() {
-    return Objects.hash(labelSelector, namespaceSelector, namespaces, topologyKey);
+    return Objects.hash(labelSelector, matchLabelKeys, mismatchLabelKeys, namespaceSelector, namespaces, topologyKey);
   }
 
 
@@ -174,6 +246,8 @@ public class V1PodAffinityTerm {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PodAffinityTerm {\n");
     sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
+    sb.append("    matchLabelKeys: ").append(toIndentedString(matchLabelKeys)).append("\n");
+    sb.append("    mismatchLabelKeys: ").append(toIndentedString(mismatchLabelKeys)).append("\n");
     sb.append("    namespaceSelector: ").append(toIndentedString(namespaceSelector)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    topologyKey: ").append(toIndentedString(topologyKey)).append("\n");

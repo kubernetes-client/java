@@ -30,7 +30,7 @@ import java.io.IOException;
  * ResourceClass is used by administrators to influence how resources are allocated.  This is an alpha type and requires enabling the DynamicResourceAllocation feature gate.
  */
 @ApiModel(description = "ResourceClass is used by administrators to influence how resources are allocated.  This is an alpha type and requires enabling the DynamicResourceAllocation feature gate.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1alpha2ResourceClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -51,6 +51,10 @@ public class V1alpha2ResourceClass implements io.kubernetes.client.common.Kubern
   public static final String SERIALIZED_NAME_PARAMETERS_REF = "parametersRef";
   @SerializedName(SERIALIZED_NAME_PARAMETERS_REF)
   private V1alpha2ResourceClassParametersReference parametersRef;
+
+  public static final String SERIALIZED_NAME_STRUCTURED_PARAMETERS = "structuredParameters";
+  @SerializedName(SERIALIZED_NAME_STRUCTURED_PARAMETERS)
+  private Boolean structuredParameters;
 
   public static final String SERIALIZED_NAME_SUITABLE_NODES = "suitableNodes";
   @SerializedName(SERIALIZED_NAME_SUITABLE_NODES)
@@ -171,6 +175,29 @@ public class V1alpha2ResourceClass implements io.kubernetes.client.common.Kubern
   }
 
 
+  public V1alpha2ResourceClass structuredParameters(Boolean structuredParameters) {
+
+    this.structuredParameters = structuredParameters;
+    return this;
+  }
+
+   /**
+   * If and only if allocation of claims using this class is handled via structured parameters, then StructuredParameters must be set to true.
+   * @return structuredParameters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If and only if allocation of claims using this class is handled via structured parameters, then StructuredParameters must be set to true.")
+
+  public Boolean getStructuredParameters() {
+    return structuredParameters;
+  }
+
+
+  public void setStructuredParameters(Boolean structuredParameters) {
+    this.structuredParameters = structuredParameters;
+  }
+
+
   public V1alpha2ResourceClass suitableNodes(V1NodeSelector suitableNodes) {
 
     this.suitableNodes = suitableNodes;
@@ -208,12 +235,13 @@ public class V1alpha2ResourceClass implements io.kubernetes.client.common.Kubern
         Objects.equals(this.kind, v1alpha2ResourceClass.kind) &&
         Objects.equals(this.metadata, v1alpha2ResourceClass.metadata) &&
         Objects.equals(this.parametersRef, v1alpha2ResourceClass.parametersRef) &&
+        Objects.equals(this.structuredParameters, v1alpha2ResourceClass.structuredParameters) &&
         Objects.equals(this.suitableNodes, v1alpha2ResourceClass.suitableNodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, driverName, kind, metadata, parametersRef, suitableNodes);
+    return Objects.hash(apiVersion, driverName, kind, metadata, parametersRef, structuredParameters, suitableNodes);
   }
 
 
@@ -226,6 +254,7 @@ public class V1alpha2ResourceClass implements io.kubernetes.client.common.Kubern
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    parametersRef: ").append(toIndentedString(parametersRef)).append("\n");
+    sb.append("    structuredParameters: ").append(toIndentedString(structuredParameters)).append("\n");
     sb.append("    suitableNodes: ").append(toIndentedString(suitableNodes)).append("\n");
     sb.append("}");
     return sb.toString();

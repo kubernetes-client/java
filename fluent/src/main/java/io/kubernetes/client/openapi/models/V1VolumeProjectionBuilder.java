@@ -23,6 +23,7 @@ public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluent<V1Volume
   
   public V1VolumeProjection build() {
     V1VolumeProjection buildable = new V1VolumeProjection();
+    buildable.setClusterTrustBundle(fluent.buildClusterTrustBundle());
     buildable.setConfigMap(fluent.buildConfigMap());
     buildable.setDownwardAPI(fluent.buildDownwardAPI());
     buildable.setSecret(fluent.buildSecret());
