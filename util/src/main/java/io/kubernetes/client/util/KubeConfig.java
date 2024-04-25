@@ -18,7 +18,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import io.kubernetes.client.persister.ConfigPersister;
 import io.kubernetes.client.util.authenticators.Authenticator;
-import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import io.kubernetes.client.util.authenticators.OpenIDConnectAuthenticator;
 import java.io.File;
@@ -79,7 +78,6 @@ public class KubeConfig {
 
   static {
     registerAuthenticator(new GCPAuthenticator());
-    registerAuthenticator(new AzureActiveDirectoryAuthenticator());
     registerAuthenticator(new OpenIDConnectAuthenticator());
   }
 

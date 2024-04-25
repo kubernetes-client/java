@@ -141,19 +141,6 @@
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>adal4j</artifactId>
-        <version>1.6.7</version>
-        <optional>true</optional>
-      </dependency>
-      <!-- override the version in adal4j which has a CVE -->
-      <dependency>
-        <groupId>net.minidev</groupId>
-        <artifactId>json-smart</artifactId>
-        <version>2.5.1</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sts</artifactId>
         <version>1.12.708</version>
