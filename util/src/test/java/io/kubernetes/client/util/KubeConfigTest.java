@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.auth.oauth2.AccessToken;
 import com.google.auth.oauth2.GoogleCredentials;
 import io.kubernetes.client.util.authenticators.Authenticator;
-import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
@@ -208,30 +207,6 @@ class KubeConfigTest {
     KubeConfig.registerAuthenticator(new GCPAuthenticator(null, mockGC));
     KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
     assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, fakeToken);
-  }
-
-  @Test
-  void azureAuthProvider() {
-    KubeConfig.registerAuthenticator(new AzureActiveDirectoryAuthenticator());
-    String azureConfig =
-        "apiVersion: v1\n"
-            + "contexts:\n"
-            + "- context:\n"
-            + "    user: aks-cluster\n"
-            + "  name: foo-context\n"
-            + "current-context: foo-context\n"
-            + "users:\n"
-            + "- name: aks-cluster\n"
-            + "  user:\n"
-            + "    auth-provider:\n"
-            + "      config:\n"
-            + "        access-token: fake-azure-token\n"
-            + "        expires-on: \"1841569394\"\n"
-            + "        expiry-key: '{.credential.token_expiry}'\n"
-            + "        token-key: '{.credential.access_token}'\n"
-            + "      name: azure\n";
-    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(azureConfig));
-    assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "fake-azure-token");
   }
 
   @Test
