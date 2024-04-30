@@ -22,16 +22,26 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
 import okio.ByteString;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(OrderAnnotation.class)
 class JSONTest {
 
-  private final JSON json = new JSON();
+  @Order(0)
+  @Test
+  void serializeWithStaticMethod() {
+    JSON.serialize(new V1ObjectMeta());
+  }
 
   @Test
   void serializeByteArray() {
+    JSON json = new JSON();
     final String plainText = "string that contains '=' when encoded";
     final String base64String = json.serialize(plainText.getBytes());
     // serialize returns string surrounded by quotes: "\"[base64]\""
@@ -48,6 +58,7 @@ class JSONTest {
 
   @Test
   void offsetDateTime1e6Parse() {
+    JSON json = new JSON();
     String timeStr = "\"2018-04-03T11:32:26.123456Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -56,6 +67,7 @@ class JSONTest {
 
   @Test
   void offsetDateTime1e4Parse() {
+    JSON json = new JSON();
     String timeStr = "\"2018-04-03T11:32:26.1234Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -65,6 +77,7 @@ class JSONTest {
 
   @Test
   void offsetDateTime1e3Parse() {
+    JSON json = new JSON();
     String timeStr = "\"2018-04-03T11:32:26.123Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -74,6 +87,7 @@ class JSONTest {
 
   @Test
   void offsetDateTimeNoFractionParse() {
+    JSON json = new JSON();
     String timeStr = "\"2018-04-03T11:32:26Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
