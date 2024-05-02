@@ -63,7 +63,7 @@
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.26.1</apache.commons.compress>
     <apache.commons.io>2.16.1</apache.commons.io>
-    <common.codec.version>1.16.1</common.codec.version>
+    <common.codec.version>1.17.0</common.codec.version>
     <spring.boot.version>3.2.5</spring.boot.version>
     <spring.version>6.1.6</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
