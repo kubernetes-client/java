@@ -21,16 +21,6 @@ import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
 import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
 import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 
-import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.models.V1CertificateSigningRequest;
-import io.kubernetes.client.persister.FilePersister;
-import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
-import io.kubernetes.client.util.credentials.Authentication;
-import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
-import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
-import io.kubernetes.client.util.credentials.TokenFileAuthentication;
-import io.kubernetes.client.util.exception.CSRNotApprovedException;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -49,11 +39,24 @@ import java.security.PrivateKey;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import okhttp3.Protocol;
+
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.models.V1CertificateSigningRequest;
+import io.kubernetes.client.persister.FilePersister;
+import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
+import io.kubernetes.client.util.credentials.Authentication;
+import io.kubernetes.client.util.credentials.AuthenticationRefresher;
+import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
+import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
+import io.kubernetes.client.util.credentials.TokenFileAuthentication;
+import io.kubernetes.client.util.exception.CSRNotApprovedException;
+import okhttp3.Protocol;
 
 /** A Builder which allows the construction of {@link ApiClient}s in a fluent fashion. */
 public class ClientBuilder {
@@ -70,6 +73,8 @@ public class ClientBuilder {
   private Duration readTimeout = Duration.ZERO;
   // default health check is once a minute
   private Duration pingInterval = Duration.ofMinutes(1);
+
+  private Duration authenticationRefreshSeconds;
 
   /**
    * Creates an {@link ApiClient} by calling {@link #standard()} and {@link #build()}.
@@ -418,6 +423,15 @@ public class ClientBuilder {
     return this;
   }
 
+  public Duration getAuthenticationRefreshSeconds() {
+    return authenticationRefreshSeconds;
+  }
+
+  public ClientBuilder setAuthenticationRefreshSeconds(Duration authenticationRefreshSeconds) {
+    this.authenticationRefreshSeconds = authenticationRefreshSeconds;
+    return this;
+  }
+
   public ApiClient build() {
     final ApiClient client = new ApiClient();
 
@@ -450,6 +464,15 @@ public class ClientBuilder {
           }
         }
       }
+
+      // When authenticationRefreshSeconds is set, wrap the Authentication
+      // object in an AuthenticationRefresher. It is important that we do this
+      // after the passphrase code above is done munging around with the
+      // internals of KubeConfigAuthentication
+      if (authenticationRefreshSeconds != null) {
+        authentication = new AuthenticationRefresher(authentication, authenticationRefreshSeconds.toSeconds());
+      }
+
       authentication.provide(client);
     }
 

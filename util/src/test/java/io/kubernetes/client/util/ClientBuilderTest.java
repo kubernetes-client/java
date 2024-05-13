@@ -17,20 +17,24 @@ import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.Duration;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import uk.org.webcompere.systemstubs.environment.EnvironmentVariables;
 import uk.org.webcompere.systemstubs.jupiter.SystemStub;
 import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
@@ -216,6 +220,19 @@ class ClientBuilderTest {
     final Authentication provider = mock(Authentication.class);
     final ApiClient client = ClientBuilder.standard().setAuthentication(provider).build();
     verify(provider).provide(client);
+  }
+
+  @Test
+  void credentialProviderWrappedWithRefresher() throws IOException, InterruptedException {
+    final Authentication provider = mock(Authentication.class);
+    final ApiClient client = ClientBuilder.standard()
+        .setAuthentication(provider)
+        .setAuthenticationRefreshSeconds(Duration.ofSeconds(2))
+        .build();
+
+    Thread.sleep(3000);
+
+    verify(provider, times(2)).provide(client);
   }
 
   /**
