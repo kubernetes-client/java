@@ -156,7 +156,7 @@
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sts</artifactId>
-        <version>1.12.720</version>
+        <version>1.12.721</version>
         <optional>true</optional>
       </dependency>
       <dependency>
