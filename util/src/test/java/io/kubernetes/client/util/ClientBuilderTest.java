@@ -17,7 +17,6 @@ import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.io.File;
@@ -26,8 +25,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import io.kubernetes.client.Resources;
@@ -222,17 +224,26 @@ class ClientBuilderTest {
     verify(provider).provide(client);
   }
 
+  /**
+   * If this test times out it means that the CountDownLatch did not reach zero,
+   * which means our authenticator is not being called twice as expected.
+   */
   @Test
-  void credentialProviderWrappedWithRefresher() throws IOException, InterruptedException {
-    final Authentication provider = mock(Authentication.class);
-    final ApiClient client = ClientBuilder.standard()
+  @Timeout(value = 10, unit = TimeUnit.SECONDS)
+  void credentialProviderWrappedWithRefresher() throws IOException,
+      InterruptedException {
+    CountDownLatch latch = new CountDownLatch(2);
+    final Authentication provider = new Authentication() {
+      @Override
+      public void provide(ApiClient client) {
+        latch.countDown();
+      }
+    };
+    ClientBuilder.standard()
         .setAuthentication(provider)
-        .setAuthenticationRefreshSeconds(Duration.ofSeconds(2))
-        .build();
+        .setAuthenticationRefreshSeconds(Duration.ofSeconds(2)).build();
 
-    Thread.sleep(3000);
-
-    verify(provider, times(2)).provide(client);
+    latch.await();
   }
 
   /**

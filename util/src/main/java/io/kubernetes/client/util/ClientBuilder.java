@@ -470,6 +470,10 @@ public class ClientBuilder {
       // after the passphrase code above is done munging around with the
       // internals of KubeConfigAuthentication
       if (authenticationRefreshSeconds != null) {
+        if (authentication instanceof AuthenticationRefresher) {
+          throw new IllegalStateException(
+              "AuthenticationRefresher already exists in the chain");
+        }
         authentication = new AuthenticationRefresher(authentication, authenticationRefreshSeconds.toSeconds());
       }
 

@@ -12,13 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.ClientBuilder;
@@ -32,21 +37,51 @@ public class AuthenticationRefresherTest {
 
         final ApiClient client = ClientBuilder.standard().setAuthentication(wrapper).build();
 
+        //No latch here, just need to make sure it got called once.
         verify(provider).provide(client);
     }
 
+    /**
+     * CountdownLatch should be called 2 times in this teest. Once
+     * synchronously, and once asynchronously.
+     *
+     * @throws Exception
+     */
     @Test
+    @Timeout(value = 4, unit = TimeUnit.SECONDS)
     void credentialProviderTimerInvoked() throws Exception {
-        final Authentication provider = mock(Authentication.class);
+    CountDownLatch latch = new CountDownLatch(2);
+
+        final Authentication provider = new Authentication() {
+            @Override
+            public void provide(ApiClient client) {
+                latch.countDown();
+            }
+        };
         final Authentication wrapper = new AuthenticationRefresher(provider, 2);
 
-        final ApiClient client = ClientBuilder.standard().setAuthentication(wrapper).build();
+        ClientBuilder.standard().setAuthentication(wrapper).build();
 
-        Thread.sleep(3000);
+        latch.await();
+    }
 
-        // verify provider mock called 2 times
-        verify(provider, times(2)).provide(client);
+    /**
+     * CountdownLatch should be called 1 time in this teest. Once
+     * synchronously, and then the timer should cancel.
+     *
+     * @throws Exception
+     */
+    @Test
+    @Timeout(value = 4, unit = TimeUnit.SECONDS)
+    void credentialProviderTimerInvokedOnce() throws Exception {
+        Authentication mockProvider = mock(Authentication.class);
+        AuthenticationRefresher wrapper = new AuthenticationRefresher(mockProvider, 2);
 
+        ClientBuilder.standard().setAuthentication(wrapper).build();
+        wrapper.stop();
+
+        assertFalse(wrapper.isRunning(), "After our unused ApiClient returned from .build() is garbage collected, the refresher should stop.");
+        verify(mockProvider, times(1)).provide(any(ApiClient.class));
     }
 
 }

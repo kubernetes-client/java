@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
+import java.lang.ref.WeakReference;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -26,11 +27,12 @@ import io.kubernetes.client.openapi.ApiClient;
  *
  * Can be used with ClientBuilder as such:
  *
- * <pre>
- * ClientBuilder.standard()
- *         .withAuthentication(new AuthenticationRefresher(new KubeconfigAuthentication(), 60))
- *         .build();
- * </pre>
+ * <pre> ClientBuilder.standard() .withAuthentication(new
+ * AuthenticationRefresher(new KubeconfigAuthentication(), 60)) .build(); </pre>
+ *
+ * The AuthenticationRefresher maintains a {@link WeakReference} to the
+ * ApiClient passed into provide. When the client instance goes out of scope,
+ * the refresh timer will be cancelled and released.
  */
 public class AuthenticationRefresher implements Authentication {
 
@@ -39,9 +41,12 @@ public class AuthenticationRefresher implements Authentication {
     private final Authentication delegateAuthentication;
     private final Long expirationSeconds;
 
+    private final ScheduledExecutorService executor;
+
     public AuthenticationRefresher(Authentication delegateAuthentication, long expirationSeconds) {
         this.delegateAuthentication = delegateAuthentication;
         this.expirationSeconds = expirationSeconds;
+        this.executor = Executors.newSingleThreadScheduledExecutor();
         log.debug("AuthenticationRefresher initialized with expirationSeconds: " + expirationSeconds);
     }
 
@@ -50,17 +55,42 @@ public class AuthenticationRefresher implements Authentication {
      */
     @Override
     public void provide(ApiClient client) {
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        // Run it now, synchronously.
+        log.debug("Invoking authentication");
+        this.delegateAuthentication.provide(client);
+        // Schedule the next run.
+        scheduleRefresh(client);
+    }
+
+    private void scheduleRefresh(final ApiClient clientArg) {
+        WeakReference<ApiClient> clientReference = new WeakReference<>(clientArg);
+
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
                 log.debug("Refreshing authentication");
-                delegateAuthentication.provide(client);
+
+                ApiClient client = clientReference.get();
+
+                if (client == null) {
+                    log.debug("ApiClient has been garbage collected, stopping refresh timer");
+                    stop();
+                    return;
+                } else {
+                    log.debug("Invoking authentication");
+                    delegateAuthentication.provide(client);
+                }
+
             }
         }, expirationSeconds, expirationSeconds, java.util.concurrent.TimeUnit.SECONDS);
 
-        // Run it now, synchronously.
-        log.debug("Invoking authentication");
-        delegateAuthentication.provide(client);
+    }
+
+    public boolean isRunning() {
+        return !executor.isShutdown();
+    }
+
+    public void stop() {
+        executor.shutdownNow();
     }
 }
