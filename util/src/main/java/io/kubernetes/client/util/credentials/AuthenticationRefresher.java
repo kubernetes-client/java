@@ -15,6 +15,7 @@ package io.kubernetes.client.util.credentials;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,12 +42,13 @@ public class AuthenticationRefresher implements Authentication {
     private final Authentication delegateAuthentication;
     private final Long expirationSeconds;
 
-    private final ScheduledExecutorService executor;
+    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+    private ScheduledFuture<?> currentSchedule;
 
     public AuthenticationRefresher(Authentication delegateAuthentication, long expirationSeconds) {
         this.delegateAuthentication = delegateAuthentication;
         this.expirationSeconds = expirationSeconds;
-        this.executor = Executors.newSingleThreadScheduledExecutor();
         log.debug("AuthenticationRefresher initialized with expirationSeconds: " + expirationSeconds);
     }
 
@@ -59,13 +61,19 @@ public class AuthenticationRefresher implements Authentication {
         log.debug("Invoking authentication");
         this.delegateAuthentication.provide(client);
         // Schedule the next run.
-        scheduleRefresh(client);
+        synchronized (this) {
+            if (currentSchedule != null) {
+                stop();
+            }
+            this.currentSchedule = scheduleRefresh(client);
+        }
+
     }
 
-    private void scheduleRefresh(final ApiClient clientArg) {
+    private ScheduledFuture<?> scheduleRefresh(final ApiClient clientArg) {
         WeakReference<ApiClient> clientReference = new WeakReference<>(clientArg);
 
-        executor.scheduleAtFixedRate(new Runnable() {
+        return executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
                 log.debug("Refreshing authentication");
@@ -87,10 +95,14 @@ public class AuthenticationRefresher implements Authentication {
     }
 
     public boolean isRunning() {
-        return !executor.isShutdown();
+        return !this.currentSchedule.isCancelled();
     }
 
     public void stop() {
-        executor.shutdownNow();
+        this.currentSchedule.cancel(true);
+    }
+
+    public Authentication getDelegateAuthentication() {
+        return delegateAuthentication;
     }
 }

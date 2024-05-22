@@ -80,8 +80,7 @@ public class AuthenticationRefresherTest {
         ClientBuilder.standard().setAuthentication(wrapper).build();
         wrapper.stop();
 
-        assertFalse(wrapper.isRunning(), "After our unused ApiClient returned from .build() is garbage collected, the refresher should stop.");
+        assertFalse(wrapper.isRunning(), "Wrapper should be stopped.");
         verify(mockProvider, times(1)).provide(any(ApiClient.class));
     }
-
 }

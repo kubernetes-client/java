@@ -467,12 +467,14 @@ public class ClientBuilder {
 
       // When authenticationRefreshSeconds is set, wrap the Authentication
       // object in an AuthenticationRefresher. It is important that we do this
-      // after the passphrase code above is done munging around with the
-      // internals of KubeConfigAuthentication
+      // after the passphrase code
       if (authenticationRefreshSeconds != null) {
         if (authentication instanceof AuthenticationRefresher) {
-          throw new IllegalStateException(
-              "AuthenticationRefresher already exists in the chain");
+          // If we're already wrapped in a AuthenticationRefresher, stop it
+          AuthenticationRefresher refresher = (AuthenticationRefresher) authentication;
+          refresher.stop();
+          // Unwrap the delegate authentication, so we can rewrap it
+          authentication = refresher.getDelegateAuthentication();
         }
         authentication = new AuthenticationRefresher(authentication, authenticationRefreshSeconds.toSeconds());
       }
