@@ -7,7 +7,16 @@ on:
         type: string
         required: true
         description: 'The remote kubernetes release branch to fetch openapi spec. .e.g. "release-1.23"'
-
+      dry_run:
+        type: boolean
+        required: true
+        default: false
+        description: Dry run, will not send a PR
+      skip_patches:
+        type: boolean
+        required: true
+        default: false
+        description: If true, skip patching code after generation
 
 permissions:
   contents: read
@@ -68,6 +77,7 @@ jobs:
           git add .
           git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
       - name: Apply Manual Diffs
+        if: ${{ github.event.inputs.skip_patches != 'true' }}
         run: |
           ls scripts/patches/*.diff | xargs git apply
           git add .
@@ -87,12 +97,14 @@ jobs:
         run: |
           mvn spotless:apply
       - name: Commit and push
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           # Commit and push
           git add .
           git commit -s -m 'Format and fluent-gen from ${{ github.event.inputs.kubernetesBranch }}'
           git push origin "$BRANCH"
       - name: Pull Request
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ env.BRANCH }}
