@@ -139,7 +139,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Kubernetes Java Client/20.0.0-SNAPSHOT");
+        setUserAgent("Kubernetes Java Client/21.0.0-SNAPSHOT");
 
         authentications = new HashMap<String, Authentication>();
     }
