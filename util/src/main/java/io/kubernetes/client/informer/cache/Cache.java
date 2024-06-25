@@ -365,6 +365,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
         Set<String> indexSet = index.get(indexValue);
         if (indexSet != null) {
           indexSet.remove(key);
+          if (indexSet.isEmpty()) {
+            index.remove(indexValue);
+          }
         }
       }
     }
