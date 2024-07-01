@@ -4456,7 +4456,7 @@ public class NetworkingV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4705,7 +4705,7 @@ public class NetworkingV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4962,7 +4962,7 @@ public class NetworkingV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5219,7 +5219,7 @@ public class NetworkingV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
