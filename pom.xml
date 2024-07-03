@@ -157,7 +157,7 @@
         <version>0.9.6</version>
       </dependency>
       <dependency>
-        <groupId>com.github.vladimir-bukhtoyarov</groupId>
+        <groupId>com.bucket4j</groupId>
         <artifactId>bucket4j-core</artifactId>
         <version>${bucket4j.version}</version>
       </dependency>
