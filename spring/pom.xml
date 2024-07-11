@@ -26,7 +26,11 @@
       <artifactId>client-java-extended</artifactId>
       <version>${project.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient</artifactId>
+      <optional>${prometheus.client.optional}</optional>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot</artifactId>
@@ -38,6 +42,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-actuator</artifactId>
+      <optional>${org.springframework.boot.spring-boot-actuator.optional}</optional>
     </dependency>
     <dependency>
       <groupId>com.github.ben-manes.caffeine</groupId>

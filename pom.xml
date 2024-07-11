@@ -69,6 +69,15 @@
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
+    <!-- The `optional` tag in `dependencyManagement` is not inherited; see
+    https://issues.apache.org/jira/browse/MNG-5227 and
+    https://issues.apache.org/jira/browse/MNG-5632. Therefore, we specify
+    optional dependencies here to manage them in a single location. -->
+    <prometheus.client.optional>true</prometheus.client.optional>
+    <com.amazonaws.aws-java-sdk-sts.optional>true</com.amazonaws.aws-java-sdk-sts.optional>
+    <com.google.auth.google-auth-library-oauth2-http.optional>true</com.google.auth.google-auth-library-oauth2-http.optional>
+    <org.springframework.boot.spring-boot-actuator.optional>true</org.springframework.boot.spring-boot-actuator.optional>
+
     <e2e.skip>true</e2e.skip>
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
@@ -185,19 +194,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-actuator</artifactId>
         <version>${spring.boot.version}</version>
-        <optional>true</optional>
       </dependency>
       <dependency>
         <groupId>io.prometheus</groupId>
         <artifactId>simpleclient</artifactId>
         <version>${prometheus.client.version}</version>
-        <optional>true</optional>
       </dependency>
       <dependency>
         <groupId>io.prometheus</groupId>
         <artifactId>simpleclient_httpserver</artifactId>
         <version>${prometheus.client.version}</version>
-        <optional>true</optional>
       </dependency>
       <dependency>
         <groupId>com.google.code.gson</groupId>
