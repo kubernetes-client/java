@@ -15,7 +15,7 @@ package io.kubernetes.client.extended.event.legacy;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import io.github.bucket4j.Bandwidth;
-import io.github.bucket4j.Bucket4j;
+import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
 import io.github.bucket4j.local.LocalBucket;
 import io.github.bucket4j.local.SynchronizationStrategy;
@@ -65,7 +65,7 @@ public class EventSpamFilter {
 
   private class SpamRecord {
     private LocalBucket tokenBucket =
-        Bucket4j.builder()
+        Bucket.builder()
             .addLimit(
                 Bandwidth.classic(
                     capacity, Refill.greedy(refillingTokensPerPeriod, refillingPeriod)))
