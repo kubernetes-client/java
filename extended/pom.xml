@@ -35,6 +35,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient</artifactId>
+            <optional>${prometheus.client.optional}</optional>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
