@@ -14,7 +14,6 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
-import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Refill;
 import io.github.bucket4j.local.SynchronizationStrategy;
 import java.time.Duration;
@@ -32,7 +31,7 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
     Bandwidth bandwidth =
         Bandwidth.classic(capacity, Refill.greedy(tokensGeneratedInPeriod, period));
     this.bucket =
-        Bucket4j.builder()
+        Bucket.builder()
             .addLimit(bandwidth)
             .withSynchronizationStrategy(SynchronizationStrategy.SYNCHRONIZED)
             .build();
