@@ -42,7 +42,7 @@ public class KubeConfigFileClientExample {
     ApiClient client =
         ClientBuilder.kubeconfig(KubeConfig.loadKubeConfig(new FileReader(kubeConfigPath))).build();
 
-    // set the global default api-client to the in-cluster one from above
+    // set the global default api-client to the out-of-cluster one from above
     Configuration.setDefaultApiClient(client);
 
     // the CoreV1Api loads default api-client from global configuration.
