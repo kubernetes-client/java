@@ -80,6 +80,6 @@ public class KubectlDelete<ApiType extends KubernetesObject>
     if (null == name) {
       throw new KubectlException("missing name argument");
     }
-    
+
   }
 }

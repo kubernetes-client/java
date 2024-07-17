@@ -1159,6 +1159,7 @@ public class GenericKubernetesApi<
             namespace,
             this.resourcePlural,
             name)
+                .body(deleteOptions)
                 // TODO: fill/convert the option
                 .buildCall(null);
   }

@@ -213,7 +213,10 @@ class KubectlDeleteTest {
         deleteOptions.setPropagationPolicy("Foreground");
         kubectlDelete.deleteOptions(deleteOptions);
         kubectlDelete.execute();
-
+        apiServer.verify(
+            1,
+            deleteRequestedFor(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+                .withRequestBody(equalToJson("{\"propagationPolicy\" : \"Foreground\"}")));
         assertThatThrownBy(() -> {
             KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
             kubectlDelete2.apiClient(apiClient);
