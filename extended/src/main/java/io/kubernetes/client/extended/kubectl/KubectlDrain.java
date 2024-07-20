@@ -83,6 +83,7 @@ public class KubectlDrain extends KubectlCordon {
       }
       if (!isDaemonSetPod) {
         deletePod(api, pod.getMetadata().getName(), pod.getMetadata().getNamespace());
+
       }
     }
     return node;
