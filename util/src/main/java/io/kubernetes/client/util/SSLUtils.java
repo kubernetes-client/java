@@ -24,6 +24,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.Provider;
 import java.security.Security;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
@@ -32,6 +33,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Collection;
+import java.util.ServiceLoader;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
@@ -40,10 +42,18 @@ import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.util.io.pem.PemWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SSLUtils {
+  private static final Logger log = LoggerFactory.getLogger(SSLUtils.class);
+
   static {
-    Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+    ServiceLoader<Provider> services = ServiceLoader.load(java.security.Provider.class);
+    for (Provider service : services) {
+      log.debug("Found security provider: " + service.getName());
+      Security.addProvider(service);
+    }
   }
 
   public static boolean isNotNullOrEmpty(String val) {
