@@ -16,21 +16,28 @@ import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.Duration;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import uk.org.webcompere.systemstubs.environment.EnvironmentVariables;
 import uk.org.webcompere.systemstubs.jupiter.SystemStub;
 import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
@@ -216,6 +223,58 @@ class ClientBuilderTest {
     final Authentication provider = mock(Authentication.class);
     final ApiClient client = ClientBuilder.standard().setAuthentication(provider).build();
     verify(provider).provide(client);
+  }
+
+  /**
+   * If this test times out it means that the CountDownLatch did not reach zero,
+   * which means our authenticator is not being called twice as expected.
+   */
+  @Test
+  @Timeout(value = 10, unit = TimeUnit.SECONDS)
+  void credentialProviderWrappedWithRefresher() throws IOException,
+      InterruptedException {
+    CountDownLatch latch = new CountDownLatch(2);
+    final Authentication provider = new Authentication() {
+      @Override
+      public void provide(ApiClient client) {
+        latch.countDown();
+      }
+    };
+    ClientBuilder.standard()
+        .setAuthentication(provider)
+        .setAuthenticationRefreshSeconds(Duration.ofSeconds(2)).build();
+
+    latch.await();
+  }
+
+  /**
+   * If this test times out it means that the CountDownLatch did not reach zero,
+   * which means our authenticator is not being called twice as expected.
+   */
+  @Test
+  @Timeout(value = 10, unit = TimeUnit.SECONDS)
+  void credentialProviderWrappedWithRefresherTwice() throws IOException,
+      InterruptedException {
+    CountDownLatch latch = new CountDownLatch(3);
+    Authentication provider = new Authentication() {
+      @Override
+      public void provide(ApiClient client) {
+        if (latch.getCount() == 0) {
+          throw new RuntimeException("Should not be called at zero");
+        }
+        latch.countDown();
+      }
+    };
+    ClientBuilder builder = ClientBuilder.standard()
+        .setAuthentication(provider)
+        .setAuthenticationRefreshSeconds(Duration.ofSeconds(2));
+
+    builder.build();
+    builder.build();
+
+    assertEquals(1, latch.getCount());
+
+    latch.await();
   }
 
   /**
