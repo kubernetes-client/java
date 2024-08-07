@@ -39,10 +39,11 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        tools: 'https://github.com/github/codeql-action/releases/download/codeql-bundle-20230524/codeql-bundle-linux64.tar.gz'
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    # See https://github.com/github/codeql/issues/13541 for the origins of this command
+    # We can't use autobuild because it doesn't detect the right Java version
+    - name: Build project
+      run: ./mvnw clean package -f "pom.xml" -B -V -e -Dfindbugs.skip -Dcheckstyle.skip -Dpmd.skip=true -Dspotbugs.skip -Denforcer.skip -Dmaven.javadoc.skip -DskipTests -Dmaven.test.skip.exec -Dlicense.skip=true -Drat.skip=true -Dspotless.check.skip=true
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
