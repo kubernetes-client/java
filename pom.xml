@@ -77,6 +77,8 @@
     <com.amazonaws.aws-java-sdk-sts.optional>true</com.amazonaws.aws-java-sdk-sts.optional>
     <com.google.auth.google-auth-library-oauth2-http.optional>true</com.google.auth.google-auth-library-oauth2-http.optional>
     <org.springframework.boot.spring-boot-actuator.optional>true</org.springframework.boot.spring-boot-actuator.optional>
+    <com.microsoft.azure.adal4j.optional>true</com.microsoft.azure.adal4j.optional>
+    <com.fasterxml.jackson.core.jackson-annotations.optional>true</com.fasterxml.jackson.core.jackson-annotations.optional>
 
     <e2e.skip>true</e2e.skip>
 
@@ -152,13 +154,13 @@
         <groupId>com.microsoft.azure</groupId>
         <artifactId>adal4j</artifactId>
         <version>1.6.7</version>
-        <optional>true</optional>
+        <optional>${com.microsoft.azure.adal4j.optional}</optional>
       </dependency>
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sts</artifactId>
         <version>1.12.746</version>
-        <optional>true</optional>
+        <optional>${com.amazonaws.aws-java-sdk-sts.optional}</optional>
       </dependency>
       <dependency>
         <groupId>com.google.protobuf</groupId>
@@ -254,13 +256,13 @@
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
         <version>1.23.0</version>
-        <optional>true</optional>
+        <optional>${com.google.auth.google-auth-library-oauth2-http.optional}</optional>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
         <version>2.17.1</version>
-        <optional>true</optional>
+        <optional>${com.fasterxml.jackson.core.jackson-annotations.optional}</optional>
       </dependency>
 
       <!-- tests -->
