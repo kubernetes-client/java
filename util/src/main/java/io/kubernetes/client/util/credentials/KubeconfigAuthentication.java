@@ -16,6 +16,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 
@@ -33,8 +34,9 @@ import org.apache.commons.lang3.StringUtils;
 public class KubeconfigAuthentication implements Authentication {
 
   private final Authentication delegateAuthentication;
+  private Duration tokenRefreshPeriod;
 
-  public KubeconfigAuthentication(final KubeConfig config) throws IOException {
+  public KubeconfigAuthentication(final KubeConfig config, Duration tokenRefreshPeriod) throws IOException {
     byte[] clientCert =
         config.getDataOrFileRelative(
             config.getClientCertificateData(), config.getClientCertificateFile());
@@ -60,7 +62,9 @@ public class KubeconfigAuthentication implements Authentication {
     if (credentials != null) {
       if (StringUtils.isNotEmpty(credentials.get(KubeConfig.CRED_TOKEN_KEY))) {
         delegateAuthentication =
-            new AccessTokenAuthentication(credentials.get(KubeConfig.CRED_TOKEN_KEY));
+          tokenRefreshPeriod == null ?
+          new AccessTokenAuthentication(credentials.get(KubeConfig.CRED_TOKEN_KEY)) :
+          new RefreshAuthentication(() -> config.getCredentials().get(KubeConfig.CRED_TOKEN_KEY), tokenRefreshPeriod);
         return;
       } else if (StringUtils.isNotEmpty(
               credentials.get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY))

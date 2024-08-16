@@ -70,6 +70,9 @@ public class ClientBuilder {
   private Duration readTimeout = Duration.ZERO;
   // default health check is once a minute
   private Duration pingInterval = Duration.ofMinutes(1);
+  // time to refresh exec based credentials
+  // TODO: Read the expiration from the credential itself
+  private Duration execCredentialRefreshPeriod = null;
 
   /**
    * Creates an {@link ApiClient} by calling {@link #standard()} and {@link #build()}.
@@ -272,6 +275,20 @@ public class ClientBuilder {
    * @throws IOException if the files specified in the provided <tt>KubeConfig</tt> are not readable
    */
   public static ClientBuilder kubeconfig(KubeConfig config) throws IOException {
+    return kubeconfig(config, null);
+  }
+
+  /**
+   * Creates a builder which is pre-configured from a {@link KubeConfig}.
+   *
+   * <p>To load a <tt>KubeConfig</tt>, see {@link KubeConfig#loadKubeConfig(Reader)}.
+   *
+   * @param config The {@link KubeConfig} to configure the builder from.
+   * @param tokenRefreshPeriod If the KubeConfig generates a bearer token, after this interval, it will be refreshed.
+   * @return <tt>ClientBuilder</tt> configured from the provided <tt>KubeConfig</tt>
+   * @throws IOException if the files specified in the provided <tt>KubeConfig</tt> are not readable
+   */
+  public static ClientBuilder kubeconfig(KubeConfig config, Duration tokenRefreshPeriod) throws IOException {
     final ClientBuilder builder = new ClientBuilder();
 
     String server = config.getServer();
@@ -295,7 +312,7 @@ public class ClientBuilder {
     builder.setVerifyingSsl(config.verifySSL());
 
     builder.setBasePath(server);
-    builder.setAuthentication(new KubeconfigAuthentication(config));
+    builder.setAuthentication(new KubeconfigAuthentication(config, tokenRefreshPeriod));
     return builder;
   }
 

@@ -20,6 +20,7 @@ import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,7 @@ class KubeconfigAuthenticationTest {
     certCredentials.put(KubeConfig.CRED_CLIENT_KEY_DATA_KEY, "key");
     when(kubeConfig.getCredentials()).thenReturn(certCredentials);
 
-    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, null);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())
         .isInstanceOf(ClientCertificateAuthentication.class);
@@ -49,7 +50,7 @@ class KubeconfigAuthenticationTest {
   void certificateAuthenticationFromKubeConfig() throws IOException {
     when(kubeConfig.getDataOrFileRelative(any(), any())).thenReturn("data".getBytes());
 
-    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, null);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())
         .isInstanceOf(ClientCertificateAuthentication.class);
@@ -61,7 +62,7 @@ class KubeconfigAuthenticationTest {
     when(kubeConfig.getUsername()).thenReturn("user");
     when(kubeConfig.getPassword()).thenReturn("password");
 
-    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, null);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())
         .isInstanceOf(UsernamePasswordAuthentication.class);
@@ -73,15 +74,31 @@ class KubeconfigAuthenticationTest {
     certCredentials.put(KubeConfig.CRED_TOKEN_KEY, "token");
     when(kubeConfig.getCredentials()).thenReturn(certCredentials);
 
-    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, null);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())
         .isInstanceOf(AccessTokenAuthentication.class);
   }
 
   @Test
+  void accessTokenAuthenticationFromExecComandWithRefresh() throws IOException {
+    Map<String, String> certCredentials = new HashMap<>();
+    certCredentials.put(KubeConfig.CRED_TOKEN_KEY, "token");
+    when(kubeConfig.getCredentials()).thenReturn(certCredentials);
+
+    Duration period = Duration.ofSeconds(60);
+
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, period);
+
+    assertThat(kubeconfigAuthentication.getDelegateAuthentication())
+        .isInstanceOf(RefreshAuthentication.class);
+    RefreshAuthentication auth = (RefreshAuthentication) kubeconfigAuthentication.getDelegateAuthentication();
+    assertThat(auth.getRefreshPeriod()).isEqualTo(period);
+  }
+
+  @Test
   void dummyAuthentication() throws IOException {
-    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
+    KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig, null);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())
         .isInstanceOf(DummyAuthentication.class);
