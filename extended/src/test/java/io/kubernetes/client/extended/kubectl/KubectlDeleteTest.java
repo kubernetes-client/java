@@ -142,7 +142,7 @@ class KubectlDeleteTest {
                                         .withStatus(201)
                                         .withBody(ADD_JOB)));
         apiServer.stubFor(
-                delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+                delete(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs(Scenario.STARTED)
                         .willReturn(aResponse()
@@ -153,7 +153,7 @@ class KubectlDeleteTest {
         );
 
         apiServer.stubFor(
-                delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+                delete(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs("SecondCall")
                         .willReturn(aResponse()
@@ -204,7 +204,7 @@ class KubectlDeleteTest {
         BatchV1Api api = new BatchV1Api();
         api.setApiClient(apiClient);
         api.createNamespacedJob("foo", job).execute();
-        ModelMapper.addModelMap(api.getAPIResources().execute().getGroupVersion(), job.getApiVersion(), job.getKind(), "jobs", true, V1Job.class);
+        ModelMapper.addModelMap("batch", "v1", job.getKind(), "jobs", true, V1Job.class);
 
         KubectlDelete<V1Job> kubectlDelete = Kubectl.delete(V1Job.class);
         kubectlDelete.apiClient(apiClient);
@@ -215,7 +215,7 @@ class KubectlDeleteTest {
         kubectlDelete.execute();
         apiServer.verify(
             1,
-            deleteRequestedFor(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+            deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/bar"))
                 .withRequestBody(equalToJson("{\"propagationPolicy\" : \"Foreground\"}")));
         assertThatThrownBy(() -> {
             KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
