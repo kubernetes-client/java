@@ -252,7 +252,7 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.25.0</version>
+        <version>1.26.0</version>
       </dependency>
 
       <!-- tests -->
