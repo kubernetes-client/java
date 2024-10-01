@@ -1,10 +1,7 @@
 #!/bin/bash
 
-IMAGE_REPOSITORY=docker.pkg.github.com
-IMAGE_NAME=kubernetes-client/java/crd-model-gen
-IMAGE_VERSION=v1.0.0
-IMAGE=${IMAGE_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VERSION}
+export IMAGE_REPOSITORY=docker.pkg.github.com
+export IMAGE_NAME=kubernetes-client/java/crd-model-gen
+export IMAGE_VERSION=v1.0.0
 
-docker build -t ${IMAGE} client-java-contrib/
-
-docker push ${IMAGE}
+bash "$(dirname $0)/../client-java-contrib/publish-gen-image.sh"

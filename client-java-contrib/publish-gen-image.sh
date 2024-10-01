@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-GEN_IMAGE_NAME=docker.pkg.github.com/kubernetes-client/java/crd-model-gen
-GEN_IMAGE_VERSION=v2.0.0
+# User-overridable variables
+IMAGE_REPOSITORY=${IMAGE_REPOSITORY:-docker.pkg.github.com}
+IMAGE_NAME=${IMAGE_NAME:-kubernetes-client/java/crd-model-gen}
+IMAGE_VERSION=${IMAGE_VERSION:-v1.0.0}
 
-docker build -t ${GEN_IMAGE_NAME}:${GEN_IMAGE_VERSION} .
-docker push ${GEN_IMAGE_NAME}:${GEN_IMAGE_VERSION}
+IMAGE=${IMAGE_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VERSION}
+BUILD_DIR="$(dirname $0)"
+docker build -t ${IMAGE} ${BUILD_DIR}
+docker push ${IMAGE}
