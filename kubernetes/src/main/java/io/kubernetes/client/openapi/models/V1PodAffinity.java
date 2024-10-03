@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1PodAffinityTerm;
 import io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,21 +52,20 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Pod affinity is a group of inter pod affinity scheduling rules.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodAffinity {
   public static final String SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "preferredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
-  private List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution;
+  private List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "requiredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
-  private List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution;
+  private List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
 
   public V1PodAffinity() {
   }
 
   public V1PodAffinity preferredDuringSchedulingIgnoredDuringExecution(List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
-
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1PodAffinity {
     return preferredDuringSchedulingIgnoredDuringExecution;
   }
 
-
   public void setPreferredDuringSchedulingIgnoredDuringExecution(List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
   }
 
 
   public V1PodAffinity requiredDuringSchedulingIgnoredDuringExecution(List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
-
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
@@ -117,7 +113,6 @@ public class V1PodAffinity {
   public List<V1PodAffinityTerm> getRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution;
   }
-
 
   public void setRequiredDuringSchedulingIgnoredDuringExecution(List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
@@ -179,25 +174,26 @@ public class V1PodAffinity {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodAffinity
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodAffinity
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodAffinity is not found in the empty JSON string", V1PodAffinity.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodAffinity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAffinity` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAffinity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("preferredDuringSchedulingIgnoredDuringExecution") != null && !jsonObj.get("preferredDuringSchedulingIgnoredDuringExecution").isJsonNull()) {
         JsonArray jsonArraypreferredDuringSchedulingIgnoredDuringExecution = jsonObj.getAsJsonArray("preferredDuringSchedulingIgnoredDuringExecution");
         if (jsonArraypreferredDuringSchedulingIgnoredDuringExecution != null) {
@@ -208,7 +204,7 @@ public class V1PodAffinity {
 
           // validate the optional field `preferredDuringSchedulingIgnoredDuringExecution` (array)
           for (int i = 0; i < jsonArraypreferredDuringSchedulingIgnoredDuringExecution.size(); i++) {
-            V1WeightedPodAffinityTerm.validateJsonObject(jsonArraypreferredDuringSchedulingIgnoredDuringExecution.get(i).getAsJsonObject());
+            V1WeightedPodAffinityTerm.validateJsonElement(jsonArraypreferredDuringSchedulingIgnoredDuringExecution.get(i));
           };
         }
       }
@@ -222,7 +218,7 @@ public class V1PodAffinity {
 
           // validate the optional field `requiredDuringSchedulingIgnoredDuringExecution` (array)
           for (int i = 0; i < jsonArrayrequiredDuringSchedulingIgnoredDuringExecution.size(); i++) {
-            V1PodAffinityTerm.validateJsonObject(jsonArrayrequiredDuringSchedulingIgnoredDuringExecution.get(i).getAsJsonObject());
+            V1PodAffinityTerm.validateJsonElement(jsonArrayrequiredDuringSchedulingIgnoredDuringExecution.get(i));
           };
         }
       }
@@ -248,9 +244,9 @@ public class V1PodAffinity {
 
            @Override
            public V1PodAffinity read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

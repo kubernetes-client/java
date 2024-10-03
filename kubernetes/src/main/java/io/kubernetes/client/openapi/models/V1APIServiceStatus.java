@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1APIServiceCondition;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,17 +51,16 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * APIServiceStatus contains derived information about an API server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1APIServiceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1APIServiceCondition> conditions;
+  private List<V1APIServiceCondition> conditions = new ArrayList<>();
 
   public V1APIServiceStatus() {
   }
 
   public V1APIServiceStatus conditions(List<V1APIServiceCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -83,7 +81,6 @@ public class V1APIServiceStatus {
   public List<V1APIServiceCondition> getConditions() {
     return conditions;
   }
-
 
   public void setConditions(List<V1APIServiceCondition> conditions) {
     this.conditions = conditions;
@@ -142,25 +139,26 @@ public class V1APIServiceStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1APIServiceStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1APIServiceStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1APIServiceStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1APIServiceStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1APIServiceStatus is not found in the empty JSON string", V1APIServiceStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1APIServiceStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1APIServiceStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1APIServiceStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
@@ -171,7 +169,7 @@ public class V1APIServiceStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V1APIServiceCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V1APIServiceCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
@@ -197,9 +195,9 @@ public class V1APIServiceStatus {
 
            @Override
            public V1APIServiceStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

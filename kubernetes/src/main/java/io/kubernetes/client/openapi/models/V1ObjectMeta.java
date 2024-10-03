@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1OwnerReference;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -56,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
@@ -76,7 +75,7 @@ public class V1ObjectMeta {
 
   public static final String SERIALIZED_NAME_FINALIZERS = "finalizers";
   @SerializedName(SERIALIZED_NAME_FINALIZERS)
-  private List<String> finalizers;
+  private List<String> finalizers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GENERATE_NAME = "generateName";
   @SerializedName(SERIALIZED_NAME_GENERATE_NAME)
@@ -92,7 +91,7 @@ public class V1ObjectMeta {
 
   public static final String SERIALIZED_NAME_MANAGED_FIELDS = "managedFields";
   @SerializedName(SERIALIZED_NAME_MANAGED_FIELDS)
-  private List<V1ManagedFieldsEntry> managedFields;
+  private List<V1ManagedFieldsEntry> managedFields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -104,7 +103,7 @@ public class V1ObjectMeta {
 
   public static final String SERIALIZED_NAME_OWNER_REFERENCES = "ownerReferences";
   @SerializedName(SERIALIZED_NAME_OWNER_REFERENCES)
-  private List<V1OwnerReference> ownerReferences;
+  private List<V1OwnerReference> ownerReferences = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
   @SerializedName(SERIALIZED_NAME_RESOURCE_VERSION)
@@ -122,7 +121,6 @@ public class V1ObjectMeta {
   }
 
   public V1ObjectMeta annotations(Map<String, String> annotations) {
-
     this.annotations = annotations;
     return this;
   }
@@ -144,14 +142,12 @@ public class V1ObjectMeta {
     return annotations;
   }
 
-
   public void setAnnotations(Map<String, String> annotations) {
     this.annotations = annotations;
   }
 
 
   public V1ObjectMeta creationTimestamp(OffsetDateTime creationTimestamp) {
-
     this.creationTimestamp = creationTimestamp;
     return this;
   }
@@ -165,14 +161,12 @@ public class V1ObjectMeta {
     return creationTimestamp;
   }
 
-
   public void setCreationTimestamp(OffsetDateTime creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
   }
 
 
   public V1ObjectMeta deletionGracePeriodSeconds(Long deletionGracePeriodSeconds) {
-
     this.deletionGracePeriodSeconds = deletionGracePeriodSeconds;
     return this;
   }
@@ -186,14 +180,12 @@ public class V1ObjectMeta {
     return deletionGracePeriodSeconds;
   }
 
-
   public void setDeletionGracePeriodSeconds(Long deletionGracePeriodSeconds) {
     this.deletionGracePeriodSeconds = deletionGracePeriodSeconds;
   }
 
 
   public V1ObjectMeta deletionTimestamp(OffsetDateTime deletionTimestamp) {
-
     this.deletionTimestamp = deletionTimestamp;
     return this;
   }
@@ -207,14 +199,12 @@ public class V1ObjectMeta {
     return deletionTimestamp;
   }
 
-
   public void setDeletionTimestamp(OffsetDateTime deletionTimestamp) {
     this.deletionTimestamp = deletionTimestamp;
   }
 
 
   public V1ObjectMeta finalizers(List<String> finalizers) {
-
     this.finalizers = finalizers;
     return this;
   }
@@ -236,14 +226,12 @@ public class V1ObjectMeta {
     return finalizers;
   }
 
-
   public void setFinalizers(List<String> finalizers) {
     this.finalizers = finalizers;
   }
 
 
   public V1ObjectMeta generateName(String generateName) {
-
     this.generateName = generateName;
     return this;
   }
@@ -257,14 +245,12 @@ public class V1ObjectMeta {
     return generateName;
   }
 
-
   public void setGenerateName(String generateName) {
     this.generateName = generateName;
   }
 
 
   public V1ObjectMeta generation(Long generation) {
-
     this.generation = generation;
     return this;
   }
@@ -278,14 +264,12 @@ public class V1ObjectMeta {
     return generation;
   }
 
-
   public void setGeneration(Long generation) {
     this.generation = generation;
   }
 
 
   public V1ObjectMeta labels(Map<String, String> labels) {
-
     this.labels = labels;
     return this;
   }
@@ -307,14 +291,12 @@ public class V1ObjectMeta {
     return labels;
   }
 
-
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
   }
 
 
   public V1ObjectMeta managedFields(List<V1ManagedFieldsEntry> managedFields) {
-
     this.managedFields = managedFields;
     return this;
   }
@@ -336,14 +318,12 @@ public class V1ObjectMeta {
     return managedFields;
   }
 
-
   public void setManagedFields(List<V1ManagedFieldsEntry> managedFields) {
     this.managedFields = managedFields;
   }
 
 
   public V1ObjectMeta name(String name) {
-
     this.name = name;
     return this;
   }
@@ -357,14 +337,12 @@ public class V1ObjectMeta {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1ObjectMeta namespace(String namespace) {
-
     this.namespace = namespace;
     return this;
   }
@@ -378,14 +356,12 @@ public class V1ObjectMeta {
     return namespace;
   }
 
-
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
   public V1ObjectMeta ownerReferences(List<V1OwnerReference> ownerReferences) {
-
     this.ownerReferences = ownerReferences;
     return this;
   }
@@ -407,14 +383,12 @@ public class V1ObjectMeta {
     return ownerReferences;
   }
 
-
   public void setOwnerReferences(List<V1OwnerReference> ownerReferences) {
     this.ownerReferences = ownerReferences;
   }
 
 
   public V1ObjectMeta resourceVersion(String resourceVersion) {
-
     this.resourceVersion = resourceVersion;
     return this;
   }
@@ -428,14 +402,12 @@ public class V1ObjectMeta {
     return resourceVersion;
   }
 
-
   public void setResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
   }
 
 
   public V1ObjectMeta selfLink(String selfLink) {
-
     this.selfLink = selfLink;
     return this;
   }
@@ -449,14 +421,12 @@ public class V1ObjectMeta {
     return selfLink;
   }
 
-
   public void setSelfLink(String selfLink) {
     this.selfLink = selfLink;
   }
 
 
   public V1ObjectMeta uid(String uid) {
-
     this.uid = uid;
     return this;
   }
@@ -469,7 +439,6 @@ public class V1ObjectMeta {
   public String getUid() {
     return uid;
   }
-
 
   public void setUid(String uid) {
     this.uid = uid;
@@ -570,27 +539,28 @@ public class V1ObjectMeta {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ObjectMeta
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ObjectMeta
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ObjectMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ObjectMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ObjectMeta is not found in the empty JSON string", V1ObjectMeta.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ObjectMeta.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ObjectMeta` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ObjectMeta` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("finalizers") != null && !jsonObj.get("finalizers").isJsonArray()) {
+      if (jsonObj.get("finalizers") != null && !jsonObj.get("finalizers").isJsonNull() && !jsonObj.get("finalizers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `finalizers` to be an array in the JSON string but got `%s`", jsonObj.get("finalizers").toString()));
       }
       if ((jsonObj.get("generateName") != null && !jsonObj.get("generateName").isJsonNull()) && !jsonObj.get("generateName").isJsonPrimitive()) {
@@ -606,7 +576,7 @@ public class V1ObjectMeta {
 
           // validate the optional field `managedFields` (array)
           for (int i = 0; i < jsonArraymanagedFields.size(); i++) {
-            V1ManagedFieldsEntry.validateJsonObject(jsonArraymanagedFields.get(i).getAsJsonObject());
+            V1ManagedFieldsEntry.validateJsonElement(jsonArraymanagedFields.get(i));
           };
         }
       }
@@ -626,7 +596,7 @@ public class V1ObjectMeta {
 
           // validate the optional field `ownerReferences` (array)
           for (int i = 0; i < jsonArrayownerReferences.size(); i++) {
-            V1OwnerReference.validateJsonObject(jsonArrayownerReferences.get(i).getAsJsonObject());
+            V1OwnerReference.validateJsonElement(jsonArrayownerReferences.get(i));
           };
         }
       }
@@ -661,9 +631,9 @@ public class V1ObjectMeta {
 
            @Override
            public V1ObjectMeta read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

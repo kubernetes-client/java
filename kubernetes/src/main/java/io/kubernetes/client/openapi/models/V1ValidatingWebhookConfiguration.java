@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ValidatingWebhook;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -69,13 +68,12 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
 
   public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
   @SerializedName(SERIALIZED_NAME_WEBHOOKS)
-  private List<V1ValidatingWebhook> webhooks;
+  private List<V1ValidatingWebhook> webhooks = new ArrayList<>();
 
   public V1ValidatingWebhookConfiguration() {
   }
 
   public V1ValidatingWebhookConfiguration apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1ValidatingWebhookConfiguration kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1ValidatingWebhookConfiguration metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -131,14 +125,12 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1ValidatingWebhookConfiguration webhooks(List<V1ValidatingWebhook> webhooks) {
-
     this.webhooks = webhooks;
     return this;
   }
@@ -159,7 +151,6 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
   public List<V1ValidatingWebhook> getWebhooks() {
     return webhooks;
   }
-
 
   public void setWebhooks(List<V1ValidatingWebhook> webhooks) {
     this.webhooks = webhooks;
@@ -227,25 +218,26 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ValidatingWebhookConfiguration
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ValidatingWebhookConfiguration
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ValidatingWebhookConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ValidatingWebhookConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ValidatingWebhookConfiguration is not found in the empty JSON string", V1ValidatingWebhookConfiguration.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ValidatingWebhookConfiguration.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ValidatingWebhookConfiguration` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ValidatingWebhookConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -254,7 +246,7 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       if (jsonObj.get("webhooks") != null && !jsonObj.get("webhooks").isJsonNull()) {
         JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
@@ -266,7 +258,7 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
 
           // validate the optional field `webhooks` (array)
           for (int i = 0; i < jsonArraywebhooks.size(); i++) {
-            V1ValidatingWebhook.validateJsonObject(jsonArraywebhooks.get(i).getAsJsonObject());
+            V1ValidatingWebhook.validateJsonElement(jsonArraywebhooks.get(i));
           };
         }
       }
@@ -292,9 +284,9 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
 
            @Override
            public V1ValidatingWebhookConfiguration read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

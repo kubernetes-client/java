@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -66,7 +65,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
   public static final String SERIALIZED_NAME_IMAGE_PULL_SECRETS = "imagePullSecrets";
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_SECRETS)
-  private List<V1LocalObjectReference> imagePullSecrets;
+  private List<V1LocalObjectReference> imagePullSecrets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
@@ -78,13 +77,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
   public static final String SERIALIZED_NAME_SECRETS = "secrets";
   @SerializedName(SERIALIZED_NAME_SECRETS)
-  private List<V1ObjectReference> secrets;
+  private List<V1ObjectReference> secrets = new ArrayList<>();
 
   public V1ServiceAccount() {
   }
 
   public V1ServiceAccount apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -98,14 +96,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1ServiceAccount automountServiceAccountToken(Boolean automountServiceAccountToken) {
-
     this.automountServiceAccountToken = automountServiceAccountToken;
     return this;
   }
@@ -119,14 +115,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
     return automountServiceAccountToken;
   }
 
-
   public void setAutomountServiceAccountToken(Boolean automountServiceAccountToken) {
     this.automountServiceAccountToken = automountServiceAccountToken;
   }
 
 
   public V1ServiceAccount imagePullSecrets(List<V1LocalObjectReference> imagePullSecrets) {
-
     this.imagePullSecrets = imagePullSecrets;
     return this;
   }
@@ -148,14 +142,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
     return imagePullSecrets;
   }
 
-
   public void setImagePullSecrets(List<V1LocalObjectReference> imagePullSecrets) {
     this.imagePullSecrets = imagePullSecrets;
   }
 
 
   public V1ServiceAccount kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -169,14 +161,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1ServiceAccount metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -190,14 +180,12 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1ServiceAccount secrets(List<V1ObjectReference> secrets) {
-
     this.secrets = secrets;
     return this;
   }
@@ -218,7 +206,6 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
   public List<V1ObjectReference> getSecrets() {
     return secrets;
   }
-
 
   public void setSecrets(List<V1ObjectReference> secrets) {
     this.secrets = secrets;
@@ -292,25 +279,26 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ServiceAccount
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ServiceAccount
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ServiceAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ServiceAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ServiceAccount is not found in the empty JSON string", V1ServiceAccount.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ServiceAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceAccount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -324,7 +312,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
           // validate the optional field `imagePullSecrets` (array)
           for (int i = 0; i < jsonArrayimagePullSecrets.size(); i++) {
-            V1LocalObjectReference.validateJsonObject(jsonArrayimagePullSecrets.get(i).getAsJsonObject());
+            V1LocalObjectReference.validateJsonElement(jsonArrayimagePullSecrets.get(i));
           };
         }
       }
@@ -333,7 +321,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       if (jsonObj.get("secrets") != null && !jsonObj.get("secrets").isJsonNull()) {
         JsonArray jsonArraysecrets = jsonObj.getAsJsonArray("secrets");
@@ -345,7 +333,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
           // validate the optional field `secrets` (array)
           for (int i = 0; i < jsonArraysecrets.size(); i++) {
-            V1ObjectReference.validateJsonObject(jsonArraysecrets.get(i).getAsJsonObject());
+            V1ObjectReference.validateJsonElement(jsonArraysecrets.get(i));
           };
         }
       }
@@ -371,9 +359,9 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
            @Override
            public V1ServiceAccount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

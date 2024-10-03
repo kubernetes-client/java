@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1alpha1ClusterTrustBundleSpec;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -51,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ClusterTrustBundle is a cluster-scoped container for X.509 trust anchors (root certificates).  ClusterTrustBundle objects are considered to be readable by any authenticated user in the cluster, because they can be mounted by pods using the &#x60;clusterTrustBundle&#x60; projection.  All service accounts have read access to ClusterTrustBundles by default.  Users who only have namespace-level access to a cluster can read ClusterTrustBundles by impersonating a serviceaccount that they have access to.  It can be optionally associated with a particular assigner, in which case it contains one valid set of trust anchors for that signer. Signers may have multiple associated ClusterTrustBundles; each is an independent set of trust anchors for that signer. Admission control is used to enforce that only users with permissions on the signer can create or modify the corresponding bundle.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -73,7 +72,6 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
   }
 
   public V1alpha1ClusterTrustBundle apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -87,14 +85,12 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1alpha1ClusterTrustBundle kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -108,14 +104,12 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1alpha1ClusterTrustBundle metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -129,14 +123,12 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1alpha1ClusterTrustBundle spec(V1alpha1ClusterTrustBundleSpec spec) {
-
     this.spec = spec;
     return this;
   }
@@ -149,7 +141,6 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
   public V1alpha1ClusterTrustBundleSpec getSpec() {
     return spec;
   }
-
 
   public void setSpec(V1alpha1ClusterTrustBundleSpec spec) {
     this.spec = spec;
@@ -218,32 +209,33 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1alpha1ClusterTrustBundle
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1alpha1ClusterTrustBundle
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1alpha1ClusterTrustBundle.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha1ClusterTrustBundle.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1ClusterTrustBundle is not found in the empty JSON string", V1alpha1ClusterTrustBundle.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha1ClusterTrustBundle.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1ClusterTrustBundle` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1ClusterTrustBundle` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1alpha1ClusterTrustBundle.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -252,10 +244,10 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       // validate the required field `spec`
-      V1alpha1ClusterTrustBundleSpec.validateJsonObject(jsonObj.getAsJsonObject("spec"));
+      V1alpha1ClusterTrustBundleSpec.validateJsonElement(jsonObj.get("spec"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -278,9 +270,9 @@ public class V1alpha1ClusterTrustBundle implements io.kubernetes.client.common.K
 
            @Override
            public V1alpha1ClusterTrustBundle read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

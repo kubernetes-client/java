@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,6 +26,7 @@ import io.kubernetes.client.openapi.models.V1PodResourceClaimStatus;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -49,7 +49,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -57,19 +56,19 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1PodCondition> conditions;
+  private List<V1PodCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONTAINER_STATUSES = "containerStatuses";
   @SerializedName(SERIALIZED_NAME_CONTAINER_STATUSES)
-  private List<V1ContainerStatus> containerStatuses;
+  private List<V1ContainerStatus> containerStatuses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EPHEMERAL_CONTAINER_STATUSES = "ephemeralContainerStatuses";
   @SerializedName(SERIALIZED_NAME_EPHEMERAL_CONTAINER_STATUSES)
-  private List<V1ContainerStatus> ephemeralContainerStatuses;
+  private List<V1ContainerStatus> ephemeralContainerStatuses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_I_P = "hostIP";
   @SerializedName(SERIALIZED_NAME_HOST_I_P)
@@ -77,11 +76,11 @@ public class V1PodStatus {
 
   public static final String SERIALIZED_NAME_HOST_I_PS = "hostIPs";
   @SerializedName(SERIALIZED_NAME_HOST_I_PS)
-  private List<V1HostIP> hostIPs;
+  private List<V1HostIP> hostIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INIT_CONTAINER_STATUSES = "initContainerStatuses";
   @SerializedName(SERIALIZED_NAME_INIT_CONTAINER_STATUSES)
-  private List<V1ContainerStatus> initContainerStatuses;
+  private List<V1ContainerStatus> initContainerStatuses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -101,7 +100,7 @@ public class V1PodStatus {
 
   public static final String SERIALIZED_NAME_POD_I_PS = "podIPs";
   @SerializedName(SERIALIZED_NAME_POD_I_PS)
-  private List<V1PodIP> podIPs;
+  private List<V1PodIP> podIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_QOS_CLASS = "qosClass";
   @SerializedName(SERIALIZED_NAME_QOS_CLASS)
@@ -117,7 +116,7 @@ public class V1PodStatus {
 
   public static final String SERIALIZED_NAME_RESOURCE_CLAIM_STATUSES = "resourceClaimStatuses";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_STATUSES)
-  private List<V1PodResourceClaimStatus> resourceClaimStatuses;
+  private List<V1PodResourceClaimStatus> resourceClaimStatuses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -127,7 +126,6 @@ public class V1PodStatus {
   }
 
   public V1PodStatus conditions(List<V1PodCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -149,14 +147,12 @@ public class V1PodStatus {
     return conditions;
   }
 
-
   public void setConditions(List<V1PodCondition> conditions) {
     this.conditions = conditions;
   }
 
 
   public V1PodStatus containerStatuses(List<V1ContainerStatus> containerStatuses) {
-
     this.containerStatuses = containerStatuses;
     return this;
   }
@@ -178,14 +174,12 @@ public class V1PodStatus {
     return containerStatuses;
   }
 
-
   public void setContainerStatuses(List<V1ContainerStatus> containerStatuses) {
     this.containerStatuses = containerStatuses;
   }
 
 
   public V1PodStatus ephemeralContainerStatuses(List<V1ContainerStatus> ephemeralContainerStatuses) {
-
     this.ephemeralContainerStatuses = ephemeralContainerStatuses;
     return this;
   }
@@ -207,14 +201,12 @@ public class V1PodStatus {
     return ephemeralContainerStatuses;
   }
 
-
   public void setEphemeralContainerStatuses(List<V1ContainerStatus> ephemeralContainerStatuses) {
     this.ephemeralContainerStatuses = ephemeralContainerStatuses;
   }
 
 
   public V1PodStatus hostIP(String hostIP) {
-
     this.hostIP = hostIP;
     return this;
   }
@@ -228,14 +220,12 @@ public class V1PodStatus {
     return hostIP;
   }
 
-
   public void setHostIP(String hostIP) {
     this.hostIP = hostIP;
   }
 
 
   public V1PodStatus hostIPs(List<V1HostIP> hostIPs) {
-
     this.hostIPs = hostIPs;
     return this;
   }
@@ -257,14 +247,12 @@ public class V1PodStatus {
     return hostIPs;
   }
 
-
   public void setHostIPs(List<V1HostIP> hostIPs) {
     this.hostIPs = hostIPs;
   }
 
 
   public V1PodStatus initContainerStatuses(List<V1ContainerStatus> initContainerStatuses) {
-
     this.initContainerStatuses = initContainerStatuses;
     return this;
   }
@@ -286,14 +274,12 @@ public class V1PodStatus {
     return initContainerStatuses;
   }
 
-
   public void setInitContainerStatuses(List<V1ContainerStatus> initContainerStatuses) {
     this.initContainerStatuses = initContainerStatuses;
   }
 
 
   public V1PodStatus message(String message) {
-
     this.message = message;
     return this;
   }
@@ -307,14 +293,12 @@ public class V1PodStatus {
     return message;
   }
 
-
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public V1PodStatus nominatedNodeName(String nominatedNodeName) {
-
     this.nominatedNodeName = nominatedNodeName;
     return this;
   }
@@ -328,14 +312,12 @@ public class V1PodStatus {
     return nominatedNodeName;
   }
 
-
   public void setNominatedNodeName(String nominatedNodeName) {
     this.nominatedNodeName = nominatedNodeName;
   }
 
 
   public V1PodStatus phase(String phase) {
-
     this.phase = phase;
     return this;
   }
@@ -349,14 +331,12 @@ public class V1PodStatus {
     return phase;
   }
 
-
   public void setPhase(String phase) {
     this.phase = phase;
   }
 
 
   public V1PodStatus podIP(String podIP) {
-
     this.podIP = podIP;
     return this;
   }
@@ -370,14 +350,12 @@ public class V1PodStatus {
     return podIP;
   }
 
-
   public void setPodIP(String podIP) {
     this.podIP = podIP;
   }
 
 
   public V1PodStatus podIPs(List<V1PodIP> podIPs) {
-
     this.podIPs = podIPs;
     return this;
   }
@@ -399,14 +377,12 @@ public class V1PodStatus {
     return podIPs;
   }
 
-
   public void setPodIPs(List<V1PodIP> podIPs) {
     this.podIPs = podIPs;
   }
 
 
   public V1PodStatus qosClass(String qosClass) {
-
     this.qosClass = qosClass;
     return this;
   }
@@ -420,14 +396,12 @@ public class V1PodStatus {
     return qosClass;
   }
 
-
   public void setQosClass(String qosClass) {
     this.qosClass = qosClass;
   }
 
 
   public V1PodStatus reason(String reason) {
-
     this.reason = reason;
     return this;
   }
@@ -441,14 +415,12 @@ public class V1PodStatus {
     return reason;
   }
 
-
   public void setReason(String reason) {
     this.reason = reason;
   }
 
 
   public V1PodStatus resize(String resize) {
-
     this.resize = resize;
     return this;
   }
@@ -462,14 +434,12 @@ public class V1PodStatus {
     return resize;
   }
 
-
   public void setResize(String resize) {
     this.resize = resize;
   }
 
 
   public V1PodStatus resourceClaimStatuses(List<V1PodResourceClaimStatus> resourceClaimStatuses) {
-
     this.resourceClaimStatuses = resourceClaimStatuses;
     return this;
   }
@@ -491,14 +461,12 @@ public class V1PodStatus {
     return resourceClaimStatuses;
   }
 
-
   public void setResourceClaimStatuses(List<V1PodResourceClaimStatus> resourceClaimStatuses) {
     this.resourceClaimStatuses = resourceClaimStatuses;
   }
 
 
   public V1PodStatus startTime(OffsetDateTime startTime) {
-
     this.startTime = startTime;
     return this;
   }
@@ -511,7 +479,6 @@ public class V1PodStatus {
   public OffsetDateTime getStartTime() {
     return startTime;
   }
-
 
   public void setStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
@@ -615,25 +582,26 @@ public class V1PodStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodStatus is not found in the empty JSON string", V1PodStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
@@ -644,7 +612,7 @@ public class V1PodStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V1PodCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V1PodCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
@@ -658,7 +626,7 @@ public class V1PodStatus {
 
           // validate the optional field `containerStatuses` (array)
           for (int i = 0; i < jsonArraycontainerStatuses.size(); i++) {
-            V1ContainerStatus.validateJsonObject(jsonArraycontainerStatuses.get(i).getAsJsonObject());
+            V1ContainerStatus.validateJsonElement(jsonArraycontainerStatuses.get(i));
           };
         }
       }
@@ -672,7 +640,7 @@ public class V1PodStatus {
 
           // validate the optional field `ephemeralContainerStatuses` (array)
           for (int i = 0; i < jsonArrayephemeralContainerStatuses.size(); i++) {
-            V1ContainerStatus.validateJsonObject(jsonArrayephemeralContainerStatuses.get(i).getAsJsonObject());
+            V1ContainerStatus.validateJsonElement(jsonArrayephemeralContainerStatuses.get(i));
           };
         }
       }
@@ -689,7 +657,7 @@ public class V1PodStatus {
 
           // validate the optional field `hostIPs` (array)
           for (int i = 0; i < jsonArrayhostIPs.size(); i++) {
-            V1HostIP.validateJsonObject(jsonArrayhostIPs.get(i).getAsJsonObject());
+            V1HostIP.validateJsonElement(jsonArrayhostIPs.get(i));
           };
         }
       }
@@ -703,7 +671,7 @@ public class V1PodStatus {
 
           // validate the optional field `initContainerStatuses` (array)
           for (int i = 0; i < jsonArrayinitContainerStatuses.size(); i++) {
-            V1ContainerStatus.validateJsonObject(jsonArrayinitContainerStatuses.get(i).getAsJsonObject());
+            V1ContainerStatus.validateJsonElement(jsonArrayinitContainerStatuses.get(i));
           };
         }
       }
@@ -729,7 +697,7 @@ public class V1PodStatus {
 
           // validate the optional field `podIPs` (array)
           for (int i = 0; i < jsonArraypodIPs.size(); i++) {
-            V1PodIP.validateJsonObject(jsonArraypodIPs.get(i).getAsJsonObject());
+            V1PodIP.validateJsonElement(jsonArraypodIPs.get(i));
           };
         }
       }
@@ -752,7 +720,7 @@ public class V1PodStatus {
 
           // validate the optional field `resourceClaimStatuses` (array)
           for (int i = 0; i < jsonArrayresourceClaimStatuses.size(); i++) {
-            V1PodResourceClaimStatus.validateJsonObject(jsonArrayresourceClaimStatuses.get(i).getAsJsonObject());
+            V1PodResourceClaimStatus.validateJsonElement(jsonArrayresourceClaimStatuses.get(i));
           };
         }
       }
@@ -778,9 +746,9 @@ public class V1PodStatus {
 
            @Override
            public V1PodStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

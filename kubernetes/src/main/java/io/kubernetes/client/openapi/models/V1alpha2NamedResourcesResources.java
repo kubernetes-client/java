@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha2NamedResourcesInstance;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NamedResourcesResources is used in ResourceModel.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha2NamedResourcesResources {
   public static final String SERIALIZED_NAME_INSTANCES = "instances";
   @SerializedName(SERIALIZED_NAME_INSTANCES)
@@ -62,7 +61,6 @@ public class V1alpha2NamedResourcesResources {
   }
 
   public V1alpha2NamedResourcesResources instances(List<V1alpha2NamedResourcesInstance> instances) {
-
     this.instances = instances;
     return this;
   }
@@ -83,7 +81,6 @@ public class V1alpha2NamedResourcesResources {
   public List<V1alpha2NamedResourcesInstance> getInstances() {
     return instances;
   }
-
 
   public void setInstances(List<V1alpha2NamedResourcesInstance> instances) {
     this.instances = instances;
@@ -143,32 +140,33 @@ public class V1alpha2NamedResourcesResources {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1alpha2NamedResourcesResources
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1alpha2NamedResourcesResources
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1alpha2NamedResourcesResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha2NamedResourcesResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha2NamedResourcesResources is not found in the empty JSON string", V1alpha2NamedResourcesResources.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha2NamedResourcesResources.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesResources` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesResources` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1alpha2NamedResourcesResources.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("instances").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `instances` to be an array in the JSON string but got `%s`", jsonObj.get("instances").toString()));
@@ -177,7 +175,7 @@ public class V1alpha2NamedResourcesResources {
       JsonArray jsonArrayinstances = jsonObj.getAsJsonArray("instances");
       // validate the required field `instances` (array)
       for (int i = 0; i < jsonArrayinstances.size(); i++) {
-        V1alpha2NamedResourcesInstance.validateJsonObject(jsonArrayinstances.get(i).getAsJsonObject());
+        V1alpha2NamedResourcesInstance.validateJsonElement(jsonArrayinstances.get(i));
       };
   }
 
@@ -201,9 +199,9 @@ public class V1alpha2NamedResourcesResources {
 
            @Override
            public V1alpha2NamedResourcesResources read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

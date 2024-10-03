@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1TypedObjectReference;
 import io.kubernetes.client.openapi.models.V1VolumeResourceRequirements;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,11 +54,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
-  private List<String> accessModes;
+  private List<String> accessModes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DATA_SOURCE = "dataSource";
   @SerializedName(SERIALIZED_NAME_DATA_SOURCE)
@@ -97,7 +96,6 @@ public class V1PersistentVolumeClaimSpec {
   }
 
   public V1PersistentVolumeClaimSpec accessModes(List<String> accessModes) {
-
     this.accessModes = accessModes;
     return this;
   }
@@ -119,14 +117,12 @@ public class V1PersistentVolumeClaimSpec {
     return accessModes;
   }
 
-
   public void setAccessModes(List<String> accessModes) {
     this.accessModes = accessModes;
   }
 
 
   public V1PersistentVolumeClaimSpec dataSource(V1TypedLocalObjectReference dataSource) {
-
     this.dataSource = dataSource;
     return this;
   }
@@ -140,14 +136,12 @@ public class V1PersistentVolumeClaimSpec {
     return dataSource;
   }
 
-
   public void setDataSource(V1TypedLocalObjectReference dataSource) {
     this.dataSource = dataSource;
   }
 
 
   public V1PersistentVolumeClaimSpec dataSourceRef(V1TypedObjectReference dataSourceRef) {
-
     this.dataSourceRef = dataSourceRef;
     return this;
   }
@@ -161,14 +155,12 @@ public class V1PersistentVolumeClaimSpec {
     return dataSourceRef;
   }
 
-
   public void setDataSourceRef(V1TypedObjectReference dataSourceRef) {
     this.dataSourceRef = dataSourceRef;
   }
 
 
   public V1PersistentVolumeClaimSpec resources(V1VolumeResourceRequirements resources) {
-
     this.resources = resources;
     return this;
   }
@@ -182,14 +174,12 @@ public class V1PersistentVolumeClaimSpec {
     return resources;
   }
 
-
   public void setResources(V1VolumeResourceRequirements resources) {
     this.resources = resources;
   }
 
 
   public V1PersistentVolumeClaimSpec selector(V1LabelSelector selector) {
-
     this.selector = selector;
     return this;
   }
@@ -203,14 +193,12 @@ public class V1PersistentVolumeClaimSpec {
     return selector;
   }
 
-
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
   public V1PersistentVolumeClaimSpec storageClassName(String storageClassName) {
-
     this.storageClassName = storageClassName;
     return this;
   }
@@ -224,14 +212,12 @@ public class V1PersistentVolumeClaimSpec {
     return storageClassName;
   }
 
-
   public void setStorageClassName(String storageClassName) {
     this.storageClassName = storageClassName;
   }
 
 
   public V1PersistentVolumeClaimSpec volumeAttributesClassName(String volumeAttributesClassName) {
-
     this.volumeAttributesClassName = volumeAttributesClassName;
     return this;
   }
@@ -245,14 +231,12 @@ public class V1PersistentVolumeClaimSpec {
     return volumeAttributesClassName;
   }
 
-
   public void setVolumeAttributesClassName(String volumeAttributesClassName) {
     this.volumeAttributesClassName = volumeAttributesClassName;
   }
 
 
   public V1PersistentVolumeClaimSpec volumeMode(String volumeMode) {
-
     this.volumeMode = volumeMode;
     return this;
   }
@@ -266,14 +250,12 @@ public class V1PersistentVolumeClaimSpec {
     return volumeMode;
   }
 
-
   public void setVolumeMode(String volumeMode) {
     this.volumeMode = volumeMode;
   }
 
 
   public V1PersistentVolumeClaimSpec volumeName(String volumeName) {
-
     this.volumeName = volumeName;
     return this;
   }
@@ -286,7 +268,6 @@ public class V1PersistentVolumeClaimSpec {
   public String getVolumeName() {
     return volumeName;
   }
-
 
   public void setVolumeName(String volumeName) {
     this.volumeName = volumeName;
@@ -369,44 +350,45 @@ public class V1PersistentVolumeClaimSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PersistentVolumeClaimSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeClaimSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PersistentVolumeClaimSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PersistentVolumeClaimSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeClaimSpec is not found in the empty JSON string", V1PersistentVolumeClaimSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeClaimSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonArray()) {
+      if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonNull() && !jsonObj.get("accessModes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
       }
       // validate the optional field `dataSource`
       if (jsonObj.get("dataSource") != null && !jsonObj.get("dataSource").isJsonNull()) {
-        V1TypedLocalObjectReference.validateJsonObject(jsonObj.getAsJsonObject("dataSource"));
+        V1TypedLocalObjectReference.validateJsonElement(jsonObj.get("dataSource"));
       }
       // validate the optional field `dataSourceRef`
       if (jsonObj.get("dataSourceRef") != null && !jsonObj.get("dataSourceRef").isJsonNull()) {
-        V1TypedObjectReference.validateJsonObject(jsonObj.getAsJsonObject("dataSourceRef"));
+        V1TypedObjectReference.validateJsonElement(jsonObj.get("dataSourceRef"));
       }
       // validate the optional field `resources`
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
-        V1VolumeResourceRequirements.validateJsonObject(jsonObj.getAsJsonObject("resources"));
+        V1VolumeResourceRequirements.validateJsonElement(jsonObj.get("resources"));
       }
       // validate the optional field `selector`
       if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
       }
       if ((jsonObj.get("storageClassName") != null && !jsonObj.get("storageClassName").isJsonNull()) && !jsonObj.get("storageClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
@@ -442,9 +424,9 @@ public class V1PersistentVolumeClaimSpec {
 
            @Override
            public V1PersistentVolumeClaimSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1VolumeError;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeAttachmentStatus {
   public static final String SERIALIZED_NAME_ATTACH_ERROR = "attachError";
   @SerializedName(SERIALIZED_NAME_ATTACH_ERROR)
@@ -74,7 +73,6 @@ public class V1VolumeAttachmentStatus {
   }
 
   public V1VolumeAttachmentStatus attachError(V1VolumeError attachError) {
-
     this.attachError = attachError;
     return this;
   }
@@ -88,14 +86,12 @@ public class V1VolumeAttachmentStatus {
     return attachError;
   }
 
-
   public void setAttachError(V1VolumeError attachError) {
     this.attachError = attachError;
   }
 
 
   public V1VolumeAttachmentStatus attached(Boolean attached) {
-
     this.attached = attached;
     return this;
   }
@@ -109,14 +105,12 @@ public class V1VolumeAttachmentStatus {
     return attached;
   }
 
-
   public void setAttached(Boolean attached) {
     this.attached = attached;
   }
 
 
   public V1VolumeAttachmentStatus attachmentMetadata(Map<String, String> attachmentMetadata) {
-
     this.attachmentMetadata = attachmentMetadata;
     return this;
   }
@@ -138,14 +132,12 @@ public class V1VolumeAttachmentStatus {
     return attachmentMetadata;
   }
 
-
   public void setAttachmentMetadata(Map<String, String> attachmentMetadata) {
     this.attachmentMetadata = attachmentMetadata;
   }
 
 
   public V1VolumeAttachmentStatus detachError(V1VolumeError detachError) {
-
     this.detachError = detachError;
     return this;
   }
@@ -158,7 +150,6 @@ public class V1VolumeAttachmentStatus {
   public V1VolumeError getDetachError() {
     return detachError;
   }
-
 
   public void setDetachError(V1VolumeError detachError) {
     this.detachError = detachError;
@@ -227,39 +218,40 @@ public class V1VolumeAttachmentStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1VolumeAttachmentStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1VolumeAttachmentStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1VolumeAttachmentStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1VolumeAttachmentStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1VolumeAttachmentStatus is not found in the empty JSON string", V1VolumeAttachmentStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1VolumeAttachmentStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeAttachmentStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeAttachmentStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1VolumeAttachmentStatus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `attachError`
       if (jsonObj.get("attachError") != null && !jsonObj.get("attachError").isJsonNull()) {
-        V1VolumeError.validateJsonObject(jsonObj.getAsJsonObject("attachError"));
+        V1VolumeError.validateJsonElement(jsonObj.get("attachError"));
       }
       // validate the optional field `detachError`
       if (jsonObj.get("detachError") != null && !jsonObj.get("detachError").isJsonNull()) {
-        V1VolumeError.validateJsonObject(jsonObj.getAsJsonObject("detachError"));
+        V1VolumeError.validateJsonElement(jsonObj.get("detachError"));
       }
   }
 
@@ -283,9 +275,9 @@ public class V1VolumeAttachmentStatus {
 
            @Override
            public V1VolumeAttachmentStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

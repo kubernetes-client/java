@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1beta1NamedRuleWithOperations;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,11 +52,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta1MatchResources {
   public static final String SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES = "excludeResourceRules";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES)
-  private List<V1beta1NamedRuleWithOperations> excludeResourceRules;
+  private List<V1beta1NamedRuleWithOperations> excludeResourceRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCH_POLICY = "matchPolicy";
   @SerializedName(SERIALIZED_NAME_MATCH_POLICY)
@@ -73,13 +72,12 @@ public class V1beta1MatchResources {
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
-  private List<V1beta1NamedRuleWithOperations> resourceRules;
+  private List<V1beta1NamedRuleWithOperations> resourceRules = new ArrayList<>();
 
   public V1beta1MatchResources() {
   }
 
   public V1beta1MatchResources excludeResourceRules(List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
-
     this.excludeResourceRules = excludeResourceRules;
     return this;
   }
@@ -101,14 +99,12 @@ public class V1beta1MatchResources {
     return excludeResourceRules;
   }
 
-
   public void setExcludeResourceRules(List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
     this.excludeResourceRules = excludeResourceRules;
   }
 
 
   public V1beta1MatchResources matchPolicy(String matchPolicy) {
-
     this.matchPolicy = matchPolicy;
     return this;
   }
@@ -122,14 +118,12 @@ public class V1beta1MatchResources {
     return matchPolicy;
   }
 
-
   public void setMatchPolicy(String matchPolicy) {
     this.matchPolicy = matchPolicy;
   }
 
 
   public V1beta1MatchResources namespaceSelector(V1LabelSelector namespaceSelector) {
-
     this.namespaceSelector = namespaceSelector;
     return this;
   }
@@ -143,14 +137,12 @@ public class V1beta1MatchResources {
     return namespaceSelector;
   }
 
-
   public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
 
 
   public V1beta1MatchResources objectSelector(V1LabelSelector objectSelector) {
-
     this.objectSelector = objectSelector;
     return this;
   }
@@ -164,14 +156,12 @@ public class V1beta1MatchResources {
     return objectSelector;
   }
 
-
   public void setObjectSelector(V1LabelSelector objectSelector) {
     this.objectSelector = objectSelector;
   }
 
 
   public V1beta1MatchResources resourceRules(List<V1beta1NamedRuleWithOperations> resourceRules) {
-
     this.resourceRules = resourceRules;
     return this;
   }
@@ -192,7 +182,6 @@ public class V1beta1MatchResources {
   public List<V1beta1NamedRuleWithOperations> getResourceRules() {
     return resourceRules;
   }
-
 
   public void setResourceRules(List<V1beta1NamedRuleWithOperations> resourceRules) {
     this.resourceRules = resourceRules;
@@ -263,25 +252,26 @@ public class V1beta1MatchResources {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1beta1MatchResources
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1beta1MatchResources
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1beta1MatchResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1beta1MatchResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta1MatchResources is not found in the empty JSON string", V1beta1MatchResources.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1beta1MatchResources.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta1MatchResources` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta1MatchResources` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("excludeResourceRules") != null && !jsonObj.get("excludeResourceRules").isJsonNull()) {
         JsonArray jsonArrayexcludeResourceRules = jsonObj.getAsJsonArray("excludeResourceRules");
         if (jsonArrayexcludeResourceRules != null) {
@@ -292,7 +282,7 @@ public class V1beta1MatchResources {
 
           // validate the optional field `excludeResourceRules` (array)
           for (int i = 0; i < jsonArrayexcludeResourceRules.size(); i++) {
-            V1beta1NamedRuleWithOperations.validateJsonObject(jsonArrayexcludeResourceRules.get(i).getAsJsonObject());
+            V1beta1NamedRuleWithOperations.validateJsonElement(jsonArrayexcludeResourceRules.get(i));
           };
         }
       }
@@ -301,11 +291,11 @@ public class V1beta1MatchResources {
       }
       // validate the optional field `namespaceSelector`
       if (jsonObj.get("namespaceSelector") != null && !jsonObj.get("namespaceSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("namespaceSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("namespaceSelector"));
       }
       // validate the optional field `objectSelector`
       if (jsonObj.get("objectSelector") != null && !jsonObj.get("objectSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("objectSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("objectSelector"));
       }
       if (jsonObj.get("resourceRules") != null && !jsonObj.get("resourceRules").isJsonNull()) {
         JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resourceRules");
@@ -317,7 +307,7 @@ public class V1beta1MatchResources {
 
           // validate the optional field `resourceRules` (array)
           for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
-            V1beta1NamedRuleWithOperations.validateJsonObject(jsonArrayresourceRules.get(i).getAsJsonObject());
+            V1beta1NamedRuleWithOperations.validateJsonElement(jsonArrayresourceRules.get(i));
           };
         }
       }
@@ -343,9 +333,9 @@ public class V1beta1MatchResources {
 
            @Override
            public V1beta1MatchResources read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

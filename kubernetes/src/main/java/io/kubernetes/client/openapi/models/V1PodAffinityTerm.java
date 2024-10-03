@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
@@ -60,11 +59,11 @@ public class V1PodAffinityTerm {
 
   public static final String SERIALIZED_NAME_MATCH_LABEL_KEYS = "matchLabelKeys";
   @SerializedName(SERIALIZED_NAME_MATCH_LABEL_KEYS)
-  private List<String> matchLabelKeys;
+  private List<String> matchLabelKeys = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MISMATCH_LABEL_KEYS = "mismatchLabelKeys";
   @SerializedName(SERIALIZED_NAME_MISMATCH_LABEL_KEYS)
-  private List<String> mismatchLabelKeys;
+  private List<String> mismatchLabelKeys = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
   @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
@@ -72,7 +71,7 @@ public class V1PodAffinityTerm {
 
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
   @SerializedName(SERIALIZED_NAME_NAMESPACES)
-  private List<String> namespaces;
+  private List<String> namespaces = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOPOLOGY_KEY = "topologyKey";
   @SerializedName(SERIALIZED_NAME_TOPOLOGY_KEY)
@@ -82,7 +81,6 @@ public class V1PodAffinityTerm {
   }
 
   public V1PodAffinityTerm labelSelector(V1LabelSelector labelSelector) {
-
     this.labelSelector = labelSelector;
     return this;
   }
@@ -96,14 +94,12 @@ public class V1PodAffinityTerm {
     return labelSelector;
   }
 
-
   public void setLabelSelector(V1LabelSelector labelSelector) {
     this.labelSelector = labelSelector;
   }
 
 
   public V1PodAffinityTerm matchLabelKeys(List<String> matchLabelKeys) {
-
     this.matchLabelKeys = matchLabelKeys;
     return this;
   }
@@ -125,14 +121,12 @@ public class V1PodAffinityTerm {
     return matchLabelKeys;
   }
 
-
   public void setMatchLabelKeys(List<String> matchLabelKeys) {
     this.matchLabelKeys = matchLabelKeys;
   }
 
 
   public V1PodAffinityTerm mismatchLabelKeys(List<String> mismatchLabelKeys) {
-
     this.mismatchLabelKeys = mismatchLabelKeys;
     return this;
   }
@@ -154,14 +148,12 @@ public class V1PodAffinityTerm {
     return mismatchLabelKeys;
   }
 
-
   public void setMismatchLabelKeys(List<String> mismatchLabelKeys) {
     this.mismatchLabelKeys = mismatchLabelKeys;
   }
 
 
   public V1PodAffinityTerm namespaceSelector(V1LabelSelector namespaceSelector) {
-
     this.namespaceSelector = namespaceSelector;
     return this;
   }
@@ -175,14 +167,12 @@ public class V1PodAffinityTerm {
     return namespaceSelector;
   }
 
-
   public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
 
 
   public V1PodAffinityTerm namespaces(List<String> namespaces) {
-
     this.namespaces = namespaces;
     return this;
   }
@@ -204,14 +194,12 @@ public class V1PodAffinityTerm {
     return namespaces;
   }
 
-
   public void setNamespaces(List<String> namespaces) {
     this.namespaces = namespaces;
   }
 
 
   public V1PodAffinityTerm topologyKey(String topologyKey) {
-
     this.topologyKey = topologyKey;
     return this;
   }
@@ -224,7 +212,6 @@ public class V1PodAffinityTerm {
   public String getTopologyKey() {
     return topologyKey;
   }
-
 
   public void setTopologyKey(String topologyKey) {
     this.topologyKey = topologyKey;
@@ -299,50 +286,51 @@ public class V1PodAffinityTerm {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodAffinityTerm
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodAffinityTerm
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodAffinityTerm.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodAffinityTerm.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodAffinityTerm is not found in the empty JSON string", V1PodAffinityTerm.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodAffinityTerm.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAffinityTerm` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAffinityTerm` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PodAffinityTerm.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `labelSelector`
       if (jsonObj.get("labelSelector") != null && !jsonObj.get("labelSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("labelSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("labelSelector"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("matchLabelKeys") != null && !jsonObj.get("matchLabelKeys").isJsonArray()) {
+      if (jsonObj.get("matchLabelKeys") != null && !jsonObj.get("matchLabelKeys").isJsonNull() && !jsonObj.get("matchLabelKeys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `matchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("matchLabelKeys").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("mismatchLabelKeys") != null && !jsonObj.get("mismatchLabelKeys").isJsonArray()) {
+      if (jsonObj.get("mismatchLabelKeys") != null && !jsonObj.get("mismatchLabelKeys").isJsonNull() && !jsonObj.get("mismatchLabelKeys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `mismatchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("mismatchLabelKeys").toString()));
       }
       // validate the optional field `namespaceSelector`
       if (jsonObj.get("namespaceSelector") != null && !jsonObj.get("namespaceSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("namespaceSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("namespaceSelector"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonArray()) {
+      if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonNull() && !jsonObj.get("namespaces").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
       }
       if (!jsonObj.get("topologyKey").isJsonPrimitive()) {
@@ -370,9 +358,9 @@ public class V1PodAffinityTerm {
 
            @Override
            public V1PodAffinityTerm read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

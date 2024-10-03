@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1NetworkPolicyPeer;
 import io.kubernetes.client.openapi.models.V1NetworkPolicyPort;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,21 +52,20 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec&#39;s podSelector. The traffic must match both ports and to. This type is beta-level in 1.8
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NetworkPolicyEgressRule {
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<V1NetworkPolicyPort> ports;
+  private List<V1NetworkPolicyPort> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  private List<V1NetworkPolicyPeer> to;
+  private List<V1NetworkPolicyPeer> to = new ArrayList<>();
 
   public V1NetworkPolicyEgressRule() {
   }
 
   public V1NetworkPolicyEgressRule ports(List<V1NetworkPolicyPort> ports) {
-
     this.ports = ports;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1NetworkPolicyEgressRule {
     return ports;
   }
 
-
   public void setPorts(List<V1NetworkPolicyPort> ports) {
     this.ports = ports;
   }
 
 
   public V1NetworkPolicyEgressRule to(List<V1NetworkPolicyPeer> to) {
-
     this.to = to;
     return this;
   }
@@ -117,7 +113,6 @@ public class V1NetworkPolicyEgressRule {
   public List<V1NetworkPolicyPeer> getTo() {
     return to;
   }
-
 
   public void setTo(List<V1NetworkPolicyPeer> to) {
     this.to = to;
@@ -179,25 +174,26 @@ public class V1NetworkPolicyEgressRule {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1NetworkPolicyEgressRule
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1NetworkPolicyEgressRule
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1NetworkPolicyEgressRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1NetworkPolicyEgressRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1NetworkPolicyEgressRule is not found in the empty JSON string", V1NetworkPolicyEgressRule.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NetworkPolicyEgressRule.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NetworkPolicyEgressRule` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NetworkPolicyEgressRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonNull()) {
         JsonArray jsonArrayports = jsonObj.getAsJsonArray("ports");
         if (jsonArrayports != null) {
@@ -208,7 +204,7 @@ public class V1NetworkPolicyEgressRule {
 
           // validate the optional field `ports` (array)
           for (int i = 0; i < jsonArrayports.size(); i++) {
-            V1NetworkPolicyPort.validateJsonObject(jsonArrayports.get(i).getAsJsonObject());
+            V1NetworkPolicyPort.validateJsonElement(jsonArrayports.get(i));
           };
         }
       }
@@ -222,7 +218,7 @@ public class V1NetworkPolicyEgressRule {
 
           // validate the optional field `to` (array)
           for (int i = 0; i < jsonArrayto.size(); i++) {
-            V1NetworkPolicyPeer.validateJsonObject(jsonArrayto.get(i).getAsJsonObject());
+            V1NetworkPolicyPeer.validateJsonElement(jsonArrayto.get(i));
           };
         }
       }
@@ -248,9 +244,9 @@ public class V1NetworkPolicyEgressRule {
 
            @Override
            public V1NetworkPolicyEgressRule read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

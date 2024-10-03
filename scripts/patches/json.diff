@@ -51,9 +51,11 @@ index 4406c2199..f56413a25 100644
 +                fireBuilder
 +                        .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
 +                        .createGsonBuilder();
-         return builder;
+-        return builder;
++        return builder.setExclusionStrategies(new V1MetadataExclusionStrategy()); 
      }
- 
+
+     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
 @@ -721,11 +739,14 @@ public class JSON {
  
          @Override

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -50,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServicePort contains information on service&#39;s port.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ServicePort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
@@ -80,7 +79,6 @@ public class V1ServicePort {
   }
 
   public V1ServicePort appProtocol(String appProtocol) {
-
     this.appProtocol = appProtocol;
     return this;
   }
@@ -94,14 +92,12 @@ public class V1ServicePort {
     return appProtocol;
   }
 
-
   public void setAppProtocol(String appProtocol) {
     this.appProtocol = appProtocol;
   }
 
 
   public V1ServicePort name(String name) {
-
     this.name = name;
     return this;
   }
@@ -115,14 +111,12 @@ public class V1ServicePort {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1ServicePort nodePort(Integer nodePort) {
-
     this.nodePort = nodePort;
     return this;
   }
@@ -136,14 +130,12 @@ public class V1ServicePort {
     return nodePort;
   }
 
-
   public void setNodePort(Integer nodePort) {
     this.nodePort = nodePort;
   }
 
 
   public V1ServicePort port(Integer port) {
-
     this.port = port;
     return this;
   }
@@ -157,14 +149,12 @@ public class V1ServicePort {
     return port;
   }
 
-
   public void setPort(Integer port) {
     this.port = port;
   }
 
 
   public V1ServicePort protocol(String protocol) {
-
     this.protocol = protocol;
     return this;
   }
@@ -178,14 +168,12 @@ public class V1ServicePort {
     return protocol;
   }
 
-
   public void setProtocol(String protocol) {
     this.protocol = protocol;
   }
 
 
   public V1ServicePort targetPort(IntOrString targetPort) {
-
     this.targetPort = targetPort;
     return this;
   }
@@ -198,7 +186,6 @@ public class V1ServicePort {
   public IntOrString getTargetPort() {
     return targetPort;
   }
-
 
   public void setTargetPort(IntOrString targetPort) {
     this.targetPort = targetPort;
@@ -273,32 +260,33 @@ public class V1ServicePort {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ServicePort
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ServicePort
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ServicePort.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ServicePort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ServicePort is not found in the empty JSON string", V1ServicePort.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ServicePort.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServicePort` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServicePort` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ServicePort.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("appProtocol") != null && !jsonObj.get("appProtocol").isJsonNull()) && !jsonObj.get("appProtocol").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `appProtocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("appProtocol").toString()));
       }
@@ -333,9 +321,9 @@ public class V1ServicePort {
 
            @Override
            public V1ServicePort read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

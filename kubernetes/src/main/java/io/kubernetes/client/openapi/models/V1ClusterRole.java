@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1PolicyRule;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_AGGREGATION_RULE = "aggregationRule";
   @SerializedName(SERIALIZED_NAME_AGGREGATION_RULE)
@@ -74,13 +73,12 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
-  private List<V1PolicyRule> rules;
+  private List<V1PolicyRule> rules = new ArrayList<>();
 
   public V1ClusterRole() {
   }
 
   public V1ClusterRole aggregationRule(V1AggregationRule aggregationRule) {
-
     this.aggregationRule = aggregationRule;
     return this;
   }
@@ -94,14 +92,12 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
     return aggregationRule;
   }
 
-
   public void setAggregationRule(V1AggregationRule aggregationRule) {
     this.aggregationRule = aggregationRule;
   }
 
 
   public V1ClusterRole apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -115,14 +111,12 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1ClusterRole kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -136,14 +130,12 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1ClusterRole metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -157,14 +149,12 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1ClusterRole rules(List<V1PolicyRule> rules) {
-
     this.rules = rules;
     return this;
   }
@@ -185,7 +175,6 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
   public List<V1PolicyRule> getRules() {
     return rules;
   }
-
 
   public void setRules(List<V1PolicyRule> rules) {
     this.rules = rules;
@@ -256,28 +245,29 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ClusterRole
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ClusterRole
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ClusterRole.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ClusterRole.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ClusterRole is not found in the empty JSON string", V1ClusterRole.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ClusterRole.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ClusterRole` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ClusterRole` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `aggregationRule`
       if (jsonObj.get("aggregationRule") != null && !jsonObj.get("aggregationRule").isJsonNull()) {
-        V1AggregationRule.validateJsonObject(jsonObj.getAsJsonObject("aggregationRule"));
+        V1AggregationRule.validateJsonElement(jsonObj.get("aggregationRule"));
       }
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -287,7 +277,7 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
         JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
@@ -299,7 +289,7 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
 
           // validate the optional field `rules` (array)
           for (int i = 0; i < jsonArrayrules.size(); i++) {
-            V1PolicyRule.validateJsonObject(jsonArrayrules.get(i).getAsJsonObject());
+            V1PolicyRule.validateJsonElement(jsonArrayrules.get(i));
           };
         }
       }
@@ -325,9 +315,9 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
 
            @Override
            public V1ClusterRole read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

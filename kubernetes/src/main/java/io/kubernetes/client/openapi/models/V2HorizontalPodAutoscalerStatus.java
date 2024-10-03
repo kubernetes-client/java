@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V2MetricStatus;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,15 +53,15 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V2HorizontalPodAutoscalerCondition> conditions;
+  private List<V2HorizontalPodAutoscalerCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENT_METRICS = "currentMetrics";
   @SerializedName(SERIALIZED_NAME_CURRENT_METRICS)
-  private List<V2MetricStatus> currentMetrics;
+  private List<V2MetricStatus> currentMetrics = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENT_REPLICAS = "currentReplicas";
   @SerializedName(SERIALIZED_NAME_CURRENT_REPLICAS)
@@ -84,7 +83,6 @@ public class V2HorizontalPodAutoscalerStatus {
   }
 
   public V2HorizontalPodAutoscalerStatus conditions(List<V2HorizontalPodAutoscalerCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -106,14 +104,12 @@ public class V2HorizontalPodAutoscalerStatus {
     return conditions;
   }
 
-
   public void setConditions(List<V2HorizontalPodAutoscalerCondition> conditions) {
     this.conditions = conditions;
   }
 
 
   public V2HorizontalPodAutoscalerStatus currentMetrics(List<V2MetricStatus> currentMetrics) {
-
     this.currentMetrics = currentMetrics;
     return this;
   }
@@ -135,14 +131,12 @@ public class V2HorizontalPodAutoscalerStatus {
     return currentMetrics;
   }
 
-
   public void setCurrentMetrics(List<V2MetricStatus> currentMetrics) {
     this.currentMetrics = currentMetrics;
   }
 
 
   public V2HorizontalPodAutoscalerStatus currentReplicas(Integer currentReplicas) {
-
     this.currentReplicas = currentReplicas;
     return this;
   }
@@ -156,14 +150,12 @@ public class V2HorizontalPodAutoscalerStatus {
     return currentReplicas;
   }
 
-
   public void setCurrentReplicas(Integer currentReplicas) {
     this.currentReplicas = currentReplicas;
   }
 
 
   public V2HorizontalPodAutoscalerStatus desiredReplicas(Integer desiredReplicas) {
-
     this.desiredReplicas = desiredReplicas;
     return this;
   }
@@ -177,14 +169,12 @@ public class V2HorizontalPodAutoscalerStatus {
     return desiredReplicas;
   }
 
-
   public void setDesiredReplicas(Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
   }
 
 
   public V2HorizontalPodAutoscalerStatus lastScaleTime(OffsetDateTime lastScaleTime) {
-
     this.lastScaleTime = lastScaleTime;
     return this;
   }
@@ -198,14 +188,12 @@ public class V2HorizontalPodAutoscalerStatus {
     return lastScaleTime;
   }
 
-
   public void setLastScaleTime(OffsetDateTime lastScaleTime) {
     this.lastScaleTime = lastScaleTime;
   }
 
 
   public V2HorizontalPodAutoscalerStatus observedGeneration(Long observedGeneration) {
-
     this.observedGeneration = observedGeneration;
     return this;
   }
@@ -218,7 +206,6 @@ public class V2HorizontalPodAutoscalerStatus {
   public Long getObservedGeneration() {
     return observedGeneration;
   }
-
 
   public void setObservedGeneration(Long observedGeneration) {
     this.observedGeneration = observedGeneration;
@@ -293,32 +280,33 @@ public class V2HorizontalPodAutoscalerStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V2HorizontalPodAutoscalerStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V2HorizontalPodAutoscalerStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V2HorizontalPodAutoscalerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V2HorizontalPodAutoscalerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V2HorizontalPodAutoscalerStatus is not found in the empty JSON string", V2HorizontalPodAutoscalerStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V2HorizontalPodAutoscalerStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HorizontalPodAutoscalerStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HorizontalPodAutoscalerStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V2HorizontalPodAutoscalerStatus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
@@ -329,7 +317,7 @@ public class V2HorizontalPodAutoscalerStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V2HorizontalPodAutoscalerCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V2HorizontalPodAutoscalerCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
@@ -343,7 +331,7 @@ public class V2HorizontalPodAutoscalerStatus {
 
           // validate the optional field `currentMetrics` (array)
           for (int i = 0; i < jsonArraycurrentMetrics.size(); i++) {
-            V2MetricStatus.validateJsonObject(jsonArraycurrentMetrics.get(i).getAsJsonObject());
+            V2MetricStatus.validateJsonElement(jsonArraycurrentMetrics.get(i));
           };
         }
       }
@@ -369,9 +357,9 @@ public class V2HorizontalPodAutoscalerStatus {
 
            @Override
            public V2HorizontalPodAutoscalerStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

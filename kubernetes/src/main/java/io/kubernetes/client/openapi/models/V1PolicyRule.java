@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -51,23 +50,23 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
-  private List<String> apiGroups;
+  private List<String> apiGroups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NON_RESOURCE_U_R_LS = "nonResourceURLs";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_U_R_LS)
-  private List<String> nonResourceURLs;
+  private List<String> nonResourceURLs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_NAMES = "resourceNames";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAMES)
-  private List<String> resourceNames;
+  private List<String> resourceNames = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
-  private List<String> resources;
+  private List<String> resources = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
   @SerializedName(SERIALIZED_NAME_VERBS)
@@ -77,7 +76,6 @@ public class V1PolicyRule {
   }
 
   public V1PolicyRule apiGroups(List<String> apiGroups) {
-
     this.apiGroups = apiGroups;
     return this;
   }
@@ -99,14 +97,12 @@ public class V1PolicyRule {
     return apiGroups;
   }
 
-
   public void setApiGroups(List<String> apiGroups) {
     this.apiGroups = apiGroups;
   }
 
 
   public V1PolicyRule nonResourceURLs(List<String> nonResourceURLs) {
-
     this.nonResourceURLs = nonResourceURLs;
     return this;
   }
@@ -128,14 +124,12 @@ public class V1PolicyRule {
     return nonResourceURLs;
   }
 
-
   public void setNonResourceURLs(List<String> nonResourceURLs) {
     this.nonResourceURLs = nonResourceURLs;
   }
 
 
   public V1PolicyRule resourceNames(List<String> resourceNames) {
-
     this.resourceNames = resourceNames;
     return this;
   }
@@ -157,14 +151,12 @@ public class V1PolicyRule {
     return resourceNames;
   }
 
-
   public void setResourceNames(List<String> resourceNames) {
     this.resourceNames = resourceNames;
   }
 
 
   public V1PolicyRule resources(List<String> resources) {
-
     this.resources = resources;
     return this;
   }
@@ -186,14 +178,12 @@ public class V1PolicyRule {
     return resources;
   }
 
-
   public void setResources(List<String> resources) {
     this.resources = resources;
   }
 
 
   public V1PolicyRule verbs(List<String> verbs) {
-
     this.verbs = verbs;
     return this;
   }
@@ -214,7 +204,6 @@ public class V1PolicyRule {
   public List<String> getVerbs() {
     return verbs;
   }
-
 
   public void setVerbs(List<String> verbs) {
     this.verbs = verbs;
@@ -286,46 +275,47 @@ public class V1PolicyRule {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PolicyRule
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PolicyRule
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PolicyRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PolicyRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PolicyRule is not found in the empty JSON string", V1PolicyRule.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PolicyRule.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PolicyRule` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PolicyRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PolicyRule.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonArray()) {
+      if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonNull() && !jsonObj.get("apiGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("nonResourceURLs") != null && !jsonObj.get("nonResourceURLs").isJsonArray()) {
+      if (jsonObj.get("nonResourceURLs") != null && !jsonObj.get("nonResourceURLs").isJsonNull() && !jsonObj.get("nonResourceURLs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonResourceURLs` to be an array in the JSON string but got `%s`", jsonObj.get("nonResourceURLs").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resourceNames") != null && !jsonObj.get("resourceNames").isJsonArray()) {
+      if (jsonObj.get("resourceNames") != null && !jsonObj.get("resourceNames").isJsonNull() && !jsonObj.get("resourceNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resourceNames` to be an array in the JSON string but got `%s`", jsonObj.get("resourceNames").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonArray()) {
+      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull() && !jsonObj.get("resources").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
       }
       // ensure the required json array is present
@@ -356,9 +346,9 @@ public class V1PolicyRule {
 
            @Override
            public V1PolicyRule read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

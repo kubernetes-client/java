@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1RoleRef;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -74,13 +73,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<RbacV1Subject> subjects;
+  private List<RbacV1Subject> subjects = new ArrayList<>();
 
   public V1RoleBinding() {
   }
 
   public V1RoleBinding apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -94,14 +92,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1RoleBinding kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -115,14 +111,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1RoleBinding metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -136,14 +130,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1RoleBinding roleRef(V1RoleRef roleRef) {
-
     this.roleRef = roleRef;
     return this;
   }
@@ -157,14 +149,12 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
     return roleRef;
   }
 
-
   public void setRoleRef(V1RoleRef roleRef) {
     this.roleRef = roleRef;
   }
 
 
   public V1RoleBinding subjects(List<RbacV1Subject> subjects) {
-
     this.subjects = subjects;
     return this;
   }
@@ -185,7 +175,6 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
   public List<RbacV1Subject> getSubjects() {
     return subjects;
   }
-
 
   public void setSubjects(List<RbacV1Subject> subjects) {
     this.subjects = subjects;
@@ -257,32 +246,33 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1RoleBinding
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1RoleBinding
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1RoleBinding.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1RoleBinding.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1RoleBinding is not found in the empty JSON string", V1RoleBinding.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1RoleBinding.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RoleBinding` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RoleBinding` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1RoleBinding.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -291,10 +281,10 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       // validate the required field `roleRef`
-      V1RoleRef.validateJsonObject(jsonObj.getAsJsonObject("roleRef"));
+      V1RoleRef.validateJsonElement(jsonObj.get("roleRef"));
       if (jsonObj.get("subjects") != null && !jsonObj.get("subjects").isJsonNull()) {
         JsonArray jsonArraysubjects = jsonObj.getAsJsonArray("subjects");
         if (jsonArraysubjects != null) {
@@ -305,7 +295,7 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
 
           // validate the optional field `subjects` (array)
           for (int i = 0; i < jsonArraysubjects.size(); i++) {
-            RbacV1Subject.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
+            RbacV1Subject.validateJsonElement(jsonArraysubjects.get(i));
           };
         }
       }
@@ -331,9 +321,9 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
 
            @Override
            public V1RoleBinding read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

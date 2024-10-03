@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V2HPAScalingPolicy;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,11 +51,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * HPAScalingRules configures the scaling behavior for one direction. These Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2HPAScalingRules {
   public static final String SERIALIZED_NAME_POLICIES = "policies";
   @SerializedName(SERIALIZED_NAME_POLICIES)
-  private List<V2HPAScalingPolicy> policies;
+  private List<V2HPAScalingPolicy> policies = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SELECT_POLICY = "selectPolicy";
   @SerializedName(SERIALIZED_NAME_SELECT_POLICY)
@@ -70,7 +69,6 @@ public class V2HPAScalingRules {
   }
 
   public V2HPAScalingRules policies(List<V2HPAScalingPolicy> policies) {
-
     this.policies = policies;
     return this;
   }
@@ -92,14 +90,12 @@ public class V2HPAScalingRules {
     return policies;
   }
 
-
   public void setPolicies(List<V2HPAScalingPolicy> policies) {
     this.policies = policies;
   }
 
 
   public V2HPAScalingRules selectPolicy(String selectPolicy) {
-
     this.selectPolicy = selectPolicy;
     return this;
   }
@@ -113,14 +109,12 @@ public class V2HPAScalingRules {
     return selectPolicy;
   }
 
-
   public void setSelectPolicy(String selectPolicy) {
     this.selectPolicy = selectPolicy;
   }
 
 
   public V2HPAScalingRules stabilizationWindowSeconds(Integer stabilizationWindowSeconds) {
-
     this.stabilizationWindowSeconds = stabilizationWindowSeconds;
     return this;
   }
@@ -133,7 +127,6 @@ public class V2HPAScalingRules {
   public Integer getStabilizationWindowSeconds() {
     return stabilizationWindowSeconds;
   }
-
 
   public void setStabilizationWindowSeconds(Integer stabilizationWindowSeconds) {
     this.stabilizationWindowSeconds = stabilizationWindowSeconds;
@@ -198,25 +191,26 @@ public class V2HPAScalingRules {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V2HPAScalingRules
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V2HPAScalingRules
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V2HPAScalingRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V2HPAScalingRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V2HPAScalingRules is not found in the empty JSON string", V2HPAScalingRules.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V2HPAScalingRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HPAScalingRules` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HPAScalingRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("policies") != null && !jsonObj.get("policies").isJsonNull()) {
         JsonArray jsonArraypolicies = jsonObj.getAsJsonArray("policies");
         if (jsonArraypolicies != null) {
@@ -227,7 +221,7 @@ public class V2HPAScalingRules {
 
           // validate the optional field `policies` (array)
           for (int i = 0; i < jsonArraypolicies.size(); i++) {
-            V2HPAScalingPolicy.validateJsonObject(jsonArraypolicies.get(i).getAsJsonObject());
+            V2HPAScalingPolicy.validateJsonElement(jsonArraypolicies.get(i));
           };
         }
       }
@@ -256,9 +250,9 @@ public class V2HPAScalingRules {
 
            @Override
            public V2HPAScalingRules read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,6 +26,7 @@ import io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRet
 import io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -49,7 +49,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -57,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * A StatefulSetSpec is the specification of a StatefulSet.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StatefulSetSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
@@ -101,13 +100,12 @@ public class V1StatefulSetSpec {
 
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES = "volumeClaimTemplates";
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES)
-  private List<V1PersistentVolumeClaim> volumeClaimTemplates;
+  private List<V1PersistentVolumeClaim> volumeClaimTemplates = new ArrayList<>();
 
   public V1StatefulSetSpec() {
   }
 
   public V1StatefulSetSpec minReadySeconds(Integer minReadySeconds) {
-
     this.minReadySeconds = minReadySeconds;
     return this;
   }
@@ -121,14 +119,12 @@ public class V1StatefulSetSpec {
     return minReadySeconds;
   }
 
-
   public void setMinReadySeconds(Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
   }
 
 
   public V1StatefulSetSpec ordinals(V1StatefulSetOrdinals ordinals) {
-
     this.ordinals = ordinals;
     return this;
   }
@@ -142,14 +138,12 @@ public class V1StatefulSetSpec {
     return ordinals;
   }
 
-
   public void setOrdinals(V1StatefulSetOrdinals ordinals) {
     this.ordinals = ordinals;
   }
 
 
   public V1StatefulSetSpec persistentVolumeClaimRetentionPolicy(V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
-
     this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
     return this;
   }
@@ -163,14 +157,12 @@ public class V1StatefulSetSpec {
     return persistentVolumeClaimRetentionPolicy;
   }
 
-
   public void setPersistentVolumeClaimRetentionPolicy(V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
     this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
   }
 
 
   public V1StatefulSetSpec podManagementPolicy(String podManagementPolicy) {
-
     this.podManagementPolicy = podManagementPolicy;
     return this;
   }
@@ -184,14 +176,12 @@ public class V1StatefulSetSpec {
     return podManagementPolicy;
   }
 
-
   public void setPodManagementPolicy(String podManagementPolicy) {
     this.podManagementPolicy = podManagementPolicy;
   }
 
 
   public V1StatefulSetSpec replicas(Integer replicas) {
-
     this.replicas = replicas;
     return this;
   }
@@ -205,14 +195,12 @@ public class V1StatefulSetSpec {
     return replicas;
   }
 
-
   public void setReplicas(Integer replicas) {
     this.replicas = replicas;
   }
 
 
   public V1StatefulSetSpec revisionHistoryLimit(Integer revisionHistoryLimit) {
-
     this.revisionHistoryLimit = revisionHistoryLimit;
     return this;
   }
@@ -226,14 +214,12 @@ public class V1StatefulSetSpec {
     return revisionHistoryLimit;
   }
 
-
   public void setRevisionHistoryLimit(Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
   }
 
 
   public V1StatefulSetSpec selector(V1LabelSelector selector) {
-
     this.selector = selector;
     return this;
   }
@@ -247,14 +233,12 @@ public class V1StatefulSetSpec {
     return selector;
   }
 
-
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
   public V1StatefulSetSpec serviceName(String serviceName) {
-
     this.serviceName = serviceName;
     return this;
   }
@@ -268,14 +252,12 @@ public class V1StatefulSetSpec {
     return serviceName;
   }
 
-
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
   }
 
 
   public V1StatefulSetSpec template(V1PodTemplateSpec template) {
-
     this.template = template;
     return this;
   }
@@ -289,14 +271,12 @@ public class V1StatefulSetSpec {
     return template;
   }
 
-
   public void setTemplate(V1PodTemplateSpec template) {
     this.template = template;
   }
 
 
   public V1StatefulSetSpec updateStrategy(V1StatefulSetUpdateStrategy updateStrategy) {
-
     this.updateStrategy = updateStrategy;
     return this;
   }
@@ -310,14 +290,12 @@ public class V1StatefulSetSpec {
     return updateStrategy;
   }
 
-
   public void setUpdateStrategy(V1StatefulSetUpdateStrategy updateStrategy) {
     this.updateStrategy = updateStrategy;
   }
 
 
   public V1StatefulSetSpec volumeClaimTemplates(List<V1PersistentVolumeClaim> volumeClaimTemplates) {
-
     this.volumeClaimTemplates = volumeClaimTemplates;
     return this;
   }
@@ -338,7 +316,6 @@ public class V1StatefulSetSpec {
   public List<V1PersistentVolumeClaim> getVolumeClaimTemplates() {
     return volumeClaimTemplates;
   }
-
 
   public void setVolumeClaimTemplates(List<V1PersistentVolumeClaim> volumeClaimTemplates) {
     this.volumeClaimTemplates = volumeClaimTemplates;
@@ -430,53 +407,54 @@ public class V1StatefulSetSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1StatefulSetSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1StatefulSetSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1StatefulSetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1StatefulSetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1StatefulSetSpec is not found in the empty JSON string", V1StatefulSetSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1StatefulSetSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1StatefulSetSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1StatefulSetSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1StatefulSetSpec.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `ordinals`
       if (jsonObj.get("ordinals") != null && !jsonObj.get("ordinals").isJsonNull()) {
-        V1StatefulSetOrdinals.validateJsonObject(jsonObj.getAsJsonObject("ordinals"));
+        V1StatefulSetOrdinals.validateJsonElement(jsonObj.get("ordinals"));
       }
       // validate the optional field `persistentVolumeClaimRetentionPolicy`
       if (jsonObj.get("persistentVolumeClaimRetentionPolicy") != null && !jsonObj.get("persistentVolumeClaimRetentionPolicy").isJsonNull()) {
-        V1StatefulSetPersistentVolumeClaimRetentionPolicy.validateJsonObject(jsonObj.getAsJsonObject("persistentVolumeClaimRetentionPolicy"));
+        V1StatefulSetPersistentVolumeClaimRetentionPolicy.validateJsonElement(jsonObj.get("persistentVolumeClaimRetentionPolicy"));
       }
       if ((jsonObj.get("podManagementPolicy") != null && !jsonObj.get("podManagementPolicy").isJsonNull()) && !jsonObj.get("podManagementPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `podManagementPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("podManagementPolicy").toString()));
       }
       // validate the required field `selector`
-      V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+      V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
       if (!jsonObj.get("serviceName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `serviceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceName").toString()));
       }
       // validate the required field `template`
-      V1PodTemplateSpec.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      V1PodTemplateSpec.validateJsonElement(jsonObj.get("template"));
       // validate the optional field `updateStrategy`
       if (jsonObj.get("updateStrategy") != null && !jsonObj.get("updateStrategy").isJsonNull()) {
-        V1StatefulSetUpdateStrategy.validateJsonObject(jsonObj.getAsJsonObject("updateStrategy"));
+        V1StatefulSetUpdateStrategy.validateJsonElement(jsonObj.get("updateStrategy"));
       }
       if (jsonObj.get("volumeClaimTemplates") != null && !jsonObj.get("volumeClaimTemplates").isJsonNull()) {
         JsonArray jsonArrayvolumeClaimTemplates = jsonObj.getAsJsonArray("volumeClaimTemplates");
@@ -488,7 +466,7 @@ public class V1StatefulSetSpec {
 
           // validate the optional field `volumeClaimTemplates` (array)
           for (int i = 0; i < jsonArrayvolumeClaimTemplates.size(); i++) {
-            V1PersistentVolumeClaim.validateJsonObject(jsonArrayvolumeClaimTemplates.get(i).getAsJsonObject());
+            V1PersistentVolumeClaim.validateJsonElement(jsonArrayvolumeClaimTemplates.get(i));
           };
         }
       }
@@ -514,9 +492,9 @@ public class V1StatefulSetSpec {
 
            @Override
            public V1StatefulSetSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

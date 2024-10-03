@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LocalObjectReference;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -50,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CinderVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -72,7 +71,6 @@ public class V1CinderVolumeSource {
   }
 
   public V1CinderVolumeSource fsType(String fsType) {
-
     this.fsType = fsType;
     return this;
   }
@@ -86,14 +84,12 @@ public class V1CinderVolumeSource {
     return fsType;
   }
 
-
   public void setFsType(String fsType) {
     this.fsType = fsType;
   }
 
 
   public V1CinderVolumeSource readOnly(Boolean readOnly) {
-
     this.readOnly = readOnly;
     return this;
   }
@@ -107,14 +103,12 @@ public class V1CinderVolumeSource {
     return readOnly;
   }
 
-
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
   public V1CinderVolumeSource secretRef(V1LocalObjectReference secretRef) {
-
     this.secretRef = secretRef;
     return this;
   }
@@ -128,14 +122,12 @@ public class V1CinderVolumeSource {
     return secretRef;
   }
 
-
   public void setSecretRef(V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
   }
 
 
   public V1CinderVolumeSource volumeID(String volumeID) {
-
     this.volumeID = volumeID;
     return this;
   }
@@ -148,7 +140,6 @@ public class V1CinderVolumeSource {
   public String getVolumeID() {
     return volumeID;
   }
-
 
   public void setVolumeID(String volumeID) {
     this.volumeID = volumeID;
@@ -217,38 +208,39 @@ public class V1CinderVolumeSource {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1CinderVolumeSource
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1CinderVolumeSource
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1CinderVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1CinderVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1CinderVolumeSource is not found in the empty JSON string", V1CinderVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CinderVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CinderVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CinderVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1CinderVolumeSource.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fsType") != null && !jsonObj.get("fsType").isJsonNull()) && !jsonObj.get("fsType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
       }
       // validate the optional field `secretRef`
       if (jsonObj.get("secretRef") != null && !jsonObj.get("secretRef").isJsonNull()) {
-        V1LocalObjectReference.validateJsonObject(jsonObj.getAsJsonObject("secretRef"));
+        V1LocalObjectReference.validateJsonElement(jsonObj.get("secretRef"));
       }
       if (!jsonObj.get("volumeID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeID").toString()));
@@ -275,9 +267,9 @@ public class V1CinderVolumeSource {
 
            @Override
            public V1CinderVolumeSource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

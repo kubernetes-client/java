@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1UncountedTerminatedPods;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * JobStatus represents the current state of a Job.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -70,7 +69,7 @@ public class V1JobStatus {
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1JobCondition> conditions;
+  private List<V1JobCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FAILED = "failed";
   @SerializedName(SERIALIZED_NAME_FAILED)
@@ -104,7 +103,6 @@ public class V1JobStatus {
   }
 
   public V1JobStatus active(Integer active) {
-
     this.active = active;
     return this;
   }
@@ -118,14 +116,12 @@ public class V1JobStatus {
     return active;
   }
 
-
   public void setActive(Integer active) {
     this.active = active;
   }
 
 
   public V1JobStatus completedIndexes(String completedIndexes) {
-
     this.completedIndexes = completedIndexes;
     return this;
   }
@@ -139,14 +135,12 @@ public class V1JobStatus {
     return completedIndexes;
   }
 
-
   public void setCompletedIndexes(String completedIndexes) {
     this.completedIndexes = completedIndexes;
   }
 
 
   public V1JobStatus completionTime(OffsetDateTime completionTime) {
-
     this.completionTime = completionTime;
     return this;
   }
@@ -160,14 +154,12 @@ public class V1JobStatus {
     return completionTime;
   }
 
-
   public void setCompletionTime(OffsetDateTime completionTime) {
     this.completionTime = completionTime;
   }
 
 
   public V1JobStatus conditions(List<V1JobCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -189,14 +181,12 @@ public class V1JobStatus {
     return conditions;
   }
 
-
   public void setConditions(List<V1JobCondition> conditions) {
     this.conditions = conditions;
   }
 
 
   public V1JobStatus failed(Integer failed) {
-
     this.failed = failed;
     return this;
   }
@@ -210,14 +200,12 @@ public class V1JobStatus {
     return failed;
   }
 
-
   public void setFailed(Integer failed) {
     this.failed = failed;
   }
 
 
   public V1JobStatus failedIndexes(String failedIndexes) {
-
     this.failedIndexes = failedIndexes;
     return this;
   }
@@ -231,14 +219,12 @@ public class V1JobStatus {
     return failedIndexes;
   }
 
-
   public void setFailedIndexes(String failedIndexes) {
     this.failedIndexes = failedIndexes;
   }
 
 
   public V1JobStatus ready(Integer ready) {
-
     this.ready = ready;
     return this;
   }
@@ -252,14 +238,12 @@ public class V1JobStatus {
     return ready;
   }
 
-
   public void setReady(Integer ready) {
     this.ready = ready;
   }
 
 
   public V1JobStatus startTime(OffsetDateTime startTime) {
-
     this.startTime = startTime;
     return this;
   }
@@ -273,14 +257,12 @@ public class V1JobStatus {
     return startTime;
   }
 
-
   public void setStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
   }
 
 
   public V1JobStatus succeeded(Integer succeeded) {
-
     this.succeeded = succeeded;
     return this;
   }
@@ -294,14 +276,12 @@ public class V1JobStatus {
     return succeeded;
   }
 
-
   public void setSucceeded(Integer succeeded) {
     this.succeeded = succeeded;
   }
 
 
   public V1JobStatus terminating(Integer terminating) {
-
     this.terminating = terminating;
     return this;
   }
@@ -315,14 +295,12 @@ public class V1JobStatus {
     return terminating;
   }
 
-
   public void setTerminating(Integer terminating) {
     this.terminating = terminating;
   }
 
 
   public V1JobStatus uncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods) {
-
     this.uncountedTerminatedPods = uncountedTerminatedPods;
     return this;
   }
@@ -335,7 +313,6 @@ public class V1JobStatus {
   public V1UncountedTerminatedPods getUncountedTerminatedPods() {
     return uncountedTerminatedPods;
   }
-
 
   public void setUncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods) {
     this.uncountedTerminatedPods = uncountedTerminatedPods;
@@ -424,25 +401,26 @@ public class V1JobStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1JobStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1JobStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1JobStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1JobStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1JobStatus is not found in the empty JSON string", V1JobStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1JobStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("completedIndexes") != null && !jsonObj.get("completedIndexes").isJsonNull()) && !jsonObj.get("completedIndexes").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `completedIndexes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("completedIndexes").toString()));
       }
@@ -456,7 +434,7 @@ public class V1JobStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V1JobCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V1JobCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
@@ -465,7 +443,7 @@ public class V1JobStatus {
       }
       // validate the optional field `uncountedTerminatedPods`
       if (jsonObj.get("uncountedTerminatedPods") != null && !jsonObj.get("uncountedTerminatedPods").isJsonNull()) {
-        V1UncountedTerminatedPods.validateJsonObject(jsonObj.getAsJsonObject("uncountedTerminatedPods"));
+        V1UncountedTerminatedPods.validateJsonElement(jsonObj.get("uncountedTerminatedPods"));
       }
   }
 
@@ -489,9 +467,9 @@ public class V1JobStatus {
 
            @Override
            public V1JobStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

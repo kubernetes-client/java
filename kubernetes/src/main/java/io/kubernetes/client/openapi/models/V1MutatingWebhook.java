@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1MatchCondition;
 import io.kubernetes.client.openapi.models.V1RuleWithOperations;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * MutatingWebhook describes an admission webhook and the resources and operations it applies to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1MutatingWebhook {
   public static final String SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS = "admissionReviewVersions";
   @SerializedName(SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS)
@@ -71,7 +70,7 @@ public class V1MutatingWebhook {
 
   public static final String SERIALIZED_NAME_MATCH_CONDITIONS = "matchConditions";
   @SerializedName(SERIALIZED_NAME_MATCH_CONDITIONS)
-  private List<V1MatchCondition> matchConditions;
+  private List<V1MatchCondition> matchConditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCH_POLICY = "matchPolicy";
   @SerializedName(SERIALIZED_NAME_MATCH_POLICY)
@@ -95,7 +94,7 @@ public class V1MutatingWebhook {
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
-  private List<V1RuleWithOperations> rules;
+  private List<V1RuleWithOperations> rules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SIDE_EFFECTS = "sideEffects";
   @SerializedName(SERIALIZED_NAME_SIDE_EFFECTS)
@@ -109,7 +108,6 @@ public class V1MutatingWebhook {
   }
 
   public V1MutatingWebhook admissionReviewVersions(List<String> admissionReviewVersions) {
-
     this.admissionReviewVersions = admissionReviewVersions;
     return this;
   }
@@ -131,14 +129,12 @@ public class V1MutatingWebhook {
     return admissionReviewVersions;
   }
 
-
   public void setAdmissionReviewVersions(List<String> admissionReviewVersions) {
     this.admissionReviewVersions = admissionReviewVersions;
   }
 
 
   public V1MutatingWebhook clientConfig(AdmissionregistrationV1WebhookClientConfig clientConfig) {
-
     this.clientConfig = clientConfig;
     return this;
   }
@@ -152,14 +148,12 @@ public class V1MutatingWebhook {
     return clientConfig;
   }
 
-
   public void setClientConfig(AdmissionregistrationV1WebhookClientConfig clientConfig) {
     this.clientConfig = clientConfig;
   }
 
 
   public V1MutatingWebhook failurePolicy(String failurePolicy) {
-
     this.failurePolicy = failurePolicy;
     return this;
   }
@@ -173,14 +167,12 @@ public class V1MutatingWebhook {
     return failurePolicy;
   }
 
-
   public void setFailurePolicy(String failurePolicy) {
     this.failurePolicy = failurePolicy;
   }
 
 
   public V1MutatingWebhook matchConditions(List<V1MatchCondition> matchConditions) {
-
     this.matchConditions = matchConditions;
     return this;
   }
@@ -202,14 +194,12 @@ public class V1MutatingWebhook {
     return matchConditions;
   }
 
-
   public void setMatchConditions(List<V1MatchCondition> matchConditions) {
     this.matchConditions = matchConditions;
   }
 
 
   public V1MutatingWebhook matchPolicy(String matchPolicy) {
-
     this.matchPolicy = matchPolicy;
     return this;
   }
@@ -223,14 +213,12 @@ public class V1MutatingWebhook {
     return matchPolicy;
   }
 
-
   public void setMatchPolicy(String matchPolicy) {
     this.matchPolicy = matchPolicy;
   }
 
 
   public V1MutatingWebhook name(String name) {
-
     this.name = name;
     return this;
   }
@@ -244,14 +232,12 @@ public class V1MutatingWebhook {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1MutatingWebhook namespaceSelector(V1LabelSelector namespaceSelector) {
-
     this.namespaceSelector = namespaceSelector;
     return this;
   }
@@ -265,14 +251,12 @@ public class V1MutatingWebhook {
     return namespaceSelector;
   }
 
-
   public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
 
 
   public V1MutatingWebhook objectSelector(V1LabelSelector objectSelector) {
-
     this.objectSelector = objectSelector;
     return this;
   }
@@ -286,14 +270,12 @@ public class V1MutatingWebhook {
     return objectSelector;
   }
 
-
   public void setObjectSelector(V1LabelSelector objectSelector) {
     this.objectSelector = objectSelector;
   }
 
 
   public V1MutatingWebhook reinvocationPolicy(String reinvocationPolicy) {
-
     this.reinvocationPolicy = reinvocationPolicy;
     return this;
   }
@@ -307,14 +289,12 @@ public class V1MutatingWebhook {
     return reinvocationPolicy;
   }
 
-
   public void setReinvocationPolicy(String reinvocationPolicy) {
     this.reinvocationPolicy = reinvocationPolicy;
   }
 
 
   public V1MutatingWebhook rules(List<V1RuleWithOperations> rules) {
-
     this.rules = rules;
     return this;
   }
@@ -336,14 +316,12 @@ public class V1MutatingWebhook {
     return rules;
   }
 
-
   public void setRules(List<V1RuleWithOperations> rules) {
     this.rules = rules;
   }
 
 
   public V1MutatingWebhook sideEffects(String sideEffects) {
-
     this.sideEffects = sideEffects;
     return this;
   }
@@ -357,14 +335,12 @@ public class V1MutatingWebhook {
     return sideEffects;
   }
 
-
   public void setSideEffects(String sideEffects) {
     this.sideEffects = sideEffects;
   }
 
 
   public V1MutatingWebhook timeoutSeconds(Integer timeoutSeconds) {
-
     this.timeoutSeconds = timeoutSeconds;
     return this;
   }
@@ -377,7 +353,6 @@ public class V1MutatingWebhook {
   public Integer getTimeoutSeconds() {
     return timeoutSeconds;
   }
-
 
   public void setTimeoutSeconds(Integer timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
@@ -473,32 +448,33 @@ public class V1MutatingWebhook {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1MutatingWebhook
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1MutatingWebhook
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1MutatingWebhook.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1MutatingWebhook.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1MutatingWebhook is not found in the empty JSON string", V1MutatingWebhook.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1MutatingWebhook.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1MutatingWebhook` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1MutatingWebhook` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1MutatingWebhook.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the required json array is present
       if (jsonObj.get("admissionReviewVersions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
@@ -506,7 +482,7 @@ public class V1MutatingWebhook {
         throw new IllegalArgumentException(String.format("Expected the field `admissionReviewVersions` to be an array in the JSON string but got `%s`", jsonObj.get("admissionReviewVersions").toString()));
       }
       // validate the required field `clientConfig`
-      AdmissionregistrationV1WebhookClientConfig.validateJsonObject(jsonObj.getAsJsonObject("clientConfig"));
+      AdmissionregistrationV1WebhookClientConfig.validateJsonElement(jsonObj.get("clientConfig"));
       if ((jsonObj.get("failurePolicy") != null && !jsonObj.get("failurePolicy").isJsonNull()) && !jsonObj.get("failurePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `failurePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failurePolicy").toString()));
       }
@@ -520,7 +496,7 @@ public class V1MutatingWebhook {
 
           // validate the optional field `matchConditions` (array)
           for (int i = 0; i < jsonArraymatchConditions.size(); i++) {
-            V1MatchCondition.validateJsonObject(jsonArraymatchConditions.get(i).getAsJsonObject());
+            V1MatchCondition.validateJsonElement(jsonArraymatchConditions.get(i));
           };
         }
       }
@@ -532,11 +508,11 @@ public class V1MutatingWebhook {
       }
       // validate the optional field `namespaceSelector`
       if (jsonObj.get("namespaceSelector") != null && !jsonObj.get("namespaceSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("namespaceSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("namespaceSelector"));
       }
       // validate the optional field `objectSelector`
       if (jsonObj.get("objectSelector") != null && !jsonObj.get("objectSelector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("objectSelector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("objectSelector"));
       }
       if ((jsonObj.get("reinvocationPolicy") != null && !jsonObj.get("reinvocationPolicy").isJsonNull()) && !jsonObj.get("reinvocationPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reinvocationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reinvocationPolicy").toString()));
@@ -551,7 +527,7 @@ public class V1MutatingWebhook {
 
           // validate the optional field `rules` (array)
           for (int i = 0; i < jsonArrayrules.size(); i++) {
-            V1RuleWithOperations.validateJsonObject(jsonArrayrules.get(i).getAsJsonObject());
+            V1RuleWithOperations.validateJsonElement(jsonArrayrules.get(i));
           };
         }
       }
@@ -580,9 +556,9 @@ public class V1MutatingWebhook {
 
            @Override
            public V1MutatingWebhook read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

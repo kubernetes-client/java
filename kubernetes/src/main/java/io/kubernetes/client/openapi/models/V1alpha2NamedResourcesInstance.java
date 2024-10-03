@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha2NamedResourcesAttribute;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,11 +51,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NamedResourcesInstance represents one individual hardware instance that can be selected based on its attributes.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha2NamedResourcesInstance {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private List<V1alpha2NamedResourcesAttribute> attributes;
+  private List<V1alpha2NamedResourcesAttribute> attributes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,7 +65,6 @@ public class V1alpha2NamedResourcesInstance {
   }
 
   public V1alpha2NamedResourcesInstance attributes(List<V1alpha2NamedResourcesAttribute> attributes) {
-
     this.attributes = attributes;
     return this;
   }
@@ -88,14 +86,12 @@ public class V1alpha2NamedResourcesInstance {
     return attributes;
   }
 
-
   public void setAttributes(List<V1alpha2NamedResourcesAttribute> attributes) {
     this.attributes = attributes;
   }
 
 
   public V1alpha2NamedResourcesInstance name(String name) {
-
     this.name = name;
     return this;
   }
@@ -108,7 +104,6 @@ public class V1alpha2NamedResourcesInstance {
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -171,32 +166,33 @@ public class V1alpha2NamedResourcesInstance {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1alpha2NamedResourcesInstance
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1alpha2NamedResourcesInstance
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1alpha2NamedResourcesInstance.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha2NamedResourcesInstance.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha2NamedResourcesInstance is not found in the empty JSON string", V1alpha2NamedResourcesInstance.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha2NamedResourcesInstance.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesInstance` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesInstance` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1alpha2NamedResourcesInstance.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("attributes") != null && !jsonObj.get("attributes").isJsonNull()) {
         JsonArray jsonArrayattributes = jsonObj.getAsJsonArray("attributes");
         if (jsonArrayattributes != null) {
@@ -207,7 +203,7 @@ public class V1alpha2NamedResourcesInstance {
 
           // validate the optional field `attributes` (array)
           for (int i = 0; i < jsonArrayattributes.size(); i++) {
-            V1alpha2NamedResourcesAttribute.validateJsonObject(jsonArrayattributes.get(i).getAsJsonObject());
+            V1alpha2NamedResourcesAttribute.validateJsonElement(jsonArrayattributes.get(i));
           };
         }
       }
@@ -236,9 +232,9 @@ public class V1alpha2NamedResourcesInstance {
 
            @Override
            public V1alpha2NamedResourcesInstance read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

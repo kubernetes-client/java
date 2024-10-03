@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1DaemonSetCondition;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DaemonSetStatus represents the current status of a daemon set.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1DaemonSetStatus {
   public static final String SERIALIZED_NAME_COLLISION_COUNT = "collisionCount";
   @SerializedName(SERIALIZED_NAME_COLLISION_COUNT)
@@ -60,7 +59,7 @@ public class V1DaemonSetStatus {
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1DaemonSetCondition> conditions;
+  private List<V1DaemonSetCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENT_NUMBER_SCHEDULED = "currentNumberScheduled";
   @SerializedName(SERIALIZED_NAME_CURRENT_NUMBER_SCHEDULED)
@@ -98,7 +97,6 @@ public class V1DaemonSetStatus {
   }
 
   public V1DaemonSetStatus collisionCount(Integer collisionCount) {
-
     this.collisionCount = collisionCount;
     return this;
   }
@@ -112,14 +110,12 @@ public class V1DaemonSetStatus {
     return collisionCount;
   }
 
-
   public void setCollisionCount(Integer collisionCount) {
     this.collisionCount = collisionCount;
   }
 
 
   public V1DaemonSetStatus conditions(List<V1DaemonSetCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -141,14 +137,12 @@ public class V1DaemonSetStatus {
     return conditions;
   }
 
-
   public void setConditions(List<V1DaemonSetCondition> conditions) {
     this.conditions = conditions;
   }
 
 
   public V1DaemonSetStatus currentNumberScheduled(Integer currentNumberScheduled) {
-
     this.currentNumberScheduled = currentNumberScheduled;
     return this;
   }
@@ -162,14 +156,12 @@ public class V1DaemonSetStatus {
     return currentNumberScheduled;
   }
 
-
   public void setCurrentNumberScheduled(Integer currentNumberScheduled) {
     this.currentNumberScheduled = currentNumberScheduled;
   }
 
 
   public V1DaemonSetStatus desiredNumberScheduled(Integer desiredNumberScheduled) {
-
     this.desiredNumberScheduled = desiredNumberScheduled;
     return this;
   }
@@ -183,14 +175,12 @@ public class V1DaemonSetStatus {
     return desiredNumberScheduled;
   }
 
-
   public void setDesiredNumberScheduled(Integer desiredNumberScheduled) {
     this.desiredNumberScheduled = desiredNumberScheduled;
   }
 
 
   public V1DaemonSetStatus numberAvailable(Integer numberAvailable) {
-
     this.numberAvailable = numberAvailable;
     return this;
   }
@@ -204,14 +194,12 @@ public class V1DaemonSetStatus {
     return numberAvailable;
   }
 
-
   public void setNumberAvailable(Integer numberAvailable) {
     this.numberAvailable = numberAvailable;
   }
 
 
   public V1DaemonSetStatus numberMisscheduled(Integer numberMisscheduled) {
-
     this.numberMisscheduled = numberMisscheduled;
     return this;
   }
@@ -225,14 +213,12 @@ public class V1DaemonSetStatus {
     return numberMisscheduled;
   }
 
-
   public void setNumberMisscheduled(Integer numberMisscheduled) {
     this.numberMisscheduled = numberMisscheduled;
   }
 
 
   public V1DaemonSetStatus numberReady(Integer numberReady) {
-
     this.numberReady = numberReady;
     return this;
   }
@@ -246,14 +232,12 @@ public class V1DaemonSetStatus {
     return numberReady;
   }
 
-
   public void setNumberReady(Integer numberReady) {
     this.numberReady = numberReady;
   }
 
 
   public V1DaemonSetStatus numberUnavailable(Integer numberUnavailable) {
-
     this.numberUnavailable = numberUnavailable;
     return this;
   }
@@ -267,14 +251,12 @@ public class V1DaemonSetStatus {
     return numberUnavailable;
   }
 
-
   public void setNumberUnavailable(Integer numberUnavailable) {
     this.numberUnavailable = numberUnavailable;
   }
 
 
   public V1DaemonSetStatus observedGeneration(Long observedGeneration) {
-
     this.observedGeneration = observedGeneration;
     return this;
   }
@@ -288,14 +270,12 @@ public class V1DaemonSetStatus {
     return observedGeneration;
   }
 
-
   public void setObservedGeneration(Long observedGeneration) {
     this.observedGeneration = observedGeneration;
   }
 
 
   public V1DaemonSetStatus updatedNumberScheduled(Integer updatedNumberScheduled) {
-
     this.updatedNumberScheduled = updatedNumberScheduled;
     return this;
   }
@@ -308,7 +288,6 @@ public class V1DaemonSetStatus {
   public Integer getUpdatedNumberScheduled() {
     return updatedNumberScheduled;
   }
-
 
   public void setUpdatedNumberScheduled(Integer updatedNumberScheduled) {
     this.updatedNumberScheduled = updatedNumberScheduled;
@@ -398,32 +377,33 @@ public class V1DaemonSetStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1DaemonSetStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1DaemonSetStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1DaemonSetStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1DaemonSetStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1DaemonSetStatus is not found in the empty JSON string", V1DaemonSetStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1DaemonSetStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DaemonSetStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DaemonSetStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1DaemonSetStatus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
@@ -434,7 +414,7 @@ public class V1DaemonSetStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V1DaemonSetCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V1DaemonSetCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
@@ -460,9 +440,9 @@ public class V1DaemonSetStatus {
 
            @Override
            public V1DaemonSetStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

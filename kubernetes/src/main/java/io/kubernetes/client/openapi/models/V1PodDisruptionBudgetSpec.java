@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -51,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodDisruptionBudgetSpec {
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
@@ -73,7 +72,6 @@ public class V1PodDisruptionBudgetSpec {
   }
 
   public V1PodDisruptionBudgetSpec maxUnavailable(IntOrString maxUnavailable) {
-
     this.maxUnavailable = maxUnavailable;
     return this;
   }
@@ -87,14 +85,12 @@ public class V1PodDisruptionBudgetSpec {
     return maxUnavailable;
   }
 
-
   public void setMaxUnavailable(IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
   }
 
 
   public V1PodDisruptionBudgetSpec minAvailable(IntOrString minAvailable) {
-
     this.minAvailable = minAvailable;
     return this;
   }
@@ -108,14 +104,12 @@ public class V1PodDisruptionBudgetSpec {
     return minAvailable;
   }
 
-
   public void setMinAvailable(IntOrString minAvailable) {
     this.minAvailable = minAvailable;
   }
 
 
   public V1PodDisruptionBudgetSpec selector(V1LabelSelector selector) {
-
     this.selector = selector;
     return this;
   }
@@ -129,14 +123,12 @@ public class V1PodDisruptionBudgetSpec {
     return selector;
   }
 
-
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
   public V1PodDisruptionBudgetSpec unhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy) {
-
     this.unhealthyPodEvictionPolicy = unhealthyPodEvictionPolicy;
     return this;
   }
@@ -149,7 +141,6 @@ public class V1PodDisruptionBudgetSpec {
   public String getUnhealthyPodEvictionPolicy() {
     return unhealthyPodEvictionPolicy;
   }
-
 
   public void setUnhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy) {
     this.unhealthyPodEvictionPolicy = unhealthyPodEvictionPolicy;
@@ -217,25 +208,26 @@ public class V1PodDisruptionBudgetSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodDisruptionBudgetSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodDisruptionBudgetSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodDisruptionBudgetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodDisruptionBudgetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodDisruptionBudgetSpec is not found in the empty JSON string", V1PodDisruptionBudgetSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodDisruptionBudgetSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodDisruptionBudgetSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodDisruptionBudgetSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("maxUnavailable") != null && !jsonObj.get("maxUnavailable").isJsonNull()) && !jsonObj.get("maxUnavailable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `maxUnavailable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maxUnavailable").toString()));
       }
@@ -244,7 +236,7 @@ public class V1PodDisruptionBudgetSpec {
       }
       // validate the optional field `selector`
       if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
       }
       if ((jsonObj.get("unhealthyPodEvictionPolicy") != null && !jsonObj.get("unhealthyPodEvictionPolicy").isJsonNull()) && !jsonObj.get("unhealthyPodEvictionPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unhealthyPodEvictionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unhealthyPodEvictionPolicy").toString()));
@@ -271,9 +263,9 @@ public class V1PodDisruptionBudgetSpec {
 
            @Override
            public V1PodDisruptionBudgetSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
