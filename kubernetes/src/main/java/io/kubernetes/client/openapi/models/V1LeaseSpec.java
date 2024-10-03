@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -50,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LeaseSpec is a specification of a Lease.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -76,7 +75,6 @@ public class V1LeaseSpec {
   }
 
   public V1LeaseSpec acquireTime(OffsetDateTime acquireTime) {
-
     this.acquireTime = acquireTime;
     return this;
   }
@@ -90,14 +88,12 @@ public class V1LeaseSpec {
     return acquireTime;
   }
 
-
   public void setAcquireTime(OffsetDateTime acquireTime) {
     this.acquireTime = acquireTime;
   }
 
 
   public V1LeaseSpec holderIdentity(String holderIdentity) {
-
     this.holderIdentity = holderIdentity;
     return this;
   }
@@ -111,14 +107,12 @@ public class V1LeaseSpec {
     return holderIdentity;
   }
 
-
   public void setHolderIdentity(String holderIdentity) {
     this.holderIdentity = holderIdentity;
   }
 
 
   public V1LeaseSpec leaseDurationSeconds(Integer leaseDurationSeconds) {
-
     this.leaseDurationSeconds = leaseDurationSeconds;
     return this;
   }
@@ -132,14 +126,12 @@ public class V1LeaseSpec {
     return leaseDurationSeconds;
   }
 
-
   public void setLeaseDurationSeconds(Integer leaseDurationSeconds) {
     this.leaseDurationSeconds = leaseDurationSeconds;
   }
 
 
   public V1LeaseSpec leaseTransitions(Integer leaseTransitions) {
-
     this.leaseTransitions = leaseTransitions;
     return this;
   }
@@ -153,14 +145,12 @@ public class V1LeaseSpec {
     return leaseTransitions;
   }
 
-
   public void setLeaseTransitions(Integer leaseTransitions) {
     this.leaseTransitions = leaseTransitions;
   }
 
 
   public V1LeaseSpec renewTime(OffsetDateTime renewTime) {
-
     this.renewTime = renewTime;
     return this;
   }
@@ -173,7 +163,6 @@ public class V1LeaseSpec {
   public OffsetDateTime getRenewTime() {
     return renewTime;
   }
-
 
   public void setRenewTime(OffsetDateTime renewTime) {
     this.renewTime = renewTime;
@@ -244,25 +233,26 @@ public class V1LeaseSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1LeaseSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1LeaseSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1LeaseSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1LeaseSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1LeaseSpec is not found in the empty JSON string", V1LeaseSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1LeaseSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1LeaseSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1LeaseSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("holderIdentity") != null && !jsonObj.get("holderIdentity").isJsonNull()) && !jsonObj.get("holderIdentity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `holderIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderIdentity").toString()));
       }
@@ -288,9 +278,9 @@ public class V1LeaseSpec {
 
            @Override
            public V1LeaseSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

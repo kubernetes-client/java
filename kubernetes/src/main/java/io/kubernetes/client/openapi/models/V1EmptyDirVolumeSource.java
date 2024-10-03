@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -50,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EmptyDirVolumeSource {
   public static final String SERIALIZED_NAME_MEDIUM = "medium";
   @SerializedName(SERIALIZED_NAME_MEDIUM)
@@ -64,7 +63,6 @@ public class V1EmptyDirVolumeSource {
   }
 
   public V1EmptyDirVolumeSource medium(String medium) {
-
     this.medium = medium;
     return this;
   }
@@ -78,14 +76,12 @@ public class V1EmptyDirVolumeSource {
     return medium;
   }
 
-
   public void setMedium(String medium) {
     this.medium = medium;
   }
 
 
   public V1EmptyDirVolumeSource sizeLimit(Quantity sizeLimit) {
-
     this.sizeLimit = sizeLimit;
     return this;
   }
@@ -98,7 +94,6 @@ public class V1EmptyDirVolumeSource {
   public Quantity getSizeLimit() {
     return sizeLimit;
   }
-
 
   public void setSizeLimit(Quantity sizeLimit) {
     this.sizeLimit = sizeLimit;
@@ -160,25 +155,26 @@ public class V1EmptyDirVolumeSource {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1EmptyDirVolumeSource
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1EmptyDirVolumeSource
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1EmptyDirVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1EmptyDirVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1EmptyDirVolumeSource is not found in the empty JSON string", V1EmptyDirVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1EmptyDirVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1EmptyDirVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1EmptyDirVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("medium") != null && !jsonObj.get("medium").isJsonNull()) && !jsonObj.get("medium").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `medium` to be a primitive type in the JSON string but got `%s`", jsonObj.get("medium").toString()));
       }
@@ -207,9 +203,9 @@ public class V1EmptyDirVolumeSource {
 
            @Override
            public V1EmptyDirVolumeSource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

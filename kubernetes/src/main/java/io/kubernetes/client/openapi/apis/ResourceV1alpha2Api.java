@@ -50,7 +50,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import jakarta.ws.rs.core.GenericType;
 
 public class ResourceV1alpha2Api {
     private ApiClient localVarApiClient;

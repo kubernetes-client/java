@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,6 +25,7 @@ import io.kubernetes.client.openapi.models.V1Sysctl;
 import io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -56,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
   @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
@@ -92,11 +91,11 @@ public class V1PodSecurityContext {
 
   public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS = "supplementalGroups";
   @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS)
-  private List<Long> supplementalGroups;
+  private List<Long> supplementalGroups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SYSCTLS = "sysctls";
   @SerializedName(SERIALIZED_NAME_SYSCTLS)
-  private List<V1Sysctl> sysctls;
+  private List<V1Sysctl> sysctls = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WINDOWS_OPTIONS = "windowsOptions";
   @SerializedName(SERIALIZED_NAME_WINDOWS_OPTIONS)
@@ -106,7 +105,6 @@ public class V1PodSecurityContext {
   }
 
   public V1PodSecurityContext appArmorProfile(V1AppArmorProfile appArmorProfile) {
-
     this.appArmorProfile = appArmorProfile;
     return this;
   }
@@ -120,14 +118,12 @@ public class V1PodSecurityContext {
     return appArmorProfile;
   }
 
-
   public void setAppArmorProfile(V1AppArmorProfile appArmorProfile) {
     this.appArmorProfile = appArmorProfile;
   }
 
 
   public V1PodSecurityContext fsGroup(Long fsGroup) {
-
     this.fsGroup = fsGroup;
     return this;
   }
@@ -141,14 +137,12 @@ public class V1PodSecurityContext {
     return fsGroup;
   }
 
-
   public void setFsGroup(Long fsGroup) {
     this.fsGroup = fsGroup;
   }
 
 
   public V1PodSecurityContext fsGroupChangePolicy(String fsGroupChangePolicy) {
-
     this.fsGroupChangePolicy = fsGroupChangePolicy;
     return this;
   }
@@ -162,14 +156,12 @@ public class V1PodSecurityContext {
     return fsGroupChangePolicy;
   }
 
-
   public void setFsGroupChangePolicy(String fsGroupChangePolicy) {
     this.fsGroupChangePolicy = fsGroupChangePolicy;
   }
 
 
   public V1PodSecurityContext runAsGroup(Long runAsGroup) {
-
     this.runAsGroup = runAsGroup;
     return this;
   }
@@ -183,14 +175,12 @@ public class V1PodSecurityContext {
     return runAsGroup;
   }
 
-
   public void setRunAsGroup(Long runAsGroup) {
     this.runAsGroup = runAsGroup;
   }
 
 
   public V1PodSecurityContext runAsNonRoot(Boolean runAsNonRoot) {
-
     this.runAsNonRoot = runAsNonRoot;
     return this;
   }
@@ -204,14 +194,12 @@ public class V1PodSecurityContext {
     return runAsNonRoot;
   }
 
-
   public void setRunAsNonRoot(Boolean runAsNonRoot) {
     this.runAsNonRoot = runAsNonRoot;
   }
 
 
   public V1PodSecurityContext runAsUser(Long runAsUser) {
-
     this.runAsUser = runAsUser;
     return this;
   }
@@ -225,14 +213,12 @@ public class V1PodSecurityContext {
     return runAsUser;
   }
 
-
   public void setRunAsUser(Long runAsUser) {
     this.runAsUser = runAsUser;
   }
 
 
   public V1PodSecurityContext seLinuxOptions(V1SELinuxOptions seLinuxOptions) {
-
     this.seLinuxOptions = seLinuxOptions;
     return this;
   }
@@ -246,14 +232,12 @@ public class V1PodSecurityContext {
     return seLinuxOptions;
   }
 
-
   public void setSeLinuxOptions(V1SELinuxOptions seLinuxOptions) {
     this.seLinuxOptions = seLinuxOptions;
   }
 
 
   public V1PodSecurityContext seccompProfile(V1SeccompProfile seccompProfile) {
-
     this.seccompProfile = seccompProfile;
     return this;
   }
@@ -267,14 +251,12 @@ public class V1PodSecurityContext {
     return seccompProfile;
   }
 
-
   public void setSeccompProfile(V1SeccompProfile seccompProfile) {
     this.seccompProfile = seccompProfile;
   }
 
 
   public V1PodSecurityContext supplementalGroups(List<Long> supplementalGroups) {
-
     this.supplementalGroups = supplementalGroups;
     return this;
   }
@@ -296,14 +278,12 @@ public class V1PodSecurityContext {
     return supplementalGroups;
   }
 
-
   public void setSupplementalGroups(List<Long> supplementalGroups) {
     this.supplementalGroups = supplementalGroups;
   }
 
 
   public V1PodSecurityContext sysctls(List<V1Sysctl> sysctls) {
-
     this.sysctls = sysctls;
     return this;
   }
@@ -325,14 +305,12 @@ public class V1PodSecurityContext {
     return sysctls;
   }
 
-
   public void setSysctls(List<V1Sysctl> sysctls) {
     this.sysctls = sysctls;
   }
 
 
   public V1PodSecurityContext windowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
-
     this.windowsOptions = windowsOptions;
     return this;
   }
@@ -345,7 +323,6 @@ public class V1PodSecurityContext {
   public V1WindowsSecurityContextOptions getWindowsOptions() {
     return windowsOptions;
   }
-
 
   public void setWindowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
     this.windowsOptions = windowsOptions;
@@ -434,42 +411,43 @@ public class V1PodSecurityContext {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodSecurityContext
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodSecurityContext
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodSecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodSecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodSecurityContext is not found in the empty JSON string", V1PodSecurityContext.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodSecurityContext.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSecurityContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSecurityContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `appArmorProfile`
       if (jsonObj.get("appArmorProfile") != null && !jsonObj.get("appArmorProfile").isJsonNull()) {
-        V1AppArmorProfile.validateJsonObject(jsonObj.getAsJsonObject("appArmorProfile"));
+        V1AppArmorProfile.validateJsonElement(jsonObj.get("appArmorProfile"));
       }
       if ((jsonObj.get("fsGroupChangePolicy") != null && !jsonObj.get("fsGroupChangePolicy").isJsonNull()) && !jsonObj.get("fsGroupChangePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fsGroupChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupChangePolicy").toString()));
       }
       // validate the optional field `seLinuxOptions`
       if (jsonObj.get("seLinuxOptions") != null && !jsonObj.get("seLinuxOptions").isJsonNull()) {
-        V1SELinuxOptions.validateJsonObject(jsonObj.getAsJsonObject("seLinuxOptions"));
+        V1SELinuxOptions.validateJsonElement(jsonObj.get("seLinuxOptions"));
       }
       // validate the optional field `seccompProfile`
       if (jsonObj.get("seccompProfile") != null && !jsonObj.get("seccompProfile").isJsonNull()) {
-        V1SeccompProfile.validateJsonObject(jsonObj.getAsJsonObject("seccompProfile"));
+        V1SeccompProfile.validateJsonElement(jsonObj.get("seccompProfile"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("supplementalGroups") != null && !jsonObj.get("supplementalGroups").isJsonArray()) {
+      if (jsonObj.get("supplementalGroups") != null && !jsonObj.get("supplementalGroups").isJsonNull() && !jsonObj.get("supplementalGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `supplementalGroups` to be an array in the JSON string but got `%s`", jsonObj.get("supplementalGroups").toString()));
       }
       if (jsonObj.get("sysctls") != null && !jsonObj.get("sysctls").isJsonNull()) {
@@ -482,13 +460,13 @@ public class V1PodSecurityContext {
 
           // validate the optional field `sysctls` (array)
           for (int i = 0; i < jsonArraysysctls.size(); i++) {
-            V1Sysctl.validateJsonObject(jsonArraysysctls.get(i).getAsJsonObject());
+            V1Sysctl.validateJsonElement(jsonArraysysctls.get(i));
           };
         }
       }
       // validate the optional field `windowsOptions`
       if (jsonObj.get("windowsOptions") != null && !jsonObj.get("windowsOptions").isJsonNull()) {
-        V1WindowsSecurityContextOptions.validateJsonObject(jsonObj.getAsJsonObject("windowsOptions"));
+        V1WindowsSecurityContextOptions.validateJsonElement(jsonObj.get("windowsOptions"));
       }
   }
 
@@ -512,9 +490,9 @@ public class V1PodSecurityContext {
 
            @Override
            public V1PodSecurityContext read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

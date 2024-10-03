@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1beta3ResourcePolicyRule;
 import io.kubernetes.client.openapi.models.V1beta3Subject;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,15 +53,15 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta3PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_RULES)
-  private List<V1beta3NonResourcePolicyRule> nonResourceRules;
+  private List<V1beta3NonResourcePolicyRule> nonResourceRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
-  private List<V1beta3ResourcePolicyRule> resourceRules;
+  private List<V1beta3ResourcePolicyRule> resourceRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
@@ -72,7 +71,6 @@ public class V1beta3PolicyRulesWithSubjects {
   }
 
   public V1beta3PolicyRulesWithSubjects nonResourceRules(List<V1beta3NonResourcePolicyRule> nonResourceRules) {
-
     this.nonResourceRules = nonResourceRules;
     return this;
   }
@@ -94,14 +92,12 @@ public class V1beta3PolicyRulesWithSubjects {
     return nonResourceRules;
   }
 
-
   public void setNonResourceRules(List<V1beta3NonResourcePolicyRule> nonResourceRules) {
     this.nonResourceRules = nonResourceRules;
   }
 
 
   public V1beta3PolicyRulesWithSubjects resourceRules(List<V1beta3ResourcePolicyRule> resourceRules) {
-
     this.resourceRules = resourceRules;
     return this;
   }
@@ -123,14 +119,12 @@ public class V1beta3PolicyRulesWithSubjects {
     return resourceRules;
   }
 
-
   public void setResourceRules(List<V1beta3ResourcePolicyRule> resourceRules) {
     this.resourceRules = resourceRules;
   }
 
 
   public V1beta3PolicyRulesWithSubjects subjects(List<V1beta3Subject> subjects) {
-
     this.subjects = subjects;
     return this;
   }
@@ -151,7 +145,6 @@ public class V1beta3PolicyRulesWithSubjects {
   public List<V1beta3Subject> getSubjects() {
     return subjects;
   }
-
 
   public void setSubjects(List<V1beta3Subject> subjects) {
     this.subjects = subjects;
@@ -217,32 +210,33 @@ public class V1beta3PolicyRulesWithSubjects {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1beta3PolicyRulesWithSubjects
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1beta3PolicyRulesWithSubjects
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1beta3PolicyRulesWithSubjects.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1beta3PolicyRulesWithSubjects.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta3PolicyRulesWithSubjects is not found in the empty JSON string", V1beta3PolicyRulesWithSubjects.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1beta3PolicyRulesWithSubjects.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta3PolicyRulesWithSubjects` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta3PolicyRulesWithSubjects` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1beta3PolicyRulesWithSubjects.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("nonResourceRules") != null && !jsonObj.get("nonResourceRules").isJsonNull()) {
         JsonArray jsonArraynonResourceRules = jsonObj.getAsJsonArray("nonResourceRules");
         if (jsonArraynonResourceRules != null) {
@@ -253,7 +247,7 @@ public class V1beta3PolicyRulesWithSubjects {
 
           // validate the optional field `nonResourceRules` (array)
           for (int i = 0; i < jsonArraynonResourceRules.size(); i++) {
-            V1beta3NonResourcePolicyRule.validateJsonObject(jsonArraynonResourceRules.get(i).getAsJsonObject());
+            V1beta3NonResourcePolicyRule.validateJsonElement(jsonArraynonResourceRules.get(i));
           };
         }
       }
@@ -267,7 +261,7 @@ public class V1beta3PolicyRulesWithSubjects {
 
           // validate the optional field `resourceRules` (array)
           for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
-            V1beta3ResourcePolicyRule.validateJsonObject(jsonArrayresourceRules.get(i).getAsJsonObject());
+            V1beta3ResourcePolicyRule.validateJsonElement(jsonArrayresourceRules.get(i));
           };
         }
       }
@@ -279,7 +273,7 @@ public class V1beta3PolicyRulesWithSubjects {
       JsonArray jsonArraysubjects = jsonObj.getAsJsonArray("subjects");
       // validate the required field `subjects` (array)
       for (int i = 0; i < jsonArraysubjects.size(); i++) {
-        V1beta3Subject.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
+        V1beta3Subject.validateJsonElement(jsonArraysubjects.get(i));
       };
   }
 
@@ -303,9 +297,9 @@ public class V1beta3PolicyRulesWithSubjects {
 
            @Override
            public V1beta3PolicyRulesWithSubjects read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

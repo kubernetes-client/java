@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1alpha2NamedResourcesIntSlice;
 import io.kubernetes.client.openapi.models.V1alpha2NamedResourcesStringSlice;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NamedResourcesAttribute is a combination of an attribute name and its value.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha2NamedResourcesAttribute {
   public static final String SERIALIZED_NAME_BOOL = "bool";
   @SerializedName(SERIALIZED_NAME_BOOL)
@@ -90,7 +89,6 @@ public class V1alpha2NamedResourcesAttribute {
   }
 
   public V1alpha2NamedResourcesAttribute bool(Boolean bool) {
-
     this.bool = bool;
     return this;
   }
@@ -104,14 +102,12 @@ public class V1alpha2NamedResourcesAttribute {
     return bool;
   }
 
-
   public void setBool(Boolean bool) {
     this.bool = bool;
   }
 
 
   public V1alpha2NamedResourcesAttribute _int(Long _int) {
-
     this._int = _int;
     return this;
   }
@@ -125,14 +121,12 @@ public class V1alpha2NamedResourcesAttribute {
     return _int;
   }
 
-
   public void setInt(Long _int) {
     this._int = _int;
   }
 
 
   public V1alpha2NamedResourcesAttribute intSlice(V1alpha2NamedResourcesIntSlice intSlice) {
-
     this.intSlice = intSlice;
     return this;
   }
@@ -146,14 +140,12 @@ public class V1alpha2NamedResourcesAttribute {
     return intSlice;
   }
 
-
   public void setIntSlice(V1alpha2NamedResourcesIntSlice intSlice) {
     this.intSlice = intSlice;
   }
 
 
   public V1alpha2NamedResourcesAttribute name(String name) {
-
     this.name = name;
     return this;
   }
@@ -167,14 +159,12 @@ public class V1alpha2NamedResourcesAttribute {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1alpha2NamedResourcesAttribute quantity(Quantity quantity) {
-
     this.quantity = quantity;
     return this;
   }
@@ -188,14 +178,12 @@ public class V1alpha2NamedResourcesAttribute {
     return quantity;
   }
 
-
   public void setQuantity(Quantity quantity) {
     this.quantity = quantity;
   }
 
 
   public V1alpha2NamedResourcesAttribute string(String string) {
-
     this.string = string;
     return this;
   }
@@ -209,14 +197,12 @@ public class V1alpha2NamedResourcesAttribute {
     return string;
   }
 
-
   public void setString(String string) {
     this.string = string;
   }
 
 
   public V1alpha2NamedResourcesAttribute stringSlice(V1alpha2NamedResourcesStringSlice stringSlice) {
-
     this.stringSlice = stringSlice;
     return this;
   }
@@ -230,14 +216,12 @@ public class V1alpha2NamedResourcesAttribute {
     return stringSlice;
   }
 
-
   public void setStringSlice(V1alpha2NamedResourcesStringSlice stringSlice) {
     this.stringSlice = stringSlice;
   }
 
 
   public V1alpha2NamedResourcesAttribute version(String version) {
-
     this.version = version;
     return this;
   }
@@ -250,7 +234,6 @@ public class V1alpha2NamedResourcesAttribute {
   public String getVersion() {
     return version;
   }
-
 
   public void setVersion(String version) {
     this.version = version;
@@ -331,35 +314,36 @@ public class V1alpha2NamedResourcesAttribute {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1alpha2NamedResourcesAttribute
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1alpha2NamedResourcesAttribute
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1alpha2NamedResourcesAttribute.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha2NamedResourcesAttribute.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha2NamedResourcesAttribute is not found in the empty JSON string", V1alpha2NamedResourcesAttribute.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha2NamedResourcesAttribute.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesAttribute` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2NamedResourcesAttribute` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1alpha2NamedResourcesAttribute.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `intSlice`
       if (jsonObj.get("intSlice") != null && !jsonObj.get("intSlice").isJsonNull()) {
-        V1alpha2NamedResourcesIntSlice.validateJsonObject(jsonObj.getAsJsonObject("intSlice"));
+        V1alpha2NamedResourcesIntSlice.validateJsonElement(jsonObj.get("intSlice"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -372,7 +356,7 @@ public class V1alpha2NamedResourcesAttribute {
       }
       // validate the optional field `stringSlice`
       if (jsonObj.get("stringSlice") != null && !jsonObj.get("stringSlice").isJsonNull()) {
-        V1alpha2NamedResourcesStringSlice.validateJsonObject(jsonObj.getAsJsonObject("stringSlice"));
+        V1alpha2NamedResourcesStringSlice.validateJsonElement(jsonObj.get("stringSlice"));
       }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
@@ -399,9 +383,9 @@ public class V1alpha2NamedResourcesAttribute {
 
            @Override
            public V1alpha2NamedResourcesAttribute read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

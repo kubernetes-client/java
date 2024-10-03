@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1NonResourceRule;
 import io.kubernetes.client.openapi.models.V1ResourceRule;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it&#39;s safe to assume the subject has that permission, even if that list is incomplete.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
   @SerializedName(SERIALIZED_NAME_EVALUATION_ERROR)
@@ -75,7 +74,6 @@ public class V1SubjectRulesReviewStatus {
   }
 
   public V1SubjectRulesReviewStatus evaluationError(String evaluationError) {
-
     this.evaluationError = evaluationError;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1SubjectRulesReviewStatus {
     return evaluationError;
   }
 
-
   public void setEvaluationError(String evaluationError) {
     this.evaluationError = evaluationError;
   }
 
 
   public V1SubjectRulesReviewStatus incomplete(Boolean incomplete) {
-
     this.incomplete = incomplete;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1SubjectRulesReviewStatus {
     return incomplete;
   }
 
-
   public void setIncomplete(Boolean incomplete) {
     this.incomplete = incomplete;
   }
 
 
   public V1SubjectRulesReviewStatus nonResourceRules(List<V1NonResourceRule> nonResourceRules) {
-
     this.nonResourceRules = nonResourceRules;
     return this;
   }
@@ -139,14 +133,12 @@ public class V1SubjectRulesReviewStatus {
     return nonResourceRules;
   }
 
-
   public void setNonResourceRules(List<V1NonResourceRule> nonResourceRules) {
     this.nonResourceRules = nonResourceRules;
   }
 
 
   public V1SubjectRulesReviewStatus resourceRules(List<V1ResourceRule> resourceRules) {
-
     this.resourceRules = resourceRules;
     return this;
   }
@@ -167,7 +159,6 @@ public class V1SubjectRulesReviewStatus {
   public List<V1ResourceRule> getResourceRules() {
     return resourceRules;
   }
-
 
   public void setResourceRules(List<V1ResourceRule> resourceRules) {
     this.resourceRules = resourceRules;
@@ -238,32 +229,33 @@ public class V1SubjectRulesReviewStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1SubjectRulesReviewStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1SubjectRulesReviewStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1SubjectRulesReviewStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1SubjectRulesReviewStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1SubjectRulesReviewStatus is not found in the empty JSON string", V1SubjectRulesReviewStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1SubjectRulesReviewStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SubjectRulesReviewStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SubjectRulesReviewStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1SubjectRulesReviewStatus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("evaluationError") != null && !jsonObj.get("evaluationError").isJsonNull()) && !jsonObj.get("evaluationError").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `evaluationError` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationError").toString()));
       }
@@ -275,7 +267,7 @@ public class V1SubjectRulesReviewStatus {
       JsonArray jsonArraynonResourceRules = jsonObj.getAsJsonArray("nonResourceRules");
       // validate the required field `nonResourceRules` (array)
       for (int i = 0; i < jsonArraynonResourceRules.size(); i++) {
-        V1NonResourceRule.validateJsonObject(jsonArraynonResourceRules.get(i).getAsJsonObject());
+        V1NonResourceRule.validateJsonElement(jsonArraynonResourceRules.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("resourceRules").isJsonArray()) {
@@ -285,7 +277,7 @@ public class V1SubjectRulesReviewStatus {
       JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resourceRules");
       // validate the required field `resourceRules` (array)
       for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
-        V1ResourceRule.validateJsonObject(jsonArrayresourceRules.get(i).getAsJsonObject());
+        V1ResourceRule.validateJsonElement(jsonArrayresourceRules.get(i));
       };
   }
 
@@ -309,9 +301,9 @@ public class V1SubjectRulesReviewStatus {
 
            @Override
            public V1SubjectRulesReviewStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

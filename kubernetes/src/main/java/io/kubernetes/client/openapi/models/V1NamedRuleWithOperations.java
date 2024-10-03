@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -51,27 +50,27 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NamedRuleWithOperations is a tuple of Operations and Resources with ResourceNames.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NamedRuleWithOperations {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
-  private List<String> apiGroups;
+  private List<String> apiGroups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_API_VERSIONS = "apiVersions";
   @SerializedName(SERIALIZED_NAME_API_VERSIONS)
-  private List<String> apiVersions;
+  private List<String> apiVersions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OPERATIONS = "operations";
   @SerializedName(SERIALIZED_NAME_OPERATIONS)
-  private List<String> operations;
+  private List<String> operations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_NAMES = "resourceNames";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAMES)
-  private List<String> resourceNames;
+  private List<String> resourceNames = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
-  private List<String> resources;
+  private List<String> resources = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SCOPE = "scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
@@ -81,7 +80,6 @@ public class V1NamedRuleWithOperations {
   }
 
   public V1NamedRuleWithOperations apiGroups(List<String> apiGroups) {
-
     this.apiGroups = apiGroups;
     return this;
   }
@@ -103,14 +101,12 @@ public class V1NamedRuleWithOperations {
     return apiGroups;
   }
 
-
   public void setApiGroups(List<String> apiGroups) {
     this.apiGroups = apiGroups;
   }
 
 
   public V1NamedRuleWithOperations apiVersions(List<String> apiVersions) {
-
     this.apiVersions = apiVersions;
     return this;
   }
@@ -132,14 +128,12 @@ public class V1NamedRuleWithOperations {
     return apiVersions;
   }
 
-
   public void setApiVersions(List<String> apiVersions) {
     this.apiVersions = apiVersions;
   }
 
 
   public V1NamedRuleWithOperations operations(List<String> operations) {
-
     this.operations = operations;
     return this;
   }
@@ -161,14 +155,12 @@ public class V1NamedRuleWithOperations {
     return operations;
   }
 
-
   public void setOperations(List<String> operations) {
     this.operations = operations;
   }
 
 
   public V1NamedRuleWithOperations resourceNames(List<String> resourceNames) {
-
     this.resourceNames = resourceNames;
     return this;
   }
@@ -190,14 +182,12 @@ public class V1NamedRuleWithOperations {
     return resourceNames;
   }
 
-
   public void setResourceNames(List<String> resourceNames) {
     this.resourceNames = resourceNames;
   }
 
 
   public V1NamedRuleWithOperations resources(List<String> resources) {
-
     this.resources = resources;
     return this;
   }
@@ -219,14 +209,12 @@ public class V1NamedRuleWithOperations {
     return resources;
   }
 
-
   public void setResources(List<String> resources) {
     this.resources = resources;
   }
 
 
   public V1NamedRuleWithOperations scope(String scope) {
-
     this.scope = scope;
     return this;
   }
@@ -239,7 +227,6 @@ public class V1NamedRuleWithOperations {
   public String getScope() {
     return scope;
   }
-
 
   public void setScope(String scope) {
     this.scope = scope;
@@ -313,43 +300,44 @@ public class V1NamedRuleWithOperations {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1NamedRuleWithOperations
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1NamedRuleWithOperations
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1NamedRuleWithOperations.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1NamedRuleWithOperations.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1NamedRuleWithOperations is not found in the empty JSON string", V1NamedRuleWithOperations.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NamedRuleWithOperations.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NamedRuleWithOperations` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NamedRuleWithOperations` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonArray()) {
+      if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonNull() && !jsonObj.get("apiGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("apiVersions") != null && !jsonObj.get("apiVersions").isJsonArray()) {
+      if (jsonObj.get("apiVersions") != null && !jsonObj.get("apiVersions").isJsonNull() && !jsonObj.get("apiVersions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersions` to be an array in the JSON string but got `%s`", jsonObj.get("apiVersions").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("operations") != null && !jsonObj.get("operations").isJsonArray()) {
+      if (jsonObj.get("operations") != null && !jsonObj.get("operations").isJsonNull() && !jsonObj.get("operations").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resourceNames") != null && !jsonObj.get("resourceNames").isJsonArray()) {
+      if (jsonObj.get("resourceNames") != null && !jsonObj.get("resourceNames").isJsonNull() && !jsonObj.get("resourceNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resourceNames` to be an array in the JSON string but got `%s`", jsonObj.get("resourceNames").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonArray()) {
+      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull() && !jsonObj.get("resources").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
       }
       if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
@@ -377,9 +365,9 @@ public class V1NamedRuleWithOperations {
 
            @Override
            public V1NamedRuleWithOperations read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

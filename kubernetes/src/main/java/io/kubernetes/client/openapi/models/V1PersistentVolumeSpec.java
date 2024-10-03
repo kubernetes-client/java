@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +45,7 @@ import io.kubernetes.client.openapi.models.V1VolumeNodeAffinity;
 import io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,7 +70,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -78,11 +77,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
-  private List<String> accessModes;
+  private List<String> accessModes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE = "awsElasticBlockStore";
   @SerializedName(SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE)
@@ -150,7 +149,7 @@ public class V1PersistentVolumeSpec {
 
   public static final String SERIALIZED_NAME_MOUNT_OPTIONS = "mountOptions";
   @SerializedName(SERIALIZED_NAME_MOUNT_OPTIONS)
-  private List<String> mountOptions;
+  private List<String> mountOptions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NFS = "nfs";
   @SerializedName(SERIALIZED_NAME_NFS)
@@ -208,7 +207,6 @@ public class V1PersistentVolumeSpec {
   }
 
   public V1PersistentVolumeSpec accessModes(List<String> accessModes) {
-
     this.accessModes = accessModes;
     return this;
   }
@@ -230,14 +228,12 @@ public class V1PersistentVolumeSpec {
     return accessModes;
   }
 
-
   public void setAccessModes(List<String> accessModes) {
     this.accessModes = accessModes;
   }
 
 
   public V1PersistentVolumeSpec awsElasticBlockStore(V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
-
     this.awsElasticBlockStore = awsElasticBlockStore;
     return this;
   }
@@ -251,14 +247,12 @@ public class V1PersistentVolumeSpec {
     return awsElasticBlockStore;
   }
 
-
   public void setAwsElasticBlockStore(V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
     this.awsElasticBlockStore = awsElasticBlockStore;
   }
 
 
   public V1PersistentVolumeSpec azureDisk(V1AzureDiskVolumeSource azureDisk) {
-
     this.azureDisk = azureDisk;
     return this;
   }
@@ -272,14 +266,12 @@ public class V1PersistentVolumeSpec {
     return azureDisk;
   }
 
-
   public void setAzureDisk(V1AzureDiskVolumeSource azureDisk) {
     this.azureDisk = azureDisk;
   }
 
 
   public V1PersistentVolumeSpec azureFile(V1AzureFilePersistentVolumeSource azureFile) {
-
     this.azureFile = azureFile;
     return this;
   }
@@ -293,14 +285,12 @@ public class V1PersistentVolumeSpec {
     return azureFile;
   }
 
-
   public void setAzureFile(V1AzureFilePersistentVolumeSource azureFile) {
     this.azureFile = azureFile;
   }
 
 
   public V1PersistentVolumeSpec capacity(Map<String, Quantity> capacity) {
-
     this.capacity = capacity;
     return this;
   }
@@ -322,14 +312,12 @@ public class V1PersistentVolumeSpec {
     return capacity;
   }
 
-
   public void setCapacity(Map<String, Quantity> capacity) {
     this.capacity = capacity;
   }
 
 
   public V1PersistentVolumeSpec cephfs(V1CephFSPersistentVolumeSource cephfs) {
-
     this.cephfs = cephfs;
     return this;
   }
@@ -343,14 +331,12 @@ public class V1PersistentVolumeSpec {
     return cephfs;
   }
 
-
   public void setCephfs(V1CephFSPersistentVolumeSource cephfs) {
     this.cephfs = cephfs;
   }
 
 
   public V1PersistentVolumeSpec cinder(V1CinderPersistentVolumeSource cinder) {
-
     this.cinder = cinder;
     return this;
   }
@@ -364,14 +350,12 @@ public class V1PersistentVolumeSpec {
     return cinder;
   }
 
-
   public void setCinder(V1CinderPersistentVolumeSource cinder) {
     this.cinder = cinder;
   }
 
 
   public V1PersistentVolumeSpec claimRef(V1ObjectReference claimRef) {
-
     this.claimRef = claimRef;
     return this;
   }
@@ -385,14 +369,12 @@ public class V1PersistentVolumeSpec {
     return claimRef;
   }
 
-
   public void setClaimRef(V1ObjectReference claimRef) {
     this.claimRef = claimRef;
   }
 
 
   public V1PersistentVolumeSpec csi(V1CSIPersistentVolumeSource csi) {
-
     this.csi = csi;
     return this;
   }
@@ -406,14 +388,12 @@ public class V1PersistentVolumeSpec {
     return csi;
   }
 
-
   public void setCsi(V1CSIPersistentVolumeSource csi) {
     this.csi = csi;
   }
 
 
   public V1PersistentVolumeSpec fc(V1FCVolumeSource fc) {
-
     this.fc = fc;
     return this;
   }
@@ -427,14 +407,12 @@ public class V1PersistentVolumeSpec {
     return fc;
   }
 
-
   public void setFc(V1FCVolumeSource fc) {
     this.fc = fc;
   }
 
 
   public V1PersistentVolumeSpec flexVolume(V1FlexPersistentVolumeSource flexVolume) {
-
     this.flexVolume = flexVolume;
     return this;
   }
@@ -448,14 +426,12 @@ public class V1PersistentVolumeSpec {
     return flexVolume;
   }
 
-
   public void setFlexVolume(V1FlexPersistentVolumeSource flexVolume) {
     this.flexVolume = flexVolume;
   }
 
 
   public V1PersistentVolumeSpec flocker(V1FlockerVolumeSource flocker) {
-
     this.flocker = flocker;
     return this;
   }
@@ -469,14 +445,12 @@ public class V1PersistentVolumeSpec {
     return flocker;
   }
 
-
   public void setFlocker(V1FlockerVolumeSource flocker) {
     this.flocker = flocker;
   }
 
 
   public V1PersistentVolumeSpec gcePersistentDisk(V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
-
     this.gcePersistentDisk = gcePersistentDisk;
     return this;
   }
@@ -490,14 +464,12 @@ public class V1PersistentVolumeSpec {
     return gcePersistentDisk;
   }
 
-
   public void setGcePersistentDisk(V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
     this.gcePersistentDisk = gcePersistentDisk;
   }
 
 
   public V1PersistentVolumeSpec glusterfs(V1GlusterfsPersistentVolumeSource glusterfs) {
-
     this.glusterfs = glusterfs;
     return this;
   }
@@ -511,14 +483,12 @@ public class V1PersistentVolumeSpec {
     return glusterfs;
   }
 
-
   public void setGlusterfs(V1GlusterfsPersistentVolumeSource glusterfs) {
     this.glusterfs = glusterfs;
   }
 
 
   public V1PersistentVolumeSpec hostPath(V1HostPathVolumeSource hostPath) {
-
     this.hostPath = hostPath;
     return this;
   }
@@ -532,14 +502,12 @@ public class V1PersistentVolumeSpec {
     return hostPath;
   }
 
-
   public void setHostPath(V1HostPathVolumeSource hostPath) {
     this.hostPath = hostPath;
   }
 
 
   public V1PersistentVolumeSpec iscsi(V1ISCSIPersistentVolumeSource iscsi) {
-
     this.iscsi = iscsi;
     return this;
   }
@@ -553,14 +521,12 @@ public class V1PersistentVolumeSpec {
     return iscsi;
   }
 
-
   public void setIscsi(V1ISCSIPersistentVolumeSource iscsi) {
     this.iscsi = iscsi;
   }
 
 
   public V1PersistentVolumeSpec local(V1LocalVolumeSource local) {
-
     this.local = local;
     return this;
   }
@@ -574,14 +540,12 @@ public class V1PersistentVolumeSpec {
     return local;
   }
 
-
   public void setLocal(V1LocalVolumeSource local) {
     this.local = local;
   }
 
 
   public V1PersistentVolumeSpec mountOptions(List<String> mountOptions) {
-
     this.mountOptions = mountOptions;
     return this;
   }
@@ -603,14 +567,12 @@ public class V1PersistentVolumeSpec {
     return mountOptions;
   }
 
-
   public void setMountOptions(List<String> mountOptions) {
     this.mountOptions = mountOptions;
   }
 
 
   public V1PersistentVolumeSpec nfs(V1NFSVolumeSource nfs) {
-
     this.nfs = nfs;
     return this;
   }
@@ -624,14 +586,12 @@ public class V1PersistentVolumeSpec {
     return nfs;
   }
 
-
   public void setNfs(V1NFSVolumeSource nfs) {
     this.nfs = nfs;
   }
 
 
   public V1PersistentVolumeSpec nodeAffinity(V1VolumeNodeAffinity nodeAffinity) {
-
     this.nodeAffinity = nodeAffinity;
     return this;
   }
@@ -645,14 +605,12 @@ public class V1PersistentVolumeSpec {
     return nodeAffinity;
   }
 
-
   public void setNodeAffinity(V1VolumeNodeAffinity nodeAffinity) {
     this.nodeAffinity = nodeAffinity;
   }
 
 
   public V1PersistentVolumeSpec persistentVolumeReclaimPolicy(String persistentVolumeReclaimPolicy) {
-
     this.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy;
     return this;
   }
@@ -666,14 +624,12 @@ public class V1PersistentVolumeSpec {
     return persistentVolumeReclaimPolicy;
   }
 
-
   public void setPersistentVolumeReclaimPolicy(String persistentVolumeReclaimPolicy) {
     this.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy;
   }
 
 
   public V1PersistentVolumeSpec photonPersistentDisk(V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
-
     this.photonPersistentDisk = photonPersistentDisk;
     return this;
   }
@@ -687,14 +643,12 @@ public class V1PersistentVolumeSpec {
     return photonPersistentDisk;
   }
 
-
   public void setPhotonPersistentDisk(V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
     this.photonPersistentDisk = photonPersistentDisk;
   }
 
 
   public V1PersistentVolumeSpec portworxVolume(V1PortworxVolumeSource portworxVolume) {
-
     this.portworxVolume = portworxVolume;
     return this;
   }
@@ -708,14 +662,12 @@ public class V1PersistentVolumeSpec {
     return portworxVolume;
   }
 
-
   public void setPortworxVolume(V1PortworxVolumeSource portworxVolume) {
     this.portworxVolume = portworxVolume;
   }
 
 
   public V1PersistentVolumeSpec quobyte(V1QuobyteVolumeSource quobyte) {
-
     this.quobyte = quobyte;
     return this;
   }
@@ -729,14 +681,12 @@ public class V1PersistentVolumeSpec {
     return quobyte;
   }
 
-
   public void setQuobyte(V1QuobyteVolumeSource quobyte) {
     this.quobyte = quobyte;
   }
 
 
   public V1PersistentVolumeSpec rbd(V1RBDPersistentVolumeSource rbd) {
-
     this.rbd = rbd;
     return this;
   }
@@ -750,14 +700,12 @@ public class V1PersistentVolumeSpec {
     return rbd;
   }
 
-
   public void setRbd(V1RBDPersistentVolumeSource rbd) {
     this.rbd = rbd;
   }
 
 
   public V1PersistentVolumeSpec scaleIO(V1ScaleIOPersistentVolumeSource scaleIO) {
-
     this.scaleIO = scaleIO;
     return this;
   }
@@ -771,14 +719,12 @@ public class V1PersistentVolumeSpec {
     return scaleIO;
   }
 
-
   public void setScaleIO(V1ScaleIOPersistentVolumeSource scaleIO) {
     this.scaleIO = scaleIO;
   }
 
 
   public V1PersistentVolumeSpec storageClassName(String storageClassName) {
-
     this.storageClassName = storageClassName;
     return this;
   }
@@ -792,14 +738,12 @@ public class V1PersistentVolumeSpec {
     return storageClassName;
   }
 
-
   public void setStorageClassName(String storageClassName) {
     this.storageClassName = storageClassName;
   }
 
 
   public V1PersistentVolumeSpec storageos(V1StorageOSPersistentVolumeSource storageos) {
-
     this.storageos = storageos;
     return this;
   }
@@ -813,14 +757,12 @@ public class V1PersistentVolumeSpec {
     return storageos;
   }
 
-
   public void setStorageos(V1StorageOSPersistentVolumeSource storageos) {
     this.storageos = storageos;
   }
 
 
   public V1PersistentVolumeSpec volumeAttributesClassName(String volumeAttributesClassName) {
-
     this.volumeAttributesClassName = volumeAttributesClassName;
     return this;
   }
@@ -834,14 +776,12 @@ public class V1PersistentVolumeSpec {
     return volumeAttributesClassName;
   }
 
-
   public void setVolumeAttributesClassName(String volumeAttributesClassName) {
     this.volumeAttributesClassName = volumeAttributesClassName;
   }
 
 
   public V1PersistentVolumeSpec volumeMode(String volumeMode) {
-
     this.volumeMode = volumeMode;
     return this;
   }
@@ -855,14 +795,12 @@ public class V1PersistentVolumeSpec {
     return volumeMode;
   }
 
-
   public void setVolumeMode(String volumeMode) {
     this.volumeMode = volumeMode;
   }
 
 
   public V1PersistentVolumeSpec vsphereVolume(V1VsphereVirtualDiskVolumeSource vsphereVolume) {
-
     this.vsphereVolume = vsphereVolume;
     return this;
   }
@@ -875,7 +813,6 @@ public class V1PersistentVolumeSpec {
   public V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
     return vsphereVolume;
   }
-
 
   public void setVsphereVolume(V1VsphereVirtualDiskVolumeSource vsphereVolume) {
     this.vsphereVolume = vsphereVolume;
@@ -1024,130 +961,131 @@ public class V1PersistentVolumeSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PersistentVolumeSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PersistentVolumeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PersistentVolumeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeSpec is not found in the empty JSON string", V1PersistentVolumeSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonArray()) {
+      if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonNull() && !jsonObj.get("accessModes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
       }
       // validate the optional field `awsElasticBlockStore`
       if (jsonObj.get("awsElasticBlockStore") != null && !jsonObj.get("awsElasticBlockStore").isJsonNull()) {
-        V1AWSElasticBlockStoreVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("awsElasticBlockStore"));
+        V1AWSElasticBlockStoreVolumeSource.validateJsonElement(jsonObj.get("awsElasticBlockStore"));
       }
       // validate the optional field `azureDisk`
       if (jsonObj.get("azureDisk") != null && !jsonObj.get("azureDisk").isJsonNull()) {
-        V1AzureDiskVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("azureDisk"));
+        V1AzureDiskVolumeSource.validateJsonElement(jsonObj.get("azureDisk"));
       }
       // validate the optional field `azureFile`
       if (jsonObj.get("azureFile") != null && !jsonObj.get("azureFile").isJsonNull()) {
-        V1AzureFilePersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("azureFile"));
+        V1AzureFilePersistentVolumeSource.validateJsonElement(jsonObj.get("azureFile"));
       }
       // validate the optional field `cephfs`
       if (jsonObj.get("cephfs") != null && !jsonObj.get("cephfs").isJsonNull()) {
-        V1CephFSPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("cephfs"));
+        V1CephFSPersistentVolumeSource.validateJsonElement(jsonObj.get("cephfs"));
       }
       // validate the optional field `cinder`
       if (jsonObj.get("cinder") != null && !jsonObj.get("cinder").isJsonNull()) {
-        V1CinderPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("cinder"));
+        V1CinderPersistentVolumeSource.validateJsonElement(jsonObj.get("cinder"));
       }
       // validate the optional field `claimRef`
       if (jsonObj.get("claimRef") != null && !jsonObj.get("claimRef").isJsonNull()) {
-        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("claimRef"));
+        V1ObjectReference.validateJsonElement(jsonObj.get("claimRef"));
       }
       // validate the optional field `csi`
       if (jsonObj.get("csi") != null && !jsonObj.get("csi").isJsonNull()) {
-        V1CSIPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("csi"));
+        V1CSIPersistentVolumeSource.validateJsonElement(jsonObj.get("csi"));
       }
       // validate the optional field `fc`
       if (jsonObj.get("fc") != null && !jsonObj.get("fc").isJsonNull()) {
-        V1FCVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("fc"));
+        V1FCVolumeSource.validateJsonElement(jsonObj.get("fc"));
       }
       // validate the optional field `flexVolume`
       if (jsonObj.get("flexVolume") != null && !jsonObj.get("flexVolume").isJsonNull()) {
-        V1FlexPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("flexVolume"));
+        V1FlexPersistentVolumeSource.validateJsonElement(jsonObj.get("flexVolume"));
       }
       // validate the optional field `flocker`
       if (jsonObj.get("flocker") != null && !jsonObj.get("flocker").isJsonNull()) {
-        V1FlockerVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("flocker"));
+        V1FlockerVolumeSource.validateJsonElement(jsonObj.get("flocker"));
       }
       // validate the optional field `gcePersistentDisk`
       if (jsonObj.get("gcePersistentDisk") != null && !jsonObj.get("gcePersistentDisk").isJsonNull()) {
-        V1GCEPersistentDiskVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("gcePersistentDisk"));
+        V1GCEPersistentDiskVolumeSource.validateJsonElement(jsonObj.get("gcePersistentDisk"));
       }
       // validate the optional field `glusterfs`
       if (jsonObj.get("glusterfs") != null && !jsonObj.get("glusterfs").isJsonNull()) {
-        V1GlusterfsPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("glusterfs"));
+        V1GlusterfsPersistentVolumeSource.validateJsonElement(jsonObj.get("glusterfs"));
       }
       // validate the optional field `hostPath`
       if (jsonObj.get("hostPath") != null && !jsonObj.get("hostPath").isJsonNull()) {
-        V1HostPathVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("hostPath"));
+        V1HostPathVolumeSource.validateJsonElement(jsonObj.get("hostPath"));
       }
       // validate the optional field `iscsi`
       if (jsonObj.get("iscsi") != null && !jsonObj.get("iscsi").isJsonNull()) {
-        V1ISCSIPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("iscsi"));
+        V1ISCSIPersistentVolumeSource.validateJsonElement(jsonObj.get("iscsi"));
       }
       // validate the optional field `local`
       if (jsonObj.get("local") != null && !jsonObj.get("local").isJsonNull()) {
-        V1LocalVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("local"));
+        V1LocalVolumeSource.validateJsonElement(jsonObj.get("local"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("mountOptions") != null && !jsonObj.get("mountOptions").isJsonArray()) {
+      if (jsonObj.get("mountOptions") != null && !jsonObj.get("mountOptions").isJsonNull() && !jsonObj.get("mountOptions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `mountOptions` to be an array in the JSON string but got `%s`", jsonObj.get("mountOptions").toString()));
       }
       // validate the optional field `nfs`
       if (jsonObj.get("nfs") != null && !jsonObj.get("nfs").isJsonNull()) {
-        V1NFSVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("nfs"));
+        V1NFSVolumeSource.validateJsonElement(jsonObj.get("nfs"));
       }
       // validate the optional field `nodeAffinity`
       if (jsonObj.get("nodeAffinity") != null && !jsonObj.get("nodeAffinity").isJsonNull()) {
-        V1VolumeNodeAffinity.validateJsonObject(jsonObj.getAsJsonObject("nodeAffinity"));
+        V1VolumeNodeAffinity.validateJsonElement(jsonObj.get("nodeAffinity"));
       }
       if ((jsonObj.get("persistentVolumeReclaimPolicy") != null && !jsonObj.get("persistentVolumeReclaimPolicy").isJsonNull()) && !jsonObj.get("persistentVolumeReclaimPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `persistentVolumeReclaimPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("persistentVolumeReclaimPolicy").toString()));
       }
       // validate the optional field `photonPersistentDisk`
       if (jsonObj.get("photonPersistentDisk") != null && !jsonObj.get("photonPersistentDisk").isJsonNull()) {
-        V1PhotonPersistentDiskVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("photonPersistentDisk"));
+        V1PhotonPersistentDiskVolumeSource.validateJsonElement(jsonObj.get("photonPersistentDisk"));
       }
       // validate the optional field `portworxVolume`
       if (jsonObj.get("portworxVolume") != null && !jsonObj.get("portworxVolume").isJsonNull()) {
-        V1PortworxVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("portworxVolume"));
+        V1PortworxVolumeSource.validateJsonElement(jsonObj.get("portworxVolume"));
       }
       // validate the optional field `quobyte`
       if (jsonObj.get("quobyte") != null && !jsonObj.get("quobyte").isJsonNull()) {
-        V1QuobyteVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("quobyte"));
+        V1QuobyteVolumeSource.validateJsonElement(jsonObj.get("quobyte"));
       }
       // validate the optional field `rbd`
       if (jsonObj.get("rbd") != null && !jsonObj.get("rbd").isJsonNull()) {
-        V1RBDPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("rbd"));
+        V1RBDPersistentVolumeSource.validateJsonElement(jsonObj.get("rbd"));
       }
       // validate the optional field `scaleIO`
       if (jsonObj.get("scaleIO") != null && !jsonObj.get("scaleIO").isJsonNull()) {
-        V1ScaleIOPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("scaleIO"));
+        V1ScaleIOPersistentVolumeSource.validateJsonElement(jsonObj.get("scaleIO"));
       }
       if ((jsonObj.get("storageClassName") != null && !jsonObj.get("storageClassName").isJsonNull()) && !jsonObj.get("storageClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
       }
       // validate the optional field `storageos`
       if (jsonObj.get("storageos") != null && !jsonObj.get("storageos").isJsonNull()) {
-        V1StorageOSPersistentVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("storageos"));
+        V1StorageOSPersistentVolumeSource.validateJsonElement(jsonObj.get("storageos"));
       }
       if ((jsonObj.get("volumeAttributesClassName") != null && !jsonObj.get("volumeAttributesClassName").isJsonNull()) && !jsonObj.get("volumeAttributesClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
@@ -1157,7 +1095,7 @@ public class V1PersistentVolumeSpec {
       }
       // validate the optional field `vsphereVolume`
       if (jsonObj.get("vsphereVolume") != null && !jsonObj.get("vsphereVolume").isJsonNull()) {
-        V1VsphereVirtualDiskVolumeSource.validateJsonObject(jsonObj.getAsJsonObject("vsphereVolume"));
+        V1VsphereVirtualDiskVolumeSource.validateJsonElement(jsonObj.get("vsphereVolume"));
       }
   }
 
@@ -1181,9 +1119,9 @@ public class V1PersistentVolumeSpec {
 
            @Override
            public V1PersistentVolumeSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

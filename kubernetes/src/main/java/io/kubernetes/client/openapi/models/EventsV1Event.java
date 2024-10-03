@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class EventsV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -128,7 +127,6 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   }
 
   public EventsV1Event action(String action) {
-
     this.action = action;
     return this;
   }
@@ -142,14 +140,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return action;
   }
 
-
   public void setAction(String action) {
     this.action = action;
   }
 
 
   public EventsV1Event apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -163,14 +159,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public EventsV1Event deprecatedCount(Integer deprecatedCount) {
-
     this.deprecatedCount = deprecatedCount;
     return this;
   }
@@ -184,14 +178,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return deprecatedCount;
   }
 
-
   public void setDeprecatedCount(Integer deprecatedCount) {
     this.deprecatedCount = deprecatedCount;
   }
 
 
   public EventsV1Event deprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
-
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
     return this;
   }
@@ -205,14 +197,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return deprecatedFirstTimestamp;
   }
 
-
   public void setDeprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
   }
 
 
   public EventsV1Event deprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
-
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
     return this;
   }
@@ -226,14 +216,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return deprecatedLastTimestamp;
   }
 
-
   public void setDeprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
   }
 
 
   public EventsV1Event deprecatedSource(V1EventSource deprecatedSource) {
-
     this.deprecatedSource = deprecatedSource;
     return this;
   }
@@ -247,14 +235,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return deprecatedSource;
   }
 
-
   public void setDeprecatedSource(V1EventSource deprecatedSource) {
     this.deprecatedSource = deprecatedSource;
   }
 
 
   public EventsV1Event eventTime(OffsetDateTime eventTime) {
-
     this.eventTime = eventTime;
     return this;
   }
@@ -268,14 +254,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return eventTime;
   }
 
-
   public void setEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
 
 
   public EventsV1Event kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -289,14 +273,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public EventsV1Event metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -310,14 +292,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public EventsV1Event note(String note) {
-
     this.note = note;
     return this;
   }
@@ -331,14 +311,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return note;
   }
 
-
   public void setNote(String note) {
     this.note = note;
   }
 
 
   public EventsV1Event reason(String reason) {
-
     this.reason = reason;
     return this;
   }
@@ -352,14 +330,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return reason;
   }
 
-
   public void setReason(String reason) {
     this.reason = reason;
   }
 
 
   public EventsV1Event regarding(V1ObjectReference regarding) {
-
     this.regarding = regarding;
     return this;
   }
@@ -373,14 +349,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return regarding;
   }
 
-
   public void setRegarding(V1ObjectReference regarding) {
     this.regarding = regarding;
   }
 
 
   public EventsV1Event related(V1ObjectReference related) {
-
     this.related = related;
     return this;
   }
@@ -394,14 +368,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return related;
   }
 
-
   public void setRelated(V1ObjectReference related) {
     this.related = related;
   }
 
 
   public EventsV1Event reportingController(String reportingController) {
-
     this.reportingController = reportingController;
     return this;
   }
@@ -415,14 +387,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return reportingController;
   }
 
-
   public void setReportingController(String reportingController) {
     this.reportingController = reportingController;
   }
 
 
   public EventsV1Event reportingInstance(String reportingInstance) {
-
     this.reportingInstance = reportingInstance;
     return this;
   }
@@ -436,14 +406,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return reportingInstance;
   }
 
-
   public void setReportingInstance(String reportingInstance) {
     this.reportingInstance = reportingInstance;
   }
 
 
   public EventsV1Event series(EventsV1EventSeries series) {
-
     this.series = series;
     return this;
   }
@@ -457,14 +425,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return series;
   }
 
-
   public void setSeries(EventsV1EventSeries series) {
     this.series = series;
   }
 
 
   public EventsV1Event type(String type) {
-
     this.type = type;
     return this;
   }
@@ -477,7 +443,6 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -585,32 +550,33 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to EventsV1Event
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to EventsV1Event
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!EventsV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EventsV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in EventsV1Event is not found in the empty JSON string", EventsV1Event.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EventsV1Event.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventsV1Event` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventsV1Event` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : EventsV1Event.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
@@ -619,14 +585,14 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
       }
       // validate the optional field `deprecatedSource`
       if (jsonObj.get("deprecatedSource") != null && !jsonObj.get("deprecatedSource").isJsonNull()) {
-        V1EventSource.validateJsonObject(jsonObj.getAsJsonObject("deprecatedSource"));
+        V1EventSource.validateJsonElement(jsonObj.get("deprecatedSource"));
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       if ((jsonObj.get("note") != null && !jsonObj.get("note").isJsonNull()) && !jsonObj.get("note").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("note").toString()));
@@ -636,11 +602,11 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
       }
       // validate the optional field `regarding`
       if (jsonObj.get("regarding") != null && !jsonObj.get("regarding").isJsonNull()) {
-        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("regarding"));
+        V1ObjectReference.validateJsonElement(jsonObj.get("regarding"));
       }
       // validate the optional field `related`
       if (jsonObj.get("related") != null && !jsonObj.get("related").isJsonNull()) {
-        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("related"));
+        V1ObjectReference.validateJsonElement(jsonObj.get("related"));
       }
       if ((jsonObj.get("reportingController") != null && !jsonObj.get("reportingController").isJsonNull()) && !jsonObj.get("reportingController").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reportingController` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reportingController").toString()));
@@ -650,7 +616,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
       }
       // validate the optional field `series`
       if (jsonObj.get("series") != null && !jsonObj.get("series").isJsonNull()) {
-        EventsV1EventSeries.validateJsonObject(jsonObj.getAsJsonObject("series"));
+        EventsV1EventSeries.validateJsonElement(jsonObj.get("series"));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -677,9 +643,9 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
 
            @Override
            public EventsV1Event read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

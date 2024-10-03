@@ -211,6 +211,7 @@ class KubectlDeleteTest {
         kubectlDelete.namespace("foo").name("bar");
         DeleteOptions deleteOptions = new DeleteOptions();
         deleteOptions.setPropagationPolicy("Foreground");
+        deleteOptions.setDryRun(null);
         kubectlDelete.deleteOptions(deleteOptions);
         kubectlDelete.execute();
         apiServer.verify(

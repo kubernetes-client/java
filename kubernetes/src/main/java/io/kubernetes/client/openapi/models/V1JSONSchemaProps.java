@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1ExternalDocumentation;
 import io.kubernetes.client.openapi.models.V1ValidationRule;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)
@@ -75,11 +74,11 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ALL_OF = "allOf";
   @SerializedName(SERIALIZED_NAME_ALL_OF)
-  private List<V1JSONSchemaProps> allOf;
+  private List<V1JSONSchemaProps> allOf = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ANY_OF = "anyOf";
   @SerializedName(SERIALIZED_NAME_ANY_OF)
-  private List<V1JSONSchemaProps> anyOf;
+  private List<V1JSONSchemaProps> anyOf = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEFAULT = "default";
   @SerializedName(SERIALIZED_NAME_DEFAULT)
@@ -99,7 +98,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ENUM = "enum";
   @SerializedName(SERIALIZED_NAME_ENUM)
-  private List<Object> _enum;
+  private List<Object> _enum = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
@@ -175,7 +174,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ONE_OF = "oneOf";
   @SerializedName(SERIALIZED_NAME_ONE_OF)
-  private List<V1JSONSchemaProps> oneOf;
+  private List<V1JSONSchemaProps> oneOf = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PATTERN = "pattern";
   @SerializedName(SERIALIZED_NAME_PATTERN)
@@ -191,7 +190,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_REQUIRED = "required";
   @SerializedName(SERIALIZED_NAME_REQUIRED)
-  private List<String> required;
+  private List<String> required = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -215,7 +214,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS = "x-kubernetes-list-map-keys";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS)
-  private List<String> xKubernetesListMapKeys;
+  private List<String> xKubernetesListMapKeys = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE = "x-kubernetes-list-type";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE)
@@ -231,13 +230,12 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS = "x-kubernetes-validations";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS)
-  private List<V1ValidationRule> xKubernetesValidations;
+  private List<V1ValidationRule> xKubernetesValidations = new ArrayList<>();
 
   public V1JSONSchemaProps() {
   }
 
   public V1JSONSchemaProps $ref(String $ref) {
-
     this.$ref = $ref;
     return this;
   }
@@ -251,14 +249,12 @@ public class V1JSONSchemaProps {
     return $ref;
   }
 
-
   public void set$Ref(String $ref) {
     this.$ref = $ref;
   }
 
 
   public V1JSONSchemaProps $schema(String $schema) {
-
     this.$schema = $schema;
     return this;
   }
@@ -272,14 +268,12 @@ public class V1JSONSchemaProps {
     return $schema;
   }
 
-
   public void set$Schema(String $schema) {
     this.$schema = $schema;
   }
 
 
   public V1JSONSchemaProps additionalItems(Object additionalItems) {
-
     this.additionalItems = additionalItems;
     return this;
   }
@@ -293,14 +287,12 @@ public class V1JSONSchemaProps {
     return additionalItems;
   }
 
-
   public void setAdditionalItems(Object additionalItems) {
     this.additionalItems = additionalItems;
   }
 
 
   public V1JSONSchemaProps additionalProperties(Object additionalProperties) {
-
     this.additionalProperties = additionalProperties;
     return this;
   }
@@ -314,14 +306,12 @@ public class V1JSONSchemaProps {
     return additionalProperties;
   }
 
-
   public void setAdditionalProperties(Object additionalProperties) {
     this.additionalProperties = additionalProperties;
   }
 
 
   public V1JSONSchemaProps allOf(List<V1JSONSchemaProps> allOf) {
-
     this.allOf = allOf;
     return this;
   }
@@ -343,14 +333,12 @@ public class V1JSONSchemaProps {
     return allOf;
   }
 
-
   public void setAllOf(List<V1JSONSchemaProps> allOf) {
     this.allOf = allOf;
   }
 
 
   public V1JSONSchemaProps anyOf(List<V1JSONSchemaProps> anyOf) {
-
     this.anyOf = anyOf;
     return this;
   }
@@ -372,14 +360,12 @@ public class V1JSONSchemaProps {
     return anyOf;
   }
 
-
   public void setAnyOf(List<V1JSONSchemaProps> anyOf) {
     this.anyOf = anyOf;
   }
 
 
   public V1JSONSchemaProps _default(Object _default) {
-
     this._default = _default;
     return this;
   }
@@ -393,14 +379,12 @@ public class V1JSONSchemaProps {
     return _default;
   }
 
-
   public void setDefault(Object _default) {
     this._default = _default;
   }
 
 
   public V1JSONSchemaProps definitions(Map<String, V1JSONSchemaProps> definitions) {
-
     this.definitions = definitions;
     return this;
   }
@@ -422,14 +406,12 @@ public class V1JSONSchemaProps {
     return definitions;
   }
 
-
   public void setDefinitions(Map<String, V1JSONSchemaProps> definitions) {
     this.definitions = definitions;
   }
 
 
   public V1JSONSchemaProps dependencies(Map<String, Object> dependencies) {
-
     this.dependencies = dependencies;
     return this;
   }
@@ -451,14 +433,12 @@ public class V1JSONSchemaProps {
     return dependencies;
   }
 
-
   public void setDependencies(Map<String, Object> dependencies) {
     this.dependencies = dependencies;
   }
 
 
   public V1JSONSchemaProps description(String description) {
-
     this.description = description;
     return this;
   }
@@ -472,14 +452,12 @@ public class V1JSONSchemaProps {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public V1JSONSchemaProps _enum(List<Object> _enum) {
-
     this._enum = _enum;
     return this;
   }
@@ -501,14 +479,12 @@ public class V1JSONSchemaProps {
     return _enum;
   }
 
-
   public void setEnum(List<Object> _enum) {
     this._enum = _enum;
   }
 
 
   public V1JSONSchemaProps example(Object example) {
-
     this.example = example;
     return this;
   }
@@ -522,14 +498,12 @@ public class V1JSONSchemaProps {
     return example;
   }
 
-
   public void setExample(Object example) {
     this.example = example;
   }
 
 
   public V1JSONSchemaProps exclusiveMaximum(Boolean exclusiveMaximum) {
-
     this.exclusiveMaximum = exclusiveMaximum;
     return this;
   }
@@ -543,14 +517,12 @@ public class V1JSONSchemaProps {
     return exclusiveMaximum;
   }
 
-
   public void setExclusiveMaximum(Boolean exclusiveMaximum) {
     this.exclusiveMaximum = exclusiveMaximum;
   }
 
 
   public V1JSONSchemaProps exclusiveMinimum(Boolean exclusiveMinimum) {
-
     this.exclusiveMinimum = exclusiveMinimum;
     return this;
   }
@@ -564,14 +536,12 @@ public class V1JSONSchemaProps {
     return exclusiveMinimum;
   }
 
-
   public void setExclusiveMinimum(Boolean exclusiveMinimum) {
     this.exclusiveMinimum = exclusiveMinimum;
   }
 
 
   public V1JSONSchemaProps externalDocs(V1ExternalDocumentation externalDocs) {
-
     this.externalDocs = externalDocs;
     return this;
   }
@@ -585,14 +555,12 @@ public class V1JSONSchemaProps {
     return externalDocs;
   }
 
-
   public void setExternalDocs(V1ExternalDocumentation externalDocs) {
     this.externalDocs = externalDocs;
   }
 
 
   public V1JSONSchemaProps format(String format) {
-
     this.format = format;
     return this;
   }
@@ -606,14 +574,12 @@ public class V1JSONSchemaProps {
     return format;
   }
 
-
   public void setFormat(String format) {
     this.format = format;
   }
 
 
   public V1JSONSchemaProps id(String id) {
-
     this.id = id;
     return this;
   }
@@ -627,14 +593,12 @@ public class V1JSONSchemaProps {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public V1JSONSchemaProps items(Object items) {
-
     this.items = items;
     return this;
   }
@@ -648,14 +612,12 @@ public class V1JSONSchemaProps {
     return items;
   }
 
-
   public void setItems(Object items) {
     this.items = items;
   }
 
 
   public V1JSONSchemaProps maxItems(Long maxItems) {
-
     this.maxItems = maxItems;
     return this;
   }
@@ -669,14 +631,12 @@ public class V1JSONSchemaProps {
     return maxItems;
   }
 
-
   public void setMaxItems(Long maxItems) {
     this.maxItems = maxItems;
   }
 
 
   public V1JSONSchemaProps maxLength(Long maxLength) {
-
     this.maxLength = maxLength;
     return this;
   }
@@ -690,14 +650,12 @@ public class V1JSONSchemaProps {
     return maxLength;
   }
 
-
   public void setMaxLength(Long maxLength) {
     this.maxLength = maxLength;
   }
 
 
   public V1JSONSchemaProps maxProperties(Long maxProperties) {
-
     this.maxProperties = maxProperties;
     return this;
   }
@@ -711,14 +669,12 @@ public class V1JSONSchemaProps {
     return maxProperties;
   }
 
-
   public void setMaxProperties(Long maxProperties) {
     this.maxProperties = maxProperties;
   }
 
 
   public V1JSONSchemaProps maximum(Double maximum) {
-
     this.maximum = maximum;
     return this;
   }
@@ -732,14 +688,12 @@ public class V1JSONSchemaProps {
     return maximum;
   }
 
-
   public void setMaximum(Double maximum) {
     this.maximum = maximum;
   }
 
 
   public V1JSONSchemaProps minItems(Long minItems) {
-
     this.minItems = minItems;
     return this;
   }
@@ -753,14 +707,12 @@ public class V1JSONSchemaProps {
     return minItems;
   }
 
-
   public void setMinItems(Long minItems) {
     this.minItems = minItems;
   }
 
 
   public V1JSONSchemaProps minLength(Long minLength) {
-
     this.minLength = minLength;
     return this;
   }
@@ -774,14 +726,12 @@ public class V1JSONSchemaProps {
     return minLength;
   }
 
-
   public void setMinLength(Long minLength) {
     this.minLength = minLength;
   }
 
 
   public V1JSONSchemaProps minProperties(Long minProperties) {
-
     this.minProperties = minProperties;
     return this;
   }
@@ -795,14 +745,12 @@ public class V1JSONSchemaProps {
     return minProperties;
   }
 
-
   public void setMinProperties(Long minProperties) {
     this.minProperties = minProperties;
   }
 
 
   public V1JSONSchemaProps minimum(Double minimum) {
-
     this.minimum = minimum;
     return this;
   }
@@ -816,14 +764,12 @@ public class V1JSONSchemaProps {
     return minimum;
   }
 
-
   public void setMinimum(Double minimum) {
     this.minimum = minimum;
   }
 
 
   public V1JSONSchemaProps multipleOf(Double multipleOf) {
-
     this.multipleOf = multipleOf;
     return this;
   }
@@ -837,14 +783,12 @@ public class V1JSONSchemaProps {
     return multipleOf;
   }
 
-
   public void setMultipleOf(Double multipleOf) {
     this.multipleOf = multipleOf;
   }
 
 
   public V1JSONSchemaProps not(V1JSONSchemaProps not) {
-
     this.not = not;
     return this;
   }
@@ -858,14 +802,12 @@ public class V1JSONSchemaProps {
     return not;
   }
 
-
   public void setNot(V1JSONSchemaProps not) {
     this.not = not;
   }
 
 
   public V1JSONSchemaProps nullable(Boolean nullable) {
-
     this.nullable = nullable;
     return this;
   }
@@ -879,14 +821,12 @@ public class V1JSONSchemaProps {
     return nullable;
   }
 
-
   public void setNullable(Boolean nullable) {
     this.nullable = nullable;
   }
 
 
   public V1JSONSchemaProps oneOf(List<V1JSONSchemaProps> oneOf) {
-
     this.oneOf = oneOf;
     return this;
   }
@@ -908,14 +848,12 @@ public class V1JSONSchemaProps {
     return oneOf;
   }
 
-
   public void setOneOf(List<V1JSONSchemaProps> oneOf) {
     this.oneOf = oneOf;
   }
 
 
   public V1JSONSchemaProps pattern(String pattern) {
-
     this.pattern = pattern;
     return this;
   }
@@ -929,14 +867,12 @@ public class V1JSONSchemaProps {
     return pattern;
   }
 
-
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
 
 
   public V1JSONSchemaProps patternProperties(Map<String, V1JSONSchemaProps> patternProperties) {
-
     this.patternProperties = patternProperties;
     return this;
   }
@@ -958,14 +894,12 @@ public class V1JSONSchemaProps {
     return patternProperties;
   }
 
-
   public void setPatternProperties(Map<String, V1JSONSchemaProps> patternProperties) {
     this.patternProperties = patternProperties;
   }
 
 
   public V1JSONSchemaProps properties(Map<String, V1JSONSchemaProps> properties) {
-
     this.properties = properties;
     return this;
   }
@@ -987,14 +921,12 @@ public class V1JSONSchemaProps {
     return properties;
   }
 
-
   public void setProperties(Map<String, V1JSONSchemaProps> properties) {
     this.properties = properties;
   }
 
 
   public V1JSONSchemaProps required(List<String> required) {
-
     this.required = required;
     return this;
   }
@@ -1016,14 +948,12 @@ public class V1JSONSchemaProps {
     return required;
   }
 
-
   public void setRequired(List<String> required) {
     this.required = required;
   }
 
 
   public V1JSONSchemaProps title(String title) {
-
     this.title = title;
     return this;
   }
@@ -1037,14 +967,12 @@ public class V1JSONSchemaProps {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public V1JSONSchemaProps type(String type) {
-
     this.type = type;
     return this;
   }
@@ -1058,14 +986,12 @@ public class V1JSONSchemaProps {
     return type;
   }
 
-
   public void setType(String type) {
     this.type = type;
   }
 
 
   public V1JSONSchemaProps uniqueItems(Boolean uniqueItems) {
-
     this.uniqueItems = uniqueItems;
     return this;
   }
@@ -1079,14 +1005,12 @@ public class V1JSONSchemaProps {
     return uniqueItems;
   }
 
-
   public void setUniqueItems(Boolean uniqueItems) {
     this.uniqueItems = uniqueItems;
   }
 
 
   public V1JSONSchemaProps xKubernetesEmbeddedResource(Boolean xKubernetesEmbeddedResource) {
-
     this.xKubernetesEmbeddedResource = xKubernetesEmbeddedResource;
     return this;
   }
@@ -1100,14 +1024,12 @@ public class V1JSONSchemaProps {
     return xKubernetesEmbeddedResource;
   }
 
-
   public void setxKubernetesEmbeddedResource(Boolean xKubernetesEmbeddedResource) {
     this.xKubernetesEmbeddedResource = xKubernetesEmbeddedResource;
   }
 
 
   public V1JSONSchemaProps xKubernetesIntOrString(Boolean xKubernetesIntOrString) {
-
     this.xKubernetesIntOrString = xKubernetesIntOrString;
     return this;
   }
@@ -1121,14 +1043,12 @@ public class V1JSONSchemaProps {
     return xKubernetesIntOrString;
   }
 
-
   public void setxKubernetesIntOrString(Boolean xKubernetesIntOrString) {
     this.xKubernetesIntOrString = xKubernetesIntOrString;
   }
 
 
   public V1JSONSchemaProps xKubernetesListMapKeys(List<String> xKubernetesListMapKeys) {
-
     this.xKubernetesListMapKeys = xKubernetesListMapKeys;
     return this;
   }
@@ -1150,14 +1070,12 @@ public class V1JSONSchemaProps {
     return xKubernetesListMapKeys;
   }
 
-
   public void setxKubernetesListMapKeys(List<String> xKubernetesListMapKeys) {
     this.xKubernetesListMapKeys = xKubernetesListMapKeys;
   }
 
 
   public V1JSONSchemaProps xKubernetesListType(String xKubernetesListType) {
-
     this.xKubernetesListType = xKubernetesListType;
     return this;
   }
@@ -1171,14 +1089,12 @@ public class V1JSONSchemaProps {
     return xKubernetesListType;
   }
 
-
   public void setxKubernetesListType(String xKubernetesListType) {
     this.xKubernetesListType = xKubernetesListType;
   }
 
 
   public V1JSONSchemaProps xKubernetesMapType(String xKubernetesMapType) {
-
     this.xKubernetesMapType = xKubernetesMapType;
     return this;
   }
@@ -1192,14 +1108,12 @@ public class V1JSONSchemaProps {
     return xKubernetesMapType;
   }
 
-
   public void setxKubernetesMapType(String xKubernetesMapType) {
     this.xKubernetesMapType = xKubernetesMapType;
   }
 
 
   public V1JSONSchemaProps xKubernetesPreserveUnknownFields(Boolean xKubernetesPreserveUnknownFields) {
-
     this.xKubernetesPreserveUnknownFields = xKubernetesPreserveUnknownFields;
     return this;
   }
@@ -1213,14 +1127,12 @@ public class V1JSONSchemaProps {
     return xKubernetesPreserveUnknownFields;
   }
 
-
   public void setxKubernetesPreserveUnknownFields(Boolean xKubernetesPreserveUnknownFields) {
     this.xKubernetesPreserveUnknownFields = xKubernetesPreserveUnknownFields;
   }
 
 
   public V1JSONSchemaProps xKubernetesValidations(List<V1ValidationRule> xKubernetesValidations) {
-
     this.xKubernetesValidations = xKubernetesValidations;
     return this;
   }
@@ -1241,7 +1153,6 @@ public class V1JSONSchemaProps {
   public List<V1ValidationRule> getxKubernetesValidations() {
     return xKubernetesValidations;
   }
-
 
   public void setxKubernetesValidations(List<V1ValidationRule> xKubernetesValidations) {
     this.xKubernetesValidations = xKubernetesValidations;
@@ -1429,25 +1340,26 @@ public class V1JSONSchemaProps {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1JSONSchemaProps
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1JSONSchemaProps
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1JSONSchemaProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1JSONSchemaProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1JSONSchemaProps is not found in the empty JSON string", V1JSONSchemaProps.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1JSONSchemaProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JSONSchemaProps` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JSONSchemaProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("$ref") != null && !jsonObj.get("$ref").isJsonNull()) && !jsonObj.get("$ref").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `$ref` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$ref").toString()));
       }
@@ -1464,7 +1376,7 @@ public class V1JSONSchemaProps {
 
           // validate the optional field `allOf` (array)
           for (int i = 0; i < jsonArrayallOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonObject(jsonArrayallOf.get(i).getAsJsonObject());
+            V1JSONSchemaProps.validateJsonElement(jsonArrayallOf.get(i));
           };
         }
       }
@@ -1478,7 +1390,7 @@ public class V1JSONSchemaProps {
 
           // validate the optional field `anyOf` (array)
           for (int i = 0; i < jsonArrayanyOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonObject(jsonArrayanyOf.get(i).getAsJsonObject());
+            V1JSONSchemaProps.validateJsonElement(jsonArrayanyOf.get(i));
           };
         }
       }
@@ -1486,12 +1398,12 @@ public class V1JSONSchemaProps {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("enum") != null && !jsonObj.get("enum").isJsonArray()) {
+      if (jsonObj.get("enum") != null && !jsonObj.get("enum").isJsonNull() && !jsonObj.get("enum").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `enum` to be an array in the JSON string but got `%s`", jsonObj.get("enum").toString()));
       }
       // validate the optional field `externalDocs`
       if (jsonObj.get("externalDocs") != null && !jsonObj.get("externalDocs").isJsonNull()) {
-        V1ExternalDocumentation.validateJsonObject(jsonObj.getAsJsonObject("externalDocs"));
+        V1ExternalDocumentation.validateJsonElement(jsonObj.get("externalDocs"));
       }
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
@@ -1501,7 +1413,7 @@ public class V1JSONSchemaProps {
       }
       // validate the optional field `not`
       if (jsonObj.get("not") != null && !jsonObj.get("not").isJsonNull()) {
-        V1JSONSchemaProps.validateJsonObject(jsonObj.getAsJsonObject("not"));
+        V1JSONSchemaProps.validateJsonElement(jsonObj.get("not"));
       }
       if (jsonObj.get("oneOf") != null && !jsonObj.get("oneOf").isJsonNull()) {
         JsonArray jsonArrayoneOf = jsonObj.getAsJsonArray("oneOf");
@@ -1513,7 +1425,7 @@ public class V1JSONSchemaProps {
 
           // validate the optional field `oneOf` (array)
           for (int i = 0; i < jsonArrayoneOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonObject(jsonArrayoneOf.get(i).getAsJsonObject());
+            V1JSONSchemaProps.validateJsonElement(jsonArrayoneOf.get(i));
           };
         }
       }
@@ -1521,7 +1433,7 @@ public class V1JSONSchemaProps {
         throw new IllegalArgumentException(String.format("Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("required") != null && !jsonObj.get("required").isJsonArray()) {
+      if (jsonObj.get("required") != null && !jsonObj.get("required").isJsonNull() && !jsonObj.get("required").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `required` to be an array in the JSON string but got `%s`", jsonObj.get("required").toString()));
       }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
@@ -1531,7 +1443,7 @@ public class V1JSONSchemaProps {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("x-kubernetes-list-map-keys") != null && !jsonObj.get("x-kubernetes-list-map-keys").isJsonArray()) {
+      if (jsonObj.get("x-kubernetes-list-map-keys") != null && !jsonObj.get("x-kubernetes-list-map-keys").isJsonNull() && !jsonObj.get("x-kubernetes-list-map-keys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-list-map-keys` to be an array in the JSON string but got `%s`", jsonObj.get("x-kubernetes-list-map-keys").toString()));
       }
       if ((jsonObj.get("x-kubernetes-list-type") != null && !jsonObj.get("x-kubernetes-list-type").isJsonNull()) && !jsonObj.get("x-kubernetes-list-type").isJsonPrimitive()) {
@@ -1550,7 +1462,7 @@ public class V1JSONSchemaProps {
 
           // validate the optional field `x-kubernetes-validations` (array)
           for (int i = 0; i < jsonArrayxKubernetesValidations.size(); i++) {
-            V1ValidationRule.validateJsonObject(jsonArrayxKubernetesValidations.get(i).getAsJsonObject());
+            V1ValidationRule.validateJsonElement(jsonArrayxKubernetesValidations.get(i));
           };
         }
       }
@@ -1576,9 +1488,9 @@ public class V1JSONSchemaProps {
 
            @Override
            public V1JSONSchemaProps read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

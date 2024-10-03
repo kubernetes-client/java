@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -50,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1APIServiceSpec {
   public static final String SERIALIZED_NAME_CA_BUNDLE = "caBundle";
   @SerializedName(SERIALIZED_NAME_CA_BUNDLE)
@@ -84,7 +83,6 @@ public class V1APIServiceSpec {
   }
 
   public V1APIServiceSpec caBundle(byte[] caBundle) {
-
     this.caBundle = caBundle;
     return this;
   }
@@ -98,14 +96,12 @@ public class V1APIServiceSpec {
     return caBundle;
   }
 
-
   public void setCaBundle(byte[] caBundle) {
     this.caBundle = caBundle;
   }
 
 
   public V1APIServiceSpec group(String group) {
-
     this.group = group;
     return this;
   }
@@ -119,14 +115,12 @@ public class V1APIServiceSpec {
     return group;
   }
 
-
   public void setGroup(String group) {
     this.group = group;
   }
 
 
   public V1APIServiceSpec groupPriorityMinimum(Integer groupPriorityMinimum) {
-
     this.groupPriorityMinimum = groupPriorityMinimum;
     return this;
   }
@@ -140,14 +134,12 @@ public class V1APIServiceSpec {
     return groupPriorityMinimum;
   }
 
-
   public void setGroupPriorityMinimum(Integer groupPriorityMinimum) {
     this.groupPriorityMinimum = groupPriorityMinimum;
   }
 
 
   public V1APIServiceSpec insecureSkipTLSVerify(Boolean insecureSkipTLSVerify) {
-
     this.insecureSkipTLSVerify = insecureSkipTLSVerify;
     return this;
   }
@@ -161,14 +153,12 @@ public class V1APIServiceSpec {
     return insecureSkipTLSVerify;
   }
 
-
   public void setInsecureSkipTLSVerify(Boolean insecureSkipTLSVerify) {
     this.insecureSkipTLSVerify = insecureSkipTLSVerify;
   }
 
 
   public V1APIServiceSpec service(ApiregistrationV1ServiceReference service) {
-
     this.service = service;
     return this;
   }
@@ -182,14 +172,12 @@ public class V1APIServiceSpec {
     return service;
   }
 
-
   public void setService(ApiregistrationV1ServiceReference service) {
     this.service = service;
   }
 
 
   public V1APIServiceSpec version(String version) {
-
     this.version = version;
     return this;
   }
@@ -203,14 +191,12 @@ public class V1APIServiceSpec {
     return version;
   }
 
-
   public void setVersion(String version) {
     this.version = version;
   }
 
 
   public V1APIServiceSpec versionPriority(Integer versionPriority) {
-
     this.versionPriority = versionPriority;
     return this;
   }
@@ -223,7 +209,6 @@ public class V1APIServiceSpec {
   public Integer getVersionPriority() {
     return versionPriority;
   }
-
 
   public void setVersionPriority(Integer versionPriority) {
     this.versionPriority = versionPriority;
@@ -302,38 +287,39 @@ public class V1APIServiceSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1APIServiceSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1APIServiceSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1APIServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1APIServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1APIServiceSpec is not found in the empty JSON string", V1APIServiceSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1APIServiceSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1APIServiceSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1APIServiceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1APIServiceSpec.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) && !jsonObj.get("group").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group").toString()));
       }
       // validate the optional field `service`
       if (jsonObj.get("service") != null && !jsonObj.get("service").isJsonNull()) {
-        ApiregistrationV1ServiceReference.validateJsonObject(jsonObj.getAsJsonObject("service"));
+        ApiregistrationV1ServiceReference.validateJsonElement(jsonObj.get("service"));
       }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
@@ -360,9 +346,9 @@ public class V1APIServiceSpec {
 
            @Override
            public V1APIServiceSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

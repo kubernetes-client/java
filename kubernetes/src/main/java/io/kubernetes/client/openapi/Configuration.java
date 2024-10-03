@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Configuration {
     public static final String VERSION = "21.0.0-SNAPSHOT";
 

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.StorageV1TokenRequest;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CSIDriverSpec is the specification of a CSIDriver.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
@@ -80,17 +79,16 @@ public class V1CSIDriverSpec {
 
   public static final String SERIALIZED_NAME_TOKEN_REQUESTS = "tokenRequests";
   @SerializedName(SERIALIZED_NAME_TOKEN_REQUESTS)
-  private List<StorageV1TokenRequest> tokenRequests;
+  private List<StorageV1TokenRequest> tokenRequests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUME_LIFECYCLE_MODES = "volumeLifecycleModes";
   @SerializedName(SERIALIZED_NAME_VOLUME_LIFECYCLE_MODES)
-  private List<String> volumeLifecycleModes;
+  private List<String> volumeLifecycleModes = new ArrayList<>();
 
   public V1CSIDriverSpec() {
   }
 
   public V1CSIDriverSpec attachRequired(Boolean attachRequired) {
-
     this.attachRequired = attachRequired;
     return this;
   }
@@ -104,14 +102,12 @@ public class V1CSIDriverSpec {
     return attachRequired;
   }
 
-
   public void setAttachRequired(Boolean attachRequired) {
     this.attachRequired = attachRequired;
   }
 
 
   public V1CSIDriverSpec fsGroupPolicy(String fsGroupPolicy) {
-
     this.fsGroupPolicy = fsGroupPolicy;
     return this;
   }
@@ -125,14 +121,12 @@ public class V1CSIDriverSpec {
     return fsGroupPolicy;
   }
 
-
   public void setFsGroupPolicy(String fsGroupPolicy) {
     this.fsGroupPolicy = fsGroupPolicy;
   }
 
 
   public V1CSIDriverSpec podInfoOnMount(Boolean podInfoOnMount) {
-
     this.podInfoOnMount = podInfoOnMount;
     return this;
   }
@@ -146,14 +140,12 @@ public class V1CSIDriverSpec {
     return podInfoOnMount;
   }
 
-
   public void setPodInfoOnMount(Boolean podInfoOnMount) {
     this.podInfoOnMount = podInfoOnMount;
   }
 
 
   public V1CSIDriverSpec requiresRepublish(Boolean requiresRepublish) {
-
     this.requiresRepublish = requiresRepublish;
     return this;
   }
@@ -167,14 +159,12 @@ public class V1CSIDriverSpec {
     return requiresRepublish;
   }
 
-
   public void setRequiresRepublish(Boolean requiresRepublish) {
     this.requiresRepublish = requiresRepublish;
   }
 
 
   public V1CSIDriverSpec seLinuxMount(Boolean seLinuxMount) {
-
     this.seLinuxMount = seLinuxMount;
     return this;
   }
@@ -188,14 +178,12 @@ public class V1CSIDriverSpec {
     return seLinuxMount;
   }
 
-
   public void setSeLinuxMount(Boolean seLinuxMount) {
     this.seLinuxMount = seLinuxMount;
   }
 
 
   public V1CSIDriverSpec storageCapacity(Boolean storageCapacity) {
-
     this.storageCapacity = storageCapacity;
     return this;
   }
@@ -209,14 +197,12 @@ public class V1CSIDriverSpec {
     return storageCapacity;
   }
 
-
   public void setStorageCapacity(Boolean storageCapacity) {
     this.storageCapacity = storageCapacity;
   }
 
 
   public V1CSIDriverSpec tokenRequests(List<StorageV1TokenRequest> tokenRequests) {
-
     this.tokenRequests = tokenRequests;
     return this;
   }
@@ -238,14 +224,12 @@ public class V1CSIDriverSpec {
     return tokenRequests;
   }
 
-
   public void setTokenRequests(List<StorageV1TokenRequest> tokenRequests) {
     this.tokenRequests = tokenRequests;
   }
 
 
   public V1CSIDriverSpec volumeLifecycleModes(List<String> volumeLifecycleModes) {
-
     this.volumeLifecycleModes = volumeLifecycleModes;
     return this;
   }
@@ -266,7 +250,6 @@ public class V1CSIDriverSpec {
   public List<String> getVolumeLifecycleModes() {
     return volumeLifecycleModes;
   }
-
 
   public void setVolumeLifecycleModes(List<String> volumeLifecycleModes) {
     this.volumeLifecycleModes = volumeLifecycleModes;
@@ -346,25 +329,26 @@ public class V1CSIDriverSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1CSIDriverSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1CSIDriverSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1CSIDriverSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1CSIDriverSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1CSIDriverSpec is not found in the empty JSON string", V1CSIDriverSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CSIDriverSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fsGroupPolicy") != null && !jsonObj.get("fsGroupPolicy").isJsonNull()) && !jsonObj.get("fsGroupPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fsGroupPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupPolicy").toString()));
       }
@@ -378,12 +362,12 @@ public class V1CSIDriverSpec {
 
           // validate the optional field `tokenRequests` (array)
           for (int i = 0; i < jsonArraytokenRequests.size(); i++) {
-            StorageV1TokenRequest.validateJsonObject(jsonArraytokenRequests.get(i).getAsJsonObject());
+            StorageV1TokenRequest.validateJsonElement(jsonArraytokenRequests.get(i));
           };
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("volumeLifecycleModes") != null && !jsonObj.get("volumeLifecycleModes").isJsonArray()) {
+      if (jsonObj.get("volumeLifecycleModes") != null && !jsonObj.get("volumeLifecycleModes").isJsonNull() && !jsonObj.get("volumeLifecycleModes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumeLifecycleModes` to be an array in the JSON string but got `%s`", jsonObj.get("volumeLifecycleModes").toString()));
       }
   }
@@ -408,9 +392,9 @@ public class V1CSIDriverSpec {
 
            @Override
            public V1CSIDriverSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

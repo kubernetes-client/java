@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1SELinuxOptions;
 import io.kubernetes.client.openapi.models.V1SeccompProfile;
 import io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION = "allowPrivilegeEscalation";
   @SerializedName(SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION)
@@ -108,7 +107,6 @@ public class V1SecurityContext {
   }
 
   public V1SecurityContext allowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
-
     this.allowPrivilegeEscalation = allowPrivilegeEscalation;
     return this;
   }
@@ -122,14 +120,12 @@ public class V1SecurityContext {
     return allowPrivilegeEscalation;
   }
 
-
   public void setAllowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
     this.allowPrivilegeEscalation = allowPrivilegeEscalation;
   }
 
 
   public V1SecurityContext appArmorProfile(V1AppArmorProfile appArmorProfile) {
-
     this.appArmorProfile = appArmorProfile;
     return this;
   }
@@ -143,14 +139,12 @@ public class V1SecurityContext {
     return appArmorProfile;
   }
 
-
   public void setAppArmorProfile(V1AppArmorProfile appArmorProfile) {
     this.appArmorProfile = appArmorProfile;
   }
 
 
   public V1SecurityContext capabilities(V1Capabilities capabilities) {
-
     this.capabilities = capabilities;
     return this;
   }
@@ -164,14 +158,12 @@ public class V1SecurityContext {
     return capabilities;
   }
 
-
   public void setCapabilities(V1Capabilities capabilities) {
     this.capabilities = capabilities;
   }
 
 
   public V1SecurityContext privileged(Boolean privileged) {
-
     this.privileged = privileged;
     return this;
   }
@@ -185,14 +177,12 @@ public class V1SecurityContext {
     return privileged;
   }
 
-
   public void setPrivileged(Boolean privileged) {
     this.privileged = privileged;
   }
 
 
   public V1SecurityContext procMount(String procMount) {
-
     this.procMount = procMount;
     return this;
   }
@@ -206,14 +196,12 @@ public class V1SecurityContext {
     return procMount;
   }
 
-
   public void setProcMount(String procMount) {
     this.procMount = procMount;
   }
 
 
   public V1SecurityContext readOnlyRootFilesystem(Boolean readOnlyRootFilesystem) {
-
     this.readOnlyRootFilesystem = readOnlyRootFilesystem;
     return this;
   }
@@ -227,14 +215,12 @@ public class V1SecurityContext {
     return readOnlyRootFilesystem;
   }
 
-
   public void setReadOnlyRootFilesystem(Boolean readOnlyRootFilesystem) {
     this.readOnlyRootFilesystem = readOnlyRootFilesystem;
   }
 
 
   public V1SecurityContext runAsGroup(Long runAsGroup) {
-
     this.runAsGroup = runAsGroup;
     return this;
   }
@@ -248,14 +234,12 @@ public class V1SecurityContext {
     return runAsGroup;
   }
 
-
   public void setRunAsGroup(Long runAsGroup) {
     this.runAsGroup = runAsGroup;
   }
 
 
   public V1SecurityContext runAsNonRoot(Boolean runAsNonRoot) {
-
     this.runAsNonRoot = runAsNonRoot;
     return this;
   }
@@ -269,14 +253,12 @@ public class V1SecurityContext {
     return runAsNonRoot;
   }
 
-
   public void setRunAsNonRoot(Boolean runAsNonRoot) {
     this.runAsNonRoot = runAsNonRoot;
   }
 
 
   public V1SecurityContext runAsUser(Long runAsUser) {
-
     this.runAsUser = runAsUser;
     return this;
   }
@@ -290,14 +272,12 @@ public class V1SecurityContext {
     return runAsUser;
   }
 
-
   public void setRunAsUser(Long runAsUser) {
     this.runAsUser = runAsUser;
   }
 
 
   public V1SecurityContext seLinuxOptions(V1SELinuxOptions seLinuxOptions) {
-
     this.seLinuxOptions = seLinuxOptions;
     return this;
   }
@@ -311,14 +291,12 @@ public class V1SecurityContext {
     return seLinuxOptions;
   }
 
-
   public void setSeLinuxOptions(V1SELinuxOptions seLinuxOptions) {
     this.seLinuxOptions = seLinuxOptions;
   }
 
 
   public V1SecurityContext seccompProfile(V1SeccompProfile seccompProfile) {
-
     this.seccompProfile = seccompProfile;
     return this;
   }
@@ -332,14 +310,12 @@ public class V1SecurityContext {
     return seccompProfile;
   }
 
-
   public void setSeccompProfile(V1SeccompProfile seccompProfile) {
     this.seccompProfile = seccompProfile;
   }
 
 
   public V1SecurityContext windowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
-
     this.windowsOptions = windowsOptions;
     return this;
   }
@@ -352,7 +328,6 @@ public class V1SecurityContext {
   public V1WindowsSecurityContextOptions getWindowsOptions() {
     return windowsOptions;
   }
-
 
   public void setWindowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
     this.windowsOptions = windowsOptions;
@@ -444,47 +419,48 @@ public class V1SecurityContext {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1SecurityContext
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1SecurityContext
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1SecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1SecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1SecurityContext is not found in the empty JSON string", V1SecurityContext.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1SecurityContext.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SecurityContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SecurityContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `appArmorProfile`
       if (jsonObj.get("appArmorProfile") != null && !jsonObj.get("appArmorProfile").isJsonNull()) {
-        V1AppArmorProfile.validateJsonObject(jsonObj.getAsJsonObject("appArmorProfile"));
+        V1AppArmorProfile.validateJsonElement(jsonObj.get("appArmorProfile"));
       }
       // validate the optional field `capabilities`
       if (jsonObj.get("capabilities") != null && !jsonObj.get("capabilities").isJsonNull()) {
-        V1Capabilities.validateJsonObject(jsonObj.getAsJsonObject("capabilities"));
+        V1Capabilities.validateJsonElement(jsonObj.get("capabilities"));
       }
       if ((jsonObj.get("procMount") != null && !jsonObj.get("procMount").isJsonNull()) && !jsonObj.get("procMount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `procMount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("procMount").toString()));
       }
       // validate the optional field `seLinuxOptions`
       if (jsonObj.get("seLinuxOptions") != null && !jsonObj.get("seLinuxOptions").isJsonNull()) {
-        V1SELinuxOptions.validateJsonObject(jsonObj.getAsJsonObject("seLinuxOptions"));
+        V1SELinuxOptions.validateJsonElement(jsonObj.get("seLinuxOptions"));
       }
       // validate the optional field `seccompProfile`
       if (jsonObj.get("seccompProfile") != null && !jsonObj.get("seccompProfile").isJsonNull()) {
-        V1SeccompProfile.validateJsonObject(jsonObj.getAsJsonObject("seccompProfile"));
+        V1SeccompProfile.validateJsonElement(jsonObj.get("seccompProfile"));
       }
       // validate the optional field `windowsOptions`
       if (jsonObj.get("windowsOptions") != null && !jsonObj.get("windowsOptions").isJsonNull()) {
-        V1WindowsSecurityContextOptions.validateJsonObject(jsonObj.getAsJsonObject("windowsOptions"));
+        V1WindowsSecurityContextOptions.validateJsonElement(jsonObj.get("windowsOptions"));
       }
   }
 
@@ -508,9 +484,9 @@ public class V1SecurityContext {
 
            @Override
            public V1SecurityContext read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1ServicePort;
 import io.kubernetes.client.openapi.models.V1SessionAffinityConfig;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServiceSpec describes the attributes that a user creates on a service.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS = "allocateLoadBalancerNodePorts";
   @SerializedName(SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS)
@@ -67,11 +66,11 @@ public class V1ServiceSpec {
 
   public static final String SERIALIZED_NAME_CLUSTER_I_PS = "clusterIPs";
   @SerializedName(SERIALIZED_NAME_CLUSTER_I_PS)
-  private List<String> clusterIPs;
+  private List<String> clusterIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_I_PS = "externalIPs";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_I_PS)
-  private List<String> externalIPs;
+  private List<String> externalIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_NAME = "externalName";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_NAME)
@@ -91,7 +90,7 @@ public class V1ServiceSpec {
 
   public static final String SERIALIZED_NAME_IP_FAMILIES = "ipFamilies";
   @SerializedName(SERIALIZED_NAME_IP_FAMILIES)
-  private List<String> ipFamilies;
+  private List<String> ipFamilies = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IP_FAMILY_POLICY = "ipFamilyPolicy";
   @SerializedName(SERIALIZED_NAME_IP_FAMILY_POLICY)
@@ -107,11 +106,11 @@ public class V1ServiceSpec {
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER_SOURCE_RANGES = "loadBalancerSourceRanges";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER_SOURCE_RANGES)
-  private List<String> loadBalancerSourceRanges;
+  private List<String> loadBalancerSourceRanges = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<V1ServicePort> ports;
+  private List<V1ServicePort> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PUBLISH_NOT_READY_ADDRESSES = "publishNotReadyAddresses";
   @SerializedName(SERIALIZED_NAME_PUBLISH_NOT_READY_ADDRESSES)
@@ -141,7 +140,6 @@ public class V1ServiceSpec {
   }
 
   public V1ServiceSpec allocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
-
     this.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts;
     return this;
   }
@@ -155,14 +153,12 @@ public class V1ServiceSpec {
     return allocateLoadBalancerNodePorts;
   }
 
-
   public void setAllocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
     this.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts;
   }
 
 
   public V1ServiceSpec clusterIP(String clusterIP) {
-
     this.clusterIP = clusterIP;
     return this;
   }
@@ -176,14 +172,12 @@ public class V1ServiceSpec {
     return clusterIP;
   }
 
-
   public void setClusterIP(String clusterIP) {
     this.clusterIP = clusterIP;
   }
 
 
   public V1ServiceSpec clusterIPs(List<String> clusterIPs) {
-
     this.clusterIPs = clusterIPs;
     return this;
   }
@@ -205,14 +199,12 @@ public class V1ServiceSpec {
     return clusterIPs;
   }
 
-
   public void setClusterIPs(List<String> clusterIPs) {
     this.clusterIPs = clusterIPs;
   }
 
 
   public V1ServiceSpec externalIPs(List<String> externalIPs) {
-
     this.externalIPs = externalIPs;
     return this;
   }
@@ -234,14 +226,12 @@ public class V1ServiceSpec {
     return externalIPs;
   }
 
-
   public void setExternalIPs(List<String> externalIPs) {
     this.externalIPs = externalIPs;
   }
 
 
   public V1ServiceSpec externalName(String externalName) {
-
     this.externalName = externalName;
     return this;
   }
@@ -255,14 +245,12 @@ public class V1ServiceSpec {
     return externalName;
   }
 
-
   public void setExternalName(String externalName) {
     this.externalName = externalName;
   }
 
 
   public V1ServiceSpec externalTrafficPolicy(String externalTrafficPolicy) {
-
     this.externalTrafficPolicy = externalTrafficPolicy;
     return this;
   }
@@ -276,14 +264,12 @@ public class V1ServiceSpec {
     return externalTrafficPolicy;
   }
 
-
   public void setExternalTrafficPolicy(String externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
   }
 
 
   public V1ServiceSpec healthCheckNodePort(Integer healthCheckNodePort) {
-
     this.healthCheckNodePort = healthCheckNodePort;
     return this;
   }
@@ -297,14 +283,12 @@ public class V1ServiceSpec {
     return healthCheckNodePort;
   }
 
-
   public void setHealthCheckNodePort(Integer healthCheckNodePort) {
     this.healthCheckNodePort = healthCheckNodePort;
   }
 
 
   public V1ServiceSpec internalTrafficPolicy(String internalTrafficPolicy) {
-
     this.internalTrafficPolicy = internalTrafficPolicy;
     return this;
   }
@@ -318,14 +302,12 @@ public class V1ServiceSpec {
     return internalTrafficPolicy;
   }
 
-
   public void setInternalTrafficPolicy(String internalTrafficPolicy) {
     this.internalTrafficPolicy = internalTrafficPolicy;
   }
 
 
   public V1ServiceSpec ipFamilies(List<String> ipFamilies) {
-
     this.ipFamilies = ipFamilies;
     return this;
   }
@@ -347,14 +329,12 @@ public class V1ServiceSpec {
     return ipFamilies;
   }
 
-
   public void setIpFamilies(List<String> ipFamilies) {
     this.ipFamilies = ipFamilies;
   }
 
 
   public V1ServiceSpec ipFamilyPolicy(String ipFamilyPolicy) {
-
     this.ipFamilyPolicy = ipFamilyPolicy;
     return this;
   }
@@ -368,14 +348,12 @@ public class V1ServiceSpec {
     return ipFamilyPolicy;
   }
 
-
   public void setIpFamilyPolicy(String ipFamilyPolicy) {
     this.ipFamilyPolicy = ipFamilyPolicy;
   }
 
 
   public V1ServiceSpec loadBalancerClass(String loadBalancerClass) {
-
     this.loadBalancerClass = loadBalancerClass;
     return this;
   }
@@ -389,14 +367,12 @@ public class V1ServiceSpec {
     return loadBalancerClass;
   }
 
-
   public void setLoadBalancerClass(String loadBalancerClass) {
     this.loadBalancerClass = loadBalancerClass;
   }
 
 
   public V1ServiceSpec loadBalancerIP(String loadBalancerIP) {
-
     this.loadBalancerIP = loadBalancerIP;
     return this;
   }
@@ -410,14 +386,12 @@ public class V1ServiceSpec {
     return loadBalancerIP;
   }
 
-
   public void setLoadBalancerIP(String loadBalancerIP) {
     this.loadBalancerIP = loadBalancerIP;
   }
 
 
   public V1ServiceSpec loadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
-
     this.loadBalancerSourceRanges = loadBalancerSourceRanges;
     return this;
   }
@@ -439,14 +413,12 @@ public class V1ServiceSpec {
     return loadBalancerSourceRanges;
   }
 
-
   public void setLoadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
     this.loadBalancerSourceRanges = loadBalancerSourceRanges;
   }
 
 
   public V1ServiceSpec ports(List<V1ServicePort> ports) {
-
     this.ports = ports;
     return this;
   }
@@ -468,14 +440,12 @@ public class V1ServiceSpec {
     return ports;
   }
 
-
   public void setPorts(List<V1ServicePort> ports) {
     this.ports = ports;
   }
 
 
   public V1ServiceSpec publishNotReadyAddresses(Boolean publishNotReadyAddresses) {
-
     this.publishNotReadyAddresses = publishNotReadyAddresses;
     return this;
   }
@@ -489,14 +459,12 @@ public class V1ServiceSpec {
     return publishNotReadyAddresses;
   }
 
-
   public void setPublishNotReadyAddresses(Boolean publishNotReadyAddresses) {
     this.publishNotReadyAddresses = publishNotReadyAddresses;
   }
 
 
   public V1ServiceSpec selector(Map<String, String> selector) {
-
     this.selector = selector;
     return this;
   }
@@ -518,14 +486,12 @@ public class V1ServiceSpec {
     return selector;
   }
 
-
   public void setSelector(Map<String, String> selector) {
     this.selector = selector;
   }
 
 
   public V1ServiceSpec sessionAffinity(String sessionAffinity) {
-
     this.sessionAffinity = sessionAffinity;
     return this;
   }
@@ -539,14 +505,12 @@ public class V1ServiceSpec {
     return sessionAffinity;
   }
 
-
   public void setSessionAffinity(String sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
   }
 
 
   public V1ServiceSpec sessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig) {
-
     this.sessionAffinityConfig = sessionAffinityConfig;
     return this;
   }
@@ -560,20 +524,18 @@ public class V1ServiceSpec {
     return sessionAffinityConfig;
   }
 
-
   public void setSessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig) {
     this.sessionAffinityConfig = sessionAffinityConfig;
   }
 
 
   public V1ServiceSpec trafficDistribution(String trafficDistribution) {
-
     this.trafficDistribution = trafficDistribution;
     return this;
   }
 
    /**
-   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are topologically close (e.g., same zone).
+   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are topologically close (e.g., same zone). This is an alpha field and requires enabling ServiceTrafficDistribution feature.
    * @return trafficDistribution
   **/
   @jakarta.annotation.Nullable
@@ -581,14 +543,12 @@ public class V1ServiceSpec {
     return trafficDistribution;
   }
 
-
   public void setTrafficDistribution(String trafficDistribution) {
     this.trafficDistribution = trafficDistribution;
   }
 
 
   public V1ServiceSpec type(String type) {
-
     this.type = type;
     return this;
   }
@@ -601,7 +561,6 @@ public class V1ServiceSpec {
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -717,34 +676,35 @@ public class V1ServiceSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ServiceSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ServiceSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ServiceSpec is not found in the empty JSON string", V1ServiceSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ServiceSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("clusterIP") != null && !jsonObj.get("clusterIP").isJsonNull()) && !jsonObj.get("clusterIP").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `clusterIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clusterIP").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("clusterIPs") != null && !jsonObj.get("clusterIPs").isJsonArray()) {
+      if (jsonObj.get("clusterIPs") != null && !jsonObj.get("clusterIPs").isJsonNull() && !jsonObj.get("clusterIPs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `clusterIPs` to be an array in the JSON string but got `%s`", jsonObj.get("clusterIPs").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("externalIPs") != null && !jsonObj.get("externalIPs").isJsonArray()) {
+      if (jsonObj.get("externalIPs") != null && !jsonObj.get("externalIPs").isJsonNull() && !jsonObj.get("externalIPs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalIPs` to be an array in the JSON string but got `%s`", jsonObj.get("externalIPs").toString()));
       }
       if ((jsonObj.get("externalName") != null && !jsonObj.get("externalName").isJsonNull()) && !jsonObj.get("externalName").isJsonPrimitive()) {
@@ -757,7 +717,7 @@ public class V1ServiceSpec {
         throw new IllegalArgumentException(String.format("Expected the field `internalTrafficPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internalTrafficPolicy").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("ipFamilies") != null && !jsonObj.get("ipFamilies").isJsonArray()) {
+      if (jsonObj.get("ipFamilies") != null && !jsonObj.get("ipFamilies").isJsonNull() && !jsonObj.get("ipFamilies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ipFamilies` to be an array in the JSON string but got `%s`", jsonObj.get("ipFamilies").toString()));
       }
       if ((jsonObj.get("ipFamilyPolicy") != null && !jsonObj.get("ipFamilyPolicy").isJsonNull()) && !jsonObj.get("ipFamilyPolicy").isJsonPrimitive()) {
@@ -770,7 +730,7 @@ public class V1ServiceSpec {
         throw new IllegalArgumentException(String.format("Expected the field `loadBalancerIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loadBalancerIP").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("loadBalancerSourceRanges") != null && !jsonObj.get("loadBalancerSourceRanges").isJsonArray()) {
+      if (jsonObj.get("loadBalancerSourceRanges") != null && !jsonObj.get("loadBalancerSourceRanges").isJsonNull() && !jsonObj.get("loadBalancerSourceRanges").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `loadBalancerSourceRanges` to be an array in the JSON string but got `%s`", jsonObj.get("loadBalancerSourceRanges").toString()));
       }
       if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonNull()) {
@@ -783,7 +743,7 @@ public class V1ServiceSpec {
 
           // validate the optional field `ports` (array)
           for (int i = 0; i < jsonArrayports.size(); i++) {
-            V1ServicePort.validateJsonObject(jsonArrayports.get(i).getAsJsonObject());
+            V1ServicePort.validateJsonElement(jsonArrayports.get(i));
           };
         }
       }
@@ -792,7 +752,7 @@ public class V1ServiceSpec {
       }
       // validate the optional field `sessionAffinityConfig`
       if (jsonObj.get("sessionAffinityConfig") != null && !jsonObj.get("sessionAffinityConfig").isJsonNull()) {
-        V1SessionAffinityConfig.validateJsonObject(jsonObj.getAsJsonObject("sessionAffinityConfig"));
+        V1SessionAffinityConfig.validateJsonElement(jsonObj.get("sessionAffinityConfig"));
       }
       if ((jsonObj.get("trafficDistribution") != null && !jsonObj.get("trafficDistribution").isJsonNull()) && !jsonObj.get("trafficDistribution").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `trafficDistribution` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trafficDistribution").toString()));
@@ -822,9 +782,9 @@ public class V1ServiceSpec {
 
            @Override
            public V1ServiceSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,13 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,7 +41,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -49,7 +48,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * volumeDevice describes a mapping of a raw block device within a container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeDevice {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)
@@ -63,7 +62,6 @@ public class V1VolumeDevice {
   }
 
   public V1VolumeDevice devicePath(String devicePath) {
-
     this.devicePath = devicePath;
     return this;
   }
@@ -77,14 +75,12 @@ public class V1VolumeDevice {
     return devicePath;
   }
 
-
   public void setDevicePath(String devicePath) {
     this.devicePath = devicePath;
   }
 
 
   public V1VolumeDevice name(String name) {
-
     this.name = name;
     return this;
   }
@@ -97,7 +93,6 @@ public class V1VolumeDevice {
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -161,32 +156,33 @@ public class V1VolumeDevice {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1VolumeDevice
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1VolumeDevice
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1VolumeDevice.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1VolumeDevice.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1VolumeDevice is not found in the empty JSON string", V1VolumeDevice.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1VolumeDevice.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeDevice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeDevice` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1VolumeDevice.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("devicePath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `devicePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("devicePath").toString()));
       }
@@ -215,9 +211,9 @@ public class V1VolumeDevice {
 
            @Override
            public V1VolumeDevice read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

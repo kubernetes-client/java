@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,6 +30,7 @@ import io.kubernetes.client.openapi.models.V1VolumeDevice;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -53,7 +53,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -61,23 +60,23 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * A single application container that you want to run within a pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
-  private List<String> args;
+  private List<String> args = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COMMAND = "command";
   @SerializedName(SERIALIZED_NAME_COMMAND)
-  private List<String> command;
+  private List<String> command = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)
-  private List<V1EnvVar> env;
+  private List<V1EnvVar> env = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENV_FROM = "envFrom";
   @SerializedName(SERIALIZED_NAME_ENV_FROM)
-  private List<V1EnvFromSource> envFrom;
+  private List<V1EnvFromSource> envFrom = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -101,7 +100,7 @@ public class V1Container {
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<V1ContainerPort> ports;
+  private List<V1ContainerPort> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_READINESS_PROBE = "readinessProbe";
   @SerializedName(SERIALIZED_NAME_READINESS_PROBE)
@@ -109,7 +108,7 @@ public class V1Container {
 
   public static final String SERIALIZED_NAME_RESIZE_POLICY = "resizePolicy";
   @SerializedName(SERIALIZED_NAME_RESIZE_POLICY)
-  private List<V1ContainerResizePolicy> resizePolicy;
+  private List<V1ContainerResizePolicy> resizePolicy = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
@@ -149,11 +148,11 @@ public class V1Container {
 
   public static final String SERIALIZED_NAME_VOLUME_DEVICES = "volumeDevices";
   @SerializedName(SERIALIZED_NAME_VOLUME_DEVICES)
-  private List<V1VolumeDevice> volumeDevices;
+  private List<V1VolumeDevice> volumeDevices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
-  private List<V1VolumeMount> volumeMounts;
+  private List<V1VolumeMount> volumeMounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORKING_DIR = "workingDir";
   @SerializedName(SERIALIZED_NAME_WORKING_DIR)
@@ -163,7 +162,6 @@ public class V1Container {
   }
 
   public V1Container args(List<String> args) {
-
     this.args = args;
     return this;
   }
@@ -185,14 +183,12 @@ public class V1Container {
     return args;
   }
 
-
   public void setArgs(List<String> args) {
     this.args = args;
   }
 
 
   public V1Container command(List<String> command) {
-
     this.command = command;
     return this;
   }
@@ -214,14 +210,12 @@ public class V1Container {
     return command;
   }
 
-
   public void setCommand(List<String> command) {
     this.command = command;
   }
 
 
   public V1Container env(List<V1EnvVar> env) {
-
     this.env = env;
     return this;
   }
@@ -243,14 +237,12 @@ public class V1Container {
     return env;
   }
 
-
   public void setEnv(List<V1EnvVar> env) {
     this.env = env;
   }
 
 
   public V1Container envFrom(List<V1EnvFromSource> envFrom) {
-
     this.envFrom = envFrom;
     return this;
   }
@@ -272,14 +264,12 @@ public class V1Container {
     return envFrom;
   }
 
-
   public void setEnvFrom(List<V1EnvFromSource> envFrom) {
     this.envFrom = envFrom;
   }
 
 
   public V1Container image(String image) {
-
     this.image = image;
     return this;
   }
@@ -293,14 +283,12 @@ public class V1Container {
     return image;
   }
 
-
   public void setImage(String image) {
     this.image = image;
   }
 
 
   public V1Container imagePullPolicy(String imagePullPolicy) {
-
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
@@ -314,14 +302,12 @@ public class V1Container {
     return imagePullPolicy;
   }
 
-
   public void setImagePullPolicy(String imagePullPolicy) {
     this.imagePullPolicy = imagePullPolicy;
   }
 
 
   public V1Container lifecycle(V1Lifecycle lifecycle) {
-
     this.lifecycle = lifecycle;
     return this;
   }
@@ -335,14 +321,12 @@ public class V1Container {
     return lifecycle;
   }
 
-
   public void setLifecycle(V1Lifecycle lifecycle) {
     this.lifecycle = lifecycle;
   }
 
 
   public V1Container livenessProbe(V1Probe livenessProbe) {
-
     this.livenessProbe = livenessProbe;
     return this;
   }
@@ -356,14 +340,12 @@ public class V1Container {
     return livenessProbe;
   }
 
-
   public void setLivenessProbe(V1Probe livenessProbe) {
     this.livenessProbe = livenessProbe;
   }
 
 
   public V1Container name(String name) {
-
     this.name = name;
     return this;
   }
@@ -377,14 +359,12 @@ public class V1Container {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1Container ports(List<V1ContainerPort> ports) {
-
     this.ports = ports;
     return this;
   }
@@ -406,14 +386,12 @@ public class V1Container {
     return ports;
   }
 
-
   public void setPorts(List<V1ContainerPort> ports) {
     this.ports = ports;
   }
 
 
   public V1Container readinessProbe(V1Probe readinessProbe) {
-
     this.readinessProbe = readinessProbe;
     return this;
   }
@@ -427,14 +405,12 @@ public class V1Container {
     return readinessProbe;
   }
 
-
   public void setReadinessProbe(V1Probe readinessProbe) {
     this.readinessProbe = readinessProbe;
   }
 
 
   public V1Container resizePolicy(List<V1ContainerResizePolicy> resizePolicy) {
-
     this.resizePolicy = resizePolicy;
     return this;
   }
@@ -456,14 +432,12 @@ public class V1Container {
     return resizePolicy;
   }
 
-
   public void setResizePolicy(List<V1ContainerResizePolicy> resizePolicy) {
     this.resizePolicy = resizePolicy;
   }
 
 
   public V1Container resources(V1ResourceRequirements resources) {
-
     this.resources = resources;
     return this;
   }
@@ -477,14 +451,12 @@ public class V1Container {
     return resources;
   }
 
-
   public void setResources(V1ResourceRequirements resources) {
     this.resources = resources;
   }
 
 
   public V1Container restartPolicy(String restartPolicy) {
-
     this.restartPolicy = restartPolicy;
     return this;
   }
@@ -498,14 +470,12 @@ public class V1Container {
     return restartPolicy;
   }
 
-
   public void setRestartPolicy(String restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
 
   public V1Container securityContext(V1SecurityContext securityContext) {
-
     this.securityContext = securityContext;
     return this;
   }
@@ -519,14 +489,12 @@ public class V1Container {
     return securityContext;
   }
 
-
   public void setSecurityContext(V1SecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
 
   public V1Container startupProbe(V1Probe startupProbe) {
-
     this.startupProbe = startupProbe;
     return this;
   }
@@ -540,14 +508,12 @@ public class V1Container {
     return startupProbe;
   }
 
-
   public void setStartupProbe(V1Probe startupProbe) {
     this.startupProbe = startupProbe;
   }
 
 
   public V1Container stdin(Boolean stdin) {
-
     this.stdin = stdin;
     return this;
   }
@@ -561,14 +527,12 @@ public class V1Container {
     return stdin;
   }
 
-
   public void setStdin(Boolean stdin) {
     this.stdin = stdin;
   }
 
 
   public V1Container stdinOnce(Boolean stdinOnce) {
-
     this.stdinOnce = stdinOnce;
     return this;
   }
@@ -582,14 +546,12 @@ public class V1Container {
     return stdinOnce;
   }
 
-
   public void setStdinOnce(Boolean stdinOnce) {
     this.stdinOnce = stdinOnce;
   }
 
 
   public V1Container terminationMessagePath(String terminationMessagePath) {
-
     this.terminationMessagePath = terminationMessagePath;
     return this;
   }
@@ -603,14 +565,12 @@ public class V1Container {
     return terminationMessagePath;
   }
 
-
   public void setTerminationMessagePath(String terminationMessagePath) {
     this.terminationMessagePath = terminationMessagePath;
   }
 
 
   public V1Container terminationMessagePolicy(String terminationMessagePolicy) {
-
     this.terminationMessagePolicy = terminationMessagePolicy;
     return this;
   }
@@ -624,14 +584,12 @@ public class V1Container {
     return terminationMessagePolicy;
   }
 
-
   public void setTerminationMessagePolicy(String terminationMessagePolicy) {
     this.terminationMessagePolicy = terminationMessagePolicy;
   }
 
 
   public V1Container tty(Boolean tty) {
-
     this.tty = tty;
     return this;
   }
@@ -645,14 +603,12 @@ public class V1Container {
     return tty;
   }
 
-
   public void setTty(Boolean tty) {
     this.tty = tty;
   }
 
 
   public V1Container volumeDevices(List<V1VolumeDevice> volumeDevices) {
-
     this.volumeDevices = volumeDevices;
     return this;
   }
@@ -674,14 +630,12 @@ public class V1Container {
     return volumeDevices;
   }
 
-
   public void setVolumeDevices(List<V1VolumeDevice> volumeDevices) {
     this.volumeDevices = volumeDevices;
   }
 
 
   public V1Container volumeMounts(List<V1VolumeMount> volumeMounts) {
-
     this.volumeMounts = volumeMounts;
     return this;
   }
@@ -703,14 +657,12 @@ public class V1Container {
     return volumeMounts;
   }
 
-
   public void setVolumeMounts(List<V1VolumeMount> volumeMounts) {
     this.volumeMounts = volumeMounts;
   }
 
 
   public V1Container workingDir(String workingDir) {
-
     this.workingDir = workingDir;
     return this;
   }
@@ -723,7 +675,6 @@ public class V1Container {
   public String getWorkingDir() {
     return workingDir;
   }
-
 
   public void setWorkingDir(String workingDir) {
     this.workingDir = workingDir;
@@ -852,38 +803,39 @@ public class V1Container {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1Container
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1Container
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1Container.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1Container.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1Container is not found in the empty JSON string", V1Container.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1Container.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Container` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Container` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1Container.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("args") != null && !jsonObj.get("args").isJsonArray()) {
+      if (jsonObj.get("args") != null && !jsonObj.get("args").isJsonNull() && !jsonObj.get("args").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("command") != null && !jsonObj.get("command").isJsonArray()) {
+      if (jsonObj.get("command") != null && !jsonObj.get("command").isJsonNull() && !jsonObj.get("command").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `command` to be an array in the JSON string but got `%s`", jsonObj.get("command").toString()));
       }
       if (jsonObj.get("env") != null && !jsonObj.get("env").isJsonNull()) {
@@ -896,7 +848,7 @@ public class V1Container {
 
           // validate the optional field `env` (array)
           for (int i = 0; i < jsonArrayenv.size(); i++) {
-            V1EnvVar.validateJsonObject(jsonArrayenv.get(i).getAsJsonObject());
+            V1EnvVar.validateJsonElement(jsonArrayenv.get(i));
           };
         }
       }
@@ -910,7 +862,7 @@ public class V1Container {
 
           // validate the optional field `envFrom` (array)
           for (int i = 0; i < jsonArrayenvFrom.size(); i++) {
-            V1EnvFromSource.validateJsonObject(jsonArrayenvFrom.get(i).getAsJsonObject());
+            V1EnvFromSource.validateJsonElement(jsonArrayenvFrom.get(i));
           };
         }
       }
@@ -922,11 +874,11 @@ public class V1Container {
       }
       // validate the optional field `lifecycle`
       if (jsonObj.get("lifecycle") != null && !jsonObj.get("lifecycle").isJsonNull()) {
-        V1Lifecycle.validateJsonObject(jsonObj.getAsJsonObject("lifecycle"));
+        V1Lifecycle.validateJsonElement(jsonObj.get("lifecycle"));
       }
       // validate the optional field `livenessProbe`
       if (jsonObj.get("livenessProbe") != null && !jsonObj.get("livenessProbe").isJsonNull()) {
-        V1Probe.validateJsonObject(jsonObj.getAsJsonObject("livenessProbe"));
+        V1Probe.validateJsonElement(jsonObj.get("livenessProbe"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -941,13 +893,13 @@ public class V1Container {
 
           // validate the optional field `ports` (array)
           for (int i = 0; i < jsonArrayports.size(); i++) {
-            V1ContainerPort.validateJsonObject(jsonArrayports.get(i).getAsJsonObject());
+            V1ContainerPort.validateJsonElement(jsonArrayports.get(i));
           };
         }
       }
       // validate the optional field `readinessProbe`
       if (jsonObj.get("readinessProbe") != null && !jsonObj.get("readinessProbe").isJsonNull()) {
-        V1Probe.validateJsonObject(jsonObj.getAsJsonObject("readinessProbe"));
+        V1Probe.validateJsonElement(jsonObj.get("readinessProbe"));
       }
       if (jsonObj.get("resizePolicy") != null && !jsonObj.get("resizePolicy").isJsonNull()) {
         JsonArray jsonArrayresizePolicy = jsonObj.getAsJsonArray("resizePolicy");
@@ -959,24 +911,24 @@ public class V1Container {
 
           // validate the optional field `resizePolicy` (array)
           for (int i = 0; i < jsonArrayresizePolicy.size(); i++) {
-            V1ContainerResizePolicy.validateJsonObject(jsonArrayresizePolicy.get(i).getAsJsonObject());
+            V1ContainerResizePolicy.validateJsonElement(jsonArrayresizePolicy.get(i));
           };
         }
       }
       // validate the optional field `resources`
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
-        V1ResourceRequirements.validateJsonObject(jsonObj.getAsJsonObject("resources"));
+        V1ResourceRequirements.validateJsonElement(jsonObj.get("resources"));
       }
       if ((jsonObj.get("restartPolicy") != null && !jsonObj.get("restartPolicy").isJsonNull()) && !jsonObj.get("restartPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
       }
       // validate the optional field `securityContext`
       if (jsonObj.get("securityContext") != null && !jsonObj.get("securityContext").isJsonNull()) {
-        V1SecurityContext.validateJsonObject(jsonObj.getAsJsonObject("securityContext"));
+        V1SecurityContext.validateJsonElement(jsonObj.get("securityContext"));
       }
       // validate the optional field `startupProbe`
       if (jsonObj.get("startupProbe") != null && !jsonObj.get("startupProbe").isJsonNull()) {
-        V1Probe.validateJsonObject(jsonObj.getAsJsonObject("startupProbe"));
+        V1Probe.validateJsonElement(jsonObj.get("startupProbe"));
       }
       if ((jsonObj.get("terminationMessagePath") != null && !jsonObj.get("terminationMessagePath").isJsonNull()) && !jsonObj.get("terminationMessagePath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `terminationMessagePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminationMessagePath").toString()));
@@ -994,7 +946,7 @@ public class V1Container {
 
           // validate the optional field `volumeDevices` (array)
           for (int i = 0; i < jsonArrayvolumeDevices.size(); i++) {
-            V1VolumeDevice.validateJsonObject(jsonArrayvolumeDevices.get(i).getAsJsonObject());
+            V1VolumeDevice.validateJsonElement(jsonArrayvolumeDevices.get(i));
           };
         }
       }
@@ -1008,7 +960,7 @@ public class V1Container {
 
           // validate the optional field `volumeMounts` (array)
           for (int i = 0; i < jsonArrayvolumeMounts.size(); i++) {
-            V1VolumeMount.validateJsonObject(jsonArrayvolumeMounts.get(i).getAsJsonObject());
+            V1VolumeMount.validateJsonElement(jsonArrayvolumeMounts.get(i));
           };
         }
       }
@@ -1037,9 +989,9 @@ public class V1Container {
 
            @Override
            public V1Container read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

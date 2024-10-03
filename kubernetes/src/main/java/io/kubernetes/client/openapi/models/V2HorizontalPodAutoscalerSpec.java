@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior;
 import io.kubernetes.client.openapi.models.V2MetricSpec;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2HorizontalPodAutoscalerSpec {
   public static final String SERIALIZED_NAME_BEHAVIOR = "behavior";
   @SerializedName(SERIALIZED_NAME_BEHAVIOR)
@@ -66,7 +65,7 @@ public class V2HorizontalPodAutoscalerSpec {
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
   @SerializedName(SERIALIZED_NAME_METRICS)
-  private List<V2MetricSpec> metrics;
+  private List<V2MetricSpec> metrics = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MIN_REPLICAS = "minReplicas";
   @SerializedName(SERIALIZED_NAME_MIN_REPLICAS)
@@ -80,7 +79,6 @@ public class V2HorizontalPodAutoscalerSpec {
   }
 
   public V2HorizontalPodAutoscalerSpec behavior(V2HorizontalPodAutoscalerBehavior behavior) {
-
     this.behavior = behavior;
     return this;
   }
@@ -94,14 +92,12 @@ public class V2HorizontalPodAutoscalerSpec {
     return behavior;
   }
 
-
   public void setBehavior(V2HorizontalPodAutoscalerBehavior behavior) {
     this.behavior = behavior;
   }
 
 
   public V2HorizontalPodAutoscalerSpec maxReplicas(Integer maxReplicas) {
-
     this.maxReplicas = maxReplicas;
     return this;
   }
@@ -115,14 +111,12 @@ public class V2HorizontalPodAutoscalerSpec {
     return maxReplicas;
   }
 
-
   public void setMaxReplicas(Integer maxReplicas) {
     this.maxReplicas = maxReplicas;
   }
 
 
   public V2HorizontalPodAutoscalerSpec metrics(List<V2MetricSpec> metrics) {
-
     this.metrics = metrics;
     return this;
   }
@@ -144,14 +138,12 @@ public class V2HorizontalPodAutoscalerSpec {
     return metrics;
   }
 
-
   public void setMetrics(List<V2MetricSpec> metrics) {
     this.metrics = metrics;
   }
 
 
   public V2HorizontalPodAutoscalerSpec minReplicas(Integer minReplicas) {
-
     this.minReplicas = minReplicas;
     return this;
   }
@@ -165,14 +157,12 @@ public class V2HorizontalPodAutoscalerSpec {
     return minReplicas;
   }
 
-
   public void setMinReplicas(Integer minReplicas) {
     this.minReplicas = minReplicas;
   }
 
 
   public V2HorizontalPodAutoscalerSpec scaleTargetRef(V2CrossVersionObjectReference scaleTargetRef) {
-
     this.scaleTargetRef = scaleTargetRef;
     return this;
   }
@@ -185,7 +175,6 @@ public class V2HorizontalPodAutoscalerSpec {
   public V2CrossVersionObjectReference getScaleTargetRef() {
     return scaleTargetRef;
   }
-
 
   public void setScaleTargetRef(V2CrossVersionObjectReference scaleTargetRef) {
     this.scaleTargetRef = scaleTargetRef;
@@ -258,35 +247,36 @@ public class V2HorizontalPodAutoscalerSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V2HorizontalPodAutoscalerSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V2HorizontalPodAutoscalerSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V2HorizontalPodAutoscalerSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V2HorizontalPodAutoscalerSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V2HorizontalPodAutoscalerSpec is not found in the empty JSON string", V2HorizontalPodAutoscalerSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V2HorizontalPodAutoscalerSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HorizontalPodAutoscalerSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HorizontalPodAutoscalerSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V2HorizontalPodAutoscalerSpec.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `behavior`
       if (jsonObj.get("behavior") != null && !jsonObj.get("behavior").isJsonNull()) {
-        V2HorizontalPodAutoscalerBehavior.validateJsonObject(jsonObj.getAsJsonObject("behavior"));
+        V2HorizontalPodAutoscalerBehavior.validateJsonElement(jsonObj.get("behavior"));
       }
       if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
         JsonArray jsonArraymetrics = jsonObj.getAsJsonArray("metrics");
@@ -298,12 +288,12 @@ public class V2HorizontalPodAutoscalerSpec {
 
           // validate the optional field `metrics` (array)
           for (int i = 0; i < jsonArraymetrics.size(); i++) {
-            V2MetricSpec.validateJsonObject(jsonArraymetrics.get(i).getAsJsonObject());
+            V2MetricSpec.validateJsonElement(jsonArraymetrics.get(i));
           };
         }
       }
       // validate the required field `scaleTargetRef`
-      V2CrossVersionObjectReference.validateJsonObject(jsonObj.getAsJsonObject("scaleTargetRef"));
+      V2CrossVersionObjectReference.validateJsonElement(jsonObj.get("scaleTargetRef"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -326,9 +316,9 @@ public class V2HorizontalPodAutoscalerSpec {
 
            @Override
            public V2HorizontalPodAutoscalerSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

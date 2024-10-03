@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Event is a report of an event somewhere in the cluster.  Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -128,7 +127,6 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   }
 
   public CoreV1Event action(String action) {
-
     this.action = action;
     return this;
   }
@@ -142,14 +140,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return action;
   }
 
-
   public void setAction(String action) {
     this.action = action;
   }
 
 
   public CoreV1Event apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -163,14 +159,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public CoreV1Event count(Integer count) {
-
     this.count = count;
     return this;
   }
@@ -184,14 +178,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return count;
   }
 
-
   public void setCount(Integer count) {
     this.count = count;
   }
 
 
   public CoreV1Event eventTime(OffsetDateTime eventTime) {
-
     this.eventTime = eventTime;
     return this;
   }
@@ -205,14 +197,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return eventTime;
   }
 
-
   public void setEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
 
 
   public CoreV1Event firstTimestamp(OffsetDateTime firstTimestamp) {
-
     this.firstTimestamp = firstTimestamp;
     return this;
   }
@@ -226,14 +216,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return firstTimestamp;
   }
 
-
   public void setFirstTimestamp(OffsetDateTime firstTimestamp) {
     this.firstTimestamp = firstTimestamp;
   }
 
 
   public CoreV1Event involvedObject(V1ObjectReference involvedObject) {
-
     this.involvedObject = involvedObject;
     return this;
   }
@@ -247,14 +235,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return involvedObject;
   }
 
-
   public void setInvolvedObject(V1ObjectReference involvedObject) {
     this.involvedObject = involvedObject;
   }
 
 
   public CoreV1Event kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -268,14 +254,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public CoreV1Event lastTimestamp(OffsetDateTime lastTimestamp) {
-
     this.lastTimestamp = lastTimestamp;
     return this;
   }
@@ -289,14 +273,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return lastTimestamp;
   }
 
-
   public void setLastTimestamp(OffsetDateTime lastTimestamp) {
     this.lastTimestamp = lastTimestamp;
   }
 
 
   public CoreV1Event message(String message) {
-
     this.message = message;
     return this;
   }
@@ -310,14 +292,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return message;
   }
 
-
   public void setMessage(String message) {
     this.message = message;
   }
 
 
   public CoreV1Event metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -331,14 +311,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public CoreV1Event reason(String reason) {
-
     this.reason = reason;
     return this;
   }
@@ -352,14 +330,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return reason;
   }
 
-
   public void setReason(String reason) {
     this.reason = reason;
   }
 
 
   public CoreV1Event related(V1ObjectReference related) {
-
     this.related = related;
     return this;
   }
@@ -373,14 +349,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return related;
   }
 
-
   public void setRelated(V1ObjectReference related) {
     this.related = related;
   }
 
 
   public CoreV1Event reportingComponent(String reportingComponent) {
-
     this.reportingComponent = reportingComponent;
     return this;
   }
@@ -394,14 +368,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return reportingComponent;
   }
 
-
   public void setReportingComponent(String reportingComponent) {
     this.reportingComponent = reportingComponent;
   }
 
 
   public CoreV1Event reportingInstance(String reportingInstance) {
-
     this.reportingInstance = reportingInstance;
     return this;
   }
@@ -415,14 +387,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return reportingInstance;
   }
 
-
   public void setReportingInstance(String reportingInstance) {
     this.reportingInstance = reportingInstance;
   }
 
 
   public CoreV1Event series(CoreV1EventSeries series) {
-
     this.series = series;
     return this;
   }
@@ -436,14 +406,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return series;
   }
 
-
   public void setSeries(CoreV1EventSeries series) {
     this.series = series;
   }
 
 
   public CoreV1Event source(V1EventSource source) {
-
     this.source = source;
     return this;
   }
@@ -457,14 +425,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     return source;
   }
 
-
   public void setSource(V1EventSource source) {
     this.source = source;
   }
 
 
   public CoreV1Event type(String type) {
-
     this.type = type;
     return this;
   }
@@ -477,7 +443,6 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -586,32 +551,33 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CoreV1Event
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to CoreV1Event
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!CoreV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CoreV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CoreV1Event is not found in the empty JSON string", CoreV1Event.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CoreV1Event.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CoreV1Event` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CoreV1Event` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CoreV1Event.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
@@ -619,7 +585,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
       // validate the required field `involvedObject`
-      V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("involvedObject"));
+      V1ObjectReference.validateJsonElement(jsonObj.get("involvedObject"));
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
@@ -627,13 +593,13 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the required field `metadata`
-      V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
       // validate the optional field `related`
       if (jsonObj.get("related") != null && !jsonObj.get("related").isJsonNull()) {
-        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("related"));
+        V1ObjectReference.validateJsonElement(jsonObj.get("related"));
       }
       if ((jsonObj.get("reportingComponent") != null && !jsonObj.get("reportingComponent").isJsonNull()) && !jsonObj.get("reportingComponent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reportingComponent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reportingComponent").toString()));
@@ -643,11 +609,11 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
       }
       // validate the optional field `series`
       if (jsonObj.get("series") != null && !jsonObj.get("series").isJsonNull()) {
-        CoreV1EventSeries.validateJsonObject(jsonObj.getAsJsonObject("series"));
+        CoreV1EventSeries.validateJsonElement(jsonObj.get("series"));
       }
       // validate the optional field `source`
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-        V1EventSource.validateJsonObject(jsonObj.getAsJsonObject("source"));
+        V1EventSource.validateJsonElement(jsonObj.get("source"));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -674,9 +640,9 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
 
            @Override
            public CoreV1Event read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

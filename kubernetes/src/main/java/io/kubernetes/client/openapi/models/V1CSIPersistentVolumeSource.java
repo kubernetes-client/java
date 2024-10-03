@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents storage that is managed by an external CSI volume driver (Beta feature)
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF = "controllerExpandSecretRef";
   @SerializedName(SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF)
@@ -98,7 +97,6 @@ public class V1CSIPersistentVolumeSource {
   }
 
   public V1CSIPersistentVolumeSource controllerExpandSecretRef(V1SecretReference controllerExpandSecretRef) {
-
     this.controllerExpandSecretRef = controllerExpandSecretRef;
     return this;
   }
@@ -112,14 +110,12 @@ public class V1CSIPersistentVolumeSource {
     return controllerExpandSecretRef;
   }
 
-
   public void setControllerExpandSecretRef(V1SecretReference controllerExpandSecretRef) {
     this.controllerExpandSecretRef = controllerExpandSecretRef;
   }
 
 
   public V1CSIPersistentVolumeSource controllerPublishSecretRef(V1SecretReference controllerPublishSecretRef) {
-
     this.controllerPublishSecretRef = controllerPublishSecretRef;
     return this;
   }
@@ -133,14 +129,12 @@ public class V1CSIPersistentVolumeSource {
     return controllerPublishSecretRef;
   }
 
-
   public void setControllerPublishSecretRef(V1SecretReference controllerPublishSecretRef) {
     this.controllerPublishSecretRef = controllerPublishSecretRef;
   }
 
 
   public V1CSIPersistentVolumeSource driver(String driver) {
-
     this.driver = driver;
     return this;
   }
@@ -154,14 +148,12 @@ public class V1CSIPersistentVolumeSource {
     return driver;
   }
 
-
   public void setDriver(String driver) {
     this.driver = driver;
   }
 
 
   public V1CSIPersistentVolumeSource fsType(String fsType) {
-
     this.fsType = fsType;
     return this;
   }
@@ -175,14 +167,12 @@ public class V1CSIPersistentVolumeSource {
     return fsType;
   }
 
-
   public void setFsType(String fsType) {
     this.fsType = fsType;
   }
 
 
   public V1CSIPersistentVolumeSource nodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
-
     this.nodeExpandSecretRef = nodeExpandSecretRef;
     return this;
   }
@@ -196,14 +186,12 @@ public class V1CSIPersistentVolumeSource {
     return nodeExpandSecretRef;
   }
 
-
   public void setNodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
     this.nodeExpandSecretRef = nodeExpandSecretRef;
   }
 
 
   public V1CSIPersistentVolumeSource nodePublishSecretRef(V1SecretReference nodePublishSecretRef) {
-
     this.nodePublishSecretRef = nodePublishSecretRef;
     return this;
   }
@@ -217,14 +205,12 @@ public class V1CSIPersistentVolumeSource {
     return nodePublishSecretRef;
   }
 
-
   public void setNodePublishSecretRef(V1SecretReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
   }
 
 
   public V1CSIPersistentVolumeSource nodeStageSecretRef(V1SecretReference nodeStageSecretRef) {
-
     this.nodeStageSecretRef = nodeStageSecretRef;
     return this;
   }
@@ -238,14 +224,12 @@ public class V1CSIPersistentVolumeSource {
     return nodeStageSecretRef;
   }
 
-
   public void setNodeStageSecretRef(V1SecretReference nodeStageSecretRef) {
     this.nodeStageSecretRef = nodeStageSecretRef;
   }
 
 
   public V1CSIPersistentVolumeSource readOnly(Boolean readOnly) {
-
     this.readOnly = readOnly;
     return this;
   }
@@ -259,14 +243,12 @@ public class V1CSIPersistentVolumeSource {
     return readOnly;
   }
 
-
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
   public V1CSIPersistentVolumeSource volumeAttributes(Map<String, String> volumeAttributes) {
-
     this.volumeAttributes = volumeAttributes;
     return this;
   }
@@ -288,14 +270,12 @@ public class V1CSIPersistentVolumeSource {
     return volumeAttributes;
   }
 
-
   public void setVolumeAttributes(Map<String, String> volumeAttributes) {
     this.volumeAttributes = volumeAttributes;
   }
 
 
   public V1CSIPersistentVolumeSource volumeHandle(String volumeHandle) {
-
     this.volumeHandle = volumeHandle;
     return this;
   }
@@ -308,7 +288,6 @@ public class V1CSIPersistentVolumeSource {
   public String getVolumeHandle() {
     return volumeHandle;
   }
-
 
   public void setVolumeHandle(String volumeHandle) {
     this.volumeHandle = volumeHandle;
@@ -396,39 +375,40 @@ public class V1CSIPersistentVolumeSource {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1CSIPersistentVolumeSource
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1CSIPersistentVolumeSource
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1CSIPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1CSIPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1CSIPersistentVolumeSource is not found in the empty JSON string", V1CSIPersistentVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CSIPersistentVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIPersistentVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIPersistentVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1CSIPersistentVolumeSource.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `controllerExpandSecretRef`
       if (jsonObj.get("controllerExpandSecretRef") != null && !jsonObj.get("controllerExpandSecretRef").isJsonNull()) {
-        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("controllerExpandSecretRef"));
+        V1SecretReference.validateJsonElement(jsonObj.get("controllerExpandSecretRef"));
       }
       // validate the optional field `controllerPublishSecretRef`
       if (jsonObj.get("controllerPublishSecretRef") != null && !jsonObj.get("controllerPublishSecretRef").isJsonNull()) {
-        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("controllerPublishSecretRef"));
+        V1SecretReference.validateJsonElement(jsonObj.get("controllerPublishSecretRef"));
       }
       if (!jsonObj.get("driver").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
@@ -438,15 +418,15 @@ public class V1CSIPersistentVolumeSource {
       }
       // validate the optional field `nodeExpandSecretRef`
       if (jsonObj.get("nodeExpandSecretRef") != null && !jsonObj.get("nodeExpandSecretRef").isJsonNull()) {
-        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("nodeExpandSecretRef"));
+        V1SecretReference.validateJsonElement(jsonObj.get("nodeExpandSecretRef"));
       }
       // validate the optional field `nodePublishSecretRef`
       if (jsonObj.get("nodePublishSecretRef") != null && !jsonObj.get("nodePublishSecretRef").isJsonNull()) {
-        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("nodePublishSecretRef"));
+        V1SecretReference.validateJsonElement(jsonObj.get("nodePublishSecretRef"));
       }
       // validate the optional field `nodeStageSecretRef`
       if (jsonObj.get("nodeStageSecretRef") != null && !jsonObj.get("nodeStageSecretRef").isJsonNull()) {
-        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("nodeStageSecretRef"));
+        V1SecretReference.validateJsonElement(jsonObj.get("nodeStageSecretRef"));
       }
       if (!jsonObj.get("volumeHandle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumeHandle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeHandle").toString()));
@@ -473,9 +453,9 @@ public class V1CSIPersistentVolumeSource {
 
            @Override
            public V1CSIPersistentVolumeSource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

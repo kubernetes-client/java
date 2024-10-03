@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1VolumeMountStatus;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -57,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerStatus contains details for the current status of this container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -105,13 +104,12 @@ public class V1ContainerStatus {
 
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
-  private List<V1VolumeMountStatus> volumeMounts;
+  private List<V1VolumeMountStatus> volumeMounts = new ArrayList<>();
 
   public V1ContainerStatus() {
   }
 
   public V1ContainerStatus allocatedResources(Map<String, Quantity> allocatedResources) {
-
     this.allocatedResources = allocatedResources;
     return this;
   }
@@ -133,14 +131,12 @@ public class V1ContainerStatus {
     return allocatedResources;
   }
 
-
   public void setAllocatedResources(Map<String, Quantity> allocatedResources) {
     this.allocatedResources = allocatedResources;
   }
 
 
   public V1ContainerStatus containerID(String containerID) {
-
     this.containerID = containerID;
     return this;
   }
@@ -154,14 +150,12 @@ public class V1ContainerStatus {
     return containerID;
   }
 
-
   public void setContainerID(String containerID) {
     this.containerID = containerID;
   }
 
 
   public V1ContainerStatus image(String image) {
-
     this.image = image;
     return this;
   }
@@ -175,14 +169,12 @@ public class V1ContainerStatus {
     return image;
   }
 
-
   public void setImage(String image) {
     this.image = image;
   }
 
 
   public V1ContainerStatus imageID(String imageID) {
-
     this.imageID = imageID;
     return this;
   }
@@ -196,14 +188,12 @@ public class V1ContainerStatus {
     return imageID;
   }
 
-
   public void setImageID(String imageID) {
     this.imageID = imageID;
   }
 
 
   public V1ContainerStatus lastState(V1ContainerState lastState) {
-
     this.lastState = lastState;
     return this;
   }
@@ -217,14 +207,12 @@ public class V1ContainerStatus {
     return lastState;
   }
 
-
   public void setLastState(V1ContainerState lastState) {
     this.lastState = lastState;
   }
 
 
   public V1ContainerStatus name(String name) {
-
     this.name = name;
     return this;
   }
@@ -238,14 +226,12 @@ public class V1ContainerStatus {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1ContainerStatus ready(Boolean ready) {
-
     this.ready = ready;
     return this;
   }
@@ -259,14 +245,12 @@ public class V1ContainerStatus {
     return ready;
   }
 
-
   public void setReady(Boolean ready) {
     this.ready = ready;
   }
 
 
   public V1ContainerStatus resources(V1ResourceRequirements resources) {
-
     this.resources = resources;
     return this;
   }
@@ -280,14 +264,12 @@ public class V1ContainerStatus {
     return resources;
   }
 
-
   public void setResources(V1ResourceRequirements resources) {
     this.resources = resources;
   }
 
 
   public V1ContainerStatus restartCount(Integer restartCount) {
-
     this.restartCount = restartCount;
     return this;
   }
@@ -301,14 +283,12 @@ public class V1ContainerStatus {
     return restartCount;
   }
 
-
   public void setRestartCount(Integer restartCount) {
     this.restartCount = restartCount;
   }
 
 
   public V1ContainerStatus started(Boolean started) {
-
     this.started = started;
     return this;
   }
@@ -322,14 +302,12 @@ public class V1ContainerStatus {
     return started;
   }
 
-
   public void setStarted(Boolean started) {
     this.started = started;
   }
 
 
   public V1ContainerStatus state(V1ContainerState state) {
-
     this.state = state;
     return this;
   }
@@ -343,14 +321,12 @@ public class V1ContainerStatus {
     return state;
   }
 
-
   public void setState(V1ContainerState state) {
     this.state = state;
   }
 
 
   public V1ContainerStatus volumeMounts(List<V1VolumeMountStatus> volumeMounts) {
-
     this.volumeMounts = volumeMounts;
     return this;
   }
@@ -371,7 +347,6 @@ public class V1ContainerStatus {
   public List<V1VolumeMountStatus> getVolumeMounts() {
     return volumeMounts;
   }
-
 
   public void setVolumeMounts(List<V1VolumeMountStatus> volumeMounts) {
     this.volumeMounts = volumeMounts;
@@ -468,32 +443,33 @@ public class V1ContainerStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ContainerStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ContainerStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ContainerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ContainerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ContainerStatus is not found in the empty JSON string", V1ContainerStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ContainerStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ContainerStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ContainerStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ContainerStatus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("containerID") != null && !jsonObj.get("containerID").isJsonNull()) && !jsonObj.get("containerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `containerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerID").toString()));
       }
@@ -505,18 +481,18 @@ public class V1ContainerStatus {
       }
       // validate the optional field `lastState`
       if (jsonObj.get("lastState") != null && !jsonObj.get("lastState").isJsonNull()) {
-        V1ContainerState.validateJsonObject(jsonObj.getAsJsonObject("lastState"));
+        V1ContainerState.validateJsonElement(jsonObj.get("lastState"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `resources`
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
-        V1ResourceRequirements.validateJsonObject(jsonObj.getAsJsonObject("resources"));
+        V1ResourceRequirements.validateJsonElement(jsonObj.get("resources"));
       }
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        V1ContainerState.validateJsonObject(jsonObj.getAsJsonObject("state"));
+        V1ContainerState.validateJsonElement(jsonObj.get("state"));
       }
       if (jsonObj.get("volumeMounts") != null && !jsonObj.get("volumeMounts").isJsonNull()) {
         JsonArray jsonArrayvolumeMounts = jsonObj.getAsJsonArray("volumeMounts");
@@ -528,7 +504,7 @@ public class V1ContainerStatus {
 
           // validate the optional field `volumeMounts` (array)
           for (int i = 0; i < jsonArrayvolumeMounts.size(); i++) {
-            V1VolumeMountStatus.validateJsonObject(jsonArrayvolumeMounts.get(i).getAsJsonObject());
+            V1VolumeMountStatus.validateJsonElement(jsonArrayvolumeMounts.get(i));
           };
         }
       }
@@ -554,9 +530,9 @@ public class V1ContainerStatus {
 
            @Override
            public V1ContainerStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

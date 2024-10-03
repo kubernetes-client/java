@@ -93,9 +93,6 @@ public class KubectlDrain extends KubectlCordon {
     for (V1Pod pod : pods) {
       if (pod.getMetadata().getOwnerReferences() == null) continue;
 
-      if (!force && pod.getMetadata().getOwnerReferences().size() == 0) {
-        throw new KubectlException("Pods unmanaged by a controller are present on the node");
-      }
       // Throw exception if there are daemon set pods and ignore daemon set is false
       if (!ignoreDaemonSets) {
         for (V1OwnerReference ref : pod.getMetadata().getOwnerReferences()) {

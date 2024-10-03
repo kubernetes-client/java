@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1EndpointHints;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -56,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Endpoint represents a single logical \&quot;backend\&quot; implementing a service.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -94,7 +93,6 @@ public class V1Endpoint {
   }
 
   public V1Endpoint addresses(List<String> addresses) {
-
     this.addresses = addresses;
     return this;
   }
@@ -116,14 +114,12 @@ public class V1Endpoint {
     return addresses;
   }
 
-
   public void setAddresses(List<String> addresses) {
     this.addresses = addresses;
   }
 
 
   public V1Endpoint conditions(V1EndpointConditions conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -137,14 +133,12 @@ public class V1Endpoint {
     return conditions;
   }
 
-
   public void setConditions(V1EndpointConditions conditions) {
     this.conditions = conditions;
   }
 
 
   public V1Endpoint deprecatedTopology(Map<String, String> deprecatedTopology) {
-
     this.deprecatedTopology = deprecatedTopology;
     return this;
   }
@@ -166,14 +160,12 @@ public class V1Endpoint {
     return deprecatedTopology;
   }
 
-
   public void setDeprecatedTopology(Map<String, String> deprecatedTopology) {
     this.deprecatedTopology = deprecatedTopology;
   }
 
 
   public V1Endpoint hints(V1EndpointHints hints) {
-
     this.hints = hints;
     return this;
   }
@@ -187,14 +179,12 @@ public class V1Endpoint {
     return hints;
   }
 
-
   public void setHints(V1EndpointHints hints) {
     this.hints = hints;
   }
 
 
   public V1Endpoint hostname(String hostname) {
-
     this.hostname = hostname;
     return this;
   }
@@ -208,14 +198,12 @@ public class V1Endpoint {
     return hostname;
   }
 
-
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
 
 
   public V1Endpoint nodeName(String nodeName) {
-
     this.nodeName = nodeName;
     return this;
   }
@@ -229,14 +217,12 @@ public class V1Endpoint {
     return nodeName;
   }
 
-
   public void setNodeName(String nodeName) {
     this.nodeName = nodeName;
   }
 
 
   public V1Endpoint targetRef(V1ObjectReference targetRef) {
-
     this.targetRef = targetRef;
     return this;
   }
@@ -250,14 +236,12 @@ public class V1Endpoint {
     return targetRef;
   }
 
-
   public void setTargetRef(V1ObjectReference targetRef) {
     this.targetRef = targetRef;
   }
 
 
   public V1Endpoint zone(String zone) {
-
     this.zone = zone;
     return this;
   }
@@ -270,7 +254,6 @@ public class V1Endpoint {
   public String getZone() {
     return zone;
   }
-
 
   public void setZone(String zone) {
     this.zone = zone;
@@ -351,32 +334,33 @@ public class V1Endpoint {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1Endpoint
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1Endpoint
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1Endpoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1Endpoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1Endpoint is not found in the empty JSON string", V1Endpoint.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1Endpoint.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Endpoint` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Endpoint` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1Endpoint.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the required json array is present
       if (jsonObj.get("addresses") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
@@ -385,11 +369,11 @@ public class V1Endpoint {
       }
       // validate the optional field `conditions`
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
-        V1EndpointConditions.validateJsonObject(jsonObj.getAsJsonObject("conditions"));
+        V1EndpointConditions.validateJsonElement(jsonObj.get("conditions"));
       }
       // validate the optional field `hints`
       if (jsonObj.get("hints") != null && !jsonObj.get("hints").isJsonNull()) {
-        V1EndpointHints.validateJsonObject(jsonObj.getAsJsonObject("hints"));
+        V1EndpointHints.validateJsonElement(jsonObj.get("hints"));
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
@@ -399,7 +383,7 @@ public class V1Endpoint {
       }
       // validate the optional field `targetRef`
       if (jsonObj.get("targetRef") != null && !jsonObj.get("targetRef").isJsonNull()) {
-        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("targetRef"));
+        V1ObjectReference.validateJsonElement(jsonObj.get("targetRef"));
       }
       if ((jsonObj.get("zone") != null && !jsonObj.get("zone").isJsonNull()) && !jsonObj.get("zone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zone").toString()));
@@ -426,9 +410,9 @@ public class V1Endpoint {
 
            @Override
            public V1Endpoint read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

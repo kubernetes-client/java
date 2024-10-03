@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Endpoints is a collection of endpoints that implement the actual service. Example:    Name: \&quot;mysvc\&quot;,   Subsets: [     {       Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],       Ports: [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]     },     {       Addresses: [{\&quot;ip\&quot;: \&quot;10.10.3.3\&quot;}],       Ports: [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 93}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 76}]     },  ]
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -69,13 +68,12 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
 
   public static final String SERIALIZED_NAME_SUBSETS = "subsets";
   @SerializedName(SERIALIZED_NAME_SUBSETS)
-  private List<V1EndpointSubset> subsets;
+  private List<V1EndpointSubset> subsets = new ArrayList<>();
 
   public V1Endpoints() {
   }
 
   public V1Endpoints apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1Endpoints kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1Endpoints metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -131,14 +125,12 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1Endpoints subsets(List<V1EndpointSubset> subsets) {
-
     this.subsets = subsets;
     return this;
   }
@@ -159,7 +151,6 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
   public List<V1EndpointSubset> getSubsets() {
     return subsets;
   }
-
 
   public void setSubsets(List<V1EndpointSubset> subsets) {
     this.subsets = subsets;
@@ -227,25 +218,26 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1Endpoints
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1Endpoints
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1Endpoints.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1Endpoints.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1Endpoints is not found in the empty JSON string", V1Endpoints.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1Endpoints.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Endpoints` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Endpoints` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -254,7 +246,7 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       if (jsonObj.get("subsets") != null && !jsonObj.get("subsets").isJsonNull()) {
         JsonArray jsonArraysubsets = jsonObj.getAsJsonArray("subsets");
@@ -266,7 +258,7 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
 
           // validate the optional field `subsets` (array)
           for (int i = 0; i < jsonArraysubsets.size(); i++) {
-            V1EndpointSubset.validateJsonObject(jsonArraysubsets.get(i).getAsJsonObject());
+            V1EndpointSubset.validateJsonElement(jsonArraysubsets.get(i));
           };
         }
       }
@@ -292,9 +284,9 @@ public class V1Endpoints implements io.kubernetes.client.common.KubernetesObject
 
            @Override
            public V1Endpoints read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

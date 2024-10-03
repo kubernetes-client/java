@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec;
 import io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a spec.namespace means \&quot;in all namespaces\&quot;.  Self is a special case, because users should always be able to check whether they can perform an action
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -78,7 +77,6 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
   }
 
   public V1SelfSubjectAccessReview apiVersion(String apiVersion) {
-
     this.apiVersion = apiVersion;
     return this;
   }
@@ -92,14 +90,12 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
     return apiVersion;
   }
 
-
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
   public V1SelfSubjectAccessReview kind(String kind) {
-
     this.kind = kind;
     return this;
   }
@@ -113,14 +109,12 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
     return kind;
   }
 
-
   public void setKind(String kind) {
     this.kind = kind;
   }
 
 
   public V1SelfSubjectAccessReview metadata(V1ObjectMeta metadata) {
-
     this.metadata = metadata;
     return this;
   }
@@ -134,14 +128,12 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
     return metadata;
   }
 
-
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
   public V1SelfSubjectAccessReview spec(V1SelfSubjectAccessReviewSpec spec) {
-
     this.spec = spec;
     return this;
   }
@@ -155,14 +147,12 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
     return spec;
   }
 
-
   public void setSpec(V1SelfSubjectAccessReviewSpec spec) {
     this.spec = spec;
   }
 
 
   public V1SelfSubjectAccessReview status(V1SubjectAccessReviewStatus status) {
-
     this.status = status;
     return this;
   }
@@ -175,7 +165,6 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
   public V1SubjectAccessReviewStatus getStatus() {
     return status;
   }
-
 
   public void setStatus(V1SubjectAccessReviewStatus status) {
     this.status = status;
@@ -247,32 +236,33 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1SelfSubjectAccessReview
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1SelfSubjectAccessReview
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1SelfSubjectAccessReview.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1SelfSubjectAccessReview.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1SelfSubjectAccessReview is not found in the empty JSON string", V1SelfSubjectAccessReview.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1SelfSubjectAccessReview.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SelfSubjectAccessReview` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SelfSubjectAccessReview` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1SelfSubjectAccessReview.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -281,13 +271,13 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
       // validate the required field `spec`
-      V1SelfSubjectAccessReviewSpec.validateJsonObject(jsonObj.getAsJsonObject("spec"));
+      V1SelfSubjectAccessReviewSpec.validateJsonElement(jsonObj.get("spec"));
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        V1SubjectAccessReviewStatus.validateJsonObject(jsonObj.getAsJsonObject("status"));
+        V1SubjectAccessReviewStatus.validateJsonElement(jsonObj.get("status"));
       }
   }
 
@@ -311,9 +301,9 @@ public class V1SelfSubjectAccessReview implements io.kubernetes.client.common.Ku
 
            @Override
            public V1SelfSubjectAccessReview read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

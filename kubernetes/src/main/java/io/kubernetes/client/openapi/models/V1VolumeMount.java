@@ -13,13 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,7 +41,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -49,7 +48,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * VolumeMount describes a mounting of a Volume within a container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeMount {
   public static final String SERIALIZED_NAME_MOUNT_PATH = "mountPath";
   @SerializedName(SERIALIZED_NAME_MOUNT_PATH)
@@ -83,7 +82,6 @@ public class V1VolumeMount {
   }
 
   public V1VolumeMount mountPath(String mountPath) {
-
     this.mountPath = mountPath;
     return this;
   }
@@ -97,14 +95,12 @@ public class V1VolumeMount {
     return mountPath;
   }
 
-
   public void setMountPath(String mountPath) {
     this.mountPath = mountPath;
   }
 
 
   public V1VolumeMount mountPropagation(String mountPropagation) {
-
     this.mountPropagation = mountPropagation;
     return this;
   }
@@ -118,14 +114,12 @@ public class V1VolumeMount {
     return mountPropagation;
   }
 
-
   public void setMountPropagation(String mountPropagation) {
     this.mountPropagation = mountPropagation;
   }
 
 
   public V1VolumeMount name(String name) {
-
     this.name = name;
     return this;
   }
@@ -139,14 +133,12 @@ public class V1VolumeMount {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1VolumeMount readOnly(Boolean readOnly) {
-
     this.readOnly = readOnly;
     return this;
   }
@@ -160,14 +152,12 @@ public class V1VolumeMount {
     return readOnly;
   }
 
-
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
   public V1VolumeMount recursiveReadOnly(String recursiveReadOnly) {
-
     this.recursiveReadOnly = recursiveReadOnly;
     return this;
   }
@@ -181,14 +171,12 @@ public class V1VolumeMount {
     return recursiveReadOnly;
   }
 
-
   public void setRecursiveReadOnly(String recursiveReadOnly) {
     this.recursiveReadOnly = recursiveReadOnly;
   }
 
 
   public V1VolumeMount subPath(String subPath) {
-
     this.subPath = subPath;
     return this;
   }
@@ -202,14 +190,12 @@ public class V1VolumeMount {
     return subPath;
   }
 
-
   public void setSubPath(String subPath) {
     this.subPath = subPath;
   }
 
 
   public V1VolumeMount subPathExpr(String subPathExpr) {
-
     this.subPathExpr = subPathExpr;
     return this;
   }
@@ -222,7 +208,6 @@ public class V1VolumeMount {
   public String getSubPathExpr() {
     return subPathExpr;
   }
-
 
   public void setSubPathExpr(String subPathExpr) {
     this.subPathExpr = subPathExpr;
@@ -301,32 +286,33 @@ public class V1VolumeMount {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1VolumeMount
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1VolumeMount
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1VolumeMount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1VolumeMount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1VolumeMount is not found in the empty JSON string", V1VolumeMount.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1VolumeMount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeMount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeMount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1VolumeMount.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("mountPath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mountPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mountPath").toString()));
       }
@@ -367,9 +353,9 @@ public class V1VolumeMount {
 
            @Override
            public V1VolumeMount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

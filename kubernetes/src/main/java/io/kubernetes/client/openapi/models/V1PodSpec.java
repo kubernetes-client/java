@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -36,6 +35,7 @@ import io.kubernetes.client.openapi.models.V1TopologySpreadConstraint;
 import io.kubernetes.client.openapi.models.V1Volume;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,7 +60,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -68,7 +67,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSpec is a description of a pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -100,11 +99,11 @@ public class V1PodSpec {
 
   public static final String SERIALIZED_NAME_EPHEMERAL_CONTAINERS = "ephemeralContainers";
   @SerializedName(SERIALIZED_NAME_EPHEMERAL_CONTAINERS)
-  private List<V1EphemeralContainer> ephemeralContainers;
+  private List<V1EphemeralContainer> ephemeralContainers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_ALIASES = "hostAliases";
   @SerializedName(SERIALIZED_NAME_HOST_ALIASES)
-  private List<V1HostAlias> hostAliases;
+  private List<V1HostAlias> hostAliases = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_I_P_C = "hostIPC";
   @SerializedName(SERIALIZED_NAME_HOST_I_P_C)
@@ -128,11 +127,11 @@ public class V1PodSpec {
 
   public static final String SERIALIZED_NAME_IMAGE_PULL_SECRETS = "imagePullSecrets";
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_SECRETS)
-  private List<V1LocalObjectReference> imagePullSecrets;
+  private List<V1LocalObjectReference> imagePullSecrets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INIT_CONTAINERS = "initContainers";
   @SerializedName(SERIALIZED_NAME_INIT_CONTAINERS)
-  private List<V1Container> initContainers;
+  private List<V1Container> initContainers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
   @SerializedName(SERIALIZED_NAME_NODE_NAME)
@@ -164,11 +163,11 @@ public class V1PodSpec {
 
   public static final String SERIALIZED_NAME_READINESS_GATES = "readinessGates";
   @SerializedName(SERIALIZED_NAME_READINESS_GATES)
-  private List<V1PodReadinessGate> readinessGates;
+  private List<V1PodReadinessGate> readinessGates = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_CLAIMS = "resourceClaims";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIMS)
-  private List<V1PodResourceClaim> resourceClaims;
+  private List<V1PodResourceClaim> resourceClaims = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
@@ -184,7 +183,7 @@ public class V1PodSpec {
 
   public static final String SERIALIZED_NAME_SCHEDULING_GATES = "schedulingGates";
   @SerializedName(SERIALIZED_NAME_SCHEDULING_GATES)
-  private List<V1PodSchedulingGate> schedulingGates;
+  private List<V1PodSchedulingGate> schedulingGates = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
@@ -216,21 +215,20 @@ public class V1PodSpec {
 
   public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
   @SerializedName(SERIALIZED_NAME_TOLERATIONS)
-  private List<V1Toleration> tolerations;
+  private List<V1Toleration> tolerations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOPOLOGY_SPREAD_CONSTRAINTS = "topologySpreadConstraints";
   @SerializedName(SERIALIZED_NAME_TOPOLOGY_SPREAD_CONSTRAINTS)
-  private List<V1TopologySpreadConstraint> topologySpreadConstraints;
+  private List<V1TopologySpreadConstraint> topologySpreadConstraints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES = "volumes";
   @SerializedName(SERIALIZED_NAME_VOLUMES)
-  private List<V1Volume> volumes;
+  private List<V1Volume> volumes = new ArrayList<>();
 
   public V1PodSpec() {
   }
 
   public V1PodSpec activeDeadlineSeconds(Long activeDeadlineSeconds) {
-
     this.activeDeadlineSeconds = activeDeadlineSeconds;
     return this;
   }
@@ -244,14 +242,12 @@ public class V1PodSpec {
     return activeDeadlineSeconds;
   }
 
-
   public void setActiveDeadlineSeconds(Long activeDeadlineSeconds) {
     this.activeDeadlineSeconds = activeDeadlineSeconds;
   }
 
 
   public V1PodSpec affinity(V1Affinity affinity) {
-
     this.affinity = affinity;
     return this;
   }
@@ -265,14 +261,12 @@ public class V1PodSpec {
     return affinity;
   }
 
-
   public void setAffinity(V1Affinity affinity) {
     this.affinity = affinity;
   }
 
 
   public V1PodSpec automountServiceAccountToken(Boolean automountServiceAccountToken) {
-
     this.automountServiceAccountToken = automountServiceAccountToken;
     return this;
   }
@@ -286,14 +280,12 @@ public class V1PodSpec {
     return automountServiceAccountToken;
   }
 
-
   public void setAutomountServiceAccountToken(Boolean automountServiceAccountToken) {
     this.automountServiceAccountToken = automountServiceAccountToken;
   }
 
 
   public V1PodSpec containers(List<V1Container> containers) {
-
     this.containers = containers;
     return this;
   }
@@ -315,14 +307,12 @@ public class V1PodSpec {
     return containers;
   }
 
-
   public void setContainers(List<V1Container> containers) {
     this.containers = containers;
   }
 
 
   public V1PodSpec dnsConfig(V1PodDNSConfig dnsConfig) {
-
     this.dnsConfig = dnsConfig;
     return this;
   }
@@ -336,14 +326,12 @@ public class V1PodSpec {
     return dnsConfig;
   }
 
-
   public void setDnsConfig(V1PodDNSConfig dnsConfig) {
     this.dnsConfig = dnsConfig;
   }
 
 
   public V1PodSpec dnsPolicy(String dnsPolicy) {
-
     this.dnsPolicy = dnsPolicy;
     return this;
   }
@@ -357,14 +345,12 @@ public class V1PodSpec {
     return dnsPolicy;
   }
 
-
   public void setDnsPolicy(String dnsPolicy) {
     this.dnsPolicy = dnsPolicy;
   }
 
 
   public V1PodSpec enableServiceLinks(Boolean enableServiceLinks) {
-
     this.enableServiceLinks = enableServiceLinks;
     return this;
   }
@@ -378,14 +364,12 @@ public class V1PodSpec {
     return enableServiceLinks;
   }
 
-
   public void setEnableServiceLinks(Boolean enableServiceLinks) {
     this.enableServiceLinks = enableServiceLinks;
   }
 
 
   public V1PodSpec ephemeralContainers(List<V1EphemeralContainer> ephemeralContainers) {
-
     this.ephemeralContainers = ephemeralContainers;
     return this;
   }
@@ -407,14 +391,12 @@ public class V1PodSpec {
     return ephemeralContainers;
   }
 
-
   public void setEphemeralContainers(List<V1EphemeralContainer> ephemeralContainers) {
     this.ephemeralContainers = ephemeralContainers;
   }
 
 
   public V1PodSpec hostAliases(List<V1HostAlias> hostAliases) {
-
     this.hostAliases = hostAliases;
     return this;
   }
@@ -436,14 +418,12 @@ public class V1PodSpec {
     return hostAliases;
   }
 
-
   public void setHostAliases(List<V1HostAlias> hostAliases) {
     this.hostAliases = hostAliases;
   }
 
 
   public V1PodSpec hostIPC(Boolean hostIPC) {
-
     this.hostIPC = hostIPC;
     return this;
   }
@@ -457,14 +437,12 @@ public class V1PodSpec {
     return hostIPC;
   }
 
-
   public void setHostIPC(Boolean hostIPC) {
     this.hostIPC = hostIPC;
   }
 
 
   public V1PodSpec hostNetwork(Boolean hostNetwork) {
-
     this.hostNetwork = hostNetwork;
     return this;
   }
@@ -478,14 +456,12 @@ public class V1PodSpec {
     return hostNetwork;
   }
 
-
   public void setHostNetwork(Boolean hostNetwork) {
     this.hostNetwork = hostNetwork;
   }
 
 
   public V1PodSpec hostPID(Boolean hostPID) {
-
     this.hostPID = hostPID;
     return this;
   }
@@ -499,14 +475,12 @@ public class V1PodSpec {
     return hostPID;
   }
 
-
   public void setHostPID(Boolean hostPID) {
     this.hostPID = hostPID;
   }
 
 
   public V1PodSpec hostUsers(Boolean hostUsers) {
-
     this.hostUsers = hostUsers;
     return this;
   }
@@ -520,14 +494,12 @@ public class V1PodSpec {
     return hostUsers;
   }
 
-
   public void setHostUsers(Boolean hostUsers) {
     this.hostUsers = hostUsers;
   }
 
 
   public V1PodSpec hostname(String hostname) {
-
     this.hostname = hostname;
     return this;
   }
@@ -541,14 +513,12 @@ public class V1PodSpec {
     return hostname;
   }
 
-
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
 
 
   public V1PodSpec imagePullSecrets(List<V1LocalObjectReference> imagePullSecrets) {
-
     this.imagePullSecrets = imagePullSecrets;
     return this;
   }
@@ -570,14 +540,12 @@ public class V1PodSpec {
     return imagePullSecrets;
   }
 
-
   public void setImagePullSecrets(List<V1LocalObjectReference> imagePullSecrets) {
     this.imagePullSecrets = imagePullSecrets;
   }
 
 
   public V1PodSpec initContainers(List<V1Container> initContainers) {
-
     this.initContainers = initContainers;
     return this;
   }
@@ -599,14 +567,12 @@ public class V1PodSpec {
     return initContainers;
   }
 
-
   public void setInitContainers(List<V1Container> initContainers) {
     this.initContainers = initContainers;
   }
 
 
   public V1PodSpec nodeName(String nodeName) {
-
     this.nodeName = nodeName;
     return this;
   }
@@ -620,14 +586,12 @@ public class V1PodSpec {
     return nodeName;
   }
 
-
   public void setNodeName(String nodeName) {
     this.nodeName = nodeName;
   }
 
 
   public V1PodSpec nodeSelector(Map<String, String> nodeSelector) {
-
     this.nodeSelector = nodeSelector;
     return this;
   }
@@ -649,14 +613,12 @@ public class V1PodSpec {
     return nodeSelector;
   }
 
-
   public void setNodeSelector(Map<String, String> nodeSelector) {
     this.nodeSelector = nodeSelector;
   }
 
 
   public V1PodSpec os(V1PodOS os) {
-
     this.os = os;
     return this;
   }
@@ -670,14 +632,12 @@ public class V1PodSpec {
     return os;
   }
 
-
   public void setOs(V1PodOS os) {
     this.os = os;
   }
 
 
   public V1PodSpec overhead(Map<String, Quantity> overhead) {
-
     this.overhead = overhead;
     return this;
   }
@@ -699,14 +659,12 @@ public class V1PodSpec {
     return overhead;
   }
 
-
   public void setOverhead(Map<String, Quantity> overhead) {
     this.overhead = overhead;
   }
 
 
   public V1PodSpec preemptionPolicy(String preemptionPolicy) {
-
     this.preemptionPolicy = preemptionPolicy;
     return this;
   }
@@ -720,14 +678,12 @@ public class V1PodSpec {
     return preemptionPolicy;
   }
 
-
   public void setPreemptionPolicy(String preemptionPolicy) {
     this.preemptionPolicy = preemptionPolicy;
   }
 
 
   public V1PodSpec priority(Integer priority) {
-
     this.priority = priority;
     return this;
   }
@@ -741,14 +697,12 @@ public class V1PodSpec {
     return priority;
   }
 
-
   public void setPriority(Integer priority) {
     this.priority = priority;
   }
 
 
   public V1PodSpec priorityClassName(String priorityClassName) {
-
     this.priorityClassName = priorityClassName;
     return this;
   }
@@ -762,14 +716,12 @@ public class V1PodSpec {
     return priorityClassName;
   }
 
-
   public void setPriorityClassName(String priorityClassName) {
     this.priorityClassName = priorityClassName;
   }
 
 
   public V1PodSpec readinessGates(List<V1PodReadinessGate> readinessGates) {
-
     this.readinessGates = readinessGates;
     return this;
   }
@@ -791,14 +743,12 @@ public class V1PodSpec {
     return readinessGates;
   }
 
-
   public void setReadinessGates(List<V1PodReadinessGate> readinessGates) {
     this.readinessGates = readinessGates;
   }
 
 
   public V1PodSpec resourceClaims(List<V1PodResourceClaim> resourceClaims) {
-
     this.resourceClaims = resourceClaims;
     return this;
   }
@@ -820,14 +770,12 @@ public class V1PodSpec {
     return resourceClaims;
   }
 
-
   public void setResourceClaims(List<V1PodResourceClaim> resourceClaims) {
     this.resourceClaims = resourceClaims;
   }
 
 
   public V1PodSpec restartPolicy(String restartPolicy) {
-
     this.restartPolicy = restartPolicy;
     return this;
   }
@@ -841,14 +789,12 @@ public class V1PodSpec {
     return restartPolicy;
   }
 
-
   public void setRestartPolicy(String restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
 
   public V1PodSpec runtimeClassName(String runtimeClassName) {
-
     this.runtimeClassName = runtimeClassName;
     return this;
   }
@@ -862,14 +808,12 @@ public class V1PodSpec {
     return runtimeClassName;
   }
 
-
   public void setRuntimeClassName(String runtimeClassName) {
     this.runtimeClassName = runtimeClassName;
   }
 
 
   public V1PodSpec schedulerName(String schedulerName) {
-
     this.schedulerName = schedulerName;
     return this;
   }
@@ -883,14 +827,12 @@ public class V1PodSpec {
     return schedulerName;
   }
 
-
   public void setSchedulerName(String schedulerName) {
     this.schedulerName = schedulerName;
   }
 
 
   public V1PodSpec schedulingGates(List<V1PodSchedulingGate> schedulingGates) {
-
     this.schedulingGates = schedulingGates;
     return this;
   }
@@ -912,14 +854,12 @@ public class V1PodSpec {
     return schedulingGates;
   }
 
-
   public void setSchedulingGates(List<V1PodSchedulingGate> schedulingGates) {
     this.schedulingGates = schedulingGates;
   }
 
 
   public V1PodSpec securityContext(V1PodSecurityContext securityContext) {
-
     this.securityContext = securityContext;
     return this;
   }
@@ -933,14 +873,12 @@ public class V1PodSpec {
     return securityContext;
   }
 
-
   public void setSecurityContext(V1PodSecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
 
   public V1PodSpec serviceAccount(String serviceAccount) {
-
     this.serviceAccount = serviceAccount;
     return this;
   }
@@ -954,14 +892,12 @@ public class V1PodSpec {
     return serviceAccount;
   }
 
-
   public void setServiceAccount(String serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
 
 
   public V1PodSpec serviceAccountName(String serviceAccountName) {
-
     this.serviceAccountName = serviceAccountName;
     return this;
   }
@@ -975,14 +911,12 @@ public class V1PodSpec {
     return serviceAccountName;
   }
 
-
   public void setServiceAccountName(String serviceAccountName) {
     this.serviceAccountName = serviceAccountName;
   }
 
 
   public V1PodSpec setHostnameAsFQDN(Boolean setHostnameAsFQDN) {
-
     this.setHostnameAsFQDN = setHostnameAsFQDN;
     return this;
   }
@@ -996,14 +930,12 @@ public class V1PodSpec {
     return setHostnameAsFQDN;
   }
 
-
   public void setSetHostnameAsFQDN(Boolean setHostnameAsFQDN) {
     this.setHostnameAsFQDN = setHostnameAsFQDN;
   }
 
 
   public V1PodSpec shareProcessNamespace(Boolean shareProcessNamespace) {
-
     this.shareProcessNamespace = shareProcessNamespace;
     return this;
   }
@@ -1017,14 +949,12 @@ public class V1PodSpec {
     return shareProcessNamespace;
   }
 
-
   public void setShareProcessNamespace(Boolean shareProcessNamespace) {
     this.shareProcessNamespace = shareProcessNamespace;
   }
 
 
   public V1PodSpec subdomain(String subdomain) {
-
     this.subdomain = subdomain;
     return this;
   }
@@ -1038,14 +968,12 @@ public class V1PodSpec {
     return subdomain;
   }
 
-
   public void setSubdomain(String subdomain) {
     this.subdomain = subdomain;
   }
 
 
   public V1PodSpec terminationGracePeriodSeconds(Long terminationGracePeriodSeconds) {
-
     this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
     return this;
   }
@@ -1059,14 +987,12 @@ public class V1PodSpec {
     return terminationGracePeriodSeconds;
   }
 
-
   public void setTerminationGracePeriodSeconds(Long terminationGracePeriodSeconds) {
     this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
   }
 
 
   public V1PodSpec tolerations(List<V1Toleration> tolerations) {
-
     this.tolerations = tolerations;
     return this;
   }
@@ -1088,14 +1014,12 @@ public class V1PodSpec {
     return tolerations;
   }
 
-
   public void setTolerations(List<V1Toleration> tolerations) {
     this.tolerations = tolerations;
   }
 
 
   public V1PodSpec topologySpreadConstraints(List<V1TopologySpreadConstraint> topologySpreadConstraints) {
-
     this.topologySpreadConstraints = topologySpreadConstraints;
     return this;
   }
@@ -1117,14 +1041,12 @@ public class V1PodSpec {
     return topologySpreadConstraints;
   }
 
-
   public void setTopologySpreadConstraints(List<V1TopologySpreadConstraint> topologySpreadConstraints) {
     this.topologySpreadConstraints = topologySpreadConstraints;
   }
 
 
   public V1PodSpec volumes(List<V1Volume> volumes) {
-
     this.volumes = volumes;
     return this;
   }
@@ -1145,7 +1067,6 @@ public class V1PodSpec {
   public List<V1Volume> getVolumes() {
     return volumes;
   }
-
 
   public void setVolumes(List<V1Volume> volumes) {
     this.volumes = volumes;
@@ -1319,35 +1240,36 @@ public class V1PodSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1PodSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1PodSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1PodSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1PodSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodSpec is not found in the empty JSON string", V1PodSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PodSpec.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `affinity`
       if (jsonObj.get("affinity") != null && !jsonObj.get("affinity").isJsonNull()) {
-        V1Affinity.validateJsonObject(jsonObj.getAsJsonObject("affinity"));
+        V1Affinity.validateJsonElement(jsonObj.get("affinity"));
       }
       // ensure the json data is an array
       if (!jsonObj.get("containers").isJsonArray()) {
@@ -1357,11 +1279,11 @@ public class V1PodSpec {
       JsonArray jsonArraycontainers = jsonObj.getAsJsonArray("containers");
       // validate the required field `containers` (array)
       for (int i = 0; i < jsonArraycontainers.size(); i++) {
-        V1Container.validateJsonObject(jsonArraycontainers.get(i).getAsJsonObject());
+        V1Container.validateJsonElement(jsonArraycontainers.get(i));
       };
       // validate the optional field `dnsConfig`
       if (jsonObj.get("dnsConfig") != null && !jsonObj.get("dnsConfig").isJsonNull()) {
-        V1PodDNSConfig.validateJsonObject(jsonObj.getAsJsonObject("dnsConfig"));
+        V1PodDNSConfig.validateJsonElement(jsonObj.get("dnsConfig"));
       }
       if ((jsonObj.get("dnsPolicy") != null && !jsonObj.get("dnsPolicy").isJsonNull()) && !jsonObj.get("dnsPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dnsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dnsPolicy").toString()));
@@ -1376,7 +1298,7 @@ public class V1PodSpec {
 
           // validate the optional field `ephemeralContainers` (array)
           for (int i = 0; i < jsonArrayephemeralContainers.size(); i++) {
-            V1EphemeralContainer.validateJsonObject(jsonArrayephemeralContainers.get(i).getAsJsonObject());
+            V1EphemeralContainer.validateJsonElement(jsonArrayephemeralContainers.get(i));
           };
         }
       }
@@ -1390,7 +1312,7 @@ public class V1PodSpec {
 
           // validate the optional field `hostAliases` (array)
           for (int i = 0; i < jsonArrayhostAliases.size(); i++) {
-            V1HostAlias.validateJsonObject(jsonArrayhostAliases.get(i).getAsJsonObject());
+            V1HostAlias.validateJsonElement(jsonArrayhostAliases.get(i));
           };
         }
       }
@@ -1407,7 +1329,7 @@ public class V1PodSpec {
 
           // validate the optional field `imagePullSecrets` (array)
           for (int i = 0; i < jsonArrayimagePullSecrets.size(); i++) {
-            V1LocalObjectReference.validateJsonObject(jsonArrayimagePullSecrets.get(i).getAsJsonObject());
+            V1LocalObjectReference.validateJsonElement(jsonArrayimagePullSecrets.get(i));
           };
         }
       }
@@ -1421,7 +1343,7 @@ public class V1PodSpec {
 
           // validate the optional field `initContainers` (array)
           for (int i = 0; i < jsonArrayinitContainers.size(); i++) {
-            V1Container.validateJsonObject(jsonArrayinitContainers.get(i).getAsJsonObject());
+            V1Container.validateJsonElement(jsonArrayinitContainers.get(i));
           };
         }
       }
@@ -1430,7 +1352,7 @@ public class V1PodSpec {
       }
       // validate the optional field `os`
       if (jsonObj.get("os") != null && !jsonObj.get("os").isJsonNull()) {
-        V1PodOS.validateJsonObject(jsonObj.getAsJsonObject("os"));
+        V1PodOS.validateJsonElement(jsonObj.get("os"));
       }
       if ((jsonObj.get("preemptionPolicy") != null && !jsonObj.get("preemptionPolicy").isJsonNull()) && !jsonObj.get("preemptionPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `preemptionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preemptionPolicy").toString()));
@@ -1448,7 +1370,7 @@ public class V1PodSpec {
 
           // validate the optional field `readinessGates` (array)
           for (int i = 0; i < jsonArrayreadinessGates.size(); i++) {
-            V1PodReadinessGate.validateJsonObject(jsonArrayreadinessGates.get(i).getAsJsonObject());
+            V1PodReadinessGate.validateJsonElement(jsonArrayreadinessGates.get(i));
           };
         }
       }
@@ -1462,7 +1384,7 @@ public class V1PodSpec {
 
           // validate the optional field `resourceClaims` (array)
           for (int i = 0; i < jsonArrayresourceClaims.size(); i++) {
-            V1PodResourceClaim.validateJsonObject(jsonArrayresourceClaims.get(i).getAsJsonObject());
+            V1PodResourceClaim.validateJsonElement(jsonArrayresourceClaims.get(i));
           };
         }
       }
@@ -1485,13 +1407,13 @@ public class V1PodSpec {
 
           // validate the optional field `schedulingGates` (array)
           for (int i = 0; i < jsonArrayschedulingGates.size(); i++) {
-            V1PodSchedulingGate.validateJsonObject(jsonArrayschedulingGates.get(i).getAsJsonObject());
+            V1PodSchedulingGate.validateJsonElement(jsonArrayschedulingGates.get(i));
           };
         }
       }
       // validate the optional field `securityContext`
       if (jsonObj.get("securityContext") != null && !jsonObj.get("securityContext").isJsonNull()) {
-        V1PodSecurityContext.validateJsonObject(jsonObj.getAsJsonObject("securityContext"));
+        V1PodSecurityContext.validateJsonElement(jsonObj.get("securityContext"));
       }
       if ((jsonObj.get("serviceAccount") != null && !jsonObj.get("serviceAccount").isJsonNull()) && !jsonObj.get("serviceAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `serviceAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccount").toString()));
@@ -1512,7 +1434,7 @@ public class V1PodSpec {
 
           // validate the optional field `tolerations` (array)
           for (int i = 0; i < jsonArraytolerations.size(); i++) {
-            V1Toleration.validateJsonObject(jsonArraytolerations.get(i).getAsJsonObject());
+            V1Toleration.validateJsonElement(jsonArraytolerations.get(i));
           };
         }
       }
@@ -1526,7 +1448,7 @@ public class V1PodSpec {
 
           // validate the optional field `topologySpreadConstraints` (array)
           for (int i = 0; i < jsonArraytopologySpreadConstraints.size(); i++) {
-            V1TopologySpreadConstraint.validateJsonObject(jsonArraytopologySpreadConstraints.get(i).getAsJsonObject());
+            V1TopologySpreadConstraint.validateJsonElement(jsonArraytopologySpreadConstraints.get(i));
           };
         }
       }
@@ -1540,7 +1462,7 @@ public class V1PodSpec {
 
           // validate the optional field `volumes` (array)
           for (int i = 0; i < jsonArrayvolumes.size(); i++) {
-            V1Volume.validateJsonObject(jsonArrayvolumes.get(i).getAsJsonObject());
+            V1Volume.validateJsonElement(jsonArrayvolumes.get(i));
           };
         }
       }
@@ -1566,9 +1488,9 @@ public class V1PodSpec {
 
            @Override
            public V1PodSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

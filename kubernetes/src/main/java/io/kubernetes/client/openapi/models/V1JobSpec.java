@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1PodFailurePolicy;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
 import io.kubernetes.client.openapi.models.V1SuccessPolicy;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * JobSpec describes how the job execution will look like.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -123,7 +122,6 @@ public class V1JobSpec {
   }
 
   public V1JobSpec activeDeadlineSeconds(Long activeDeadlineSeconds) {
-
     this.activeDeadlineSeconds = activeDeadlineSeconds;
     return this;
   }
@@ -137,14 +135,12 @@ public class V1JobSpec {
     return activeDeadlineSeconds;
   }
 
-
   public void setActiveDeadlineSeconds(Long activeDeadlineSeconds) {
     this.activeDeadlineSeconds = activeDeadlineSeconds;
   }
 
 
   public V1JobSpec backoffLimit(Integer backoffLimit) {
-
     this.backoffLimit = backoffLimit;
     return this;
   }
@@ -158,14 +154,12 @@ public class V1JobSpec {
     return backoffLimit;
   }
 
-
   public void setBackoffLimit(Integer backoffLimit) {
     this.backoffLimit = backoffLimit;
   }
 
 
   public V1JobSpec backoffLimitPerIndex(Integer backoffLimitPerIndex) {
-
     this.backoffLimitPerIndex = backoffLimitPerIndex;
     return this;
   }
@@ -179,14 +173,12 @@ public class V1JobSpec {
     return backoffLimitPerIndex;
   }
 
-
   public void setBackoffLimitPerIndex(Integer backoffLimitPerIndex) {
     this.backoffLimitPerIndex = backoffLimitPerIndex;
   }
 
 
   public V1JobSpec completionMode(String completionMode) {
-
     this.completionMode = completionMode;
     return this;
   }
@@ -200,14 +192,12 @@ public class V1JobSpec {
     return completionMode;
   }
 
-
   public void setCompletionMode(String completionMode) {
     this.completionMode = completionMode;
   }
 
 
   public V1JobSpec completions(Integer completions) {
-
     this.completions = completions;
     return this;
   }
@@ -221,14 +211,12 @@ public class V1JobSpec {
     return completions;
   }
 
-
   public void setCompletions(Integer completions) {
     this.completions = completions;
   }
 
 
   public V1JobSpec managedBy(String managedBy) {
-
     this.managedBy = managedBy;
     return this;
   }
@@ -242,14 +230,12 @@ public class V1JobSpec {
     return managedBy;
   }
 
-
   public void setManagedBy(String managedBy) {
     this.managedBy = managedBy;
   }
 
 
   public V1JobSpec manualSelector(Boolean manualSelector) {
-
     this.manualSelector = manualSelector;
     return this;
   }
@@ -263,14 +249,12 @@ public class V1JobSpec {
     return manualSelector;
   }
 
-
   public void setManualSelector(Boolean manualSelector) {
     this.manualSelector = manualSelector;
   }
 
 
   public V1JobSpec maxFailedIndexes(Integer maxFailedIndexes) {
-
     this.maxFailedIndexes = maxFailedIndexes;
     return this;
   }
@@ -284,14 +268,12 @@ public class V1JobSpec {
     return maxFailedIndexes;
   }
 
-
   public void setMaxFailedIndexes(Integer maxFailedIndexes) {
     this.maxFailedIndexes = maxFailedIndexes;
   }
 
 
   public V1JobSpec parallelism(Integer parallelism) {
-
     this.parallelism = parallelism;
     return this;
   }
@@ -305,14 +287,12 @@ public class V1JobSpec {
     return parallelism;
   }
 
-
   public void setParallelism(Integer parallelism) {
     this.parallelism = parallelism;
   }
 
 
   public V1JobSpec podFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
-
     this.podFailurePolicy = podFailurePolicy;
     return this;
   }
@@ -326,14 +306,12 @@ public class V1JobSpec {
     return podFailurePolicy;
   }
 
-
   public void setPodFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
     this.podFailurePolicy = podFailurePolicy;
   }
 
 
   public V1JobSpec podReplacementPolicy(String podReplacementPolicy) {
-
     this.podReplacementPolicy = podReplacementPolicy;
     return this;
   }
@@ -347,14 +325,12 @@ public class V1JobSpec {
     return podReplacementPolicy;
   }
 
-
   public void setPodReplacementPolicy(String podReplacementPolicy) {
     this.podReplacementPolicy = podReplacementPolicy;
   }
 
 
   public V1JobSpec selector(V1LabelSelector selector) {
-
     this.selector = selector;
     return this;
   }
@@ -368,14 +344,12 @@ public class V1JobSpec {
     return selector;
   }
 
-
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
   public V1JobSpec successPolicy(V1SuccessPolicy successPolicy) {
-
     this.successPolicy = successPolicy;
     return this;
   }
@@ -389,14 +363,12 @@ public class V1JobSpec {
     return successPolicy;
   }
 
-
   public void setSuccessPolicy(V1SuccessPolicy successPolicy) {
     this.successPolicy = successPolicy;
   }
 
 
   public V1JobSpec suspend(Boolean suspend) {
-
     this.suspend = suspend;
     return this;
   }
@@ -410,14 +382,12 @@ public class V1JobSpec {
     return suspend;
   }
 
-
   public void setSuspend(Boolean suspend) {
     this.suspend = suspend;
   }
 
 
   public V1JobSpec template(V1PodTemplateSpec template) {
-
     this.template = template;
     return this;
   }
@@ -431,14 +401,12 @@ public class V1JobSpec {
     return template;
   }
 
-
   public void setTemplate(V1PodTemplateSpec template) {
     this.template = template;
   }
 
 
   public V1JobSpec ttlSecondsAfterFinished(Integer ttlSecondsAfterFinished) {
-
     this.ttlSecondsAfterFinished = ttlSecondsAfterFinished;
     return this;
   }
@@ -451,7 +419,6 @@ public class V1JobSpec {
   public Integer getTtlSecondsAfterFinished() {
     return ttlSecondsAfterFinished;
   }
-
 
   public void setTtlSecondsAfterFinished(Integer ttlSecondsAfterFinished) {
     this.ttlSecondsAfterFinished = ttlSecondsAfterFinished;
@@ -556,32 +523,33 @@ public class V1JobSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1JobSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1JobSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1JobSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1JobSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1JobSpec is not found in the empty JSON string", V1JobSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1JobSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1JobSpec.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("completionMode") != null && !jsonObj.get("completionMode").isJsonNull()) && !jsonObj.get("completionMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `completionMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("completionMode").toString()));
       }
@@ -590,21 +558,21 @@ public class V1JobSpec {
       }
       // validate the optional field `podFailurePolicy`
       if (jsonObj.get("podFailurePolicy") != null && !jsonObj.get("podFailurePolicy").isJsonNull()) {
-        V1PodFailurePolicy.validateJsonObject(jsonObj.getAsJsonObject("podFailurePolicy"));
+        V1PodFailurePolicy.validateJsonElement(jsonObj.get("podFailurePolicy"));
       }
       if ((jsonObj.get("podReplacementPolicy") != null && !jsonObj.get("podReplacementPolicy").isJsonNull()) && !jsonObj.get("podReplacementPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `podReplacementPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("podReplacementPolicy").toString()));
       }
       // validate the optional field `selector`
       if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
-        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+        V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
       }
       // validate the optional field `successPolicy`
       if (jsonObj.get("successPolicy") != null && !jsonObj.get("successPolicy").isJsonNull()) {
-        V1SuccessPolicy.validateJsonObject(jsonObj.getAsJsonObject("successPolicy"));
+        V1SuccessPolicy.validateJsonElement(jsonObj.get("successPolicy"));
       }
       // validate the required field `template`
-      V1PodTemplateSpec.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      V1PodTemplateSpec.validateJsonElement(jsonObj.get("template"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -627,9 +595,9 @@ public class V1JobSpec {
 
            @Override
            public V1JobSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -51,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1FCVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -67,17 +66,16 @@ public class V1FCVolumeSource {
 
   public static final String SERIALIZED_NAME_TARGET_W_W_NS = "targetWWNs";
   @SerializedName(SERIALIZED_NAME_TARGET_W_W_NS)
-  private List<String> targetWWNs;
+  private List<String> targetWWNs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WWIDS = "wwids";
   @SerializedName(SERIALIZED_NAME_WWIDS)
-  private List<String> wwids;
+  private List<String> wwids = new ArrayList<>();
 
   public V1FCVolumeSource() {
   }
 
   public V1FCVolumeSource fsType(String fsType) {
-
     this.fsType = fsType;
     return this;
   }
@@ -91,14 +89,12 @@ public class V1FCVolumeSource {
     return fsType;
   }
 
-
   public void setFsType(String fsType) {
     this.fsType = fsType;
   }
 
 
   public V1FCVolumeSource lun(Integer lun) {
-
     this.lun = lun;
     return this;
   }
@@ -112,14 +108,12 @@ public class V1FCVolumeSource {
     return lun;
   }
 
-
   public void setLun(Integer lun) {
     this.lun = lun;
   }
 
 
   public V1FCVolumeSource readOnly(Boolean readOnly) {
-
     this.readOnly = readOnly;
     return this;
   }
@@ -133,14 +127,12 @@ public class V1FCVolumeSource {
     return readOnly;
   }
 
-
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
   public V1FCVolumeSource targetWWNs(List<String> targetWWNs) {
-
     this.targetWWNs = targetWWNs;
     return this;
   }
@@ -162,14 +154,12 @@ public class V1FCVolumeSource {
     return targetWWNs;
   }
 
-
   public void setTargetWWNs(List<String> targetWWNs) {
     this.targetWWNs = targetWWNs;
   }
 
 
   public V1FCVolumeSource wwids(List<String> wwids) {
-
     this.wwids = wwids;
     return this;
   }
@@ -190,7 +180,6 @@ public class V1FCVolumeSource {
   public List<String> getWwids() {
     return wwids;
   }
-
 
   public void setWwids(List<String> wwids) {
     this.wwids = wwids;
@@ -261,34 +250,35 @@ public class V1FCVolumeSource {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1FCVolumeSource
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1FCVolumeSource
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1FCVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1FCVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1FCVolumeSource is not found in the empty JSON string", V1FCVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1FCVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1FCVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1FCVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fsType") != null && !jsonObj.get("fsType").isJsonNull()) && !jsonObj.get("fsType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("targetWWNs") != null && !jsonObj.get("targetWWNs").isJsonArray()) {
+      if (jsonObj.get("targetWWNs") != null && !jsonObj.get("targetWWNs").isJsonNull() && !jsonObj.get("targetWWNs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `targetWWNs` to be an array in the JSON string but got `%s`", jsonObj.get("targetWWNs").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("wwids") != null && !jsonObj.get("wwids").isJsonArray()) {
+      if (jsonObj.get("wwids") != null && !jsonObj.get("wwids").isJsonNull() && !jsonObj.get("wwids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `wwids` to be an array in the JSON string but got `%s`", jsonObj.get("wwids").toString()));
       }
   }
@@ -313,9 +303,9 @@ public class V1FCVolumeSource {
 
            @Override
            public V1FCVolumeSource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

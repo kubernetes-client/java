@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1HTTPGetAction;
 import io.kubernetes.client.openapi.models.V1SleepAction;
 import io.kubernetes.client.openapi.models.V1TCPSocketAction;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
   @SerializedName(SERIALIZED_NAME_EXEC)
@@ -75,7 +74,6 @@ public class V1LifecycleHandler {
   }
 
   public V1LifecycleHandler exec(V1ExecAction exec) {
-
     this.exec = exec;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1LifecycleHandler {
     return exec;
   }
 
-
   public void setExec(V1ExecAction exec) {
     this.exec = exec;
   }
 
 
   public V1LifecycleHandler httpGet(V1HTTPGetAction httpGet) {
-
     this.httpGet = httpGet;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1LifecycleHandler {
     return httpGet;
   }
 
-
   public void setHttpGet(V1HTTPGetAction httpGet) {
     this.httpGet = httpGet;
   }
 
 
   public V1LifecycleHandler sleep(V1SleepAction sleep) {
-
     this.sleep = sleep;
     return this;
   }
@@ -131,14 +125,12 @@ public class V1LifecycleHandler {
     return sleep;
   }
 
-
   public void setSleep(V1SleepAction sleep) {
     this.sleep = sleep;
   }
 
 
   public V1LifecycleHandler tcpSocket(V1TCPSocketAction tcpSocket) {
-
     this.tcpSocket = tcpSocket;
     return this;
   }
@@ -151,7 +143,6 @@ public class V1LifecycleHandler {
   public V1TCPSocketAction getTcpSocket() {
     return tcpSocket;
   }
-
 
   public void setTcpSocket(V1TCPSocketAction tcpSocket) {
     this.tcpSocket = tcpSocket;
@@ -219,40 +210,41 @@ public class V1LifecycleHandler {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1LifecycleHandler
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1LifecycleHandler
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1LifecycleHandler.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1LifecycleHandler.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1LifecycleHandler is not found in the empty JSON string", V1LifecycleHandler.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1LifecycleHandler.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1LifecycleHandler` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1LifecycleHandler` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `exec`
       if (jsonObj.get("exec") != null && !jsonObj.get("exec").isJsonNull()) {
-        V1ExecAction.validateJsonObject(jsonObj.getAsJsonObject("exec"));
+        V1ExecAction.validateJsonElement(jsonObj.get("exec"));
       }
       // validate the optional field `httpGet`
       if (jsonObj.get("httpGet") != null && !jsonObj.get("httpGet").isJsonNull()) {
-        V1HTTPGetAction.validateJsonObject(jsonObj.getAsJsonObject("httpGet"));
+        V1HTTPGetAction.validateJsonElement(jsonObj.get("httpGet"));
       }
       // validate the optional field `sleep`
       if (jsonObj.get("sleep") != null && !jsonObj.get("sleep").isJsonNull()) {
-        V1SleepAction.validateJsonObject(jsonObj.getAsJsonObject("sleep"));
+        V1SleepAction.validateJsonElement(jsonObj.get("sleep"));
       }
       // validate the optional field `tcpSocket`
       if (jsonObj.get("tcpSocket") != null && !jsonObj.get("tcpSocket").isJsonNull()) {
-        V1TCPSocketAction.validateJsonObject(jsonObj.getAsJsonObject("tcpSocket"));
+        V1TCPSocketAction.validateJsonElement(jsonObj.get("tcpSocket"));
       }
   }
 
@@ -276,9 +268,9 @@ public class V1LifecycleHandler {
 
            @Override
            public V1LifecycleHandler read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

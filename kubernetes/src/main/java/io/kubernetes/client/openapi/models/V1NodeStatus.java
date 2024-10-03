@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,6 +29,7 @@ import io.kubernetes.client.openapi.models.V1NodeRuntimeHandler;
 import io.kubernetes.client.openapi.models.V1NodeSystemInfo;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +54,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -62,11 +61,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeStatus is information about the current status of a node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  private List<V1NodeAddress> addresses;
+  private List<V1NodeAddress> addresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
   @SerializedName(SERIALIZED_NAME_ALLOCATABLE)
@@ -78,7 +77,7 @@ public class V1NodeStatus {
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1NodeCondition> conditions;
+  private List<V1NodeCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -90,7 +89,7 @@ public class V1NodeStatus {
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
-  private List<V1ContainerImage> images;
+  private List<V1ContainerImage> images = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NODE_INFO = "nodeInfo";
   @SerializedName(SERIALIZED_NAME_NODE_INFO)
@@ -102,21 +101,20 @@ public class V1NodeStatus {
 
   public static final String SERIALIZED_NAME_RUNTIME_HANDLERS = "runtimeHandlers";
   @SerializedName(SERIALIZED_NAME_RUNTIME_HANDLERS)
-  private List<V1NodeRuntimeHandler> runtimeHandlers;
+  private List<V1NodeRuntimeHandler> runtimeHandlers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_ATTACHED = "volumesAttached";
   @SerializedName(SERIALIZED_NAME_VOLUMES_ATTACHED)
-  private List<V1AttachedVolume> volumesAttached;
+  private List<V1AttachedVolume> volumesAttached = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_IN_USE = "volumesInUse";
   @SerializedName(SERIALIZED_NAME_VOLUMES_IN_USE)
-  private List<String> volumesInUse;
+  private List<String> volumesInUse = new ArrayList<>();
 
   public V1NodeStatus() {
   }
 
   public V1NodeStatus addresses(List<V1NodeAddress> addresses) {
-
     this.addresses = addresses;
     return this;
   }
@@ -138,14 +136,12 @@ public class V1NodeStatus {
     return addresses;
   }
 
-
   public void setAddresses(List<V1NodeAddress> addresses) {
     this.addresses = addresses;
   }
 
 
   public V1NodeStatus allocatable(Map<String, Quantity> allocatable) {
-
     this.allocatable = allocatable;
     return this;
   }
@@ -167,14 +163,12 @@ public class V1NodeStatus {
     return allocatable;
   }
 
-
   public void setAllocatable(Map<String, Quantity> allocatable) {
     this.allocatable = allocatable;
   }
 
 
   public V1NodeStatus capacity(Map<String, Quantity> capacity) {
-
     this.capacity = capacity;
     return this;
   }
@@ -196,14 +190,12 @@ public class V1NodeStatus {
     return capacity;
   }
 
-
   public void setCapacity(Map<String, Quantity> capacity) {
     this.capacity = capacity;
   }
 
 
   public V1NodeStatus conditions(List<V1NodeCondition> conditions) {
-
     this.conditions = conditions;
     return this;
   }
@@ -225,14 +217,12 @@ public class V1NodeStatus {
     return conditions;
   }
 
-
   public void setConditions(List<V1NodeCondition> conditions) {
     this.conditions = conditions;
   }
 
 
   public V1NodeStatus config(V1NodeConfigStatus config) {
-
     this.config = config;
     return this;
   }
@@ -246,14 +236,12 @@ public class V1NodeStatus {
     return config;
   }
 
-
   public void setConfig(V1NodeConfigStatus config) {
     this.config = config;
   }
 
 
   public V1NodeStatus daemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
-
     this.daemonEndpoints = daemonEndpoints;
     return this;
   }
@@ -267,14 +255,12 @@ public class V1NodeStatus {
     return daemonEndpoints;
   }
 
-
   public void setDaemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
     this.daemonEndpoints = daemonEndpoints;
   }
 
 
   public V1NodeStatus images(List<V1ContainerImage> images) {
-
     this.images = images;
     return this;
   }
@@ -296,14 +282,12 @@ public class V1NodeStatus {
     return images;
   }
 
-
   public void setImages(List<V1ContainerImage> images) {
     this.images = images;
   }
 
 
   public V1NodeStatus nodeInfo(V1NodeSystemInfo nodeInfo) {
-
     this.nodeInfo = nodeInfo;
     return this;
   }
@@ -317,14 +301,12 @@ public class V1NodeStatus {
     return nodeInfo;
   }
 
-
   public void setNodeInfo(V1NodeSystemInfo nodeInfo) {
     this.nodeInfo = nodeInfo;
   }
 
 
   public V1NodeStatus phase(String phase) {
-
     this.phase = phase;
     return this;
   }
@@ -338,14 +320,12 @@ public class V1NodeStatus {
     return phase;
   }
 
-
   public void setPhase(String phase) {
     this.phase = phase;
   }
 
 
   public V1NodeStatus runtimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
-
     this.runtimeHandlers = runtimeHandlers;
     return this;
   }
@@ -367,14 +347,12 @@ public class V1NodeStatus {
     return runtimeHandlers;
   }
 
-
   public void setRuntimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
     this.runtimeHandlers = runtimeHandlers;
   }
 
 
   public V1NodeStatus volumesAttached(List<V1AttachedVolume> volumesAttached) {
-
     this.volumesAttached = volumesAttached;
     return this;
   }
@@ -396,14 +374,12 @@ public class V1NodeStatus {
     return volumesAttached;
   }
 
-
   public void setVolumesAttached(List<V1AttachedVolume> volumesAttached) {
     this.volumesAttached = volumesAttached;
   }
 
 
   public V1NodeStatus volumesInUse(List<String> volumesInUse) {
-
     this.volumesInUse = volumesInUse;
     return this;
   }
@@ -424,7 +400,6 @@ public class V1NodeStatus {
   public List<String> getVolumesInUse() {
     return volumesInUse;
   }
-
 
   public void setVolumesInUse(List<String> volumesInUse) {
     this.volumesInUse = volumesInUse;
@@ -516,25 +491,26 @@ public class V1NodeStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1NodeStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1NodeStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1NodeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1NodeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1NodeStatus is not found in the empty JSON string", V1NodeStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NodeStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NodeStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NodeStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("addresses") != null && !jsonObj.get("addresses").isJsonNull()) {
         JsonArray jsonArrayaddresses = jsonObj.getAsJsonArray("addresses");
         if (jsonArrayaddresses != null) {
@@ -545,7 +521,7 @@ public class V1NodeStatus {
 
           // validate the optional field `addresses` (array)
           for (int i = 0; i < jsonArrayaddresses.size(); i++) {
-            V1NodeAddress.validateJsonObject(jsonArrayaddresses.get(i).getAsJsonObject());
+            V1NodeAddress.validateJsonElement(jsonArrayaddresses.get(i));
           };
         }
       }
@@ -559,17 +535,17 @@ public class V1NodeStatus {
 
           // validate the optional field `conditions` (array)
           for (int i = 0; i < jsonArrayconditions.size(); i++) {
-            V1NodeCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+            V1NodeCondition.validateJsonElement(jsonArrayconditions.get(i));
           };
         }
       }
       // validate the optional field `config`
       if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-        V1NodeConfigStatus.validateJsonObject(jsonObj.getAsJsonObject("config"));
+        V1NodeConfigStatus.validateJsonElement(jsonObj.get("config"));
       }
       // validate the optional field `daemonEndpoints`
       if (jsonObj.get("daemonEndpoints") != null && !jsonObj.get("daemonEndpoints").isJsonNull()) {
-        V1NodeDaemonEndpoints.validateJsonObject(jsonObj.getAsJsonObject("daemonEndpoints"));
+        V1NodeDaemonEndpoints.validateJsonElement(jsonObj.get("daemonEndpoints"));
       }
       if (jsonObj.get("images") != null && !jsonObj.get("images").isJsonNull()) {
         JsonArray jsonArrayimages = jsonObj.getAsJsonArray("images");
@@ -581,13 +557,13 @@ public class V1NodeStatus {
 
           // validate the optional field `images` (array)
           for (int i = 0; i < jsonArrayimages.size(); i++) {
-            V1ContainerImage.validateJsonObject(jsonArrayimages.get(i).getAsJsonObject());
+            V1ContainerImage.validateJsonElement(jsonArrayimages.get(i));
           };
         }
       }
       // validate the optional field `nodeInfo`
       if (jsonObj.get("nodeInfo") != null && !jsonObj.get("nodeInfo").isJsonNull()) {
-        V1NodeSystemInfo.validateJsonObject(jsonObj.getAsJsonObject("nodeInfo"));
+        V1NodeSystemInfo.validateJsonElement(jsonObj.get("nodeInfo"));
       }
       if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
@@ -602,7 +578,7 @@ public class V1NodeStatus {
 
           // validate the optional field `runtimeHandlers` (array)
           for (int i = 0; i < jsonArrayruntimeHandlers.size(); i++) {
-            V1NodeRuntimeHandler.validateJsonObject(jsonArrayruntimeHandlers.get(i).getAsJsonObject());
+            V1NodeRuntimeHandler.validateJsonElement(jsonArrayruntimeHandlers.get(i));
           };
         }
       }
@@ -616,12 +592,12 @@ public class V1NodeStatus {
 
           // validate the optional field `volumesAttached` (array)
           for (int i = 0; i < jsonArrayvolumesAttached.size(); i++) {
-            V1AttachedVolume.validateJsonObject(jsonArrayvolumesAttached.get(i).getAsJsonObject());
+            V1AttachedVolume.validateJsonElement(jsonArrayvolumesAttached.get(i));
           };
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("volumesInUse") != null && !jsonObj.get("volumesInUse").isJsonArray()) {
+      if (jsonObj.get("volumesInUse") != null && !jsonObj.get("volumesInUse").isJsonNull() && !jsonObj.get("volumesInUse").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumesInUse` to be an array in the JSON string but got `%s`", jsonObj.get("volumesInUse").toString()));
       }
   }
@@ -646,9 +622,9 @@ public class V1NodeStatus {
 
            @Override
            public V1NodeStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

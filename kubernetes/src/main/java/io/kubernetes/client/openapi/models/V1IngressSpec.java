@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1IngressRule;
 import io.kubernetes.client.openapi.models.V1IngressTLS;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * IngressSpec describes the Ingress the user wishes to exist.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1IngressSpec {
   public static final String SERIALIZED_NAME_DEFAULT_BACKEND = "defaultBackend";
   @SerializedName(SERIALIZED_NAME_DEFAULT_BACKEND)
@@ -66,17 +65,16 @@ public class V1IngressSpec {
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
-  private List<V1IngressRule> rules;
+  private List<V1IngressRule> rules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TLS = "tls";
   @SerializedName(SERIALIZED_NAME_TLS)
-  private List<V1IngressTLS> tls;
+  private List<V1IngressTLS> tls = new ArrayList<>();
 
   public V1IngressSpec() {
   }
 
   public V1IngressSpec defaultBackend(V1IngressBackend defaultBackend) {
-
     this.defaultBackend = defaultBackend;
     return this;
   }
@@ -90,14 +88,12 @@ public class V1IngressSpec {
     return defaultBackend;
   }
 
-
   public void setDefaultBackend(V1IngressBackend defaultBackend) {
     this.defaultBackend = defaultBackend;
   }
 
 
   public V1IngressSpec ingressClassName(String ingressClassName) {
-
     this.ingressClassName = ingressClassName;
     return this;
   }
@@ -111,14 +107,12 @@ public class V1IngressSpec {
     return ingressClassName;
   }
 
-
   public void setIngressClassName(String ingressClassName) {
     this.ingressClassName = ingressClassName;
   }
 
 
   public V1IngressSpec rules(List<V1IngressRule> rules) {
-
     this.rules = rules;
     return this;
   }
@@ -140,14 +134,12 @@ public class V1IngressSpec {
     return rules;
   }
 
-
   public void setRules(List<V1IngressRule> rules) {
     this.rules = rules;
   }
 
 
   public V1IngressSpec tls(List<V1IngressTLS> tls) {
-
     this.tls = tls;
     return this;
   }
@@ -168,7 +160,6 @@ public class V1IngressSpec {
   public List<V1IngressTLS> getTls() {
     return tls;
   }
-
 
   public void setTls(List<V1IngressTLS> tls) {
     this.tls = tls;
@@ -236,28 +227,29 @@ public class V1IngressSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1IngressSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1IngressSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1IngressSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1IngressSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1IngressSpec is not found in the empty JSON string", V1IngressSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1IngressSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1IngressSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1IngressSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `defaultBackend`
       if (jsonObj.get("defaultBackend") != null && !jsonObj.get("defaultBackend").isJsonNull()) {
-        V1IngressBackend.validateJsonObject(jsonObj.getAsJsonObject("defaultBackend"));
+        V1IngressBackend.validateJsonElement(jsonObj.get("defaultBackend"));
       }
       if ((jsonObj.get("ingressClassName") != null && !jsonObj.get("ingressClassName").isJsonNull()) && !jsonObj.get("ingressClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ingressClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingressClassName").toString()));
@@ -272,7 +264,7 @@ public class V1IngressSpec {
 
           // validate the optional field `rules` (array)
           for (int i = 0; i < jsonArrayrules.size(); i++) {
-            V1IngressRule.validateJsonObject(jsonArrayrules.get(i).getAsJsonObject());
+            V1IngressRule.validateJsonElement(jsonArrayrules.get(i));
           };
         }
       }
@@ -286,7 +278,7 @@ public class V1IngressSpec {
 
           // validate the optional field `tls` (array)
           for (int i = 0; i < jsonArraytls.size(); i++) {
-            V1IngressTLS.validateJsonObject(jsonArraytls.get(i).getAsJsonObject());
+            V1IngressTLS.validateJsonElement(jsonArraytls.get(i));
           };
         }
       }
@@ -312,9 +304,9 @@ public class V1IngressSpec {
 
            @Override
            public V1IngressSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

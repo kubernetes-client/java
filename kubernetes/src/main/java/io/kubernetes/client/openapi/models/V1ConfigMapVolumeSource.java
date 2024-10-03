@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1KeyToPath;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -52,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Adapts a ConfigMap into a volume.  The contents of the target ConfigMap&#39;s Data field will be presented in a volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. ConfigMap volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ConfigMapVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
@@ -60,7 +59,7 @@ public class V1ConfigMapVolumeSource {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<V1KeyToPath> items;
+  private List<V1KeyToPath> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -74,7 +73,6 @@ public class V1ConfigMapVolumeSource {
   }
 
   public V1ConfigMapVolumeSource defaultMode(Integer defaultMode) {
-
     this.defaultMode = defaultMode;
     return this;
   }
@@ -88,14 +86,12 @@ public class V1ConfigMapVolumeSource {
     return defaultMode;
   }
 
-
   public void setDefaultMode(Integer defaultMode) {
     this.defaultMode = defaultMode;
   }
 
 
   public V1ConfigMapVolumeSource items(List<V1KeyToPath> items) {
-
     this.items = items;
     return this;
   }
@@ -117,20 +113,18 @@ public class V1ConfigMapVolumeSource {
     return items;
   }
 
-
   public void setItems(List<V1KeyToPath> items) {
     this.items = items;
   }
 
 
   public V1ConfigMapVolumeSource name(String name) {
-
     this.name = name;
     return this;
   }
 
    /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
   **/
   @jakarta.annotation.Nullable
@@ -138,14 +132,12 @@ public class V1ConfigMapVolumeSource {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1ConfigMapVolumeSource optional(Boolean optional) {
-
     this.optional = optional;
     return this;
   }
@@ -158,7 +150,6 @@ public class V1ConfigMapVolumeSource {
   public Boolean getOptional() {
     return optional;
   }
-
 
   public void setOptional(Boolean optional) {
     this.optional = optional;
@@ -226,25 +217,26 @@ public class V1ConfigMapVolumeSource {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1ConfigMapVolumeSource
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1ConfigMapVolumeSource
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1ConfigMapVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1ConfigMapVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1ConfigMapVolumeSource is not found in the empty JSON string", V1ConfigMapVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ConfigMapVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ConfigMapVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ConfigMapVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
         JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
         if (jsonArrayitems != null) {
@@ -255,7 +247,7 @@ public class V1ConfigMapVolumeSource {
 
           // validate the optional field `items` (array)
           for (int i = 0; i < jsonArrayitems.size(); i++) {
-            V1KeyToPath.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
+            V1KeyToPath.validateJsonElement(jsonArrayitems.get(i));
           };
         }
       }
@@ -284,9 +276,9 @@ public class V1ConfigMapVolumeSource {
 
            @Override
            public V1ConfigMapVolumeSource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

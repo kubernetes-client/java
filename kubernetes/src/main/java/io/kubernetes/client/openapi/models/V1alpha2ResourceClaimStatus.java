@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1alpha2AllocationResult;
 import io.kubernetes.client.openapi.models.V1alpha2ResourceClaimConsumerReference;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaimStatus tracks whether the resource has been allocated and what the resulting attributes are.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha2ResourceClaimStatus {
   public static final String SERIALIZED_NAME_ALLOCATION = "allocation";
   @SerializedName(SERIALIZED_NAME_ALLOCATION)
@@ -69,13 +68,12 @@ public class V1alpha2ResourceClaimStatus {
 
   public static final String SERIALIZED_NAME_RESERVED_FOR = "reservedFor";
   @SerializedName(SERIALIZED_NAME_RESERVED_FOR)
-  private List<V1alpha2ResourceClaimConsumerReference> reservedFor;
+  private List<V1alpha2ResourceClaimConsumerReference> reservedFor = new ArrayList<>();
 
   public V1alpha2ResourceClaimStatus() {
   }
 
   public V1alpha2ResourceClaimStatus allocation(V1alpha2AllocationResult allocation) {
-
     this.allocation = allocation;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1alpha2ResourceClaimStatus {
     return allocation;
   }
 
-
   public void setAllocation(V1alpha2AllocationResult allocation) {
     this.allocation = allocation;
   }
 
 
   public V1alpha2ResourceClaimStatus deallocationRequested(Boolean deallocationRequested) {
-
     this.deallocationRequested = deallocationRequested;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1alpha2ResourceClaimStatus {
     return deallocationRequested;
   }
 
-
   public void setDeallocationRequested(Boolean deallocationRequested) {
     this.deallocationRequested = deallocationRequested;
   }
 
 
   public V1alpha2ResourceClaimStatus driverName(String driverName) {
-
     this.driverName = driverName;
     return this;
   }
@@ -131,14 +125,12 @@ public class V1alpha2ResourceClaimStatus {
     return driverName;
   }
 
-
   public void setDriverName(String driverName) {
     this.driverName = driverName;
   }
 
 
   public V1alpha2ResourceClaimStatus reservedFor(List<V1alpha2ResourceClaimConsumerReference> reservedFor) {
-
     this.reservedFor = reservedFor;
     return this;
   }
@@ -159,7 +151,6 @@ public class V1alpha2ResourceClaimStatus {
   public List<V1alpha2ResourceClaimConsumerReference> getReservedFor() {
     return reservedFor;
   }
-
 
   public void setReservedFor(List<V1alpha2ResourceClaimConsumerReference> reservedFor) {
     this.reservedFor = reservedFor;
@@ -227,28 +218,29 @@ public class V1alpha2ResourceClaimStatus {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1alpha2ResourceClaimStatus
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1alpha2ResourceClaimStatus
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1alpha2ResourceClaimStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha2ResourceClaimStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha2ResourceClaimStatus is not found in the empty JSON string", V1alpha2ResourceClaimStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha2ResourceClaimStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2ResourceClaimStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha2ResourceClaimStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `allocation`
       if (jsonObj.get("allocation") != null && !jsonObj.get("allocation").isJsonNull()) {
-        V1alpha2AllocationResult.validateJsonObject(jsonObj.getAsJsonObject("allocation"));
+        V1alpha2AllocationResult.validateJsonElement(jsonObj.get("allocation"));
       }
       if ((jsonObj.get("driverName") != null && !jsonObj.get("driverName").isJsonNull()) && !jsonObj.get("driverName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `driverName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driverName").toString()));
@@ -263,7 +255,7 @@ public class V1alpha2ResourceClaimStatus {
 
           // validate the optional field `reservedFor` (array)
           for (int i = 0; i < jsonArrayreservedFor.size(); i++) {
-            V1alpha2ResourceClaimConsumerReference.validateJsonObject(jsonArrayreservedFor.get(i).getAsJsonObject());
+            V1alpha2ResourceClaimConsumerReference.validateJsonElement(jsonArrayreservedFor.get(i));
           };
         }
       }
@@ -289,9 +281,9 @@ public class V1alpha2ResourceClaimStatus {
 
            @Override
            public V1alpha2ResourceClaimStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

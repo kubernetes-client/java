@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1CustomResourceValidation;
 import io.kubernetes.client.openapi.models.V1SelectableField;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,11 +54,11 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
-  private List<V1CustomResourceColumnDefinition> additionalPrinterColumns;
+  private List<V1CustomResourceColumnDefinition> additionalPrinterColumns = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEPRECATED = "deprecated";
   @SerializedName(SERIALIZED_NAME_DEPRECATED)
@@ -79,7 +78,7 @@ public class V1CustomResourceDefinitionVersion {
 
   public static final String SERIALIZED_NAME_SELECTABLE_FIELDS = "selectableFields";
   @SerializedName(SERIALIZED_NAME_SELECTABLE_FIELDS)
-  private List<V1SelectableField> selectableFields;
+  private List<V1SelectableField> selectableFields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SERVED = "served";
   @SerializedName(SERIALIZED_NAME_SERVED)
@@ -97,7 +96,6 @@ public class V1CustomResourceDefinitionVersion {
   }
 
   public V1CustomResourceDefinitionVersion additionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
-
     this.additionalPrinterColumns = additionalPrinterColumns;
     return this;
   }
@@ -119,14 +117,12 @@ public class V1CustomResourceDefinitionVersion {
     return additionalPrinterColumns;
   }
 
-
   public void setAdditionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
     this.additionalPrinterColumns = additionalPrinterColumns;
   }
 
 
   public V1CustomResourceDefinitionVersion deprecated(Boolean deprecated) {
-
     this.deprecated = deprecated;
     return this;
   }
@@ -140,14 +136,12 @@ public class V1CustomResourceDefinitionVersion {
     return deprecated;
   }
 
-
   public void setDeprecated(Boolean deprecated) {
     this.deprecated = deprecated;
   }
 
 
   public V1CustomResourceDefinitionVersion deprecationWarning(String deprecationWarning) {
-
     this.deprecationWarning = deprecationWarning;
     return this;
   }
@@ -161,14 +155,12 @@ public class V1CustomResourceDefinitionVersion {
     return deprecationWarning;
   }
 
-
   public void setDeprecationWarning(String deprecationWarning) {
     this.deprecationWarning = deprecationWarning;
   }
 
 
   public V1CustomResourceDefinitionVersion name(String name) {
-
     this.name = name;
     return this;
   }
@@ -182,14 +174,12 @@ public class V1CustomResourceDefinitionVersion {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public V1CustomResourceDefinitionVersion schema(V1CustomResourceValidation schema) {
-
     this.schema = schema;
     return this;
   }
@@ -203,14 +193,12 @@ public class V1CustomResourceDefinitionVersion {
     return schema;
   }
 
-
   public void setSchema(V1CustomResourceValidation schema) {
     this.schema = schema;
   }
 
 
   public V1CustomResourceDefinitionVersion selectableFields(List<V1SelectableField> selectableFields) {
-
     this.selectableFields = selectableFields;
     return this;
   }
@@ -232,14 +220,12 @@ public class V1CustomResourceDefinitionVersion {
     return selectableFields;
   }
 
-
   public void setSelectableFields(List<V1SelectableField> selectableFields) {
     this.selectableFields = selectableFields;
   }
 
 
   public V1CustomResourceDefinitionVersion served(Boolean served) {
-
     this.served = served;
     return this;
   }
@@ -253,14 +239,12 @@ public class V1CustomResourceDefinitionVersion {
     return served;
   }
 
-
   public void setServed(Boolean served) {
     this.served = served;
   }
 
 
   public V1CustomResourceDefinitionVersion storage(Boolean storage) {
-
     this.storage = storage;
     return this;
   }
@@ -274,14 +258,12 @@ public class V1CustomResourceDefinitionVersion {
     return storage;
   }
 
-
   public void setStorage(Boolean storage) {
     this.storage = storage;
   }
 
 
   public V1CustomResourceDefinitionVersion subresources(V1CustomResourceSubresources subresources) {
-
     this.subresources = subresources;
     return this;
   }
@@ -294,7 +276,6 @@ public class V1CustomResourceDefinitionVersion {
   public V1CustomResourceSubresources getSubresources() {
     return subresources;
   }
-
 
   public void setSubresources(V1CustomResourceSubresources subresources) {
     this.subresources = subresources;
@@ -380,32 +361,33 @@ public class V1CustomResourceDefinitionVersion {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1CustomResourceDefinitionVersion
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionVersion
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1CustomResourceDefinitionVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1CustomResourceDefinitionVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1CustomResourceDefinitionVersion is not found in the empty JSON string", V1CustomResourceDefinitionVersion.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CustomResourceDefinitionVersion.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CustomResourceDefinitionVersion` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CustomResourceDefinitionVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1CustomResourceDefinitionVersion.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("additionalPrinterColumns") != null && !jsonObj.get("additionalPrinterColumns").isJsonNull()) {
         JsonArray jsonArrayadditionalPrinterColumns = jsonObj.getAsJsonArray("additionalPrinterColumns");
         if (jsonArrayadditionalPrinterColumns != null) {
@@ -416,7 +398,7 @@ public class V1CustomResourceDefinitionVersion {
 
           // validate the optional field `additionalPrinterColumns` (array)
           for (int i = 0; i < jsonArrayadditionalPrinterColumns.size(); i++) {
-            V1CustomResourceColumnDefinition.validateJsonObject(jsonArrayadditionalPrinterColumns.get(i).getAsJsonObject());
+            V1CustomResourceColumnDefinition.validateJsonElement(jsonArrayadditionalPrinterColumns.get(i));
           };
         }
       }
@@ -428,7 +410,7 @@ public class V1CustomResourceDefinitionVersion {
       }
       // validate the optional field `schema`
       if (jsonObj.get("schema") != null && !jsonObj.get("schema").isJsonNull()) {
-        V1CustomResourceValidation.validateJsonObject(jsonObj.getAsJsonObject("schema"));
+        V1CustomResourceValidation.validateJsonElement(jsonObj.get("schema"));
       }
       if (jsonObj.get("selectableFields") != null && !jsonObj.get("selectableFields").isJsonNull()) {
         JsonArray jsonArrayselectableFields = jsonObj.getAsJsonArray("selectableFields");
@@ -440,13 +422,13 @@ public class V1CustomResourceDefinitionVersion {
 
           // validate the optional field `selectableFields` (array)
           for (int i = 0; i < jsonArrayselectableFields.size(); i++) {
-            V1SelectableField.validateJsonObject(jsonArrayselectableFields.get(i).getAsJsonObject());
+            V1SelectableField.validateJsonElement(jsonArrayselectableFields.get(i));
           };
         }
       }
       // validate the optional field `subresources`
       if (jsonObj.get("subresources") != null && !jsonObj.get("subresources").isJsonNull()) {
-        V1CustomResourceSubresources.validateJsonObject(jsonObj.getAsJsonObject("subresources"));
+        V1CustomResourceSubresources.validateJsonElement(jsonObj.get("subresources"));
       }
   }
 
@@ -470,9 +452,9 @@ public class V1CustomResourceDefinitionVersion {
 
            @Override
            public V1CustomResourceDefinitionVersion read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

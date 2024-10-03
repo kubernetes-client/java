@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1beta1MatchResources;
 import io.kubernetes.client.openapi.models.V1beta1ParamRef;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -53,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ValidatingAdmissionPolicyBindingSpec is the specification of the ValidatingAdmissionPolicyBinding.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta1ValidatingAdmissionPolicyBindingSpec {
   public static final String SERIALIZED_NAME_MATCH_RESOURCES = "matchResources";
   @SerializedName(SERIALIZED_NAME_MATCH_RESOURCES)
@@ -69,13 +68,12 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
 
   public static final String SERIALIZED_NAME_VALIDATION_ACTIONS = "validationActions";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ACTIONS)
-  private List<String> validationActions;
+  private List<String> validationActions = new ArrayList<>();
 
   public V1beta1ValidatingAdmissionPolicyBindingSpec() {
   }
 
   public V1beta1ValidatingAdmissionPolicyBindingSpec matchResources(V1beta1MatchResources matchResources) {
-
     this.matchResources = matchResources;
     return this;
   }
@@ -89,14 +87,12 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
     return matchResources;
   }
 
-
   public void setMatchResources(V1beta1MatchResources matchResources) {
     this.matchResources = matchResources;
   }
 
 
   public V1beta1ValidatingAdmissionPolicyBindingSpec paramRef(V1beta1ParamRef paramRef) {
-
     this.paramRef = paramRef;
     return this;
   }
@@ -110,14 +106,12 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
     return paramRef;
   }
 
-
   public void setParamRef(V1beta1ParamRef paramRef) {
     this.paramRef = paramRef;
   }
 
 
   public V1beta1ValidatingAdmissionPolicyBindingSpec policyName(String policyName) {
-
     this.policyName = policyName;
     return this;
   }
@@ -131,14 +125,12 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
     return policyName;
   }
 
-
   public void setPolicyName(String policyName) {
     this.policyName = policyName;
   }
 
 
   public V1beta1ValidatingAdmissionPolicyBindingSpec validationActions(List<String> validationActions) {
-
     this.validationActions = validationActions;
     return this;
   }
@@ -159,7 +151,6 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
   public List<String> getValidationActions() {
     return validationActions;
   }
-
 
   public void setValidationActions(List<String> validationActions) {
     this.validationActions = validationActions;
@@ -227,38 +218,39 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1beta1ValidatingAdmissionPolicyBindingSpec
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1beta1ValidatingAdmissionPolicyBindingSpec
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1beta1ValidatingAdmissionPolicyBindingSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1beta1ValidatingAdmissionPolicyBindingSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta1ValidatingAdmissionPolicyBindingSpec is not found in the empty JSON string", V1beta1ValidatingAdmissionPolicyBindingSpec.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1beta1ValidatingAdmissionPolicyBindingSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta1ValidatingAdmissionPolicyBindingSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta1ValidatingAdmissionPolicyBindingSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `matchResources`
       if (jsonObj.get("matchResources") != null && !jsonObj.get("matchResources").isJsonNull()) {
-        V1beta1MatchResources.validateJsonObject(jsonObj.getAsJsonObject("matchResources"));
+        V1beta1MatchResources.validateJsonElement(jsonObj.get("matchResources"));
       }
       // validate the optional field `paramRef`
       if (jsonObj.get("paramRef") != null && !jsonObj.get("paramRef").isJsonNull()) {
-        V1beta1ParamRef.validateJsonObject(jsonObj.getAsJsonObject("paramRef"));
+        V1beta1ParamRef.validateJsonElement(jsonObj.get("paramRef"));
       }
       if ((jsonObj.get("policyName") != null && !jsonObj.get("policyName").isJsonNull()) && !jsonObj.get("policyName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `policyName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policyName").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("validationActions") != null && !jsonObj.get("validationActions").isJsonArray()) {
+      if (jsonObj.get("validationActions") != null && !jsonObj.get("validationActions").isJsonNull() && !jsonObj.get("validationActions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `validationActions` to be an array in the JSON string but got `%s`", jsonObj.get("validationActions").toString()));
       }
   }
@@ -283,9 +275,9 @@ public class V1beta1ValidatingAdmissionPolicyBindingSpec {
 
            @Override
            public V1beta1ValidatingAdmissionPolicyBindingSpec read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

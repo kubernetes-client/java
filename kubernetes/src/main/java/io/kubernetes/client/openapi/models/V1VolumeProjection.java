@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
 import io.kubernetes.client.openapi.models.V1SecretProjection;
 import io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -54,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Projection that may be projected along with other supported volume types
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:09.091597Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
@@ -80,7 +79,6 @@ public class V1VolumeProjection {
   }
 
   public V1VolumeProjection clusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
-
     this.clusterTrustBundle = clusterTrustBundle;
     return this;
   }
@@ -94,14 +92,12 @@ public class V1VolumeProjection {
     return clusterTrustBundle;
   }
 
-
   public void setClusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
     this.clusterTrustBundle = clusterTrustBundle;
   }
 
 
   public V1VolumeProjection configMap(V1ConfigMapProjection configMap) {
-
     this.configMap = configMap;
     return this;
   }
@@ -115,14 +111,12 @@ public class V1VolumeProjection {
     return configMap;
   }
 
-
   public void setConfigMap(V1ConfigMapProjection configMap) {
     this.configMap = configMap;
   }
 
 
   public V1VolumeProjection downwardAPI(V1DownwardAPIProjection downwardAPI) {
-
     this.downwardAPI = downwardAPI;
     return this;
   }
@@ -136,14 +130,12 @@ public class V1VolumeProjection {
     return downwardAPI;
   }
 
-
   public void setDownwardAPI(V1DownwardAPIProjection downwardAPI) {
     this.downwardAPI = downwardAPI;
   }
 
 
   public V1VolumeProjection secret(V1SecretProjection secret) {
-
     this.secret = secret;
     return this;
   }
@@ -157,14 +149,12 @@ public class V1VolumeProjection {
     return secret;
   }
 
-
   public void setSecret(V1SecretProjection secret) {
     this.secret = secret;
   }
 
 
   public V1VolumeProjection serviceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
-
     this.serviceAccountToken = serviceAccountToken;
     return this;
   }
@@ -177,7 +167,6 @@ public class V1VolumeProjection {
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return serviceAccountToken;
   }
-
 
   public void setServiceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
     this.serviceAccountToken = serviceAccountToken;
@@ -248,44 +237,45 @@ public class V1VolumeProjection {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1VolumeProjection
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to V1VolumeProjection
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!V1VolumeProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1VolumeProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in V1VolumeProjection is not found in the empty JSON string", V1VolumeProjection.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1VolumeProjection.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeProjection` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeProjection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `clusterTrustBundle`
       if (jsonObj.get("clusterTrustBundle") != null && !jsonObj.get("clusterTrustBundle").isJsonNull()) {
-        V1ClusterTrustBundleProjection.validateJsonObject(jsonObj.getAsJsonObject("clusterTrustBundle"));
+        V1ClusterTrustBundleProjection.validateJsonElement(jsonObj.get("clusterTrustBundle"));
       }
       // validate the optional field `configMap`
       if (jsonObj.get("configMap") != null && !jsonObj.get("configMap").isJsonNull()) {
-        V1ConfigMapProjection.validateJsonObject(jsonObj.getAsJsonObject("configMap"));
+        V1ConfigMapProjection.validateJsonElement(jsonObj.get("configMap"));
       }
       // validate the optional field `downwardAPI`
       if (jsonObj.get("downwardAPI") != null && !jsonObj.get("downwardAPI").isJsonNull()) {
-        V1DownwardAPIProjection.validateJsonObject(jsonObj.getAsJsonObject("downwardAPI"));
+        V1DownwardAPIProjection.validateJsonElement(jsonObj.get("downwardAPI"));
       }
       // validate the optional field `secret`
       if (jsonObj.get("secret") != null && !jsonObj.get("secret").isJsonNull()) {
-        V1SecretProjection.validateJsonObject(jsonObj.getAsJsonObject("secret"));
+        V1SecretProjection.validateJsonElement(jsonObj.get("secret"));
       }
       // validate the optional field `serviceAccountToken`
       if (jsonObj.get("serviceAccountToken") != null && !jsonObj.get("serviceAccountToken").isJsonNull()) {
-        V1ServiceAccountTokenProjection.validateJsonObject(jsonObj.getAsJsonObject("serviceAccountToken"));
+        V1ServiceAccountTokenProjection.validateJsonElement(jsonObj.get("serviceAccountToken"));
       }
   }
 
@@ -309,9 +299,9 @@ public class V1VolumeProjection {
 
            @Override
            public V1VolumeProjection read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
