@@ -27,7 +27,9 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluent<V1LeaseSpecBuilder> im
     buildable.setHolderIdentity(fluent.getHolderIdentity());
     buildable.setLeaseDurationSeconds(fluent.getLeaseDurationSeconds());
     buildable.setLeaseTransitions(fluent.getLeaseTransitions());
+    buildable.setPreferredHolder(fluent.getPreferredHolder());
     buildable.setRenewTime(fluent.getRenewTime());
+    buildable.setStrategy(fluent.getStrategy());
     return buildable;
   }
   

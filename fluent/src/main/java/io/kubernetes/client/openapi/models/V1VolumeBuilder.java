@@ -40,6 +40,7 @@ public class V1VolumeBuilder extends V1VolumeFluent<V1VolumeBuilder> implements 
     buildable.setGitRepo(fluent.buildGitRepo());
     buildable.setGlusterfs(fluent.buildGlusterfs());
     buildable.setHostPath(fluent.buildHostPath());
+    buildable.setImage(fluent.buildImage());
     buildable.setIscsi(fluent.buildIscsi());
     buildable.setName(fluent.getName());
     buildable.setNfs(fluent.buildNfs());
