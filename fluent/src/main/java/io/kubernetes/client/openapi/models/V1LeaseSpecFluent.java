@@ -22,7 +22,9 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
   private String holderIdentity;
   private Integer leaseDurationSeconds;
   private Integer leaseTransitions;
+  private String preferredHolder;
   private OffsetDateTime renewTime;
+  private String strategy;
   
   protected void copyInstance(V1LeaseSpec instance) {
     instance = (instance != null ? instance : new V1LeaseSpec());
@@ -31,7 +33,9 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
           this.withHolderIdentity(instance.getHolderIdentity());
           this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
           this.withLeaseTransitions(instance.getLeaseTransitions());
+          this.withPreferredHolder(instance.getPreferredHolder());
           this.withRenewTime(instance.getRenewTime());
+          this.withStrategy(instance.getStrategy());
         }
   }
   
@@ -87,6 +91,19 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
     return this.leaseTransitions != null;
   }
   
+  public String getPreferredHolder() {
+    return this.preferredHolder;
+  }
+  
+  public A withPreferredHolder(String preferredHolder) {
+    this.preferredHolder = preferredHolder;
+    return (A) this;
+  }
+  
+  public boolean hasPreferredHolder() {
+    return this.preferredHolder != null;
+  }
+  
   public OffsetDateTime getRenewTime() {
     return this.renewTime;
   }
@@ -100,6 +117,19 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
     return this.renewTime != null;
   }
   
+  public String getStrategy() {
+    return this.strategy;
+  }
+  
+  public A withStrategy(String strategy) {
+    this.strategy = strategy;
+    return (A) this;
+  }
+  
+  public boolean hasStrategy() {
+    return this.strategy != null;
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -109,12 +139,14 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
     if (!java.util.Objects.equals(holderIdentity, that.holderIdentity)) return false;
     if (!java.util.Objects.equals(leaseDurationSeconds, that.leaseDurationSeconds)) return false;
     if (!java.util.Objects.equals(leaseTransitions, that.leaseTransitions)) return false;
+    if (!java.util.Objects.equals(preferredHolder, that.preferredHolder)) return false;
     if (!java.util.Objects.equals(renewTime, that.renewTime)) return false;
+    if (!java.util.Objects.equals(strategy, that.strategy)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(acquireTime,  holderIdentity,  leaseDurationSeconds,  leaseTransitions,  renewTime,  super.hashCode());
+    return java.util.Objects.hash(acquireTime,  holderIdentity,  leaseDurationSeconds,  leaseTransitions,  preferredHolder,  renewTime,  strategy,  super.hashCode());
   }
   
   public String toString() {
@@ -124,7 +156,9 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
     if (holderIdentity != null) { sb.append("holderIdentity:"); sb.append(holderIdentity + ","); }
     if (leaseDurationSeconds != null) { sb.append("leaseDurationSeconds:"); sb.append(leaseDurationSeconds + ","); }
     if (leaseTransitions != null) { sb.append("leaseTransitions:"); sb.append(leaseTransitions + ","); }
-    if (renewTime != null) { sb.append("renewTime:"); sb.append(renewTime); }
+    if (preferredHolder != null) { sb.append("preferredHolder:"); sb.append(preferredHolder + ","); }
+    if (renewTime != null) { sb.append("renewTime:"); sb.append(renewTime + ","); }
+    if (strategy != null) { sb.append("strategy:"); sb.append(strategy); }
     sb.append("}");
     return sb.toString();
   }

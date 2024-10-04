@@ -34,6 +34,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   private V1SELinuxOptionsBuilder seLinuxOptions;
   private V1SeccompProfileBuilder seccompProfile;
   private List<Long> supplementalGroups;
+  private String supplementalGroupsPolicy;
   private ArrayList<V1SysctlBuilder> sysctls;
   private V1WindowsSecurityContextOptionsBuilder windowsOptions;
   
@@ -49,6 +50,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
           this.withSeLinuxOptions(instance.getSeLinuxOptions());
           this.withSeccompProfile(instance.getSeccompProfile());
           this.withSupplementalGroups(instance.getSupplementalGroups());
+          this.withSupplementalGroupsPolicy(instance.getSupplementalGroupsPolicy());
           this.withSysctls(instance.getSysctls());
           this.withWindowsOptions(instance.getWindowsOptions());
         }
@@ -333,6 +335,19 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     return this.supplementalGroups != null && !this.supplementalGroups.isEmpty();
   }
   
+  public String getSupplementalGroupsPolicy() {
+    return this.supplementalGroupsPolicy;
+  }
+  
+  public A withSupplementalGroupsPolicy(String supplementalGroupsPolicy) {
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
+    return (A) this;
+  }
+  
+  public boolean hasSupplementalGroupsPolicy() {
+    return this.supplementalGroupsPolicy != null;
+  }
+  
   public A addToSysctls(int index,V1Sysctl item) {
     if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
@@ -538,13 +553,14 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
     if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
     if (!java.util.Objects.equals(supplementalGroups, that.supplementalGroups)) return false;
+    if (!java.util.Objects.equals(supplementalGroupsPolicy, that.supplementalGroupsPolicy)) return false;
     if (!java.util.Objects.equals(sysctls, that.sysctls)) return false;
     if (!java.util.Objects.equals(windowsOptions, that.windowsOptions)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  supplementalGroups,  sysctls,  windowsOptions,  super.hashCode());
+    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  supplementalGroups,  supplementalGroupsPolicy,  sysctls,  windowsOptions,  super.hashCode());
   }
   
   public String toString() {
@@ -559,6 +575,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     if (seLinuxOptions != null) { sb.append("seLinuxOptions:"); sb.append(seLinuxOptions + ","); }
     if (seccompProfile != null) { sb.append("seccompProfile:"); sb.append(seccompProfile + ","); }
     if (supplementalGroups != null && !supplementalGroups.isEmpty()) { sb.append("supplementalGroups:"); sb.append(supplementalGroups + ","); }
+    if (supplementalGroupsPolicy != null) { sb.append("supplementalGroupsPolicy:"); sb.append(supplementalGroupsPolicy + ","); }
     if (sysctls != null && !sysctls.isEmpty()) { sb.append("sysctls:"); sb.append(sysctls + ","); }
     if (windowsOptions != null) { sb.append("windowsOptions:"); sb.append(windowsOptions); }
     sb.append("}");
