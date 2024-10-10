@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1FieldSelectorAttributes;
+import io.kubernetes.client.openapi.models.V1LabelSelectorAttributes;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,11 +50,19 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceAttributes {
+  public static final String SERIALIZED_NAME_FIELD_SELECTOR = "fieldSelector";
+  @SerializedName(SERIALIZED_NAME_FIELD_SELECTOR)
+  private V1FieldSelectorAttributes fieldSelector;
+
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
   private String group;
+
+  public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
+  @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
+  private V1LabelSelectorAttributes labelSelector;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -81,6 +91,25 @@ public class V1ResourceAttributes {
   public V1ResourceAttributes() {
   }
 
+  public V1ResourceAttributes fieldSelector(V1FieldSelectorAttributes fieldSelector) {
+    this.fieldSelector = fieldSelector;
+    return this;
+  }
+
+   /**
+   * Get fieldSelector
+   * @return fieldSelector
+  **/
+  @jakarta.annotation.Nullable
+  public V1FieldSelectorAttributes getFieldSelector() {
+    return fieldSelector;
+  }
+
+  public void setFieldSelector(V1FieldSelectorAttributes fieldSelector) {
+    this.fieldSelector = fieldSelector;
+  }
+
+
   public V1ResourceAttributes group(String group) {
     this.group = group;
     return this;
@@ -97,6 +126,25 @@ public class V1ResourceAttributes {
 
   public void setGroup(String group) {
     this.group = group;
+  }
+
+
+  public V1ResourceAttributes labelSelector(V1LabelSelectorAttributes labelSelector) {
+    this.labelSelector = labelSelector;
+    return this;
+  }
+
+   /**
+   * Get labelSelector
+   * @return labelSelector
+  **/
+  @jakarta.annotation.Nullable
+  public V1LabelSelectorAttributes getLabelSelector() {
+    return labelSelector;
+  }
+
+  public void setLabelSelector(V1LabelSelectorAttributes labelSelector) {
+    this.labelSelector = labelSelector;
   }
 
 
@@ -224,7 +272,9 @@ public class V1ResourceAttributes {
       return false;
     }
     V1ResourceAttributes v1ResourceAttributes = (V1ResourceAttributes) o;
-    return Objects.equals(this.group, v1ResourceAttributes.group) &&
+    return Objects.equals(this.fieldSelector, v1ResourceAttributes.fieldSelector) &&
+        Objects.equals(this.group, v1ResourceAttributes.group) &&
+        Objects.equals(this.labelSelector, v1ResourceAttributes.labelSelector) &&
         Objects.equals(this.name, v1ResourceAttributes.name) &&
         Objects.equals(this.namespace, v1ResourceAttributes.namespace) &&
         Objects.equals(this.resource, v1ResourceAttributes.resource) &&
@@ -235,14 +285,16 @@ public class V1ResourceAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, name, namespace, resource, subresource, verb, version);
+    return Objects.hash(fieldSelector, group, labelSelector, name, namespace, resource, subresource, verb, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ResourceAttributes {\n");
+    sb.append("    fieldSelector: ").append(toIndentedString(fieldSelector)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
@@ -271,7 +323,9 @@ public class V1ResourceAttributes {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("fieldSelector");
     openapiFields.add("group");
+    openapiFields.add("labelSelector");
     openapiFields.add("name");
     openapiFields.add("namespace");
     openapiFields.add("resource");
@@ -304,8 +358,16 @@ public class V1ResourceAttributes {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `fieldSelector`
+      if (jsonObj.get("fieldSelector") != null && !jsonObj.get("fieldSelector").isJsonNull()) {
+        V1FieldSelectorAttributes.validateJsonElement(jsonObj.get("fieldSelector"));
+      }
       if ((jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) && !jsonObj.get("group").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group").toString()));
+      }
+      // validate the optional field `labelSelector`
+      if (jsonObj.get("labelSelector") != null && !jsonObj.get("labelSelector").isJsonNull()) {
+        V1LabelSelectorAttributes.validateJsonElement(jsonObj.get("labelSelector"));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

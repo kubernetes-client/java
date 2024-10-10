@@ -49,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents an ephemeral volume that is handled by a normal storage driver.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EphemeralVolumeSource {
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE = "volumeClaimTemplate";
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE)

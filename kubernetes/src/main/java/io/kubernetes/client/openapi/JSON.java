@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
+
 import io.kubernetes.client.gson.V1MetadataExclusionStrategy;
 import io.kubernetes.client.gson.V1StatusPreProcessor;
 import io.kubernetes.client.openapi.models.V1Status;
@@ -55,15 +56,16 @@ import java.util.TimeZone;
 public class JSON {
     private static Gson gson;
     private static boolean isLenientOnJson = false;
+
     private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
-            new DateTimeFormatterBuilder()
-                    .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
-                    .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
-                    .optionalStart()
-                    .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
-                    .optionalEnd()
-                    .appendLiteral("Z")
-                    .toFormatter();
+        new DateTimeFormatterBuilder()
+            .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
+            .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+            .optionalStart()
+            .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
+            .optionalEnd()
+            .appendLiteral("Z")
+            .toFormatter();
 
     private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
     private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
@@ -78,11 +80,12 @@ public class JSON {
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder();
+        GsonFireBuilder fireBuilder = new GsonFireBuilder()
+        ;
         GsonBuilder builder =
-             fireBuilder
-                     .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
-                     .createGsonBuilder();
+                fireBuilder
+                        .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
+                        .createGsonBuilder();
         return builder.setExclusionStrategies(new V1MetadataExclusionStrategy());
     }
 
@@ -175,7 +178,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1CinderVolumeSource.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ClaimSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ClientIPConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ClusterRole.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ClusterRoleBinding.CustomTypeAdapterFactory());
@@ -202,6 +204,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ContainerStateTerminated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ContainerStateWaiting.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ContainerStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ContainerUser.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ControllerRevision.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ControllerRevisionList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1CronJob.CustomTypeAdapterFactory());
@@ -260,6 +263,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ExpressionWarning.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ExternalDocumentation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FCVolumeSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FieldSelectorAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FieldSelectorRequirement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FlexVolumeSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1FlockerVolumeSource.CustomTypeAdapterFactory());
@@ -291,6 +296,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1IPBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ISCSIVolumeSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ImageVolumeSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1Ingress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1IngressBackend.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1IngressClass.CustomTypeAdapterFactory());
@@ -315,6 +321,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1JobTemplateSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1KeyToPath.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LabelSelector.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LabelSelectorAttributes.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LabelSelectorRequirement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1Lease.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LeaseList.CustomTypeAdapterFactory());
@@ -327,6 +334,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LimitRangeSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LimitResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LimitedPriorityLevelConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LinuxContainerUser.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ListMeta.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LoadBalancerIngress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1LoadBalancerStatus.CustomTypeAdapterFactory());
@@ -361,6 +369,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeConfigSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeConfigStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeFeatures.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeRuntimeHandler.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1NodeRuntimeHandlerFeatures.CustomTypeAdapterFactory());
@@ -453,6 +462,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceAttributes.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceClaim.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceFieldSelector.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceHealth.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourcePolicyRule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceQuota.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceQuotaList.CustomTypeAdapterFactory());
@@ -460,6 +470,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceQuotaStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceRequirements.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceRule.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1ResourceStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1Role.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1RoleBinding.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1RoleBindingList.CustomTypeAdapterFactory());
@@ -586,23 +597,18 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ClusterTrustBundleSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ExpressionWarning.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1GroupVersionResource.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1IPAddress.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1IPAddressList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1IPAddressSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1LeaseCandidate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1LeaseCandidateList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1LeaseCandidateSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1MatchCondition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1MatchResources.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1MigrationCondition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1NamedRuleWithOperations.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ParamKind.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ParamRef.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ParentReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1SelfSubjectReview.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1SelfSubjectReviewStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ServiceCIDR.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ServiceCIDRList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ServiceCIDRSpec.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1ServiceCIDRStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1StorageVersion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1StorageVersionList.CustomTypeAdapterFactory());
@@ -623,54 +629,58 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1Variable.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1VolumeAttributesClass.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha1VolumeAttributesClassList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2AllocationResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2DriverAllocationResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2DriverRequests.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesAllocationResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesAttribute.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesFilter.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesInstance.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesIntSlice.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesResources.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2NamedResourcesStringSlice.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContext.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContextList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContextSpec.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2PodSchedulingContextStatus.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaim.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimConsumerReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimParameters.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimParametersList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimParametersReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimSchedulingStatus.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimSpec.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimStatus.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimTemplate.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimTemplateList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClaimTemplateSpec.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClass.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClassList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClassParameters.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClassParametersList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceClassParametersReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceFilter.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceHandle.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceSlice.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2ResourceSliceList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2StructuredResourceHandle.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha2VendorParameters.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3AllocationResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3BasicDevice.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3CELDeviceSelector.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3Device.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceAllocationConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceAllocationResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceAttribute.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClaim.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClaimConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClass.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClassConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClassList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceClassSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceConstraint.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceRequestAllocationResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3DeviceSelector.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3OpaqueDeviceConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3PodSchedulingContext.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3PodSchedulingContextList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3PodSchedulingContextSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3PodSchedulingContextStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaim.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimConsumerReference.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimSchedulingStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimTemplate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimTemplateList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceClaimTemplateSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourcePool.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceSlice.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceSliceList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1alpha3ResourceSliceSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1AuditAnnotation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ExpressionWarning.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1IPAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1IPAddressList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1IPAddressSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1MatchCondition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1MatchResources.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1NamedRuleWithOperations.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ParamKind.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ParamRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ParentReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1SelfSubjectReview.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1SelfSubjectReviewStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ServiceCIDR.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ServiceCIDRList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ServiceCIDRSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ServiceCIDRStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1TypeChecking.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ValidatingAdmissionPolicy.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ValidatingAdmissionPolicyBinding.CustomTypeAdapterFactory());
@@ -681,6 +691,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1ValidatingAdmissionPolicyStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1Validation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1Variable.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1VolumeAttributesClass.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta1VolumeAttributesClassList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta3ExemptPriorityLevelConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta3FlowDistinguisherMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.kubernetes.client.openapi.models.V1beta3FlowSchema.CustomTypeAdapterFactory());
@@ -803,7 +815,6 @@ public class JSON {
         public void write(JsonWriter out, byte[] value) throws IOException {
             boolean oldHtmlSafe = out.isHtmlSafe();
             out.setHtmlSafe(false);
-
             if (value == null) {
                 out.nullValue();
             } else {

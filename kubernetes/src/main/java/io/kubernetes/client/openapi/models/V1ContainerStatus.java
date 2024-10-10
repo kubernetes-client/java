@@ -20,7 +20,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ContainerState;
+import io.kubernetes.client.openapi.models.V1ContainerUser;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
+import io.kubernetes.client.openapi.models.V1ResourceStatus;
 import io.kubernetes.client.openapi.models.V1VolumeMountStatus;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,11 +58,15 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerStatus contains details for the current status of this container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
   private Map<String, Quantity> allocatedResources = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES_STATUS = "allocatedResourcesStatus";
+  @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES_STATUS)
+  private List<V1ResourceStatus> allocatedResourcesStatus = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
   @SerializedName(SERIALIZED_NAME_CONTAINER_I_D)
@@ -102,6 +108,10 @@ public class V1ContainerStatus {
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private V1ContainerUser user;
+
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
   private List<V1VolumeMountStatus> volumeMounts = new ArrayList<>();
@@ -133,6 +143,33 @@ public class V1ContainerStatus {
 
   public void setAllocatedResources(Map<String, Quantity> allocatedResources) {
     this.allocatedResources = allocatedResources;
+  }
+
+
+  public V1ContainerStatus allocatedResourcesStatus(List<V1ResourceStatus> allocatedResourcesStatus) {
+    this.allocatedResourcesStatus = allocatedResourcesStatus;
+    return this;
+  }
+
+  public V1ContainerStatus addAllocatedResourcesStatusItem(V1ResourceStatus allocatedResourcesStatusItem) {
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList<>();
+    }
+    this.allocatedResourcesStatus.add(allocatedResourcesStatusItem);
+    return this;
+  }
+
+   /**
+   * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+   * @return allocatedResourcesStatus
+  **/
+  @jakarta.annotation.Nullable
+  public List<V1ResourceStatus> getAllocatedResourcesStatus() {
+    return allocatedResourcesStatus;
+  }
+
+  public void setAllocatedResourcesStatus(List<V1ResourceStatus> allocatedResourcesStatus) {
+    this.allocatedResourcesStatus = allocatedResourcesStatus;
   }
 
 
@@ -326,6 +363,25 @@ public class V1ContainerStatus {
   }
 
 
+  public V1ContainerStatus user(V1ContainerUser user) {
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @jakarta.annotation.Nullable
+  public V1ContainerUser getUser() {
+    return user;
+  }
+
+  public void setUser(V1ContainerUser user) {
+    this.user = user;
+  }
+
+
   public V1ContainerStatus volumeMounts(List<V1VolumeMountStatus> volumeMounts) {
     this.volumeMounts = volumeMounts;
     return this;
@@ -364,6 +420,7 @@ public class V1ContainerStatus {
     }
     V1ContainerStatus v1ContainerStatus = (V1ContainerStatus) o;
     return Objects.equals(this.allocatedResources, v1ContainerStatus.allocatedResources) &&
+        Objects.equals(this.allocatedResourcesStatus, v1ContainerStatus.allocatedResourcesStatus) &&
         Objects.equals(this.containerID, v1ContainerStatus.containerID) &&
         Objects.equals(this.image, v1ContainerStatus.image) &&
         Objects.equals(this.imageID, v1ContainerStatus.imageID) &&
@@ -374,12 +431,13 @@ public class V1ContainerStatus {
         Objects.equals(this.restartCount, v1ContainerStatus.restartCount) &&
         Objects.equals(this.started, v1ContainerStatus.started) &&
         Objects.equals(this.state, v1ContainerStatus.state) &&
+        Objects.equals(this.user, v1ContainerStatus.user) &&
         Objects.equals(this.volumeMounts, v1ContainerStatus.volumeMounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, volumeMounts);
+    return Objects.hash(allocatedResources, allocatedResourcesStatus, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, user, volumeMounts);
   }
 
   @Override
@@ -387,6 +445,7 @@ public class V1ContainerStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ContainerStatus {\n");
     sb.append("    allocatedResources: ").append(toIndentedString(allocatedResources)).append("\n");
+    sb.append("    allocatedResourcesStatus: ").append(toIndentedString(allocatedResourcesStatus)).append("\n");
     sb.append("    containerID: ").append(toIndentedString(containerID)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageID: ").append(toIndentedString(imageID)).append("\n");
@@ -397,6 +456,7 @@ public class V1ContainerStatus {
     sb.append("    restartCount: ").append(toIndentedString(restartCount)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    volumeMounts: ").append(toIndentedString(volumeMounts)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -421,6 +481,7 @@ public class V1ContainerStatus {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allocatedResources");
+    openapiFields.add("allocatedResourcesStatus");
     openapiFields.add("containerID");
     openapiFields.add("image");
     openapiFields.add("imageID");
@@ -431,6 +492,7 @@ public class V1ContainerStatus {
     openapiFields.add("restartCount");
     openapiFields.add("started");
     openapiFields.add("state");
+    openapiFields.add("user");
     openapiFields.add("volumeMounts");
 
     // a set of required properties/fields (JSON key names)
@@ -470,6 +532,20 @@ public class V1ContainerStatus {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("allocatedResourcesStatus") != null && !jsonObj.get("allocatedResourcesStatus").isJsonNull()) {
+        JsonArray jsonArrayallocatedResourcesStatus = jsonObj.getAsJsonArray("allocatedResourcesStatus");
+        if (jsonArrayallocatedResourcesStatus != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("allocatedResourcesStatus").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `allocatedResourcesStatus` to be an array in the JSON string but got `%s`", jsonObj.get("allocatedResourcesStatus").toString()));
+          }
+
+          // validate the optional field `allocatedResourcesStatus` (array)
+          for (int i = 0; i < jsonArrayallocatedResourcesStatus.size(); i++) {
+            V1ResourceStatus.validateJsonElement(jsonArrayallocatedResourcesStatus.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("containerID") != null && !jsonObj.get("containerID").isJsonNull()) && !jsonObj.get("containerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `containerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerID").toString()));
       }
@@ -493,6 +569,10 @@ public class V1ContainerStatus {
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
         V1ContainerState.validateJsonElement(jsonObj.get("state"));
+      }
+      // validate the optional field `user`
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
+        V1ContainerUser.validateJsonElement(jsonObj.get("user"));
       }
       if (jsonObj.get("volumeMounts") != null && !jsonObj.get("volumeMounts").isJsonNull()) {
         JsonArray jsonArrayvolumeMounts = jsonObj.getAsJsonArray("volumeMounts");

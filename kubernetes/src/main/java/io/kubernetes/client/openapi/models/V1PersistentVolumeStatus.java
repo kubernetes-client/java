@@ -49,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)
@@ -76,7 +76,7 @@ public class V1PersistentVolumeStatus {
   }
 
    /**
-   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is a beta field and requires the PersistentVolumeLastPhaseTransitionTime feature to be enabled (enabled by default).
+   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions.
    * @return lastPhaseTransitionTime
   **/
   @jakarta.annotation.Nullable

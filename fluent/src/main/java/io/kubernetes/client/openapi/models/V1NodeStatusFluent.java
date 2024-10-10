@@ -32,6 +32,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   private ArrayList<V1NodeConditionBuilder> conditions;
   private V1NodeConfigStatusBuilder config;
   private V1NodeDaemonEndpointsBuilder daemonEndpoints;
+  private V1NodeFeaturesBuilder features;
   private ArrayList<V1ContainerImageBuilder> images;
   private V1NodeSystemInfoBuilder nodeInfo;
   private String phase;
@@ -48,6 +49,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
           this.withConditions(instance.getConditions());
           this.withConfig(instance.getConfig());
           this.withDaemonEndpoints(instance.getDaemonEndpoints());
+          this.withFeatures(instance.getFeatures());
           this.withImages(instance.getImages());
           this.withNodeInfo(instance.getNodeInfo());
           this.withPhase(instance.getPhase());
@@ -511,6 +513,46 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   
   public DaemonEndpointsNested<A> editOrNewDaemonEndpointsLike(V1NodeDaemonEndpoints item) {
     return withNewDaemonEndpointsLike(java.util.Optional.ofNullable(buildDaemonEndpoints()).orElse(item));
+  }
+  
+  public V1NodeFeatures buildFeatures() {
+    return this.features != null ? this.features.build() : null;
+  }
+  
+  public A withFeatures(V1NodeFeatures features) {
+    this._visitables.remove("features");
+    if (features != null) {
+        this.features = new V1NodeFeaturesBuilder(features);
+        this._visitables.get("features").add(this.features);
+    } else {
+        this.features = null;
+        this._visitables.get("features").remove(this.features);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasFeatures() {
+    return this.features != null;
+  }
+  
+  public FeaturesNested<A> withNewFeatures() {
+    return new FeaturesNested(null);
+  }
+  
+  public FeaturesNested<A> withNewFeaturesLike(V1NodeFeatures item) {
+    return new FeaturesNested(item);
+  }
+  
+  public FeaturesNested<A> editFeatures() {
+    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(null));
+  }
+  
+  public FeaturesNested<A> editOrNewFeatures() {
+    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(new V1NodeFeaturesBuilder().build()));
+  }
+  
+  public FeaturesNested<A> editOrNewFeaturesLike(V1NodeFeatures item) {
+    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(item));
   }
   
   public A addToImages(int index,V1ContainerImage item) {
@@ -1124,6 +1166,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     if (!java.util.Objects.equals(conditions, that.conditions)) return false;
     if (!java.util.Objects.equals(config, that.config)) return false;
     if (!java.util.Objects.equals(daemonEndpoints, that.daemonEndpoints)) return false;
+    if (!java.util.Objects.equals(features, that.features)) return false;
     if (!java.util.Objects.equals(images, that.images)) return false;
     if (!java.util.Objects.equals(nodeInfo, that.nodeInfo)) return false;
     if (!java.util.Objects.equals(phase, that.phase)) return false;
@@ -1134,7 +1177,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addresses,  allocatable,  capacity,  conditions,  config,  daemonEndpoints,  images,  nodeInfo,  phase,  runtimeHandlers,  volumesAttached,  volumesInUse,  super.hashCode());
+    return java.util.Objects.hash(addresses,  allocatable,  capacity,  conditions,  config,  daemonEndpoints,  features,  images,  nodeInfo,  phase,  runtimeHandlers,  volumesAttached,  volumesInUse,  super.hashCode());
   }
   
   public String toString() {
@@ -1146,6 +1189,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (config != null) { sb.append("config:"); sb.append(config + ","); }
     if (daemonEndpoints != null) { sb.append("daemonEndpoints:"); sb.append(daemonEndpoints + ","); }
+    if (features != null) { sb.append("features:"); sb.append(features + ","); }
     if (images != null && !images.isEmpty()) { sb.append("images:"); sb.append(images + ","); }
     if (nodeInfo != null) { sb.append("nodeInfo:"); sb.append(nodeInfo + ","); }
     if (phase != null) { sb.append("phase:"); sb.append(phase + ","); }
@@ -1218,6 +1262,22 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     }
     
     public N endDaemonEndpoints() {
+      return and();
+    }
+    
+  
+  }
+  public class FeaturesNested<N> extends V1NodeFeaturesFluent<FeaturesNested<N>> implements Nested<N>{
+    FeaturesNested(V1NodeFeatures item) {
+      this.builder = new V1NodeFeaturesBuilder(this, item);
+    }
+    V1NodeFeaturesBuilder builder;
+    
+    public N and() {
+      return (N) V1NodeStatusFluent.this.withFeatures(builder.build());
+    }
+    
+    public N endFeatures() {
       return and();
     }
     

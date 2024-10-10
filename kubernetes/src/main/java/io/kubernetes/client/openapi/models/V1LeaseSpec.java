@@ -49,7 +49,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LeaseSpec is a specification of a Lease.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -67,9 +67,17 @@ public class V1LeaseSpec {
   @SerializedName(SERIALIZED_NAME_LEASE_TRANSITIONS)
   private Integer leaseTransitions;
 
+  public static final String SERIALIZED_NAME_PREFERRED_HOLDER = "preferredHolder";
+  @SerializedName(SERIALIZED_NAME_PREFERRED_HOLDER)
+  private String preferredHolder;
+
   public static final String SERIALIZED_NAME_RENEW_TIME = "renewTime";
   @SerializedName(SERIALIZED_NAME_RENEW_TIME)
   private OffsetDateTime renewTime;
+
+  public static final String SERIALIZED_NAME_STRATEGY = "strategy";
+  @SerializedName(SERIALIZED_NAME_STRATEGY)
+  private String strategy;
 
   public V1LeaseSpec() {
   }
@@ -99,7 +107,7 @@ public class V1LeaseSpec {
   }
 
    /**
-   * holderIdentity contains the identity of the holder of a current lease.
+   * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.
    * @return holderIdentity
   **/
   @jakarta.annotation.Nullable
@@ -118,7 +126,7 @@ public class V1LeaseSpec {
   }
 
    /**
-   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.
+   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.
    * @return leaseDurationSeconds
   **/
   @jakarta.annotation.Nullable
@@ -150,6 +158,25 @@ public class V1LeaseSpec {
   }
 
 
+  public V1LeaseSpec preferredHolder(String preferredHolder) {
+    this.preferredHolder = preferredHolder;
+    return this;
+  }
+
+   /**
+   * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.
+   * @return preferredHolder
+  **/
+  @jakarta.annotation.Nullable
+  public String getPreferredHolder() {
+    return preferredHolder;
+  }
+
+  public void setPreferredHolder(String preferredHolder) {
+    this.preferredHolder = preferredHolder;
+  }
+
+
   public V1LeaseSpec renewTime(OffsetDateTime renewTime) {
     this.renewTime = renewTime;
     return this;
@@ -169,6 +196,25 @@ public class V1LeaseSpec {
   }
 
 
+  public V1LeaseSpec strategy(String strategy) {
+    this.strategy = strategy;
+    return this;
+  }
+
+   /**
+   * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+   * @return strategy
+  **/
+  @jakarta.annotation.Nullable
+  public String getStrategy() {
+    return strategy;
+  }
+
+  public void setStrategy(String strategy) {
+    this.strategy = strategy;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -183,12 +229,14 @@ public class V1LeaseSpec {
         Objects.equals(this.holderIdentity, v1LeaseSpec.holderIdentity) &&
         Objects.equals(this.leaseDurationSeconds, v1LeaseSpec.leaseDurationSeconds) &&
         Objects.equals(this.leaseTransitions, v1LeaseSpec.leaseTransitions) &&
-        Objects.equals(this.renewTime, v1LeaseSpec.renewTime);
+        Objects.equals(this.preferredHolder, v1LeaseSpec.preferredHolder) &&
+        Objects.equals(this.renewTime, v1LeaseSpec.renewTime) &&
+        Objects.equals(this.strategy, v1LeaseSpec.strategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, renewTime);
+    return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, preferredHolder, renewTime, strategy);
   }
 
   @Override
@@ -199,7 +247,9 @@ public class V1LeaseSpec {
     sb.append("    holderIdentity: ").append(toIndentedString(holderIdentity)).append("\n");
     sb.append("    leaseDurationSeconds: ").append(toIndentedString(leaseDurationSeconds)).append("\n");
     sb.append("    leaseTransitions: ").append(toIndentedString(leaseTransitions)).append("\n");
+    sb.append("    preferredHolder: ").append(toIndentedString(preferredHolder)).append("\n");
     sb.append("    renewTime: ").append(toIndentedString(renewTime)).append("\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,7 +276,9 @@ public class V1LeaseSpec {
     openapiFields.add("holderIdentity");
     openapiFields.add("leaseDurationSeconds");
     openapiFields.add("leaseTransitions");
+    openapiFields.add("preferredHolder");
     openapiFields.add("renewTime");
+    openapiFields.add("strategy");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -255,6 +307,12 @@ public class V1LeaseSpec {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("holderIdentity") != null && !jsonObj.get("holderIdentity").isJsonNull()) && !jsonObj.get("holderIdentity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `holderIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderIdentity").toString()));
+      }
+      if ((jsonObj.get("preferredHolder") != null && !jsonObj.get("preferredHolder").isJsonNull()) && !jsonObj.get("preferredHolder").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preferredHolder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preferredHolder").toString()));
+      }
+      if ((jsonObj.get("strategy") != null && !jsonObj.get("strategy").isJsonNull()) && !jsonObj.get("strategy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `strategy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strategy").toString()));
       }
   }
 
