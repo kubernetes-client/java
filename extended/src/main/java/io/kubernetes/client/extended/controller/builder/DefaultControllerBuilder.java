@@ -104,6 +104,9 @@ public class DefaultControllerBuilder {
    * @return the controller builder
    */
   public DefaultControllerBuilder withWorkQueue(RateLimitingQueue<Request> workQueue) {
+    if (this.workQueue != null && !this.workQueue.isShuttingDown()){
+      this.workQueue.shutDown();
+    }
     this.workQueue = workQueue;
     return this;
   }
