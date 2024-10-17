@@ -23,7 +23,9 @@ public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluent<V1Re
   
   public V1ResourceAttributes build() {
     V1ResourceAttributes buildable = new V1ResourceAttributes();
+    buildable.setFieldSelector(fluent.buildFieldSelector());
     buildable.setGroup(fluent.getGroup());
+    buildable.setLabelSelector(fluent.buildLabelSelector());
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());
     buildable.setResource(fluent.getResource());

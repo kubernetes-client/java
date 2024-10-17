@@ -24,6 +24,7 @@ public class V1ResourceClaimBuilder extends V1ResourceClaimFluent<V1ResourceClai
   public V1ResourceClaim build() {
     V1ResourceClaim buildable = new V1ResourceClaim();
     buildable.setName(fluent.getName());
+    buildable.setRequest(fluent.getRequest());
     return buildable;
   }
   

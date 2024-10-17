@@ -36,6 +36,7 @@ import io.kubernetes.client.openapi.models.V1GitRepoVolumeSource;
 import io.kubernetes.client.openapi.models.V1GlusterfsVolumeSource;
 import io.kubernetes.client.openapi.models.V1HostPathVolumeSource;
 import io.kubernetes.client.openapi.models.V1ISCSIVolumeSource;
+import io.kubernetes.client.openapi.models.V1ImageVolumeSource;
 import io.kubernetes.client.openapi.models.V1NFSVolumeSource;
 import io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSource;
 import io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource;
@@ -77,7 +78,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Volume represents a named volume in a pod that may be accessed by any container in the pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Volume {
   public static final String SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE = "awsElasticBlockStore";
   @SerializedName(SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE)
@@ -146,6 +147,10 @@ public class V1Volume {
   public static final String SERIALIZED_NAME_HOST_PATH = "hostPath";
   @SerializedName(SERIALIZED_NAME_HOST_PATH)
   private V1HostPathVolumeSource hostPath;
+
+  public static final String SERIALIZED_NAME_IMAGE = "image";
+  @SerializedName(SERIALIZED_NAME_IMAGE)
+  private V1ImageVolumeSource image;
 
   public static final String SERIALIZED_NAME_ISCSI = "iscsi";
   @SerializedName(SERIALIZED_NAME_ISCSI)
@@ -525,6 +530,25 @@ public class V1Volume {
   }
 
 
+  public V1Volume image(V1ImageVolumeSource image) {
+    this.image = image;
+    return this;
+  }
+
+   /**
+   * Get image
+   * @return image
+  **/
+  @jakarta.annotation.Nullable
+  public V1ImageVolumeSource getImage() {
+    return image;
+  }
+
+  public void setImage(V1ImageVolumeSource image) {
+    this.image = image;
+  }
+
+
   public V1Volume iscsi(V1ISCSIVolumeSource iscsi) {
     this.iscsi = iscsi;
     return this;
@@ -799,6 +823,7 @@ public class V1Volume {
         Objects.equals(this.gitRepo, v1Volume.gitRepo) &&
         Objects.equals(this.glusterfs, v1Volume.glusterfs) &&
         Objects.equals(this.hostPath, v1Volume.hostPath) &&
+        Objects.equals(this.image, v1Volume.image) &&
         Objects.equals(this.iscsi, v1Volume.iscsi) &&
         Objects.equals(this.name, v1Volume.name) &&
         Objects.equals(this.nfs, v1Volume.nfs) &&
@@ -816,7 +841,7 @@ public class V1Volume {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsElasticBlockStore, azureDisk, azureFile, cephfs, cinder, configMap, csi, downwardAPI, emptyDir, ephemeral, fc, flexVolume, flocker, gcePersistentDisk, gitRepo, glusterfs, hostPath, iscsi, name, nfs, persistentVolumeClaim, photonPersistentDisk, portworxVolume, projected, quobyte, rbd, scaleIO, secret, storageos, vsphereVolume);
+    return Objects.hash(awsElasticBlockStore, azureDisk, azureFile, cephfs, cinder, configMap, csi, downwardAPI, emptyDir, ephemeral, fc, flexVolume, flocker, gcePersistentDisk, gitRepo, glusterfs, hostPath, image, iscsi, name, nfs, persistentVolumeClaim, photonPersistentDisk, portworxVolume, projected, quobyte, rbd, scaleIO, secret, storageos, vsphereVolume);
   }
 
   @Override
@@ -840,6 +865,7 @@ public class V1Volume {
     sb.append("    gitRepo: ").append(toIndentedString(gitRepo)).append("\n");
     sb.append("    glusterfs: ").append(toIndentedString(glusterfs)).append("\n");
     sb.append("    hostPath: ").append(toIndentedString(hostPath)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    iscsi: ").append(toIndentedString(iscsi)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nfs: ").append(toIndentedString(nfs)).append("\n");
@@ -892,6 +918,7 @@ public class V1Volume {
     openapiFields.add("gitRepo");
     openapiFields.add("glusterfs");
     openapiFields.add("hostPath");
+    openapiFields.add("image");
     openapiFields.add("iscsi");
     openapiFields.add("name");
     openapiFields.add("nfs");
@@ -1006,6 +1033,10 @@ public class V1Volume {
       // validate the optional field `hostPath`
       if (jsonObj.get("hostPath") != null && !jsonObj.get("hostPath").isJsonNull()) {
         V1HostPathVolumeSource.validateJsonElement(jsonObj.get("hostPath"));
+      }
+      // validate the optional field `image`
+      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) {
+        V1ImageVolumeSource.validateJsonElement(jsonObj.get("image"));
       }
       // validate the optional field `iscsi`
       if (jsonObj.get("iscsi") != null && !jsonObj.get("iscsi").isJsonNull()) {

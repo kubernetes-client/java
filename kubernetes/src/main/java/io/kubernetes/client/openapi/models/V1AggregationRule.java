@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1AggregationRule {
   public static final String SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS = "clusterRoleSelectors";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS)

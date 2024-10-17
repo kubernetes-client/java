@@ -24,6 +24,7 @@ public class V1NodeRuntimeHandlerFeaturesBuilder extends V1NodeRuntimeHandlerFea
   public V1NodeRuntimeHandlerFeatures build() {
     V1NodeRuntimeHandlerFeatures buildable = new V1NodeRuntimeHandlerFeatures();
     buildable.setRecursiveReadOnlyMounts(fluent.getRecursiveReadOnlyMounts());
+    buildable.setUserNamespaces(fluent.getUserNamespaces());
     return buildable;
   }
   
