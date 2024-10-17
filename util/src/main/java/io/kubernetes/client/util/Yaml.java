@@ -13,9 +13,13 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import com.google.gson.annotations.SerializedName;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CustomObjectsApi;
 import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
 import java.io.File;
 import java.io.FileReader;
@@ -26,15 +30,10 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +57,100 @@ import org.yaml.snakeyaml.representer.Representer;
 public class Yaml {
 
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
+
+  /**
+   * Load an API object from a YAML string representation without already knowing the object type and loads and submit any type of resource
+   * V1Pod
+   *
+   * @param content The YAML content
+   * @return An instantiation of the object.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static Object loadAndSubmitResource(String content) throws Exception {
+    //loading yaml content as unstructured object
+    Object unstructuredObject = Yaml.load(new StringReader(content));
+
+    if (!(unstructuredObject instanceof Map)) {
+      throw new IllegalArgumentException("Invalid YAML");
+    }
+    //typecasting the unstructured object in map
+    Map<String, Object> yamlMap = (Map<String, Object>) unstructuredObject;
+
+    //getting api version and kind
+    String apiVersion = (String) yamlMap.get("apiVersion");
+    String kind = (String) yamlMap.get("kind");
+
+    if (apiVersion == null || kind == null) {
+      throw new IllegalArgumentException("YAML does not contain apiVersion or kind");
+    }
+
+    //creating variable to extract api group
+    String group;
+    String version;
+
+    // If apiVersion contains '/', then it means there is a specified group for it and we need to get that else it is a default group
+    if (apiVersion.contains("/")) {
+      String[] parts = apiVersion.split("/");
+      group = parts[0];
+      version = parts[1];
+    } else {
+      group = "";
+      version = apiVersion;
+    }
+
+    //creating resource plurals from kind
+    String resourcePlural = kind.toLowerCase(Locale.ROOT) + "s";  // Simplistic pluralization logic
+
+    //getting the strongly typed object from model mapper
+    Class<?> modelClass = ModelMapper.getApiTypeClass(group, version, kind);
+
+    if (modelClass == null) {
+      throw new IllegalArgumentException("Could not determine model class for group: "
+              + group + ", version: " + version + ", kind: " + kind);
+    }
+
+    //reloading the yaml in strongly typed object
+    KubernetesObject typedObject = (KubernetesObject) Yaml.loadAs(new StringReader(content), modelClass);
+
+    //we need to submit the resource to generickubernetesapi
+    return submitResourceToApi(typedObject, (Class<KubernetesObject>) modelClass, group, version, resourcePlural);
+  }
+
+  //method to submit any resource to kubernetes api
+  public static <ApiType extends KubernetesObject> Object submitResourceToApi(
+          ApiType resource,
+          Class<ApiType> apiTypeClass,
+          String group,
+          String version,
+          String resourcePlural) throws Exception {
+
+    //creating an api client and configuring it
+    ApiClient client = Config.defaultClient();
+    Configuration.setDefaultApiClient(client);
+
+    //Using the apiTypeClass and apiListTypeClass for list of resources
+    Class<?> apiListTypeClass = ModelMapper.getApiTypeClass(group, version, resourcePlural);
+
+    //configuring the GenericKubernetesApi handler
+    GenericKubernetesApi<ApiType, ?> genericApi = new GenericKubernetesApi<>(
+            apiTypeClass,
+            apiListTypeClass,
+            group,
+            version,
+            resourcePlural,
+            new CustomObjectsApi(client)
+    );
+
+    //Creating the resource in Kubernetes
+    KubernetesApiResponse<ApiType> apiResponse = genericApi.create(resource);
+
+    if (!apiResponse.isSuccess()) {
+      throw new RuntimeException("Failed to create resource: " + apiResponse.getStatus());
+    }
+
+    //return the created resource
+    return apiResponse.getObject();
+  }
 
   /**
    * Load an API object from a YAML string representation. Returns a concrete typed object (e.g.
