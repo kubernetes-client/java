@@ -25,6 +25,7 @@ import io.kubernetes.client.openapi.models.V1NodeAddress;
 import io.kubernetes.client.openapi.models.V1NodeCondition;
 import io.kubernetes.client.openapi.models.V1NodeConfigStatus;
 import io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints;
+import io.kubernetes.client.openapi.models.V1NodeFeatures;
 import io.kubernetes.client.openapi.models.V1NodeRuntimeHandler;
 import io.kubernetes.client.openapi.models.V1NodeSystemInfo;
 import java.io.IOException;
@@ -61,7 +62,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeStatus is information about the current status of a node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -86,6 +87,10 @@ public class V1NodeStatus {
   public static final String SERIALIZED_NAME_DAEMON_ENDPOINTS = "daemonEndpoints";
   @SerializedName(SERIALIZED_NAME_DAEMON_ENDPOINTS)
   private V1NodeDaemonEndpoints daemonEndpoints;
+
+  public static final String SERIALIZED_NAME_FEATURES = "features";
+  @SerializedName(SERIALIZED_NAME_FEATURES)
+  private V1NodeFeatures features;
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
@@ -182,7 +187,7 @@ public class V1NodeStatus {
   }
 
    /**
-   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity
    * @return capacity
   **/
   @jakarta.annotation.Nullable
@@ -257,6 +262,25 @@ public class V1NodeStatus {
 
   public void setDaemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
     this.daemonEndpoints = daemonEndpoints;
+  }
+
+
+  public V1NodeStatus features(V1NodeFeatures features) {
+    this.features = features;
+    return this;
+  }
+
+   /**
+   * Get features
+   * @return features
+  **/
+  @jakarta.annotation.Nullable
+  public V1NodeFeatures getFeatures() {
+    return features;
+  }
+
+  public void setFeatures(V1NodeFeatures features) {
+    this.features = features;
   }
 
 
@@ -422,6 +446,7 @@ public class V1NodeStatus {
         Objects.equals(this.conditions, v1NodeStatus.conditions) &&
         Objects.equals(this.config, v1NodeStatus.config) &&
         Objects.equals(this.daemonEndpoints, v1NodeStatus.daemonEndpoints) &&
+        Objects.equals(this.features, v1NodeStatus.features) &&
         Objects.equals(this.images, v1NodeStatus.images) &&
         Objects.equals(this.nodeInfo, v1NodeStatus.nodeInfo) &&
         Objects.equals(this.phase, v1NodeStatus.phase) &&
@@ -432,7 +457,7 @@ public class V1NodeStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
+    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, features, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
   }
 
   @Override
@@ -445,6 +470,7 @@ public class V1NodeStatus {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    daemonEndpoints: ").append(toIndentedString(daemonEndpoints)).append("\n");
+    sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
@@ -479,6 +505,7 @@ public class V1NodeStatus {
     openapiFields.add("conditions");
     openapiFields.add("config");
     openapiFields.add("daemonEndpoints");
+    openapiFields.add("features");
     openapiFields.add("images");
     openapiFields.add("nodeInfo");
     openapiFields.add("phase");
@@ -546,6 +573,10 @@ public class V1NodeStatus {
       // validate the optional field `daemonEndpoints`
       if (jsonObj.get("daemonEndpoints") != null && !jsonObj.get("daemonEndpoints").isJsonNull()) {
         V1NodeDaemonEndpoints.validateJsonElement(jsonObj.get("daemonEndpoints"));
+      }
+      // validate the optional field `features`
+      if (jsonObj.get("features") != null && !jsonObj.get("features").isJsonNull()) {
+        V1NodeFeatures.validateJsonElement(jsonObj.get("features"));
       }
       if (jsonObj.get("images") != null && !jsonObj.get("images").isJsonNull()) {
         JsonArray jsonArrayimages = jsonObj.getAsJsonArray("images");

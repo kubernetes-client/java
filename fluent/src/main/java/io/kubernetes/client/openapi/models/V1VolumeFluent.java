@@ -34,6 +34,7 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
   private V1GitRepoVolumeSourceBuilder gitRepo;
   private V1GlusterfsVolumeSourceBuilder glusterfs;
   private V1HostPathVolumeSourceBuilder hostPath;
+  private V1ImageVolumeSourceBuilder image;
   private V1ISCSIVolumeSourceBuilder iscsi;
   private String name;
   private V1NFSVolumeSourceBuilder nfs;
@@ -68,6 +69,7 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
           this.withGitRepo(instance.getGitRepo());
           this.withGlusterfs(instance.getGlusterfs());
           this.withHostPath(instance.getHostPath());
+          this.withImage(instance.getImage());
           this.withIscsi(instance.getIscsi());
           this.withName(instance.getName());
           this.withNfs(instance.getNfs());
@@ -764,6 +766,46 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
     return withNewHostPathLike(java.util.Optional.ofNullable(buildHostPath()).orElse(item));
   }
   
+  public V1ImageVolumeSource buildImage() {
+    return this.image != null ? this.image.build() : null;
+  }
+  
+  public A withImage(V1ImageVolumeSource image) {
+    this._visitables.remove("image");
+    if (image != null) {
+        this.image = new V1ImageVolumeSourceBuilder(image);
+        this._visitables.get("image").add(this.image);
+    } else {
+        this.image = null;
+        this._visitables.get("image").remove(this.image);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasImage() {
+    return this.image != null;
+  }
+  
+  public ImageNested<A> withNewImage() {
+    return new ImageNested(null);
+  }
+  
+  public ImageNested<A> withNewImageLike(V1ImageVolumeSource item) {
+    return new ImageNested(item);
+  }
+  
+  public ImageNested<A> editImage() {
+    return withNewImageLike(java.util.Optional.ofNullable(buildImage()).orElse(null));
+  }
+  
+  public ImageNested<A> editOrNewImage() {
+    return withNewImageLike(java.util.Optional.ofNullable(buildImage()).orElse(new V1ImageVolumeSourceBuilder().build()));
+  }
+  
+  public ImageNested<A> editOrNewImageLike(V1ImageVolumeSource item) {
+    return withNewImageLike(java.util.Optional.ofNullable(buildImage()).orElse(item));
+  }
+  
   public V1ISCSIVolumeSource buildIscsi() {
     return this.iscsi != null ? this.iscsi.build() : null;
   }
@@ -1279,6 +1321,7 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
     if (!java.util.Objects.equals(gitRepo, that.gitRepo)) return false;
     if (!java.util.Objects.equals(glusterfs, that.glusterfs)) return false;
     if (!java.util.Objects.equals(hostPath, that.hostPath)) return false;
+    if (!java.util.Objects.equals(image, that.image)) return false;
     if (!java.util.Objects.equals(iscsi, that.iscsi)) return false;
     if (!java.util.Objects.equals(name, that.name)) return false;
     if (!java.util.Objects.equals(nfs, that.nfs)) return false;
@@ -1296,7 +1339,7 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(awsElasticBlockStore,  azureDisk,  azureFile,  cephfs,  cinder,  configMap,  csi,  downwardAPI,  emptyDir,  ephemeral,  fc,  flexVolume,  flocker,  gcePersistentDisk,  gitRepo,  glusterfs,  hostPath,  iscsi,  name,  nfs,  persistentVolumeClaim,  photonPersistentDisk,  portworxVolume,  projected,  quobyte,  rbd,  scaleIO,  secret,  storageos,  vsphereVolume,  super.hashCode());
+    return java.util.Objects.hash(awsElasticBlockStore,  azureDisk,  azureFile,  cephfs,  cinder,  configMap,  csi,  downwardAPI,  emptyDir,  ephemeral,  fc,  flexVolume,  flocker,  gcePersistentDisk,  gitRepo,  glusterfs,  hostPath,  image,  iscsi,  name,  nfs,  persistentVolumeClaim,  photonPersistentDisk,  portworxVolume,  projected,  quobyte,  rbd,  scaleIO,  secret,  storageos,  vsphereVolume,  super.hashCode());
   }
   
   public String toString() {
@@ -1319,6 +1362,7 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
     if (gitRepo != null) { sb.append("gitRepo:"); sb.append(gitRepo + ","); }
     if (glusterfs != null) { sb.append("glusterfs:"); sb.append(glusterfs + ","); }
     if (hostPath != null) { sb.append("hostPath:"); sb.append(hostPath + ","); }
+    if (image != null) { sb.append("image:"); sb.append(image + ","); }
     if (iscsi != null) { sb.append("iscsi:"); sb.append(iscsi + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (nfs != null) { sb.append("nfs:"); sb.append(nfs + ","); }
@@ -1602,6 +1646,22 @@ public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
     }
     
     public N endHostPath() {
+      return and();
+    }
+    
+  
+  }
+  public class ImageNested<N> extends V1ImageVolumeSourceFluent<ImageNested<N>> implements Nested<N>{
+    ImageNested(V1ImageVolumeSource item) {
+      this.builder = new V1ImageVolumeSourceBuilder(this, item);
+    }
+    V1ImageVolumeSourceBuilder builder;
+    
+    public N and() {
+      return (N) V1VolumeFluent.this.withImage(builder.build());
+    }
+    
+    public N endImage() {
       return and();
     }
     

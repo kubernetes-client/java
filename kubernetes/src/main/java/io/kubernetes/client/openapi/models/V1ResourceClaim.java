@@ -48,11 +48,15 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_REQUEST = "request";
+  @SerializedName(SERIALIZED_NAME_REQUEST)
+  private String request;
 
   public V1ResourceClaim() {
   }
@@ -76,6 +80,25 @@ public class V1ResourceClaim {
   }
 
 
+  public V1ResourceClaim request(String request) {
+    this.request = request;
+    return this;
+  }
+
+   /**
+   * Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.
+   * @return request
+  **/
+  @jakarta.annotation.Nullable
+  public String getRequest() {
+    return request;
+  }
+
+  public void setRequest(String request) {
+    this.request = request;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -86,12 +109,13 @@ public class V1ResourceClaim {
       return false;
     }
     V1ResourceClaim v1ResourceClaim = (V1ResourceClaim) o;
-    return Objects.equals(this.name, v1ResourceClaim.name);
+    return Objects.equals(this.name, v1ResourceClaim.name) &&
+        Objects.equals(this.request, v1ResourceClaim.request);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, request);
   }
 
   @Override
@@ -99,6 +123,7 @@ public class V1ResourceClaim {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ResourceClaim {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,6 +147,7 @@ public class V1ResourceClaim {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("request");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -158,6 +184,9 @@ public class V1ResourceClaim {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("request") != null && !jsonObj.get("request").isJsonNull()) && !jsonObj.get("request").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request").toString()));
       }
   }
 
