@@ -118,7 +118,8 @@ public class KubectlCreate<ApiType extends KubernetesObject>
     // Finding the resource in the discovery class
     Set<Discovery.APIResource> resources = discovery.findAll();
     Optional<Discovery.APIResource> apiResource = resources.stream()
-            .filter(r -> r.getKind().equalsIgnoreCase(kind))
+            .filter(r -> r.getKind().equalsIgnoreCase(kind)
+                    && r.getVersions().stream().anyMatch(v -> v.equalsIgnoreCase(apiVersion)))
             .findFirst();
 
     // Check if the resource kind was found
