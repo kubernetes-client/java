@@ -18,7 +18,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.kubernetes.client.openapi.models.V1ClaimSource;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -47,17 +46,21 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * PodResourceClaim references exactly one ResourceClaim through a ClaimSource. It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.
+ * PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.  It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  private V1ClaimSource source;
+  public static final String SERIALIZED_NAME_RESOURCE_CLAIM_NAME = "resourceClaimName";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_NAME)
+  private String resourceClaimName;
+
+  public static final String SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME = "resourceClaimTemplateName";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME)
+  private String resourceClaimTemplateName;
 
   public V1PodResourceClaim() {
   }
@@ -81,22 +84,41 @@ public class V1PodResourceClaim {
   }
 
 
-  public V1PodResourceClaim source(V1ClaimSource source) {
-    this.source = source;
+  public V1PodResourceClaim resourceClaimName(String resourceClaimName) {
+    this.resourceClaimName = resourceClaimName;
     return this;
   }
 
    /**
-   * Get source
-   * @return source
+   * ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
+   * @return resourceClaimName
   **/
   @jakarta.annotation.Nullable
-  public V1ClaimSource getSource() {
-    return source;
+  public String getResourceClaimName() {
+    return resourceClaimName;
   }
 
-  public void setSource(V1ClaimSource source) {
-    this.source = source;
+  public void setResourceClaimName(String resourceClaimName) {
+    this.resourceClaimName = resourceClaimName;
+  }
+
+
+  public V1PodResourceClaim resourceClaimTemplateName(String resourceClaimTemplateName) {
+    this.resourceClaimTemplateName = resourceClaimTemplateName;
+    return this;
+  }
+
+   /**
+   * ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.  The template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.  This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
+   * @return resourceClaimTemplateName
+  **/
+  @jakarta.annotation.Nullable
+  public String getResourceClaimTemplateName() {
+    return resourceClaimTemplateName;
+  }
+
+  public void setResourceClaimTemplateName(String resourceClaimTemplateName) {
+    this.resourceClaimTemplateName = resourceClaimTemplateName;
   }
 
 
@@ -111,12 +133,13 @@ public class V1PodResourceClaim {
     }
     V1PodResourceClaim v1PodResourceClaim = (V1PodResourceClaim) o;
     return Objects.equals(this.name, v1PodResourceClaim.name) &&
-        Objects.equals(this.source, v1PodResourceClaim.source);
+        Objects.equals(this.resourceClaimName, v1PodResourceClaim.resourceClaimName) &&
+        Objects.equals(this.resourceClaimTemplateName, v1PodResourceClaim.resourceClaimTemplateName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, source);
+    return Objects.hash(name, resourceClaimName, resourceClaimTemplateName);
   }
 
   @Override
@@ -124,7 +147,8 @@ public class V1PodResourceClaim {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PodResourceClaim {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    resourceClaimName: ").append(toIndentedString(resourceClaimName)).append("\n");
+    sb.append("    resourceClaimTemplateName: ").append(toIndentedString(resourceClaimTemplateName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,7 +172,8 @@ public class V1PodResourceClaim {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
-    openapiFields.add("source");
+    openapiFields.add("resourceClaimName");
+    openapiFields.add("resourceClaimTemplateName");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -186,9 +211,11 @@ public class V1PodResourceClaim {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the optional field `source`
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-        V1ClaimSource.validateJsonElement(jsonObj.get("source"));
+      if ((jsonObj.get("resourceClaimName") != null && !jsonObj.get("resourceClaimName").isJsonNull()) && !jsonObj.get("resourceClaimName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resourceClaimName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceClaimName").toString()));
+      }
+      if ((jsonObj.get("resourceClaimTemplateName") != null && !jsonObj.get("resourceClaimTemplateName").isJsonNull()) && !jsonObj.get("resourceClaimTemplateName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resourceClaimTemplateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceClaimTemplateName").toString()));
       }
   }
 

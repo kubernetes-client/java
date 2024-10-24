@@ -76,7 +76,7 @@
 		<dependency>
 			<groupId>org.wiremock</groupId>
 			<artifactId>wiremock</artifactId>
-			<version>3.9.1</version>
+			<version>3.9.2</version>
 			<scope>test</scope>
 		</dependency>
 		<!--for
@@ -119,7 +119,7 @@
 		</plugins>
 	</build>
     <properties>
-        <junit-jupiter.version>5.11.2</junit-jupiter.version>
+        <junit-jupiter.version>5.11.3</junit-jupiter.version>
         <spring.boot.version>3.3.4</spring.boot.version>
     </properties>
 </project>

@@ -24,6 +24,7 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1Containe
   public V1ContainerStatus build() {
     V1ContainerStatus buildable = new V1ContainerStatus();
     buildable.setAllocatedResources(fluent.getAllocatedResources());
+    buildable.setAllocatedResourcesStatus(fluent.buildAllocatedResourcesStatus());
     buildable.setContainerID(fluent.getContainerID());
     buildable.setImage(fluent.getImage());
     buildable.setImageID(fluent.getImageID());
@@ -34,6 +35,7 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1Containe
     buildable.setRestartCount(fluent.getRestartCount());
     buildable.setStarted(fluent.getStarted());
     buildable.setState(fluent.buildState());
+    buildable.setUser(fluent.buildUser());
     buildable.setVolumeMounts(fluent.buildVolumeMounts());
     return buildable;
   }

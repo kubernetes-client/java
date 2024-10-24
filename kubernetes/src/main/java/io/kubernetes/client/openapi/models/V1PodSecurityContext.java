@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
   @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
@@ -92,6 +92,10 @@ public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS = "supplementalGroups";
   @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS)
   private List<Long> supplementalGroups = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY = "supplementalGroupsPolicy";
+  @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY)
+  private String supplementalGroupsPolicy;
 
   public static final String SERIALIZED_NAME_SYSCTLS = "sysctls";
   @SerializedName(SERIALIZED_NAME_SYSCTLS)
@@ -270,7 +274,7 @@ public class V1PodSecurityContext {
   }
 
    /**
-   * A list of groups applied to the first process run in each container, in addition to the container&#39;s primary GID, the fsGroup (if specified), and group memberships defined in the container image for the uid of the container process. If unspecified, no additional groups are added to any container. Note that group memberships defined in the container image for the uid of the container process are still effective, even if they are not included in this list. Note that this field cannot be set when spec.os.name is windows.
+   * A list of groups applied to the first process run in each container, in addition to the container&#39;s primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.
    * @return supplementalGroups
   **/
   @jakarta.annotation.Nullable
@@ -280,6 +284,25 @@ public class V1PodSecurityContext {
 
   public void setSupplementalGroups(List<Long> supplementalGroups) {
     this.supplementalGroups = supplementalGroups;
+  }
+
+
+  public V1PodSecurityContext supplementalGroupsPolicy(String supplementalGroupsPolicy) {
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
+    return this;
+  }
+
+   /**
+   * Defines how supplemental groups of the first container processes are calculated. Valid values are \&quot;Merge\&quot; and \&quot;Strict\&quot;. If not specified, \&quot;Merge\&quot; is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.
+   * @return supplementalGroupsPolicy
+  **/
+  @jakarta.annotation.Nullable
+  public String getSupplementalGroupsPolicy() {
+    return supplementalGroupsPolicy;
+  }
+
+  public void setSupplementalGroupsPolicy(String supplementalGroupsPolicy) {
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
   }
 
 
@@ -348,13 +371,14 @@ public class V1PodSecurityContext {
         Objects.equals(this.seLinuxOptions, v1PodSecurityContext.seLinuxOptions) &&
         Objects.equals(this.seccompProfile, v1PodSecurityContext.seccompProfile) &&
         Objects.equals(this.supplementalGroups, v1PodSecurityContext.supplementalGroups) &&
+        Objects.equals(this.supplementalGroupsPolicy, v1PodSecurityContext.supplementalGroupsPolicy) &&
         Objects.equals(this.sysctls, v1PodSecurityContext.sysctls) &&
         Objects.equals(this.windowsOptions, v1PodSecurityContext.windowsOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, supplementalGroups, sysctls, windowsOptions);
+    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, supplementalGroups, supplementalGroupsPolicy, sysctls, windowsOptions);
   }
 
   @Override
@@ -370,6 +394,7 @@ public class V1PodSecurityContext {
     sb.append("    seLinuxOptions: ").append(toIndentedString(seLinuxOptions)).append("\n");
     sb.append("    seccompProfile: ").append(toIndentedString(seccompProfile)).append("\n");
     sb.append("    supplementalGroups: ").append(toIndentedString(supplementalGroups)).append("\n");
+    sb.append("    supplementalGroupsPolicy: ").append(toIndentedString(supplementalGroupsPolicy)).append("\n");
     sb.append("    sysctls: ").append(toIndentedString(sysctls)).append("\n");
     sb.append("    windowsOptions: ").append(toIndentedString(windowsOptions)).append("\n");
     sb.append("}");
@@ -403,6 +428,7 @@ public class V1PodSecurityContext {
     openapiFields.add("seLinuxOptions");
     openapiFields.add("seccompProfile");
     openapiFields.add("supplementalGroups");
+    openapiFields.add("supplementalGroupsPolicy");
     openapiFields.add("sysctls");
     openapiFields.add("windowsOptions");
 
@@ -449,6 +475,9 @@ public class V1PodSecurityContext {
       // ensure the optional json data is an array if present
       if (jsonObj.get("supplementalGroups") != null && !jsonObj.get("supplementalGroups").isJsonNull() && !jsonObj.get("supplementalGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `supplementalGroups` to be an array in the JSON string but got `%s`", jsonObj.get("supplementalGroups").toString()));
+      }
+      if ((jsonObj.get("supplementalGroupsPolicy") != null && !jsonObj.get("supplementalGroupsPolicy").isJsonNull()) && !jsonObj.get("supplementalGroupsPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `supplementalGroupsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplementalGroupsPolicy").toString()));
       }
       if (jsonObj.get("sysctls") != null && !jsonObj.get("sysctls").isJsonNull()) {
         JsonArray jsonArraysysctls = jsonObj.getAsJsonArray("sysctls");

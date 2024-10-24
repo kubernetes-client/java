@@ -46,13 +46,17 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * NodeRuntimeHandlerFeatures is a set of runtime features.
+ * NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeRuntimeHandlerFeatures {
   public static final String SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS = "recursiveReadOnlyMounts";
   @SerializedName(SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS)
   private Boolean recursiveReadOnlyMounts;
+
+  public static final String SERIALIZED_NAME_USER_NAMESPACES = "userNamespaces";
+  @SerializedName(SERIALIZED_NAME_USER_NAMESPACES)
+  private Boolean userNamespaces;
 
   public V1NodeRuntimeHandlerFeatures() {
   }
@@ -76,6 +80,25 @@ public class V1NodeRuntimeHandlerFeatures {
   }
 
 
+  public V1NodeRuntimeHandlerFeatures userNamespaces(Boolean userNamespaces) {
+    this.userNamespaces = userNamespaces;
+    return this;
+  }
+
+   /**
+   * UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.
+   * @return userNamespaces
+  **/
+  @jakarta.annotation.Nullable
+  public Boolean getUserNamespaces() {
+    return userNamespaces;
+  }
+
+  public void setUserNamespaces(Boolean userNamespaces) {
+    this.userNamespaces = userNamespaces;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -86,12 +109,13 @@ public class V1NodeRuntimeHandlerFeatures {
       return false;
     }
     V1NodeRuntimeHandlerFeatures v1NodeRuntimeHandlerFeatures = (V1NodeRuntimeHandlerFeatures) o;
-    return Objects.equals(this.recursiveReadOnlyMounts, v1NodeRuntimeHandlerFeatures.recursiveReadOnlyMounts);
+    return Objects.equals(this.recursiveReadOnlyMounts, v1NodeRuntimeHandlerFeatures.recursiveReadOnlyMounts) &&
+        Objects.equals(this.userNamespaces, v1NodeRuntimeHandlerFeatures.userNamespaces);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recursiveReadOnlyMounts);
+    return Objects.hash(recursiveReadOnlyMounts, userNamespaces);
   }
 
   @Override
@@ -99,6 +123,7 @@ public class V1NodeRuntimeHandlerFeatures {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1NodeRuntimeHandlerFeatures {\n");
     sb.append("    recursiveReadOnlyMounts: ").append(toIndentedString(recursiveReadOnlyMounts)).append("\n");
+    sb.append("    userNamespaces: ").append(toIndentedString(userNamespaces)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,6 +147,7 @@ public class V1NodeRuntimeHandlerFeatures {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("recursiveReadOnlyMounts");
+    openapiFields.add("userNamespaces");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

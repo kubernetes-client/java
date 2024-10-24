@@ -48,7 +48,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T20:15:56.920539Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1GlusterfsPersistentVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)

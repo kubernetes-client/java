@@ -50,7 +50,7 @@
     <slf4j.version>2.0.16</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
     <protobuf.version>4.28.2</protobuf.version>
-    <junit-jupiter.version>5.11.2</junit-jupiter.version>
+    <junit-jupiter.version>5.11.3</junit-jupiter.version>
     <bucket4j.version>8.10.1</bucket4j.version>
     <bouncycastle.version>1.78.1</bouncycastle.version>
     <gson.version>2.11.0</gson.version>
@@ -66,7 +66,7 @@
     <apache.commons.io>2.17.0</apache.commons.io>
     <common.codec.version>1.17.1</common.codec.version>
     <spring.boot.version>3.3.4</spring.boot.version>
-    <spring.version>6.1.13</spring.version>
+    <spring.version>6.1.14</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
@@ -152,7 +152,7 @@
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sts</artifactId>
-        <version>1.12.774</version>
+        <version>1.12.777</version>
       </dependency>
       <dependency>
         <groupId>com.google.protobuf</groupId>
@@ -252,7 +252,7 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.28.0</version>
+        <version>1.29.0</version>
       </dependency>
 
       <!-- tests -->
@@ -289,7 +289,7 @@
       <dependency>
         <groupId>org.wiremock</groupId>
         <artifactId>wiremock</artifactId>
-        <version>3.9.1</version>
+        <version>3.9.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -398,7 +398,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.5.0</version>
+          <version>3.5.1</version>
           <configuration>
             <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1226 workaround -->
           </configuration>
