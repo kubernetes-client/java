@@ -119,7 +119,8 @@ public class KubectlCreate<ApiType extends KubernetesObject>
     Set<Discovery.APIResource> resources = discovery.findAll();
     Optional<Discovery.APIResource> apiResource = resources.stream()
             .filter(r -> r.getKind().equalsIgnoreCase(kind)
-                    && r.getVersions().stream().anyMatch(v -> v.equalsIgnoreCase(apiVersion)))
+                    && r.getVersions().stream().anyMatch(v -> v.equalsIgnoreCase(apiVersion))
+                    && (r.getGroup() == null || r.getGroup().equalsIgnoreCase((String) yamlMap.get("group"))))
             .findFirst();
 
     // Check if the resource kind was found
