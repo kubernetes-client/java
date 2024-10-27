@@ -13,40 +13,29 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.kubernetes.client.openapi.models.V1ExternalDocumentation;
-import io.kubernetes.client.openapi.models.V1ValidationRule;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import io.kubernetes.client.openapi.JSON;
@@ -55,6 +44,7 @@ import io.kubernetes.client.openapi.JSON;
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)
@@ -1290,50 +1280,50 @@ public class V1JSONSchemaProps {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("$ref");
-    openapiFields.add("$schema");
-    openapiFields.add("additionalItems");
-    openapiFields.add("additionalProperties");
-    openapiFields.add("allOf");
-    openapiFields.add("anyOf");
-    openapiFields.add("default");
-    openapiFields.add("definitions");
-    openapiFields.add("dependencies");
-    openapiFields.add("description");
-    openapiFields.add("enum");
-    openapiFields.add("example");
-    openapiFields.add("exclusiveMaximum");
-    openapiFields.add("exclusiveMinimum");
-    openapiFields.add("externalDocs");
-    openapiFields.add("format");
-    openapiFields.add("id");
-    openapiFields.add("items");
-    openapiFields.add("maxItems");
-    openapiFields.add("maxLength");
-    openapiFields.add("maxProperties");
-    openapiFields.add("maximum");
-    openapiFields.add("minItems");
-    openapiFields.add("minLength");
-    openapiFields.add("minProperties");
-    openapiFields.add("minimum");
-    openapiFields.add("multipleOf");
-    openapiFields.add("not");
-    openapiFields.add("nullable");
-    openapiFields.add("oneOf");
-    openapiFields.add("pattern");
-    openapiFields.add("patternProperties");
-    openapiFields.add("properties");
-    openapiFields.add("required");
-    openapiFields.add("title");
-    openapiFields.add("type");
-    openapiFields.add("uniqueItems");
-    openapiFields.add("x-kubernetes-embedded-resource");
-    openapiFields.add("x-kubernetes-int-or-string");
-    openapiFields.add("x-kubernetes-list-map-keys");
-    openapiFields.add("x-kubernetes-list-type");
-    openapiFields.add("x-kubernetes-map-type");
-    openapiFields.add("x-kubernetes-preserve-unknown-fields");
-    openapiFields.add("x-kubernetes-validations");
+    openapiFields.add(SERIALIZED_NAME_$_REF);
+    openapiFields.add(SERIALIZED_NAME_$_SCHEMA);
+    openapiFields.add(SERIALIZED_NAME_ADDITIONAL_ITEMS);
+    openapiFields.add(SERIALIZED_NAME_ADDITIONAL_PROPERTIES);
+    openapiFields.add(SERIALIZED_NAME_ALL_OF);
+    openapiFields.add(SERIALIZED_NAME_ANY_OF);
+    openapiFields.add(SERIALIZED_NAME_DEFAULT);
+    openapiFields.add(SERIALIZED_NAME_DEFINITIONS);
+    openapiFields.add(SERIALIZED_NAME_DEPENDENCIES);
+    openapiFields.add(SERIALIZED_NAME_DESCRIPTION);
+    openapiFields.add(SERIALIZED_NAME_ENUM);
+    openapiFields.add(SERIALIZED_NAME_EXAMPLE);
+    openapiFields.add(SERIALIZED_NAME_EXCLUSIVE_MAXIMUM);
+    openapiFields.add(SERIALIZED_NAME_EXCLUSIVE_MINIMUM);
+    openapiFields.add(SERIALIZED_NAME_EXTERNAL_DOCS);
+    openapiFields.add(SERIALIZED_NAME_FORMAT);
+    openapiFields.add(SERIALIZED_NAME_ID);
+    openapiFields.add(SERIALIZED_NAME_ITEMS);
+    openapiFields.add(SERIALIZED_NAME_MAX_ITEMS);
+    openapiFields.add(SERIALIZED_NAME_MAX_LENGTH);
+    openapiFields.add(SERIALIZED_NAME_MAX_PROPERTIES);
+    openapiFields.add(SERIALIZED_NAME_MAXIMUM);
+    openapiFields.add(SERIALIZED_NAME_MIN_ITEMS);
+    openapiFields.add(SERIALIZED_NAME_MIN_LENGTH);
+    openapiFields.add(SERIALIZED_NAME_MIN_PROPERTIES);
+    openapiFields.add(SERIALIZED_NAME_MINIMUM);
+    openapiFields.add(SERIALIZED_NAME_MULTIPLE_OF);
+    openapiFields.add(SERIALIZED_NAME_NOT);
+    openapiFields.add(SERIALIZED_NAME_NULLABLE);
+    openapiFields.add(SERIALIZED_NAME_ONE_OF);
+    openapiFields.add(SERIALIZED_NAME_PATTERN);
+    openapiFields.add(SERIALIZED_NAME_PATTERN_PROPERTIES);
+    openapiFields.add(SERIALIZED_NAME_PROPERTIES);
+    openapiFields.add(SERIALIZED_NAME_REQUIRED);
+    openapiFields.add(SERIALIZED_NAME_TITLE);
+    openapiFields.add(SERIALIZED_NAME_TYPE);
+    openapiFields.add(SERIALIZED_NAME_UNIQUE_ITEMS);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_EMBEDDED_RESOURCE);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_INT_OR_STRING);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_MAP_TYPE);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_PRESERVE_UNKNOWN_FIELDS);
+    openapiFields.add(SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS);
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1345,127 +1335,99 @@ public class V1JSONSchemaProps {
   * @param jsonElement JSON Element
   * @throws IOException if the JSON Element is invalid with respect to V1JSONSchemaProps
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!V1JSONSchemaProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1JSONSchemaProps is not found in the empty JSON string", V1JSONSchemaProps.openapiRequiredFields.toString()));
-        }
-      }
+ public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+   if (jsonElement == null) {
+     validateRequiredFields(jsonElement);
+   } else {
+     validateJsonObject(jsonElement.getAsJsonObject());
+   }
+ }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!V1JSONSchemaProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JSONSchemaProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$ref") != null && !jsonObj.get("$ref").isJsonNull()) && !jsonObj.get("$ref").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `$ref` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$ref").toString()));
-      }
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
-      if (jsonObj.get("allOf") != null && !jsonObj.get("allOf").isJsonNull()) {
-        JsonArray jsonArrayallOf = jsonObj.getAsJsonArray("allOf");
-        if (jsonArrayallOf != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("allOf").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `allOf` to be an array in the JSON string but got `%s`", jsonObj.get("allOf").toString()));
-          }
+  // Validate required fields when JSON element is null
+  private static void validateRequiredFields(JsonElement jsonElement) throws IOException {
+    if (!V1JSONSchemaProps.openapiRequiredFields.isEmpty()) {
+      throw new IllegalArgumentException(String.format("The required field(s) %s in V1JSONSchemaProps is not found in the empty JSON string",
+              V1JSONSchemaProps.openapiRequiredFields.toString()));
+    }
+  }
 
-          // validate the optional field `allOf` (array)
-          for (int i = 0; i < jsonArrayallOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonElement(jsonArrayallOf.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("anyOf") != null && !jsonObj.get("anyOf").isJsonNull()) {
-        JsonArray jsonArrayanyOf = jsonObj.getAsJsonArray("anyOf");
-        if (jsonArrayanyOf != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("anyOf").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `anyOf` to be an array in the JSON string but got `%s`", jsonObj.get("anyOf").toString()));
-          }
+  // Validate the JSON Object structure
+  private static void validateJsonObject(JsonObject jsonObj) throws IOException {
+    validateAdditionalFields(jsonObj);
+    validatePrimitiveFields(jsonObj);
+    validateArrayFields(jsonObj);
+    validateNestedFields(jsonObj);
+  }
 
-          // validate the optional field `anyOf` (array)
-          for (int i = 0; i < jsonArrayanyOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonElement(jsonArrayanyOf.get(i));
-          };
-        }
+  // Check if JSON contains additional fields not defined in openapiFields
+  private static void validateAdditionalFields(JsonObject jsonObj) {
+    Set<Map.Entry<String, JsonElement>> entries = jsonObj.entrySet();
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!V1JSONSchemaProps.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JSONSchemaProps` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("enum") != null && !jsonObj.get("enum").isJsonNull() && !jsonObj.get("enum").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enum` to be an array in the JSON string but got `%s`", jsonObj.get("enum").toString()));
-      }
-      // validate the optional field `externalDocs`
-      if (jsonObj.get("externalDocs") != null && !jsonObj.get("externalDocs").isJsonNull()) {
-        V1ExternalDocumentation.validateJsonElement(jsonObj.get("externalDocs"));
-      }
-      if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the optional field `not`
-      if (jsonObj.get("not") != null && !jsonObj.get("not").isJsonNull()) {
-        V1JSONSchemaProps.validateJsonElement(jsonObj.get("not"));
-      }
-      if (jsonObj.get("oneOf") != null && !jsonObj.get("oneOf").isJsonNull()) {
-        JsonArray jsonArrayoneOf = jsonObj.getAsJsonArray("oneOf");
-        if (jsonArrayoneOf != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("oneOf").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `oneOf` to be an array in the JSON string but got `%s`", jsonObj.get("oneOf").toString()));
-          }
+    }
+  }
 
-          // validate the optional field `oneOf` (array)
-          for (int i = 0; i < jsonArrayoneOf.size(); i++) {
-            V1JSONSchemaProps.validateJsonElement(jsonArrayoneOf.get(i));
-          };
-        }
-      }
-      if ((jsonObj.get("pattern") != null && !jsonObj.get("pattern").isJsonNull()) && !jsonObj.get("pattern").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("required") != null && !jsonObj.get("required").isJsonNull() && !jsonObj.get("required").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `required` to be an array in the JSON string but got `%s`", jsonObj.get("required").toString()));
-      }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("x-kubernetes-list-map-keys") != null && !jsonObj.get("x-kubernetes-list-map-keys").isJsonNull() && !jsonObj.get("x-kubernetes-list-map-keys").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-list-map-keys` to be an array in the JSON string but got `%s`", jsonObj.get("x-kubernetes-list-map-keys").toString()));
-      }
-      if ((jsonObj.get("x-kubernetes-list-type") != null && !jsonObj.get("x-kubernetes-list-type").isJsonNull()) && !jsonObj.get("x-kubernetes-list-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-list-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x-kubernetes-list-type").toString()));
-      }
-      if ((jsonObj.get("x-kubernetes-map-type") != null && !jsonObj.get("x-kubernetes-map-type").isJsonNull()) && !jsonObj.get("x-kubernetes-map-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-map-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x-kubernetes-map-type").toString()));
-      }
-      if (jsonObj.get("x-kubernetes-validations") != null && !jsonObj.get("x-kubernetes-validations").isJsonNull()) {
-        JsonArray jsonArrayxKubernetesValidations = jsonObj.getAsJsonArray("x-kubernetes-validations");
-        if (jsonArrayxKubernetesValidations != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("x-kubernetes-validations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-validations` to be an array in the JSON string but got `%s`", jsonObj.get("x-kubernetes-validations").toString()));
-          }
+  // Validate primitive fields in JSON Object
+  private static void validatePrimitiveFields(JsonObject jsonObj) {
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_$_REF, "Expected the field `$ref` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_$_SCHEMA, "Expected the field `$schema` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_DESCRIPTION, "Expected the field `description` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_FORMAT, "Expected the field `format` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_ID, "Expected the field `id` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_PATTERN, "Expected the field `pattern` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_TITLE, "Expected the field `title` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_TYPE, "Expected the field `type` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE, "Expected the field `x-kubernetes-list-type` to be a primitive type");
+    validatePrimitiveField(jsonObj, SERIALIZED_NAME_X_KUBERNETES_MAP_TYPE, "Expected the field `x-kubernetes-map-type` to be a primitive type");
+  }
 
-          // validate the optional field `x-kubernetes-validations` (array)
-          for (int i = 0; i < jsonArrayxKubernetesValidations.size(); i++) {
-            V1ValidationRule.validateJsonElement(jsonArrayxKubernetesValidations.get(i));
-          };
+  // Validate a specific primitive field
+  private static void validatePrimitiveField(JsonObject jsonObj, String fieldName, String errorMessage) {
+    if (jsonObj.has(fieldName) && !jsonObj.get(fieldName).isJsonNull() && !jsonObj.get(fieldName).isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format("%s in the JSON string but got `%s`", errorMessage, jsonObj.get(fieldName).toString()));
+    }
+  }
+
+  // Validate array fields in JSON Object
+  private static void validateArrayFields(JsonObject jsonObj) throws IOException {
+    validateArrayField(jsonObj, SERIALIZED_NAME_ALL_OF, "Expected the field `allOf` to be an array");
+    validateArrayField(jsonObj, SERIALIZED_NAME_ANY_OF, "Expected the field `anyOf` to be an array");
+    validateArrayField(jsonObj, SERIALIZED_NAME_ONE_OF, "Expected the field `oneOf` to be an array");
+    validateArrayField(jsonObj, SERIALIZED_NAME_REQUIRED, "Expected the field `required` to be an array");
+    validateArrayField(jsonObj, SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS, "Expected the field `x-kubernetes-list-map-keys` to be an array");
+    validateArrayField(jsonObj, SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS, "Expected the field `x-kubernetes-validations` to be an array");
+  }
+
+  // Validate a specific array field
+  private static void validateArrayField(JsonObject jsonObj, String fieldName, String errorMessage) throws IOException {
+    if (jsonObj.has(fieldName) && !jsonObj.get(fieldName).isJsonNull()) {
+      JsonElement element = jsonObj.get(fieldName);
+      if (!element.isJsonArray()) {
+        throw new IllegalArgumentException(String.format("%s in the JSON string but got `%s`", errorMessage, element.toString()));
+      }
+      // Validate each item in the array, if applicable
+      if (fieldName.equals(SERIALIZED_NAME_ALL_OF) || fieldName.equals(SERIALIZED_NAME_ANY_OF) || fieldName.equals(SERIALIZED_NAME_ONE_OF)) {
+        for (JsonElement item : element.getAsJsonArray()) {
+          validateJsonElement(item);
+        }
+      } else if (fieldName.equals(SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS)) {
+        for (JsonElement item : element.getAsJsonArray()) {
+          V1ValidationRule.validateJsonElement(item);
         }
       }
+    }
+  }
+
+  // Validate nested fields such as 'not' and 'externalDocs'
+  private static void validateNestedFields(JsonObject jsonObj) throws IOException {
+    if (jsonObj.has(SERIALIZED_NAME_NOT) && !jsonObj.get(SERIALIZED_NAME_NOT).isJsonNull()) {
+      validateJsonElement(jsonObj.get(SERIALIZED_NAME_NOT));
+    }
+    if (jsonObj.has(SERIALIZED_NAME_EXTERNAL_DOCS) && !jsonObj.get(SERIALIZED_NAME_EXTERNAL_DOCS).isJsonNull()) {
+      V1ExternalDocumentation.validateJsonElement(jsonObj.get(SERIALIZED_NAME_EXTERNAL_DOCS));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
