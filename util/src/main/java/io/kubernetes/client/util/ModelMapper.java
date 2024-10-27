@@ -19,6 +19,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import java.io.File;
 
 import java.io.IOException;
@@ -215,8 +216,15 @@ public class ModelMapper {
     if (clazz != null) {
       return clazz;
     }
-    return preBuiltGetApiTypeClass(group, version, kind);
+
+    clazz = preBuiltGetApiTypeClass(group, version, kind);
+
+    if (clazz != null) {
+      return clazz;
+    }
+    return DynamicKubernetesObject.class;
   }
+
 
   /**
    * Gets the GVK by the given model class.

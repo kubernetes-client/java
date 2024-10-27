@@ -18,6 +18,8 @@ import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
+
 import org.junit.jupiter.api.Test;
 
 class ModelMapperTest {
@@ -35,41 +37,52 @@ class ModelMapperTest {
 
   @Test
   void addingModel() {
-    Class objClass =
-            new Object() {
-              {
-              }
-            }.getClass();
+    Class<?> objClass = new Object() {}.getClass();
+
+    assertThat(ModelMapper.getApiTypeClass("example.io/V1", "Toss"))
+            .isEqualTo(DynamicKubernetesObject.class);
 
     ModelMapper.addModelMap("example.io", "v1", "Toss", objClass);
 
     assertThat(ModelMapper.getApiTypeClass("example.io/v1", "Toss"))
-        .isEqualTo(objClass);
+            .isEqualTo(objClass);
     assertThat(ModelMapper.getApiTypeClass("example.io", "v1", "Toss"))
-        .isEqualTo(objClass);
+            .isEqualTo(objClass);
 
-    assertThat(ModelMapper.getApiTypeClass("example.io/V1", "Toss")).isNull();
-    assertThat(ModelMapper.getApiTypeClass("example.io", "V1", "Toss")).isNull();
+    assertThat(ModelMapper.getApiTypeClass("example.io/V1", "Toss"))
+            .isEqualTo(DynamicKubernetesObject.class);
+    assertThat(ModelMapper.getApiTypeClass("example.io", "V1", "Toss"))
+            .isEqualTo(DynamicKubernetesObject.class);
 
-    assertThat(ModelMapper.getApiTypeClass("example.io/v1", "Tofu")).isNull();
-    assertThat(ModelMapper.getApiTypeClass("example.io", "v1", "Tofu")).isNull();
+    assertThat(ModelMapper.getApiTypeClass("example.io/v1", "Tofu"))
+            .isEqualTo(DynamicKubernetesObject.class);
+    assertThat(ModelMapper.getApiTypeClass("example.io", "v1", "Tofu"))
+            .isEqualTo(DynamicKubernetesObject.class);
 
-    assertThat(ModelMapper.getApiTypeClass("v1", "Togu")).isNull();
-    ModelMapper.addModelMap("v1", "Togu", objClass);
-    assertThat(ModelMapper.getApiTypeClass("", "v1", "Togu"))
-        .isEqualTo(objClass);
     assertThat(ModelMapper.getApiTypeClass("v1", "Togu"))
-        .isEqualTo(objClass);
+            .isEqualTo(DynamicKubernetesObject.class);
+
+    ModelMapper.addModelMap("", "v1", "Togu", objClass);
+
+    assertThat(ModelMapper.getApiTypeClass("", "v1", "Togu"))
+            .isEqualTo(objClass);
+    assertThat(ModelMapper.getApiTypeClass("v1", "Togu"))
+            .isEqualTo(objClass);
   }
 
+  @Test
+  void getApiTypeClassReturnsDynamicKubernetesObjectWhenClassNotFound() {
+    assertThat(ModelMapper.getApiTypeClass("unknown.group", "v1", "UnknownKind"))
+            .isEqualTo(DynamicKubernetesObject.class);
+  }
 
   @Test
   void preBuiltGetGroupVersionKindByClass() {
-    assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class))
-        .hasValue(new GroupVersionKind("", "v1", "Pod"));
     assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class))
-        .hasValue(new GroupVersionKind("", "v1", "Deployment"));
+            .hasValue(new GroupVersionKind("", "v1", "Deployment"));
+    assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class))
+            .hasValue(new GroupVersionKind("", "v1", "Pod"));
     assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class))
-        .hasValue(new GroupVersionKind("", "v1", "CustomResourceDefinition"));
+            .hasValue(new GroupVersionKind("", "v1", "CustomResourceDefinition"));
   }
 }
