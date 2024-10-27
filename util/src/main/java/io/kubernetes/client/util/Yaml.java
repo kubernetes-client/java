@@ -451,46 +451,34 @@ public class Yaml {
    * @return the type description
    */
   public static TypeDescription newGsonCompatibleTypeDescription(
-      Class modelClass, String... gsonTaggedFields) {
+          Class<?> modelClass, String... gsonTaggedFields) {
     TypeDescription desc = new TypeDescription(modelClass);
     List<String> excluding = new ArrayList<>();
+
     for (String targetGsonAnnotation : gsonTaggedFields) {
-      Field field =
-          Arrays.stream(modelClass.getDeclaredFields())
+      Field field = Arrays.stream(modelClass.getDeclaredFields())
               .filter(f -> f.getAnnotation(SerializedName.class) != null)
-              .filter(
-                  f -> targetGsonAnnotation.equals(f.getAnnotation(SerializedName.class).value()))
+              .filter(f -> targetGsonAnnotation.equals(f.getAnnotation(SerializedName.class).value()))
               .findAny()
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Api model class "
-                              + modelClass.getSimpleName()
-                              + " doesn't have field with Gson @SerializedName with value "
-                              + targetGsonAnnotation));
-      Method getterMethod =
-          tryFindGetterMethod(modelClass, field)
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Cannot find getter method for "
-                              + targetGsonAnnotation
-                              + " on api model class "
-                              + modelClass.getSimpleName()));
-      Method setterMethod =
-          tryFindSetterMethod(modelClass, field)
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Cannot find setter method for "
-                              + targetGsonAnnotation
-                              + " on api model class "
-                              + modelClass.getSimpleName()));
+              .orElseThrow(() -> new IllegalArgumentException(
+                      "Api model class " + modelClass.getSimpleName() +
+                              " doesn't have field with Gson @SerializedName with value " + targetGsonAnnotation));
+
+      Method getterMethod = tryFindGetterMethod(modelClass, field)
+              .orElseThrow(() -> new IllegalArgumentException(
+                      "Cannot find getter method for " + targetGsonAnnotation +
+                              " on api model class " + modelClass.getSimpleName()));
+
+      Method setterMethod = tryFindSetterMethod(modelClass, field)
+              .orElseThrow(() -> new IllegalArgumentException(
+                      "Cannot find setter method for " + targetGsonAnnotation +
+                              " on api model class " + modelClass.getSimpleName()));
 
       desc.substituteProperty(
-          targetGsonAnnotation, field.getType(), getterMethod.getName(), setterMethod.getName());
+              targetGsonAnnotation, field.getType(), getterMethod.getName(), setterMethod.getName());
       excluding.add(field.getName());
     }
+
     desc.setExcludes(excluding.toArray(new String[0]));
     return desc;
   }
