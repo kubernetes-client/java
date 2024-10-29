@@ -132,6 +132,9 @@ public class KubectlCreate<ApiType extends KubernetesObject>
       // Getting the strongly typed class from ModelMapper
       Class<?> modelClass = ModelMapper.getApiTypeClass(group, version, kind);
 
+      // **Change**: Add check for the list type of the resource.
+      Class<?> modelListClass = ModelMapper.getApiTypeClass(group, version, kind + "List");
+
       // Validate model class
       if (modelClass == null) {
         throw new IllegalArgumentException("Could not determine model class for group: "
@@ -142,7 +145,7 @@ public class KubectlCreate<ApiType extends KubernetesObject>
       KubernetesObject typedObject = (KubernetesObject) Yaml.loadAs(content, modelClass);
 
       // Submit the resource to Kubernetes API
-      return submitResourceToApi(typedObject, (Class<KubernetesObject>) modelClass, group, version, resourcePlural);
+      return submitResourceToApi(typedObject, (Class<KubernetesObject>) modelClass, group, version, resourcePlural, modelListClass);
     } else {
       throw new IllegalArgumentException("Invalid resource kind: " + kind);
     }
@@ -156,6 +159,7 @@ public class KubectlCreate<ApiType extends KubernetesObject>
    * @param group The API group of the resource
    * @param version The API version of the resource
    * @param resourcePlural The plural form of the resource
+   * @param apiListTypeClass The class type for the list of the resource
    * @return The created resource object from the API response
    * @throws Exception If there is an error in submitting the resource
    */
@@ -164,17 +168,15 @@ public class KubectlCreate<ApiType extends KubernetesObject>
           Class<ApiType> apiTypeClass,
           String group,
           String version,
-          String resourcePlural) throws Exception {
+          String resourcePlural,
+          Class<?> apiListTypeClass) throws Exception { // **Change**: Added apiListTypeClass
 
     // Creating an API client and configuring it
     ApiClient client = Config.defaultClient();
     Configuration.setDefaultApiClient(client);
 
-    // Using the apiTypeClass and apiListTypeClass for list of resources
-    Class<?> apiListTypeClass = ModelMapper.getApiTypeClass(group, version, resourcePlural);
-
-    // Configuring the GenericKubernetesApi handler
-    GenericKubernetesApi<ApiType, ?> genericApi = new GenericKubernetesApi<>(
+    // Configuring the GenericKubernetesApi handler with explicit list type
+    GenericKubernetesApi<ApiType, KubernetesListObject> genericApi = new GenericKubernetesApi<>(
             apiTypeClass,
             apiListTypeClass,
             group,
@@ -194,4 +196,5 @@ public class KubectlCreate<ApiType extends KubernetesObject>
     // Return the created resource
     return apiResponse.getObject();
   }
+
 }
