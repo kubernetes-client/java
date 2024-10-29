@@ -32,6 +32,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Yaml;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -124,9 +125,16 @@ class KubectlCreateTest {
 
     Reader reader = new StringReader(yamlContent);
 
-    try (MockedStatic<Yaml> yamlMock = Mockito.mockStatic(Yaml.class)) {
+    try (MockedStatic<Yaml> yamlMock = Mockito.mockStatic(Yaml.class);
+         MockedStatic<ModelMapper> modelMapperMock = Mockito.mockStatic(ModelMapper.class)) {
+
       V1Pod mockPod = new V1Pod();
+      Class<?> listTypeClass = V1Pod.class; // Mock list type class
+
+      // Mock the Yaml and ModelMapper behaviors
       yamlMock.when(() -> Yaml.load(reader)).thenReturn(mockPod);
+      modelMapperMock.when(() -> ModelMapper.getApiTypeClass("v1", "v1", "Pod")).thenReturn(V1Pod.class);
+      modelMapperMock.when(() -> ModelMapper.getApiTypeClass("v1", "v1", "PodList")).thenReturn(listTypeClass);
 
       Object result = KubectlCreate.loadAndSubmitResource(reader);
 
@@ -153,9 +161,10 @@ class KubectlCreateTest {
     String group = "apps";
     String version = "v1";
     String resourcePlural = "pods";
+    Class<?> listTypeClass = V1Pod.class; // Mock list type class for Pod list
 
     Exception exception = assertThrows(RuntimeException.class, () -> {
-      KubectlCreate.submitResourceToApi(pod, V1Pod.class, group, version, resourcePlural);
+      KubectlCreate.submitResourceToApi(pod, V1Pod.class, group, version, resourcePlural, listTypeClass);
     });
 
     assertThat(exception.getMessage()).contains("Failed to create resource");
