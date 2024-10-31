@@ -12,21 +12,23 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
-import com.amazonaws.auth.AWSSessionCredentials;
+import com.amazonaws.DefaultRequest;
+import com.amazonaws.auth.AWS4Signer;
 import com.amazonaws.auth.AWSSessionCredentialsProvider;
+import com.amazonaws.http.HttpMethodName;
+import com.amazonaws.services.securitytoken.model.GetCallerIdentityRequest;
+import com.amazonaws.util.RuntimeHttpUtils;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.util.eks.AWS4STSSigner;
-import io.kubernetes.client.util.eks.AWS4SignerBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.time.Clock;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
-import java.util.HashMap;
+import java.util.Date;
 
 /**
  * EKS cluster authentication which generates a bearer token from AWS AK/SK. It doesn't require an "aws"
@@ -55,45 +57,43 @@ public class EKSAuthentication implements Authentication {
             expirySeconds = MAX_EXPIRY_SECONDS;
         }
         this.expirySeconds = expirySeconds;
+        this.stsEndpoint = URI.create("https://sts." + this.region + ".amazonaws.com");
     }
 
     private static final int MAX_EXPIRY_SECONDS = 60 * 15;
     private final AWSSessionCredentialsProvider provider;
     private final String region;
     private final String clusterName;
+    private final URI stsEndpoint;
 
     private final int expirySeconds;
 
     @Override
     public void provide(ApiClient client) {
-        URI uri = URI.create("https://sts." + this.region + ".amazonaws.com/");
-        AWSSessionCredentials cred = provider.getCredentials();
-        try {
-            AWS4STSSigner signer = new AWS4STSSigner(
-                    uri.toURL(),
-                    "GET",
-                    "sts",
-                    this.region);
-            String token = "k8s-aws-v1." + Base64.getEncoder().withoutPadding().encodeToString(signer.computeSignature(
-                    uri,
-                    new HashMap<String, String>() {{
-                        put("x-k8s-aws-id", clusterName);
-
-                    }},
-                    new HashMap<String, String>() {{
-                        put("Action", "GetCallerIdentity");
-                        put("Version", "2011-06-15");
-                    }},
-                    expirySeconds,
-                    AWS4SignerBase.EMPTY_BODY_SHA256,
-                    cred.getAWSAccessKeyId(),
-                    cred.getAWSSecretKey(),
-                    cred.getSessionToken()).getBytes());
-            client.setApiKeyPrefix("Bearer");
-            client.setApiKey(token);
-            log.info("Generated BEARER token for ApiClient, expiring at {}", Instant.now().plus(expirySeconds, ChronoUnit.SECONDS));
-        } catch (MalformedURLException | URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        DefaultRequest<GetCallerIdentityRequest> defaultRequest =
+                new DefaultRequest<>(new GetCallerIdentityRequest(), "sts");
+        defaultRequest.setResourcePath("/");
+        defaultRequest.setEndpoint(stsEndpoint);
+        defaultRequest.setHttpMethod(HttpMethodName.GET);
+        defaultRequest.addParameter("Action", "GetCallerIdentity");
+        defaultRequest.addParameter("Version", "2011-06-15");
+        defaultRequest.addHeader("x-k8s-aws-id", clusterName);
+        AWS4Signer signer = new AWS4Signer();
+        Date expirationTime = new Date(Clock.systemDefaultZone().millis() + 60 * 1000);
+        signer.setServiceName("sts");
+        signer.presignRequest(
+                defaultRequest,
+                this.provider.getCredentials(),
+                expirationTime);
+        String encodedUrl =
+                Base64.getUrlEncoder()
+                        .withoutPadding()
+                        .encodeToString( RuntimeHttpUtils.convertRequestToUrl(
+                                defaultRequest, true, false).toString()
+                                        .getBytes(StandardCharsets.UTF_8));
+        String token = "k8s-aws-v1." + encodedUrl;
+        client.setApiKeyPrefix("Bearer");
+        client.setApiKey(token);
+        log.info("Generated BEARER token for ApiClient, expiring at {}", Instant.now().plus(expirySeconds, ChronoUnit.SECONDS));
     }
 }
