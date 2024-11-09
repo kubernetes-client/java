@@ -4,7 +4,7 @@
 	<artifactId>client-java-examples-release-20</artifactId>
 	<name>client-java-examples-release-20</name>
 	<groupId>io.kubernetes</groupId>
-	<version>22.0.0</version>
+	<version>22.0.1-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
