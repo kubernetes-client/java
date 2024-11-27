@@ -140,6 +140,25 @@ class ExecTest {
   }
 
   @Test
+  void terminalResize() throws IOException, InterruptedException {
+    final Throwable throwable = mock(Throwable.class);
+    final ExecProcess process = new ExecProcess(client);
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+    System.out.println("Injecting output stream");
+    process.getHandler().injectOutputStream(4, bos);
+    System.out.println("Resizing output stream");
+    process.resize(100, 100);
+    System.out.println("Resizing output stream");
+    process.destroy();
+
+    System.out.println("Going to tests.");
+
+    String out = bos.toString("UTF-8");
+    assertThat(out).isEqualTo("{ \"width\": 100, \"height\": 100 }\n");
+  }
+
+  @Test
   void defaultUnhandledError() throws IOException, InterruptedException {
     final Throwable throwable = mock(Throwable.class);
     final ExecProcess process = new ExecProcess(client);

@@ -211,6 +211,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     return pipedOutput.get(stream);
   }
 
+  // Only used for testing, has to be public because ExecTest is in a different package :(
+  public void injectOutputStream(int streamNum, OutputStream stream) {
+    output.put(streamNum, stream);
+  }
+
   private class WebSocketOutputStream extends OutputStream {
 
     private static final long MAX_QUEUE_SIZE = 16L * 1024 * 1024;
