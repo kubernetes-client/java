@@ -218,6 +218,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     return pipedOutput.get(stream);
   }
 
+  // Only used for testing, has to be public because ExecTest is in a different package :(
+  public void injectOutputStream(int streamNum, OutputStream stream) {
+    output.put(streamNum, stream);
+  }
+
   public boolean supportsClose() {
     return this.protocol.equals("v5.channel.k8s.io");
   }

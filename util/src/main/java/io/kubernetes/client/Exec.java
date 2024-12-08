@@ -611,6 +611,13 @@ public class Exec {
       return streamHandler.getOutputStream(4);
     }
 
+    public void resize(int width, int height) throws IOException {
+      OutputStream resizeStream = getResizeStream();
+      String resize = "{ \"width\": " + width + ", \"height\": " + height + " }\n";
+      resizeStream.write(resize.getBytes("UTF-8"));
+      resizeStream.flush();
+    }
+
     private synchronized InputStream getInputStream(int stream) {
       if (!input.containsKey(stream)) {
         input.put(stream, streamHandler.getInputStream(stream));
