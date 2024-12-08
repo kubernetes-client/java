@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import java.io.ByteArrayInputStream;
@@ -110,6 +111,60 @@ class WebsocketStreamHandlerTest {
     outputStream.flush();
 
     assertThat(mockWebSocket.data).containsExactly(output);
+  }
+
+  @Test
+  void handlerSendingClose() throws IOException {
+    int testStreamId = 0;
+
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open("v5.channel.k8s.io", mockWebSocket);
+
+    OutputStream outputStream = handler.getOutputStream(testStreamId);
+    outputStream.close();
+
+    byte[] output = {(byte) 255, (byte) testStreamId};
+    assertThat(mockWebSocket.data).containsExactly(output);
+  }
+
+  @Test
+  void handlerNotSendingClose() throws IOException {
+    int testStreamId = 0;
+
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open("v4.channel.k8s.io", mockWebSocket);
+
+    OutputStream outputStream = handler.getOutputStream(testStreamId);
+    outputStream.close();
+
+    assertThat(mockWebSocket.data).isNull();
+  }
+
+  @Test
+  void handlerReceivingClosed() throws IOException {
+    int testStreamId = 0;
+    byte[] testDatas =
+        new byte[] {(byte) 255, (byte) testStreamId };
+    ByteArrayInputStream testBytesInputStream = new ByteArrayInputStream(testDatas);
+
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open(testProtocol, mockWebSocket);
+
+    InputStream inputStream = handler.getInputStream(testStreamId);
+
+    // handler receiving
+    handler.bytesMessage(testBytesInputStream);
+
+    assertThat(inputStream.available() == 0);
+    assertThatThrownBy(() -> {
+      inputStream.read();
+    }).isInstanceOf(IOException.class);
   }
 
   private static class MockWebSocket implements WebSocket {

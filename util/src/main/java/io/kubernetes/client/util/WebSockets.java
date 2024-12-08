@@ -36,8 +36,13 @@ import org.slf4j.LoggerFactory;
 public class WebSockets {
   private static final Logger log = LoggerFactory.getLogger(WebSockets.class);
 
-  // Only support v4 stream protocol as it was available since k8s 1.4
-  public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
+  public static final String[] protocols = {
+    // Only support v5 stream protocol as it was available since k8s 1.30
+    "v5.channel.k8s.io",
+    // Only support v4 stream protocol as it was available since k8s 1.4
+    "v4.channel.k8s.io"
+  };
+  public static final String K8S_STREAM_PROTOCOL = String.join(",", protocols);
   public static final String STREAM_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
   public static final String SPDY_3_1 = "SPDY/3.1";
   public static final String CONNECTION = "Connection";
@@ -91,7 +96,7 @@ public class WebSockets {
       throws ApiException, IOException {
 
     HashMap<String, String> headers = new HashMap<String, String>();
-    headers.put(STREAM_PROTOCOL_HEADER, V4_STREAM_PROTOCOL);
+    headers.put(STREAM_PROTOCOL_HEADER, K8S_STREAM_PROTOCOL);
     headers.put(WebSockets.CONNECTION, WebSockets.UPGRADE);
     headers.put(WebSockets.UPGRADE, SPDY_3_1);
     String[] localVarAuthNames = new String[] {"BearerToken"};

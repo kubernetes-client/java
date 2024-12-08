@@ -37,8 +37,9 @@ import org.slf4j.LoggerFactory;
  */
 public class WebSocketStreamHandler implements WebSockets.SocketListener, Closeable {
   private static final Logger log = LoggerFactory.getLogger(WebSocketStreamHandler.class);
+  private static final int CLOSE = 255;
 
-  private final Map<Integer, PipedInputStream> input = new HashMap<>();
+  private final Map<Integer, InputStream> input = new HashMap<>();
   private final Map<Integer, PipedOutputStream> pipedOutput = new HashMap<>();
   private final Map<Integer, OutputStream> output = new HashMap<>();
   private WebSocket socket;
@@ -93,6 +94,12 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
   protected void handleMessage(int stream, InputStream inStream) throws IOException {
     try {
+      if (stream == CLOSE) {
+        stream = inStream.read();
+        InputStream in = getInputStream(stream);
+        in.close();
+        return;
+      }
       OutputStream out = getSocketInputOutputStream(stream);
       Streams.copy(inStream, out);
       out.flush();
@@ -216,6 +223,10 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     output.put(streamNum, stream);
   }
 
+  public boolean supportsClose() {
+    return this.protocol.equals("v5.channel.k8s.io");
+  }
+
   private class WebSocketOutputStream extends OutputStream {
 
     private static final long MAX_QUEUE_SIZE = 16L * 1024 * 1024;
@@ -228,6 +239,20 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
     public WebSocketOutputStream(int stream) {
       this.stream = (byte) stream;
+    }
+
+    @Override
+    public void close() throws IOException {
+      super.close();
+      if (WebSocketStreamHandler.this.socket == null || !WebSocketStreamHandler.this.supportsClose()) {
+        return;
+      }
+      byte[] buffer = new byte[2];
+      buffer[0] = (byte) CLOSE;
+      buffer[1] = stream;
+
+      ByteString byteString = ByteString.of(buffer);
+      WebSocketStreamHandler.this.socket.send(byteString);
     }
 
     @Override
