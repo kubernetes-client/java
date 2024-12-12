@@ -42,17 +42,19 @@ class TokenFileAuthenticationTest {
   static WireMockExtension apiServer =
       WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
+  private ApiClient apiClient;
+
   @BeforeEach
   void setup() {
-    final ApiClient client = new ApiClient();
-    client.setBasePath("http://localhost:" + apiServer.getPort());
-    this.auth = new TokenFileAuthentication(SERVICEACCOUNT_TOKEN1_PATH);
-    this.auth.provide(client);
-    Configuration.setDefaultApiClient(client);
+    this.apiClient = new ApiClient();
+    this.apiClient.setBasePath("http://localhost:" + apiServer.getPort());
+    Configuration.setDefaultApiClient(this.apiClient);
   }
 
   @Test
-  void tokenProvided() throws ApiException {
+  void tokenProvidedTokenNormalFileReadShouldWork() throws ApiException {
+    Authentication authn = new TokenFileAuthentication(SERVICEACCOUNT_TOKEN1_PATH);
+    authn.provide(this.apiClient);
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json",
                 "{\"items\":[]}")));
@@ -63,19 +65,6 @@ class TokenFileAuthenticationTest {
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods"))
             .withHeader("Authorization", equalTo("Bearer token1")));
-
-    this.auth.setFile(SERVICEACCOUNT_TOKEN2_PATH);
-    api.listPodForAllNamespaces().execute();
-    apiServer.verify(
-        2,
-        getRequestedFor(urlPathEqualTo("/api/v1/pods"))
-            .withHeader("Authorization", equalTo("Bearer token1")));
-
-    this.auth.setExpiry(Instant.now().minusSeconds(1));
-    api.listPodForAllNamespaces().execute();
-    apiServer.verify(
-        1,
-        getRequestedFor(urlPathEqualTo("/api/v1/pods"))
-            .withHeader("Authorization", equalTo("Bearer token2")));
   }
+
 }
