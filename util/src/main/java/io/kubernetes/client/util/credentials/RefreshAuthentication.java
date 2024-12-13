@@ -20,6 +20,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.function.Supplier;
 
+import io.kubernetes.client.util.exception.TokenAquisitionException;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,7 +29,6 @@ import okhttp3.Response;
 // TODO: prefer OpenAPI backed Auentication once it is available. see details in
 // https://github.com/OpenAPITools/openapi-generator/pull/6036. currently, the
 // workaround is to hijack the http request.
-// TODO: Merge this with TokenFileAuthentication.
 public class RefreshAuthentication implements Authentication, Interceptor {
   private Instant expiry;
   private Duration refreshPeriod;
@@ -43,14 +43,22 @@ public class RefreshAuthentication implements Authentication, Interceptor {
   public RefreshAuthentication(Supplier<String> tokenSupplier, Duration refreshPeriod, Clock clock) {
     this.expiry = Instant.MIN;
     this.refreshPeriod = refreshPeriod;
-    this.token = tokenSupplier.get();
+    try {
+      this.token = tokenSupplier.get();
+    } catch (RuntimeException e) {
+      throw new TokenAquisitionException(e);
+    }
     this.tokenSupplier = tokenSupplier;
     this.clock = clock;
   }
 
   private String getToken() {
     if (Instant.now(this.clock).isAfter(this.expiry)) {
-      this.token = tokenSupplier.get();
+      try {
+        this.token = tokenSupplier.get();
+      } catch (RuntimeException e) {
+        throw new TokenAquisitionException(e);
+      }
       expiry = Instant.now(this.clock).plusSeconds(refreshPeriod.toSeconds());
     }
     return this.token;
