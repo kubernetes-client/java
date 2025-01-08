@@ -12,14 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.awaitility.Awaitility.await;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
+import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1ListMeta;
@@ -28,14 +21,25 @@ import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.CallGeneratorParams;
+import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.ListOptions;
-import java.time.Duration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.io.IOException;
+import java.time.Duration;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class SharedInformerFactoryTest {
@@ -96,4 +100,19 @@ class SharedInformerFactoryTest {
     await().timeout(Duration.ofSeconds(2)).until(podInformer::hasSynced);
     verify(genericKubernetesApi, atLeastOnce()).list(eq("default"), any(ListOptions.class));
   }
+
+  @Test
+  void createInformerMutipleTimesUseCache() throws IOException {
+    ApiClient client = Config.defaultClient();
+    SharedInformerFactory factory = new SharedInformerFactory(client, true);
+    SharedInformer<V1Pod> podInformer = null;
+    for (int i = 0; i < 10; i++) {
+       podInformer =
+              factory.sharedIndexInformerFor(genericKubernetesApi, V1Pod.class, 0, "default");
+    }
+    SharedInformer<V1Pod> cachedInformer = factory.getExistingSharedIndexInformer(V1Pod.class);
+    assertThat(cachedInformer).isNotNull();
+    assertThat(cachedInformer == podInformer).isTrue();
+  }
+
 }

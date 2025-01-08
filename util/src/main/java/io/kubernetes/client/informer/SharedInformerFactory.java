@@ -27,6 +27,9 @@ import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.ListOptions;
+import okhttp3.Call;
+import org.apache.commons.collections4.MapUtils;
+
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,10 +37,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.function.BiConsumer;
-import okhttp3.Call;
-import org.apache.commons.collections4.MapUtils;
 
-/** SharedInformerFactory class constructs and caches informers for api types. */
+/**
+ * SharedInformerFactory class constructs and caches informers for api types.
+ * For each api type, only the first created informer is stored in the cache.
+ * If reuseExistingCachedInformer is set to true, It returns the cached informer when creating
+ * an informer for the same api type.
+ * Otherwise, this factory creates a new informer on each invocation.
+ */
 public class SharedInformerFactory {
 
   protected Map<Type, SharedIndexInformer> informers;
@@ -47,26 +54,41 @@ public class SharedInformerFactory {
   private ExecutorService informerExecutor;
 
   private ApiClient apiClient;
+  private boolean reuseExistingCachedInformer;
 
   /** Constructor w/ default thread pool. */
   /** DEPRECATE: In favor of explicit apiClient constructor to avoid misguiding */
   @Deprecated
   public SharedInformerFactory() {
-    this(Configuration.getDefaultApiClient().setReadTimeout(0), Executors.newCachedThreadPool());
+    this(Configuration.getDefaultApiClient().setReadTimeout(0), Executors.newCachedThreadPool(), false);
   }
 
-  /** Constructor w/ api client specified and default thread pool. */
+  /**
+   *  Constructor w/ api client specified, default thread pool and reuseExistingCachedInformer is false.
+   */
   public SharedInformerFactory(ApiClient apiClient) {
-    this(apiClient, Executors.newCachedThreadPool());
+    this(apiClient, false);
+  }
+
+  /**
+   * Constructor w/ api client specified and default thread pool
+   * @param apiClient  specific api client
+   * @param reuseCache Determines whether to utilize an existing cached informer.
+   * If true, the method returns the first registered informer for multiple creations of the same apiClassType,
+   * else, each method calls results in the creation of a new informer,
+   * while only the first informer is stored in the cache.
+   */
+  public SharedInformerFactory(ApiClient apiClient, boolean reuseCache) {
+    this(apiClient, Executors.newCachedThreadPool(), reuseCache);
   }
 
   /**
    * Constructor w/ thread pool specified.
-   *
-   * @param threadPool specified thread pool
+   * DEPRECATE: In favor of explicit apiClient constructor to avoid misguiding.
    */
+  @Deprecated
   public SharedInformerFactory(ExecutorService threadPool) {
-    this(Configuration.getDefaultApiClient().setReadTimeout(0), threadPool);
+    this(Configuration.getDefaultApiClient().setReadTimeout(0),threadPool, false);
   }
 
   /**
@@ -74,8 +96,12 @@ public class SharedInformerFactory {
    *
    * @param client specific api client
    * @param threadPool specified thread pool
+   * @param reuseCache Determines whether to utilize an existing cached informer.
+   * If true, the method returns the first registered informer for multiple creations of the same apiClassType,
+   * else, each method calls results in the creation of a new informer,
+   * while only the first informer is stored in the cache.
    */
-  public SharedInformerFactory(ApiClient client, ExecutorService threadPool) {
+  public SharedInformerFactory(ApiClient client, ExecutorService threadPool, boolean reuseCache) {
     if (client.getReadTimeout() != 0) {
       throw new IllegalArgumentException("read timeout of ApiClient must be zero");
     }
@@ -84,6 +110,7 @@ public class SharedInformerFactory {
     informerExecutor = threadPool;
     informers = new HashMap<>();
     startedInformers = new HashMap<>();
+    reuseExistingCachedInformer = reuseCache;
   }
 
   /**
@@ -105,8 +132,7 @@ public class SharedInformerFactory {
   }
 
   /**
-   * Constructs and returns a shared index informer w/ resync period specified. But the informer
-   * cache will not be overwritten i.e. only the first registered informer will be kept.
+   * Constructs and returns a shared index informer w/ resync period specified.
    *
    * @param <ApiType> the type parameter
    * @param <ApiListType> the type parameter
@@ -151,9 +177,7 @@ public class SharedInformerFactory {
   }
 
   /**
-   * Constructs and returns a shared index informer by specifying lister-watcher. But the informer
-   * cache will not be overwritten on multiple call w/ the the same apiTypeClass i.e. only the first
-   * registered informer will be kept.
+   * Constructs and returns a shared index informer by specifying lister-watcher.
    *
    * @param <ApiType> the type parameter
    * @param <ApiListType> the type parameter
@@ -176,18 +200,22 @@ public class SharedInformerFactory {
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+    Type apiType = TypeToken.get(apiTypeClass).getType();
+
+    if(informers.containsKey(apiType) && reuseExistingCachedInformer) {
+      return informers.get(apiType);
+    }
 
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
-    this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
+
+    this.informers.putIfAbsent(apiType, informer);
     return informer;
   }
 
   /**
-   * Constructs and returns a shared index informer by specifying a generic api instance. But the
-   * informer cache will not be overwritten on multiple call w/ the the same apiTypeClass i.e. only
-   * the first registered informer will be kept.
+   * Constructs and returns a shared index informer by specifying a generic api instance.
    *
    * @param <ApiType> the type parameter
    * @param <ApiListType> the type parameter
