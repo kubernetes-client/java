@@ -6,11 +6,11 @@ on:
       releaseVersion:
         type: string
         required: true
-        description: The POM release version of this release. Must be a semantic version of the form X.Y.Z.
+        description: The POM release version of this release. Must be a semantic version of the form X.Y.Z. (For cutting legacy release, use format X.Y.Z-legacy)
       nextDevelopmentVersion:
         type: string
         required: true
-        description: The next POM development version after the release is done. Must be of the form X.Y.${Z+1}-SNAPSHOT
+        description: The next POM development version after the release is done. Must be of the form X.Y.${Z+1}-SNAPSHOT. (For cutting legacy release, use format X.Y.${Z+1}-legacy-SNAPSHOT)
       dry-run:
         type: boolean
         required: true
