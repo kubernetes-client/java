@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>22.0.0-legacy</version>
+  <version>22.0.1-legacy-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -32,7 +32,7 @@
     <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
     <developerConnection>scm:git:git@github.com:kubernetes-client/java.git</developerConnection>
     <url>https://github.com/kubernetes-client/java</url>
-    <tag>v22.0.0-legacy</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>

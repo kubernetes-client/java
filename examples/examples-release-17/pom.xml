@@ -4,7 +4,7 @@
 	<artifactId>client-java-examples-release-17</artifactId>
 	<name>client-java-examples-release-17</name>
 	<groupId>io.kubernetes</groupId>
-	<version>22.0.0-legacy</version>
+	<version>17.0.0</version>
 
 	<dependencies>
 		<dependency>
