@@ -265,7 +265,8 @@ public class V1ListMeta {
            @Override
            public V1ListMeta read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
+             // Disable validation so delete API can tolerate non-status return object (graceful deletion)
+             // validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonElement);
            }
 
