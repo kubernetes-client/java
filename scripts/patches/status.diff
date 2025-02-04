@@ -1,0 +1,27 @@
+From 8c5816990a40eb9ad57dda33bd7fb5cfdbcd3627 Mon Sep 17 00:00:00 2001
+From: Min Jin <minkimzz@amazon.com>
+Date: Tue, 4 Feb 2025 12:08:35 -0800
+Subject: [PATCH] manual apply status patch
+
+Signed-off-by: Min Jin <minkimzz@amazon.com>
+---
+ .../java/io/kubernetes/client/openapi/models/V1Status.java     | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
+index 8faeacd29..e03d69e70 100644
+--- a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
++++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
+@@ -389,7 +389,8 @@ public class V1Status {
+            @Override
+            public V1Status read(JsonReader in) throws IOException {
+              JsonElement jsonElement = elementAdapter.read(in);
+-             validateJsonElement(jsonElement);
++             // Disable validation so delete API can tolerate non-status return object (graceful deletion)
++             // validateJsonObject(jsonObj);
+              return thisAdapter.fromJsonTree(jsonElement);
+            }
+ 
+-- 
+2.40.0
+
