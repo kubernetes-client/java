@@ -7,10 +7,20 @@ on:
         type: string
         required: true
         description: 'The remote kubernetes release branch to fetch openapi spec. .e.g. "release-1.23"'
-
+      dry_run:
+        type: boolean
+        required: true
+        default: false
+        description: Dry run, will not send a PR
+      skip_patches:
+        type: boolean
+        required: true
+        default: false
+        description: If true, skip patching code after generation
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   generate:
@@ -59,14 +69,28 @@ jobs:
           export PACKAGE_NAME="io.kubernetes.client.openapi"
           EOF
 
-          USE_SINGLE_PARAMETER=false OPENAPI_GENERATOR_COMMIT=v4.3.1 bash java.sh ../../kubernetes/ settings
+          USE_SINGLE_PARAMETER=true bash java.sh ../../kubernetes/ settings
           popd
           rm -rf gen
+          git config user.email "k8s-publishing-bot@users.noreply.github.com"
+          git config user.name "Kubernetes Publisher"
+          git checkout -b "$BRANCH"
+          git add .
+          git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
+      - name: Apply Manual Diffs
+        if: ${{ github.event.inputs.skip_patches != 'true' }}
+        run: |
+          ls scripts/patches/*.diff | xargs git apply
+          git add .
+          git commit -s -m 'Applied patches under scripts/patches/*.diff'
       - name: Generate Fluent
         run: |
           # Only install the generated openapi module because the higher modules' compile
           # may fail due to api-changes.
-          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Pfluent-gen -pl kubernetes -am clean install
+          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
+              -Dmaven.test.skip=true \
+              -Pfluent-gen \
+              -pl kubernetes -am clean install
           pushd fluent-gen
           bash -x generate.sh
           popd
@@ -74,22 +98,17 @@ jobs:
         run: |
           mvn spotless:apply
       - name: Commit and push
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           # Commit and push
-          git config user.email "k8s.ci.robot@gmail.com"
-          git config user.name "Kubernetes Prow Robot"
-          git checkout -b "$BRANCH"
           git add .
-          git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
+          git commit -s -m 'Format and fluent-gen from ${{ github.event.inputs.kubernetesBranch }}'
           git push origin "$BRANCH"
       - name: Pull Request
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ env.BRANCH }}
           destination_branch: ${{ github.ref_name }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
-
-
-
-

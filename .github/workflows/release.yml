@@ -23,7 +23,7 @@ jobs:
       - name: Validate Input
         run: |
           echo "${{ github.ref_type }}" | perl -ne 'die unless m/^branch$/'
-          echo "${{ github.ref_name }}" | perl -ne 'die unless m/^release-legacy-\d+$/'
+          echo "${{ github.ref_name }}" | perl -ne 'die unless m/^release-legacy-.+$/'
           echo "${{ github.event.inputs.releaseVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-legacy$/'
           echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-legacy-SNAPSHOT$/'
       - name: Checkout
