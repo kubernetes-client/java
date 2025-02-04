@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
   @SerializedName(SERIALIZED_NAME_DEFAULT)
@@ -98,6 +101,7 @@ public class V1LimitRangeItem {
    * @return _default
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Default resource requirement limit value by resource name if resource limit is omitted.")
   public Map<String, Quantity> getDefault() {
     return _default;
   }
@@ -125,6 +129,7 @@ public class V1LimitRangeItem {
    * @return defaultRequest
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.")
   public Map<String, Quantity> getDefaultRequest() {
     return defaultRequest;
   }
@@ -152,6 +157,7 @@ public class V1LimitRangeItem {
    * @return max
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Max usage constraints on this kind by resource name.")
   public Map<String, Quantity> getMax() {
     return max;
   }
@@ -179,6 +185,7 @@ public class V1LimitRangeItem {
    * @return maxLimitRequestRatio
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.")
   public Map<String, Quantity> getMaxLimitRequestRatio() {
     return maxLimitRequestRatio;
   }
@@ -206,6 +213,7 @@ public class V1LimitRangeItem {
    * @return min
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Min usage constraints on this kind by resource name.")
   public Map<String, Quantity> getMin() {
     return min;
   }
@@ -225,6 +233,7 @@ public class V1LimitRangeItem {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Type of resource that this limit applies to.")
   public String getType() {
     return type;
   }

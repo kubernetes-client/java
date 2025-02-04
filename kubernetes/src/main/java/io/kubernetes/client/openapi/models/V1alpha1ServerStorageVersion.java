@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
@@ -81,6 +84,7 @@ public class V1alpha1ServerStorageVersion {
    * @return apiServerID
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the reporting API server.")
   public String getApiServerID() {
     return apiServerID;
   }
@@ -108,6 +112,7 @@ public class V1alpha1ServerStorageVersion {
    * @return decodableVersions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
   public List<String> getDecodableVersions() {
     return decodableVersions;
   }
@@ -127,6 +132,7 @@ public class V1alpha1ServerStorageVersion {
    * @return encodingVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
   public String getEncodingVersion() {
     return encodingVersion;
   }
@@ -154,6 +160,7 @@ public class V1alpha1ServerStorageVersion {
    * @return servedVersions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The API server can serve these versions. DecodableVersions must include all ServedVersions.")
   public List<String> getServedVersions() {
     return servedVersions;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CoreV1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -72,6 +75,7 @@ public class CoreV1EventSeries {
    * @return count
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Number of occurrences in this series up to the last heartbeat time")
   public Integer getCount() {
     return count;
   }
@@ -91,6 +95,7 @@ public class CoreV1EventSeries {
    * @return lastObservedTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Time of the last occurrence observed")
   public OffsetDateTime getLastObservedTime() {
     return lastObservedTime;
   }

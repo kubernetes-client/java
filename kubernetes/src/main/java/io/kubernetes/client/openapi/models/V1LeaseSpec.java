@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LeaseSpec is a specification of a Lease.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "LeaseSpec is a specification of a Lease.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -92,6 +95,7 @@ public class V1LeaseSpec {
    * @return acquireTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "acquireTime is a time when the current lease was acquired.")
   public OffsetDateTime getAcquireTime() {
     return acquireTime;
   }
@@ -111,6 +115,7 @@ public class V1LeaseSpec {
    * @return holderIdentity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.")
   public String getHolderIdentity() {
     return holderIdentity;
   }
@@ -130,6 +135,7 @@ public class V1LeaseSpec {
    * @return leaseDurationSeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.")
   public Integer getLeaseDurationSeconds() {
     return leaseDurationSeconds;
   }
@@ -149,6 +155,7 @@ public class V1LeaseSpec {
    * @return leaseTransitions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "leaseTransitions is the number of transitions of a lease between holders.")
   public Integer getLeaseTransitions() {
     return leaseTransitions;
   }
@@ -168,6 +175,7 @@ public class V1LeaseSpec {
    * @return preferredHolder
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.")
   public String getPreferredHolder() {
     return preferredHolder;
   }
@@ -187,6 +195,7 @@ public class V1LeaseSpec {
    * @return renewTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "renewTime is a time when the current holder of a lease has last updated the lease.")
   public OffsetDateTime getRenewTime() {
     return renewTime;
   }
@@ -206,6 +215,7 @@ public class V1LeaseSpec {
    * @return strategy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
   public String getStrategy() {
     return strategy;
   }

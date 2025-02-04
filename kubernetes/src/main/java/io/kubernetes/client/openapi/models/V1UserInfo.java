@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * UserInfo holds the information about the user needed to implement the user.Info interface.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "UserInfo holds the information about the user needed to implement the user.Info interface.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1UserInfo {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -91,6 +94,7 @@ public class V1UserInfo {
    * @return extra
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Any additional information provided by the authenticator.")
   public Map<String, List<String>> getExtra() {
     return extra;
   }
@@ -118,6 +122,7 @@ public class V1UserInfo {
    * @return groups
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The names of groups this user is a part of.")
   public List<String> getGroups() {
     return groups;
   }
@@ -137,6 +142,7 @@ public class V1UserInfo {
    * @return uid
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.")
   public String getUid() {
     return uid;
   }
@@ -156,6 +162,7 @@ public class V1UserInfo {
    * @return username
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The name that uniquely identifies this user among all active users.")
   public String getUsername() {
     return username;
   }

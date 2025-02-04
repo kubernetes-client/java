@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceSubresourceScale {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR_PATH = "labelSelectorPath";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR_PATH)
@@ -75,6 +78,7 @@ public class V1CustomResourceSubresourceScale {
    * @return labelSelectorPath
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status` or `.spec`. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale` subresource will default to the empty string.")
   public String getLabelSelectorPath() {
     return labelSelectorPath;
   }
@@ -94,6 +98,7 @@ public class V1CustomResourceSubresourceScale {
    * @return specReplicasPath
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.spec`. If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.")
   public String getSpecReplicasPath() {
     return specReplicasPath;
   }
@@ -113,6 +118,7 @@ public class V1CustomResourceSubresourceScale {
    * @return statusReplicasPath
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status`. If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource will default to 0.")
   public String getStatusReplicasPath() {
     return statusReplicasPath;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Condition contains details for one aspect of the current state of this API Resource.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Condition contains details for one aspect of the current state of this API Resource.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Condition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -88,6 +91,7 @@ public class V1Condition {
    * @return lastTransitionTime
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -107,6 +111,7 @@ public class V1Condition {
    * @return message
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "message is a human readable message indicating details about the transition. This may be an empty string.")
   public String getMessage() {
     return message;
   }
@@ -126,6 +131,7 @@ public class V1Condition {
    * @return observedGeneration
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -145,6 +151,7 @@ public class V1Condition {
    * @return reason
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.")
   public String getReason() {
     return reason;
   }
@@ -164,6 +171,7 @@ public class V1Condition {
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -183,6 +191,7 @@ public class V1Condition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "type of condition in CamelCase or in foo.example.com/CamelCase.")
   public String getType() {
     return type;
   }

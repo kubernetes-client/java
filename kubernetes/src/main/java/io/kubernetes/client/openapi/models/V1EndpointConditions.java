@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EndpointConditions represents the current condition of an endpoint.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointConditions represents the current condition of an endpoint.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EndpointConditions {
   public static final String SERIALIZED_NAME_READY = "ready";
   @SerializedName(SERIALIZED_NAME_READY)
@@ -75,6 +78,7 @@ public class V1EndpointConditions {
    * @return ready
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint. A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready. For compatibility reasons, ready should never be \"true\" for terminating endpoints, except when the normal readiness behavior is being explicitly overridden, for example when the associated Service has set the publishNotReadyAddresses flag.")
   public Boolean getReady() {
     return ready;
   }
@@ -94,6 +98,7 @@ public class V1EndpointConditions {
    * @return serving
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition.")
   public Boolean getServing() {
     return serving;
   }
@@ -113,6 +118,7 @@ public class V1EndpointConditions {
    * @return terminating
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating.")
   public Boolean getTerminating() {
     return terminating;
   }

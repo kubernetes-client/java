@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1beta3ExemptPriorityLevelConfiguration;
 import io.kubernetes.client.openapi.models.V1beta3LimitedPriorityLevelConfiguration;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PriorityLevelConfigurationSpec specifies the configuration of a priority level.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PriorityLevelConfigurationSpec specifies the configuration of a priority level.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta3PriorityLevelConfigurationSpec {
   public static final String SERIALIZED_NAME_EXEMPT = "exempt";
   @SerializedName(SERIALIZED_NAME_EXEMPT)
@@ -77,6 +80,7 @@ public class V1beta3PriorityLevelConfigurationSpec {
    * @return exempt
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta3ExemptPriorityLevelConfiguration getExempt() {
     return exempt;
   }
@@ -96,6 +100,7 @@ public class V1beta3PriorityLevelConfigurationSpec {
    * @return limited
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta3LimitedPriorityLevelConfiguration getLimited() {
     return limited;
   }
@@ -115,6 +120,7 @@ public class V1beta3PriorityLevelConfigurationSpec {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "`type` indicates whether this priority level is subject to limitation on request execution.  A value of `\"Exempt\"` means that requests of this priority level are not subject to a limit (and thus are never queued) and do not detract from the capacity made available to other priority levels.  A value of `\"Limited\"` means that (a) requests of this priority level _are_ subject to limits and (b) some of the server's limited capacity is made available exclusively to this priority level. Required.")
   public String getType() {
     return type;
   }

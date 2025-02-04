@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EndpointAddress is a tuple that describes single IP address.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointAddress is a tuple that describes single IP address.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EndpointAddress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -80,6 +83,7 @@ public class V1EndpointAddress {
    * @return hostname
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The Hostname of this endpoint")
   public String getHostname() {
     return hostname;
   }
@@ -99,6 +103,7 @@ public class V1EndpointAddress {
    * @return ip
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The IP of this endpoint. May not be loopback (127.0.0.0/8 or ::1), link-local (169.254.0.0/16 or fe80::/10), or link-local multicast (224.0.0.0/24 or ff02::/16).")
   public String getIp() {
     return ip;
   }
@@ -118,6 +123,7 @@ public class V1EndpointAddress {
    * @return nodeName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Optional: Node hosting this endpoint. This can be used to determine endpoints local to a node.")
   public String getNodeName() {
     return nodeName;
   }
@@ -137,6 +143,7 @@ public class V1EndpointAddress {
    * @return targetRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getTargetRef() {
     return targetRef;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha3AllocationResult;
 import io.kubernetes.client.openapi.models.V1alpha3ResourceClaimConsumerReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaimStatus tracks whether the resource has been allocated and what the result of that was.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceClaimStatus tracks whether the resource has been allocated and what the result of that was.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3ResourceClaimStatus {
   public static final String SERIALIZED_NAME_ALLOCATION = "allocation";
   @SerializedName(SERIALIZED_NAME_ALLOCATION)
@@ -79,6 +82,7 @@ public class V1alpha3ResourceClaimStatus {
    * @return allocation
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3AllocationResult getAllocation() {
     return allocation;
   }
@@ -98,6 +102,7 @@ public class V1alpha3ResourceClaimStatus {
    * @return deallocationRequested
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Indicates that a claim is to be deallocated. While this is set, no new consumers may be added to ReservedFor.  This is only used if the claim needs to be deallocated by a DRA driver. That driver then must deallocate this claim and reset the field together with clearing the Allocation field.  This is an alpha field and requires enabling the DRAControlPlaneController feature gate.")
   public Boolean getDeallocationRequested() {
     return deallocationRequested;
   }
@@ -125,6 +130,7 @@ public class V1alpha3ResourceClaimStatus {
    * @return reservedFor
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.  In a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.  Both schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.  There can be at most 32 such reservations. This may get increased in the future, but not reduced.")
   public List<V1alpha3ResourceClaimConsumerReference> getReservedFor() {
     return reservedFor;
   }

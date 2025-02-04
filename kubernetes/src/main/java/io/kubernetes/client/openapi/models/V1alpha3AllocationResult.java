@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeSelector;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceAllocationResult;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * AllocationResult contains attributes of an allocated resource.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3AllocationResult {
   public static final String SERIALIZED_NAME_CONTROLLER = "controller";
   @SerializedName(SERIALIZED_NAME_CONTROLLER)
@@ -77,6 +80,7 @@ public class V1alpha3AllocationResult {
    * @return controller
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Controller is the name of the DRA driver which handled the allocation. That driver is also responsible for deallocating the claim. It is empty when the claim can be deallocated without involving a driver.  A driver may allocate devices provided by other drivers, so this driver name here can be different from the driver names listed for the results.  This is an alpha field and requires enabling the DRAControlPlaneController feature gate.")
   public String getController() {
     return controller;
   }
@@ -96,6 +100,7 @@ public class V1alpha3AllocationResult {
    * @return devices
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3DeviceAllocationResult getDevices() {
     return devices;
   }
@@ -115,6 +120,7 @@ public class V1alpha3AllocationResult {
    * @return nodeSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeSelector getNodeSelector() {
     return nodeSelector;
   }

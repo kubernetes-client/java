@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1GlusterfsPersistentVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
@@ -79,6 +82,7 @@ public class V1GlusterfsPersistentVolumeSource {
    * @return endpoints
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public String getEndpoints() {
     return endpoints;
   }
@@ -98,6 +102,7 @@ public class V1GlusterfsPersistentVolumeSource {
    * @return endpointsNamespace
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "endpointsNamespace is the namespace that contains Glusterfs endpoint. If this field is empty, the EndpointNamespace defaults to the same namespace as the bound PVC. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public String getEndpointsNamespace() {
     return endpointsNamespace;
   }
@@ -117,6 +122,7 @@ public class V1GlusterfsPersistentVolumeSource {
    * @return path
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public String getPath() {
     return path;
   }
@@ -136,6 +142,7 @@ public class V1GlusterfsPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public Boolean getReadOnly() {
     return readOnly;
   }

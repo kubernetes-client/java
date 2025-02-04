@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NonResourceRule;
 import io.kubernetes.client.openapi.models.V1ResourceRule;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it&#39;s safe to assume the subject has that permission, even if that list is incomplete.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it's safe to assume the subject has that permission, even if that list is incomplete.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
   @SerializedName(SERIALIZED_NAME_EVALUATION_ERROR)
@@ -83,6 +86,7 @@ public class V1SubjectRulesReviewStatus {
    * @return evaluationError
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "EvaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.")
   public String getEvaluationError() {
     return evaluationError;
   }
@@ -102,6 +106,7 @@ public class V1SubjectRulesReviewStatus {
    * @return incomplete
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.")
   public Boolean getIncomplete() {
     return incomplete;
   }
@@ -129,6 +134,7 @@ public class V1SubjectRulesReviewStatus {
    * @return nonResourceRules
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "NonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
   public List<V1NonResourceRule> getNonResourceRules() {
     return nonResourceRules;
   }
@@ -156,6 +162,7 @@ public class V1SubjectRulesReviewStatus {
    * @return resourceRules
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
   public List<V1ResourceRule> getResourceRules() {
     return resourceRules;
   }

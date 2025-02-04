@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)
@@ -80,6 +83,7 @@ public class V1PersistentVolumeStatus {
    * @return lastPhaseTransitionTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions.")
   public OffsetDateTime getLastPhaseTransitionTime() {
     return lastPhaseTransitionTime;
   }
@@ -99,6 +103,7 @@ public class V1PersistentVolumeStatus {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "message is a human-readable message indicating details about why the volume is in this state.")
   public String getMessage() {
     return message;
   }
@@ -118,6 +123,7 @@ public class V1PersistentVolumeStatus {
    * @return phase
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase")
   public String getPhase() {
     return phase;
   }
@@ -137,6 +143,7 @@ public class V1PersistentVolumeStatus {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")
   public String getReason() {
     return reason;
   }

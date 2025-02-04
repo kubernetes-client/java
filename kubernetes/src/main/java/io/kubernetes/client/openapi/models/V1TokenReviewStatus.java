@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1UserInfo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * TokenReviewStatus is the result of the token authentication request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "TokenReviewStatus is the result of the token authentication request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1TokenReviewStatus {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
@@ -90,6 +93,7 @@ public class V1TokenReviewStatus {
    * @return audiences
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.")
   public List<String> getAudiences() {
     return audiences;
   }
@@ -109,6 +113,7 @@ public class V1TokenReviewStatus {
    * @return authenticated
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Authenticated indicates that the token was associated with a known user.")
   public Boolean getAuthenticated() {
     return authenticated;
   }
@@ -128,6 +133,7 @@ public class V1TokenReviewStatus {
    * @return error
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Error indicates that the token couldn't be checked")
   public String getError() {
     return error;
   }
@@ -147,6 +153,7 @@ public class V1TokenReviewStatus {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1UserInfo getUser() {
     return user;
   }

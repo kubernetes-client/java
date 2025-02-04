@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1EndpointConditions;
 import io.kubernetes.client.openapi.models.V1EndpointHints;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +57,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Endpoint represents a single logical \&quot;backend\&quot; implementing a service.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -110,6 +113,7 @@ public class V1Endpoint {
    * @return addresses
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100. These are all assumed to be fungible and clients may choose to only use the first element. Refer to: https://issue.k8s.io/106267")
   public List<String> getAddresses() {
     return addresses;
   }
@@ -129,6 +133,7 @@ public class V1Endpoint {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1EndpointConditions getConditions() {
     return conditions;
   }
@@ -156,6 +161,7 @@ public class V1Endpoint {
    * @return deprecatedTopology
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecatedTopology contains topology information part of the v1beta1 API. This field is deprecated, and will be removed when the v1beta1 API is removed (no sooner than kubernetes v1.24).  While this field can hold values, it is not writable through the v1 API, and any attempts to write to it will be silently ignored. Topology information can be found in the zone and nodeName fields instead.")
   public Map<String, String> getDeprecatedTopology() {
     return deprecatedTopology;
   }
@@ -175,6 +181,7 @@ public class V1Endpoint {
    * @return hints
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1EndpointHints getHints() {
     return hints;
   }
@@ -194,6 +201,7 @@ public class V1Endpoint {
    * @return hostname
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must be lowercase and pass DNS Label (RFC 1123) validation.")
   public String getHostname() {
     return hostname;
   }
@@ -213,6 +221,7 @@ public class V1Endpoint {
    * @return nodeName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node.")
   public String getNodeName() {
     return nodeName;
   }
@@ -232,6 +241,7 @@ public class V1Endpoint {
    * @return targetRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getTargetRef() {
     return targetRef;
   }
@@ -251,6 +261,7 @@ public class V1Endpoint {
    * @return zone
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "zone is the name of the Zone this endpoint exists in.")
   public String getZone() {
     return zone;
   }

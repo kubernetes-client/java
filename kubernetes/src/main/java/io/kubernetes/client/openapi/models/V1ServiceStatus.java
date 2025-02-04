@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1Condition;
 import io.kubernetes.client.openapi.models.V1LoadBalancerStatus;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServiceStatus represents the current status of a service.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ServiceStatus represents the current status of a service.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ServiceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -83,6 +86,7 @@ public class V1ServiceStatus {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Current service state")
   public List<V1Condition> getConditions() {
     return conditions;
   }
@@ -102,6 +106,7 @@ public class V1ServiceStatus {
    * @return loadBalancer
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LoadBalancerStatus getLoadBalancer() {
     return loadBalancer;
   }

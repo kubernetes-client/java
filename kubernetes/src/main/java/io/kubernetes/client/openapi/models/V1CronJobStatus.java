@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CronJobStatus represents the current state of a cron job.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CronJobStatus represents the current state of a cron job.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CronJobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -87,6 +90,7 @@ public class V1CronJobStatus {
    * @return active
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A list of pointers to currently running jobs.")
   public List<V1ObjectReference> getActive() {
     return active;
   }
@@ -106,6 +110,7 @@ public class V1CronJobStatus {
    * @return lastScheduleTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Information when was the last time the job was successfully scheduled.")
   public OffsetDateTime getLastScheduleTime() {
     return lastScheduleTime;
   }
@@ -125,6 +130,7 @@ public class V1CronJobStatus {
    * @return lastSuccessfulTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Information when was the last time the job successfully completed.")
   public OffsetDateTime getLastSuccessfulTime() {
     return lastSuccessfulTime;
   }

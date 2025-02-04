@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NonResourceAttributes;
 import io.kubernetes.client.openapi.models.V1ResourceAttributes;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SubjectAccessReviewSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -101,6 +104,7 @@ public class V1SubjectAccessReviewSpec {
    * @return extra
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.")
   public Map<String, List<String>> getExtra() {
     return extra;
   }
@@ -128,6 +132,7 @@ public class V1SubjectAccessReviewSpec {
    * @return groups
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Groups is the groups you're testing for.")
   public List<String> getGroups() {
     return groups;
   }
@@ -147,6 +152,7 @@ public class V1SubjectAccessReviewSpec {
    * @return nonResourceAttributes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NonResourceAttributes getNonResourceAttributes() {
     return nonResourceAttributes;
   }
@@ -166,6 +172,7 @@ public class V1SubjectAccessReviewSpec {
    * @return resourceAttributes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ResourceAttributes getResourceAttributes() {
     return resourceAttributes;
   }
@@ -185,6 +192,7 @@ public class V1SubjectAccessReviewSpec {
    * @return uid
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "UID information about the requesting user.")
   public String getUid() {
     return uid;
   }
@@ -204,6 +212,7 @@ public class V1SubjectAccessReviewSpec {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups")
   public String getUser() {
     return user;
   }

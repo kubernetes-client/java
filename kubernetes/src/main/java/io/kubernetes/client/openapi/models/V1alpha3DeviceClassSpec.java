@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeSelector;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceClassConfiguration;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceClassSpec {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -88,6 +91,7 @@ public class V1alpha3DeviceClassSpec {
    * @return config
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Config defines configuration parameters that apply to each device that is claimed via this class. Some classses may potentially be satisfied by multiple drivers, so each instance of a vendor configuration applies to exactly one driver.  They are passed to the driver, but are not considered while allocating the claim.")
   public List<V1alpha3DeviceClassConfiguration> getConfig() {
     return config;
   }
@@ -115,6 +119,7 @@ public class V1alpha3DeviceClassSpec {
    * @return selectors
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Each selector must be satisfied by a device which is claimed via this class.")
   public List<V1alpha3DeviceSelector> getSelectors() {
     return selectors;
   }
@@ -134,6 +139,7 @@ public class V1alpha3DeviceClassSpec {
    * @return suitableNodes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeSelector getSuitableNodes() {
     return suitableNodes;
   }

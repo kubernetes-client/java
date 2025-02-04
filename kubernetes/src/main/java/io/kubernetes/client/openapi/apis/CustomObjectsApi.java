@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -1102,7 +1102,7 @@ public class CustomObjectsApi {
     public APIdeleteCollectionClusterCustomObjectRequest deleteCollectionClusterCustomObject(String group, String version, String plural) {
         return new APIdeleteCollectionClusterCustomObjectRequest(group, version, plural);
     }
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1155,6 +1155,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
 
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1176,7 +1180,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteCollectionNamespacedCustomObject(Async)");
@@ -1197,20 +1201,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'plural' when calling deleteCollectionNamespacedCustomObject(Async)");
         }
 
-        return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
 
     }
 
 
-    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1227,6 +1231,7 @@ public class CustomObjectsApi {
         private Boolean orphanDependents;
         private String propagationPolicy;
         private String dryRun;
+        private String fieldSelector;
         private V1DeleteOptions body;
 
         private APIdeleteCollectionNamespacedCustomObjectRequest(String group, String version, String namespace, String plural) {
@@ -1297,6 +1302,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldSelector
+         * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedCustomObjectRequest
+         */
+        public APIdeleteCollectionNamespacedCustomObjectRequest fieldSelector(String fieldSelector) {
+            this.fieldSelector = fieldSelector;
+            return this;
+        }
+
+        /**
          * Set body
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
@@ -1319,7 +1334,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         }
 
         /**
@@ -1334,7 +1349,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body);
             return localVarResp.getData();
         }
 
@@ -1350,7 +1365,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            return deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body);
         }
 
         /**
@@ -1366,7 +1381,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return deleteCollectionNamespacedCustomObjectAsync(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionNamespacedCustomObjectAsync(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         }
     }
 
@@ -3284,7 +3299,7 @@ public class CustomObjectsApi {
     public APIlistClusterCustomObjectRequest listClusterCustomObject(String group, String version, String plural) {
         return new APIlistClusterCustomObjectRequest(group, version, plural);
     }
-    private okhttp3.Call listCustomObjectForAllNamespacesCall(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3301,10 +3316,10 @@ public class CustomObjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/apis/{group}/{version}/{plural}#‎"
+        String localVarPath = "/apis/{group}/{version}/{resource_plural}"
             .replace("{" + "group" + "}", localVarApiClient.escapeString(group.toString()))
             .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
-            .replace("{" + "plural" + "}", localVarApiClient.escapeString(plural.toString()));
+            .replace("{" + "resource_plural" + "}", localVarApiClient.escapeString(resourcePlural.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3373,7 +3388,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCustomObjectForAllNamespacesValidateBeforeCall(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesValidateBeforeCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling listCustomObjectForAllNamespaces(Async)");
@@ -3384,25 +3399,25 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'version' when calling listCustomObjectForAllNamespaces(Async)");
         }
 
-        // verify the required parameter 'plural' is set
-        if (plural == null) {
-            throw new ApiException("Missing the required parameter 'plural' when calling listCustomObjectForAllNamespaces(Async)");
+        // verify the required parameter 'resourcePlural' is set
+        if (resourcePlural == null) {
+            throw new ApiException("Missing the required parameter 'resourcePlural' when calling listCustomObjectForAllNamespaces(Async)");
         }
 
-        return listCustomObjectForAllNamespacesCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+        return listCustomObjectForAllNamespacesCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<Object> listCustomObjectForAllNamespacesWithHttpInfo(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
+    private ApiResponse<Object> listCustomObjectForAllNamespacesWithHttpInfo(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCustomObjectForAllNamespacesAsync(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesAsync(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3411,7 +3426,7 @@ public class CustomObjectsApi {
     public class APIlistCustomObjectForAllNamespacesRequest {
         private final String group;
         private final String version;
-        private final String plural;
+        private final String resourcePlural;
         private String pretty;
         private Boolean allowWatchBookmarks;
         private String _continue;
@@ -3423,10 +3438,10 @@ public class CustomObjectsApi {
         private Integer timeoutSeconds;
         private Boolean watch;
 
-        private APIlistCustomObjectForAllNamespacesRequest(String group, String version, String plural) {
+        private APIlistCustomObjectForAllNamespacesRequest(String group, String version, String resourcePlural) {
             this.group = group;
             this.version = version;
-            this.plural = plural;
+            this.resourcePlural = resourcePlural;
         }
 
         /**
@@ -3542,7 +3557,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCustomObjectForAllNamespacesCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+            return listCustomObjectForAllNamespacesCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -3557,7 +3572,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = listCustomObjectForAllNamespacesWithHttpInfo(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch);
+            ApiResponse<Object> localVarResp = listCustomObjectForAllNamespacesWithHttpInfo(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -3573,7 +3588,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return listCustomObjectForAllNamespacesWithHttpInfo(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch);
+            return listCustomObjectForAllNamespacesWithHttpInfo(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch);
         }
 
         /**
@@ -3589,7 +3604,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return listCustomObjectForAllNamespacesAsync(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+            return listCustomObjectForAllNamespacesAsync(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -3598,7 +3613,7 @@ public class CustomObjectsApi {
      * list or watch namespace scoped custom objects
      * @param group The custom resource&#39;s group name (required)
      * @param version The custom resource&#39;s version (required)
-     * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
+     * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIlistCustomObjectForAllNamespacesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3607,8 +3622,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistCustomObjectForAllNamespacesRequest listCustomObjectForAllNamespaces(String group, String version, String plural) {
-        return new APIlistCustomObjectForAllNamespacesRequest(group, version, plural);
+    public APIlistCustomObjectForAllNamespacesRequest listCustomObjectForAllNamespaces(String group, String version, String resourcePlural) {
+        return new APIlistCustomObjectForAllNamespacesRequest(group, version, resourcePlural);
     }
     private okhttp3.Call listNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;

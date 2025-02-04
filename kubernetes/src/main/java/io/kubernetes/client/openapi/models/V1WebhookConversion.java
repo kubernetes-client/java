@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * WebhookConversion describes how to call a conversion webhook
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "WebhookConversion describes how to call a conversion webhook")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1WebhookConversion {
   public static final String SERIALIZED_NAME_CLIENT_CONFIG = "clientConfig";
   @SerializedName(SERIALIZED_NAME_CLIENT_CONFIG)
@@ -74,6 +77,7 @@ public class V1WebhookConversion {
    * @return clientConfig
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public ApiextensionsV1WebhookClientConfig getClientConfig() {
     return clientConfig;
   }
@@ -101,6 +105,7 @@ public class V1WebhookConversion {
    * @return conversionReviewVersions
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "conversionReviewVersions is an ordered list of preferred `ConversionReview` versions the Webhook expects. The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail.")
   public List<String> getConversionReviewVersions() {
     return conversionReviewVersions;
   }

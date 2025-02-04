@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1VolumeError;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "VolumeAttachmentStatus is the status of a VolumeAttachment request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeAttachmentStatus {
   public static final String SERIALIZED_NAME_ATTACH_ERROR = "attachError";
   @SerializedName(SERIALIZED_NAME_ATTACH_ERROR)
@@ -82,6 +85,7 @@ public class V1VolumeAttachmentStatus {
    * @return attachError
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1VolumeError getAttachError() {
     return attachError;
   }
@@ -101,6 +105,7 @@ public class V1VolumeAttachmentStatus {
    * @return attached
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
   public Boolean getAttached() {
     return attached;
   }
@@ -128,6 +133,7 @@ public class V1VolumeAttachmentStatus {
    * @return attachmentMetadata
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
   public Map<String, String> getAttachmentMetadata() {
     return attachmentMetadata;
   }
@@ -147,6 +153,7 @@ public class V1VolumeAttachmentStatus {
    * @return detachError
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1VolumeError getDetachError() {
     return detachError;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Selects a key from a ConfigMap.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Selects a key from a ConfigMap.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ConfigMapKeySelector {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -75,6 +78,7 @@ public class V1ConfigMapKeySelector {
    * @return key
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The key to select.")
   public String getKey() {
     return key;
   }
@@ -94,6 +98,7 @@ public class V1ConfigMapKeySelector {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
@@ -113,6 +118,7 @@ public class V1ConfigMapKeySelector {
    * @return optional
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Specify whether the ConfigMap or its key must be defined")
   public Boolean getOptional() {
     return optional;
   }

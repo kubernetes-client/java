@@ -1,5 +1,14 @@
+From eeb5069c974d3146495f8a9dc52653f029d3cc2d Mon Sep 17 00:00:00 2001
+From: Min Jin <minkimzz@amazon.com>
+Date: Tue, 4 Feb 2025 11:59:25 -0800
+Subject: [PATCH] manually apply JSON patch
+
+---
+ .../io/kubernetes/client/openapi/JSON.java    | 36 ++++++++++++++++---
+ 1 file changed, 32 insertions(+), 4 deletions(-)
+
 diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
-index 870629244..d7d2d5579 100644
+index dda3ec708..fe902b293 100644
 --- a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
 +++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
 @@ -23,6 +23,9 @@ import com.google.gson.JsonElement;
@@ -87,3 +96,6 @@ index 870629244..d7d2d5579 100644
              }
          }
      }
+-- 
+2.40.0
+

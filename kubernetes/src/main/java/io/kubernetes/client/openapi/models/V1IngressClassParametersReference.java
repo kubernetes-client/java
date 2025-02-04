@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1IngressClassParametersReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
@@ -83,6 +86,7 @@ public class V1IngressClassParametersReference {
    * @return apiGroup
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.")
   public String getApiGroup() {
     return apiGroup;
   }
@@ -102,6 +106,7 @@ public class V1IngressClassParametersReference {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "kind is the type of resource being referenced.")
   public String getKind() {
     return kind;
   }
@@ -121,6 +126,7 @@ public class V1IngressClassParametersReference {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "name is the name of resource being referenced.")
   public String getName() {
     return name;
   }
@@ -140,6 +146,7 @@ public class V1IngressClassParametersReference {
    * @return namespace
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "namespace is the namespace of the resource being referenced. This field is required when scope is set to \"Namespace\" and must be unset when scope is set to \"Cluster\".")
   public String getNamespace() {
     return namespace;
   }
@@ -159,6 +166,7 @@ public class V1IngressClassParametersReference {
    * @return scope
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "scope represents if this refers to a cluster or namespace scoped resource. This may be set to \"Cluster\" (default) or \"Namespace\".")
   public String getScope() {
     return scope;
   }

@@ -18,7 +18,7 @@ All URIs are relative to *http://localhost*
 | [**getNamespacedCustomObjectScale**](CustomObjectsApi.md#getNamespacedCustomObjectScale) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale |  |
 | [**getNamespacedCustomObjectStatus**](CustomObjectsApi.md#getNamespacedCustomObjectStatus) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status |  |
 | [**listClusterCustomObject**](CustomObjectsApi.md#listClusterCustomObject) | **GET** /apis/{group}/{version}/{plural} |  |
-| [**listCustomObjectForAllNamespaces**](CustomObjectsApi.md#listCustomObjectForAllNamespaces) | **GET** /apis/{group}/{version}/{plural}#‎ |  |
+| [**listCustomObjectForAllNamespaces**](CustomObjectsApi.md#listCustomObjectForAllNamespaces) | **GET** /apis/{group}/{version}/{resource_plural} |  |
 | [**listNamespacedCustomObject**](CustomObjectsApi.md#listNamespacedCustomObject) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural} |  |
 | [**patchClusterCustomObject**](CustomObjectsApi.md#patchClusterCustomObject) | **PATCH** /apis/{group}/{version}/{plural}/{name} |  |
 | [**patchClusterCustomObjectScale**](CustomObjectsApi.md#patchClusterCustomObjectScale) | **PATCH** /apis/{group}/{version}/{plural}/{name}/scale |  |
@@ -404,7 +404,7 @@ public class Example {
 
 <a id="deleteCollectionNamespacedCustomObject"></a>
 # **deleteCollectionNamespacedCustomObject**
-> Object deleteCollectionNamespacedCustomObject(group, version, namespace, plural).pretty(pretty).labelSelector(labelSelector).gracePeriodSeconds(gracePeriodSeconds).orphanDependents(orphanDependents).propagationPolicy(propagationPolicy).dryRun(dryRun).body(body).execute();
+> Object deleteCollectionNamespacedCustomObject(group, version, namespace, plural).pretty(pretty).labelSelector(labelSelector).gracePeriodSeconds(gracePeriodSeconds).orphanDependents(orphanDependents).propagationPolicy(propagationPolicy).dryRun(dryRun).fieldSelector(fieldSelector).body(body).execute();
 
 
 
@@ -442,6 +442,7 @@ public class Example {
     Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
       Object result = apiInstance.deleteCollectionNamespacedCustomObject(group, version, namespace, plural)
@@ -451,6 +452,7 @@ public class Example {
             .orphanDependents(orphanDependents)
             .propagationPolicy(propagationPolicy)
             .dryRun(dryRun)
+            .fieldSelector(fieldSelector)
             .body(body)
             .execute();
       System.out.println(result);
@@ -479,6 +481,7 @@ public class Example {
 | **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] |
 | **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional] |
 | **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] |
 | **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] |
 
 ### Return type
@@ -1242,7 +1245,7 @@ public class Example {
 
 <a id="listCustomObjectForAllNamespaces"></a>
 # **listCustomObjectForAllNamespaces**
-> Object listCustomObjectForAllNamespaces(group, version, plural).pretty(pretty).allowWatchBookmarks(allowWatchBookmarks)._continue(_continue).fieldSelector(fieldSelector).labelSelector(labelSelector).limit(limit).resourceVersion(resourceVersion).resourceVersionMatch(resourceVersionMatch).timeoutSeconds(timeoutSeconds).watch(watch).execute();
+> Object listCustomObjectForAllNamespaces(group, version, resourcePlural).pretty(pretty).allowWatchBookmarks(allowWatchBookmarks)._continue(_continue).fieldSelector(fieldSelector).labelSelector(labelSelector).limit(limit).resourceVersion(resourceVersion).resourceVersionMatch(resourceVersionMatch).timeoutSeconds(timeoutSeconds).watch(watch).execute();
 
 
 
@@ -1272,7 +1275,7 @@ public class Example {
     CustomObjectsApi apiInstance = new CustomObjectsApi(defaultClient);
     String group = "group_example"; // String | The custom resource's group name
     String version = "version_example"; // String | The custom resource's version
-    String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
+    String resourcePlural = "resourcePlural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.
     String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
@@ -1284,7 +1287,7 @@ public class Example {
     Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
     Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications.
     try {
-      Object result = apiInstance.listCustomObjectForAllNamespaces(group, version, plural)
+      Object result = apiInstance.listCustomObjectForAllNamespaces(group, version, resourcePlural)
             .pretty(pretty)
             .allowWatchBookmarks(allowWatchBookmarks)
             ._continue(_continue)
@@ -1314,7 +1317,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **group** | **String**| The custom resource&#39;s group name | |
 | **version** | **String**| The custom resource&#39;s version | |
-| **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. | |
+| **resourcePlural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. | |
 | **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 | **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. | [optional] |
 | **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] |

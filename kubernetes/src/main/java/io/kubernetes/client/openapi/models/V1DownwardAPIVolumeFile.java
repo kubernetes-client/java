@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectFieldSelector;
 import io.kubernetes.client.openapi.models.V1ResourceFieldSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DownwardAPIVolumeFile represents information to create the file containing the pod field")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1DownwardAPIVolumeFile {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
@@ -81,6 +84,7 @@ public class V1DownwardAPIVolumeFile {
    * @return fieldRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectFieldSelector getFieldRef() {
     return fieldRef;
   }
@@ -100,6 +104,7 @@ public class V1DownwardAPIVolumeFile {
    * @return mode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getMode() {
     return mode;
   }
@@ -119,6 +124,7 @@ public class V1DownwardAPIVolumeFile {
    * @return path
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'")
   public String getPath() {
     return path;
   }
@@ -138,6 +144,7 @@ public class V1DownwardAPIVolumeFile {
    * @return resourceFieldRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ResourceFieldSelector getResourceFieldRef() {
     return resourceFieldRef;
   }

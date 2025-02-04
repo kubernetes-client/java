@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ReplicationControllerSpec is the specification of a replication controller.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ReplicationControllerSpec is the specification of a replication controller.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ReplicationControllerSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
@@ -82,6 +85,7 @@ public class V1ReplicationControllerSpec {
    * @return minReadySeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }
@@ -101,6 +105,7 @@ public class V1ReplicationControllerSpec {
    * @return replicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller")
   public Integer getReplicas() {
     return replicas;
   }
@@ -128,6 +133,7 @@ public class V1ReplicationControllerSpec {
    * @return selector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors")
   public Map<String, String> getSelector() {
     return selector;
   }
@@ -147,6 +153,7 @@ public class V1ReplicationControllerSpec {
    * @return template
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;
   }

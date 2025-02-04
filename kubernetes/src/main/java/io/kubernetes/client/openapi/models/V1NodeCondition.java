@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeCondition contains condition information for a node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "NodeCondition contains condition information for a node.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeCondition {
   public static final String SERIALIZED_NAME_LAST_HEARTBEAT_TIME = "lastHeartbeatTime";
   @SerializedName(SERIALIZED_NAME_LAST_HEARTBEAT_TIME)
@@ -88,6 +91,7 @@ public class V1NodeCondition {
    * @return lastHeartbeatTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Last time we got an update on a given condition.")
   public OffsetDateTime getLastHeartbeatTime() {
     return lastHeartbeatTime;
   }
@@ -107,6 +111,7 @@ public class V1NodeCondition {
    * @return lastTransitionTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Last time the condition transit from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -126,6 +131,7 @@ public class V1NodeCondition {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Human readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
@@ -145,6 +151,7 @@ public class V1NodeCondition {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "(brief) reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
@@ -164,6 +171,7 @@ public class V1NodeCondition {
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -183,6 +191,7 @@ public class V1NodeCondition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Type of node condition.")
   public String getType() {
     return type;
   }

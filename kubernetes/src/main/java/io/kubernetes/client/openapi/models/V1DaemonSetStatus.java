@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1DaemonSetCondition;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DaemonSetStatus represents the current status of a daemon set.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DaemonSetStatus represents the current status of a daemon set.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1DaemonSetStatus {
   public static final String SERIALIZED_NAME_COLLISION_COUNT = "collisionCount";
   @SerializedName(SERIALIZED_NAME_COLLISION_COUNT)
@@ -106,6 +109,7 @@ public class V1DaemonSetStatus {
    * @return collisionCount
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.")
   public Integer getCollisionCount() {
     return collisionCount;
   }
@@ -133,6 +137,7 @@ public class V1DaemonSetStatus {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Represents the latest available observations of a DaemonSet's current state.")
   public List<V1DaemonSetCondition> getConditions() {
     return conditions;
   }
@@ -152,6 +157,7 @@ public class V1DaemonSetStatus {
    * @return currentNumberScheduled
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
   public Integer getCurrentNumberScheduled() {
     return currentNumberScheduled;
   }
@@ -171,6 +177,7 @@ public class V1DaemonSetStatus {
    * @return desiredNumberScheduled
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
   public Integer getDesiredNumberScheduled() {
     return desiredNumberScheduled;
   }
@@ -190,6 +197,7 @@ public class V1DaemonSetStatus {
    * @return numberAvailable
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)")
   public Integer getNumberAvailable() {
     return numberAvailable;
   }
@@ -209,6 +217,7 @@ public class V1DaemonSetStatus {
    * @return numberMisscheduled
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
   public Integer getNumberMisscheduled() {
     return numberMisscheduled;
   }
@@ -228,6 +237,7 @@ public class V1DaemonSetStatus {
    * @return numberReady
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition.")
   public Integer getNumberReady() {
     return numberReady;
   }
@@ -247,6 +257,7 @@ public class V1DaemonSetStatus {
    * @return numberUnavailable
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)")
   public Integer getNumberUnavailable() {
     return numberUnavailable;
   }
@@ -266,6 +277,7 @@ public class V1DaemonSetStatus {
    * @return observedGeneration
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The most recent generation observed by the daemon set controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -285,6 +297,7 @@ public class V1DaemonSetStatus {
    * @return updatedNumberScheduled
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The total number of nodes that are running updated daemon pod")
   public Integer getUpdatedNumberScheduled() {
     return updatedNumberScheduled;
   }

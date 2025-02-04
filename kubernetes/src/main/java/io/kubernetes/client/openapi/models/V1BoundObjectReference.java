@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * BoundObjectReference is a reference to an object that a token is bound to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "BoundObjectReference is a reference to an object that a token is bound to.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -79,6 +82,7 @@ public class V1BoundObjectReference {
    * @return apiVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "API version of the referent.")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -98,6 +102,7 @@ public class V1BoundObjectReference {
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
   public String getKind() {
     return kind;
   }
@@ -117,6 +122,7 @@ public class V1BoundObjectReference {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Name of the referent.")
   public String getName() {
     return name;
   }
@@ -136,6 +142,7 @@ public class V1BoundObjectReference {
    * @return uid
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "UID of the referent.")
   public String getUid() {
     return uid;
   }

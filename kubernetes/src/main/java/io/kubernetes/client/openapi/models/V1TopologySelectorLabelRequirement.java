@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1TopologySelectorLabelRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -73,6 +76,7 @@ public class V1TopologySelectorLabelRequirement {
    * @return key
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The label key that the selector applies to.")
   public String getKey() {
     return key;
   }
@@ -100,6 +104,7 @@ public class V1TopologySelectorLabelRequirement {
    * @return values
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "An array of string values. One value must match the label to be selected. Each entry in Values is ORed.")
   public List<String> getValues() {
     return values;
   }

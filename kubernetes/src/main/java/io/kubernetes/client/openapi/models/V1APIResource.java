@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * APIResource specifies the name of a resource and whether it is namespaced.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "APIResource specifies the name of a resource and whether it is namespaced.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1APIResource {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -113,6 +116,7 @@ public class V1APIResource {
    * @return categories
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "categories is a list of the grouped resources this resource belongs to (e.g. 'all')")
   public List<String> getCategories() {
     return categories;
   }
@@ -132,6 +136,7 @@ public class V1APIResource {
    * @return group
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".")
   public String getGroup() {
     return group;
   }
@@ -151,6 +156,7 @@ public class V1APIResource {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')")
   public String getKind() {
     return kind;
   }
@@ -170,6 +176,7 @@ public class V1APIResource {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "name is the plural name of the resource.")
   public String getName() {
     return name;
   }
@@ -189,6 +196,7 @@ public class V1APIResource {
    * @return namespaced
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "namespaced indicates if a resource is namespaced or not.")
   public Boolean getNamespaced() {
     return namespaced;
   }
@@ -216,6 +224,7 @@ public class V1APIResource {
    * @return shortNames
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "shortNames is a list of suggested short names of the resource.")
   public List<String> getShortNames() {
     return shortNames;
   }
@@ -235,6 +244,7 @@ public class V1APIResource {
    * @return singularName
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.")
   public String getSingularName() {
     return singularName;
   }
@@ -254,6 +264,7 @@ public class V1APIResource {
    * @return storageVersionHash
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.")
   public String getStorageVersionHash() {
     return storageVersionHash;
   }
@@ -281,6 +292,7 @@ public class V1APIResource {
    * @return verbs
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)")
   public List<String> getVerbs() {
     return verbs;
   }
@@ -300,6 +312,7 @@ public class V1APIResource {
    * @return version
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)\".")
   public String getVersion() {
     return version;
   }

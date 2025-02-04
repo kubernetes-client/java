@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.EventsV1EventSeries;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class EventsV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -136,6 +139,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return action
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getAction() {
     return action;
   }
@@ -155,6 +159,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return apiVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -174,6 +179,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return deprecatedCount
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public Integer getDeprecatedCount() {
     return deprecatedCount;
   }
@@ -193,6 +199,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return deprecatedFirstTimestamp
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public OffsetDateTime getDeprecatedFirstTimestamp() {
     return deprecatedFirstTimestamp;
   }
@@ -212,6 +219,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return deprecatedLastTimestamp
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public OffsetDateTime getDeprecatedLastTimestamp() {
     return deprecatedLastTimestamp;
   }
@@ -231,6 +239,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return deprecatedSource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1EventSource getDeprecatedSource() {
     return deprecatedSource;
   }
@@ -250,6 +259,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return eventTime
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "eventTime is the time when this Event was first observed. It is required.")
   public OffsetDateTime getEventTime() {
     return eventTime;
   }
@@ -269,6 +279,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
@@ -288,6 +299,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return metadata
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -307,6 +319,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return note
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.")
   public String getNote() {
     return note;
   }
@@ -326,6 +339,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getReason() {
     return reason;
   }
@@ -345,6 +359,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return regarding
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getRegarding() {
     return regarding;
   }
@@ -364,6 +379,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return related
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getRelated() {
     return related;
   }
@@ -383,6 +399,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return reportingController
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reportingController is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. This field cannot be empty for new Events.")
   public String getReportingController() {
     return reportingController;
   }
@@ -402,6 +419,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return reportingInstance
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getReportingInstance() {
     return reportingInstance;
   }
@@ -421,6 +439,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return series
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public EventsV1EventSeries getSeries() {
     return series;
   }
@@ -440,6 +459,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * @return type
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.")
   public String getType() {
     return type;
   }

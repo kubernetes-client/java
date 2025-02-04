@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * V1PortStatus
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PortStatus {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -75,6 +77,7 @@ public class V1PortStatus {
    * @return error
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use   CamelCase names - cloud provider specific error values must have names that comply with the   format foo.example.com/CamelCase.")
   public String getError() {
     return error;
   }
@@ -94,6 +97,7 @@ public class V1PortStatus {
    * @return port
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Port is the port number of the service port of which status is recorded here")
   public Integer getPort() {
     return port;
   }
@@ -113,6 +117,7 @@ public class V1PortStatus {
    * @return protocol
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"")
   public String getProtocol() {
     return protocol;
   }

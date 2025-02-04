@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Info contains versioning information. how we&#39;ll want to distribute that information.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Info contains versioning information. how we'll want to distribute that information.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class VersionInfo {
   public static final String SERIALIZED_NAME_BUILD_DATE = "buildDate";
   @SerializedName(SERIALIZED_NAME_BUILD_DATE)
@@ -99,6 +102,7 @@ public class VersionInfo {
    * @return buildDate
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getBuildDate() {
     return buildDate;
   }
@@ -118,6 +122,7 @@ public class VersionInfo {
    * @return compiler
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getCompiler() {
     return compiler;
   }
@@ -137,6 +142,7 @@ public class VersionInfo {
    * @return gitCommit
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getGitCommit() {
     return gitCommit;
   }
@@ -156,6 +162,7 @@ public class VersionInfo {
    * @return gitTreeState
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getGitTreeState() {
     return gitTreeState;
   }
@@ -175,6 +182,7 @@ public class VersionInfo {
    * @return gitVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getGitVersion() {
     return gitVersion;
   }
@@ -194,6 +202,7 @@ public class VersionInfo {
    * @return goVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getGoVersion() {
     return goVersion;
   }
@@ -213,6 +222,7 @@ public class VersionInfo {
    * @return major
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getMajor() {
     return major;
   }
@@ -232,6 +242,7 @@ public class VersionInfo {
    * @return minor
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getMinor() {
     return minor;
   }
@@ -251,6 +262,7 @@ public class VersionInfo {
    * @return platform
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public String getPlatform() {
     return platform;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceClaim;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3ResourceClaimSpec {
   public static final String SERIALIZED_NAME_CONTROLLER = "controller";
   @SerializedName(SERIALIZED_NAME_CONTROLLER)
@@ -72,6 +75,7 @@ public class V1alpha3ResourceClaimSpec {
    * @return controller
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Controller is the name of the DRA driver that is meant to handle allocation of this claim. If empty, allocation is handled by the scheduler while scheduling a pod.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.  This is an alpha field and requires enabling the DRAControlPlaneController feature gate.")
   public String getController() {
     return controller;
   }
@@ -91,6 +95,7 @@ public class V1alpha3ResourceClaimSpec {
    * @return devices
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3DeviceClaim getDevices() {
     return devices;
   }

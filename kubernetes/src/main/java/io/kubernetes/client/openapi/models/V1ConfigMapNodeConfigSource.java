@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ConfigMapNodeConfigSource {
   public static final String SERIALIZED_NAME_KUBELET_CONFIG_KEY = "kubeletConfigKey";
   @SerializedName(SERIALIZED_NAME_KUBELET_CONFIG_KEY)
@@ -83,6 +86,7 @@ public class V1ConfigMapNodeConfigSource {
    * @return kubeletConfigKey
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.")
   public String getKubeletConfigKey() {
     return kubeletConfigKey;
   }
@@ -102,6 +106,7 @@ public class V1ConfigMapNodeConfigSource {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.")
   public String getName() {
     return name;
   }
@@ -121,6 +126,7 @@ public class V1ConfigMapNodeConfigSource {
    * @return namespace
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.")
   public String getNamespace() {
     return namespace;
   }
@@ -140,6 +146,7 @@ public class V1ConfigMapNodeConfigSource {
    * @return resourceVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.")
   public String getResourceVersion() {
     return resourceVersion;
   }
@@ -159,6 +166,7 @@ public class V1ConfigMapNodeConfigSource {
    * @return uid
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.")
   public String getUid() {
     return uid;
   }

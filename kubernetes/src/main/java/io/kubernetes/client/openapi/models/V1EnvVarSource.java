@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.V1ConfigMapKeySelector;
 import io.kubernetes.client.openapi.models.V1ObjectFieldSelector;
 import io.kubernetes.client.openapi.models.V1ResourceFieldSelector;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EnvVarSource represents a source for the value of an EnvVar.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EnvVarSource represents a source for the value of an EnvVar.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EnvVarSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)
@@ -83,6 +86,7 @@ public class V1EnvVarSource {
    * @return configMapKeyRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ConfigMapKeySelector getConfigMapKeyRef() {
     return configMapKeyRef;
   }
@@ -102,6 +106,7 @@ public class V1EnvVarSource {
    * @return fieldRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectFieldSelector getFieldRef() {
     return fieldRef;
   }
@@ -121,6 +126,7 @@ public class V1EnvVarSource {
    * @return resourceFieldRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ResourceFieldSelector getResourceFieldRef() {
     return resourceFieldRef;
   }
@@ -140,6 +146,7 @@ public class V1EnvVarSource {
    * @return secretKeyRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretKeySelector getSecretKeyRef() {
     return secretKeyRef;
   }

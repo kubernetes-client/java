@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1beta3GroupSubject;
 import io.kubernetes.client.openapi.models.V1beta3ServiceAccountSubject;
 import io.kubernetes.client.openapi.models.V1beta3UserSubject;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta3Subject {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -82,6 +85,7 @@ public class V1beta3Subject {
    * @return group
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta3GroupSubject getGroup() {
     return group;
   }
@@ -101,6 +105,7 @@ public class V1beta3Subject {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "`kind` indicates which one of the other fields is non-empty. Required")
   public String getKind() {
     return kind;
   }
@@ -120,6 +125,7 @@ public class V1beta3Subject {
    * @return serviceAccount
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta3ServiceAccountSubject getServiceAccount() {
     return serviceAccount;
   }
@@ -139,6 +145,7 @@ public class V1beta3Subject {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta3UserSubject getUser() {
     return user;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1BoundObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * TokenRequestSpec contains client provided parameters of a token request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1TokenRequestSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
@@ -86,6 +89,7 @@ public class V1TokenRequestSpec {
    * @return audiences
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
   public List<String> getAudiences() {
     return audiences;
   }
@@ -105,6 +109,7 @@ public class V1TokenRequestSpec {
    * @return boundObjectRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1BoundObjectReference getBoundObjectRef() {
     return boundObjectRef;
   }
@@ -124,6 +129,7 @@ public class V1TokenRequestSpec {
    * @return expirationSeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }

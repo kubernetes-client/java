@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodSchedulingContextSpec describes where resources for the Pod are needed.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PodSchedulingContextSpec describes where resources for the Pod are needed.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3PodSchedulingContextSpec {
   public static final String SERIALIZED_NAME_POTENTIAL_NODES = "potentialNodes";
   @SerializedName(SERIALIZED_NAME_POTENTIAL_NODES)
@@ -81,6 +84,7 @@ public class V1alpha3PodSchedulingContextSpec {
    * @return potentialNodes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "PotentialNodes lists nodes where the Pod might be able to run.  The size of this field is limited to 128. This is large enough for many clusters. Larger clusters may need more attempts to find a node that suits all pending resources. This may get increased in the future, but not reduced.")
   public List<String> getPotentialNodes() {
     return potentialNodes;
   }
@@ -100,6 +104,7 @@ public class V1alpha3PodSchedulingContextSpec {
    * @return selectedNode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "SelectedNode is the node for which allocation of ResourceClaims that are referenced by the Pod and that use \"WaitForFirstConsumer\" allocation is to be attempted.")
   public String getSelectedNode() {
     return selectedNode;
   }

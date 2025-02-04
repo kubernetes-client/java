@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion;
 import io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha1StorageVersionStatus {
   public static final String SERIALIZED_NAME_COMMON_ENCODING_VERSION = "commonEncodingVersion";
   @SerializedName(SERIALIZED_NAME_COMMON_ENCODING_VERSION)
@@ -79,6 +82,7 @@ public class V1alpha1StorageVersionStatus {
    * @return commonEncodingVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.")
   public String getCommonEncodingVersion() {
     return commonEncodingVersion;
   }
@@ -106,6 +110,7 @@ public class V1alpha1StorageVersionStatus {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The latest available observations of the storageVersion's state.")
   public List<V1alpha1StorageVersionCondition> getConditions() {
     return conditions;
   }
@@ -133,6 +138,7 @@ public class V1alpha1StorageVersionStatus {
    * @return storageVersions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The reported versions per API server instance.")
   public List<V1alpha1ServerStorageVersion> getStorageVersions() {
     return storageVersions;
   }

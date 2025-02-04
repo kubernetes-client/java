@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.  DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod&#39;s container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.  DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1GitRepoVolumeSource {
   public static final String SERIALIZED_NAME_DIRECTORY = "directory";
   @SerializedName(SERIALIZED_NAME_DIRECTORY)
@@ -75,6 +78,7 @@ public class V1GitRepoVolumeSource {
    * @return directory
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.")
   public String getDirectory() {
     return directory;
   }
@@ -94,6 +98,7 @@ public class V1GitRepoVolumeSource {
    * @return repository
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "repository is the URL")
   public String getRepository() {
     return repository;
   }
@@ -113,6 +118,7 @@ public class V1GitRepoVolumeSource {
    * @return revision
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "revision is the commit hash for the specified revision.")
   public String getRevision() {
     return revision;
   }

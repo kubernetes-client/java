@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CephFSPersistentVolumeSource {
   public static final String SERIALIZED_NAME_MONITORS = "monitors";
   @SerializedName(SERIALIZED_NAME_MONITORS)
@@ -98,6 +101,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return monitors
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public List<String> getMonitors() {
     return monitors;
   }
@@ -117,6 +121,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return path
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /")
   public String getPath() {
     return path;
   }
@@ -136,6 +141,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -155,6 +161,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return secretFile
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public String getSecretFile() {
     return secretFile;
   }
@@ -174,6 +181,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
@@ -193,6 +201,7 @@ public class V1CephFSPersistentVolumeSource {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public String getUser() {
     return user;
   }

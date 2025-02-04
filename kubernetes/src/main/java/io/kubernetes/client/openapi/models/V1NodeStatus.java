@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,6 +28,8 @@ import io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints;
 import io.kubernetes.client.openapi.models.V1NodeFeatures;
 import io.kubernetes.client.openapi.models.V1NodeRuntimeHandler;
 import io.kubernetes.client.openapi.models.V1NodeSystemInfo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,7 +64,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeStatus is information about the current status of a node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "NodeStatus is information about the current status of a node.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -137,6 +140,7 @@ public class V1NodeStatus {
    * @return addresses
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).")
   public List<V1NodeAddress> getAddresses() {
     return addresses;
   }
@@ -164,6 +168,7 @@ public class V1NodeStatus {
    * @return allocatable
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.")
   public Map<String, Quantity> getAllocatable() {
     return allocatable;
   }
@@ -191,6 +196,7 @@ public class V1NodeStatus {
    * @return capacity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
@@ -218,6 +224,7 @@ public class V1NodeStatus {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition")
   public List<V1NodeCondition> getConditions() {
     return conditions;
   }
@@ -237,6 +244,7 @@ public class V1NodeStatus {
    * @return config
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeConfigStatus getConfig() {
     return config;
   }
@@ -256,6 +264,7 @@ public class V1NodeStatus {
    * @return daemonEndpoints
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeDaemonEndpoints getDaemonEndpoints() {
     return daemonEndpoints;
   }
@@ -275,6 +284,7 @@ public class V1NodeStatus {
    * @return features
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeFeatures getFeatures() {
     return features;
   }
@@ -302,6 +312,7 @@ public class V1NodeStatus {
    * @return images
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "List of container images on this node")
   public List<V1ContainerImage> getImages() {
     return images;
   }
@@ -321,6 +332,7 @@ public class V1NodeStatus {
    * @return nodeInfo
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeSystemInfo getNodeInfo() {
     return nodeInfo;
   }
@@ -340,6 +352,7 @@ public class V1NodeStatus {
    * @return phase
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.")
   public String getPhase() {
     return phase;
   }
@@ -367,6 +380,7 @@ public class V1NodeStatus {
    * @return runtimeHandlers
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The available runtime handlers.")
   public List<V1NodeRuntimeHandler> getRuntimeHandlers() {
     return runtimeHandlers;
   }
@@ -394,6 +408,7 @@ public class V1NodeStatus {
    * @return volumesAttached
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "List of volumes that are attached to the node.")
   public List<V1AttachedVolume> getVolumesAttached() {
     return volumesAttached;
   }
@@ -421,6 +436,7 @@ public class V1NodeStatus {
    * @return volumesInUse
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "List of attachable volumes in use (mounted) by the node.")
   public List<String> getVolumesInUse() {
     return volumesInUse;
   }

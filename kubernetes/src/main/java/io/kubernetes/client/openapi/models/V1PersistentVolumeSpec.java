@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -43,6 +43,8 @@ import io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource;
 import io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource;
 import io.kubernetes.client.openapi.models.V1VolumeNodeAffinity;
 import io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,7 +79,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -224,6 +227,7 @@ public class V1PersistentVolumeSpec {
    * @return accessModes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes")
   public List<String> getAccessModes() {
     return accessModes;
   }
@@ -243,6 +247,7 @@ public class V1PersistentVolumeSpec {
    * @return awsElasticBlockStore
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore() {
     return awsElasticBlockStore;
   }
@@ -262,6 +267,7 @@ public class V1PersistentVolumeSpec {
    * @return azureDisk
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1AzureDiskVolumeSource getAzureDisk() {
     return azureDisk;
   }
@@ -281,6 +287,7 @@ public class V1PersistentVolumeSpec {
    * @return azureFile
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1AzureFilePersistentVolumeSource getAzureFile() {
     return azureFile;
   }
@@ -308,6 +315,7 @@ public class V1PersistentVolumeSpec {
    * @return capacity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
@@ -327,6 +335,7 @@ public class V1PersistentVolumeSpec {
    * @return cephfs
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CephFSPersistentVolumeSource getCephfs() {
     return cephfs;
   }
@@ -346,6 +355,7 @@ public class V1PersistentVolumeSpec {
    * @return cinder
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CinderPersistentVolumeSource getCinder() {
     return cinder;
   }
@@ -365,6 +375,7 @@ public class V1PersistentVolumeSpec {
    * @return claimRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getClaimRef() {
     return claimRef;
   }
@@ -384,6 +395,7 @@ public class V1PersistentVolumeSpec {
    * @return csi
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CSIPersistentVolumeSource getCsi() {
     return csi;
   }
@@ -403,6 +415,7 @@ public class V1PersistentVolumeSpec {
    * @return fc
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1FCVolumeSource getFc() {
     return fc;
   }
@@ -422,6 +435,7 @@ public class V1PersistentVolumeSpec {
    * @return flexVolume
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1FlexPersistentVolumeSource getFlexVolume() {
     return flexVolume;
   }
@@ -441,6 +455,7 @@ public class V1PersistentVolumeSpec {
    * @return flocker
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1FlockerVolumeSource getFlocker() {
     return flocker;
   }
@@ -460,6 +475,7 @@ public class V1PersistentVolumeSpec {
    * @return gcePersistentDisk
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1GCEPersistentDiskVolumeSource getGcePersistentDisk() {
     return gcePersistentDisk;
   }
@@ -479,6 +495,7 @@ public class V1PersistentVolumeSpec {
    * @return glusterfs
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1GlusterfsPersistentVolumeSource getGlusterfs() {
     return glusterfs;
   }
@@ -498,6 +515,7 @@ public class V1PersistentVolumeSpec {
    * @return hostPath
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1HostPathVolumeSource getHostPath() {
     return hostPath;
   }
@@ -517,6 +535,7 @@ public class V1PersistentVolumeSpec {
    * @return iscsi
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ISCSIPersistentVolumeSource getIscsi() {
     return iscsi;
   }
@@ -536,6 +555,7 @@ public class V1PersistentVolumeSpec {
    * @return local
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LocalVolumeSource getLocal() {
     return local;
   }
@@ -563,6 +583,7 @@ public class V1PersistentVolumeSpec {
    * @return mountOptions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "mountOptions is the list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options")
   public List<String> getMountOptions() {
     return mountOptions;
   }
@@ -582,6 +603,7 @@ public class V1PersistentVolumeSpec {
    * @return nfs
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NFSVolumeSource getNfs() {
     return nfs;
   }
@@ -601,6 +623,7 @@ public class V1PersistentVolumeSpec {
    * @return nodeAffinity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1VolumeNodeAffinity getNodeAffinity() {
     return nodeAffinity;
   }
@@ -620,6 +643,7 @@ public class V1PersistentVolumeSpec {
    * @return persistentVolumeReclaimPolicy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming")
   public String getPersistentVolumeReclaimPolicy() {
     return persistentVolumeReclaimPolicy;
   }
@@ -639,6 +663,7 @@ public class V1PersistentVolumeSpec {
    * @return photonPersistentDisk
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk() {
     return photonPersistentDisk;
   }
@@ -658,6 +683,7 @@ public class V1PersistentVolumeSpec {
    * @return portworxVolume
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PortworxVolumeSource getPortworxVolume() {
     return portworxVolume;
   }
@@ -677,6 +703,7 @@ public class V1PersistentVolumeSpec {
    * @return quobyte
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1QuobyteVolumeSource getQuobyte() {
     return quobyte;
   }
@@ -696,6 +723,7 @@ public class V1PersistentVolumeSpec {
    * @return rbd
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1RBDPersistentVolumeSource getRbd() {
     return rbd;
   }
@@ -715,6 +743,7 @@ public class V1PersistentVolumeSpec {
    * @return scaleIO
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ScaleIOPersistentVolumeSource getScaleIO() {
     return scaleIO;
   }
@@ -734,6 +763,7 @@ public class V1PersistentVolumeSpec {
    * @return storageClassName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.")
   public String getStorageClassName() {
     return storageClassName;
   }
@@ -753,6 +783,7 @@ public class V1PersistentVolumeSpec {
    * @return storageos
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1StorageOSPersistentVolumeSource getStorageos() {
     return storageos;
   }
@@ -772,6 +803,7 @@ public class V1PersistentVolumeSpec {
    * @return volumeAttributesClassName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).")
   public String getVolumeAttributesClassName() {
     return volumeAttributesClassName;
   }
@@ -791,6 +823,7 @@ public class V1PersistentVolumeSpec {
    * @return volumeMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.")
   public String getVolumeMode() {
     return volumeMode;
   }
@@ -810,6 +843,7 @@ public class V1PersistentVolumeSpec {
    * @return vsphereVolume
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
     return vsphereVolume;
   }

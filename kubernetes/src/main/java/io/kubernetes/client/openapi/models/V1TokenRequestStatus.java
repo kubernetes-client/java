@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * TokenRequestStatus is the result of a token request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "TokenRequestStatus is the result of a token request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1TokenRequestStatus {
   public static final String SERIALIZED_NAME_EXPIRATION_TIMESTAMP = "expirationTimestamp";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_TIMESTAMP)
@@ -72,6 +75,7 @@ public class V1TokenRequestStatus {
    * @return expirationTimestamp
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "ExpirationTimestamp is the time of expiration of the returned token.")
   public OffsetDateTime getExpirationTimestamp() {
     return expirationTimestamp;
   }
@@ -91,6 +95,7 @@ public class V1TokenRequestStatus {
    * @return token
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Token is the opaque bearer token.")
   public String getToken() {
     return token;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1DeploymentCondition;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeploymentStatus is the most recently observed status of the Deployment.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeploymentStatus is the most recently observed status of the Deployment.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1DeploymentStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_REPLICAS)
@@ -98,6 +101,7 @@ public class V1DeploymentStatus {
    * @return availableReplicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.")
   public Integer getAvailableReplicas() {
     return availableReplicas;
   }
@@ -117,6 +121,7 @@ public class V1DeploymentStatus {
    * @return collisionCount
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.")
   public Integer getCollisionCount() {
     return collisionCount;
   }
@@ -144,6 +149,7 @@ public class V1DeploymentStatus {
    * @return conditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Represents the latest available observations of a deployment's current state.")
   public List<V1DeploymentCondition> getConditions() {
     return conditions;
   }
@@ -163,6 +169,7 @@ public class V1DeploymentStatus {
    * @return observedGeneration
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The generation observed by the deployment controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -182,6 +189,7 @@ public class V1DeploymentStatus {
    * @return readyReplicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.")
   public Integer getReadyReplicas() {
     return readyReplicas;
   }
@@ -201,6 +209,7 @@ public class V1DeploymentStatus {
    * @return replicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Total number of non-terminated pods targeted by this deployment (their labels match the selector).")
   public Integer getReplicas() {
     return replicas;
   }
@@ -220,6 +229,7 @@ public class V1DeploymentStatus {
    * @return unavailableReplicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.")
   public Integer getUnavailableReplicas() {
     return unavailableReplicas;
   }
@@ -239,6 +249,7 @@ public class V1DeploymentStatus {
    * @return updatedReplicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Total number of non-terminated pods targeted by this deployment that have the desired template spec.")
   public Integer getUpdatedReplicas() {
     return updatedReplicas;
   }

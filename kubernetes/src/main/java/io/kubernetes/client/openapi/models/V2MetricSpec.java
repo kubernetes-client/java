@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,6 +23,8 @@ import io.kubernetes.client.openapi.models.V2ExternalMetricSource;
 import io.kubernetes.client.openapi.models.V2ObjectMetricSource;
 import io.kubernetes.client.openapi.models.V2PodsMetricSource;
 import io.kubernetes.client.openapi.models.V2ResourceMetricSource;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * MetricSpec specifies how to scale based on a single metric (only &#x60;type&#x60; and one other matching field should be set at once).
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2MetricSpec {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
@@ -92,6 +95,7 @@ public class V2MetricSpec {
    * @return containerResource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ContainerResourceMetricSource getContainerResource() {
     return containerResource;
   }
@@ -111,6 +115,7 @@ public class V2MetricSpec {
    * @return external
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ExternalMetricSource getExternal() {
     return external;
   }
@@ -130,6 +135,7 @@ public class V2MetricSpec {
    * @return _object
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ObjectMetricSource getObject() {
     return _object;
   }
@@ -149,6 +155,7 @@ public class V2MetricSpec {
    * @return pods
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2PodsMetricSource getPods() {
     return pods;
   }
@@ -168,6 +175,7 @@ public class V2MetricSpec {
    * @return resource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ResourceMetricSource getResource() {
     return resource;
   }
@@ -187,6 +195,7 @@ public class V2MetricSpec {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object. Note: \"ContainerResource\" type is available on when the feature-gate HPAContainerMetrics is enabled")
   public String getType() {
     return type;
   }

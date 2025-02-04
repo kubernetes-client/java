@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
@@ -79,6 +82,7 @@ public class V1alpha3DeviceRequestAllocationResult {
    * @return device
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.")
   public String getDevice() {
     return device;
   }
@@ -98,6 +102,7 @@ public class V1alpha3DeviceRequestAllocationResult {
    * @return driver
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.")
   public String getDriver() {
     return driver;
   }
@@ -117,6 +122,7 @@ public class V1alpha3DeviceRequestAllocationResult {
    * @return pool
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.")
   public String getPool() {
     return pool;
   }
@@ -136,6 +142,7 @@ public class V1alpha3DeviceRequestAllocationResult {
    * @return request
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.")
   public String getRequest() {
     return request;
   }

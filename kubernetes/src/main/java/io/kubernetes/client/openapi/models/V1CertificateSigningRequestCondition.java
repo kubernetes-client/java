@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CertificateSigningRequestCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -88,6 +91,7 @@ public class V1CertificateSigningRequestCondition {
    * @return lastTransitionTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition's status is changed, the server defaults this to the current time.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -107,6 +111,7 @@ public class V1CertificateSigningRequestCondition {
    * @return lastUpdateTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastUpdateTime is the time of the last update to this condition")
   public OffsetDateTime getLastUpdateTime() {
     return lastUpdateTime;
   }
@@ -126,6 +131,7 @@ public class V1CertificateSigningRequestCondition {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "message contains a human readable message with details about the request state")
   public String getMessage() {
     return message;
   }
@@ -145,6 +151,7 @@ public class V1CertificateSigningRequestCondition {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reason indicates a brief reason for the request state")
   public String getReason() {
     return reason;
   }
@@ -164,6 +171,7 @@ public class V1CertificateSigningRequestCondition {
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "status of the condition, one of True, False, Unknown. Approved, Denied, and Failed conditions may not be \"False\" or \"Unknown\".")
   public String getStatus() {
     return status;
   }
@@ -183,6 +191,7 @@ public class V1CertificateSigningRequestCondition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "type of the condition. Known conditions are \"Approved\", \"Denied\", and \"Failed\".  An \"Approved\" condition is added via the /approval subresource, indicating the request was approved and should be issued by the signer.  A \"Denied\" condition is added via the /approval subresource, indicating the request was denied and should not be issued by the signer.  A \"Failed\" condition is added via the /status subresource, indicating the signer failed to issue the certificate.  Approved and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be removed once added.  Only one condition of a given type is allowed.")
   public String getType() {
     return type;
   }

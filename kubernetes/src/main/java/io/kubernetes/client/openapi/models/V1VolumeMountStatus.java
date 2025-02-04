@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * VolumeMountStatus shows status of volume mounts.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "VolumeMountStatus shows status of volume mounts.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T19:05:53.712211Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeMountStatus {
   public static final String SERIALIZED_NAME_MOUNT_PATH = "mountPath";
   @SerializedName(SERIALIZED_NAME_MOUNT_PATH)
@@ -79,6 +82,7 @@ public class V1VolumeMountStatus {
    * @return mountPath
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "MountPath corresponds to the original VolumeMount.")
   public String getMountPath() {
     return mountPath;
   }
@@ -98,6 +102,7 @@ public class V1VolumeMountStatus {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name corresponds to the name of the original VolumeMount.")
   public String getName() {
     return name;
   }
@@ -117,6 +122,7 @@ public class V1VolumeMountStatus {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ReadOnly corresponds to the original VolumeMount.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -136,6 +142,7 @@ public class V1VolumeMountStatus {
    * @return recursiveReadOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.")
   public String getRecursiveReadOnly() {
     return recursiveReadOnly;
   }
