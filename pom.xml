@@ -367,7 +367,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>6.0.0</version>
+          <version>5.1.9</version>
           <extensions>true</extensions>
         </plugin>
         <plugin>
