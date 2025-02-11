@@ -1,0 +1,127 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+
+/**
+ * ImageVolumeSource represents a image volume resource.
+ */
+@ApiModel(description = "ImageVolumeSource represents a image volume resource.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-07T19:21:52.410010Z[Etc/UTC]")
+public class V1ImageVolumeSource {
+  public static final String SERIALIZED_NAME_PULL_POLICY = "pullPolicy";
+  @SerializedName(SERIALIZED_NAME_PULL_POLICY)
+  private String pullPolicy;
+
+  public static final String SERIALIZED_NAME_REFERENCE = "reference";
+  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  private String reference;
+
+
+  public V1ImageVolumeSource pullPolicy(String pullPolicy) {
+
+    this.pullPolicy = pullPolicy;
+    return this;
+  }
+
+   /**
+   * Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn&#39;t present. IfNotPresent: the kubelet pulls if the reference isn&#39;t already present on disk. Container creation will fail if the reference isn&#39;t present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.
+   * @return pullPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.")
+
+  public String getPullPolicy() {
+    return pullPolicy;
+  }
+
+
+  public void setPullPolicy(String pullPolicy) {
+    this.pullPolicy = pullPolicy;
+  }
+
+
+  public V1ImageVolumeSource reference(String reference) {
+
+    this.reference = reference;
+    return this;
+  }
+
+   /**
+   * Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+   * @return reference
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
+
+  public String getReference() {
+    return reference;
+  }
+
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1ImageVolumeSource v1ImageVolumeSource = (V1ImageVolumeSource) o;
+    return Objects.equals(this.pullPolicy, v1ImageVolumeSource.pullPolicy) &&
+        Objects.equals(this.reference, v1ImageVolumeSource.reference);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(pullPolicy, reference);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1ImageVolumeSource {\n");
+    sb.append("    pullPolicy: ").append(toIndentedString(pullPolicy)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,10 +29,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Projection that may be projected along with other supported volume types
+ * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  */
-@ApiModel(description = "Projection that may be projected along with other supported volume types")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@ApiModel(description = "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-07T19:21:52.410010Z[Etc/UTC]")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)

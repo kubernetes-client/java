@@ -29,6 +29,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     this.copyInstance(instance);
   }
   private Map<String,Quantity> allocatedResources;
+  private ArrayList<V1ResourceStatusBuilder> allocatedResourcesStatus;
   private String containerID;
   private String image;
   private String imageID;
@@ -39,12 +40,14 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   private Integer restartCount;
   private Boolean started;
   private V1ContainerStateBuilder state;
+  private V1ContainerUserBuilder user;
   private ArrayList<V1VolumeMountStatusBuilder> volumeMounts;
   
   protected void copyInstance(V1ContainerStatus instance) {
     instance = (instance != null ? instance : new V1ContainerStatus());
     if (instance != null) {
           this.withAllocatedResources(instance.getAllocatedResources());
+          this.withAllocatedResourcesStatus(instance.getAllocatedResourcesStatus());
           this.withContainerID(instance.getContainerID());
           this.withImage(instance.getImage());
           this.withImageID(instance.getImageID());
@@ -55,6 +58,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
           this.withRestartCount(instance.getRestartCount());
           this.withStarted(instance.getStarted());
           this.withState(instance.getState());
+          this.withUser(instance.getUser());
           this.withVolumeMounts(instance.getVolumeMounts());
         }
   }
@@ -94,6 +98,157 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   
   public boolean hasAllocatedResources() {
     return this.allocatedResources != null;
+  }
+  
+  public A addToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
+    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+    if (index < 0 || index >= allocatedResourcesStatus.size()) { _visitables.get("allocatedResourcesStatus").add(builder); allocatedResourcesStatus.add(builder); } else { _visitables.get("allocatedResourcesStatus").add(index, builder); allocatedResourcesStatus.add(index, builder);}
+    return (A)this;
+  }
+  
+  public A setToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
+    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+    if (index < 0 || index >= allocatedResourcesStatus.size()) { _visitables.get("allocatedResourcesStatus").add(builder); allocatedResourcesStatus.add(builder); } else { _visitables.get("allocatedResourcesStatus").set(index, builder); allocatedResourcesStatus.set(index, builder);}
+    return (A)this;
+  }
+  
+  public A addToAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... items) {
+    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").add(builder);this.allocatedResourcesStatus.add(builder);} return (A)this;
+  }
+  
+  public A addAllToAllocatedResourcesStatus(Collection<V1ResourceStatus> items) {
+    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").add(builder);this.allocatedResourcesStatus.add(builder);} return (A)this;
+  }
+  
+  public A removeFromAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... items) {
+    if (this.allocatedResourcesStatus == null) return (A)this;
+    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").remove(builder); this.allocatedResourcesStatus.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromAllocatedResourcesStatus(Collection<V1ResourceStatus> items) {
+    if (this.allocatedResourcesStatus == null) return (A)this;
+    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").remove(builder); this.allocatedResourcesStatus.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
+    if (allocatedResourcesStatus == null) return (A) this;
+    final Iterator<V1ResourceStatusBuilder> each = allocatedResourcesStatus.iterator();
+    final List visitables = _visitables.get("allocatedResourcesStatus");
+    while (each.hasNext()) {
+      V1ResourceStatusBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1ResourceStatus> buildAllocatedResourcesStatus() {
+    return this.allocatedResourcesStatus != null ? build(allocatedResourcesStatus) : null;
+  }
+  
+  public V1ResourceStatus buildAllocatedResourcesStatus(int index) {
+    return this.allocatedResourcesStatus.get(index).build();
+  }
+  
+  public V1ResourceStatus buildFirstAllocatedResourcesStatus() {
+    return this.allocatedResourcesStatus.get(0).build();
+  }
+  
+  public V1ResourceStatus buildLastAllocatedResourcesStatus() {
+    return this.allocatedResourcesStatus.get(allocatedResourcesStatus.size() - 1).build();
+  }
+  
+  public V1ResourceStatus buildMatchingAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
+      for (V1ResourceStatusBuilder item : allocatedResourcesStatus) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
+      for (V1ResourceStatusBuilder item : allocatedResourcesStatus) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withAllocatedResourcesStatus(List<V1ResourceStatus> allocatedResourcesStatus) {
+    if (this.allocatedResourcesStatus != null) {
+      this._visitables.get("allocatedResourcesStatus").clear();
+    }
+    if (allocatedResourcesStatus != null) {
+        this.allocatedResourcesStatus = new ArrayList();
+        for (V1ResourceStatus item : allocatedResourcesStatus) {
+          this.addToAllocatedResourcesStatus(item);
+        }
+    } else {
+      this.allocatedResourcesStatus = null;
+    }
+    return (A) this;
+  }
+  
+  public A withAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... allocatedResourcesStatus) {
+    if (this.allocatedResourcesStatus != null) {
+        this.allocatedResourcesStatus.clear();
+        _visitables.remove("allocatedResourcesStatus");
+    }
+    if (allocatedResourcesStatus != null) {
+      for (V1ResourceStatus item : allocatedResourcesStatus) {
+        this.addToAllocatedResourcesStatus(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasAllocatedResourcesStatus() {
+    return this.allocatedResourcesStatus != null && !this.allocatedResourcesStatus.isEmpty();
+  }
+  
+  public AllocatedResourcesStatusNested<A> addNewAllocatedResourcesStatus() {
+    return new AllocatedResourcesStatusNested(-1, null);
+  }
+  
+  public AllocatedResourcesStatusNested<A> addNewAllocatedResourcesStatusLike(V1ResourceStatus item) {
+    return new AllocatedResourcesStatusNested(-1, item);
+  }
+  
+  public AllocatedResourcesStatusNested<A> setNewAllocatedResourcesStatusLike(int index,V1ResourceStatus item) {
+    return new AllocatedResourcesStatusNested(index, item);
+  }
+  
+  public AllocatedResourcesStatusNested<A> editAllocatedResourcesStatus(int index) {
+    if (allocatedResourcesStatus.size() <= index) throw new RuntimeException("Can't edit allocatedResourcesStatus. Index exceeds size.");
+    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
+  }
+  
+  public AllocatedResourcesStatusNested<A> editFirstAllocatedResourcesStatus() {
+    if (allocatedResourcesStatus.size() == 0) throw new RuntimeException("Can't edit first allocatedResourcesStatus. The list is empty.");
+    return setNewAllocatedResourcesStatusLike(0, buildAllocatedResourcesStatus(0));
+  }
+  
+  public AllocatedResourcesStatusNested<A> editLastAllocatedResourcesStatus() {
+    int index = allocatedResourcesStatus.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last allocatedResourcesStatus. The list is empty.");
+    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
+  }
+  
+  public AllocatedResourcesStatusNested<A> editMatchingAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<allocatedResourcesStatus.size();i++) { 
+    if (predicate.test(allocatedResourcesStatus.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching allocatedResourcesStatus. No match found.");
+    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
   }
   
   public String getContainerID() {
@@ -307,6 +462,46 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(item));
   }
   
+  public V1ContainerUser buildUser() {
+    return this.user != null ? this.user.build() : null;
+  }
+  
+  public A withUser(V1ContainerUser user) {
+    this._visitables.remove("user");
+    if (user != null) {
+        this.user = new V1ContainerUserBuilder(user);
+        this._visitables.get("user").add(this.user);
+    } else {
+        this.user = null;
+        this._visitables.get("user").remove(this.user);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
+  public UserNested<A> withNewUser() {
+    return new UserNested(null);
+  }
+  
+  public UserNested<A> withNewUserLike(V1ContainerUser item) {
+    return new UserNested(item);
+  }
+  
+  public UserNested<A> editUser() {
+    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(null));
+  }
+  
+  public UserNested<A> editOrNewUser() {
+    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(new V1ContainerUserBuilder().build()));
+  }
+  
+  public UserNested<A> editOrNewUserLike(V1ContainerUser item) {
+    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(item));
+  }
+  
   public A addToVolumeMounts(int index,V1VolumeMountStatus item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
@@ -464,6 +659,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (!super.equals(o)) return false;
     V1ContainerStatusFluent that = (V1ContainerStatusFluent) o;
     if (!java.util.Objects.equals(allocatedResources, that.allocatedResources)) return false;
+    if (!java.util.Objects.equals(allocatedResourcesStatus, that.allocatedResourcesStatus)) return false;
     if (!java.util.Objects.equals(containerID, that.containerID)) return false;
     if (!java.util.Objects.equals(image, that.image)) return false;
     if (!java.util.Objects.equals(imageID, that.imageID)) return false;
@@ -474,18 +670,20 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (!java.util.Objects.equals(restartCount, that.restartCount)) return false;
     if (!java.util.Objects.equals(started, that.started)) return false;
     if (!java.util.Objects.equals(state, that.state)) return false;
+    if (!java.util.Objects.equals(user, that.user)) return false;
     if (!java.util.Objects.equals(volumeMounts, that.volumeMounts)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocatedResources,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  volumeMounts,  super.hashCode());
+    return java.util.Objects.hash(allocatedResources,  allocatedResourcesStatus,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  user,  volumeMounts,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (allocatedResources != null && !allocatedResources.isEmpty()) { sb.append("allocatedResources:"); sb.append(allocatedResources + ","); }
+    if (allocatedResourcesStatus != null && !allocatedResourcesStatus.isEmpty()) { sb.append("allocatedResourcesStatus:"); sb.append(allocatedResourcesStatus + ","); }
     if (containerID != null) { sb.append("containerID:"); sb.append(containerID + ","); }
     if (image != null) { sb.append("image:"); sb.append(image + ","); }
     if (imageID != null) { sb.append("imageID:"); sb.append(imageID + ","); }
@@ -496,6 +694,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (restartCount != null) { sb.append("restartCount:"); sb.append(restartCount + ","); }
     if (started != null) { sb.append("started:"); sb.append(started + ","); }
     if (state != null) { sb.append("state:"); sb.append(state + ","); }
+    if (user != null) { sb.append("user:"); sb.append(user + ","); }
     if (volumeMounts != null && !volumeMounts.isEmpty()) { sb.append("volumeMounts:"); sb.append(volumeMounts); }
     sb.append("}");
     return sb.toString();
@@ -507,6 +706,24 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   
   public A withStarted() {
     return withStarted(true);
+  }
+  public class AllocatedResourcesStatusNested<N> extends V1ResourceStatusFluent<AllocatedResourcesStatusNested<N>> implements Nested<N>{
+    AllocatedResourcesStatusNested(int index,V1ResourceStatus item) {
+      this.index = index;
+      this.builder = new V1ResourceStatusBuilder(this, item);
+    }
+    V1ResourceStatusBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1ContainerStatusFluent.this.setToAllocatedResourcesStatus(index,builder.build());
+    }
+    
+    public N endAllocatedResourcesStatus() {
+      return and();
+    }
+    
+  
   }
   public class LastStateNested<N> extends V1ContainerStateFluent<LastStateNested<N>> implements Nested<N>{
     LastStateNested(V1ContainerState item) {
@@ -551,6 +768,22 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     }
     
     public N endState() {
+      return and();
+    }
+    
+  
+  }
+  public class UserNested<N> extends V1ContainerUserFluent<UserNested<N>> implements Nested<N>{
+    UserNested(V1ContainerUser item) {
+      this.builder = new V1ContainerUserBuilder(this, item);
+    }
+    V1ContainerUserBuilder builder;
+    
+    public N and() {
+      return (N) V1ContainerStatusFluent.this.withUser(builder.build());
+    }
+    
+    public N endUser() {
       return and();
     }
     

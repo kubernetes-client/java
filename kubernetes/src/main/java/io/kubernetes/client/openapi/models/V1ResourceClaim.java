@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -27,11 +27,15 @@ import java.io.IOException;
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  */
 @ApiModel(description = "ResourceClaim references one entry in PodSpec.ResourceClaims.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-07T19:21:52.410010Z[Etc/UTC]")
 public class V1ResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_REQUEST = "request";
+  @SerializedName(SERIALIZED_NAME_REQUEST)
+  private String request;
 
 
   public V1ResourceClaim name(String name) {
@@ -56,6 +60,29 @@ public class V1ResourceClaim {
   }
 
 
+  public V1ResourceClaim request(String request) {
+
+    this.request = request;
+    return this;
+  }
+
+   /**
+   * Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.
+   * @return request
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.")
+
+  public String getRequest() {
+    return request;
+  }
+
+
+  public void setRequest(String request) {
+    this.request = request;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,12 +92,13 @@ public class V1ResourceClaim {
       return false;
     }
     V1ResourceClaim v1ResourceClaim = (V1ResourceClaim) o;
-    return Objects.equals(this.name, v1ResourceClaim.name);
+    return Objects.equals(this.name, v1ResourceClaim.name) &&
+        Objects.equals(this.request, v1ResourceClaim.request);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, request);
   }
 
 
@@ -79,6 +107,7 @@ public class V1ResourceClaim {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ResourceClaim {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("}");
     return sb.toString();
   }

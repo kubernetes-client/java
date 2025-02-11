@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -33,7 +33,7 @@ import java.util.Map;
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
 @ApiModel(description = "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-07T19:21:52.410010Z[Etc/UTC]")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)
@@ -1296,11 +1296,11 @@ public class V1JSONSchemaProps {
   }
 
    /**
-   * x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate &#x60;CustomResourceValidationExpressions&#x60; to be enabled.
+   * x-kubernetes-validations describes a list of validation rules written in the CEL expression language.
    * @return xKubernetesValidations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate `CustomResourceValidationExpressions` to be enabled.")
+  @ApiModelProperty(value = "x-kubernetes-validations describes a list of validation rules written in the CEL expression language.")
 
   public List<V1ValidationRule> getxKubernetesValidations() {
     return xKubernetesValidations;

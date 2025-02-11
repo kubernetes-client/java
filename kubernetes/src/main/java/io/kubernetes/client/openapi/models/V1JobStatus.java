@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -32,7 +32,7 @@ import java.util.List;
  * JobStatus represents the current state of a Job.
  */
 @ApiModel(description = "JobStatus represents the current state of a Job.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-07T19:21:52.410010Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -232,11 +232,11 @@ public class V1JobStatus {
   }
 
    /**
-   * The number of pods which have a Ready condition.
+   * The number of active pods which have a Ready condition and are not terminating (without a deletionTimestamp).
    * @return ready
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which have a Ready condition.")
+  @ApiModelProperty(value = "The number of active pods which have a Ready condition and are not terminating (without a deletionTimestamp).")
 
   public Integer getReady() {
     return ready;

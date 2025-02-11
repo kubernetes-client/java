@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -796,6 +796,7 @@ public class CustomObjectsApi {
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -807,7 +808,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -843,6 +844,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
 
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -865,7 +870,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -888,7 +893,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         return localVarCall;
 
     }
@@ -906,6 +911,7 @@ public class CustomObjectsApi {
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
      * @param body  (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -916,8 +922,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteCollectionNamespacedCustomObject(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+    public Object deleteCollectionNamespacedCustomObject(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body);
         return localVarResp.getData();
     }
 
@@ -934,6 +940,7 @@ public class CustomObjectsApi {
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
      * @param body  (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -944,8 +951,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    public ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -963,6 +970,7 @@ public class CustomObjectsApi {
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -974,9 +982,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2408,6 +2416,221 @@ public class CustomObjectsApi {
     public okhttp3.Call listClusterCustomObjectAsync(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCustomObjectForAllNamespaces
+     * @param group The custom resource&#39;s group name (required)
+     * @param version The custom resource&#39;s version (required)
+     * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCustomObjectForAllNamespacesCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/{group}/{version}/{resource_plural}"
+            .replaceAll("\\{" + "group" + "\\}", localVarApiClient.escapeString(group.toString()))
+            .replaceAll("\\{" + "version" + "\\}", localVarApiClient.escapeString(version.toString()))
+            .replaceAll("\\{" + "resource_plural" + "\\}", localVarApiClient.escapeString(resourcePlural.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (allowWatchBookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+        }
+
+        if (_continue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
+        }
+
+        if (fieldSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldSelector", fieldSelector));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (resourceVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+        }
+
+        if (resourceVersionMatch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+        }
+
+        if (timeoutSeconds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
+        }
+
+        if (watch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/json;stream=watch"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomObjectForAllNamespacesValidateBeforeCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'group' is set
+        if (group == null) {
+            throw new ApiException("Missing the required parameter 'group' when calling listCustomObjectForAllNamespaces(Async)");
+        }
+
+        // verify the required parameter 'version' is set
+        if (version == null) {
+            throw new ApiException("Missing the required parameter 'version' when calling listCustomObjectForAllNamespaces(Async)");
+        }
+
+        // verify the required parameter 'resourcePlural' is set
+        if (resourcePlural == null) {
+            throw new ApiException("Missing the required parameter 'resourcePlural' when calling listCustomObjectForAllNamespaces(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     *
+     * list or watch namespace scoped custom objects
+     * @param group The custom resource&#39;s group name (required)
+     * @param version The custom resource&#39;s version (required)
+     * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object listCustomObjectForAllNamespaces(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        ApiResponse<Object> localVarResp = listCustomObjectForAllNamespacesWithHttpInfo(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch);
+        return localVarResp.getData();
+    }
+
+    /**
+     *
+     * list or watch namespace scoped custom objects
+     * @param group The custom resource&#39;s group name (required)
+     * @param version The custom resource&#39;s version (required)
+     * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> listCustomObjectForAllNamespacesWithHttpInfo(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * list or watch namespace scoped custom objects
+     * @param group The custom resource&#39;s group name (required)
+     * @param version The custom resource&#39;s version (required)
+     * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+     * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCustomObjectForAllNamespacesAsync(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
