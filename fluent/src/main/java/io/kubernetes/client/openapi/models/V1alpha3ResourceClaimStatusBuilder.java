@@ -24,7 +24,7 @@ public class V1alpha3ResourceClaimStatusBuilder extends V1alpha3ResourceClaimSta
   public V1alpha3ResourceClaimStatus build() {
     V1alpha3ResourceClaimStatus buildable = new V1alpha3ResourceClaimStatus();
     buildable.setAllocation(fluent.buildAllocation());
-    buildable.setDeallocationRequested(fluent.getDeallocationRequested());
+    buildable.setDevices(fluent.buildDevices());
     buildable.setReservedFor(fluent.buildReservedFor());
     return buildable;
   }

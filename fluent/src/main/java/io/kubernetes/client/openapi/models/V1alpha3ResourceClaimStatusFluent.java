@@ -8,10 +8,9 @@ import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
-import java.lang.Boolean;
 
 /**
  * Generated
@@ -25,14 +24,14 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
     this.copyInstance(instance);
   }
   private V1alpha3AllocationResultBuilder allocation;
-  private Boolean deallocationRequested;
+  private ArrayList<V1alpha3AllocatedDeviceStatusBuilder> devices;
   private ArrayList<V1alpha3ResourceClaimConsumerReferenceBuilder> reservedFor;
   
   protected void copyInstance(V1alpha3ResourceClaimStatus instance) {
     instance = (instance != null ? instance : new V1alpha3ResourceClaimStatus());
     if (instance != null) {
           this.withAllocation(instance.getAllocation());
-          this.withDeallocationRequested(instance.getDeallocationRequested());
+          this.withDevices(instance.getDevices());
           this.withReservedFor(instance.getReservedFor());
         }
   }
@@ -77,17 +76,155 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
     return withNewAllocationLike(java.util.Optional.ofNullable(buildAllocation()).orElse(item));
   }
   
-  public Boolean getDeallocationRequested() {
-    return this.deallocationRequested;
+  public A addToDevices(int index,V1alpha3AllocatedDeviceStatus item) {
+    if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
+    V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);
+    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").add(index, builder); devices.add(index, builder);}
+    return (A)this;
   }
   
-  public A withDeallocationRequested(Boolean deallocationRequested) {
-    this.deallocationRequested = deallocationRequested;
+  public A setToDevices(int index,V1alpha3AllocatedDeviceStatus item) {
+    if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
+    V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);
+    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").set(index, builder); devices.set(index, builder);}
+    return (A)this;
+  }
+  
+  public A addToDevices(io.kubernetes.client.openapi.models.V1alpha3AllocatedDeviceStatus... items) {
+    if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
+    for (V1alpha3AllocatedDeviceStatus item : items) {V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+  }
+  
+  public A addAllToDevices(Collection<V1alpha3AllocatedDeviceStatus> items) {
+    if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
+    for (V1alpha3AllocatedDeviceStatus item : items) {V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+  }
+  
+  public A removeFromDevices(io.kubernetes.client.openapi.models.V1alpha3AllocatedDeviceStatus... items) {
+    if (this.devices == null) return (A)this;
+    for (V1alpha3AllocatedDeviceStatus item : items) {V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromDevices(Collection<V1alpha3AllocatedDeviceStatus> items) {
+    if (this.devices == null) return (A)this;
+    for (V1alpha3AllocatedDeviceStatus item : items) {V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromDevices(Predicate<V1alpha3AllocatedDeviceStatusBuilder> predicate) {
+    if (devices == null) return (A) this;
+    final Iterator<V1alpha3AllocatedDeviceStatusBuilder> each = devices.iterator();
+    final List visitables = _visitables.get("devices");
+    while (each.hasNext()) {
+      V1alpha3AllocatedDeviceStatusBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1alpha3AllocatedDeviceStatus> buildDevices() {
+    return this.devices != null ? build(devices) : null;
+  }
+  
+  public V1alpha3AllocatedDeviceStatus buildDevice(int index) {
+    return this.devices.get(index).build();
+  }
+  
+  public V1alpha3AllocatedDeviceStatus buildFirstDevice() {
+    return this.devices.get(0).build();
+  }
+  
+  public V1alpha3AllocatedDeviceStatus buildLastDevice() {
+    return this.devices.get(devices.size() - 1).build();
+  }
+  
+  public V1alpha3AllocatedDeviceStatus buildMatchingDevice(Predicate<V1alpha3AllocatedDeviceStatusBuilder> predicate) {
+      for (V1alpha3AllocatedDeviceStatusBuilder item : devices) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingDevice(Predicate<V1alpha3AllocatedDeviceStatusBuilder> predicate) {
+      for (V1alpha3AllocatedDeviceStatusBuilder item : devices) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withDevices(List<V1alpha3AllocatedDeviceStatus> devices) {
+    if (this.devices != null) {
+      this._visitables.get("devices").clear();
+    }
+    if (devices != null) {
+        this.devices = new ArrayList();
+        for (V1alpha3AllocatedDeviceStatus item : devices) {
+          this.addToDevices(item);
+        }
+    } else {
+      this.devices = null;
+    }
     return (A) this;
   }
   
-  public boolean hasDeallocationRequested() {
-    return this.deallocationRequested != null;
+  public A withDevices(io.kubernetes.client.openapi.models.V1alpha3AllocatedDeviceStatus... devices) {
+    if (this.devices != null) {
+        this.devices.clear();
+        _visitables.remove("devices");
+    }
+    if (devices != null) {
+      for (V1alpha3AllocatedDeviceStatus item : devices) {
+        this.addToDevices(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasDevices() {
+    return this.devices != null && !this.devices.isEmpty();
+  }
+  
+  public DevicesNested<A> addNewDevice() {
+    return new DevicesNested(-1, null);
+  }
+  
+  public DevicesNested<A> addNewDeviceLike(V1alpha3AllocatedDeviceStatus item) {
+    return new DevicesNested(-1, item);
+  }
+  
+  public DevicesNested<A> setNewDeviceLike(int index,V1alpha3AllocatedDeviceStatus item) {
+    return new DevicesNested(index, item);
+  }
+  
+  public DevicesNested<A> editDevice(int index) {
+    if (devices.size() <= index) throw new RuntimeException("Can't edit devices. Index exceeds size.");
+    return setNewDeviceLike(index, buildDevice(index));
+  }
+  
+  public DevicesNested<A> editFirstDevice() {
+    if (devices.size() == 0) throw new RuntimeException("Can't edit first devices. The list is empty.");
+    return setNewDeviceLike(0, buildDevice(0));
+  }
+  
+  public DevicesNested<A> editLastDevice() {
+    int index = devices.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last devices. The list is empty.");
+    return setNewDeviceLike(index, buildDevice(index));
+  }
+  
+  public DevicesNested<A> editMatchingDevice(Predicate<V1alpha3AllocatedDeviceStatusBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<devices.size();i++) { 
+    if (predicate.test(devices.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching devices. No match found.");
+    return setNewDeviceLike(index, buildDevice(index));
   }
   
   public A addToReservedFor(int index,V1alpha3ResourceClaimConsumerReference item) {
@@ -247,27 +384,23 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
     if (!super.equals(o)) return false;
     V1alpha3ResourceClaimStatusFluent that = (V1alpha3ResourceClaimStatusFluent) o;
     if (!java.util.Objects.equals(allocation, that.allocation)) return false;
-    if (!java.util.Objects.equals(deallocationRequested, that.deallocationRequested)) return false;
+    if (!java.util.Objects.equals(devices, that.devices)) return false;
     if (!java.util.Objects.equals(reservedFor, that.reservedFor)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocation,  deallocationRequested,  reservedFor,  super.hashCode());
+    return java.util.Objects.hash(allocation,  devices,  reservedFor,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (allocation != null) { sb.append("allocation:"); sb.append(allocation + ","); }
-    if (deallocationRequested != null) { sb.append("deallocationRequested:"); sb.append(deallocationRequested + ","); }
+    if (devices != null && !devices.isEmpty()) { sb.append("devices:"); sb.append(devices + ","); }
     if (reservedFor != null && !reservedFor.isEmpty()) { sb.append("reservedFor:"); sb.append(reservedFor); }
     sb.append("}");
     return sb.toString();
-  }
-  
-  public A withDeallocationRequested() {
-    return withDeallocationRequested(true);
   }
   public class AllocationNested<N> extends V1alpha3AllocationResultFluent<AllocationNested<N>> implements Nested<N>{
     AllocationNested(V1alpha3AllocationResult item) {
@@ -280,6 +413,24 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
     }
     
     public N endAllocation() {
+      return and();
+    }
+    
+  
+  }
+  public class DevicesNested<N> extends V1alpha3AllocatedDeviceStatusFluent<DevicesNested<N>> implements Nested<N>{
+    DevicesNested(int index,V1alpha3AllocatedDeviceStatus item) {
+      this.index = index;
+      this.builder = new V1alpha3AllocatedDeviceStatusBuilder(this, item);
+    }
+    V1alpha3AllocatedDeviceStatusBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1alpha3ResourceClaimStatusFluent.this.setToDevices(index,builder.build());
+    }
+    
+    public N endDevice() {
       return and();
     }
     

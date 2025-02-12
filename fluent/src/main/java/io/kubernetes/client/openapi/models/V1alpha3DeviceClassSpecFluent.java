@@ -8,9 +8,9 @@ import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Collection;
 import java.lang.Object;
+import java.util.List;
 
 /**
  * Generated
@@ -25,14 +25,12 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
   }
   private ArrayList<V1alpha3DeviceClassConfigurationBuilder> config;
   private ArrayList<V1alpha3DeviceSelectorBuilder> selectors;
-  private V1NodeSelectorBuilder suitableNodes;
   
   protected void copyInstance(V1alpha3DeviceClassSpec instance) {
     instance = (instance != null ? instance : new V1alpha3DeviceClassSpec());
     if (instance != null) {
           this.withConfig(instance.getConfig());
           this.withSelectors(instance.getSelectors());
-          this.withSuitableNodes(instance.getSuitableNodes());
         }
   }
   
@@ -338,46 +336,6 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
     return setNewSelectorLike(index, buildSelector(index));
   }
   
-  public V1NodeSelector buildSuitableNodes() {
-    return this.suitableNodes != null ? this.suitableNodes.build() : null;
-  }
-  
-  public A withSuitableNodes(V1NodeSelector suitableNodes) {
-    this._visitables.remove("suitableNodes");
-    if (suitableNodes != null) {
-        this.suitableNodes = new V1NodeSelectorBuilder(suitableNodes);
-        this._visitables.get("suitableNodes").add(this.suitableNodes);
-    } else {
-        this.suitableNodes = null;
-        this._visitables.get("suitableNodes").remove(this.suitableNodes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSuitableNodes() {
-    return this.suitableNodes != null;
-  }
-  
-  public SuitableNodesNested<A> withNewSuitableNodes() {
-    return new SuitableNodesNested(null);
-  }
-  
-  public SuitableNodesNested<A> withNewSuitableNodesLike(V1NodeSelector item) {
-    return new SuitableNodesNested(item);
-  }
-  
-  public SuitableNodesNested<A> editSuitableNodes() {
-    return withNewSuitableNodesLike(java.util.Optional.ofNullable(buildSuitableNodes()).orElse(null));
-  }
-  
-  public SuitableNodesNested<A> editOrNewSuitableNodes() {
-    return withNewSuitableNodesLike(java.util.Optional.ofNullable(buildSuitableNodes()).orElse(new V1NodeSelectorBuilder().build()));
-  }
-  
-  public SuitableNodesNested<A> editOrNewSuitableNodesLike(V1NodeSelector item) {
-    return withNewSuitableNodesLike(java.util.Optional.ofNullable(buildSuitableNodes()).orElse(item));
-  }
-  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -385,20 +343,18 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
     V1alpha3DeviceClassSpecFluent that = (V1alpha3DeviceClassSpecFluent) o;
     if (!java.util.Objects.equals(config, that.config)) return false;
     if (!java.util.Objects.equals(selectors, that.selectors)) return false;
-    if (!java.util.Objects.equals(suitableNodes, that.suitableNodes)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(config,  selectors,  suitableNodes,  super.hashCode());
+    return java.util.Objects.hash(config,  selectors,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (config != null && !config.isEmpty()) { sb.append("config:"); sb.append(config + ","); }
-    if (selectors != null && !selectors.isEmpty()) { sb.append("selectors:"); sb.append(selectors + ","); }
-    if (suitableNodes != null) { sb.append("suitableNodes:"); sb.append(suitableNodes); }
+    if (selectors != null && !selectors.isEmpty()) { sb.append("selectors:"); sb.append(selectors); }
     sb.append("}");
     return sb.toString();
   }
@@ -433,22 +389,6 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
     }
     
     public N endSelector() {
-      return and();
-    }
-    
-  
-  }
-  public class SuitableNodesNested<N> extends V1NodeSelectorFluent<SuitableNodesNested<N>> implements Nested<N>{
-    SuitableNodesNested(V1NodeSelector item) {
-      this.builder = new V1NodeSelectorBuilder(this, item);
-    }
-    V1NodeSelectorBuilder builder;
-    
-    public N and() {
-      return (N) V1alpha3DeviceClassSpecFluent.this.withSuitableNodes(builder.build());
-    }
-    
-    public N endSuitableNodes() {
       return and();
     }
     

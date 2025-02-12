@@ -23,6 +23,7 @@ public class V1alpha3DeviceRequestAllocationResultBuilder extends V1alpha3Device
   
   public V1alpha3DeviceRequestAllocationResult build() {
     V1alpha3DeviceRequestAllocationResult buildable = new V1alpha3DeviceRequestAllocationResult();
+    buildable.setAdminAccess(fluent.getAdminAccess());
     buildable.setDevice(fluent.getDevice());
     buildable.setDriver(fluent.getDriver());
     buildable.setPool(fluent.getPool());

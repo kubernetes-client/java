@@ -23,7 +23,6 @@ public class V1alpha3ResourceClaimSpecBuilder extends V1alpha3ResourceClaimSpecF
   
   public V1alpha3ResourceClaimSpec build() {
     V1alpha3ResourceClaimSpec buildable = new V1alpha3ResourceClaimSpec();
-    buildable.setController(fluent.getController());
     buildable.setDevices(fluent.buildDevices());
     return buildable;
   }

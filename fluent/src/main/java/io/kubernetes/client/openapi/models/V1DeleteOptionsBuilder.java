@@ -26,6 +26,7 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluent<V1DeleteOption
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setDryRun(fluent.getDryRun());
     buildable.setGracePeriodSeconds(fluent.getGracePeriodSeconds());
+    buildable.setIgnoreStoreReadErrorWithClusterBreakingPotential(fluent.getIgnoreStoreReadErrorWithClusterBreakingPotential());
     buildable.setKind(fluent.getKind());
     buildable.setOrphanDependents(fluent.getOrphanDependents());
     buildable.setPreconditions(fluent.buildPreconditions());

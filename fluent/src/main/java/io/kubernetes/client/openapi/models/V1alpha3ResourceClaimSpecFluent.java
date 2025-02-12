@@ -17,28 +17,13 @@ public class V1alpha3ResourceClaimSpecFluent<A extends V1alpha3ResourceClaimSpec
   public V1alpha3ResourceClaimSpecFluent(V1alpha3ResourceClaimSpec instance) {
     this.copyInstance(instance);
   }
-  private String controller;
   private V1alpha3DeviceClaimBuilder devices;
   
   protected void copyInstance(V1alpha3ResourceClaimSpec instance) {
     instance = (instance != null ? instance : new V1alpha3ResourceClaimSpec());
     if (instance != null) {
-          this.withController(instance.getController());
           this.withDevices(instance.getDevices());
         }
-  }
-  
-  public String getController() {
-    return this.controller;
-  }
-  
-  public A withController(String controller) {
-    this.controller = controller;
-    return (A) this;
-  }
-  
-  public boolean hasController() {
-    return this.controller != null;
   }
   
   public V1alpha3DeviceClaim buildDevices() {
@@ -86,19 +71,17 @@ public class V1alpha3ResourceClaimSpecFluent<A extends V1alpha3ResourceClaimSpec
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1alpha3ResourceClaimSpecFluent that = (V1alpha3ResourceClaimSpecFluent) o;
-    if (!java.util.Objects.equals(controller, that.controller)) return false;
     if (!java.util.Objects.equals(devices, that.devices)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(controller,  devices,  super.hashCode());
+    return java.util.Objects.hash(devices,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (controller != null) { sb.append("controller:"); sb.append(controller + ","); }
     if (devices != null) { sb.append("devices:"); sb.append(devices); }
     sb.append("}");
     return sb.toString();
