@@ -1,14 +1,15 @@
-From eeb5069c974d3146495f8a9dc52653f029d3cc2d Mon Sep 17 00:00:00 2001
+From 2370e0221bcf2fb03c5a6469403d2990638a4cdf Mon Sep 17 00:00:00 2001
 From: Min Jin <minkimzz@amazon.com>
-Date: Tue, 4 Feb 2025 11:59:25 -0800
+Date: Wed, 12 Feb 2025 15:04:16 -0800
 Subject: [PATCH] manually apply JSON patch
 
+Signed-off-by: Min Jin <minkimzz@amazon.com>
 ---
  .../io/kubernetes/client/openapi/JSON.java    | 36 ++++++++++++++++---
  1 file changed, 32 insertions(+), 4 deletions(-)
 
 diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
-index dda3ec708..fe902b293 100644
+index 811bc84b9..ed34c6597 100644
 --- a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
 +++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
 @@ -23,6 +23,9 @@ import com.google.gson.JsonElement;
@@ -18,12 +19,12 @@ index dda3ec708..fe902b293 100644
 +import io.kubernetes.client.gson.V1MetadataExclusionStrategy;
 +import io.kubernetes.client.gson.V1StatusPreProcessor;
 +import io.kubernetes.client.openapi.models.V1Status;
+ import io.kubernetes.client.openapi.models.*;
  import okio.ByteString;
  
- import java.io.IOException;
-@@ -35,6 +38,9 @@ import java.time.OffsetDateTime;
- import java.time.ZoneId;
- import java.time.ZoneOffset;
+@@ -35,6 +38,9 @@ import java.text.ParsePosition;
+ import java.time.LocalDate;
+ import java.time.OffsetDateTime;
  import java.time.format.DateTimeFormatter;
 +import java.time.format.DateTimeFormatterBuilder;
 +import java.time.format.DateTimeParseException;
@@ -31,10 +32,10 @@ index dda3ec708..fe902b293 100644
  import java.util.Date;
  import java.util.Locale;
  import java.util.Map;
-@@ -50,9 +56,20 @@ import java.util.TimeZone;
+@@ -43,17 +49,31 @@ import java.util.HashMap;
  public class JSON {
-     private static Gson gson;
-     private static boolean isLenientOnJson = false;
+     private Gson gson;
+     private boolean isLenientOnJson = false;
 +
 +    private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
 +        new DateTimeFormatterBuilder()
@@ -46,14 +47,13 @@ index dda3ec708..fe902b293 100644
 +            .appendLiteral("Z")
 +            .toFormatter();
 +
-     private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
-     private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
--    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
-+    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter(RFC3339MICRO_FORMATTER);
-     private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
-     private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
+     private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+     private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
+-    private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
++    private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter(RFC3339MICRO_FORMATTER);
+     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+     private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
  
-@@ -65,8 +82,11 @@ public class JSON {
      public static GsonBuilder createGson() {
          GsonFireBuilder fireBuilder = new GsonFireBuilder()
          ;
@@ -67,7 +67,7 @@ index dda3ec708..fe902b293 100644
      }
  
      private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
-@@ -793,11 +813,14 @@ public class JSON {
+@@ -161,11 +181,14 @@ public class JSON {
  
          @Override
          public void write(JsonWriter out, byte[] value) throws IOException {
@@ -82,7 +82,7 @@ index dda3ec708..fe902b293 100644
          }
  
          @Override
-@@ -853,7 +876,12 @@ public class JSON {
+@@ -221,7 +244,12 @@ public class JSON {
                      if (date.endsWith("+0000")) {
                          date = date.substring(0, date.length()-5) + "Z";
                      }
