@@ -48,6 +48,7 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     buildable.setPriorityClassName(fluent.getPriorityClassName());
     buildable.setReadinessGates(fluent.buildReadinessGates());
     buildable.setResourceClaims(fluent.buildResourceClaims());
+    buildable.setResources(fluent.buildResources());
     buildable.setRestartPolicy(fluent.getRestartPolicy());
     buildable.setRuntimeClassName(fluent.getRuntimeClassName());
     buildable.setSchedulerName(fluent.getSchedulerName());

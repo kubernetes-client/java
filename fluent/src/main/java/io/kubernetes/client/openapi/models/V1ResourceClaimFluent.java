@@ -17,11 +17,13 @@ public class V1ResourceClaimFluent<A extends V1ResourceClaimFluent<A>> extends B
     this.copyInstance(instance);
   }
   private String name;
+  private String request;
   
   protected void copyInstance(V1ResourceClaim instance) {
     instance = (instance != null ? instance : new V1ResourceClaim());
     if (instance != null) {
           this.withName(instance.getName());
+          this.withRequest(instance.getRequest());
         }
   }
   
@@ -38,23 +40,38 @@ public class V1ResourceClaimFluent<A extends V1ResourceClaimFluent<A>> extends B
     return this.name != null;
   }
   
+  public String getRequest() {
+    return this.request;
+  }
+  
+  public A withRequest(String request) {
+    this.request = request;
+    return (A) this;
+  }
+  
+  public boolean hasRequest() {
+    return this.request != null;
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1ResourceClaimFluent that = (V1ResourceClaimFluent) o;
     if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!java.util.Objects.equals(request, that.request)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  super.hashCode());
+    return java.util.Objects.hash(name,  request,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (name != null) { sb.append("name:"); sb.append(name + ","); }
+    if (request != null) { sb.append("request:"); sb.append(request); }
     sb.append("}");
     return sb.toString();
   }

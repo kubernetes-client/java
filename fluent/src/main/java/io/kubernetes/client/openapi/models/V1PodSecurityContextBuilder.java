@@ -29,9 +29,11 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluent<V1Po
     buildable.setRunAsGroup(fluent.getRunAsGroup());
     buildable.setRunAsNonRoot(fluent.getRunAsNonRoot());
     buildable.setRunAsUser(fluent.getRunAsUser());
+    buildable.setSeLinuxChangePolicy(fluent.getSeLinuxChangePolicy());
     buildable.setSeLinuxOptions(fluent.buildSeLinuxOptions());
     buildable.setSeccompProfile(fluent.buildSeccompProfile());
     buildable.setSupplementalGroups(fluent.getSupplementalGroups());
+    buildable.setSupplementalGroupsPolicy(fluent.getSupplementalGroupsPolicy());
     buildable.setSysctls(fluent.buildSysctls());
     buildable.setWindowsOptions(fluent.buildWindowsOptions());
     return buildable;
