@@ -69,7 +69,7 @@ jobs:
           export PACKAGE_NAME="io.kubernetes.client.openapi"
           EOF
 
-          USE_SINGLE_PARAMETER=true bash java.sh ../../kubernetes/ settings
+          USE_SINGLE_PARAMETER=false OPENAPI_GENERATOR_COMMIT=v4.3.1 bash java.sh ../../kubernetes/ settings
           popd
           rm -rf gen
           git config user.email "k8s-publishing-bot@users.noreply.github.com"
