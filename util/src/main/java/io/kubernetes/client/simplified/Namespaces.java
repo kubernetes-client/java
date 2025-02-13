@@ -31,6 +31,6 @@ public class Namespaces {
     }
 
     public V1Status deleteNamespace(String name) throws ApiException {
-        return api.deleteNamespace(name, null, null, null, null, null, null);
+        return api.deleteNamespace(name, null, null, null, null, null, null, null);
     }
 }

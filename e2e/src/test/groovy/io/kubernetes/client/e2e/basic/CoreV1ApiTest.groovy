@@ -32,7 +32,7 @@ class CoreV1ApiTest extends Specification {
 		then:
 		created != null
 		when:
-		V1Status deleted = corev1api.deleteNamespace("e2e-basic", null, null, null, null, null, null)
+		V1Status deleted = corev1api.deleteNamespace("e2e-basic", null, null, null, null, null, null, null)
 		then:
 		deleted != null
 	}

@@ -113,7 +113,7 @@ public class KubectlDrain extends KubectlCordon {
 
   private void deletePod(CoreV1Api api, String name, String namespace)
       throws ApiException, IOException, KubectlException {
-    api.deleteNamespacedPod(name, namespace, null, null, this.gracePeriodSeconds, null, null, null);
+    api.deleteNamespacedPod(name, namespace, null, null, this.gracePeriodSeconds, null, null, null, null);
     waitForPodDelete(api, name, namespace);
   }
 

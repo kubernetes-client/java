@@ -32,7 +32,7 @@ public class Pods{
     }
 
     public V1Pod deleteNamespacedPod(String name, String namespace) throws ApiException {
-        return api.deleteNamespacedPod(name, namespace, null, null, null, null, null, null);
+        return api.deleteNamespacedPod(name, namespace, null, null, null, null, null, null, null);
     }
 
     public V1PodList listNamespacedPod(String namespace) throws ApiException {

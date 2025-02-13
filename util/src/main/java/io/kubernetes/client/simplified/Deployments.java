@@ -33,7 +33,7 @@ public class Deployments {
     }
 
     public V1Status deleteNamespacedDeployment(String name, String namespace) throws ApiException {
-        return api.deleteNamespacedDeployment(name, namespace, null, null, null, null, null, null);
+        return api.deleteNamespacedDeployment(name, namespace, null, null, null, null, null, null, null);
     }
 
     public V1DeploymentList listNamespacedDeployment(String namespace) throws ApiException {
