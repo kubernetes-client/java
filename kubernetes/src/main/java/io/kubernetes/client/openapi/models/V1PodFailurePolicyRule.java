@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1PodFailurePolicyOnExitCodesRequirement;
 import io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPattern;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PodFailurePolicyRule {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -79,6 +82,7 @@ public class V1PodFailurePolicyRule {
    * @return action
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod's job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod's index is marked as Failed and will   not be restarted.   This value is beta-level. It can be used when the   `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default). - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.")
   public String getAction() {
     return action;
   }
@@ -98,6 +102,7 @@ public class V1PodFailurePolicyRule {
    * @return onExitCodes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PodFailurePolicyOnExitCodesRequirement getOnExitCodes() {
     return onExitCodes;
   }
@@ -125,6 +130,7 @@ public class V1PodFailurePolicyRule {
    * @return onPodConditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.")
   public List<V1PodFailurePolicyOnPodConditionsPattern> getOnPodConditions() {
     return onPodConditions;
   }

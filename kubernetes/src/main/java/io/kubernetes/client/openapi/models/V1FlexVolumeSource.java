@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LocalObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1FlexVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
@@ -86,6 +89,7 @@ public class V1FlexVolumeSource {
    * @return driver
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "driver is the name of the driver to use for this volume.")
   public String getDriver() {
     return driver;
   }
@@ -105,6 +109,7 @@ public class V1FlexVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
   public String getFsType() {
     return fsType;
   }
@@ -132,6 +137,7 @@ public class V1FlexVolumeSource {
    * @return options
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "options is Optional: this field holds extra command options if any.")
   public Map<String, String> getOptions() {
     return options;
   }
@@ -151,6 +157,7 @@ public class V1FlexVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -170,6 +177,7 @@ public class V1FlexVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LocalObjectReference getSecretRef() {
     return secretRef;
   }

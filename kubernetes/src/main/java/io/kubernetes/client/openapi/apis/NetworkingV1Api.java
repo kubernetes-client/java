@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -124,7 +124,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -354,7 +355,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -592,7 +594,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -785,7 +788,7 @@ public class NetworkingV1Api {
     public APIcreateNamespacedNetworkPolicyRequest createNamespacedNetworkPolicy(String namespace, V1NetworkPolicy body) {
         return new APIcreateNamespacedNetworkPolicyRequest(namespace, body);
     }
-    private okhttp3.Call deleteCollectionIngressClassCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionIngressClassCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -830,6 +833,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (labelSelector != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
@@ -865,7 +872,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -885,21 +893,21 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionIngressClassValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-        return deleteCollectionIngressClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+    private okhttp3.Call deleteCollectionIngressClassValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        return deleteCollectionIngressClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionIngressClassWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionIngressClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionIngressClassWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionIngressClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionIngressClassAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionIngressClassAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionIngressClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionIngressClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -911,6 +919,7 @@ public class NetworkingV1Api {
         private String dryRun;
         private String fieldSelector;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private String labelSelector;
         private Integer limit;
         private Boolean orphanDependents;
@@ -971,6 +980,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteCollectionIngressClassRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteCollectionIngressClassRequest
+         */
+        public APIdeleteCollectionIngressClassRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -1077,7 +1096,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionIngressClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionIngressClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -1092,7 +1111,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionIngressClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionIngressClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -1108,7 +1127,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionIngressClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionIngressClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
         }
 
         /**
@@ -1124,7 +1143,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionIngressClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionIngressClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1142,7 +1161,7 @@ public class NetworkingV1Api {
     public APIdeleteCollectionIngressClassRequest deleteCollectionIngressClass() {
         return new APIdeleteCollectionIngressClassRequest();
     }
-    private okhttp3.Call deleteCollectionNamespacedIngressCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedIngressCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1188,6 +1207,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (labelSelector != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
@@ -1223,7 +1246,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1243,26 +1267,26 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedIngressValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedIngressValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedIngress(Async)");
         }
 
-        return deleteCollectionNamespacedIngressCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        return deleteCollectionNamespacedIngressCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedIngressWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedIngressValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionNamespacedIngressWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedIngressValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedIngressAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedIngressAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedIngressValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedIngressValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1275,6 +1299,7 @@ public class NetworkingV1Api {
         private String dryRun;
         private String fieldSelector;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private String labelSelector;
         private Integer limit;
         private Boolean orphanDependents;
@@ -1336,6 +1361,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteCollectionNamespacedIngressRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteCollectionNamespacedIngressRequest
+         */
+        public APIdeleteCollectionNamespacedIngressRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -1442,7 +1477,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedIngressCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedIngressCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -1457,7 +1492,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedIngressWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedIngressWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -1473,7 +1508,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedIngressWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionNamespacedIngressWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
         }
 
         /**
@@ -1489,7 +1524,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionNamespacedIngressAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedIngressAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1508,7 +1543,7 @@ public class NetworkingV1Api {
     public APIdeleteCollectionNamespacedIngressRequest deleteCollectionNamespacedIngress(String namespace) {
         return new APIdeleteCollectionNamespacedIngressRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1554,6 +1589,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (labelSelector != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
@@ -1589,7 +1628,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1609,26 +1649,26 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedNetworkPolicy(Async)");
         }
 
-        return deleteCollectionNamespacedNetworkPolicyCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        return deleteCollectionNamespacedNetworkPolicyCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedNetworkPolicyWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionNamespacedNetworkPolicyWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedNetworkPolicyAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedNetworkPolicyValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1641,6 +1681,7 @@ public class NetworkingV1Api {
         private String dryRun;
         private String fieldSelector;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private String labelSelector;
         private Integer limit;
         private Boolean orphanDependents;
@@ -1702,6 +1743,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteCollectionNamespacedNetworkPolicyRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteCollectionNamespacedNetworkPolicyRequest
+         */
+        public APIdeleteCollectionNamespacedNetworkPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -1808,7 +1859,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedNetworkPolicyCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedNetworkPolicyCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -1823,7 +1874,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedNetworkPolicyWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedNetworkPolicyWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -1839,7 +1890,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedNetworkPolicyWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionNamespacedNetworkPolicyWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
         }
 
         /**
@@ -1855,7 +1906,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionNamespacedNetworkPolicyAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedNetworkPolicyAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1874,7 +1925,7 @@ public class NetworkingV1Api {
     public APIdeleteCollectionNamespacedNetworkPolicyRequest deleteCollectionNamespacedNetworkPolicy(String namespace) {
         return new APIdeleteCollectionNamespacedNetworkPolicyRequest(namespace);
     }
-    private okhttp3.Call deleteIngressClassCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteIngressClassCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1912,6 +1963,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (orphanDependents != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
         }
@@ -1923,7 +1978,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1943,26 +1999,26 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteIngressClassValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteIngressClassValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteIngressClass(Async)");
         }
 
-        return deleteIngressClassCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        return deleteIngressClassCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteIngressClassWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteIngressClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+    private ApiResponse<V1Status> deleteIngressClassWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteIngressClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteIngressClassAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteIngressClassAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteIngressClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        okhttp3.Call localVarCall = deleteIngressClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1973,6 +2029,7 @@ public class NetworkingV1Api {
         private String pretty;
         private String dryRun;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private Boolean orphanDependents;
         private String propagationPolicy;
         private V1DeleteOptions body;
@@ -2008,6 +2065,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteIngressClassRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteIngressClassRequest
+         */
+        public APIdeleteIngressClassRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -2055,7 +2122,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteIngressClassCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteIngressClassCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
 
         /**
@@ -2071,7 +2138,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteIngressClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            ApiResponse<V1Status> localVarResp = deleteIngressClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
             return localVarResp.getData();
         }
 
@@ -2088,7 +2155,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteIngressClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return deleteIngressClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
         }
 
         /**
@@ -2105,7 +2172,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteIngressClassAsync(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteIngressClassAsync(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
     }
 
@@ -2125,7 +2192,7 @@ public class NetworkingV1Api {
     public APIdeleteIngressClassRequest deleteIngressClass(String name) {
         return new APIdeleteIngressClassRequest(name);
     }
-    private okhttp3.Call deleteNamespacedIngressCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedIngressCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2164,6 +2231,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (orphanDependents != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
         }
@@ -2175,7 +2246,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2195,7 +2267,7 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedIngressValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedIngressValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedIngress(Async)");
@@ -2206,20 +2278,20 @@ public class NetworkingV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedIngress(Async)");
         }
 
-        return deleteNamespacedIngressCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        return deleteNamespacedIngressCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedIngressWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteNamespacedIngressValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+    private ApiResponse<V1Status> deleteNamespacedIngressWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteNamespacedIngressValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedIngressAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedIngressAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteNamespacedIngressValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        okhttp3.Call localVarCall = deleteNamespacedIngressValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2231,6 +2303,7 @@ public class NetworkingV1Api {
         private String pretty;
         private String dryRun;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private Boolean orphanDependents;
         private String propagationPolicy;
         private V1DeleteOptions body;
@@ -2267,6 +2340,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteNamespacedIngressRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteNamespacedIngressRequest
+         */
+        public APIdeleteNamespacedIngressRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -2314,7 +2397,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteNamespacedIngressCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteNamespacedIngressCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
 
         /**
@@ -2330,7 +2413,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteNamespacedIngressWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            ApiResponse<V1Status> localVarResp = deleteNamespacedIngressWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
             return localVarResp.getData();
         }
 
@@ -2347,7 +2430,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteNamespacedIngressWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return deleteNamespacedIngressWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
         }
 
         /**
@@ -2364,7 +2447,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteNamespacedIngressAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteNamespacedIngressAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
     }
 
@@ -2385,7 +2468,7 @@ public class NetworkingV1Api {
     public APIdeleteNamespacedIngressRequest deleteNamespacedIngress(String name, String namespace) {
         return new APIdeleteNamespacedIngressRequest(name, namespace);
     }
-    private okhttp3.Call deleteNamespacedNetworkPolicyCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedNetworkPolicyCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2424,6 +2507,10 @@ public class NetworkingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (orphanDependents != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
         }
@@ -2435,7 +2522,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2455,7 +2543,7 @@ public class NetworkingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedNetworkPolicyValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedNetworkPolicyValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedNetworkPolicy(Async)");
@@ -2466,20 +2554,20 @@ public class NetworkingV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedNetworkPolicy(Async)");
         }
 
-        return deleteNamespacedNetworkPolicyCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        return deleteNamespacedNetworkPolicyCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedNetworkPolicyWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteNamespacedNetworkPolicyValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+    private ApiResponse<V1Status> deleteNamespacedNetworkPolicyWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteNamespacedNetworkPolicyValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedNetworkPolicyAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedNetworkPolicyAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteNamespacedNetworkPolicyValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        okhttp3.Call localVarCall = deleteNamespacedNetworkPolicyValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2491,6 +2579,7 @@ public class NetworkingV1Api {
         private String pretty;
         private String dryRun;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private Boolean orphanDependents;
         private String propagationPolicy;
         private V1DeleteOptions body;
@@ -2527,6 +2616,16 @@ public class NetworkingV1Api {
          */
         public APIdeleteNamespacedNetworkPolicyRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteNamespacedNetworkPolicyRequest
+         */
+        public APIdeleteNamespacedNetworkPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -2574,7 +2673,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteNamespacedNetworkPolicyCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteNamespacedNetworkPolicyCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
 
         /**
@@ -2590,7 +2689,7 @@ public class NetworkingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteNamespacedNetworkPolicyWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            ApiResponse<V1Status> localVarResp = deleteNamespacedNetworkPolicyWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
             return localVarResp.getData();
         }
 
@@ -2607,7 +2706,7 @@ public class NetworkingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteNamespacedNetworkPolicyWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return deleteNamespacedNetworkPolicyWithHttpInfo(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
         }
 
         /**
@@ -2624,7 +2723,7 @@ public class NetworkingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteNamespacedNetworkPolicyAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deleteNamespacedNetworkPolicyAsync(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
     }
 
@@ -2673,7 +2772,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2868,8 +2968,10 @@ public class NetworkingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3185,8 +3287,10 @@ public class NetworkingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3503,8 +3607,10 @@ public class NetworkingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3829,8 +3935,10 @@ public class NetworkingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4154,8 +4262,10 @@ public class NetworkingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4447,7 +4557,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4696,7 +4807,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4953,7 +5065,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5210,7 +5323,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5450,7 +5564,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5625,7 +5740,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5808,7 +5924,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5991,7 +6108,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6185,7 +6303,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6419,7 +6538,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6661,7 +6781,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6903,7 +7024,8 @@ public class NetworkingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

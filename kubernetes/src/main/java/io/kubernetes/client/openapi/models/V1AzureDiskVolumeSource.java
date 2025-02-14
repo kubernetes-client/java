@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1AzureDiskVolumeSource {
   public static final String SERIALIZED_NAME_CACHING_MODE = "cachingMode";
   @SerializedName(SERIALIZED_NAME_CACHING_MODE)
@@ -87,6 +90,7 @@ public class V1AzureDiskVolumeSource {
    * @return cachingMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "cachingMode is the Host Caching mode: None, Read Only, Read Write.")
   public String getCachingMode() {
     return cachingMode;
   }
@@ -106,6 +110,7 @@ public class V1AzureDiskVolumeSource {
    * @return diskName
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "diskName is the Name of the data disk in the blob storage")
   public String getDiskName() {
     return diskName;
   }
@@ -125,6 +130,7 @@ public class V1AzureDiskVolumeSource {
    * @return diskURI
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "diskURI is the URI of data disk in the blob storage")
   public String getDiskURI() {
     return diskURI;
   }
@@ -144,6 +150,7 @@ public class V1AzureDiskVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -163,6 +170,7 @@ public class V1AzureDiskVolumeSource {
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared")
   public String getKind() {
     return kind;
   }
@@ -182,6 +190,7 @@ public class V1AzureDiskVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }

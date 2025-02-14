@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta1ServiceCIDRSpec {
   public static final String SERIALIZED_NAME_CIDRS = "cidrs";
   @SerializedName(SERIALIZED_NAME_CIDRS)
@@ -77,6 +80,7 @@ public class V1beta1ServiceCIDRSpec {
    * @return cidrs
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.")
   public List<String> getCidrs() {
     return cidrs;
   }

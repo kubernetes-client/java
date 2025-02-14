@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * GroupVersion contains the \&quot;group/version\&quot; and \&quot;version\&quot; string of a version. It is made a struct to keep extensibility.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "GroupVersion contains the \"group/version\" and \"version\" string of a version. It is made a struct to keep extensibility.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1GroupVersionForDiscovery {
   public static final String SERIALIZED_NAME_GROUP_VERSION = "groupVersion";
   @SerializedName(SERIALIZED_NAME_GROUP_VERSION)
@@ -71,6 +74,7 @@ public class V1GroupVersionForDiscovery {
    * @return groupVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "groupVersion specifies the API group and version in the form \"group/version\"")
   public String getGroupVersion() {
     return groupVersion;
   }
@@ -90,6 +94,7 @@ public class V1GroupVersionForDiscovery {
    * @return version
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "version specifies the version in the form of \"version\". This is to save the clients the trouble of splitting the GroupVersion.")
   public String getVersion() {
     return version;
   }

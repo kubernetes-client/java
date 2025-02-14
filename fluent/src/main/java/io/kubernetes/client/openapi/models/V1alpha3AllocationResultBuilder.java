@@ -23,7 +23,6 @@ public class V1alpha3AllocationResultBuilder extends V1alpha3AllocationResultFlu
   
   public V1alpha3AllocationResult build() {
     V1alpha3AllocationResult buildable = new V1alpha3AllocationResult();
-    buildable.setController(fluent.getController());
     buildable.setDevices(fluent.buildDevices());
     buildable.setNodeSelector(fluent.buildNodeSelector());
     return buildable;

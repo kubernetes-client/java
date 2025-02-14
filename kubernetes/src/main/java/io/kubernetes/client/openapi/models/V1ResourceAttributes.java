@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1FieldSelectorAttributes;
 import io.kubernetes.client.openapi.models.V1LabelSelectorAttributes;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceAttributes {
   public static final String SERIALIZED_NAME_FIELD_SELECTOR = "fieldSelector";
   @SerializedName(SERIALIZED_NAME_FIELD_SELECTOR)
@@ -101,6 +104,7 @@ public class V1ResourceAttributes {
    * @return fieldSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1FieldSelectorAttributes getFieldSelector() {
     return fieldSelector;
   }
@@ -120,6 +124,7 @@ public class V1ResourceAttributes {
    * @return group
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Group is the API Group of the Resource.  \"*\" means all.")
   public String getGroup() {
     return group;
   }
@@ -139,6 +144,7 @@ public class V1ResourceAttributes {
    * @return labelSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelectorAttributes getLabelSelector() {
     return labelSelector;
   }
@@ -158,6 +164,7 @@ public class V1ResourceAttributes {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
   public String getName() {
     return name;
   }
@@ -177,6 +184,7 @@ public class V1ResourceAttributes {
    * @return namespace
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
   public String getNamespace() {
     return namespace;
   }
@@ -196,6 +204,7 @@ public class V1ResourceAttributes {
    * @return resource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Resource is one of the existing resource types.  \"*\" means all.")
   public String getResource() {
     return resource;
   }
@@ -215,6 +224,7 @@ public class V1ResourceAttributes {
    * @return subresource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Subresource is one of the existing resource types.  \"\" means none.")
   public String getSubresource() {
     return subresource;
   }
@@ -234,6 +244,7 @@ public class V1ResourceAttributes {
    * @return verb
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
   public String getVerb() {
     return verb;
   }
@@ -253,6 +264,7 @@ public class V1ResourceAttributes {
    * @return version
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Version is the API Version of the Resource.  \"*\" means all.")
   public String getVersion() {
     return version;
   }

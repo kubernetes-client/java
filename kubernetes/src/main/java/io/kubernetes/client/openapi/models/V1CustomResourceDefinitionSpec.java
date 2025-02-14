@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1CustomResourceConversion;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceDefinitionSpec describes how a user wants their resource to appear
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CustomResourceDefinitionSpec describes how a user wants their resource to appear")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceDefinitionSpec {
   public static final String SERIALIZED_NAME_CONVERSION = "conversion";
   @SerializedName(SERIALIZED_NAME_CONVERSION)
@@ -92,6 +95,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return conversion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CustomResourceConversion getConversion() {
     return conversion;
   }
@@ -111,6 +115,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return group
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "group is the API group of the defined custom resource. The custom resources are served under `/apis/<group>/...`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`).")
   public String getGroup() {
     return group;
   }
@@ -130,6 +135,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return names
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1CustomResourceDefinitionNames getNames() {
     return names;
   }
@@ -149,6 +155,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return preserveUnknownFields
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting `x-preserve-unknown-fields` to true in `spec.versions[*].schema.openAPIV3Schema`. See https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#field-pruning for details.")
   public Boolean getPreserveUnknownFields() {
     return preserveUnknownFields;
   }
@@ -168,6 +175,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return scope
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "scope indicates whether the defined custom resource is cluster- or namespace-scoped. Allowed values are `Cluster` and `Namespaced`.")
   public String getScope() {
     return scope;
   }
@@ -195,6 +203,7 @@ public class V1CustomResourceDefinitionSpec {
    * @return versions
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "versions is the list of all API versions of the defined custom resource. Version names are used to compute the order in which served versions are listed in API discovery. If the version string is \"kube-like\", it will sort above non \"kube-like\" version strings, which are ordered lexicographically. \"Kube-like\" versions start with a \"v\", then are followed by a number (the major version), then optionally the string \"alpha\" or \"beta\" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.")
   public List<V1CustomResourceDefinitionVersion> getVersions() {
     return versions;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceConstraint must have exactly one field set besides Requests.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceConstraint must have exactly one field set besides Requests.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceConstraint {
   public static final String SERIALIZED_NAME_MATCH_ATTRIBUTE = "matchAttribute";
   @SerializedName(SERIALIZED_NAME_MATCH_ATTRIBUTE)
@@ -73,6 +76,7 @@ public class V1alpha3DeviceConstraint {
    * @return matchAttribute
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "MatchAttribute requires that all devices in question have this attribute and that its type and value are the same across those devices.  For example, if you specified \"dra.example.com/numa\" (a hypothetical example!), then only devices in the same NUMA node will be chosen. A device which does not have that attribute will not be chosen. All devices should use a value of the same type for this attribute because that is part of its specification, but if one device doesn't, then it also will not be chosen.  Must include the domain qualifier.")
   public String getMatchAttribute() {
     return matchAttribute;
   }
@@ -100,6 +104,7 @@ public class V1alpha3DeviceConstraint {
    * @return requests
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Requests is a list of the one or more requests in this claim which must co-satisfy this constraint. If a request is fulfilled by multiple devices, then all of the devices must satisfy the constraint. If this is not specified, this constraint applies to all requests in this claim.")
   public List<String> getRequests() {
     return requests;
   }

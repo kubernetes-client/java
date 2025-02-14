@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1TopologySelectorTerm;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StorageClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ALLOW_VOLUME_EXPANSION = "allowVolumeExpansion";
   @SerializedName(SERIALIZED_NAME_ALLOW_VOLUME_EXPANSION)
@@ -109,6 +112,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return allowVolumeExpansion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "allowVolumeExpansion shows whether the storage class allow volume expand.")
   public Boolean getAllowVolumeExpansion() {
     return allowVolumeExpansion;
   }
@@ -136,6 +140,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return allowedTopologies
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "allowedTopologies restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.")
   public List<V1TopologySelectorTerm> getAllowedTopologies() {
     return allowedTopologies;
   }
@@ -155,6 +160,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return apiVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -174,6 +180,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
@@ -193,6 +200,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return metadata
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -220,6 +228,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return mountOptions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "mountOptions controls the mountOptions for dynamically provisioned PersistentVolumes of this storage class. e.g. [\"ro\", \"soft\"]. Not validated - mount of the PVs will simply fail if one is invalid.")
   public List<String> getMountOptions() {
     return mountOptions;
   }
@@ -247,6 +256,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return parameters
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "parameters holds the parameters for the provisioner that should create volumes of this storage class.")
   public Map<String, String> getParameters() {
     return parameters;
   }
@@ -266,6 +276,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return provisioner
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "provisioner indicates the type of the provisioner.")
   public String getProvisioner() {
     return provisioner;
   }
@@ -285,6 +296,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return reclaimPolicy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class. Defaults to Delete.")
   public String getReclaimPolicy() {
     return reclaimPolicy;
   }
@@ -304,6 +316,7 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
    * @return volumeBindingMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.  When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.")
   public String getVolumeBindingMode() {
     return volumeBindingMode;
   }

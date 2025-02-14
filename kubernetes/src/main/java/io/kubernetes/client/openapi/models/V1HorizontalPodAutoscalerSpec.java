@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1CrossVersionObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * specification of a horizontal pod autoscaler.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "specification of a horizontal pod autoscaler.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1HorizontalPodAutoscalerSpec {
   public static final String SERIALIZED_NAME_MAX_REPLICAS = "maxReplicas";
   @SerializedName(SERIALIZED_NAME_MAX_REPLICAS)
@@ -80,6 +83,7 @@ public class V1HorizontalPodAutoscalerSpec {
    * @return maxReplicas
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.")
   public Integer getMaxReplicas() {
     return maxReplicas;
   }
@@ -99,6 +103,7 @@ public class V1HorizontalPodAutoscalerSpec {
    * @return minReplicas
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.")
   public Integer getMinReplicas() {
     return minReplicas;
   }
@@ -118,6 +123,7 @@ public class V1HorizontalPodAutoscalerSpec {
    * @return scaleTargetRef
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1CrossVersionObjectReference getScaleTargetRef() {
     return scaleTargetRef;
   }
@@ -137,6 +143,7 @@ public class V1HorizontalPodAutoscalerSpec {
    * @return targetCPUUtilizationPercentage
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.")
   public Integer getTargetCPUUtilizationPercentage() {
     return targetCPUUtilizationPercentage;
   }

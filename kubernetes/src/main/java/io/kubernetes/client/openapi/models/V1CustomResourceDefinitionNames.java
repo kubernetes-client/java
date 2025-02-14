@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceDefinitionNames {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -97,6 +100,7 @@ public class V1CustomResourceDefinitionNames {
    * @return categories
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like `kubectl get all`.")
   public List<String> getCategories() {
     return categories;
   }
@@ -116,6 +120,7 @@ public class V1CustomResourceDefinitionNames {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "kind is the serialized kind of the resource. It is normally CamelCase and singular. Custom resource instances will use this value as the `kind` attribute in API calls.")
   public String getKind() {
     return kind;
   }
@@ -135,6 +140,7 @@ public class V1CustomResourceDefinitionNames {
    * @return listKind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "listKind is the serialized kind of the list for this resource. Defaults to \"`kind`List\".")
   public String getListKind() {
     return listKind;
   }
@@ -154,6 +160,7 @@ public class V1CustomResourceDefinitionNames {
    * @return plural
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "plural is the plural name of the resource to serve. The custom resources are served under `/apis/<group>/<version>/.../<plural>`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`). Must be all lowercase.")
   public String getPlural() {
     return plural;
   }
@@ -181,6 +188,7 @@ public class V1CustomResourceDefinitionNames {
    * @return shortNames
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like `kubectl get <shortname>`. It must be all lowercase.")
   public List<String> getShortNames() {
     return shortNames;
   }
@@ -200,6 +208,7 @@ public class V1CustomResourceDefinitionNames {
    * @return singular
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.")
   public String getSingular() {
     return singular;
   }

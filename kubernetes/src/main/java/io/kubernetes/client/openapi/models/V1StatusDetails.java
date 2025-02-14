@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1StatusCause;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StatusDetails {
   public static final String SERIALIZED_NAME_CAUSES = "causes";
   @SerializedName(SERIALIZED_NAME_CAUSES)
@@ -98,6 +101,7 @@ public class V1StatusDetails {
    * @return causes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes.")
   public List<V1StatusCause> getCauses() {
     return causes;
   }
@@ -117,6 +121,7 @@ public class V1StatusDetails {
    * @return group
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The group attribute of the resource associated with the status StatusReason.")
   public String getGroup() {
     return group;
   }
@@ -136,6 +141,7 @@ public class V1StatusDetails {
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
@@ -155,6 +161,7 @@ public class V1StatusDetails {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described).")
   public String getName() {
     return name;
   }
@@ -174,6 +181,7 @@ public class V1StatusDetails {
    * @return retryAfterSeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action.")
   public Integer getRetryAfterSeconds() {
     return retryAfterSeconds;
   }
@@ -193,6 +201,7 @@ public class V1StatusDetails {
    * @return uid
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "UID of the resource. (when there is a single resource which can be described). More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids")
   public String getUid() {
     return uid;
   }

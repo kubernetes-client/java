@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientC
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1MatchCondition;
 import io.kubernetes.client.openapi.models.V1RuleWithOperations;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ValidatingWebhook describes an admission webhook and the resources and operations it applies to.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ValidatingWebhook {
   public static final String SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS = "admissionReviewVersions";
   @SerializedName(SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS)
@@ -121,6 +124,7 @@ public class V1ValidatingWebhook {
    * @return admissionReviewVersions
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.")
   public List<String> getAdmissionReviewVersions() {
     return admissionReviewVersions;
   }
@@ -140,6 +144,7 @@ public class V1ValidatingWebhook {
    * @return clientConfig
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public AdmissionregistrationV1WebhookClientConfig getClientConfig() {
     return clientConfig;
   }
@@ -159,6 +164,7 @@ public class V1ValidatingWebhook {
    * @return failurePolicy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.")
   public String getFailurePolicy() {
     return failurePolicy;
   }
@@ -186,6 +192,7 @@ public class V1ValidatingWebhook {
    * @return matchConditions
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.  The exact matching logic is (in order):   1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.   2. If ALL matchConditions evaluate to TRUE, the webhook is called.   3. If any matchCondition evaluates to an error (but none are FALSE):      - If failurePolicy=Fail, reject the request      - If failurePolicy=Ignore, the error is ignored and the webhook is skipped")
   public List<V1MatchCondition> getMatchConditions() {
     return matchConditions;
   }
@@ -205,6 +212,7 @@ public class V1ValidatingWebhook {
    * @return matchPolicy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "matchPolicy defines how the \"rules\" list is used to match incoming requests. Allowed values are \"Exact\" or \"Equivalent\".  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.  Defaults to \"Equivalent\"")
   public String getMatchPolicy() {
     return matchPolicy;
   }
@@ -224,6 +232,7 @@ public class V1ValidatingWebhook {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.")
   public String getName() {
     return name;
   }
@@ -243,6 +252,7 @@ public class V1ValidatingWebhook {
    * @return namespaceSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
@@ -262,6 +272,7 @@ public class V1ValidatingWebhook {
    * @return objectSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getObjectSelector() {
     return objectSelector;
   }
@@ -289,6 +300,7 @@ public class V1ValidatingWebhook {
    * @return rules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.")
   public List<V1RuleWithOperations> getRules() {
     return rules;
   }
@@ -308,6 +320,7 @@ public class V1ValidatingWebhook {
    * @return sideEffects
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.")
   public String getSideEffects() {
     return sideEffects;
   }
@@ -327,6 +340,7 @@ public class V1ValidatingWebhook {
    * @return timeoutSeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.")
   public Integer getTimeoutSeconds() {
     return timeoutSeconds;
   }

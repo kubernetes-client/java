@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ResourceClaim;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceRequirements describes the compute resource requirements.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceRequirements {
   public static final String SERIALIZED_NAME_CLAIMS = "claims";
   @SerializedName(SERIALIZED_NAME_CLAIMS)
@@ -89,6 +92,7 @@ public class V1ResourceRequirements {
    * @return claims
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.")
   public List<V1ResourceClaim> getClaims() {
     return claims;
   }
@@ -116,6 +120,7 @@ public class V1ResourceRequirements {
    * @return limits
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getLimits() {
     return limits;
   }
@@ -143,6 +148,7 @@ public class V1ResourceRequirements {
    * @return requests
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getRequests() {
     return requests;
   }

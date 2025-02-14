@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,6 +23,8 @@ import io.kubernetes.client.openapi.models.V2ExternalMetricStatus;
 import io.kubernetes.client.openapi.models.V2ObjectMetricStatus;
 import io.kubernetes.client.openapi.models.V2PodsMetricStatus;
 import io.kubernetes.client.openapi.models.V2ResourceMetricStatus;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * MetricStatus describes the last-read state of a single metric.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "MetricStatus describes the last-read state of a single metric.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2MetricStatus {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
@@ -92,6 +95,7 @@ public class V2MetricStatus {
    * @return containerResource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ContainerResourceMetricStatus getContainerResource() {
     return containerResource;
   }
@@ -111,6 +115,7 @@ public class V2MetricStatus {
    * @return external
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ExternalMetricStatus getExternal() {
     return external;
   }
@@ -130,6 +135,7 @@ public class V2MetricStatus {
    * @return _object
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ObjectMetricStatus getObject() {
     return _object;
   }
@@ -149,6 +155,7 @@ public class V2MetricStatus {
    * @return pods
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2PodsMetricStatus getPods() {
     return pods;
   }
@@ -168,6 +175,7 @@ public class V2MetricStatus {
    * @return resource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V2ResourceMetricStatus getResource() {
     return resource;
   }
@@ -183,10 +191,11 @@ public class V2MetricStatus {
   }
 
    /**
-   * type is the type of metric source.  It will be one of \&quot;ContainerResource\&quot;, \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;, each corresponds to a matching field in the object. Note: \&quot;ContainerResource\&quot; type is available on when the feature-gate HPAContainerMetrics is enabled
+   * type is the type of metric source.  It will be one of \&quot;ContainerResource\&quot;, \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;, each corresponds to a matching field in the object.
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "type is the type of metric source.  It will be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each corresponds to a matching field in the object.")
   public String getType() {
     return type;
   }

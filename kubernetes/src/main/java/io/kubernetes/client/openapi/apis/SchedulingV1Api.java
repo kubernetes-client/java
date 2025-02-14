@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -120,7 +120,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -305,7 +306,7 @@ public class SchedulingV1Api {
     public APIcreatePriorityClassRequest createPriorityClass(V1PriorityClass body) {
         return new APIcreatePriorityClassRequest(body);
     }
-    private okhttp3.Call deleteCollectionPriorityClassCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionPriorityClassCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -350,6 +351,10 @@ public class SchedulingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (labelSelector != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
@@ -385,7 +390,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -405,21 +411,21 @@ public class SchedulingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionPriorityClassValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-        return deleteCollectionPriorityClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+    private okhttp3.Call deleteCollectionPriorityClassValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        return deleteCollectionPriorityClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionPriorityClassWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionPriorityClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionPriorityClassWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionPriorityClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionPriorityClassAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionPriorityClassAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionPriorityClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionPriorityClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -431,6 +437,7 @@ public class SchedulingV1Api {
         private String dryRun;
         private String fieldSelector;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private String labelSelector;
         private Integer limit;
         private Boolean orphanDependents;
@@ -491,6 +498,16 @@ public class SchedulingV1Api {
          */
         public APIdeleteCollectionPriorityClassRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeleteCollectionPriorityClassRequest
+         */
+        public APIdeleteCollectionPriorityClassRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -597,7 +614,7 @@ public class SchedulingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionPriorityClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionPriorityClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -612,7 +629,7 @@ public class SchedulingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionPriorityClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionPriorityClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -628,7 +645,7 @@ public class SchedulingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionPriorityClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionPriorityClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
         }
 
         /**
@@ -644,7 +661,7 @@ public class SchedulingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionPriorityClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionPriorityClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         }
     }
 
@@ -662,7 +679,7 @@ public class SchedulingV1Api {
     public APIdeleteCollectionPriorityClassRequest deleteCollectionPriorityClass() {
         return new APIdeleteCollectionPriorityClassRequest();
     }
-    private okhttp3.Call deletePriorityClassCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePriorityClassCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -700,6 +717,10 @@ public class SchedulingV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gracePeriodSeconds", gracePeriodSeconds));
         }
 
+        if (ignoreStoreReadErrorWithClusterBreakingPotential != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignoreStoreReadErrorWithClusterBreakingPotential", ignoreStoreReadErrorWithClusterBreakingPotential));
+        }
+
         if (orphanDependents != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("orphanDependents", orphanDependents));
         }
@@ -711,7 +732,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -731,26 +753,26 @@ public class SchedulingV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePriorityClassValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePriorityClassValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deletePriorityClass(Async)");
         }
 
-        return deletePriorityClassCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        return deletePriorityClassCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deletePriorityClassWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deletePriorityClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, null);
+    private ApiResponse<V1Status> deletePriorityClassWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deletePriorityClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deletePriorityClassAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deletePriorityClassAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePriorityClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+        okhttp3.Call localVarCall = deletePriorityClassValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -761,6 +783,7 @@ public class SchedulingV1Api {
         private String pretty;
         private String dryRun;
         private Integer gracePeriodSeconds;
+        private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
         private Boolean orphanDependents;
         private String propagationPolicy;
         private V1DeleteOptions body;
@@ -796,6 +819,16 @@ public class SchedulingV1Api {
          */
         public APIdeletePriorityClassRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * Set ignoreStoreReadErrorWithClusterBreakingPotential
+         * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
+         * @return APIdeletePriorityClassRequest
+         */
+        public APIdeletePriorityClassRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+            this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
 
@@ -843,7 +876,7 @@ public class SchedulingV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deletePriorityClassCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deletePriorityClassCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
 
         /**
@@ -859,7 +892,7 @@ public class SchedulingV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deletePriorityClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            ApiResponse<V1Status> localVarResp = deletePriorityClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
             return localVarResp.getData();
         }
 
@@ -876,7 +909,7 @@ public class SchedulingV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deletePriorityClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+            return deletePriorityClassWithHttpInfo(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body);
         }
 
         /**
@@ -893,7 +926,7 @@ public class SchedulingV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deletePriorityClassAsync(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
+            return deletePriorityClassAsync(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         }
     }
 
@@ -941,7 +974,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1136,8 +1170,10 @@ public class SchedulingV1Api {
             "application/json",
             "application/yaml",
             "application/vnd.kubernetes.protobuf",
+            "application/cbor",
             "application/json;stream=watch",
-            "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/vnd.kubernetes.protobuf;stream=watch",
+            "application/cbor-seq"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1429,7 +1465,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1661,7 +1698,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1847,7 +1885,8 @@ public class SchedulingV1Api {
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
-            "application/vnd.kubernetes.protobuf"
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

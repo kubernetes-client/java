@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,6 +23,8 @@ import io.kubernetes.client.openapi.models.V1ConfigMapProjection;
 import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
 import io.kubernetes.client.openapi.models.V1SecretProjection;
 import io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
@@ -88,6 +91,7 @@ public class V1VolumeProjection {
    * @return clusterTrustBundle
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ClusterTrustBundleProjection getClusterTrustBundle() {
     return clusterTrustBundle;
   }
@@ -107,6 +111,7 @@ public class V1VolumeProjection {
    * @return configMap
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ConfigMapProjection getConfigMap() {
     return configMap;
   }
@@ -126,6 +131,7 @@ public class V1VolumeProjection {
    * @return downwardAPI
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1DownwardAPIProjection getDownwardAPI() {
     return downwardAPI;
   }
@@ -145,6 +151,7 @@ public class V1VolumeProjection {
    * @return secret
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretProjection getSecret() {
     return secret;
   }
@@ -164,6 +171,7 @@ public class V1VolumeProjection {
    * @return serviceAccountToken
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return serviceAccountToken;
   }

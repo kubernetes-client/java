@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V2MetricIdentifier;
 import io.kubernetes.client.openapi.models.V2MetricTarget;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second). The values will be averaged together before being compared to the target value.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second). The values will be averaged together before being compared to the target value.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V2PodsMetricSource {
   public static final String SERIALIZED_NAME_METRIC = "metric";
   @SerializedName(SERIALIZED_NAME_METRIC)
@@ -73,6 +76,7 @@ public class V2PodsMetricSource {
    * @return metric
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V2MetricIdentifier getMetric() {
     return metric;
   }
@@ -92,6 +96,7 @@ public class V2PodsMetricSource {
    * @return target
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V2MetricTarget getTarget() {
     return target;
   }

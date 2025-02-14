@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerPort represents a network port in a single container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ContainerPort represents a network port in a single container.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ContainerPort {
   public static final String SERIALIZED_NAME_CONTAINER_PORT = "containerPort";
   @SerializedName(SERIALIZED_NAME_CONTAINER_PORT)
@@ -83,6 +86,7 @@ public class V1ContainerPort {
    * @return containerPort
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.")
   public Integer getContainerPort() {
     return containerPort;
   }
@@ -102,6 +106,7 @@ public class V1ContainerPort {
    * @return hostIP
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "What host IP to bind the external port to.")
   public String getHostIP() {
     return hostIP;
   }
@@ -121,6 +126,7 @@ public class V1ContainerPort {
    * @return hostPort
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.")
   public Integer getHostPort() {
     return hostPort;
   }
@@ -140,6 +146,7 @@ public class V1ContainerPort {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.")
   public String getName() {
     return name;
   }
@@ -159,6 +166,7 @@ public class V1ContainerPort {
    * @return protocol
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".")
   public String getProtocol() {
     return protocol;
   }

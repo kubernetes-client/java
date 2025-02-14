@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeAffinity;
 import io.kubernetes.client.openapi.models.V1PodAffinity;
 import io.kubernetes.client.openapi.models.V1PodAntiAffinity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Affinity is a group of affinity scheduling rules.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Affinity is a group of affinity scheduling rules.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Affinity {
   public static final String SERIALIZED_NAME_NODE_AFFINITY = "nodeAffinity";
   @SerializedName(SERIALIZED_NAME_NODE_AFFINITY)
@@ -78,6 +81,7 @@ public class V1Affinity {
    * @return nodeAffinity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeAffinity getNodeAffinity() {
     return nodeAffinity;
   }
@@ -97,6 +101,7 @@ public class V1Affinity {
    * @return podAffinity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PodAffinity getPodAffinity() {
     return podAffinity;
   }
@@ -116,6 +121,7 @@ public class V1Affinity {
    * @return podAntiAffinity
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1PodAntiAffinity getPodAntiAffinity() {
     return podAntiAffinity;
   }

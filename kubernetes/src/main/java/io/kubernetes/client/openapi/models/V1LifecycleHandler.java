@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.V1ExecAction;
 import io.kubernetes.client.openapi.models.V1HTTPGetAction;
 import io.kubernetes.client.openapi.models.V1SleepAction;
 import io.kubernetes.client.openapi.models.V1TCPSocketAction;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
   @SerializedName(SERIALIZED_NAME_EXEC)
@@ -83,6 +86,7 @@ public class V1LifecycleHandler {
    * @return exec
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ExecAction getExec() {
     return exec;
   }
@@ -102,6 +106,7 @@ public class V1LifecycleHandler {
    * @return httpGet
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1HTTPGetAction getHttpGet() {
     return httpGet;
   }
@@ -121,6 +126,7 @@ public class V1LifecycleHandler {
    * @return sleep
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SleepAction getSleep() {
     return sleep;
   }
@@ -140,6 +146,7 @@ public class V1LifecycleHandler {
    * @return tcpSocket
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1TCPSocketAction getTcpSocket() {
     return tcpSocket;
   }

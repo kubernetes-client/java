@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * The pod this Toleration is attached to tolerates any taint that matches the triple &lt;key,value,effect&gt; using the matching operator &lt;operator&gt;.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Toleration {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
@@ -83,6 +86,7 @@ public class V1Toleration {
    * @return effect
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.")
   public String getEffect() {
     return effect;
   }
@@ -102,6 +106,7 @@ public class V1Toleration {
    * @return key
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.")
   public String getKey() {
     return key;
   }
@@ -121,6 +126,7 @@ public class V1Toleration {
    * @return operator
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.")
   public String getOperator() {
     return operator;
   }
@@ -140,6 +146,7 @@ public class V1Toleration {
    * @return tolerationSeconds
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.")
   public Long getTolerationSeconds() {
     return tolerationSeconds;
   }
@@ -159,6 +166,7 @@ public class V1Toleration {
    * @return value
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.")
   public String getValue() {
     return value;
   }

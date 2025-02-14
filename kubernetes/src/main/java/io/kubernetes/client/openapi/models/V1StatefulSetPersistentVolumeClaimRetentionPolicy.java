@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
   public static final String SERIALIZED_NAME_WHEN_DELETED = "whenDeleted";
   @SerializedName(SERIALIZED_NAME_WHEN_DELETED)
@@ -71,6 +74,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
    * @return whenDeleted
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.")
   public String getWhenDeleted() {
     return whenDeleted;
   }
@@ -90,6 +94,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
    * @return whenScaled
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.")
   public String getWhenScaled() {
     return whenScaled;
   }

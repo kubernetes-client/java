@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * current status of a horizontal pod autoscaler
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "current status of a horizontal pod autoscaler")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CURRENT_C_P_U_UTILIZATION_PERCENTAGE = "currentCPUUtilizationPercentage";
   @SerializedName(SERIALIZED_NAME_CURRENT_C_P_U_UTILIZATION_PERCENTAGE)
@@ -84,6 +87,7 @@ public class V1HorizontalPodAutoscalerStatus {
    * @return currentCPUUtilizationPercentage
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "currentCPUUtilizationPercentage is the current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.")
   public Integer getCurrentCPUUtilizationPercentage() {
     return currentCPUUtilizationPercentage;
   }
@@ -103,6 +107,7 @@ public class V1HorizontalPodAutoscalerStatus {
    * @return currentReplicas
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "currentReplicas is the current number of replicas of pods managed by this autoscaler.")
   public Integer getCurrentReplicas() {
     return currentReplicas;
   }
@@ -122,6 +127,7 @@ public class V1HorizontalPodAutoscalerStatus {
    * @return desiredReplicas
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "desiredReplicas is the  desired number of replicas of pods managed by this autoscaler.")
   public Integer getDesiredReplicas() {
     return desiredReplicas;
   }
@@ -141,6 +147,7 @@ public class V1HorizontalPodAutoscalerStatus {
    * @return lastScaleTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.")
   public OffsetDateTime getLastScaleTime() {
     return lastScaleTime;
   }
@@ -160,6 +167,7 @@ public class V1HorizontalPodAutoscalerStatus {
    * @return observedGeneration
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "observedGeneration is the most recent generation observed by this autoscaler.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }

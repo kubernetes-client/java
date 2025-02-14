@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1Toleration;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Scheduling {
   public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
@@ -84,6 +87,7 @@ public class V1Scheduling {
    * @return nodeSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.")
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
   }
@@ -111,6 +115,7 @@ public class V1Scheduling {
    * @return tolerations
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.")
   public List<V1Toleration> getTolerations() {
     return tolerations;
   }

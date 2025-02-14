@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,8 +18,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha3AllocatedDeviceStatus;
 import io.kubernetes.client.openapi.models.V1alpha3AllocationResult;
 import io.kubernetes.client.openapi.models.V1alpha3ResourceClaimConsumerReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,15 +55,16 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceClaimStatus tracks whether the resource has been allocated and what the result of that was.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceClaimStatus tracks whether the resource has been allocated and what the result of that was.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3ResourceClaimStatus {
   public static final String SERIALIZED_NAME_ALLOCATION = "allocation";
   @SerializedName(SERIALIZED_NAME_ALLOCATION)
   private V1alpha3AllocationResult allocation;
 
-  public static final String SERIALIZED_NAME_DEALLOCATION_REQUESTED = "deallocationRequested";
-  @SerializedName(SERIALIZED_NAME_DEALLOCATION_REQUESTED)
-  private Boolean deallocationRequested;
+  public static final String SERIALIZED_NAME_DEVICES = "devices";
+  @SerializedName(SERIALIZED_NAME_DEVICES)
+  private List<V1alpha3AllocatedDeviceStatus> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESERVED_FOR = "reservedFor";
   @SerializedName(SERIALIZED_NAME_RESERVED_FOR)
@@ -79,6 +83,7 @@ public class V1alpha3ResourceClaimStatus {
    * @return allocation
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3AllocationResult getAllocation() {
     return allocation;
   }
@@ -88,22 +93,31 @@ public class V1alpha3ResourceClaimStatus {
   }
 
 
-  public V1alpha3ResourceClaimStatus deallocationRequested(Boolean deallocationRequested) {
-    this.deallocationRequested = deallocationRequested;
+  public V1alpha3ResourceClaimStatus devices(List<V1alpha3AllocatedDeviceStatus> devices) {
+    this.devices = devices;
+    return this;
+  }
+
+  public V1alpha3ResourceClaimStatus addDevicesItem(V1alpha3AllocatedDeviceStatus devicesItem) {
+    if (this.devices == null) {
+      this.devices = new ArrayList<>();
+    }
+    this.devices.add(devicesItem);
     return this;
   }
 
    /**
-   * Indicates that a claim is to be deallocated. While this is set, no new consumers may be added to ReservedFor.  This is only used if the claim needs to be deallocated by a DRA driver. That driver then must deallocate this claim and reset the field together with clearing the Allocation field.  This is an alpha field and requires enabling the DRAControlPlaneController feature gate.
-   * @return deallocationRequested
+   * Devices contains the status of each device allocated for this claim, as reported by the driver. This can include driver-specific information. Entries are owned by their respective drivers.
+   * @return devices
   **/
   @jakarta.annotation.Nullable
-  public Boolean getDeallocationRequested() {
-    return deallocationRequested;
+  @ApiModelProperty(value = "Devices contains the status of each device allocated for this claim, as reported by the driver. This can include driver-specific information. Entries are owned by their respective drivers.")
+  public List<V1alpha3AllocatedDeviceStatus> getDevices() {
+    return devices;
   }
 
-  public void setDeallocationRequested(Boolean deallocationRequested) {
-    this.deallocationRequested = deallocationRequested;
+  public void setDevices(List<V1alpha3AllocatedDeviceStatus> devices) {
+    this.devices = devices;
   }
 
 
@@ -121,10 +135,11 @@ public class V1alpha3ResourceClaimStatus {
   }
 
    /**
-   * ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.  In a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.  Both schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.  There can be at most 32 such reservations. This may get increased in the future, but not reduced.
+   * ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.  In a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.  Both schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.  There can be at most 256 such reservations. This may get increased in the future, but not reduced.
    * @return reservedFor
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ReservedFor indicates which entities are currently allowed to use the claim. A Pod which references a ResourceClaim which is not reserved for that Pod will not be started. A claim that is in use or might be in use because it has been reserved must not get deallocated.  In a cluster with multiple scheduler instances, two pods might get scheduled concurrently by different schedulers. When they reference the same ResourceClaim which already has reached its maximum number of consumers, only one pod can be scheduled.  Both schedulers try to add their pod to the claim.status.reservedFor field, but only the update that reaches the API server first gets stored. The other one fails with an error and the scheduler which issued it knows that it must put the pod back into the queue, waiting for the ResourceClaim to become usable again.  There can be at most 256 such reservations. This may get increased in the future, but not reduced.")
   public List<V1alpha3ResourceClaimConsumerReference> getReservedFor() {
     return reservedFor;
   }
@@ -145,13 +160,13 @@ public class V1alpha3ResourceClaimStatus {
     }
     V1alpha3ResourceClaimStatus v1alpha3ResourceClaimStatus = (V1alpha3ResourceClaimStatus) o;
     return Objects.equals(this.allocation, v1alpha3ResourceClaimStatus.allocation) &&
-        Objects.equals(this.deallocationRequested, v1alpha3ResourceClaimStatus.deallocationRequested) &&
+        Objects.equals(this.devices, v1alpha3ResourceClaimStatus.devices) &&
         Objects.equals(this.reservedFor, v1alpha3ResourceClaimStatus.reservedFor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocation, deallocationRequested, reservedFor);
+    return Objects.hash(allocation, devices, reservedFor);
   }
 
   @Override
@@ -159,7 +174,7 @@ public class V1alpha3ResourceClaimStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1alpha3ResourceClaimStatus {\n");
     sb.append("    allocation: ").append(toIndentedString(allocation)).append("\n");
-    sb.append("    deallocationRequested: ").append(toIndentedString(deallocationRequested)).append("\n");
+    sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
     sb.append("    reservedFor: ").append(toIndentedString(reservedFor)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +199,7 @@ public class V1alpha3ResourceClaimStatus {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allocation");
-    openapiFields.add("deallocationRequested");
+    openapiFields.add("devices");
     openapiFields.add("reservedFor");
 
     // a set of required properties/fields (JSON key names)
@@ -215,6 +230,20 @@ public class V1alpha3ResourceClaimStatus {
       // validate the optional field `allocation`
       if (jsonObj.get("allocation") != null && !jsonObj.get("allocation").isJsonNull()) {
         V1alpha3AllocationResult.validateJsonElement(jsonObj.get("allocation"));
+      }
+      if (jsonObj.get("devices") != null && !jsonObj.get("devices").isJsonNull()) {
+        JsonArray jsonArraydevices = jsonObj.getAsJsonArray("devices");
+        if (jsonArraydevices != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("devices").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `devices` to be an array in the JSON string but got `%s`", jsonObj.get("devices").toString()));
+          }
+
+          // validate the optional field `devices` (array)
+          for (int i = 0; i < jsonArraydevices.size(); i++) {
+            V1alpha3AllocatedDeviceStatus.validateJsonElement(jsonArraydevices.get(i));
+          };
+        }
       }
       if (jsonObj.get("reservedFor") != null && !jsonObj.get("reservedFor").isJsonNull()) {
         JsonArray jsonArrayreservedFor = jsonObj.getAsJsonArray("reservedFor");

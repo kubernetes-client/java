@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],    Ports:     [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -87,6 +90,7 @@ public class V1EndpointSubset {
    * @return addresses
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.")
   public List<V1EndpointAddress> getAddresses() {
     return addresses;
   }
@@ -114,6 +118,7 @@ public class V1EndpointSubset {
    * @return notReadyAddresses
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.")
   public List<V1EndpointAddress> getNotReadyAddresses() {
     return notReadyAddresses;
   }
@@ -141,6 +146,7 @@ public class V1EndpointSubset {
    * @return ports
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Port numbers available on the related IP addresses.")
   public List<CoreV1EndpointPort> getPorts() {
     return ports;
   }

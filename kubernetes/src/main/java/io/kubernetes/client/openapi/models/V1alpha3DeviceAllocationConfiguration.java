@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha3OpaqueDeviceConfiguration;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceAllocationConfiguration gets embedded in an AllocationResult.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceAllocationConfiguration gets embedded in an AllocationResult.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceAllocationConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)
@@ -78,6 +81,7 @@ public class V1alpha3DeviceAllocationConfiguration {
    * @return opaque
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3OpaqueDeviceConfiguration getOpaque() {
     return opaque;
   }
@@ -105,6 +109,7 @@ public class V1alpha3DeviceAllocationConfiguration {
    * @return requests
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.")
   public List<String> getRequests() {
     return requests;
   }
@@ -124,6 +129,7 @@ public class V1alpha3DeviceAllocationConfiguration {
    * @return source
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Source records whether the configuration comes from a class and thus is not something that a normal user would have been able to set or from a claim.")
   public String getSource() {
     return source;
   }

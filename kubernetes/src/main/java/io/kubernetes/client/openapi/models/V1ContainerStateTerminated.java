@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerStateTerminated is a terminated state of a container.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
   @SerializedName(SERIALIZED_NAME_CONTAINER_I_D)
@@ -92,6 +95,7 @@ public class V1ContainerStateTerminated {
    * @return containerID
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Container's ID in the format '<type>://<container_id>'")
   public String getContainerID() {
     return containerID;
   }
@@ -111,6 +115,7 @@ public class V1ContainerStateTerminated {
    * @return exitCode
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Exit status from the last termination of the container")
   public Integer getExitCode() {
     return exitCode;
   }
@@ -130,6 +135,7 @@ public class V1ContainerStateTerminated {
    * @return finishedAt
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Time at which the container last terminated")
   public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
@@ -149,6 +155,7 @@ public class V1ContainerStateTerminated {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Message regarding the last termination of the container")
   public String getMessage() {
     return message;
   }
@@ -168,6 +175,7 @@ public class V1ContainerStateTerminated {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "(brief) reason from the last termination of the container")
   public String getReason() {
     return reason;
   }
@@ -187,6 +195,7 @@ public class V1ContainerStateTerminated {
    * @return signal
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Signal from the last termination of the container")
   public Integer getSignal() {
     return signal;
   }
@@ -206,6 +215,7 @@ public class V1ContainerStateTerminated {
    * @return startedAt
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Time at which previous execution of the container started")
   public OffsetDateTime getStartedAt() {
     return startedAt;
   }

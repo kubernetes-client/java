@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceAllocationConfiguration;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceRequestAllocationResult;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceAllocationResult is the result of allocating devices.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceAllocationResult is the result of allocating devices.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceAllocationResult {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -83,6 +86,7 @@ public class V1alpha3DeviceAllocationResult {
    * @return config
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "This field is a combination of all the claim and class configuration parameters. Drivers can distinguish between those based on a flag.  This includes configuration parameters for drivers which have no allocated devices in the result because it is up to the drivers which configuration parameters they support. They can silently ignore unknown configuration parameters.")
   public List<V1alpha3DeviceAllocationConfiguration> getConfig() {
     return config;
   }
@@ -110,6 +114,7 @@ public class V1alpha3DeviceAllocationResult {
    * @return results
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Results lists all allocated devices.")
   public List<V1alpha3DeviceRequestAllocationResult> getResults() {
     return results;
   }

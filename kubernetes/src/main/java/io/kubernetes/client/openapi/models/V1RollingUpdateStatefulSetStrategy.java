@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1RollingUpdateStatefulSetStrategy {
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
@@ -72,6 +75,7 @@ public class V1RollingUpdateStatefulSetStrategy {
    * @return maxUnavailable
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMaxUnavailable() {
     return maxUnavailable;
   }
@@ -91,6 +95,7 @@ public class V1RollingUpdateStatefulSetStrategy {
    * @return partition
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.")
   public Integer getPartition() {
     return partition;
   }

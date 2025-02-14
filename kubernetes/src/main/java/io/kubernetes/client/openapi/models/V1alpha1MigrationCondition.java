@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Describes the state of a migration at a certain point.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Describes the state of a migration at a certain point.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha1MigrationCondition {
   public static final String SERIALIZED_NAME_LAST_UPDATE_TIME = "lastUpdateTime";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATE_TIME)
@@ -84,6 +87,7 @@ public class V1alpha1MigrationCondition {
    * @return lastUpdateTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The last time this condition was updated.")
   public OffsetDateTime getLastUpdateTime() {
     return lastUpdateTime;
   }
@@ -103,6 +107,7 @@ public class V1alpha1MigrationCondition {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A human readable message indicating details about the transition.")
   public String getMessage() {
     return message;
   }
@@ -122,6 +127,7 @@ public class V1alpha1MigrationCondition {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
@@ -141,6 +147,7 @@ public class V1alpha1MigrationCondition {
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -160,6 +167,7 @@ public class V1alpha1MigrationCondition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Type of the condition.")
   public String getType() {
     return type;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SELinuxOptions are the labels to be applied to the container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "SELinuxOptions are the labels to be applied to the container")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SELinuxOptions {
   public static final String SERIALIZED_NAME_LEVEL = "level";
   @SerializedName(SERIALIZED_NAME_LEVEL)
@@ -79,6 +82,7 @@ public class V1SELinuxOptions {
    * @return level
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Level is SELinux level label that applies to the container.")
   public String getLevel() {
     return level;
   }
@@ -98,6 +102,7 @@ public class V1SELinuxOptions {
    * @return role
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Role is a SELinux role label that applies to the container.")
   public String getRole() {
     return role;
   }
@@ -117,6 +122,7 @@ public class V1SELinuxOptions {
    * @return type
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Type is a SELinux type label that applies to the container.")
   public String getType() {
     return type;
   }
@@ -136,6 +142,7 @@ public class V1SELinuxOptions {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "User is a SELinux user label that applies to the container.")
   public String getUser() {
     return user;
   }

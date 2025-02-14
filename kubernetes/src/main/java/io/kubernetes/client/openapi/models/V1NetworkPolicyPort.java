@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NetworkPolicyPort describes a port to allow traffic on
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "NetworkPolicyPort describes a port to allow traffic on")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NetworkPolicyPort {
   public static final String SERIALIZED_NAME_END_PORT = "endPort";
   @SerializedName(SERIALIZED_NAME_END_PORT)
@@ -76,6 +79,7 @@ public class V1NetworkPolicyPort {
    * @return endPort
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "endPort indicates that the range of ports from port to endPort if set, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port.")
   public Integer getEndPort() {
     return endPort;
   }
@@ -95,6 +99,7 @@ public class V1NetworkPolicyPort {
    * @return port
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getPort() {
     return port;
   }
@@ -114,6 +119,7 @@ public class V1NetworkPolicyPort {
    * @return protocol
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "protocol represents the protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.")
   public String getProtocol() {
     return protocol;
   }

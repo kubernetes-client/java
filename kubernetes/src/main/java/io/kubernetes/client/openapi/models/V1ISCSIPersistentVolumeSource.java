@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ISCSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CHAP_AUTH_DISCOVERY = "chapAuthDiscovery";
   @SerializedName(SERIALIZED_NAME_CHAP_AUTH_DISCOVERY)
@@ -110,6 +113,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return chapAuthDiscovery
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication")
   public Boolean getChapAuthDiscovery() {
     return chapAuthDiscovery;
   }
@@ -129,6 +133,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return chapAuthSession
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "chapAuthSession defines whether support iSCSI Session CHAP authentication")
   public Boolean getChapAuthSession() {
     return chapAuthSession;
   }
@@ -148,6 +153,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi")
   public String getFsType() {
     return fsType;
   }
@@ -167,6 +173,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return initiatorName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.")
   public String getInitiatorName() {
     return initiatorName;
   }
@@ -186,6 +193,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return iqn
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "iqn is Target iSCSI Qualified Name.")
   public String getIqn() {
     return iqn;
   }
@@ -205,6 +213,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return iscsiInterface
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).")
   public String getIscsiInterface() {
     return iscsiInterface;
   }
@@ -224,6 +233,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return lun
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "lun is iSCSI Target Lun number.")
   public Integer getLun() {
     return lun;
   }
@@ -251,6 +261,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return portals
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
   public List<String> getPortals() {
     return portals;
   }
@@ -270,6 +281,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -289,6 +301,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
@@ -308,6 +321,7 @@ public class V1ISCSIPersistentVolumeSource {
    * @return targetPortal
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
   public String getTargetPortal() {
     return targetPortal;
   }

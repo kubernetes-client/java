@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference, or a value for non-objects such as user and group names.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference, or a value for non-objects such as user and group names.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class RbacV1Subject {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
@@ -79,6 +82,7 @@ public class RbacV1Subject {
    * @return apiGroup
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIGroup holds the API group of the referenced subject. Defaults to \"\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io\" for User and Group subjects.")
   public String getApiGroup() {
     return apiGroup;
   }
@@ -98,6 +102,7 @@ public class RbacV1Subject {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Kind of object being referenced. Values defined by this API group are \"User\", \"Group\", and \"ServiceAccount\". If the Authorizer does not recognized the kind value, the Authorizer should report an error.")
   public String getKind() {
     return kind;
   }
@@ -117,6 +122,7 @@ public class RbacV1Subject {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of the object being referenced.")
   public String getName() {
     return name;
   }
@@ -136,6 +142,7 @@ public class RbacV1Subject {
    * @return namespace
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Namespace of the referenced object.  If the object kind is non-namespace, such as \"User\" or \"Group\", and this value is not empty the Authorizer should report an error.")
   public String getNamespace() {
     return namespace;
   }

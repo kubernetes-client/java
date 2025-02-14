@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NamespaceCondition contains details about state of namespace.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "NamespaceCondition contains details about state of namespace.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NamespaceCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -80,10 +83,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * Last time the condition transitioned from one status to another.
    * @return lastTransitionTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -99,10 +103,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Get message
+   * Human-readable message indicating details about last transition.
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Human-readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
@@ -118,10 +123,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Get reason
+   * Unique, one-word, CamelCase reason for the condition&#39;s last transition.
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Unique, one-word, CamelCase reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
@@ -141,6 +147,7 @@ public class V1NamespaceCondition {
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -160,6 +167,7 @@ public class V1NamespaceCondition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Type of namespace controller condition.")
   public String getType() {
     return type;
   }

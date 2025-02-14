@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * EndpointPort is a tuple that describes a single port.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointPort is a tuple that describes a single port.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CoreV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
@@ -79,6 +82,7 @@ public class CoreV1EndpointPort {
    * @return appProtocol
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-   * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455   * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.")
   public String getAppProtocol() {
     return appProtocol;
   }
@@ -98,6 +102,7 @@ public class CoreV1EndpointPort {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.")
   public String getName() {
     return name;
   }
@@ -117,6 +122,7 @@ public class CoreV1EndpointPort {
    * @return port
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The port number of the endpoint.")
   public Integer getPort() {
     return port;
   }
@@ -136,6 +142,7 @@ public class CoreV1EndpointPort {
    * @return protocol
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.")
   public String getProtocol() {
     return protocol;
   }

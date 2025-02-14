@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
@@ -93,6 +96,7 @@ public class V1PolicyRule {
    * @return apiGroups
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. \"\" represents the core API group and \"*\" represents all API groups.")
   public List<String> getApiGroups() {
     return apiGroups;
   }
@@ -120,6 +124,7 @@ public class V1PolicyRule {
    * @return nonResourceURLs
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.")
   public List<String> getNonResourceURLs() {
     return nonResourceURLs;
   }
@@ -147,6 +152,7 @@ public class V1PolicyRule {
    * @return resourceNames
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.")
   public List<String> getResourceNames() {
     return resourceNames;
   }
@@ -174,6 +180,7 @@ public class V1PolicyRule {
    * @return resources
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Resources is a list of resources this rule applies to. '*' represents all resources.")
   public List<String> getResources() {
     return resources;
   }
@@ -201,6 +208,7 @@ public class V1PolicyRule {
    * @return verbs
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.")
   public List<String> getVerbs() {
     return verbs;
   }

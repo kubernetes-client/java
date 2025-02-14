@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LocalObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a source location of a volume to mount, managed by an external CSI driver
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a source location of a volume to mount, managed by an external CSI driver")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CSIVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
@@ -86,6 +89,7 @@ public class V1CSIVolumeSource {
    * @return driver
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.")
   public String getDriver() {
     return driver;
   }
@@ -105,6 +109,7 @@ public class V1CSIVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
   public String getFsType() {
     return fsType;
   }
@@ -124,6 +129,7 @@ public class V1CSIVolumeSource {
    * @return nodePublishSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LocalObjectReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
   }
@@ -143,6 +149,7 @@ public class V1CSIVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -170,6 +177,7 @@ public class V1CSIVolumeSource {
    * @return volumeAttributes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;
   }

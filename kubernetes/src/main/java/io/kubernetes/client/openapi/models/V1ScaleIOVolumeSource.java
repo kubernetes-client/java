@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LocalObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ScaleIOVolumeSource represents a persistent ScaleIO volume
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ScaleIOVolumeSource represents a persistent ScaleIO volume")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ScaleIOVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -104,6 +107,7 @@ public class V1ScaleIOVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\".")
   public String getFsType() {
     return fsType;
   }
@@ -123,6 +127,7 @@ public class V1ScaleIOVolumeSource {
    * @return gateway
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "gateway is the host address of the ScaleIO API Gateway.")
   public String getGateway() {
     return gateway;
   }
@@ -142,6 +147,7 @@ public class V1ScaleIOVolumeSource {
    * @return protectionDomain
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.")
   public String getProtectionDomain() {
     return protectionDomain;
   }
@@ -161,6 +167,7 @@ public class V1ScaleIOVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -180,6 +187,7 @@ public class V1ScaleIOVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
@@ -199,6 +207,7 @@ public class V1ScaleIOVolumeSource {
    * @return sslEnabled
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "sslEnabled Flag enable/disable SSL communication with Gateway, default false")
   public Boolean getSslEnabled() {
     return sslEnabled;
   }
@@ -218,6 +227,7 @@ public class V1ScaleIOVolumeSource {
    * @return storageMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
   public String getStorageMode() {
     return storageMode;
   }
@@ -237,6 +247,7 @@ public class V1ScaleIOVolumeSource {
    * @return storagePool
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "storagePool is the ScaleIO Storage Pool associated with the protection domain.")
   public String getStoragePool() {
     return storagePool;
   }
@@ -256,6 +267,7 @@ public class V1ScaleIOVolumeSource {
    * @return system
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "system is the name of the storage system as configured in ScaleIO.")
   public String getSystem() {
     return system;
   }
@@ -275,6 +287,7 @@ public class V1ScaleIOVolumeSource {
    * @return volumeName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.")
   public String getVolumeName() {
     return volumeName;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ClusterTrustBundleProjection describes how to select a set of ClusterTrustBundle objects and project their contents into the pod filesystem.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ClusterTrustBundleProjection describes how to select a set of ClusterTrustBundle objects and project their contents into the pod filesystem.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ClusterTrustBundleProjection {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
@@ -84,6 +87,7 @@ public class V1ClusterTrustBundleProjection {
    * @return labelSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getLabelSelector() {
     return labelSelector;
   }
@@ -103,6 +107,7 @@ public class V1ClusterTrustBundleProjection {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Select a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.")
   public String getName() {
     return name;
   }
@@ -122,6 +127,7 @@ public class V1ClusterTrustBundleProjection {
    * @return optional
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.")
   public Boolean getOptional() {
     return optional;
   }
@@ -141,6 +147,7 @@ public class V1ClusterTrustBundleProjection {
    * @return path
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Relative path from the volume root to write the bundle.")
   public String getPath() {
     return path;
   }
@@ -160,6 +167,7 @@ public class V1ClusterTrustBundleProjection {
    * @return signerName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Select all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.")
   public String getSignerName() {
     return signerName;
   }

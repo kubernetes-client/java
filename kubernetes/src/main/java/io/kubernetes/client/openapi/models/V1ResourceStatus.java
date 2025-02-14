@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ResourceHealth;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,9 +51,10 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * V1ResourceStatus
+ * ResourceStatus represents the status of a single resource allocated to a Pod.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceStatus represents the status of a single resource allocated to a Pod.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceStatus {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,10 +73,11 @@ public class V1ResourceStatus {
   }
 
    /**
-   * Name of the resource. Must be unique within the pod and match one of the resources from the pod spec.
+   * Name of the resource. Must be unique within the pod and in case of non-DRA resource, match one of the resources from the pod spec. For DRA resources, the value must be \&quot;claim:&lt;claim_name&gt;/&lt;request&gt;\&quot;. When this status is reported about a container, the \&quot;claim_name\&quot; and \&quot;request\&quot; must match one of the claims of this container.
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of the resource. Must be unique within the pod and in case of non-DRA resource, match one of the resources from the pod spec. For DRA resources, the value must be \"claim:<claim_name>/<request>\". When this status is reported about a container, the \"claim_name\" and \"request\" must match one of the claims of this container.")
   public String getName() {
     return name;
   }
@@ -97,10 +101,11 @@ public class V1ResourceStatus {
   }
 
    /**
-   * List of unique Resources health. Each element in the list contains an unique resource ID and resource health. At a minimum, ResourceID must uniquely identify the Resource allocated to the Pod on the Node for the lifetime of a Pod. See ResourceID type for it&#39;s definition.
+   * List of unique resources health. Each element in the list contains an unique resource ID and its health. At a minimum, for the lifetime of a Pod, resource ID must uniquely identify the resource allocated to the Pod on the Node. If other Pod on the same Node reports the status with the same resource ID, it must be the same resource they share. See ResourceID type definition for a specific format it has in various use cases.
    * @return resources
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "List of unique resources health. Each element in the list contains an unique resource ID and its health. At a minimum, for the lifetime of a Pod, resource ID must uniquely identify the resource allocated to the Pod on the Node. If other Pod on the same Node reports the status with the same resource ID, it must be the same resource they share. See ResourceID type definition for a specific format it has in various use cases.")
   public List<V1ResourceHealth> getResources() {
     return resources;
   }

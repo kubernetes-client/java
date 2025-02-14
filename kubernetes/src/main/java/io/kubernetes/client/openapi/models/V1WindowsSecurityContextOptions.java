@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * WindowsSecurityContextOptions contain Windows-specific options and credentials.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
   @SerializedName(SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC)
@@ -79,6 +82,7 @@ public class V1WindowsSecurityContextOptions {
    * @return gmsaCredentialSpec
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.")
   public String getGmsaCredentialSpec() {
     return gmsaCredentialSpec;
   }
@@ -98,6 +102,7 @@ public class V1WindowsSecurityContextOptions {
    * @return gmsaCredentialSpecName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "GMSACredentialSpecName is the name of the GMSA credential spec to use.")
   public String getGmsaCredentialSpecName() {
     return gmsaCredentialSpecName;
   }
@@ -117,6 +122,7 @@ public class V1WindowsSecurityContextOptions {
    * @return hostProcess
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "HostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.")
   public Boolean getHostProcess() {
     return hostProcess;
   }
@@ -136,6 +142,7 @@ public class V1WindowsSecurityContextOptions {
    * @return runAsUserName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
   public String getRunAsUserName() {
     return runAsUserName;
   }

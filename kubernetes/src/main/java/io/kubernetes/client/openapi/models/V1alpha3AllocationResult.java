@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeSelector;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceAllocationResult;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,12 +52,9 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * AllocationResult contains attributes of an allocated resource.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3AllocationResult {
-  public static final String SERIALIZED_NAME_CONTROLLER = "controller";
-  @SerializedName(SERIALIZED_NAME_CONTROLLER)
-  private String controller;
-
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
   private V1alpha3DeviceAllocationResult devices;
@@ -67,25 +66,6 @@ public class V1alpha3AllocationResult {
   public V1alpha3AllocationResult() {
   }
 
-  public V1alpha3AllocationResult controller(String controller) {
-    this.controller = controller;
-    return this;
-  }
-
-   /**
-   * Controller is the name of the DRA driver which handled the allocation. That driver is also responsible for deallocating the claim. It is empty when the claim can be deallocated without involving a driver.  A driver may allocate devices provided by other drivers, so this driver name here can be different from the driver names listed for the results.  This is an alpha field and requires enabling the DRAControlPlaneController feature gate.
-   * @return controller
-  **/
-  @jakarta.annotation.Nullable
-  public String getController() {
-    return controller;
-  }
-
-  public void setController(String controller) {
-    this.controller = controller;
-  }
-
-
   public V1alpha3AllocationResult devices(V1alpha3DeviceAllocationResult devices) {
     this.devices = devices;
     return this;
@@ -96,6 +76,7 @@ public class V1alpha3AllocationResult {
    * @return devices
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha3DeviceAllocationResult getDevices() {
     return devices;
   }
@@ -115,6 +96,7 @@ public class V1alpha3AllocationResult {
    * @return nodeSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1NodeSelector getNodeSelector() {
     return nodeSelector;
   }
@@ -134,21 +116,19 @@ public class V1alpha3AllocationResult {
       return false;
     }
     V1alpha3AllocationResult v1alpha3AllocationResult = (V1alpha3AllocationResult) o;
-    return Objects.equals(this.controller, v1alpha3AllocationResult.controller) &&
-        Objects.equals(this.devices, v1alpha3AllocationResult.devices) &&
+    return Objects.equals(this.devices, v1alpha3AllocationResult.devices) &&
         Objects.equals(this.nodeSelector, v1alpha3AllocationResult.nodeSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(controller, devices, nodeSelector);
+    return Objects.hash(devices, nodeSelector);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1alpha3AllocationResult {\n");
-    sb.append("    controller: ").append(toIndentedString(controller)).append("\n");
     sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("}");
@@ -173,7 +153,6 @@ public class V1alpha3AllocationResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("controller");
     openapiFields.add("devices");
     openapiFields.add("nodeSelector");
 
@@ -202,9 +181,6 @@ public class V1alpha3AllocationResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("controller") != null && !jsonObj.get("controller").isJsonNull()) && !jsonObj.get("controller").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `controller` to be a primitive type in the JSON string but got `%s`", jsonObj.get("controller").toString()));
-      }
       // validate the optional field `devices`
       if (jsonObj.get("devices") != null && !jsonObj.get("devices").isJsonNull()) {
         V1alpha3DeviceAllocationResult.validateJsonElement(jsonObj.get("devices"));

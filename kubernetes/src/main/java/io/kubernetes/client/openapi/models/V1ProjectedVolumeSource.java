@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1VolumeProjection;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a projected volume source
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a projected volume source")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
@@ -74,6 +77,7 @@ public class V1ProjectedVolumeSource {
    * @return defaultMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getDefaultMode() {
     return defaultMode;
   }
@@ -101,6 +105,7 @@ public class V1ProjectedVolumeSource {
    * @return sources
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "sources is the list of volume projections. Each entry in this list handles one source.")
   public List<V1VolumeProjection> getSources() {
     return sources;
   }

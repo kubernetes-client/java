@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ContainerStateRunning;
 import io.kubernetes.client.openapi.models.V1ContainerStateTerminated;
 import io.kubernetes.client.openapi.models.V1ContainerStateWaiting;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ContainerState {
   public static final String SERIALIZED_NAME_RUNNING = "running";
   @SerializedName(SERIALIZED_NAME_RUNNING)
@@ -78,6 +81,7 @@ public class V1ContainerState {
    * @return running
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ContainerStateRunning getRunning() {
     return running;
   }
@@ -97,6 +101,7 @@ public class V1ContainerState {
    * @return terminated
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ContainerStateTerminated getTerminated() {
     return terminated;
   }
@@ -116,6 +121,7 @@ public class V1ContainerState {
    * @return waiting
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ContainerStateWaiting getWaiting() {
     return waiting;
   }

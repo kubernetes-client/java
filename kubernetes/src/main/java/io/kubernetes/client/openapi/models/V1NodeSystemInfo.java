@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -103,6 +106,7 @@ public class V1NodeSystemInfo {
    * @return architecture
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The Architecture reported by the node")
   public String getArchitecture() {
     return architecture;
   }
@@ -122,6 +126,7 @@ public class V1NodeSystemInfo {
    * @return bootID
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Boot ID reported by the node.")
   public String getBootID() {
     return bootID;
   }
@@ -141,6 +146,7 @@ public class V1NodeSystemInfo {
    * @return containerRuntimeVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).")
   public String getContainerRuntimeVersion() {
     return containerRuntimeVersion;
   }
@@ -160,6 +166,7 @@ public class V1NodeSystemInfo {
    * @return kernelVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).")
   public String getKernelVersion() {
     return kernelVersion;
   }
@@ -179,6 +186,7 @@ public class V1NodeSystemInfo {
    * @return kubeProxyVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Deprecated: KubeProxy Version reported by the node.")
   public String getKubeProxyVersion() {
     return kubeProxyVersion;
   }
@@ -198,6 +206,7 @@ public class V1NodeSystemInfo {
    * @return kubeletVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Kubelet Version reported by the node.")
   public String getKubeletVersion() {
     return kubeletVersion;
   }
@@ -217,6 +226,7 @@ public class V1NodeSystemInfo {
    * @return machineID
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "MachineID reported by the node. For unique machine identification in the cluster this field is preferred. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html")
   public String getMachineID() {
     return machineID;
   }
@@ -236,6 +246,7 @@ public class V1NodeSystemInfo {
    * @return operatingSystem
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The Operating System reported by the node")
   public String getOperatingSystem() {
     return operatingSystem;
   }
@@ -255,6 +266,7 @@ public class V1NodeSystemInfo {
    * @return osImage
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).")
   public String getOsImage() {
     return osImage;
   }
@@ -274,6 +286,7 @@ public class V1NodeSystemInfo {
    * @return systemUUID
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid")
   public String getSystemUUID() {
     return systemUUID;
   }

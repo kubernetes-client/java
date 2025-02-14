@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1FlowDistinguisherMethod;
 import io.kubernetes.client.openapi.models.V1PolicyRulesWithSubjects;
 import io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * FlowSchemaSpec describes how the FlowSchema&#39;s specification looks like.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "FlowSchemaSpec describes how the FlowSchema's specification looks like.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1FlowSchemaSpec {
   public static final String SERIALIZED_NAME_DISTINGUISHER_METHOD = "distinguisherMethod";
   @SerializedName(SERIALIZED_NAME_DISTINGUISHER_METHOD)
@@ -84,6 +87,7 @@ public class V1FlowSchemaSpec {
    * @return distinguisherMethod
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1FlowDistinguisherMethod getDistinguisherMethod() {
     return distinguisherMethod;
   }
@@ -103,6 +107,7 @@ public class V1FlowSchemaSpec {
    * @return matchingPrecedence
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "`matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be ranged in [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.")
   public Integer getMatchingPrecedence() {
     return matchingPrecedence;
   }
@@ -122,6 +127,7 @@ public class V1FlowSchemaSpec {
    * @return priorityLevelConfiguration
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1PriorityLevelConfigurationReference getPriorityLevelConfiguration() {
     return priorityLevelConfiguration;
   }
@@ -149,6 +155,7 @@ public class V1FlowSchemaSpec {
    * @return rules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "`rules` describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.")
   public List<V1PolicyRulesWithSubjects> getRules() {
     return rules;
   }

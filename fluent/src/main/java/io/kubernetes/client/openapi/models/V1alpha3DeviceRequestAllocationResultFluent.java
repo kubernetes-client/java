@@ -4,6 +4,7 @@ import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.Boolean;
 
 /**
  * Generated
@@ -16,6 +17,7 @@ public class V1alpha3DeviceRequestAllocationResultFluent<A extends V1alpha3Devic
   public V1alpha3DeviceRequestAllocationResultFluent(V1alpha3DeviceRequestAllocationResult instance) {
     this.copyInstance(instance);
   }
+  private Boolean adminAccess;
   private String device;
   private String driver;
   private String pool;
@@ -24,11 +26,25 @@ public class V1alpha3DeviceRequestAllocationResultFluent<A extends V1alpha3Devic
   protected void copyInstance(V1alpha3DeviceRequestAllocationResult instance) {
     instance = (instance != null ? instance : new V1alpha3DeviceRequestAllocationResult());
     if (instance != null) {
+          this.withAdminAccess(instance.getAdminAccess());
           this.withDevice(instance.getDevice());
           this.withDriver(instance.getDriver());
           this.withPool(instance.getPool());
           this.withRequest(instance.getRequest());
         }
+  }
+  
+  public Boolean getAdminAccess() {
+    return this.adminAccess;
+  }
+  
+  public A withAdminAccess(Boolean adminAccess) {
+    this.adminAccess = adminAccess;
+    return (A) this;
+  }
+  
+  public boolean hasAdminAccess() {
+    return this.adminAccess != null;
   }
   
   public String getDevice() {
@@ -88,6 +104,7 @@ public class V1alpha3DeviceRequestAllocationResultFluent<A extends V1alpha3Devic
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1alpha3DeviceRequestAllocationResultFluent that = (V1alpha3DeviceRequestAllocationResultFluent) o;
+    if (!java.util.Objects.equals(adminAccess, that.adminAccess)) return false;
     if (!java.util.Objects.equals(device, that.device)) return false;
     if (!java.util.Objects.equals(driver, that.driver)) return false;
     if (!java.util.Objects.equals(pool, that.pool)) return false;
@@ -96,18 +113,23 @@ public class V1alpha3DeviceRequestAllocationResultFluent<A extends V1alpha3Devic
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(device,  driver,  pool,  request,  super.hashCode());
+    return java.util.Objects.hash(adminAccess,  device,  driver,  pool,  request,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (adminAccess != null) { sb.append("adminAccess:"); sb.append(adminAccess + ","); }
     if (device != null) { sb.append("device:"); sb.append(device + ","); }
     if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
     if (pool != null) { sb.append("pool:"); sb.append(pool + ","); }
     if (request != null) { sb.append("request:"); sb.append(request); }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withAdminAccess() {
+    return withAdminAccess(true);
   }
   
 

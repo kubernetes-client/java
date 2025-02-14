@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1alpha1GroupVersionResource;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Spec of the storage version migration.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Spec of the storage version migration.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha1StorageVersionMigrationSpec {
   public static final String SERIALIZED_NAME_CONTINUE_TOKEN = "continueToken";
   @SerializedName(SERIALIZED_NAME_CONTINUE_TOKEN)
@@ -72,6 +75,7 @@ public class V1alpha1StorageVersionMigrationSpec {
    * @return continueToken
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \"Running\", users can use this token to check the progress of the migration.")
   public String getContinueToken() {
     return continueToken;
   }
@@ -91,6 +95,7 @@ public class V1alpha1StorageVersionMigrationSpec {
    * @return resource
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1alpha1GroupVersionResource getResource() {
     return resource;
   }

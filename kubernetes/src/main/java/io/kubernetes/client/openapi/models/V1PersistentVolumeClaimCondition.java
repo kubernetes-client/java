@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeClaimCondition contains details about state of pvc
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PersistentVolumeClaimCondition contains details about state of pvc")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeClaimCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
@@ -88,6 +91,7 @@ public class V1PersistentVolumeClaimCondition {
    * @return lastProbeTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastProbeTime is the time we probed the condition.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
   }
@@ -107,6 +111,7 @@ public class V1PersistentVolumeClaimCondition {
    * @return lastTransitionTime
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "lastTransitionTime is the time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -126,6 +131,7 @@ public class V1PersistentVolumeClaimCondition {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "message is the human-readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
@@ -145,6 +151,7 @@ public class V1PersistentVolumeClaimCondition {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"Resizing\" that means the underlying persistent volume is being resized.")
   public String getReason() {
     return reason;
   }
@@ -160,10 +167,11 @@ public class V1PersistentVolumeClaimCondition {
   }
 
    /**
-   * Get status
+   * Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text&#x3D;state%20of%20pvc-,conditions.status,-(string)%2C%20required
    * @return status
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required")
   public String getStatus() {
     return status;
   }
@@ -179,10 +187,11 @@ public class V1PersistentVolumeClaimCondition {
   }
 
    /**
-   * Get type
+   * Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text&#x3D;set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about")
   public String getType() {
     return type;
   }

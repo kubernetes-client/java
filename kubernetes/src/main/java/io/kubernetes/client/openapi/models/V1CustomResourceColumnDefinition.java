@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceColumnDefinition specifies a column for server side printing.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CustomResourceColumnDefinition specifies a column for server side printing.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceColumnDefinition {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -87,6 +90,7 @@ public class V1CustomResourceColumnDefinition {
    * @return description
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "description is a human readable description of this column.")
   public String getDescription() {
     return description;
   }
@@ -106,6 +110,7 @@ public class V1CustomResourceColumnDefinition {
    * @return format
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.")
   public String getFormat() {
     return format;
   }
@@ -125,6 +130,7 @@ public class V1CustomResourceColumnDefinition {
    * @return jsonPath
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.")
   public String getJsonPath() {
     return jsonPath;
   }
@@ -144,6 +150,7 @@ public class V1CustomResourceColumnDefinition {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "name is a human readable name for the column.")
   public String getName() {
     return name;
   }
@@ -163,6 +170,7 @@ public class V1CustomResourceColumnDefinition {
    * @return priority
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.")
   public Integer getPriority() {
     return priority;
   }
@@ -182,6 +190,7 @@ public class V1CustomResourceColumnDefinition {
    * @return type
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.")
   public String getType() {
     return type;
   }

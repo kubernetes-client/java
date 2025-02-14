@@ -17,30 +17,15 @@ public class V1alpha3AllocationResultFluent<A extends V1alpha3AllocationResultFl
   public V1alpha3AllocationResultFluent(V1alpha3AllocationResult instance) {
     this.copyInstance(instance);
   }
-  private String controller;
   private V1alpha3DeviceAllocationResultBuilder devices;
   private V1NodeSelectorBuilder nodeSelector;
   
   protected void copyInstance(V1alpha3AllocationResult instance) {
     instance = (instance != null ? instance : new V1alpha3AllocationResult());
     if (instance != null) {
-          this.withController(instance.getController());
           this.withDevices(instance.getDevices());
           this.withNodeSelector(instance.getNodeSelector());
         }
-  }
-  
-  public String getController() {
-    return this.controller;
-  }
-  
-  public A withController(String controller) {
-    this.controller = controller;
-    return (A) this;
-  }
-  
-  public boolean hasController() {
-    return this.controller != null;
   }
   
   public V1alpha3DeviceAllocationResult buildDevices() {
@@ -128,20 +113,18 @@ public class V1alpha3AllocationResultFluent<A extends V1alpha3AllocationResultFl
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1alpha3AllocationResultFluent that = (V1alpha3AllocationResultFluent) o;
-    if (!java.util.Objects.equals(controller, that.controller)) return false;
     if (!java.util.Objects.equals(devices, that.devices)) return false;
     if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(controller,  devices,  nodeSelector,  super.hashCode());
+    return java.util.Objects.hash(devices,  nodeSelector,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (controller != null) { sb.append("controller:"); sb.append(controller + ","); }
     if (devices != null) { sb.append("devices:"); sb.append(devices + ","); }
     if (nodeSelector != null) { sb.append("nodeSelector:"); sb.append(nodeSelector); }
     sb.append("}");

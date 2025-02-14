@@ -31,6 +31,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   private Long runAsGroup;
   private Boolean runAsNonRoot;
   private Long runAsUser;
+  private String seLinuxChangePolicy;
   private V1SELinuxOptionsBuilder seLinuxOptions;
   private V1SeccompProfileBuilder seccompProfile;
   private List<Long> supplementalGroups;
@@ -47,6 +48,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
           this.withRunAsGroup(instance.getRunAsGroup());
           this.withRunAsNonRoot(instance.getRunAsNonRoot());
           this.withRunAsUser(instance.getRunAsUser());
+          this.withSeLinuxChangePolicy(instance.getSeLinuxChangePolicy());
           this.withSeLinuxOptions(instance.getSeLinuxOptions());
           this.withSeccompProfile(instance.getSeccompProfile());
           this.withSupplementalGroups(instance.getSupplementalGroups());
@@ -159,6 +161,19 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   
   public boolean hasRunAsUser() {
     return this.runAsUser != null;
+  }
+  
+  public String getSeLinuxChangePolicy() {
+    return this.seLinuxChangePolicy;
+  }
+  
+  public A withSeLinuxChangePolicy(String seLinuxChangePolicy) {
+    this.seLinuxChangePolicy = seLinuxChangePolicy;
+    return (A) this;
+  }
+  
+  public boolean hasSeLinuxChangePolicy() {
+    return this.seLinuxChangePolicy != null;
   }
   
   public V1SELinuxOptions buildSeLinuxOptions() {
@@ -550,6 +565,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
     if (!java.util.Objects.equals(runAsNonRoot, that.runAsNonRoot)) return false;
     if (!java.util.Objects.equals(runAsUser, that.runAsUser)) return false;
+    if (!java.util.Objects.equals(seLinuxChangePolicy, that.seLinuxChangePolicy)) return false;
     if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
     if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
     if (!java.util.Objects.equals(supplementalGroups, that.supplementalGroups)) return false;
@@ -560,7 +576,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  supplementalGroups,  supplementalGroupsPolicy,  sysctls,  windowsOptions,  super.hashCode());
+    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxChangePolicy,  seLinuxOptions,  seccompProfile,  supplementalGroups,  supplementalGroupsPolicy,  sysctls,  windowsOptions,  super.hashCode());
   }
   
   public String toString() {
@@ -572,6 +588,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     if (runAsGroup != null) { sb.append("runAsGroup:"); sb.append(runAsGroup + ","); }
     if (runAsNonRoot != null) { sb.append("runAsNonRoot:"); sb.append(runAsNonRoot + ","); }
     if (runAsUser != null) { sb.append("runAsUser:"); sb.append(runAsUser + ","); }
+    if (seLinuxChangePolicy != null) { sb.append("seLinuxChangePolicy:"); sb.append(seLinuxChangePolicy + ","); }
     if (seLinuxOptions != null) { sb.append("seLinuxOptions:"); sb.append(seLinuxOptions + ","); }
     if (seccompProfile != null) { sb.append("seccompProfile:"); sb.append(seccompProfile + ","); }
     if (supplementalGroups != null && !supplementalGroups.isEmpty()) { sb.append("supplementalGroups:"); sb.append(supplementalGroups + ","); }

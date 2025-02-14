@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -92,6 +95,7 @@ public class V1ManagedFieldsEntry {
    * @return apiVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIVersion defines the version of this resource that this field set applies to. The format is \"group/version\" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -111,6 +115,7 @@ public class V1ManagedFieldsEntry {
    * @return fieldsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: \"FieldsV1\"")
   public String getFieldsType() {
     return fieldsType;
   }
@@ -130,6 +135,7 @@ public class V1ManagedFieldsEntry {
    * @return fieldsV1
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "FieldsV1 holds the first JSON version format as described in the \"FieldsV1\" type.")
   public Object getFieldsV1() {
     return fieldsV1;
   }
@@ -149,6 +155,7 @@ public class V1ManagedFieldsEntry {
    * @return manager
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Manager is an identifier of the workflow managing these fields.")
   public String getManager() {
     return manager;
   }
@@ -168,6 +175,7 @@ public class V1ManagedFieldsEntry {
    * @return operation
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'.")
   public String getOperation() {
     return operation;
   }
@@ -187,6 +195,7 @@ public class V1ManagedFieldsEntry {
    * @return subresource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.")
   public String getSubresource() {
     return subresource;
   }
@@ -206,6 +215,7 @@ public class V1ManagedFieldsEntry {
    * @return time
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.")
   public OffsetDateTime getTime() {
     return time;
   }

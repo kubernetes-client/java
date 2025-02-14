@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ResourceQuotaStatus defines the enforced hard limits and observed use.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ResourceQuotaStatus defines the enforced hard limits and observed use.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ResourceQuotaStatus {
   public static final String SERIALIZED_NAME_HARD = "hard";
   @SerializedName(SERIALIZED_NAME_HARD)
@@ -82,6 +85,7 @@ public class V1ResourceQuotaStatus {
    * @return hard
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/")
   public Map<String, Quantity> getHard() {
     return hard;
   }
@@ -109,6 +113,7 @@ public class V1ResourceQuotaStatus {
    * @return used
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Used is the current observed total usage of the resource in the namespace.")
   public Map<String, Quantity> getUsed() {
     return used;
   }

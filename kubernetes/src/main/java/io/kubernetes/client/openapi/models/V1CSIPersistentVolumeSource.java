@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -49,9 +51,10 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * Represents storage that is managed by an external CSI volume driver (Beta feature)
+ * Represents storage that is managed by an external CSI volume driver
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents storage that is managed by an external CSI volume driver")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF = "controllerExpandSecretRef";
   @SerializedName(SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF)
@@ -106,6 +109,7 @@ public class V1CSIPersistentVolumeSource {
    * @return controllerExpandSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getControllerExpandSecretRef() {
     return controllerExpandSecretRef;
   }
@@ -125,6 +129,7 @@ public class V1CSIPersistentVolumeSource {
    * @return controllerPublishSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getControllerPublishSecretRef() {
     return controllerPublishSecretRef;
   }
@@ -144,6 +149,7 @@ public class V1CSIPersistentVolumeSource {
    * @return driver
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "driver is the name of the driver to use for this volume. Required.")
   public String getDriver() {
     return driver;
   }
@@ -163,6 +169,7 @@ public class V1CSIPersistentVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\".")
   public String getFsType() {
     return fsType;
   }
@@ -182,6 +189,7 @@ public class V1CSIPersistentVolumeSource {
    * @return nodeExpandSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getNodeExpandSecretRef() {
     return nodeExpandSecretRef;
   }
@@ -201,6 +209,7 @@ public class V1CSIPersistentVolumeSource {
    * @return nodePublishSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
   }
@@ -220,6 +229,7 @@ public class V1CSIPersistentVolumeSource {
    * @return nodeStageSecretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getNodeStageSecretRef() {
     return nodeStageSecretRef;
   }
@@ -239,6 +249,7 @@ public class V1CSIPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -266,6 +277,7 @@ public class V1CSIPersistentVolumeSource {
    * @return volumeAttributes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeAttributes of the volume to publish.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;
   }
@@ -285,6 +297,7 @@ public class V1CSIPersistentVolumeSource {
    * @return volumeHandle
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.")
   public String getVolumeHandle() {
     return volumeHandle;
   }

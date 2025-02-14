@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1RBDPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -98,6 +101,7 @@ public class V1RBDPersistentVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd")
   public String getFsType() {
     return fsType;
   }
@@ -117,6 +121,7 @@ public class V1RBDPersistentVolumeSource {
    * @return image
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getImage() {
     return image;
   }
@@ -136,6 +141,7 @@ public class V1RBDPersistentVolumeSource {
    * @return keyring
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getKeyring() {
     return keyring;
   }
@@ -163,6 +169,7 @@ public class V1RBDPersistentVolumeSource {
    * @return monitors
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public List<String> getMonitors() {
     return monitors;
   }
@@ -182,6 +189,7 @@ public class V1RBDPersistentVolumeSource {
    * @return pool
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getPool() {
     return pool;
   }
@@ -201,6 +209,7 @@ public class V1RBDPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -220,6 +229,7 @@ public class V1RBDPersistentVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
@@ -239,6 +249,7 @@ public class V1RBDPersistentVolumeSource {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getUser() {
     return user;
   }

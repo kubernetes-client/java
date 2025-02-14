@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1PortStatus;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1LoadBalancerIngress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -82,6 +85,7 @@ public class V1LoadBalancerIngress {
    * @return hostname
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)")
   public String getHostname() {
     return hostname;
   }
@@ -101,6 +105,7 @@ public class V1LoadBalancerIngress {
    * @return ip
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)")
   public String getIp() {
     return ip;
   }
@@ -120,6 +125,7 @@ public class V1LoadBalancerIngress {
    * @return ipMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IPMode specifies how the load-balancer IP behaves, and may only be specified when the ip field is specified. Setting this to \"VIP\" indicates that traffic is delivered to the node with the destination set to the load-balancer's IP and port. Setting this to \"Proxy\" indicates that traffic is delivered to the node or pod with the destination set to the node's IP and node port or the pod's IP and port. Service implementations may use this information to adjust traffic routing.")
   public String getIpMode() {
     return ipMode;
   }
@@ -147,6 +153,7 @@ public class V1LoadBalancerIngress {
    * @return ports
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it")
   public List<V1PortStatus> getPorts() {
     return ports;
   }

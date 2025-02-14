@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.FlowcontrolV1Subject;
 import io.kubernetes.client.openapi.models.V1NonResourcePolicyRule;
 import io.kubernetes.client.openapi.models.V1ResourcePolicyRule;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +55,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_RULES)
@@ -88,6 +91,7 @@ public class V1PolicyRulesWithSubjects {
    * @return nonResourceRules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "`nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.")
   public List<V1NonResourcePolicyRule> getNonResourceRules() {
     return nonResourceRules;
   }
@@ -115,6 +119,7 @@ public class V1PolicyRulesWithSubjects {
    * @return resourceRules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "`resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of `resourceRules` and `nonResourceRules` has to be non-empty.")
   public List<V1ResourcePolicyRule> getResourceRules() {
     return resourceRules;
   }
@@ -142,6 +147,7 @@ public class V1PolicyRulesWithSubjects {
    * @return subjects
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.")
   public List<FlowcontrolV1Subject> getSubjects() {
     return subjects;
   }

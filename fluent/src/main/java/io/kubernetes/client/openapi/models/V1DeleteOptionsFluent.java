@@ -26,6 +26,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   private String apiVersion;
   private List<String> dryRun;
   private Long gracePeriodSeconds;
+  private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
   private String kind;
   private Boolean orphanDependents;
   private V1PreconditionsBuilder preconditions;
@@ -37,6 +38,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
           this.withApiVersion(instance.getApiVersion());
           this.withDryRun(instance.getDryRun());
           this.withGracePeriodSeconds(instance.getGracePeriodSeconds());
+          this.withIgnoreStoreReadErrorWithClusterBreakingPotential(instance.getIgnoreStoreReadErrorWithClusterBreakingPotential());
           this.withKind(instance.getKind());
           this.withOrphanDependents(instance.getOrphanDependents());
           this.withPreconditions(instance.getPreconditions());
@@ -164,6 +166,19 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
     return this.gracePeriodSeconds != null;
   }
   
+  public Boolean getIgnoreStoreReadErrorWithClusterBreakingPotential() {
+    return this.ignoreStoreReadErrorWithClusterBreakingPotential;
+  }
+  
+  public A withIgnoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+    this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
+    return (A) this;
+  }
+  
+  public boolean hasIgnoreStoreReadErrorWithClusterBreakingPotential() {
+    return this.ignoreStoreReadErrorWithClusterBreakingPotential != null;
+  }
+  
   public String getKind() {
     return this.kind;
   }
@@ -251,6 +266,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
     if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
     if (!java.util.Objects.equals(dryRun, that.dryRun)) return false;
     if (!java.util.Objects.equals(gracePeriodSeconds, that.gracePeriodSeconds)) return false;
+    if (!java.util.Objects.equals(ignoreStoreReadErrorWithClusterBreakingPotential, that.ignoreStoreReadErrorWithClusterBreakingPotential)) return false;
     if (!java.util.Objects.equals(kind, that.kind)) return false;
     if (!java.util.Objects.equals(orphanDependents, that.orphanDependents)) return false;
     if (!java.util.Objects.equals(preconditions, that.preconditions)) return false;
@@ -259,7 +275,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  dryRun,  gracePeriodSeconds,  kind,  orphanDependents,  preconditions,  propagationPolicy,  super.hashCode());
+    return java.util.Objects.hash(apiVersion,  dryRun,  gracePeriodSeconds,  ignoreStoreReadErrorWithClusterBreakingPotential,  kind,  orphanDependents,  preconditions,  propagationPolicy,  super.hashCode());
   }
   
   public String toString() {
@@ -268,12 +284,17 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
     if (dryRun != null && !dryRun.isEmpty()) { sb.append("dryRun:"); sb.append(dryRun + ","); }
     if (gracePeriodSeconds != null) { sb.append("gracePeriodSeconds:"); sb.append(gracePeriodSeconds + ","); }
+    if (ignoreStoreReadErrorWithClusterBreakingPotential != null) { sb.append("ignoreStoreReadErrorWithClusterBreakingPotential:"); sb.append(ignoreStoreReadErrorWithClusterBreakingPotential + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (orphanDependents != null) { sb.append("orphanDependents:"); sb.append(orphanDependents + ","); }
     if (preconditions != null) { sb.append("preconditions:"); sb.append(preconditions + ","); }
     if (propagationPolicy != null) { sb.append("propagationPolicy:"); sb.append(propagationPolicy); }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withIgnoreStoreReadErrorWithClusterBreakingPotential() {
+    return withIgnoreStoreReadErrorWithClusterBreakingPotential(true);
   }
   
   public A withOrphanDependents() {

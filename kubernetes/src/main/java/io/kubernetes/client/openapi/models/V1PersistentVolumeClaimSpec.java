@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1TypedLocalObjectReference;
 import io.kubernetes.client.openapi.models.V1TypedObjectReference;
 import io.kubernetes.client.openapi.models.V1VolumeResourceRequirements;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -113,6 +116,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return accessModes
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
   public List<String> getAccessModes() {
     return accessModes;
   }
@@ -132,6 +136,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return dataSource
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1TypedLocalObjectReference getDataSource() {
     return dataSource;
   }
@@ -151,6 +156,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return dataSourceRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1TypedObjectReference getDataSourceRef() {
     return dataSourceRef;
   }
@@ -170,6 +176,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return resources
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1VolumeResourceRequirements getResources() {
     return resources;
   }
@@ -189,6 +196,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return selector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
@@ -208,6 +216,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return storageClassName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
   public String getStorageClassName() {
     return storageClassName;
   }
@@ -227,6 +236,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return volumeAttributesClassName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).")
   public String getVolumeAttributesClassName() {
     return volumeAttributesClassName;
   }
@@ -246,6 +256,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return volumeMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.")
   public String getVolumeMode() {
     return volumeMode;
   }
@@ -265,6 +276,7 @@ public class V1PersistentVolumeClaimSpec {
    * @return volumeName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeName is the binding reference to the PersistentVolume backing this claim.")
   public String getVolumeName() {
     return volumeName;
   }

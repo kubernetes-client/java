@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1beta1NamedRuleWithOperations;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1beta1MatchResources {
   public static final String SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES = "excludeResourceRules";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES)
@@ -95,6 +98,7 @@ public class V1beta1MatchResources {
    * @return excludeResourceRules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
   public List<V1beta1NamedRuleWithOperations> getExcludeResourceRules() {
     return excludeResourceRules;
   }
@@ -114,6 +118,7 @@ public class V1beta1MatchResources {
    * @return matchPolicy
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "matchPolicy defines how the \"MatchResources\" list is used to match incoming requests. Allowed values are \"Exact\" or \"Equivalent\".  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the ValidatingAdmissionPolicy.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the ValidatingAdmissionPolicy.  Defaults to \"Equivalent\"")
   public String getMatchPolicy() {
     return matchPolicy;
   }
@@ -133,6 +138,7 @@ public class V1beta1MatchResources {
    * @return namespaceSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
@@ -152,6 +158,7 @@ public class V1beta1MatchResources {
    * @return objectSelector
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getObjectSelector() {
     return objectSelector;
   }
@@ -179,6 +186,7 @@ public class V1beta1MatchResources {
    * @return resourceRules
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.")
   public List<V1beta1NamedRuleWithOperations> getResourceRules() {
     return resourceRules;
   }

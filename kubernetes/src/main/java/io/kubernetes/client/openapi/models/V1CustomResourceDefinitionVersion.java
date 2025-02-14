@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition;
 import io.kubernetes.client.openapi.models.V1CustomResourceSubresources;
 import io.kubernetes.client.openapi.models.V1CustomResourceValidation;
 import io.kubernetes.client.openapi.models.V1SelectableField;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
@@ -113,6 +116,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return additionalPrinterColumns
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.")
   public List<V1CustomResourceColumnDefinition> getAdditionalPrinterColumns() {
     return additionalPrinterColumns;
   }
@@ -132,6 +136,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return deprecated
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.")
   public Boolean getDeprecated() {
     return deprecated;
   }
@@ -151,6 +156,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return deprecationWarning
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "deprecationWarning overrides the default warning returned to API clients. May only be set when `deprecated` is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.")
   public String getDeprecationWarning() {
     return deprecationWarning;
   }
@@ -170,6 +176,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at `/apis/<group>/<version>/...` if `served` is true.")
   public String getName() {
     return name;
   }
@@ -189,6 +196,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return schema
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CustomResourceValidation getSchema() {
     return schema;
   }
@@ -216,6 +224,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return selectableFields
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors")
   public List<V1SelectableField> getSelectableFields() {
     return selectableFields;
   }
@@ -235,6 +244,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return served
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "served is a flag enabling/disabling this version from being served via REST APIs")
   public Boolean getServed() {
     return served;
   }
@@ -254,6 +264,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return storage
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage=true.")
   public Boolean getStorage() {
     return storage;
   }
@@ -273,6 +284,7 @@ public class V1CustomResourceDefinitionVersion {
    * @return subresources
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1CustomResourceSubresources getSubresources() {
     return subresources;
   }

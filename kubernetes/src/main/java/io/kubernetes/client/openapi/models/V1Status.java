@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1StatusDetails;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -50,7 +52,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Status is a return value for calls that don&#39;t return other objects.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Status is a return value for calls that don't return other objects.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1Status {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -97,6 +100,7 @@ public class V1Status {
    * @return apiVersion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -116,6 +120,7 @@ public class V1Status {
    * @return code
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Suggested HTTP return code for this status, 0 if not set.")
   public Integer getCode() {
     return code;
   }
@@ -135,6 +140,7 @@ public class V1Status {
    * @return details
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1StatusDetails getDetails() {
     return details;
   }
@@ -154,6 +160,7 @@ public class V1Status {
    * @return kind
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
@@ -173,6 +180,7 @@ public class V1Status {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable description of the status of this operation.")
   public String getMessage() {
     return message;
   }
@@ -192,6 +200,7 @@ public class V1Status {
    * @return metadata
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ListMeta getMetadata() {
     return metadata;
   }
@@ -211,6 +220,7 @@ public class V1Status {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A machine-readable description of why this operation is in the \"Failure\" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.")
   public String getReason() {
     return reason;
   }
@@ -230,6 +240,7 @@ public class V1Status {
    * @return status
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status")
   public String getStatus() {
     return status;
   }

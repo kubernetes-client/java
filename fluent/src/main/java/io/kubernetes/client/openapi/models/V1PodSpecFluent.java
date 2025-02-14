@@ -54,6 +54,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   private String priorityClassName;
   private ArrayList<V1PodReadinessGateBuilder> readinessGates;
   private ArrayList<V1PodResourceClaimBuilder> resourceClaims;
+  private V1ResourceRequirementsBuilder resources;
   private String restartPolicy;
   private String runtimeClassName;
   private String schedulerName;
@@ -97,6 +98,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
           this.withPriorityClassName(instance.getPriorityClassName());
           this.withReadinessGates(instance.getReadinessGates());
           this.withResourceClaims(instance.getResourceClaims());
+          this.withResources(instance.getResources());
           this.withRestartPolicy(instance.getRestartPolicy());
           this.withRuntimeClassName(instance.getRuntimeClassName());
           this.withSchedulerName(instance.getSchedulerName());
@@ -1534,6 +1536,46 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return setNewResourceClaimLike(index, buildResourceClaim(index));
   }
   
+  public V1ResourceRequirements buildResources() {
+    return this.resources != null ? this.resources.build() : null;
+  }
+  
+  public A withResources(V1ResourceRequirements resources) {
+    this._visitables.remove("resources");
+    if (resources != null) {
+        this.resources = new V1ResourceRequirementsBuilder(resources);
+        this._visitables.get("resources").add(this.resources);
+    } else {
+        this.resources = null;
+        this._visitables.get("resources").remove(this.resources);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasResources() {
+    return this.resources != null;
+  }
+  
+  public ResourcesNested<A> withNewResources() {
+    return new ResourcesNested(null);
+  }
+  
+  public ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
+    return new ResourcesNested(item);
+  }
+  
+  public ResourcesNested<A> editResources() {
+    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(null));
+  }
+  
+  public ResourcesNested<A> editOrNewResources() {
+    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
+  }
+  
+  public ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
+    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(item));
+  }
+  
   public String getRestartPolicy() {
     return this.restartPolicy;
   }
@@ -2325,6 +2367,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     if (!java.util.Objects.equals(priorityClassName, that.priorityClassName)) return false;
     if (!java.util.Objects.equals(readinessGates, that.readinessGates)) return false;
     if (!java.util.Objects.equals(resourceClaims, that.resourceClaims)) return false;
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
     if (!java.util.Objects.equals(restartPolicy, that.restartPolicy)) return false;
     if (!java.util.Objects.equals(runtimeClassName, that.runtimeClassName)) return false;
     if (!java.util.Objects.equals(schedulerName, that.schedulerName)) return false;
@@ -2343,7 +2386,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(activeDeadlineSeconds,  affinity,  automountServiceAccountToken,  containers,  dnsConfig,  dnsPolicy,  enableServiceLinks,  ephemeralContainers,  hostAliases,  hostIPC,  hostNetwork,  hostPID,  hostUsers,  hostname,  imagePullSecrets,  initContainers,  nodeName,  nodeSelector,  os,  overhead,  preemptionPolicy,  priority,  priorityClassName,  readinessGates,  resourceClaims,  restartPolicy,  runtimeClassName,  schedulerName,  schedulingGates,  securityContext,  serviceAccount,  serviceAccountName,  setHostnameAsFQDN,  shareProcessNamespace,  subdomain,  terminationGracePeriodSeconds,  tolerations,  topologySpreadConstraints,  volumes,  super.hashCode());
+    return java.util.Objects.hash(activeDeadlineSeconds,  affinity,  automountServiceAccountToken,  containers,  dnsConfig,  dnsPolicy,  enableServiceLinks,  ephemeralContainers,  hostAliases,  hostIPC,  hostNetwork,  hostPID,  hostUsers,  hostname,  imagePullSecrets,  initContainers,  nodeName,  nodeSelector,  os,  overhead,  preemptionPolicy,  priority,  priorityClassName,  readinessGates,  resourceClaims,  resources,  restartPolicy,  runtimeClassName,  schedulerName,  schedulingGates,  securityContext,  serviceAccount,  serviceAccountName,  setHostnameAsFQDN,  shareProcessNamespace,  subdomain,  terminationGracePeriodSeconds,  tolerations,  topologySpreadConstraints,  volumes,  super.hashCode());
   }
   
   public String toString() {
@@ -2374,6 +2417,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     if (priorityClassName != null) { sb.append("priorityClassName:"); sb.append(priorityClassName + ","); }
     if (readinessGates != null && !readinessGates.isEmpty()) { sb.append("readinessGates:"); sb.append(readinessGates + ","); }
     if (resourceClaims != null && !resourceClaims.isEmpty()) { sb.append("resourceClaims:"); sb.append(resourceClaims + ","); }
+    if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
     if (restartPolicy != null) { sb.append("restartPolicy:"); sb.append(restartPolicy + ","); }
     if (runtimeClassName != null) { sb.append("runtimeClassName:"); sb.append(runtimeClassName + ","); }
     if (schedulerName != null) { sb.append("schedulerName:"); sb.append(schedulerName + ","); }
@@ -2592,6 +2636,22 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     }
     
     public N endResourceClaim() {
+      return and();
+    }
+    
+  
+  }
+  public class ResourcesNested<N> extends V1ResourceRequirementsFluent<ResourcesNested<N>> implements Nested<N>{
+    ResourcesNested(V1ResourceRequirements item) {
+      this.builder = new V1ResourceRequirementsBuilder(this, item);
+    }
+    V1ResourceRequirementsBuilder builder;
+    
+    public N and() {
+      return (N) V1PodSpecFluent.this.withResources(builder.build());
+    }
+    
+    public N endResources() {
       return and();
     }
     

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SubjectAccessReviewStatus
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "SubjectAccessReviewStatus")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1SubjectAccessReviewStatus {
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
@@ -79,6 +82,7 @@ public class V1SubjectAccessReviewStatus {
    * @return allowed
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Allowed is required. True if the action would be allowed, false otherwise.")
   public Boolean getAllowed() {
     return allowed;
   }
@@ -98,6 +102,7 @@ public class V1SubjectAccessReviewStatus {
    * @return denied
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.")
   public Boolean getDenied() {
     return denied;
   }
@@ -117,6 +122,7 @@ public class V1SubjectAccessReviewStatus {
    * @return evaluationError
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.")
   public String getEvaluationError() {
     return evaluationError;
   }
@@ -136,6 +142,7 @@ public class V1SubjectAccessReviewStatus {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Reason is optional.  It indicates why a request was allowed or denied.")
   public String getReason() {
     return reason;
   }

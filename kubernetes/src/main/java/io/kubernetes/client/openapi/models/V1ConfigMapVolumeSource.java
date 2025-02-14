@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1KeyToPath;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +53,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Adapts a ConfigMap into a volume.  The contents of the target ConfigMap&#39;s Data field will be presented in a volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. ConfigMap volumes support ownership management and SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Adapts a ConfigMap into a volume.  The contents of the target ConfigMap's Data field will be presented in a volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. ConfigMap volumes support ownership management and SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ConfigMapVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
@@ -82,6 +85,7 @@ public class V1ConfigMapVolumeSource {
    * @return defaultMode
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "defaultMode is optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getDefaultMode() {
     return defaultMode;
   }
@@ -109,6 +113,7 @@ public class V1ConfigMapVolumeSource {
    * @return items
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
   public List<V1KeyToPath> getItems() {
     return items;
   }
@@ -128,6 +133,7 @@ public class V1ConfigMapVolumeSource {
    * @return name
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
@@ -147,6 +153,7 @@ public class V1ConfigMapVolumeSource {
    * @return optional
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "optional specify whether the ConfigMap or its keys must be defined")
   public Boolean getOptional() {
     return optional;
   }

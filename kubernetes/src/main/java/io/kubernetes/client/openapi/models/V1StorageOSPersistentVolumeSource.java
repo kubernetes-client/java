@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -49,7 +51,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a StorageOS persistent volume resource.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a StorageOS persistent volume resource.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StorageOSPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -84,6 +87,7 @@ public class V1StorageOSPersistentVolumeSource {
    * @return fsType
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -103,6 +107,7 @@ public class V1StorageOSPersistentVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -122,6 +127,7 @@ public class V1StorageOSPersistentVolumeSource {
    * @return secretRef
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ObjectReference getSecretRef() {
     return secretRef;
   }
@@ -141,6 +147,7 @@ public class V1StorageOSPersistentVolumeSource {
    * @return volumeName
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.")
   public String getVolumeName() {
     return volumeName;
   }
@@ -160,6 +167,7 @@ public class V1StorageOSPersistentVolumeSource {
    * @return volumeNamespace
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to \"default\" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.")
   public String getVolumeNamespace() {
     return volumeNamespace;
   }

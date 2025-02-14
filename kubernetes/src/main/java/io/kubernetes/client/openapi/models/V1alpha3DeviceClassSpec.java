@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,9 +18,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.kubernetes.client.openapi.models.V1NodeSelector;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceClassConfiguration;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +54,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1alpha3DeviceClassSpec {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -62,10 +64,6 @@ public class V1alpha3DeviceClassSpec {
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
   private List<V1alpha3DeviceSelector> selectors = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_SUITABLE_NODES = "suitableNodes";
-  @SerializedName(SERIALIZED_NAME_SUITABLE_NODES)
-  private V1NodeSelector suitableNodes;
 
   public V1alpha3DeviceClassSpec() {
   }
@@ -88,6 +86,7 @@ public class V1alpha3DeviceClassSpec {
    * @return config
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Config defines configuration parameters that apply to each device that is claimed via this class. Some classses may potentially be satisfied by multiple drivers, so each instance of a vendor configuration applies to exactly one driver.  They are passed to the driver, but are not considered while allocating the claim.")
   public List<V1alpha3DeviceClassConfiguration> getConfig() {
     return config;
   }
@@ -115,31 +114,13 @@ public class V1alpha3DeviceClassSpec {
    * @return selectors
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Each selector must be satisfied by a device which is claimed via this class.")
   public List<V1alpha3DeviceSelector> getSelectors() {
     return selectors;
   }
 
   public void setSelectors(List<V1alpha3DeviceSelector> selectors) {
     this.selectors = selectors;
-  }
-
-
-  public V1alpha3DeviceClassSpec suitableNodes(V1NodeSelector suitableNodes) {
-    this.suitableNodes = suitableNodes;
-    return this;
-  }
-
-   /**
-   * Get suitableNodes
-   * @return suitableNodes
-  **/
-  @jakarta.annotation.Nullable
-  public V1NodeSelector getSuitableNodes() {
-    return suitableNodes;
-  }
-
-  public void setSuitableNodes(V1NodeSelector suitableNodes) {
-    this.suitableNodes = suitableNodes;
   }
 
 
@@ -154,13 +135,12 @@ public class V1alpha3DeviceClassSpec {
     }
     V1alpha3DeviceClassSpec v1alpha3DeviceClassSpec = (V1alpha3DeviceClassSpec) o;
     return Objects.equals(this.config, v1alpha3DeviceClassSpec.config) &&
-        Objects.equals(this.selectors, v1alpha3DeviceClassSpec.selectors) &&
-        Objects.equals(this.suitableNodes, v1alpha3DeviceClassSpec.suitableNodes);
+        Objects.equals(this.selectors, v1alpha3DeviceClassSpec.selectors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, selectors, suitableNodes);
+    return Objects.hash(config, selectors);
   }
 
   @Override
@@ -169,7 +149,6 @@ public class V1alpha3DeviceClassSpec {
     sb.append("class V1alpha3DeviceClassSpec {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
-    sb.append("    suitableNodes: ").append(toIndentedString(suitableNodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -194,7 +173,6 @@ public class V1alpha3DeviceClassSpec {
     openapiFields = new HashSet<String>();
     openapiFields.add("config");
     openapiFields.add("selectors");
-    openapiFields.add("suitableNodes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -248,10 +226,6 @@ public class V1alpha3DeviceClassSpec {
             V1alpha3DeviceSelector.validateJsonElement(jsonArrayselectors.get(i));
           };
         }
-      }
-      // validate the optional field `suitableNodes`
-      if (jsonObj.get("suitableNodes") != null && !jsonObj.get("suitableNodes").isJsonNull()) {
-        V1NodeSelector.validateJsonElement(jsonObj.get("suitableNodes"));
       }
   }
 

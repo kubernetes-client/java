@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1OwnerReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -87,6 +90,7 @@ public class V1OwnerReference {
    * @return apiVersion
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "API version of the referent.")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -106,6 +110,7 @@ public class V1OwnerReference {
    * @return blockOwnerDeletion
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If true, AND if the owner has the \"foregroundDeletion\" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. See https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion for how the garbage collector interacts with this field and enforces the foreground deletion. Defaults to false. To set this field, a user needs \"delete\" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.")
   public Boolean getBlockOwnerDeletion() {
     return blockOwnerDeletion;
   }
@@ -125,6 +130,7 @@ public class V1OwnerReference {
    * @return controller
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "If true, this reference points to the managing controller.")
   public Boolean getController() {
     return controller;
   }
@@ -144,6 +150,7 @@ public class V1OwnerReference {
    * @return kind
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
@@ -163,6 +170,7 @@ public class V1OwnerReference {
    * @return name
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names")
   public String getName() {
     return name;
   }
@@ -182,6 +190,7 @@ public class V1OwnerReference {
    * @return uid
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids")
   public String getUid() {
     return uid;
   }

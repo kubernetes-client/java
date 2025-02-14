@@ -25,7 +25,6 @@ public class V1alpha3DeviceClassSpecBuilder extends V1alpha3DeviceClassSpecFluen
     V1alpha3DeviceClassSpec buildable = new V1alpha3DeviceClassSpec();
     buildable.setConfig(fluent.buildConfig());
     buildable.setSelectors(fluent.buildSelectors());
-    buildable.setSuitableNodes(fluent.buildSuitableNodes());
     return buildable;
   }
   

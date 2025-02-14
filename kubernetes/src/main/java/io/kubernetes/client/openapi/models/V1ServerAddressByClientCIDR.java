@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1ServerAddressByClientCIDR {
   public static final String SERIALIZED_NAME_CLIENT_C_I_D_R = "clientCIDR";
   @SerializedName(SERIALIZED_NAME_CLIENT_C_I_D_R)
@@ -71,6 +74,7 @@ public class V1ServerAddressByClientCIDR {
    * @return clientCIDR
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The CIDR with which clients can match their IP to figure out the server address that they should use.")
   public String getClientCIDR() {
     return clientCIDR;
   }
@@ -90,6 +94,7 @@ public class V1ServerAddressByClientCIDR {
    * @return serverAddress
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.")
   public String getServerAddress() {
     return serverAddress;
   }

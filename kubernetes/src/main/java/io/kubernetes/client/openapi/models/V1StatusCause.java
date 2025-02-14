@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1StatusCause {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
@@ -75,6 +78,7 @@ public class V1StatusCause {
    * @return field
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.  Examples:   \"name\" - the field \"name\" on the current resource   \"items[0].name\" - the field \"name\" on the first array entry in \"items\"")
   public String getField() {
     return field;
   }
@@ -94,6 +98,7 @@ public class V1StatusCause {
    * @return message
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable description of the cause of the error.  This field may be presented as-is to a reader.")
   public String getMessage() {
     return message;
   }
@@ -113,6 +118,7 @@ public class V1StatusCause {
    * @return reason
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A machine-readable description of the cause of the error. If this value is empty there is no information available.")
   public String getReason() {
     return reason;
   }

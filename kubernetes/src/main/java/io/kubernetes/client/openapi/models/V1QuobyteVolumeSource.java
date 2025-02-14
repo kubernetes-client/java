@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,7 +50,8 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-04T19:37:38.574271Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class V1QuobyteVolumeSource {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -87,6 +90,7 @@ public class V1QuobyteVolumeSource {
    * @return group
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "group to map volume access to Default is no group")
   public String getGroup() {
     return group;
   }
@@ -106,6 +110,7 @@ public class V1QuobyteVolumeSource {
    * @return readOnly
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -125,6 +130,7 @@ public class V1QuobyteVolumeSource {
    * @return registry
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes")
   public String getRegistry() {
     return registry;
   }
@@ -144,6 +150,7 @@ public class V1QuobyteVolumeSource {
    * @return tenant
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
   public String getTenant() {
     return tenant;
   }
@@ -163,6 +170,7 @@ public class V1QuobyteVolumeSource {
    * @return user
   **/
   @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user to map volume access to Defaults to serivceaccount user")
   public String getUser() {
     return user;
   }
@@ -182,6 +190,7 @@ public class V1QuobyteVolumeSource {
    * @return volume
   **/
   @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "volume is a string that references an already created Quobyte volume by name.")
   public String getVolume() {
     return volume;
   }
