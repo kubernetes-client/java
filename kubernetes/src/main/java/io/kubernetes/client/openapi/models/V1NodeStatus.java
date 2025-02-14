@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,6 +26,7 @@ import io.kubernetes.client.openapi.models.V1NodeAddress;
 import io.kubernetes.client.openapi.models.V1NodeCondition;
 import io.kubernetes.client.openapi.models.V1NodeConfigStatus;
 import io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints;
+import io.kubernetes.client.openapi.models.V1NodeFeatures;
 import io.kubernetes.client.openapi.models.V1NodeRuntimeHandler;
 import io.kubernetes.client.openapi.models.V1NodeSystemInfo;
 import io.swagger.annotations.ApiModel;
@@ -40,7 +41,7 @@ import java.util.Map;
  * NodeStatus is information about the current status of a node.
  */
 @ApiModel(description = "NodeStatus is information about the current status of a node.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -65,6 +66,10 @@ public class V1NodeStatus {
   public static final String SERIALIZED_NAME_DAEMON_ENDPOINTS = "daemonEndpoints";
   @SerializedName(SERIALIZED_NAME_DAEMON_ENDPOINTS)
   private V1NodeDaemonEndpoints daemonEndpoints;
+
+  public static final String SERIALIZED_NAME_FEATURES = "features";
+  @SerializedName(SERIALIZED_NAME_FEATURES)
+  private V1NodeFeatures features;
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
@@ -106,11 +111,11 @@ public class V1NodeStatus {
   }
 
    /**
-   * List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node&#39;s address in its own status or consumers of the downward API (status.hostIP).
+   * List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node&#39;s address in its own status or consumers of the downward API (status.hostIP).
    * @return addresses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).")
+  @ApiModelProperty(value = "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).")
 
   public List<V1NodeAddress> getAddresses() {
     return addresses;
@@ -168,11 +173,11 @@ public class V1NodeStatus {
   }
 
    /**
-   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity
    * @return capacity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
+  @ApiModelProperty(value = "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity")
 
   public Map<String, Quantity> getCapacity() {
     return capacity;
@@ -199,11 +204,11 @@ public class V1NodeStatus {
   }
 
    /**
-   * Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition
+   * Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition
    * @return conditions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition")
+  @ApiModelProperty(value = "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition")
 
   public List<V1NodeCondition> getConditions() {
     return conditions;
@@ -258,6 +263,29 @@ public class V1NodeStatus {
 
   public void setDaemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
     this.daemonEndpoints = daemonEndpoints;
+  }
+
+
+  public V1NodeStatus features(V1NodeFeatures features) {
+
+    this.features = features;
+    return this;
+  }
+
+   /**
+   * Get features
+   * @return features
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1NodeFeatures getFeatures() {
+    return features;
+  }
+
+
+  public void setFeatures(V1NodeFeatures features) {
+    this.features = features;
   }
 
 
@@ -446,6 +474,7 @@ public class V1NodeStatus {
         Objects.equals(this.conditions, v1NodeStatus.conditions) &&
         Objects.equals(this.config, v1NodeStatus.config) &&
         Objects.equals(this.daemonEndpoints, v1NodeStatus.daemonEndpoints) &&
+        Objects.equals(this.features, v1NodeStatus.features) &&
         Objects.equals(this.images, v1NodeStatus.images) &&
         Objects.equals(this.nodeInfo, v1NodeStatus.nodeInfo) &&
         Objects.equals(this.phase, v1NodeStatus.phase) &&
@@ -456,7 +485,7 @@ public class V1NodeStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
+    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, features, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
   }
 
 
@@ -470,6 +499,7 @@ public class V1NodeStatus {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    daemonEndpoints: ").append(toIndentedString(daemonEndpoints)).append("\n");
+    sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");

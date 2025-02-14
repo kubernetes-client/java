@@ -1,0 +1,252 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1Condition;
+import io.kubernetes.client.openapi.models.V1alpha3NetworkDeviceData;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.
+ */
+@ApiModel(description = "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+public class V1alpha3AllocatedDeviceStatus {
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<V1Condition> conditions = null;
+
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private Object data;
+
+  public static final String SERIALIZED_NAME_DEVICE = "device";
+  @SerializedName(SERIALIZED_NAME_DEVICE)
+  private String device;
+
+  public static final String SERIALIZED_NAME_DRIVER = "driver";
+  @SerializedName(SERIALIZED_NAME_DRIVER)
+  private String driver;
+
+  public static final String SERIALIZED_NAME_NETWORK_DATA = "networkData";
+  @SerializedName(SERIALIZED_NAME_NETWORK_DATA)
+  private V1alpha3NetworkDeviceData networkData;
+
+  public static final String SERIALIZED_NAME_POOL = "pool";
+  @SerializedName(SERIALIZED_NAME_POOL)
+  private String pool;
+
+
+  public V1alpha3AllocatedDeviceStatus conditions(List<V1Condition> conditions) {
+
+    this.conditions = conditions;
+    return this;
+  }
+
+  public V1alpha3AllocatedDeviceStatus addConditionsItem(V1Condition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
+    }
+    this.conditions.add(conditionsItem);
+    return this;
+  }
+
+   /**
+   * Conditions contains the latest observation of the device&#39;s state. If the device has been configured according to the class and claim config references, the &#x60;Ready&#x60; condition should be True.
+   * @return conditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Conditions contains the latest observation of the device's state. If the device has been configured according to the class and claim config references, the `Ready` condition should be True.")
+
+  public List<V1Condition> getConditions() {
+    return conditions;
+  }
+
+
+  public void setConditions(List<V1Condition> conditions) {
+    this.conditions = conditions;
+  }
+
+
+  public V1alpha3AllocatedDeviceStatus data(Object data) {
+
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Data contains arbitrary driver-specific data.  The length of the raw data must be smaller or equal to 10 Ki.
+   * @return data
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Data contains arbitrary driver-specific data.  The length of the raw data must be smaller or equal to 10 Ki.")
+
+  public Object getData() {
+    return data;
+  }
+
+
+  public void setData(Object data) {
+    this.data = data;
+  }
+
+
+  public V1alpha3AllocatedDeviceStatus device(String device) {
+
+    this.device = device;
+    return this;
+  }
+
+   /**
+   * Device references one device instance via its name in the driver&#39;s resource pool. It must be a DNS label.
+   * @return device
+  **/
+  @ApiModelProperty(required = true, value = "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.")
+
+  public String getDevice() {
+    return device;
+  }
+
+
+  public void setDevice(String device) {
+    this.device = device;
+  }
+
+
+  public V1alpha3AllocatedDeviceStatus driver(String driver) {
+
+    this.driver = driver;
+    return this;
+  }
+
+   /**
+   * Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.
+   * @return driver
+  **/
+  @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.")
+
+  public String getDriver() {
+    return driver;
+  }
+
+
+  public void setDriver(String driver) {
+    this.driver = driver;
+  }
+
+
+  public V1alpha3AllocatedDeviceStatus networkData(V1alpha3NetworkDeviceData networkData) {
+
+    this.networkData = networkData;
+    return this;
+  }
+
+   /**
+   * Get networkData
+   * @return networkData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1alpha3NetworkDeviceData getNetworkData() {
+    return networkData;
+  }
+
+
+  public void setNetworkData(V1alpha3NetworkDeviceData networkData) {
+    this.networkData = networkData;
+  }
+
+
+  public V1alpha3AllocatedDeviceStatus pool(String pool) {
+
+    this.pool = pool;
+    return this;
+  }
+
+   /**
+   * This name together with the driver name and the device name field identify which device was allocated (&#x60;&lt;driver name&gt;/&lt;pool name&gt;/&lt;device name&gt;&#x60;).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.
+   * @return pool
+  **/
+  @ApiModelProperty(required = true, value = "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.")
+
+  public String getPool() {
+    return pool;
+  }
+
+
+  public void setPool(String pool) {
+    this.pool = pool;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha3AllocatedDeviceStatus v1alpha3AllocatedDeviceStatus = (V1alpha3AllocatedDeviceStatus) o;
+    return Objects.equals(this.conditions, v1alpha3AllocatedDeviceStatus.conditions) &&
+        Objects.equals(this.data, v1alpha3AllocatedDeviceStatus.data) &&
+        Objects.equals(this.device, v1alpha3AllocatedDeviceStatus.device) &&
+        Objects.equals(this.driver, v1alpha3AllocatedDeviceStatus.driver) &&
+        Objects.equals(this.networkData, v1alpha3AllocatedDeviceStatus.networkData) &&
+        Objects.equals(this.pool, v1alpha3AllocatedDeviceStatus.pool);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(conditions, data, device, driver, networkData, pool);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha3AllocatedDeviceStatus {\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
+    sb.append("    networkData: ").append(toIndentedString(networkData)).append("\n");
+    sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

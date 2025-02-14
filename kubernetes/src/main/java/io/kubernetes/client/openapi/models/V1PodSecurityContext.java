@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -34,7 +34,7 @@ import java.util.List;
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
 @ApiModel(description = "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
   @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
@@ -60,6 +60,10 @@ public class V1PodSecurityContext {
   @SerializedName(SERIALIZED_NAME_RUN_AS_USER)
   private Long runAsUser;
 
+  public static final String SERIALIZED_NAME_SE_LINUX_CHANGE_POLICY = "seLinuxChangePolicy";
+  @SerializedName(SERIALIZED_NAME_SE_LINUX_CHANGE_POLICY)
+  private String seLinuxChangePolicy;
+
   public static final String SERIALIZED_NAME_SE_LINUX_OPTIONS = "seLinuxOptions";
   @SerializedName(SERIALIZED_NAME_SE_LINUX_OPTIONS)
   private V1SELinuxOptions seLinuxOptions;
@@ -71,6 +75,10 @@ public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS = "supplementalGroups";
   @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS)
   private List<Long> supplementalGroups = null;
+
+  public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY = "supplementalGroupsPolicy";
+  @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY)
+  private String supplementalGroupsPolicy;
 
   public static final String SERIALIZED_NAME_SYSCTLS = "sysctls";
   @SerializedName(SERIALIZED_NAME_SYSCTLS)
@@ -219,6 +227,29 @@ public class V1PodSecurityContext {
   }
 
 
+  public V1PodSecurityContext seLinuxChangePolicy(String seLinuxChangePolicy) {
+
+    this.seLinuxChangePolicy = seLinuxChangePolicy;
+    return this;
+  }
+
+   /**
+   * seLinuxChangePolicy defines how the container&#39;s SELinux label is applied to all volumes used by the Pod. It has no effect on nodes that do not support SELinux or to volumes does not support SELinux. Valid values are \&quot;MountOption\&quot; and \&quot;Recursive\&quot;.  \&quot;Recursive\&quot; means relabeling of all files on all Pod volumes by the container runtime. This may be slow for large volumes, but allows mixing privileged and unprivileged Pods sharing the same volume on the same node.  \&quot;MountOption\&quot; mounts all eligible Pod volumes with &#x60;-o context&#x60; mount option. This requires all Pods that share the same volume to use the same SELinux label. It is not possible to share the same volume among privileged and unprivileged Pods. Eligible volumes are in-tree FibreChannel and iSCSI volumes, and all CSI volumes whose CSI driver announces SELinux support by setting spec.seLinuxMount: true in their CSIDriver instance. Other volumes are always re-labelled recursively. \&quot;MountOption\&quot; value is allowed only when SELinuxMount feature gate is enabled.  If not specified and SELinuxMount feature gate is enabled, \&quot;MountOption\&quot; is used. If not specified and SELinuxMount feature gate is disabled, \&quot;MountOption\&quot; is used for ReadWriteOncePod volumes and \&quot;Recursive\&quot; for all other volumes.  This field affects only Pods that have SELinux label set, either in PodSecurityContext or in SecurityContext of all containers.  All Pods that use the same volume should use the same seLinuxChangePolicy, otherwise some pods can get stuck in ContainerCreating state. Note that this field cannot be set when spec.os.name is windows.
+   * @return seLinuxChangePolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "seLinuxChangePolicy defines how the container's SELinux label is applied to all volumes used by the Pod. It has no effect on nodes that do not support SELinux or to volumes does not support SELinux. Valid values are \"MountOption\" and \"Recursive\".  \"Recursive\" means relabeling of all files on all Pod volumes by the container runtime. This may be slow for large volumes, but allows mixing privileged and unprivileged Pods sharing the same volume on the same node.  \"MountOption\" mounts all eligible Pod volumes with `-o context` mount option. This requires all Pods that share the same volume to use the same SELinux label. It is not possible to share the same volume among privileged and unprivileged Pods. Eligible volumes are in-tree FibreChannel and iSCSI volumes, and all CSI volumes whose CSI driver announces SELinux support by setting spec.seLinuxMount: true in their CSIDriver instance. Other volumes are always re-labelled recursively. \"MountOption\" value is allowed only when SELinuxMount feature gate is enabled.  If not specified and SELinuxMount feature gate is enabled, \"MountOption\" is used. If not specified and SELinuxMount feature gate is disabled, \"MountOption\" is used for ReadWriteOncePod volumes and \"Recursive\" for all other volumes.  This field affects only Pods that have SELinux label set, either in PodSecurityContext or in SecurityContext of all containers.  All Pods that use the same volume should use the same seLinuxChangePolicy, otherwise some pods can get stuck in ContainerCreating state. Note that this field cannot be set when spec.os.name is windows.")
+
+  public String getSeLinuxChangePolicy() {
+    return seLinuxChangePolicy;
+  }
+
+
+  public void setSeLinuxChangePolicy(String seLinuxChangePolicy) {
+    this.seLinuxChangePolicy = seLinuxChangePolicy;
+  }
+
+
   public V1PodSecurityContext seLinuxOptions(V1SELinuxOptions seLinuxOptions) {
 
     this.seLinuxOptions = seLinuxOptions;
@@ -280,11 +311,11 @@ public class V1PodSecurityContext {
   }
 
    /**
-   * A list of groups applied to the first process run in each container, in addition to the container&#39;s primary GID, the fsGroup (if specified), and group memberships defined in the container image for the uid of the container process. If unspecified, no additional groups are added to any container. Note that group memberships defined in the container image for the uid of the container process are still effective, even if they are not included in this list. Note that this field cannot be set when spec.os.name is windows.
+   * A list of groups applied to the first process run in each container, in addition to the container&#39;s primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.
    * @return supplementalGroups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of groups applied to the first process run in each container, in addition to the container's primary GID, the fsGroup (if specified), and group memberships defined in the container image for the uid of the container process. If unspecified, no additional groups are added to any container. Note that group memberships defined in the container image for the uid of the container process are still effective, even if they are not included in this list. Note that this field cannot be set when spec.os.name is windows.")
+  @ApiModelProperty(value = "A list of groups applied to the first process run in each container, in addition to the container's primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.")
 
   public List<Long> getSupplementalGroups() {
     return supplementalGroups;
@@ -293,6 +324,29 @@ public class V1PodSecurityContext {
 
   public void setSupplementalGroups(List<Long> supplementalGroups) {
     this.supplementalGroups = supplementalGroups;
+  }
+
+
+  public V1PodSecurityContext supplementalGroupsPolicy(String supplementalGroupsPolicy) {
+
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
+    return this;
+  }
+
+   /**
+   * Defines how supplemental groups of the first container processes are calculated. Valid values are \&quot;Merge\&quot; and \&quot;Strict\&quot;. If not specified, \&quot;Merge\&quot; is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.
+   * @return supplementalGroupsPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Defines how supplemental groups of the first container processes are calculated. Valid values are \"Merge\" and \"Strict\". If not specified, \"Merge\" is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.")
+
+  public String getSupplementalGroupsPolicy() {
+    return supplementalGroupsPolicy;
+  }
+
+
+  public void setSupplementalGroupsPolicy(String supplementalGroupsPolicy) {
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
   }
 
 
@@ -365,16 +419,18 @@ public class V1PodSecurityContext {
         Objects.equals(this.runAsGroup, v1PodSecurityContext.runAsGroup) &&
         Objects.equals(this.runAsNonRoot, v1PodSecurityContext.runAsNonRoot) &&
         Objects.equals(this.runAsUser, v1PodSecurityContext.runAsUser) &&
+        Objects.equals(this.seLinuxChangePolicy, v1PodSecurityContext.seLinuxChangePolicy) &&
         Objects.equals(this.seLinuxOptions, v1PodSecurityContext.seLinuxOptions) &&
         Objects.equals(this.seccompProfile, v1PodSecurityContext.seccompProfile) &&
         Objects.equals(this.supplementalGroups, v1PodSecurityContext.supplementalGroups) &&
+        Objects.equals(this.supplementalGroupsPolicy, v1PodSecurityContext.supplementalGroupsPolicy) &&
         Objects.equals(this.sysctls, v1PodSecurityContext.sysctls) &&
         Objects.equals(this.windowsOptions, v1PodSecurityContext.windowsOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, supplementalGroups, sysctls, windowsOptions);
+    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxChangePolicy, seLinuxOptions, seccompProfile, supplementalGroups, supplementalGroupsPolicy, sysctls, windowsOptions);
   }
 
 
@@ -388,9 +444,11 @@ public class V1PodSecurityContext {
     sb.append("    runAsGroup: ").append(toIndentedString(runAsGroup)).append("\n");
     sb.append("    runAsNonRoot: ").append(toIndentedString(runAsNonRoot)).append("\n");
     sb.append("    runAsUser: ").append(toIndentedString(runAsUser)).append("\n");
+    sb.append("    seLinuxChangePolicy: ").append(toIndentedString(seLinuxChangePolicy)).append("\n");
     sb.append("    seLinuxOptions: ").append(toIndentedString(seLinuxOptions)).append("\n");
     sb.append("    seccompProfile: ").append(toIndentedString(seccompProfile)).append("\n");
     sb.append("    supplementalGroups: ").append(toIndentedString(supplementalGroups)).append("\n");
+    sb.append("    supplementalGroupsPolicy: ").append(toIndentedString(supplementalGroupsPolicy)).append("\n");
     sb.append("    sysctls: ").append(toIndentedString(sysctls)).append("\n");
     sb.append("    windowsOptions: ").append(toIndentedString(windowsOptions)).append("\n");
     sb.append("}");

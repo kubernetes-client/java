@@ -1,0 +1,157 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha1ApplyConfiguration;
+import io.kubernetes.client.openapi.models.V1alpha1JSONPatch;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+
+/**
+ * Mutation specifies the CEL expression which is used to apply the Mutation.
+ */
+@ApiModel(description = "Mutation specifies the CEL expression which is used to apply the Mutation.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+public class V1alpha1Mutation {
+  public static final String SERIALIZED_NAME_APPLY_CONFIGURATION = "applyConfiguration";
+  @SerializedName(SERIALIZED_NAME_APPLY_CONFIGURATION)
+  private V1alpha1ApplyConfiguration applyConfiguration;
+
+  public static final String SERIALIZED_NAME_JSON_PATCH = "jsonPatch";
+  @SerializedName(SERIALIZED_NAME_JSON_PATCH)
+  private V1alpha1JSONPatch jsonPatch;
+
+  public static final String SERIALIZED_NAME_PATCH_TYPE = "patchType";
+  @SerializedName(SERIALIZED_NAME_PATCH_TYPE)
+  private String patchType;
+
+
+  public V1alpha1Mutation applyConfiguration(V1alpha1ApplyConfiguration applyConfiguration) {
+
+    this.applyConfiguration = applyConfiguration;
+    return this;
+  }
+
+   /**
+   * Get applyConfiguration
+   * @return applyConfiguration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1alpha1ApplyConfiguration getApplyConfiguration() {
+    return applyConfiguration;
+  }
+
+
+  public void setApplyConfiguration(V1alpha1ApplyConfiguration applyConfiguration) {
+    this.applyConfiguration = applyConfiguration;
+  }
+
+
+  public V1alpha1Mutation jsonPatch(V1alpha1JSONPatch jsonPatch) {
+
+    this.jsonPatch = jsonPatch;
+    return this;
+  }
+
+   /**
+   * Get jsonPatch
+   * @return jsonPatch
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1alpha1JSONPatch getJsonPatch() {
+    return jsonPatch;
+  }
+
+
+  public void setJsonPatch(V1alpha1JSONPatch jsonPatch) {
+    this.jsonPatch = jsonPatch;
+  }
+
+
+  public V1alpha1Mutation patchType(String patchType) {
+
+    this.patchType = patchType;
+    return this;
+  }
+
+   /**
+   * patchType indicates the patch strategy used. Allowed values are \&quot;ApplyConfiguration\&quot; and \&quot;JSONPatch\&quot;. Required.
+   * @return patchType
+  **/
+  @ApiModelProperty(required = true, value = "patchType indicates the patch strategy used. Allowed values are \"ApplyConfiguration\" and \"JSONPatch\". Required.")
+
+  public String getPatchType() {
+    return patchType;
+  }
+
+
+  public void setPatchType(String patchType) {
+    this.patchType = patchType;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha1Mutation v1alpha1Mutation = (V1alpha1Mutation) o;
+    return Objects.equals(this.applyConfiguration, v1alpha1Mutation.applyConfiguration) &&
+        Objects.equals(this.jsonPatch, v1alpha1Mutation.jsonPatch) &&
+        Objects.equals(this.patchType, v1alpha1Mutation.patchType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(applyConfiguration, jsonPatch, patchType);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha1Mutation {\n");
+    sb.append("    applyConfiguration: ").append(toIndentedString(applyConfiguration)).append("\n");
+    sb.append("    jsonPatch: ").append(toIndentedString(jsonPatch)).append("\n");
+    sb.append("    patchType: ").append(toIndentedString(patchType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1FieldSelectorAttributes;
+import io.kubernetes.client.openapi.models.V1LabelSelectorAttributes;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,11 +29,19 @@ import java.io.IOException;
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
 @ApiModel(description = "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1ResourceAttributes {
+  public static final String SERIALIZED_NAME_FIELD_SELECTOR = "fieldSelector";
+  @SerializedName(SERIALIZED_NAME_FIELD_SELECTOR)
+  private V1FieldSelectorAttributes fieldSelector;
+
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
   private String group;
+
+  public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
+  @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
+  private V1LabelSelectorAttributes labelSelector;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -58,6 +68,29 @@ public class V1ResourceAttributes {
   private String version;
 
 
+  public V1ResourceAttributes fieldSelector(V1FieldSelectorAttributes fieldSelector) {
+
+    this.fieldSelector = fieldSelector;
+    return this;
+  }
+
+   /**
+   * Get fieldSelector
+   * @return fieldSelector
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1FieldSelectorAttributes getFieldSelector() {
+    return fieldSelector;
+  }
+
+
+  public void setFieldSelector(V1FieldSelectorAttributes fieldSelector) {
+    this.fieldSelector = fieldSelector;
+  }
+
+
   public V1ResourceAttributes group(String group) {
 
     this.group = group;
@@ -78,6 +111,29 @@ public class V1ResourceAttributes {
 
   public void setGroup(String group) {
     this.group = group;
+  }
+
+
+  public V1ResourceAttributes labelSelector(V1LabelSelectorAttributes labelSelector) {
+
+    this.labelSelector = labelSelector;
+    return this;
+  }
+
+   /**
+   * Get labelSelector
+   * @return labelSelector
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1LabelSelectorAttributes getLabelSelector() {
+    return labelSelector;
+  }
+
+
+  public void setLabelSelector(V1LabelSelectorAttributes labelSelector) {
+    this.labelSelector = labelSelector;
   }
 
 
@@ -228,7 +284,9 @@ public class V1ResourceAttributes {
       return false;
     }
     V1ResourceAttributes v1ResourceAttributes = (V1ResourceAttributes) o;
-    return Objects.equals(this.group, v1ResourceAttributes.group) &&
+    return Objects.equals(this.fieldSelector, v1ResourceAttributes.fieldSelector) &&
+        Objects.equals(this.group, v1ResourceAttributes.group) &&
+        Objects.equals(this.labelSelector, v1ResourceAttributes.labelSelector) &&
         Objects.equals(this.name, v1ResourceAttributes.name) &&
         Objects.equals(this.namespace, v1ResourceAttributes.namespace) &&
         Objects.equals(this.resource, v1ResourceAttributes.resource) &&
@@ -239,7 +297,7 @@ public class V1ResourceAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, name, namespace, resource, subresource, verb, version);
+    return Objects.hash(fieldSelector, group, labelSelector, name, namespace, resource, subresource, verb, version);
   }
 
 
@@ -247,7 +305,9 @@ public class V1ResourceAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ResourceAttributes {\n");
+    sb.append("    fieldSelector: ").append(toIndentedString(fieldSelector)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");

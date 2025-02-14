@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.List;
  * ValidatingAdmissionPolicyBindingList is a list of ValidatingAdmissionPolicyBinding.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyBindingList is a list of ValidatingAdmissionPolicyBinding.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1ValidatingAdmissionPolicyBindingList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -39,7 +39,7 @@ public class V1ValidatingAdmissionPolicyBindingList implements io.kubernetes.cli
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<V1ValidatingAdmissionPolicyBinding> items = null;
+  private List<V1ValidatingAdmissionPolicyBinding> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
@@ -80,9 +80,6 @@ public class V1ValidatingAdmissionPolicyBindingList implements io.kubernetes.cli
   }
 
   public V1ValidatingAdmissionPolicyBindingList addItemsItem(V1ValidatingAdmissionPolicyBinding itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
     this.items.add(itemsItem);
     return this;
   }
@@ -91,8 +88,7 @@ public class V1ValidatingAdmissionPolicyBindingList implements io.kubernetes.cli
    * List of PolicyBinding.
    * @return items
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of PolicyBinding.")
+  @ApiModelProperty(required = true, value = "List of PolicyBinding.")
 
   public List<V1ValidatingAdmissionPolicyBinding> getItems() {
     return items;

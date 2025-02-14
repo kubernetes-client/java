@@ -90,6 +90,7 @@ public class PodLogs {
             "false",
             false,
             sinceSeconds,
+            null,
             tailLines,
             timestamps,
             null);

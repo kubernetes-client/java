@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.List;
  * DeleteOptions may be provided when deleting an API object.
  */
 @ApiModel(description = "DeleteOptions may be provided when deleting an API object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1DeleteOptions {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -43,6 +43,10 @@ public class V1DeleteOptions {
   public static final String SERIALIZED_NAME_GRACE_PERIOD_SECONDS = "gracePeriodSeconds";
   @SerializedName(SERIALIZED_NAME_GRACE_PERIOD_SECONDS)
   private Long gracePeriodSeconds;
+
+  public static final String SERIALIZED_NAME_IGNORE_STORE_READ_ERROR_WITH_CLUSTER_BREAKING_POTENTIAL = "ignoreStoreReadErrorWithClusterBreakingPotential";
+  @SerializedName(SERIALIZED_NAME_IGNORE_STORE_READ_ERROR_WITH_CLUSTER_BREAKING_POTENTIAL)
+  private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
@@ -135,6 +139,29 @@ public class V1DeleteOptions {
 
   public void setGracePeriodSeconds(Long gracePeriodSeconds) {
     this.gracePeriodSeconds = gracePeriodSeconds;
+  }
+
+
+  public V1DeleteOptions ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+
+    this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
+    return this;
+  }
+
+   /**
+   * if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it
+   * @return ignoreStoreReadErrorWithClusterBreakingPotential
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it")
+
+  public Boolean getIgnoreStoreReadErrorWithClusterBreakingPotential() {
+    return ignoreStoreReadErrorWithClusterBreakingPotential;
+  }
+
+
+  public void setIgnoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+    this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
   }
 
 
@@ -242,6 +269,7 @@ public class V1DeleteOptions {
     return Objects.equals(this.apiVersion, v1DeleteOptions.apiVersion) &&
         Objects.equals(this.dryRun, v1DeleteOptions.dryRun) &&
         Objects.equals(this.gracePeriodSeconds, v1DeleteOptions.gracePeriodSeconds) &&
+        Objects.equals(this.ignoreStoreReadErrorWithClusterBreakingPotential, v1DeleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential) &&
         Objects.equals(this.kind, v1DeleteOptions.kind) &&
         Objects.equals(this.orphanDependents, v1DeleteOptions.orphanDependents) &&
         Objects.equals(this.preconditions, v1DeleteOptions.preconditions) &&
@@ -250,7 +278,7 @@ public class V1DeleteOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, dryRun, gracePeriodSeconds, kind, orphanDependents, preconditions, propagationPolicy);
+    return Objects.hash(apiVersion, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, kind, orphanDependents, preconditions, propagationPolicy);
   }
 
 
@@ -261,6 +289,7 @@ public class V1DeleteOptions {
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    gracePeriodSeconds: ").append(toIndentedString(gracePeriodSeconds)).append("\n");
+    sb.append("    ignoreStoreReadErrorWithClusterBreakingPotential: ").append(toIndentedString(ignoreStoreReadErrorWithClusterBreakingPotential)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    orphanDependents: ").append(toIndentedString(orphanDependents)).append("\n");
     sb.append("    preconditions: ").append(toIndentedString(preconditions)).append("\n");

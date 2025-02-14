@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * LeaseSpec is a specification of a Lease.
  */
 @ApiModel(description = "LeaseSpec is a specification of a Lease.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -46,9 +46,17 @@ public class V1LeaseSpec {
   @SerializedName(SERIALIZED_NAME_LEASE_TRANSITIONS)
   private Integer leaseTransitions;
 
+  public static final String SERIALIZED_NAME_PREFERRED_HOLDER = "preferredHolder";
+  @SerializedName(SERIALIZED_NAME_PREFERRED_HOLDER)
+  private String preferredHolder;
+
   public static final String SERIALIZED_NAME_RENEW_TIME = "renewTime";
   @SerializedName(SERIALIZED_NAME_RENEW_TIME)
   private OffsetDateTime renewTime;
+
+  public static final String SERIALIZED_NAME_STRATEGY = "strategy";
+  @SerializedName(SERIALIZED_NAME_STRATEGY)
+  private String strategy;
 
 
   public V1LeaseSpec acquireTime(OffsetDateTime acquireTime) {
@@ -81,11 +89,11 @@ public class V1LeaseSpec {
   }
 
    /**
-   * holderIdentity contains the identity of the holder of a current lease.
+   * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.
    * @return holderIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "holderIdentity contains the identity of the holder of a current lease.")
+  @ApiModelProperty(value = "holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.")
 
   public String getHolderIdentity() {
     return holderIdentity;
@@ -104,11 +112,11 @@ public class V1LeaseSpec {
   }
 
    /**
-   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.
+   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.
    * @return leaseDurationSeconds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.")
+  @ApiModelProperty(value = "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.")
 
   public Integer getLeaseDurationSeconds() {
     return leaseDurationSeconds;
@@ -143,6 +151,29 @@ public class V1LeaseSpec {
   }
 
 
+  public V1LeaseSpec preferredHolder(String preferredHolder) {
+
+    this.preferredHolder = preferredHolder;
+    return this;
+  }
+
+   /**
+   * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.
+   * @return preferredHolder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.")
+
+  public String getPreferredHolder() {
+    return preferredHolder;
+  }
+
+
+  public void setPreferredHolder(String preferredHolder) {
+    this.preferredHolder = preferredHolder;
+  }
+
+
   public V1LeaseSpec renewTime(OffsetDateTime renewTime) {
 
     this.renewTime = renewTime;
@@ -166,6 +197,29 @@ public class V1LeaseSpec {
   }
 
 
+  public V1LeaseSpec strategy(String strategy) {
+
+    this.strategy = strategy;
+    return this;
+  }
+
+   /**
+   * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+   * @return strategy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
+
+  public String getStrategy() {
+    return strategy;
+  }
+
+
+  public void setStrategy(String strategy) {
+    this.strategy = strategy;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -179,12 +233,14 @@ public class V1LeaseSpec {
         Objects.equals(this.holderIdentity, v1LeaseSpec.holderIdentity) &&
         Objects.equals(this.leaseDurationSeconds, v1LeaseSpec.leaseDurationSeconds) &&
         Objects.equals(this.leaseTransitions, v1LeaseSpec.leaseTransitions) &&
-        Objects.equals(this.renewTime, v1LeaseSpec.renewTime);
+        Objects.equals(this.preferredHolder, v1LeaseSpec.preferredHolder) &&
+        Objects.equals(this.renewTime, v1LeaseSpec.renewTime) &&
+        Objects.equals(this.strategy, v1LeaseSpec.strategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, renewTime);
+    return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, preferredHolder, renewTime, strategy);
   }
 
 
@@ -196,7 +252,9 @@ public class V1LeaseSpec {
     sb.append("    holderIdentity: ").append(toIndentedString(holderIdentity)).append("\n");
     sb.append("    leaseDurationSeconds: ").append(toIndentedString(leaseDurationSeconds)).append("\n");
     sb.append("    leaseTransitions: ").append(toIndentedString(leaseTransitions)).append("\n");
+    sb.append("    preferredHolder: ").append(toIndentedString(preferredHolder)).append("\n");
     sb.append("    renewTime: ").append(toIndentedString(renewTime)).append("\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

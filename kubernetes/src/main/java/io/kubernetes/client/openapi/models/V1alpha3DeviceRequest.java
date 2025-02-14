@@ -1,0 +1,252 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha3DeviceSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.  A DeviceClassName is currently required. Clients must check that it is indeed set. It&#39;s absence indicates that something changed in a way that is not supported by the client yet, in which case it must refuse to handle the request.
+ */
+@ApiModel(description = "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.  A DeviceClassName is currently required. Clients must check that it is indeed set. It's absence indicates that something changed in a way that is not supported by the client yet, in which case it must refuse to handle the request.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+public class V1alpha3DeviceRequest {
+  public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
+  @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
+  private Boolean adminAccess;
+
+  public static final String SERIALIZED_NAME_ALLOCATION_MODE = "allocationMode";
+  @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
+  private String allocationMode;
+
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  private Long count;
+
+  public static final String SERIALIZED_NAME_DEVICE_CLASS_NAME = "deviceClassName";
+  @SerializedName(SERIALIZED_NAME_DEVICE_CLASS_NAME)
+  private String deviceClassName;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_SELECTORS = "selectors";
+  @SerializedName(SERIALIZED_NAME_SELECTORS)
+  private List<V1alpha3DeviceSelector> selectors = null;
+
+
+  public V1alpha3DeviceRequest adminAccess(Boolean adminAccess) {
+
+    this.adminAccess = adminAccess;
+    return this;
+  }
+
+   /**
+   * AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
+   * @return adminAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
+
+  public Boolean getAdminAccess() {
+    return adminAccess;
+  }
+
+
+  public void setAdminAccess(Boolean adminAccess) {
+    this.adminAccess = adminAccess;
+  }
+
+
+  public V1alpha3DeviceRequest allocationMode(String allocationMode) {
+
+    this.allocationMode = allocationMode;
+    return this;
+  }
+
+   /**
+   * AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AlloctionMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.
+   * @return allocationMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AlloctionMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.")
+
+  public String getAllocationMode() {
+    return allocationMode;
+  }
+
+
+  public void setAllocationMode(String allocationMode) {
+    this.allocationMode = allocationMode;
+  }
+
+
+  public V1alpha3DeviceRequest count(Long count) {
+
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Count is used only when the count mode is \&quot;ExactCount\&quot;. Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.
+   * @return count
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Count is used only when the count mode is \"ExactCount\". Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.")
+
+  public Long getCount() {
+    return count;
+  }
+
+
+  public void setCount(Long count) {
+    this.count = count;
+  }
+
+
+  public V1alpha3DeviceRequest deviceClassName(String deviceClassName) {
+
+    this.deviceClassName = deviceClassName;
+    return this;
+  }
+
+   /**
+   * DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.
+   * @return deviceClassName
+  **/
+  @ApiModelProperty(required = true, value = "DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.")
+
+  public String getDeviceClassName() {
+    return deviceClassName;
+  }
+
+
+  public void setDeviceClassName(String deviceClassName) {
+    this.deviceClassName = deviceClassName;
+  }
+
+
+  public V1alpha3DeviceRequest name(String name) {
+
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label.
+   * @return name
+  **/
+  @ApiModelProperty(required = true, value = "Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public V1alpha3DeviceRequest selectors(List<V1alpha3DeviceSelector> selectors) {
+
+    this.selectors = selectors;
+    return this;
+  }
+
+  public V1alpha3DeviceRequest addSelectorsItem(V1alpha3DeviceSelector selectorsItem) {
+    if (this.selectors == null) {
+      this.selectors = new ArrayList<>();
+    }
+    this.selectors.add(selectorsItem);
+    return this;
+  }
+
+   /**
+   * Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.
+   * @return selectors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.")
+
+  public List<V1alpha3DeviceSelector> getSelectors() {
+    return selectors;
+  }
+
+
+  public void setSelectors(List<V1alpha3DeviceSelector> selectors) {
+    this.selectors = selectors;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha3DeviceRequest v1alpha3DeviceRequest = (V1alpha3DeviceRequest) o;
+    return Objects.equals(this.adminAccess, v1alpha3DeviceRequest.adminAccess) &&
+        Objects.equals(this.allocationMode, v1alpha3DeviceRequest.allocationMode) &&
+        Objects.equals(this.count, v1alpha3DeviceRequest.count) &&
+        Objects.equals(this.deviceClassName, v1alpha3DeviceRequest.deviceClassName) &&
+        Objects.equals(this.name, v1alpha3DeviceRequest.name) &&
+        Objects.equals(this.selectors, v1alpha3DeviceRequest.selectors);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(adminAccess, allocationMode, count, deviceClassName, name, selectors);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha3DeviceRequest {\n");
+    sb.append("    adminAccess: ").append(toIndentedString(adminAccess)).append("\n");
+    sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

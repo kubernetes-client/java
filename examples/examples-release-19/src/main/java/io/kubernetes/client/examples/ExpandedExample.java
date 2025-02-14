@@ -270,6 +270,7 @@ public class ExpandedExample {
             null,
             Boolean.FALSE,
             Integer.MAX_VALUE,
+                null,
             40,
             Boolean.FALSE);
     System.out.println(readNamespacedPodLog);

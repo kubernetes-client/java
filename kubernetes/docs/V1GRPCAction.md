@@ -2,6 +2,7 @@
 
 # V1GRPCAction
 
+GRPCAction specifies an action involving a GRPC service.
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * NamespaceCondition contains details about state of namespace.
  */
 @ApiModel(description = "NamespaceCondition contains details about state of namespace.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1NamespaceCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -58,11 +58,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * Last time the condition transitioned from one status to another.
    * @return lastTransitionTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.")
+  @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
 
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -81,11 +81,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Get message
+   * Human-readable message indicating details about last transition.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Human-readable message indicating details about last transition.")
 
   public String getMessage() {
     return message;
@@ -104,11 +104,11 @@ public class V1NamespaceCondition {
   }
 
    /**
-   * Get reason
+   * Unique, one-word, CamelCase reason for the condition&#39;s last transition.
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique, one-word, CamelCase reason for the condition's last transition.")
 
   public String getReason() {
     return reason;

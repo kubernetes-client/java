@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ContainerState;
+import io.kubernetes.client.openapi.models.V1ContainerUser;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
+import io.kubernetes.client.openapi.models.V1ResourceStatus;
 import io.kubernetes.client.openapi.models.V1VolumeMountStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,11 +37,15 @@ import java.util.Map;
  * ContainerStatus contains details for the current status of this container.
  */
 @ApiModel(description = "ContainerStatus contains details for the current status of this container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
   private Map<String, Quantity> allocatedResources = null;
+
+  public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES_STATUS = "allocatedResourcesStatus";
+  @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES_STATUS)
+  private List<V1ResourceStatus> allocatedResourcesStatus = null;
 
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
   @SerializedName(SERIALIZED_NAME_CONTAINER_I_D)
@@ -81,6 +87,10 @@ public class V1ContainerStatus {
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private V1ContainerUser user;
+
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
   private List<V1VolumeMountStatus> volumeMounts = null;
@@ -114,6 +124,37 @@ public class V1ContainerStatus {
 
   public void setAllocatedResources(Map<String, Quantity> allocatedResources) {
     this.allocatedResources = allocatedResources;
+  }
+
+
+  public V1ContainerStatus allocatedResourcesStatus(List<V1ResourceStatus> allocatedResourcesStatus) {
+
+    this.allocatedResourcesStatus = allocatedResourcesStatus;
+    return this;
+  }
+
+  public V1ContainerStatus addAllocatedResourcesStatusItem(V1ResourceStatus allocatedResourcesStatusItem) {
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList<>();
+    }
+    this.allocatedResourcesStatus.add(allocatedResourcesStatusItem);
+    return this;
+  }
+
+   /**
+   * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+   * @return allocatedResourcesStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.")
+
+  public List<V1ResourceStatus> getAllocatedResourcesStatus() {
+    return allocatedResourcesStatus;
+  }
+
+
+  public void setAllocatedResourcesStatus(List<V1ResourceStatus> allocatedResourcesStatus) {
+    this.allocatedResourcesStatus = allocatedResourcesStatus;
   }
 
 
@@ -342,6 +383,29 @@ public class V1ContainerStatus {
   }
 
 
+  public V1ContainerStatus user(V1ContainerUser user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1ContainerUser getUser() {
+    return user;
+  }
+
+
+  public void setUser(V1ContainerUser user) {
+    this.user = user;
+  }
+
+
   public V1ContainerStatus volumeMounts(List<V1VolumeMountStatus> volumeMounts) {
 
     this.volumeMounts = volumeMounts;
@@ -383,6 +447,7 @@ public class V1ContainerStatus {
     }
     V1ContainerStatus v1ContainerStatus = (V1ContainerStatus) o;
     return Objects.equals(this.allocatedResources, v1ContainerStatus.allocatedResources) &&
+        Objects.equals(this.allocatedResourcesStatus, v1ContainerStatus.allocatedResourcesStatus) &&
         Objects.equals(this.containerID, v1ContainerStatus.containerID) &&
         Objects.equals(this.image, v1ContainerStatus.image) &&
         Objects.equals(this.imageID, v1ContainerStatus.imageID) &&
@@ -393,12 +458,13 @@ public class V1ContainerStatus {
         Objects.equals(this.restartCount, v1ContainerStatus.restartCount) &&
         Objects.equals(this.started, v1ContainerStatus.started) &&
         Objects.equals(this.state, v1ContainerStatus.state) &&
+        Objects.equals(this.user, v1ContainerStatus.user) &&
         Objects.equals(this.volumeMounts, v1ContainerStatus.volumeMounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, volumeMounts);
+    return Objects.hash(allocatedResources, allocatedResourcesStatus, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, user, volumeMounts);
   }
 
 
@@ -407,6 +473,7 @@ public class V1ContainerStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ContainerStatus {\n");
     sb.append("    allocatedResources: ").append(toIndentedString(allocatedResources)).append("\n");
+    sb.append("    allocatedResourcesStatus: ").append(toIndentedString(allocatedResourcesStatus)).append("\n");
     sb.append("    containerID: ").append(toIndentedString(containerID)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageID: ").append(toIndentedString(imageID)).append("\n");
@@ -417,6 +484,7 @@ public class V1ContainerStatus {
     sb.append("    restartCount: ").append(toIndentedString(restartCount)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    volumeMounts: ").append(toIndentedString(volumeMounts)).append("\n");
     sb.append("}");
     return sb.toString();

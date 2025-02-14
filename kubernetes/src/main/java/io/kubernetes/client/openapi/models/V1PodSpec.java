@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,6 +31,7 @@ import io.kubernetes.client.openapi.models.V1PodReadinessGate;
 import io.kubernetes.client.openapi.models.V1PodResourceClaim;
 import io.kubernetes.client.openapi.models.V1PodSchedulingGate;
 import io.kubernetes.client.openapi.models.V1PodSecurityContext;
+import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1Toleration;
 import io.kubernetes.client.openapi.models.V1TopologySpreadConstraint;
 import io.kubernetes.client.openapi.models.V1Volume;
@@ -46,7 +47,7 @@ import java.util.Map;
  * PodSpec is a description of a pod.
  */
 @ApiModel(description = "PodSpec is a description of a pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -147,6 +148,10 @@ public class V1PodSpec {
   public static final String SERIALIZED_NAME_RESOURCE_CLAIMS = "resourceClaims";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIMS)
   private List<V1PodResourceClaim> resourceClaims = null;
+
+  public static final String SERIALIZED_NAME_RESOURCES = "resources";
+  @SerializedName(SERIALIZED_NAME_RESOURCES)
+  private V1ResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
@@ -616,11 +621,11 @@ public class V1PodSpec {
   }
 
    /**
-   * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+   * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this node becomes responsible for the lifecycle of this pod. This field should not be used to express a desire for the pod to be scheduled on a specific node. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
    * @return nodeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.")
+  @ApiModelProperty(value = "NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this node becomes responsible for the lifecycle of this pod. This field should not be used to express a desire for the pod to be scheduled on a specific node. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename")
 
   public String getNodeName() {
     return nodeName;
@@ -848,6 +853,29 @@ public class V1PodSpec {
   }
 
 
+  public V1PodSpec resources(V1ResourceRequirements resources) {
+
+    this.resources = resources;
+    return this;
+  }
+
+   /**
+   * Get resources
+   * @return resources
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1ResourceRequirements getResources() {
+    return resources;
+  }
+
+
+  public void setResources(V1ResourceRequirements resources) {
+    this.resources = resources;
+  }
+
+
   public V1PodSpec restartPolicy(String restartPolicy) {
 
     this.restartPolicy = restartPolicy;
@@ -1024,11 +1052,11 @@ public class V1PodSpec {
   }
 
    /**
-   * If true the pod&#39;s hostname will be configured as the pod&#39;s FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.
+   * If true the pod&#39;s hostname will be configured as the pod&#39;s FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\Tcpip\\\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.
    * @return setHostnameAsFQDN
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.")
+  @ApiModelProperty(value = "If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\Tcpip\\\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.")
 
   public Boolean getSetHostnameAsFQDN() {
     return setHostnameAsFQDN;
@@ -1236,6 +1264,7 @@ public class V1PodSpec {
         Objects.equals(this.priorityClassName, v1PodSpec.priorityClassName) &&
         Objects.equals(this.readinessGates, v1PodSpec.readinessGates) &&
         Objects.equals(this.resourceClaims, v1PodSpec.resourceClaims) &&
+        Objects.equals(this.resources, v1PodSpec.resources) &&
         Objects.equals(this.restartPolicy, v1PodSpec.restartPolicy) &&
         Objects.equals(this.runtimeClassName, v1PodSpec.runtimeClassName) &&
         Objects.equals(this.schedulerName, v1PodSpec.schedulerName) &&
@@ -1254,7 +1283,7 @@ public class V1PodSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
+    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
   }
 
 
@@ -1287,6 +1316,7 @@ public class V1PodSpec {
     sb.append("    priorityClassName: ").append(toIndentedString(priorityClassName)).append("\n");
     sb.append("    readinessGates: ").append(toIndentedString(readinessGates)).append("\n");
     sb.append("    resourceClaims: ").append(toIndentedString(resourceClaims)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    restartPolicy: ").append(toIndentedString(restartPolicy)).append("\n");
     sb.append("    runtimeClassName: ").append(toIndentedString(runtimeClassName)).append("\n");
     sb.append("    schedulerName: ").append(toIndentedString(schedulerName)).append("\n");

@@ -1,0 +1,166 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1OpaqueDeviceConfiguration;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * DeviceAllocationConfiguration gets embedded in an AllocationResult.
+ */
+@ApiModel(description = "DeviceAllocationConfiguration gets embedded in an AllocationResult.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+public class V1beta1DeviceAllocationConfiguration {
+  public static final String SERIALIZED_NAME_OPAQUE = "opaque";
+  @SerializedName(SERIALIZED_NAME_OPAQUE)
+  private V1beta1OpaqueDeviceConfiguration opaque;
+
+  public static final String SERIALIZED_NAME_REQUESTS = "requests";
+  @SerializedName(SERIALIZED_NAME_REQUESTS)
+  private List<String> requests = null;
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private String source;
+
+
+  public V1beta1DeviceAllocationConfiguration opaque(V1beta1OpaqueDeviceConfiguration opaque) {
+
+    this.opaque = opaque;
+    return this;
+  }
+
+   /**
+   * Get opaque
+   * @return opaque
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1beta1OpaqueDeviceConfiguration getOpaque() {
+    return opaque;
+  }
+
+
+  public void setOpaque(V1beta1OpaqueDeviceConfiguration opaque) {
+    this.opaque = opaque;
+  }
+
+
+  public V1beta1DeviceAllocationConfiguration requests(List<String> requests) {
+
+    this.requests = requests;
+    return this;
+  }
+
+  public V1beta1DeviceAllocationConfiguration addRequestsItem(String requestsItem) {
+    if (this.requests == null) {
+      this.requests = new ArrayList<>();
+    }
+    this.requests.add(requestsItem);
+    return this;
+  }
+
+   /**
+   * Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.
+   * @return requests
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.")
+
+  public List<String> getRequests() {
+    return requests;
+  }
+
+
+  public void setRequests(List<String> requests) {
+    this.requests = requests;
+  }
+
+
+  public V1beta1DeviceAllocationConfiguration source(String source) {
+
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Source records whether the configuration comes from a class and thus is not something that a normal user would have been able to set or from a claim.
+   * @return source
+  **/
+  @ApiModelProperty(required = true, value = "Source records whether the configuration comes from a class and thus is not something that a normal user would have been able to set or from a claim.")
+
+  public String getSource() {
+    return source;
+  }
+
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1beta1DeviceAllocationConfiguration v1beta1DeviceAllocationConfiguration = (V1beta1DeviceAllocationConfiguration) o;
+    return Objects.equals(this.opaque, v1beta1DeviceAllocationConfiguration.opaque) &&
+        Objects.equals(this.requests, v1beta1DeviceAllocationConfiguration.requests) &&
+        Objects.equals(this.source, v1beta1DeviceAllocationConfiguration.source);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(opaque, requests, source);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1beta1DeviceAllocationConfiguration {\n");
+    sb.append("    opaque: ").append(toIndentedString(opaque)).append("\n");
+    sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

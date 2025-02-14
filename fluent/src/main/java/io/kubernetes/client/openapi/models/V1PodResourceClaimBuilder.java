@@ -24,7 +24,8 @@ public class V1PodResourceClaimBuilder extends V1PodResourceClaimFluent<V1PodRes
   public V1PodResourceClaim build() {
     V1PodResourceClaim buildable = new V1PodResourceClaim();
     buildable.setName(fluent.getName());
-    buildable.setSource(fluent.buildSource());
+    buildable.setResourceClaimName(fluent.getResourceClaimName());
+    buildable.setResourceClaimTemplateName(fluent.getResourceClaimTemplateName());
     return buildable;
   }
   

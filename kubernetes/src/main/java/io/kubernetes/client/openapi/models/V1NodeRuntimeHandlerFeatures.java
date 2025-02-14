@@ -1,5 +1,5 @@
 /*
-Copyright 2024 The Kubernetes Authors.
+Copyright 2025 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,14 +24,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * NodeRuntimeHandlerFeatures is a set of runtime features.
+ * NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.
  */
-@ApiModel(description = "NodeRuntimeHandlerFeatures is a set of runtime features.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
+@ApiModel(description = "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
 public class V1NodeRuntimeHandlerFeatures {
   public static final String SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS = "recursiveReadOnlyMounts";
   @SerializedName(SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS)
   private Boolean recursiveReadOnlyMounts;
+
+  public static final String SERIALIZED_NAME_USER_NAMESPACES = "userNamespaces";
+  @SerializedName(SERIALIZED_NAME_USER_NAMESPACES)
+  private Boolean userNamespaces;
 
 
   public V1NodeRuntimeHandlerFeatures recursiveReadOnlyMounts(Boolean recursiveReadOnlyMounts) {
@@ -57,6 +61,29 @@ public class V1NodeRuntimeHandlerFeatures {
   }
 
 
+  public V1NodeRuntimeHandlerFeatures userNamespaces(Boolean userNamespaces) {
+
+    this.userNamespaces = userNamespaces;
+    return this;
+  }
+
+   /**
+   * UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.
+   * @return userNamespaces
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.")
+
+  public Boolean getUserNamespaces() {
+    return userNamespaces;
+  }
+
+
+  public void setUserNamespaces(Boolean userNamespaces) {
+    this.userNamespaces = userNamespaces;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,12 +93,13 @@ public class V1NodeRuntimeHandlerFeatures {
       return false;
     }
     V1NodeRuntimeHandlerFeatures v1NodeRuntimeHandlerFeatures = (V1NodeRuntimeHandlerFeatures) o;
-    return Objects.equals(this.recursiveReadOnlyMounts, v1NodeRuntimeHandlerFeatures.recursiveReadOnlyMounts);
+    return Objects.equals(this.recursiveReadOnlyMounts, v1NodeRuntimeHandlerFeatures.recursiveReadOnlyMounts) &&
+        Objects.equals(this.userNamespaces, v1NodeRuntimeHandlerFeatures.userNamespaces);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recursiveReadOnlyMounts);
+    return Objects.hash(recursiveReadOnlyMounts, userNamespaces);
   }
 
 
@@ -80,6 +108,7 @@ public class V1NodeRuntimeHandlerFeatures {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1NodeRuntimeHandlerFeatures {\n");
     sb.append("    recursiveReadOnlyMounts: ").append(toIndentedString(recursiveReadOnlyMounts)).append("\n");
+    sb.append("    userNamespaces: ").append(toIndentedString(userNamespaces)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -103,6 +103,7 @@ public class YamlExample {
             null,
             null,
             null,
+            null,
             new V1DeleteOptions());
     System.out.println(deleteResult);
   }
