@@ -1500,7 +1500,7 @@ public class ApiClient {
             sslFactoryBuilder.withHostnameVerifier(OkHostnameVerifier.INSTANCE);
         }
 
-        if (keyManagers != null && keyManagers.length > 0) {
+        if (keyManagers != null && keyManagers.length > 0 && keyManagers[0] instanceof X509KeyManager) {
             sslFactoryBuilder.withIdentityMaterial(KeyManagerUtils.wrapIfNeeded((X509KeyManager) keyManagers[0]));
         }
         return sslFactoryBuilder;
