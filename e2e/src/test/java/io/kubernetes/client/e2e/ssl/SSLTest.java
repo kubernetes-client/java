@@ -71,14 +71,12 @@ class SSLTest {
             assertThat(certificateAuthorityData).isPresent();
             apiClient.setSslCaCert(new ByteArrayInputStream(certificateAuthorityData.get()));
 
-            await()
-                    .untilAsserted(
-                            () -> {
-                                assertThat(nsInformer.hasSynced()).isTrue();
-                                assertThat(nsLister.list()).isNotEmpty();
-                                Optional<Throwable> certificateNotFoundException = getCertificateNotFoundException(logCaptor);
-                                assertThat(certificateNotFoundException).isEmpty();
-                            });
+            await().untilAsserted(() -> {
+                assertThat(nsInformer.hasSynced()).isTrue();
+                assertThat(nsLister.list()).isNotEmpty();
+                Optional<Throwable> certificateNotFoundException = getCertificateNotFoundException(logCaptor);
+                assertThat(certificateNotFoundException).isEmpty();
+            });
         } finally {
             informerFactory.stopAllRegisteredInformers(true);
             logCaptor.close();
