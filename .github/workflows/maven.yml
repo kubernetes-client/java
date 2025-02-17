@@ -1,6 +1,5 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://docs.github.com/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
 name: build
 
 on:
@@ -8,7 +7,6 @@ on:
     branches: [ "master", "master-java8", "release-**" ]
   pull_request:
     branches: [ "master", "master-java8", "release-**" ]
-
 jobs:
   verify-format:
     runs-on: ubuntu-latest
