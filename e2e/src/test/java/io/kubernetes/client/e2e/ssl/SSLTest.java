@@ -37,6 +37,9 @@ class SSLTest {
 
     @Test
     void buildClientWithReloadableSslConfiguration() throws Exception {
+        LogCaptor logCaptorForJdkSecurityEvents = LogCaptor.forName("jdk.event.security");
+        logCaptorForJdkSecurityEvents.disableLogs();
+
         LogCaptor logCaptor = LogCaptor.forRoot();
 
         ApiClient apiClient = ClientBuilder.defaultClient();
@@ -70,6 +73,7 @@ class SSLTest {
             });
         } finally {
             informerFactory.stopAllRegisteredInformers(true);
+            logCaptorForJdkSecurityEvents.resetLogLevel();
             logCaptor.close();
         }
     }
