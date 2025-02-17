@@ -43,16 +43,7 @@ class SSLTest {
         apiClient.setSslCaCert(null);
 
         SharedInformerFactory informerFactory = new SharedInformerFactory(apiClient);
-
-        GenericKubernetesApi<V1Namespace, V1NamespaceList> api =
-                new GenericKubernetesApi<>(
-                        V1Namespace.class,
-                        V1NamespaceList.class,
-                        "",
-                        "v1",
-                        "namespaces",
-                        apiClient);
-
+        GenericKubernetesApi<V1Namespace, V1NamespaceList> api = new GenericKubernetesApi<>(V1Namespace.class, V1NamespaceList.class, "", "v1", "namespaces", apiClient);
         SharedIndexInformer<V1Namespace> nsInformer = informerFactory.sharedIndexInformerFor(api, V1Namespace.class, 0);
         Lister<V1Namespace> nsLister = new Lister<>(nsInformer.getIndexer());
 
