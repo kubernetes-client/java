@@ -81,7 +81,7 @@ public class ApiClient {
     private InputStream sslCaCert;
     private boolean verifyingSsl;
     private KeyManager[] keyManagers;
-    private SSLFactory baseSslFactory;
+    private SSLFactory sslFactory;
 
     private OkHttpClient httpClient;
     private JSON json;
@@ -1467,19 +1467,19 @@ public class ApiClient {
      * verifyingSsl and sslCaCert.
      */
     private void applySslSettings() {
-        if (baseSslFactory != null) {
+        if (sslFactory != null) {
             reloadSslSettings();
             return;
         }
 
-        baseSslFactory = createSslFactoryBuilder()
+        sslFactory = createSslFactoryBuilder()
                 .withSwappableIdentityMaterial()
                 .withSwappableTrustMaterial()
                 .build();
 
         httpClient = httpClient.newBuilder()
-                        .sslSocketFactory(baseSslFactory.getSslSocketFactory(), baseSslFactory.getTrustManager().orElseThrow())
-                        .hostnameVerifier(baseSslFactory.getHostnameVerifier())
+                        .sslSocketFactory(sslFactory.getSslSocketFactory(), sslFactory.getTrustManager().orElseThrow())
+                        .hostnameVerifier(sslFactory.getHostnameVerifier())
                         .build();
     }
 
@@ -1508,7 +1508,7 @@ public class ApiClient {
 
     private void reloadSslSettings() {
         SSLFactory updatedSslFactory = createSslFactoryBuilder().build();
-        SSLFactoryUtils.reload(baseSslFactory, updatedSslFactory);
+        SSLFactoryUtils.reload(sslFactory, updatedSslFactory);
     }
 
     /**
