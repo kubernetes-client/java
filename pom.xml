@@ -70,6 +70,7 @@
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
     <sslcontext-kickstart.version>9.0.0</sslcontext-kickstart.version>
+    <logcaptor.version>2.10.1</logcaptor.version>
 
     <!-- The `optional` tag in `dependencyManagement` is not inherited; see
     https://issues.apache.org/jira/browse/MNG-5227 and
@@ -336,6 +337,12 @@
         <groupId>org.awaitility</groupId>
         <artifactId>awaitility</artifactId>
         <version>4.2.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.github.hakky54</groupId>
+        <artifactId>logcaptor</artifactId>
+        <version>${logcaptor.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
