@@ -69,6 +69,7 @@
     <spring.version>6.2.2</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
+    <sslcontext-kickstart.version>9.0.0</sslcontext-kickstart.version>
 
     <!-- The `optional` tag in `dependencyManagement` is not inherited; see
     https://issues.apache.org/jira/browse/MNG-5227 and
@@ -258,6 +259,11 @@
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
         <version>1.32.0</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.hakky54</groupId>
+        <artifactId>sslcontext-kickstart</artifactId>
+        <version>${sslcontext-kickstart.version}</version>
       </dependency>
 
       <!-- tests -->
