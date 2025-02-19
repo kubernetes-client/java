@@ -579,6 +579,7 @@ public class GenericKubernetesApi<
         adaptListCall(
             customObjectsApi.getApiClient(),
             customObjectsApi.listClusterCustomObject( this.apiGroup, this.apiVersion, this.resourcePlural)
+                    ._continue(listOptions.getContinue())
                     .fieldSelector(listOptions.getFieldSelector())
                     .labelSelector(listOptions.getLabelSelector())
                     .limit(listOptions.getLimit())
