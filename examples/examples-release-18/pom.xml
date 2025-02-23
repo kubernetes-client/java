@@ -118,6 +118,6 @@
 	</build>
     <properties>
         <junit-jupiter.version>5.11.4</junit-jupiter.version>
-        <spring.boot.version>3.4.2</spring.boot.version>
+        <spring.boot.version>3.4.3</spring.boot.version>
     </properties>
 </project>
