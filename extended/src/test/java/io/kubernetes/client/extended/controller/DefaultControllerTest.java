@@ -151,6 +151,10 @@ class DefaultControllerTest {
     AtomicBoolean resumed = new AtomicBoolean(false);
     List<Request> finishedRequests = new ArrayList<>();
     final Semaphore latch = new Semaphore(1);
+
+    // Grab the latch to block until an event is handled once.
+    latch.acquire();
+
     DefaultController testController =
         new DefaultController(
             "",
