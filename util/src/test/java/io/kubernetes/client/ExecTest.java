@@ -25,8 +25,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
+import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
+import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import io.kubernetes.client.Exec.ExecProcess;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -41,7 +44,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,6 +51,19 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** Tests for the Exec helper class */
 class ExecTest {
+
+  public static class CountDownLatchAction extends PostServeAction {
+    @Override
+    public String getName() {
+      return "countdown";
+    }
+
+    @Override
+    public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
+      CountDownLatch latch = (CountDownLatch) parameters.get("latch");
+      latch.countDown();
+    }
+  }
 
   private static final String OUTPUT_EXIT0 = "{\"metadata\":{},\"status\":\"Success\"}";
   private static final String OUTPUT_EXIT1 =
@@ -68,7 +83,9 @@ class ExecTest {
 
   @RegisterExtension
   static WireMockExtension apiServer =
-      WireMockExtension.newInstance().options(options().dynamicPort()).build();
+      WireMockExtension.newInstance()
+        .options(options().dynamicPort().extensions(new CountDownLatchAction()))
+        .build();
 
   @BeforeEach
   void setup() {
@@ -145,14 +162,9 @@ class ExecTest {
     final ExecProcess process = new ExecProcess(client);
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-    System.out.println("Injecting output stream");
     process.getHandler().injectOutputStream(4, bos);
-    System.out.println("Resizing output stream");
     process.resize(100, 100);
-    System.out.println("Resizing output stream");
     process.destroy();
-
-    System.out.println("Going to tests.");
 
     String out = bos.toString("UTF-8");
     assertThat(out).isEqualTo("{ \"width\": 100, \"height\": 100 }\n");
@@ -196,13 +208,13 @@ class ExecTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    Semaphore getCount = new Semaphore(2);
-    Parameters getParams = new Parameters();
-    getParams.put("semaphore", getCount);
+    CountDownLatch latch = new CountDownLatch(2);
+    Parameters params = new Parameters();
+    params.put("latch", latch);
 
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .withPostServeAction("semaphore", getParams)
+            .withPostServeAction("countdown", params)
             .willReturn(
                 aResponse()
                     .withStatus(404)
@@ -218,11 +230,7 @@ class ExecTest {
         .setStderr(false)
         .execute()
         .waitFor();
-
-    // These will be released for each web call above.
-    // There is a race between the above waitFor() and the request actually being recorded
-    // by WireMock. This fixes it.
-    getCount.acquire(2);
+    latch.await();
 
     apiServer.verify(
         getRequestedFor(
