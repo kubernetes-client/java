@@ -14,7 +14,7 @@ package io.kubernetes.client.openapi;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Configuration {
-    public static final String VERSION = "23.0.0-SNAPSHOT";
+    public static final String VERSION = "24.0.0-SNAPSHOT";
 
     private static ApiClient defaultApiClient = new ApiClient();
 
