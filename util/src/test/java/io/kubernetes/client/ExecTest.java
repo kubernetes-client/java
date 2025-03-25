@@ -45,9 +45,18 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+
 
 /** Tests for the Exec helper class */
 class ExecTest {
@@ -75,6 +84,8 @@ class ExecTest {
   private static final String OUTPUT_EXIT_BAD_INT =
       "{\"metadata\":{},\"status\":\"Failure\",\"message\":\"command terminated with non-zero exit code: Error executing in Docker Container: 126\",\"reason\":\"NonZeroExitCode\",\"details\":{\"causes\":[{\"reason\":\"ExitCode\",\"message\":\"not a number\"}]}}";
 
+  private static final int EXPECTED_ERROR_EXIT_CODE = -1975219;
+
   private String namespace;
   private String podName;
   private String[] cmd;
@@ -93,10 +104,7 @@ class ExecTest {
 
     namespace = "default";
     podName = "apod";
-    // TODO: When WireMock supports multiple query params with the same name expand
-    // this
-    // See: https://github.com/tomakehurst/wiremock/issues/398
-    cmd = new String[] {"cmd"};
+    cmd = new String[] {"cmd1","cmd2"};
   }
 
   public static InputStream makeStream(int streamNum, byte[] data) {
@@ -158,7 +166,6 @@ class ExecTest {
 
   @Test
   void terminalResize() throws IOException, InterruptedException {
-    final Throwable throwable = mock(Throwable.class);
     final ExecProcess process = new ExecProcess(client);
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
@@ -181,7 +188,7 @@ class ExecTest {
 
     verify(throwable, times(1)).printStackTrace();
     assertThat(process.isAlive()).isFalse();
-    assertThat(process.exitValue()).isEqualTo(-1975219);
+    assertThat(process.exitValue()).isEqualTo(EXPECTED_ERROR_EXIT_CODE);
   }
 
   @Test
@@ -197,7 +204,7 @@ class ExecTest {
     verify(throwable, times(0)).printStackTrace();
     verify(consumer, times(1)).accept(throwable);
     assertThat(process.isAlive()).isFalse();
-    assertThat(process.exitValue()).isEqualTo(-1975219);
+    assertThat(process.exitValue()).isEqualTo(EXPECTED_ERROR_EXIT_CODE);
   }
 
   @Test
@@ -240,7 +247,9 @@ class ExecTest {
             .withQueryParam("stderr", equalTo("true"))
             .withQueryParam("container", equalTo("container"))
             .withQueryParam("tty", equalTo("false"))
-            .withQueryParam("command", equalTo("cmd")));
+            .withQueryParam("command", equalTo("cmd1"))
+            .withQueryParam("command", equalTo("cmd2")));
+
 
     apiServer.verify(
         getRequestedFor(
@@ -250,50 +259,29 @@ class ExecTest {
             .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("container", equalTo("container"))
             .withQueryParam("tty", equalTo("false"))
-            .withQueryParam("command", equalTo("cmd")));
+            .withQueryParam("command", equalTo("cmd1"))
+            .withQueryParam("command", equalTo("cmd2")));
 
-    assertThat(p.exitValue()).isEqualTo(-1975219);
+    assertThat(p.exitValue()).isEqualTo(EXPECTED_ERROR_EXIT_CODE);
     verify(consumer, times(1)).accept(any(Throwable.class));
   }
 
-  @Test
-  void exit0() {
-    InputStream inputStream =
-        new ByteArrayInputStream(OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertThat(exitCode).isZero();
-  }
+  static Stream<Arguments> exitCodeTestData() {
+	    return Stream.of(
+	        arguments(OUTPUT_EXIT0, 0),
+	        arguments(OUTPUT_EXIT1, 1),
+	        arguments(OUTPUT_EXIT126, 126),
+	        arguments(BAD_OUTPUT_INCOMPLETE_MSG1, -1),
+	        arguments(OUTPUT_EXIT_BAD_INT, -1)
+	    );
+	}
 
-  @Test
-  void exit1() {
-    InputStream inputStream =
-        new ByteArrayInputStream(OUTPUT_EXIT1.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertThat(exitCode).isEqualTo(1);
-  }
-
-  @Test
-  void exit126() {
-    InputStream inputStream =
-        new ByteArrayInputStream(OUTPUT_EXIT126.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertThat(exitCode).isEqualTo(126);
-  }
-
-  @Test
-  void incompleteData1() {
-    InputStream inputStream =
-        new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG1.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertThat(exitCode).isEqualTo(-1);
-  }
-
-  @Test
-  void nonZeroBadIntExit() {
-    InputStream inputStream =
-        new ByteArrayInputStream(OUTPUT_EXIT_BAD_INT.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertThat(exitCode).isEqualTo(-1);
+  @ParameterizedTest
+  @MethodSource("exitCodeTestData")
+  void testExitCodeParsing(String output, int expectedExitCode) {
+      InputStream inputStream = new ByteArrayInputStream(output.getBytes(StandardCharsets.UTF_8));
+      int exitCode = Exec.parseExitCode(client, inputStream);
+      assertThat(exitCode).isEqualTo(expectedExitCode);
   }
 
   @Test
