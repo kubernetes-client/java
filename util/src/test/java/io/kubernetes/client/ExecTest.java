@@ -52,7 +52,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -104,7 +103,7 @@ class ExecTest {
 
     namespace = "default";
     podName = "apod";
-    cmd = new String[] {"cmd1","cmd2"};
+    cmd = new String[] {"sh", "-c", "echo Hello from inside the pod && ls /tmp"};
   }
 
   public static InputStream makeStream(int streamNum, byte[] data) {
@@ -247,8 +246,9 @@ class ExecTest {
             .withQueryParam("stderr", equalTo("true"))
             .withQueryParam("container", equalTo("container"))
             .withQueryParam("tty", equalTo("false"))
-            .withQueryParam("command", equalTo("cmd1"))
-            .withQueryParam("command", equalTo("cmd2")));
+            .withQueryParam("command", equalTo("sh"))
+            .withQueryParam("command", equalTo("-c"))
+            .withQueryParam("command", equalTo("echo Hello from inside the pod && ls /tmp")));
 
 
     apiServer.verify(
@@ -259,8 +259,10 @@ class ExecTest {
             .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("container", equalTo("container"))
             .withQueryParam("tty", equalTo("false"))
-            .withQueryParam("command", equalTo("cmd1"))
-            .withQueryParam("command", equalTo("cmd2")));
+            .withQueryParam("command", equalTo("sh"))
+            .withQueryParam("command", equalTo("-c"))
+            .withQueryParam("command", equalTo("echo Hello from inside the pod && ls /tmp")));
+
 
     assertThat(p.exitValue()).isEqualTo(EXPECTED_ERROR_EXIT_CODE);
     verify(consumer, times(1)).accept(any(Throwable.class));
