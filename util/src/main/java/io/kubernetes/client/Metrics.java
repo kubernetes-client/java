@@ -20,8 +20,11 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.options.ListOptions;
 
 public class Metrics {
+  private static final String API_GROUP = "metrics.k8s.io";
+  private static final String API_VERSION = "v1beta1";
   private ApiClient apiClient;
 
   /** Simple Metrics API constructor, uses default configuration */
@@ -61,17 +64,30 @@ public class Metrics {
         new GenericKubernetesApi<>(
             NodeMetrics.class,
             NodeMetricsList.class,
-            "metrics.k8s.io",
-            "v1beta1",
+            Metrics.API_GROUP,
+            Metrics.API_VERSION,
             "nodes",
             apiClient);
     return metricsClient.list().throwsApiException().getObject();
   }
 
   public PodMetricsList getPodMetrics(String namespace) throws ApiException {
+    return getPodMetrics(namespace, null);
+  }
+
+  /**
+   * Obtain Pod Metrics in the given Namespace with an optional label selector.
+   * @param namespace     The Namespace to look in.
+   * @param labelSelector The label selector, optional.  Use comma-delimited for multiple labels.
+   * @return  PodMetricList, never null.
+   * @throws ApiException   If the ApiClient cannot complete the request.
+   */
+  public PodMetricsList getPodMetrics(String namespace, String labelSelector) throws ApiException {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
-        new GenericKubernetesApi<>(
-            PodMetrics.class, PodMetricsList.class, "metrics.k8s.io", "v1beta1", "pods", apiClient);
-    return metricsClient.list(namespace).throwsApiException().getObject();
+            new GenericKubernetesApi<>(
+                    PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, "pods", apiClient);
+    final ListOptions listOptions = new ListOptions();
+    listOptions.setLabelSelector(labelSelector);
+    return metricsClient.list(namespace, listOptions).throwsApiException().getObject();
   }
 }
