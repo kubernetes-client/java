@@ -14,8 +14,11 @@ package io.kubernetes.client.openapi;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
@@ -107,5 +110,14 @@ class JSONTest {
     Gson gson = new Gson();
     JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
     new V1ListMeta.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1ListMeta.class)).read(jsonReader);
+  }
+
+  @Test
+  void inputStream() throws IOException {
+    String timeStr = "\"2018-04-03T11:32:26.123Z\"";
+    OffsetDateTime dateTime = JSON.deserialize(new ByteArrayInputStream(timeStr.getBytes(StandardCharsets.UTF_8)), OffsetDateTime.class);
+    String serializedStr = JSON.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.123000Z\"";
+    assertThat(serializedStr).isEqualTo(expectedStr);
   }
 }
