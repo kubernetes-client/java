@@ -122,6 +122,6 @@
 	</build>
     <properties>
         <junit-jupiter.version>5.12.2</junit-jupiter.version>
-        <spring.boot.version>3.4.4</spring.boot.version>
+        <spring.boot.version>3.4.5</spring.boot.version>
     </properties>
 </project>
