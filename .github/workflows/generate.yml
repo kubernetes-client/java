@@ -80,8 +80,8 @@ jobs:
       - name: Apply Manual Diffs
         if: ${{ github.event.inputs.skip_patches != 'true' }}
         run: |
-          ls scripts/patches/*.diff | xargs git apply
-          git add .
+          ls scripts/patches/*.diff | xargs -I {} patch -i {}
+          git add *.java
           git commit -s -m 'Applied patches under scripts/patches/*.diff'
       - name: Generate Fluent
         run: |
