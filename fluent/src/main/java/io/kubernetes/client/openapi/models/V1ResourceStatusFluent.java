@@ -50,14 +50,26 @@ public class V1ResourceStatusFluent<A extends V1ResourceStatusFluent<A>> extends
   public A addToResources(int index,V1ResourceHealth item) {
     if (this.resources == null) {this.resources = new ArrayList<V1ResourceHealthBuilder>();}
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-    if (index < 0 || index >= resources.size()) { _visitables.get("resources").add(builder); resources.add(builder); } else { _visitables.get("resources").add(index, builder); resources.add(index, builder);}
+    if (index < 0 || index >= resources.size()) {
+        _visitables.get("resources").add(builder);
+        resources.add(builder);
+    } else {
+        _visitables.get("resources").add(builder);
+        resources.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResources(int index,V1ResourceHealth item) {
     if (this.resources == null) {this.resources = new ArrayList<V1ResourceHealthBuilder>();}
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-    if (index < 0 || index >= resources.size()) { _visitables.get("resources").add(builder); resources.add(builder); } else { _visitables.get("resources").set(index, builder); resources.set(index, builder);}
+    if (index < 0 || index >= resources.size()) {
+        _visitables.get("resources").add(builder);
+        resources.add(builder);
+    } else {
+        _visitables.get("resources").add(builder);
+        resources.set(index, builder);
+    }
     return (A)this;
   }
   

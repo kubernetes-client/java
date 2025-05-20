@@ -26,6 +26,7 @@ public class V1PodConditionBuilder extends V1PodConditionFluent<V1PodConditionBu
     buildable.setLastProbeTime(fluent.getLastProbeTime());
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());
+    buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setReason(fluent.getReason());
     buildable.setStatus(fluent.getStatus());
     buildable.setType(fluent.getType());

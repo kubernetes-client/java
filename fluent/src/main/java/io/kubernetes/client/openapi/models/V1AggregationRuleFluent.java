@@ -35,14 +35,26 @@ public class V1AggregationRuleFluent<A extends V1AggregationRuleFluent<A>> exten
   public A addToClusterRoleSelectors(int index,V1LabelSelector item) {
     if (this.clusterRoleSelectors == null) {this.clusterRoleSelectors = new ArrayList<V1LabelSelectorBuilder>();}
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-    if (index < 0 || index >= clusterRoleSelectors.size()) { _visitables.get("clusterRoleSelectors").add(builder); clusterRoleSelectors.add(builder); } else { _visitables.get("clusterRoleSelectors").add(index, builder); clusterRoleSelectors.add(index, builder);}
+    if (index < 0 || index >= clusterRoleSelectors.size()) {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.add(builder);
+    } else {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToClusterRoleSelectors(int index,V1LabelSelector item) {
     if (this.clusterRoleSelectors == null) {this.clusterRoleSelectors = new ArrayList<V1LabelSelectorBuilder>();}
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-    if (index < 0 || index >= clusterRoleSelectors.size()) { _visitables.get("clusterRoleSelectors").add(builder); clusterRoleSelectors.add(builder); } else { _visitables.get("clusterRoleSelectors").set(index, builder); clusterRoleSelectors.set(index, builder);}
+    if (index < 0 || index >= clusterRoleSelectors.size()) {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.add(builder);
+    } else {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.set(index, builder);
+    }
     return (A)this;
   }
   

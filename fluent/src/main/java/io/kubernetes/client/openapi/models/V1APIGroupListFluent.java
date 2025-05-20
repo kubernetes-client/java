@@ -52,14 +52,26 @@ public class V1APIGroupListFluent<A extends V1APIGroupListFluent<A>> extends Bas
   public A addToGroups(int index,V1APIGroup item) {
     if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-    if (index < 0 || index >= groups.size()) { _visitables.get("groups").add(builder); groups.add(builder); } else { _visitables.get("groups").add(index, builder); groups.add(index, builder);}
+    if (index < 0 || index >= groups.size()) {
+        _visitables.get("groups").add(builder);
+        groups.add(builder);
+    } else {
+        _visitables.get("groups").add(builder);
+        groups.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToGroups(int index,V1APIGroup item) {
     if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-    if (index < 0 || index >= groups.size()) { _visitables.get("groups").add(builder); groups.add(builder); } else { _visitables.get("groups").set(index, builder); groups.set(index, builder);}
+    if (index < 0 || index >= groups.size()) {
+        _visitables.get("groups").add(builder);
+        groups.add(builder);
+    } else {
+        _visitables.get("groups").add(builder);
+        groups.set(index, builder);
+    }
     return (A)this;
   }
   

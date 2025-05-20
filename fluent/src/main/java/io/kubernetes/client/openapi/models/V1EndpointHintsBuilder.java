@@ -23,6 +23,7 @@ public class V1EndpointHintsBuilder extends V1EndpointHintsFluent<V1EndpointHint
   
   public V1EndpointHints build() {
     V1EndpointHints buildable = new V1EndpointHints();
+    buildable.setForNodes(fluent.buildForNodes());
     buildable.setForZones(fluent.buildForZones());
     return buildable;
   }

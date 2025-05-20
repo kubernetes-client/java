@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Long;
 import java.util.Iterator;
 import java.util.Collection;
 import java.lang.Object;
@@ -26,6 +27,7 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
   }
   private Boolean attachRequired;
   private String fsGroupPolicy;
+  private Long nodeAllocatableUpdatePeriodSeconds;
   private Boolean podInfoOnMount;
   private Boolean requiresRepublish;
   private Boolean seLinuxMount;
@@ -38,6 +40,7 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
     if (instance != null) {
           this.withAttachRequired(instance.getAttachRequired());
           this.withFsGroupPolicy(instance.getFsGroupPolicy());
+          this.withNodeAllocatableUpdatePeriodSeconds(instance.getNodeAllocatableUpdatePeriodSeconds());
           this.withPodInfoOnMount(instance.getPodInfoOnMount());
           this.withRequiresRepublish(instance.getRequiresRepublish());
           this.withSeLinuxMount(instance.getSeLinuxMount());
@@ -71,6 +74,19 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
   
   public boolean hasFsGroupPolicy() {
     return this.fsGroupPolicy != null;
+  }
+  
+  public Long getNodeAllocatableUpdatePeriodSeconds() {
+    return this.nodeAllocatableUpdatePeriodSeconds;
+  }
+  
+  public A withNodeAllocatableUpdatePeriodSeconds(Long nodeAllocatableUpdatePeriodSeconds) {
+    this.nodeAllocatableUpdatePeriodSeconds = nodeAllocatableUpdatePeriodSeconds;
+    return (A) this;
+  }
+  
+  public boolean hasNodeAllocatableUpdatePeriodSeconds() {
+    return this.nodeAllocatableUpdatePeriodSeconds != null;
   }
   
   public Boolean getPodInfoOnMount() {
@@ -128,14 +144,26 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
   public A addToTokenRequests(int index,StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= tokenRequests.size()) { _visitables.get("tokenRequests").add(builder); tokenRequests.add(builder); } else { _visitables.get("tokenRequests").add(index, builder); tokenRequests.add(index, builder);}
+    if (index < 0 || index >= tokenRequests.size()) {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.add(builder);
+    } else {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTokenRequests(int index,StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= tokenRequests.size()) { _visitables.get("tokenRequests").add(builder); tokenRequests.add(builder); } else { _visitables.get("tokenRequests").set(index, builder); tokenRequests.set(index, builder);}
+    if (index < 0 || index >= tokenRequests.size()) {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.add(builder);
+    } else {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -377,6 +405,7 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
     V1CSIDriverSpecFluent that = (V1CSIDriverSpecFluent) o;
     if (!java.util.Objects.equals(attachRequired, that.attachRequired)) return false;
     if (!java.util.Objects.equals(fsGroupPolicy, that.fsGroupPolicy)) return false;
+    if (!java.util.Objects.equals(nodeAllocatableUpdatePeriodSeconds, that.nodeAllocatableUpdatePeriodSeconds)) return false;
     if (!java.util.Objects.equals(podInfoOnMount, that.podInfoOnMount)) return false;
     if (!java.util.Objects.equals(requiresRepublish, that.requiresRepublish)) return false;
     if (!java.util.Objects.equals(seLinuxMount, that.seLinuxMount)) return false;
@@ -387,7 +416,7 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(attachRequired,  fsGroupPolicy,  podInfoOnMount,  requiresRepublish,  seLinuxMount,  storageCapacity,  tokenRequests,  volumeLifecycleModes,  super.hashCode());
+    return java.util.Objects.hash(attachRequired,  fsGroupPolicy,  nodeAllocatableUpdatePeriodSeconds,  podInfoOnMount,  requiresRepublish,  seLinuxMount,  storageCapacity,  tokenRequests,  volumeLifecycleModes,  super.hashCode());
   }
   
   public String toString() {
@@ -395,6 +424,7 @@ public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends B
     sb.append("{");
     if (attachRequired != null) { sb.append("attachRequired:"); sb.append(attachRequired + ","); }
     if (fsGroupPolicy != null) { sb.append("fsGroupPolicy:"); sb.append(fsGroupPolicy + ","); }
+    if (nodeAllocatableUpdatePeriodSeconds != null) { sb.append("nodeAllocatableUpdatePeriodSeconds:"); sb.append(nodeAllocatableUpdatePeriodSeconds + ","); }
     if (podInfoOnMount != null) { sb.append("podInfoOnMount:"); sb.append(podInfoOnMount + ","); }
     if (requiresRepublish != null) { sb.append("requiresRepublish:"); sb.append(requiresRepublish + ","); }
     if (seLinuxMount != null) { sb.append("seLinuxMount:"); sb.append(seLinuxMount + ","); }

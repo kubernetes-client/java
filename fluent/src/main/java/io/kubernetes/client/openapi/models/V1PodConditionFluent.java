@@ -3,6 +3,7 @@ package io.kubernetes.client.openapi.models;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 
@@ -20,6 +21,7 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
   private OffsetDateTime lastProbeTime;
   private OffsetDateTime lastTransitionTime;
   private String message;
+  private Long observedGeneration;
   private String reason;
   private String status;
   private String type;
@@ -30,6 +32,7 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
           this.withLastProbeTime(instance.getLastProbeTime());
           this.withLastTransitionTime(instance.getLastTransitionTime());
           this.withMessage(instance.getMessage());
+          this.withObservedGeneration(instance.getObservedGeneration());
           this.withReason(instance.getReason());
           this.withStatus(instance.getStatus());
           this.withType(instance.getType());
@@ -73,6 +76,19 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
   
   public boolean hasMessage() {
     return this.message != null;
+  }
+  
+  public Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  
+  public A withObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+    return (A) this;
+  }
+  
+  public boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
   }
   
   public String getReason() {
@@ -122,6 +138,7 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
     if (!java.util.Objects.equals(lastProbeTime, that.lastProbeTime)) return false;
     if (!java.util.Objects.equals(lastTransitionTime, that.lastTransitionTime)) return false;
     if (!java.util.Objects.equals(message, that.message)) return false;
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
     if (!java.util.Objects.equals(reason, that.reason)) return false;
     if (!java.util.Objects.equals(status, that.status)) return false;
     if (!java.util.Objects.equals(type, that.type)) return false;
@@ -129,7 +146,7 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(lastProbeTime,  lastTransitionTime,  message,  reason,  status,  type,  super.hashCode());
+    return java.util.Objects.hash(lastProbeTime,  lastTransitionTime,  message,  observedGeneration,  reason,  status,  type,  super.hashCode());
   }
   
   public String toString() {
@@ -138,6 +155,7 @@ public class V1PodConditionFluent<A extends V1PodConditionFluent<A>> extends Bas
     if (lastProbeTime != null) { sb.append("lastProbeTime:"); sb.append(lastProbeTime + ","); }
     if (lastTransitionTime != null) { sb.append("lastTransitionTime:"); sb.append(lastTransitionTime + ","); }
     if (message != null) { sb.append("message:"); sb.append(message + ","); }
+    if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
     if (status != null) { sb.append("status:"); sb.append(status + ","); }
     if (type != null) { sb.append("type:"); sb.append(type); }

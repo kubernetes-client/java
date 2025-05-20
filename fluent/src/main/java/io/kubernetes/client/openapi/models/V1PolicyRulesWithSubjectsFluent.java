@@ -39,14 +39,26 @@ public class V1PolicyRulesWithSubjectsFluent<A extends V1PolicyRulesWithSubjects
   public A addToNonResourceRules(int index,V1NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1NonResourcePolicyRuleBuilder>();}
     V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").add(index, builder); nonResourceRules.add(index, builder);}
+    if (index < 0 || index >= nonResourceRules.size()) {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(builder);
+    } else {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToNonResourceRules(int index,V1NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1NonResourcePolicyRuleBuilder>();}
     V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").set(index, builder); nonResourceRules.set(index, builder);}
+    if (index < 0 || index >= nonResourceRules.size()) {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(builder);
+    } else {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -190,14 +202,26 @@ public class V1PolicyRulesWithSubjectsFluent<A extends V1PolicyRulesWithSubjects
   public A addToResourceRules(int index,V1ResourcePolicyRule item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1ResourcePolicyRuleBuilder>();}
     V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").add(index, builder); resourceRules.add(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResourceRules(int index,V1ResourcePolicyRule item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1ResourcePolicyRuleBuilder>();}
     V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").set(index, builder); resourceRules.set(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -341,14 +365,26 @@ public class V1PolicyRulesWithSubjectsFluent<A extends V1PolicyRulesWithSubjects
   public A addToSubjects(int index,FlowcontrolV1Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<FlowcontrolV1SubjectBuilder>();}
     FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").add(index, builder); subjects.add(index, builder);}
+    if (index < 0 || index >= subjects.size()) {
+        _visitables.get("subjects").add(builder);
+        subjects.add(builder);
+    } else {
+        _visitables.get("subjects").add(builder);
+        subjects.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSubjects(int index,FlowcontrolV1Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<FlowcontrolV1SubjectBuilder>();}
     FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").set(index, builder); subjects.set(index, builder);}
+    if (index < 0 || index >= subjects.size()) {
+        _visitables.get("subjects").add(builder);
+        subjects.add(builder);
+    } else {
+        _visitables.get("subjects").add(builder);
+        subjects.set(index, builder);
+    }
     return (A)this;
   }
   

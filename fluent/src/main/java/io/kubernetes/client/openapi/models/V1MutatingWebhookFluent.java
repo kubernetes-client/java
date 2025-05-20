@@ -205,14 +205,26 @@ public class V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> exten
   public A addToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").add(index, builder); matchConditions.add(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").set(index, builder); matchConditions.set(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -475,14 +487,26 @@ public class V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> exten
   public A addToRules(int index,V1RuleWithOperations item) {
     if (this.rules == null) {this.rules = new ArrayList<V1RuleWithOperationsBuilder>();}
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").add(index, builder); rules.add(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRules(int index,V1RuleWithOperations item) {
     if (this.rules == null) {this.rules = new ArrayList<V1RuleWithOperationsBuilder>();}
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").set(index, builder); rules.set(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.set(index, builder);
+    }
     return (A)this;
   }
   

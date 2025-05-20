@@ -92,14 +92,26 @@ public class V1PodFailurePolicyRuleFluent<A extends V1PodFailurePolicyRuleFluent
   public A addToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-    if (index < 0 || index >= onPodConditions.size()) { _visitables.get("onPodConditions").add(builder); onPodConditions.add(builder); } else { _visitables.get("onPodConditions").add(index, builder); onPodConditions.add(index, builder);}
+    if (index < 0 || index >= onPodConditions.size()) {
+        _visitables.get("onPodConditions").add(builder);
+        onPodConditions.add(builder);
+    } else {
+        _visitables.get("onPodConditions").add(builder);
+        onPodConditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-    if (index < 0 || index >= onPodConditions.size()) { _visitables.get("onPodConditions").add(builder); onPodConditions.add(builder); } else { _visitables.get("onPodConditions").set(index, builder); onPodConditions.set(index, builder);}
+    if (index < 0 || index >= onPodConditions.size()) {
+        _visitables.get("onPodConditions").add(builder);
+        onPodConditions.add(builder);
+    } else {
+        _visitables.get("onPodConditions").add(builder);
+        onPodConditions.set(index, builder);
+    }
     return (A)this;
   }
   

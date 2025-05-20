@@ -72,14 +72,26 @@ public class V1ServiceAccountFluent<A extends V1ServiceAccountFluent<A>> extends
   public A addToImagePullSecrets(int index,V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) { _visitables.get("imagePullSecrets").add(builder); imagePullSecrets.add(builder); } else { _visitables.get("imagePullSecrets").add(index, builder); imagePullSecrets.add(index, builder);}
+    if (index < 0 || index >= imagePullSecrets.size()) {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(builder);
+    } else {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToImagePullSecrets(int index,V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) { _visitables.get("imagePullSecrets").add(builder); imagePullSecrets.add(builder); } else { _visitables.get("imagePullSecrets").set(index, builder); imagePullSecrets.set(index, builder);}
+    if (index < 0 || index >= imagePullSecrets.size()) {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(builder);
+    } else {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -276,14 +288,26 @@ public class V1ServiceAccountFluent<A extends V1ServiceAccountFluent<A>> extends
   public A addToSecrets(int index,V1ObjectReference item) {
     if (this.secrets == null) {this.secrets = new ArrayList<V1ObjectReferenceBuilder>();}
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= secrets.size()) { _visitables.get("secrets").add(builder); secrets.add(builder); } else { _visitables.get("secrets").add(index, builder); secrets.add(index, builder);}
+    if (index < 0 || index >= secrets.size()) {
+        _visitables.get("secrets").add(builder);
+        secrets.add(builder);
+    } else {
+        _visitables.get("secrets").add(builder);
+        secrets.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSecrets(int index,V1ObjectReference item) {
     if (this.secrets == null) {this.secrets = new ArrayList<V1ObjectReferenceBuilder>();}
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= secrets.size()) { _visitables.get("secrets").add(builder); secrets.add(builder); } else { _visitables.get("secrets").set(index, builder); secrets.set(index, builder);}
+    if (index < 0 || index >= secrets.size()) {
+        _visitables.get("secrets").add(builder);
+        secrets.add(builder);
+    } else {
+        _visitables.get("secrets").add(builder);
+        secrets.set(index, builder);
+    }
     return (A)this;
   }
   

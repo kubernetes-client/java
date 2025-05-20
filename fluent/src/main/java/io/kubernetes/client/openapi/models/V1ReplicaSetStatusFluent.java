@@ -31,6 +31,7 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
   private Long observedGeneration;
   private Integer readyReplicas;
   private Integer replicas;
+  private Integer terminatingReplicas;
   
   protected void copyInstance(V1ReplicaSetStatus instance) {
     instance = (instance != null ? instance : new V1ReplicaSetStatus());
@@ -41,6 +42,7 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
           this.withObservedGeneration(instance.getObservedGeneration());
           this.withReadyReplicas(instance.getReadyReplicas());
           this.withReplicas(instance.getReplicas());
+          this.withTerminatingReplicas(instance.getTerminatingReplicas());
         }
   }
   
@@ -60,14 +62,26 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
   public A addToConditions(int index,V1ReplicaSetCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
     V1ReplicaSetConditionBuilder builder = new V1ReplicaSetConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1ReplicaSetCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
     V1ReplicaSetConditionBuilder builder = new V1ReplicaSetConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -260,6 +274,19 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
     return this.replicas != null;
   }
   
+  public Integer getTerminatingReplicas() {
+    return this.terminatingReplicas;
+  }
+  
+  public A withTerminatingReplicas(Integer terminatingReplicas) {
+    this.terminatingReplicas = terminatingReplicas;
+    return (A) this;
+  }
+  
+  public boolean hasTerminatingReplicas() {
+    return this.terminatingReplicas != null;
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -271,11 +298,12 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
     if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
     if (!java.util.Objects.equals(readyReplicas, that.readyReplicas)) return false;
     if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+    if (!java.util.Objects.equals(terminatingReplicas, that.terminatingReplicas)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(availableReplicas,  conditions,  fullyLabeledReplicas,  observedGeneration,  readyReplicas,  replicas,  super.hashCode());
+    return java.util.Objects.hash(availableReplicas,  conditions,  fullyLabeledReplicas,  observedGeneration,  readyReplicas,  replicas,  terminatingReplicas,  super.hashCode());
   }
   
   public String toString() {
@@ -286,7 +314,8 @@ public class V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> ext
     if (fullyLabeledReplicas != null) { sb.append("fullyLabeledReplicas:"); sb.append(fullyLabeledReplicas + ","); }
     if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (readyReplicas != null) { sb.append("readyReplicas:"); sb.append(readyReplicas + ","); }
-    if (replicas != null) { sb.append("replicas:"); sb.append(replicas); }
+    if (replicas != null) { sb.append("replicas:"); sb.append(replicas + ","); }
+    if (terminatingReplicas != null) { sb.append("terminatingReplicas:"); sb.append(terminatingReplicas); }
     sb.append("}");
     return sb.toString();
   }

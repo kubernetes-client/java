@@ -54,14 +54,26 @@ public class CoreV1EventListFluent<A extends CoreV1EventListFluent<A>> extends B
   public A addToItems(int index,CoreV1Event item) {
     if (this.items == null) {this.items = new ArrayList<CoreV1EventBuilder>();}
     CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,CoreV1Event item) {
     if (this.items == null) {this.items = new ArrayList<CoreV1EventBuilder>();}
     CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

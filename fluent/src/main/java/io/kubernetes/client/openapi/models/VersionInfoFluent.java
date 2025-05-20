@@ -18,11 +18,15 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
   }
   private String buildDate;
   private String compiler;
+  private String emulationMajor;
+  private String emulationMinor;
   private String gitCommit;
   private String gitTreeState;
   private String gitVersion;
   private String goVersion;
   private String major;
+  private String minCompatibilityMajor;
+  private String minCompatibilityMinor;
   private String minor;
   private String platform;
   
@@ -31,11 +35,15 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
     if (instance != null) {
           this.withBuildDate(instance.getBuildDate());
           this.withCompiler(instance.getCompiler());
+          this.withEmulationMajor(instance.getEmulationMajor());
+          this.withEmulationMinor(instance.getEmulationMinor());
           this.withGitCommit(instance.getGitCommit());
           this.withGitTreeState(instance.getGitTreeState());
           this.withGitVersion(instance.getGitVersion());
           this.withGoVersion(instance.getGoVersion());
           this.withMajor(instance.getMajor());
+          this.withMinCompatibilityMajor(instance.getMinCompatibilityMajor());
+          this.withMinCompatibilityMinor(instance.getMinCompatibilityMinor());
           this.withMinor(instance.getMinor());
           this.withPlatform(instance.getPlatform());
         }
@@ -65,6 +73,32 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
   
   public boolean hasCompiler() {
     return this.compiler != null;
+  }
+  
+  public String getEmulationMajor() {
+    return this.emulationMajor;
+  }
+  
+  public A withEmulationMajor(String emulationMajor) {
+    this.emulationMajor = emulationMajor;
+    return (A) this;
+  }
+  
+  public boolean hasEmulationMajor() {
+    return this.emulationMajor != null;
+  }
+  
+  public String getEmulationMinor() {
+    return this.emulationMinor;
+  }
+  
+  public A withEmulationMinor(String emulationMinor) {
+    this.emulationMinor = emulationMinor;
+    return (A) this;
+  }
+  
+  public boolean hasEmulationMinor() {
+    return this.emulationMinor != null;
   }
   
   public String getGitCommit() {
@@ -132,6 +166,32 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
     return this.major != null;
   }
   
+  public String getMinCompatibilityMajor() {
+    return this.minCompatibilityMajor;
+  }
+  
+  public A withMinCompatibilityMajor(String minCompatibilityMajor) {
+    this.minCompatibilityMajor = minCompatibilityMajor;
+    return (A) this;
+  }
+  
+  public boolean hasMinCompatibilityMajor() {
+    return this.minCompatibilityMajor != null;
+  }
+  
+  public String getMinCompatibilityMinor() {
+    return this.minCompatibilityMinor;
+  }
+  
+  public A withMinCompatibilityMinor(String minCompatibilityMinor) {
+    this.minCompatibilityMinor = minCompatibilityMinor;
+    return (A) this;
+  }
+  
+  public boolean hasMinCompatibilityMinor() {
+    return this.minCompatibilityMinor != null;
+  }
+  
   public String getMinor() {
     return this.minor;
   }
@@ -165,18 +225,22 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
     VersionInfoFluent that = (VersionInfoFluent) o;
     if (!java.util.Objects.equals(buildDate, that.buildDate)) return false;
     if (!java.util.Objects.equals(compiler, that.compiler)) return false;
+    if (!java.util.Objects.equals(emulationMajor, that.emulationMajor)) return false;
+    if (!java.util.Objects.equals(emulationMinor, that.emulationMinor)) return false;
     if (!java.util.Objects.equals(gitCommit, that.gitCommit)) return false;
     if (!java.util.Objects.equals(gitTreeState, that.gitTreeState)) return false;
     if (!java.util.Objects.equals(gitVersion, that.gitVersion)) return false;
     if (!java.util.Objects.equals(goVersion, that.goVersion)) return false;
     if (!java.util.Objects.equals(major, that.major)) return false;
+    if (!java.util.Objects.equals(minCompatibilityMajor, that.minCompatibilityMajor)) return false;
+    if (!java.util.Objects.equals(minCompatibilityMinor, that.minCompatibilityMinor)) return false;
     if (!java.util.Objects.equals(minor, that.minor)) return false;
     if (!java.util.Objects.equals(platform, that.platform)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(buildDate,  compiler,  gitCommit,  gitTreeState,  gitVersion,  goVersion,  major,  minor,  platform,  super.hashCode());
+    return java.util.Objects.hash(buildDate,  compiler,  emulationMajor,  emulationMinor,  gitCommit,  gitTreeState,  gitVersion,  goVersion,  major,  minCompatibilityMajor,  minCompatibilityMinor,  minor,  platform,  super.hashCode());
   }
   
   public String toString() {
@@ -184,11 +248,15 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
     sb.append("{");
     if (buildDate != null) { sb.append("buildDate:"); sb.append(buildDate + ","); }
     if (compiler != null) { sb.append("compiler:"); sb.append(compiler + ","); }
+    if (emulationMajor != null) { sb.append("emulationMajor:"); sb.append(emulationMajor + ","); }
+    if (emulationMinor != null) { sb.append("emulationMinor:"); sb.append(emulationMinor + ","); }
     if (gitCommit != null) { sb.append("gitCommit:"); sb.append(gitCommit + ","); }
     if (gitTreeState != null) { sb.append("gitTreeState:"); sb.append(gitTreeState + ","); }
     if (gitVersion != null) { sb.append("gitVersion:"); sb.append(gitVersion + ","); }
     if (goVersion != null) { sb.append("goVersion:"); sb.append(goVersion + ","); }
     if (major != null) { sb.append("major:"); sb.append(major + ","); }
+    if (minCompatibilityMajor != null) { sb.append("minCompatibilityMajor:"); sb.append(minCompatibilityMajor + ","); }
+    if (minCompatibilityMinor != null) { sb.append("minCompatibilityMinor:"); sb.append(minCompatibilityMinor + ","); }
     if (minor != null) { sb.append("minor:"); sb.append(minor + ","); }
     if (platform != null) { sb.append("platform:"); sb.append(platform); }
     sb.append("}");

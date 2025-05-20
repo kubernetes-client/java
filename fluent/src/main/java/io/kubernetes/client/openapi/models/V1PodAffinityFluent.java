@@ -37,14 +37,26 @@ public class V1PodAffinityFluent<A extends V1PodAffinityFluent<A>> extends BaseF
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1WeightedPodAffinityTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder); preferredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(index, builder); preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);}
+    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1WeightedPodAffinityTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder); preferredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").set(index, builder); preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);}
+    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -188,14 +200,26 @@ public class V1PodAffinityFluent<A extends V1PodAffinityFluent<A>> extends BaseF
   public A addToRequiredDuringSchedulingIgnoredDuringExecution(int index,V1PodAffinityTerm item) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder); requiredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(index, builder); requiredDuringSchedulingIgnoredDuringExecution.add(index, builder);}
+    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        requiredDuringSchedulingIgnoredDuringExecution.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRequiredDuringSchedulingIgnoredDuringExecution(int index,V1PodAffinityTerm item) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder); requiredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").set(index, builder); requiredDuringSchedulingIgnoredDuringExecution.set(index, builder);}
+    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        requiredDuringSchedulingIgnoredDuringExecution.set(index, builder);
+    }
     return (A)this;
   }
   

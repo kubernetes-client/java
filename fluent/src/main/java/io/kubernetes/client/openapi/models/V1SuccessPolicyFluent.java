@@ -35,14 +35,26 @@ public class V1SuccessPolicyFluent<A extends V1SuccessPolicyFluent<A>> extends B
   public A addToRules(int index,V1SuccessPolicyRule item) {
     if (this.rules == null) {this.rules = new ArrayList<V1SuccessPolicyRuleBuilder>();}
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").add(index, builder); rules.add(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRules(int index,V1SuccessPolicyRule item) {
     if (this.rules == null) {this.rules = new ArrayList<V1SuccessPolicyRuleBuilder>();}
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").set(index, builder); rules.set(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.set(index, builder);
+    }
     return (A)this;
   }
   

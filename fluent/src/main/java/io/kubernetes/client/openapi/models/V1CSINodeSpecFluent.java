@@ -35,14 +35,26 @@ public class V1CSINodeSpecFluent<A extends V1CSINodeSpecFluent<A>> extends BaseF
   public A addToDrivers(int index,V1CSINodeDriver item) {
     if (this.drivers == null) {this.drivers = new ArrayList<V1CSINodeDriverBuilder>();}
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-    if (index < 0 || index >= drivers.size()) { _visitables.get("drivers").add(builder); drivers.add(builder); } else { _visitables.get("drivers").add(index, builder); drivers.add(index, builder);}
+    if (index < 0 || index >= drivers.size()) {
+        _visitables.get("drivers").add(builder);
+        drivers.add(builder);
+    } else {
+        _visitables.get("drivers").add(builder);
+        drivers.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToDrivers(int index,V1CSINodeDriver item) {
     if (this.drivers == null) {this.drivers = new ArrayList<V1CSINodeDriverBuilder>();}
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-    if (index < 0 || index >= drivers.size()) { _visitables.get("drivers").add(builder); drivers.add(builder); } else { _visitables.get("drivers").set(index, builder); drivers.set(index, builder);}
+    if (index < 0 || index >= drivers.size()) {
+        _visitables.get("drivers").add(builder);
+        drivers.add(builder);
+    } else {
+        _visitables.get("drivers").add(builder);
+        drivers.set(index, builder);
+    }
     return (A)this;
   }
   

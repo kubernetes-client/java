@@ -366,14 +366,26 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   public A addToSysctls(int index,V1Sysctl item) {
     if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
-    if (index < 0 || index >= sysctls.size()) { _visitables.get("sysctls").add(builder); sysctls.add(builder); } else { _visitables.get("sysctls").add(index, builder); sysctls.add(index, builder);}
+    if (index < 0 || index >= sysctls.size()) {
+        _visitables.get("sysctls").add(builder);
+        sysctls.add(builder);
+    } else {
+        _visitables.get("sysctls").add(builder);
+        sysctls.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSysctls(int index,V1Sysctl item) {
     if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
-    if (index < 0 || index >= sysctls.size()) { _visitables.get("sysctls").add(builder); sysctls.add(builder); } else { _visitables.get("sysctls").set(index, builder); sysctls.set(index, builder);}
+    if (index < 0 || index >= sysctls.size()) {
+        _visitables.get("sysctls").add(builder);
+        sysctls.add(builder);
+    } else {
+        _visitables.get("sysctls").add(builder);
+        sysctls.set(index, builder);
+    }
     return (A)this;
   }
   

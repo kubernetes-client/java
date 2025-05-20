@@ -39,14 +39,26 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   public A addToAddresses(int index,V1EndpointAddress item) {
     if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) { _visitables.get("addresses").add(builder); addresses.add(builder); } else { _visitables.get("addresses").add(index, builder); addresses.add(index, builder);}
+    if (index < 0 || index >= addresses.size()) {
+        _visitables.get("addresses").add(builder);
+        addresses.add(builder);
+    } else {
+        _visitables.get("addresses").add(builder);
+        addresses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAddresses(int index,V1EndpointAddress item) {
     if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) { _visitables.get("addresses").add(builder); addresses.add(builder); } else { _visitables.get("addresses").set(index, builder); addresses.set(index, builder);}
+    if (index < 0 || index >= addresses.size()) {
+        _visitables.get("addresses").add(builder);
+        addresses.add(builder);
+    } else {
+        _visitables.get("addresses").add(builder);
+        addresses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -190,14 +202,26 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   public A addToNotReadyAddresses(int index,V1EndpointAddress item) {
     if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= notReadyAddresses.size()) { _visitables.get("notReadyAddresses").add(builder); notReadyAddresses.add(builder); } else { _visitables.get("notReadyAddresses").add(index, builder); notReadyAddresses.add(index, builder);}
+    if (index < 0 || index >= notReadyAddresses.size()) {
+        _visitables.get("notReadyAddresses").add(builder);
+        notReadyAddresses.add(builder);
+    } else {
+        _visitables.get("notReadyAddresses").add(builder);
+        notReadyAddresses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToNotReadyAddresses(int index,V1EndpointAddress item) {
     if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= notReadyAddresses.size()) { _visitables.get("notReadyAddresses").add(builder); notReadyAddresses.add(builder); } else { _visitables.get("notReadyAddresses").set(index, builder); notReadyAddresses.set(index, builder);}
+    if (index < 0 || index >= notReadyAddresses.size()) {
+        _visitables.get("notReadyAddresses").add(builder);
+        notReadyAddresses.add(builder);
+    } else {
+        _visitables.get("notReadyAddresses").add(builder);
+        notReadyAddresses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -341,14 +365,26 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   public A addToPorts(int index,CoreV1EndpointPort item) {
     if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,CoreV1EndpointPort item) {
     if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   
