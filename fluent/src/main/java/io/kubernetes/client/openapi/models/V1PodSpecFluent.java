@@ -185,14 +185,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToContainers(int index,V1Container item) {
     if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
-    if (index < 0 || index >= containers.size()) { _visitables.get("containers").add(builder); containers.add(builder); } else { _visitables.get("containers").add(index, builder); containers.add(index, builder);}
+    if (index < 0 || index >= containers.size()) {
+        _visitables.get("containers").add(builder);
+        containers.add(builder);
+    } else {
+        _visitables.get("containers").add(builder);
+        containers.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToContainers(int index,V1Container item) {
     if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
-    if (index < 0 || index >= containers.size()) { _visitables.get("containers").add(builder); containers.add(builder); } else { _visitables.get("containers").set(index, builder); containers.set(index, builder);}
+    if (index < 0 || index >= containers.size()) {
+        _visitables.get("containers").add(builder);
+        containers.add(builder);
+    } else {
+        _visitables.get("containers").add(builder);
+        containers.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -402,14 +414,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToEphemeralContainers(int index,V1EphemeralContainer item) {
     if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
     V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
-    if (index < 0 || index >= ephemeralContainers.size()) { _visitables.get("ephemeralContainers").add(builder); ephemeralContainers.add(builder); } else { _visitables.get("ephemeralContainers").add(index, builder); ephemeralContainers.add(index, builder);}
+    if (index < 0 || index >= ephemeralContainers.size()) {
+        _visitables.get("ephemeralContainers").add(builder);
+        ephemeralContainers.add(builder);
+    } else {
+        _visitables.get("ephemeralContainers").add(builder);
+        ephemeralContainers.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEphemeralContainers(int index,V1EphemeralContainer item) {
     if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
     V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
-    if (index < 0 || index >= ephemeralContainers.size()) { _visitables.get("ephemeralContainers").add(builder); ephemeralContainers.add(builder); } else { _visitables.get("ephemeralContainers").set(index, builder); ephemeralContainers.set(index, builder);}
+    if (index < 0 || index >= ephemeralContainers.size()) {
+        _visitables.get("ephemeralContainers").add(builder);
+        ephemeralContainers.add(builder);
+    } else {
+        _visitables.get("ephemeralContainers").add(builder);
+        ephemeralContainers.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -553,14 +577,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToHostAliases(int index,V1HostAlias item) {
     if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
     V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
-    if (index < 0 || index >= hostAliases.size()) { _visitables.get("hostAliases").add(builder); hostAliases.add(builder); } else { _visitables.get("hostAliases").add(index, builder); hostAliases.add(index, builder);}
+    if (index < 0 || index >= hostAliases.size()) {
+        _visitables.get("hostAliases").add(builder);
+        hostAliases.add(builder);
+    } else {
+        _visitables.get("hostAliases").add(builder);
+        hostAliases.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToHostAliases(int index,V1HostAlias item) {
     if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
     V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
-    if (index < 0 || index >= hostAliases.size()) { _visitables.get("hostAliases").add(builder); hostAliases.add(builder); } else { _visitables.get("hostAliases").set(index, builder); hostAliases.set(index, builder);}
+    if (index < 0 || index >= hostAliases.size()) {
+        _visitables.get("hostAliases").add(builder);
+        hostAliases.add(builder);
+    } else {
+        _visitables.get("hostAliases").add(builder);
+        hostAliases.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -769,14 +805,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToImagePullSecrets(int index,V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) { _visitables.get("imagePullSecrets").add(builder); imagePullSecrets.add(builder); } else { _visitables.get("imagePullSecrets").add(index, builder); imagePullSecrets.add(index, builder);}
+    if (index < 0 || index >= imagePullSecrets.size()) {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(builder);
+    } else {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToImagePullSecrets(int index,V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) { _visitables.get("imagePullSecrets").add(builder); imagePullSecrets.add(builder); } else { _visitables.get("imagePullSecrets").set(index, builder); imagePullSecrets.set(index, builder);}
+    if (index < 0 || index >= imagePullSecrets.size()) {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.add(builder);
+    } else {
+        _visitables.get("imagePullSecrets").add(builder);
+        imagePullSecrets.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -920,14 +968,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToInitContainers(int index,V1Container item) {
     if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
-    if (index < 0 || index >= initContainers.size()) { _visitables.get("initContainers").add(builder); initContainers.add(builder); } else { _visitables.get("initContainers").add(index, builder); initContainers.add(index, builder);}
+    if (index < 0 || index >= initContainers.size()) {
+        _visitables.get("initContainers").add(builder);
+        initContainers.add(builder);
+    } else {
+        _visitables.get("initContainers").add(builder);
+        initContainers.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToInitContainers(int index,V1Container item) {
     if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
-    if (index < 0 || index >= initContainers.size()) { _visitables.get("initContainers").add(builder); initContainers.add(builder); } else { _visitables.get("initContainers").set(index, builder); initContainers.set(index, builder);}
+    if (index < 0 || index >= initContainers.size()) {
+        _visitables.get("initContainers").add(builder);
+        initContainers.add(builder);
+    } else {
+        _visitables.get("initContainers").add(builder);
+        initContainers.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1237,14 +1297,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToReadinessGates(int index,V1PodReadinessGate item) {
     if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
     V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
-    if (index < 0 || index >= readinessGates.size()) { _visitables.get("readinessGates").add(builder); readinessGates.add(builder); } else { _visitables.get("readinessGates").add(index, builder); readinessGates.add(index, builder);}
+    if (index < 0 || index >= readinessGates.size()) {
+        _visitables.get("readinessGates").add(builder);
+        readinessGates.add(builder);
+    } else {
+        _visitables.get("readinessGates").add(builder);
+        readinessGates.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToReadinessGates(int index,V1PodReadinessGate item) {
     if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
     V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
-    if (index < 0 || index >= readinessGates.size()) { _visitables.get("readinessGates").add(builder); readinessGates.add(builder); } else { _visitables.get("readinessGates").set(index, builder); readinessGates.set(index, builder);}
+    if (index < 0 || index >= readinessGates.size()) {
+        _visitables.get("readinessGates").add(builder);
+        readinessGates.add(builder);
+    } else {
+        _visitables.get("readinessGates").add(builder);
+        readinessGates.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1388,14 +1460,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToResourceClaims(int index,V1PodResourceClaim item) {
     if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
     V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
-    if (index < 0 || index >= resourceClaims.size()) { _visitables.get("resourceClaims").add(builder); resourceClaims.add(builder); } else { _visitables.get("resourceClaims").add(index, builder); resourceClaims.add(index, builder);}
+    if (index < 0 || index >= resourceClaims.size()) {
+        _visitables.get("resourceClaims").add(builder);
+        resourceClaims.add(builder);
+    } else {
+        _visitables.get("resourceClaims").add(builder);
+        resourceClaims.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResourceClaims(int index,V1PodResourceClaim item) {
     if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
     V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
-    if (index < 0 || index >= resourceClaims.size()) { _visitables.get("resourceClaims").add(builder); resourceClaims.add(builder); } else { _visitables.get("resourceClaims").set(index, builder); resourceClaims.set(index, builder);}
+    if (index < 0 || index >= resourceClaims.size()) {
+        _visitables.get("resourceClaims").add(builder);
+        resourceClaims.add(builder);
+    } else {
+        _visitables.get("resourceClaims").add(builder);
+        resourceClaims.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1618,14 +1702,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToSchedulingGates(int index,V1PodSchedulingGate item) {
     if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
     V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
-    if (index < 0 || index >= schedulingGates.size()) { _visitables.get("schedulingGates").add(builder); schedulingGates.add(builder); } else { _visitables.get("schedulingGates").add(index, builder); schedulingGates.add(index, builder);}
+    if (index < 0 || index >= schedulingGates.size()) {
+        _visitables.get("schedulingGates").add(builder);
+        schedulingGates.add(builder);
+    } else {
+        _visitables.get("schedulingGates").add(builder);
+        schedulingGates.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSchedulingGates(int index,V1PodSchedulingGate item) {
     if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
     V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
-    if (index < 0 || index >= schedulingGates.size()) { _visitables.get("schedulingGates").add(builder); schedulingGates.add(builder); } else { _visitables.get("schedulingGates").set(index, builder); schedulingGates.set(index, builder);}
+    if (index < 0 || index >= schedulingGates.size()) {
+        _visitables.get("schedulingGates").add(builder);
+        schedulingGates.add(builder);
+    } else {
+        _visitables.get("schedulingGates").add(builder);
+        schedulingGates.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1887,14 +1983,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").add(index, builder); tolerations.add(index, builder);}
+    if (index < 0 || index >= tolerations.size()) {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(builder);
+    } else {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").set(index, builder); tolerations.set(index, builder);}
+    if (index < 0 || index >= tolerations.size()) {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(builder);
+    } else {
+        _visitables.get("tolerations").add(builder);
+        tolerations.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -2038,14 +2146,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item) {
     if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
     V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
-    if (index < 0 || index >= topologySpreadConstraints.size()) { _visitables.get("topologySpreadConstraints").add(builder); topologySpreadConstraints.add(builder); } else { _visitables.get("topologySpreadConstraints").add(index, builder); topologySpreadConstraints.add(index, builder);}
+    if (index < 0 || index >= topologySpreadConstraints.size()) {
+        _visitables.get("topologySpreadConstraints").add(builder);
+        topologySpreadConstraints.add(builder);
+    } else {
+        _visitables.get("topologySpreadConstraints").add(builder);
+        topologySpreadConstraints.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item) {
     if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
     V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
-    if (index < 0 || index >= topologySpreadConstraints.size()) { _visitables.get("topologySpreadConstraints").add(builder); topologySpreadConstraints.add(builder); } else { _visitables.get("topologySpreadConstraints").set(index, builder); topologySpreadConstraints.set(index, builder);}
+    if (index < 0 || index >= topologySpreadConstraints.size()) {
+        _visitables.get("topologySpreadConstraints").add(builder);
+        topologySpreadConstraints.add(builder);
+    } else {
+        _visitables.get("topologySpreadConstraints").add(builder);
+        topologySpreadConstraints.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -2189,14 +2309,26 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   public A addToVolumes(int index,V1Volume item) {
     if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
     V1VolumeBuilder builder = new V1VolumeBuilder(item);
-    if (index < 0 || index >= volumes.size()) { _visitables.get("volumes").add(builder); volumes.add(builder); } else { _visitables.get("volumes").add(index, builder); volumes.add(index, builder);}
+    if (index < 0 || index >= volumes.size()) {
+        _visitables.get("volumes").add(builder);
+        volumes.add(builder);
+    } else {
+        _visitables.get("volumes").add(builder);
+        volumes.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumes(int index,V1Volume item) {
     if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
     V1VolumeBuilder builder = new V1VolumeBuilder(item);
-    if (index < 0 || index >= volumes.size()) { _visitables.get("volumes").add(builder); volumes.add(builder); } else { _visitables.get("volumes").set(index, builder); volumes.set(index, builder);}
+    if (index < 0 || index >= volumes.size()) {
+        _visitables.get("volumes").add(builder);
+        volumes.add(builder);
+    } else {
+        _visitables.get("volumes").add(builder);
+        volumes.set(index, builder);
+    }
     return (A)this;
   }
   

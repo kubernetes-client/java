@@ -40,14 +40,26 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
   public A addToActive(int index,V1ObjectReference item) {
     if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= active.size()) { _visitables.get("active").add(builder); active.add(builder); } else { _visitables.get("active").add(index, builder); active.add(index, builder);}
+    if (index < 0 || index >= active.size()) {
+        _visitables.get("active").add(builder);
+        active.add(builder);
+    } else {
+        _visitables.get("active").add(builder);
+        active.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToActive(int index,V1ObjectReference item) {
     if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= active.size()) { _visitables.get("active").add(builder); active.add(builder); } else { _visitables.get("active").set(index, builder); active.set(index, builder);}
+    if (index < 0 || index >= active.size()) {
+        _visitables.get("active").add(builder);
+        active.add(builder);
+    } else {
+        _visitables.get("active").add(builder);
+        active.set(index, builder);
+    }
     return (A)this;
   }
   

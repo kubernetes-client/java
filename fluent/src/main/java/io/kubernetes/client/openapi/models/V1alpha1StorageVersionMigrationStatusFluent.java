@@ -37,14 +37,26 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends V1alpha1Stora
   public A addToConditions(int index,V1alpha1MigrationCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1alpha1MigrationConditionBuilder>();}
     V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1alpha1MigrationCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1alpha1MigrationConditionBuilder>();}
     V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

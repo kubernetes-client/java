@@ -31,6 +31,7 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
   private Long observedGeneration;
   private Integer readyReplicas;
   private Integer replicas;
+  private Integer terminatingReplicas;
   private Integer unavailableReplicas;
   private Integer updatedReplicas;
   
@@ -43,6 +44,7 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
           this.withObservedGeneration(instance.getObservedGeneration());
           this.withReadyReplicas(instance.getReadyReplicas());
           this.withReplicas(instance.getReplicas());
+          this.withTerminatingReplicas(instance.getTerminatingReplicas());
           this.withUnavailableReplicas(instance.getUnavailableReplicas());
           this.withUpdatedReplicas(instance.getUpdatedReplicas());
         }
@@ -77,14 +79,26 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
   public A addToConditions(int index,V1DeploymentCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
     V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1DeploymentCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
     V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -264,6 +278,19 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
     return this.replicas != null;
   }
   
+  public Integer getTerminatingReplicas() {
+    return this.terminatingReplicas;
+  }
+  
+  public A withTerminatingReplicas(Integer terminatingReplicas) {
+    this.terminatingReplicas = terminatingReplicas;
+    return (A) this;
+  }
+  
+  public boolean hasTerminatingReplicas() {
+    return this.terminatingReplicas != null;
+  }
+  
   public Integer getUnavailableReplicas() {
     return this.unavailableReplicas;
   }
@@ -301,13 +328,14 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
     if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
     if (!java.util.Objects.equals(readyReplicas, that.readyReplicas)) return false;
     if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+    if (!java.util.Objects.equals(terminatingReplicas, that.terminatingReplicas)) return false;
     if (!java.util.Objects.equals(unavailableReplicas, that.unavailableReplicas)) return false;
     if (!java.util.Objects.equals(updatedReplicas, that.updatedReplicas)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(availableReplicas,  collisionCount,  conditions,  observedGeneration,  readyReplicas,  replicas,  unavailableReplicas,  updatedReplicas,  super.hashCode());
+    return java.util.Objects.hash(availableReplicas,  collisionCount,  conditions,  observedGeneration,  readyReplicas,  replicas,  terminatingReplicas,  unavailableReplicas,  updatedReplicas,  super.hashCode());
   }
   
   public String toString() {
@@ -319,6 +347,7 @@ public class V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> ext
     if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (readyReplicas != null) { sb.append("readyReplicas:"); sb.append(readyReplicas + ","); }
     if (replicas != null) { sb.append("replicas:"); sb.append(replicas + ","); }
+    if (terminatingReplicas != null) { sb.append("terminatingReplicas:"); sb.append(terminatingReplicas + ","); }
     if (unavailableReplicas != null) { sb.append("unavailableReplicas:"); sb.append(unavailableReplicas + ","); }
     if (updatedReplicas != null) { sb.append("updatedReplicas:"); sb.append(updatedReplicas); }
     sb.append("}");

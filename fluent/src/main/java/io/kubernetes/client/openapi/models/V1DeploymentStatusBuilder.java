@@ -29,6 +29,7 @@ public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluent<V1Deploy
     buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setReadyReplicas(fluent.getReadyReplicas());
     buildable.setReplicas(fluent.getReplicas());
+    buildable.setTerminatingReplicas(fluent.getTerminatingReplicas());
     buildable.setUnavailableReplicas(fluent.getUnavailableReplicas());
     buildable.setUpdatedReplicas(fluent.getUpdatedReplicas());
     return buildable;

@@ -2,6 +2,7 @@ package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
 import java.lang.String;
 
@@ -25,6 +26,7 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
   private String machineID;
   private String operatingSystem;
   private String osImage;
+  private V1NodeSwapStatusBuilder swap;
   private String systemUUID;
   
   protected void copyInstance(V1NodeSystemInfo instance) {
@@ -39,6 +41,7 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
           this.withMachineID(instance.getMachineID());
           this.withOperatingSystem(instance.getOperatingSystem());
           this.withOsImage(instance.getOsImage());
+          this.withSwap(instance.getSwap());
           this.withSystemUUID(instance.getSystemUUID());
         }
   }
@@ -160,6 +163,46 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
     return this.osImage != null;
   }
   
+  public V1NodeSwapStatus buildSwap() {
+    return this.swap != null ? this.swap.build() : null;
+  }
+  
+  public A withSwap(V1NodeSwapStatus swap) {
+    this._visitables.remove("swap");
+    if (swap != null) {
+        this.swap = new V1NodeSwapStatusBuilder(swap);
+        this._visitables.get("swap").add(this.swap);
+    } else {
+        this.swap = null;
+        this._visitables.get("swap").remove(this.swap);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSwap() {
+    return this.swap != null;
+  }
+  
+  public SwapNested<A> withNewSwap() {
+    return new SwapNested(null);
+  }
+  
+  public SwapNested<A> withNewSwapLike(V1NodeSwapStatus item) {
+    return new SwapNested(item);
+  }
+  
+  public SwapNested<A> editSwap() {
+    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(null));
+  }
+  
+  public SwapNested<A> editOrNewSwap() {
+    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(new V1NodeSwapStatusBuilder().build()));
+  }
+  
+  public SwapNested<A> editOrNewSwapLike(V1NodeSwapStatus item) {
+    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(item));
+  }
+  
   public String getSystemUUID() {
     return this.systemUUID;
   }
@@ -187,12 +230,13 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
     if (!java.util.Objects.equals(machineID, that.machineID)) return false;
     if (!java.util.Objects.equals(operatingSystem, that.operatingSystem)) return false;
     if (!java.util.Objects.equals(osImage, that.osImage)) return false;
+    if (!java.util.Objects.equals(swap, that.swap)) return false;
     if (!java.util.Objects.equals(systemUUID, that.systemUUID)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(architecture,  bootID,  containerRuntimeVersion,  kernelVersion,  kubeProxyVersion,  kubeletVersion,  machineID,  operatingSystem,  osImage,  systemUUID,  super.hashCode());
+    return java.util.Objects.hash(architecture,  bootID,  containerRuntimeVersion,  kernelVersion,  kubeProxyVersion,  kubeletVersion,  machineID,  operatingSystem,  osImage,  swap,  systemUUID,  super.hashCode());
   }
   
   public String toString() {
@@ -207,10 +251,26 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
     if (machineID != null) { sb.append("machineID:"); sb.append(machineID + ","); }
     if (operatingSystem != null) { sb.append("operatingSystem:"); sb.append(operatingSystem + ","); }
     if (osImage != null) { sb.append("osImage:"); sb.append(osImage + ","); }
+    if (swap != null) { sb.append("swap:"); sb.append(swap + ","); }
     if (systemUUID != null) { sb.append("systemUUID:"); sb.append(systemUUID); }
     sb.append("}");
     return sb.toString();
   }
+  public class SwapNested<N> extends V1NodeSwapStatusFluent<SwapNested<N>> implements Nested<N>{
+    SwapNested(V1NodeSwapStatus item) {
+      this.builder = new V1NodeSwapStatusBuilder(this, item);
+    }
+    V1NodeSwapStatusBuilder builder;
+    
+    public N and() {
+      return (N) V1NodeSystemInfoFluent.this.withSwap(builder.build());
+    }
+    
+    public N endSwap() {
+      return and();
+    }
+    
   
+  }
 
 }

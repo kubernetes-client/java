@@ -35,14 +35,26 @@ public class V1DownwardAPIProjectionFluent<A extends V1DownwardAPIProjectionFlue
   public A addToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

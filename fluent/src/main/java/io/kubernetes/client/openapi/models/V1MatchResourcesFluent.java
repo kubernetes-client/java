@@ -43,14 +43,26 @@ public class V1MatchResourcesFluent<A extends V1MatchResourcesFluent<A>> extends
   public A addToExcludeResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.excludeResourceRules == null) {this.excludeResourceRules = new ArrayList<V1NamedRuleWithOperationsBuilder>();}
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= excludeResourceRules.size()) { _visitables.get("excludeResourceRules").add(builder); excludeResourceRules.add(builder); } else { _visitables.get("excludeResourceRules").add(index, builder); excludeResourceRules.add(index, builder);}
+    if (index < 0 || index >= excludeResourceRules.size()) {
+        _visitables.get("excludeResourceRules").add(builder);
+        excludeResourceRules.add(builder);
+    } else {
+        _visitables.get("excludeResourceRules").add(builder);
+        excludeResourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToExcludeResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.excludeResourceRules == null) {this.excludeResourceRules = new ArrayList<V1NamedRuleWithOperationsBuilder>();}
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= excludeResourceRules.size()) { _visitables.get("excludeResourceRules").add(builder); excludeResourceRules.add(builder); } else { _visitables.get("excludeResourceRules").set(index, builder); excludeResourceRules.set(index, builder);}
+    if (index < 0 || index >= excludeResourceRules.size()) {
+        _visitables.get("excludeResourceRules").add(builder);
+        excludeResourceRules.add(builder);
+    } else {
+        _visitables.get("excludeResourceRules").add(builder);
+        excludeResourceRules.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -287,14 +299,26 @@ public class V1MatchResourcesFluent<A extends V1MatchResourcesFluent<A>> extends
   public A addToResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1NamedRuleWithOperationsBuilder>();}
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").add(index, builder); resourceRules.add(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1NamedRuleWithOperationsBuilder>();}
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").set(index, builder); resourceRules.set(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.set(index, builder);
+    }
     return (A)this;
   }
   

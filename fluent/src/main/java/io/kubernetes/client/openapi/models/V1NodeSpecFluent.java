@@ -221,14 +221,26 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   public A addToTaints(int index,V1Taint item) {
     if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
     V1TaintBuilder builder = new V1TaintBuilder(item);
-    if (index < 0 || index >= taints.size()) { _visitables.get("taints").add(builder); taints.add(builder); } else { _visitables.get("taints").add(index, builder); taints.add(index, builder);}
+    if (index < 0 || index >= taints.size()) {
+        _visitables.get("taints").add(builder);
+        taints.add(builder);
+    } else {
+        _visitables.get("taints").add(builder);
+        taints.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTaints(int index,V1Taint item) {
     if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
     V1TaintBuilder builder = new V1TaintBuilder(item);
-    if (index < 0 || index >= taints.size()) { _visitables.get("taints").add(builder); taints.add(builder); } else { _visitables.get("taints").set(index, builder); taints.set(index, builder);}
+    if (index < 0 || index >= taints.size()) {
+        _visitables.get("taints").add(builder);
+        taints.add(builder);
+    } else {
+        _visitables.get("taints").add(builder);
+        taints.set(index, builder);
+    }
     return (A)this;
   }
   

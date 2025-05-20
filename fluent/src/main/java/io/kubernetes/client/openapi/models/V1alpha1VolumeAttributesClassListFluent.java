@@ -54,14 +54,26 @@ public class V1alpha1VolumeAttributesClassListFluent<A extends V1alpha1VolumeAtt
   public A addToItems(int index,V1alpha1VolumeAttributesClass item) {
     if (this.items == null) {this.items = new ArrayList<V1alpha1VolumeAttributesClassBuilder>();}
     V1alpha1VolumeAttributesClassBuilder builder = new V1alpha1VolumeAttributesClassBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1alpha1VolumeAttributesClass item) {
     if (this.items == null) {this.items = new ArrayList<V1alpha1VolumeAttributesClassBuilder>();}
     V1alpha1VolumeAttributesClassBuilder builder = new V1alpha1VolumeAttributesClassBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

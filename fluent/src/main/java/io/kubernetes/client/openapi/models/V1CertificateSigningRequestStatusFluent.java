@@ -99,14 +99,26 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   public A addToConditions(int index,V1CertificateSigningRequestCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1CertificateSigningRequestCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

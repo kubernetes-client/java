@@ -28,6 +28,7 @@ public class V1alpha3DeviceRequestAllocationResultBuilder extends V1alpha3Device
     buildable.setDriver(fluent.getDriver());
     buildable.setPool(fluent.getPool());
     buildable.setRequest(fluent.getRequest());
+    buildable.setTolerations(fluent.buildTolerations());
     return buildable;
   }
   

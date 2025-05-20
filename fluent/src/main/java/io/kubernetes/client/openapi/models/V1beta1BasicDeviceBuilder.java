@@ -23,8 +23,13 @@ public class V1beta1BasicDeviceBuilder extends V1beta1BasicDeviceFluent<V1beta1B
   
   public V1beta1BasicDevice build() {
     V1beta1BasicDevice buildable = new V1beta1BasicDevice();
+    buildable.setAllNodes(fluent.getAllNodes());
     buildable.setAttributes(fluent.getAttributes());
     buildable.setCapacity(fluent.getCapacity());
+    buildable.setConsumesCounters(fluent.buildConsumesCounters());
+    buildable.setNodeName(fluent.getNodeName());
+    buildable.setNodeSelector(fluent.buildNodeSelector());
+    buildable.setTaints(fluent.buildTaints());
     return buildable;
   }
   

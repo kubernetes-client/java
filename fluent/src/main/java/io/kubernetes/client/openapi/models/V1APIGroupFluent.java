@@ -124,14 +124,26 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").add(index, builder); serverAddressByClientCIDRs.add(index, builder);}
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(builder);
+    } else {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").set(index, builder); serverAddressByClientCIDRs.set(index, builder);}
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(builder);
+    } else {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -275,14 +287,26 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   public A addToVersions(int index,V1GroupVersionForDiscovery item) {
     if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
-    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").add(index, builder); versions.add(index, builder);}
+    if (index < 0 || index >= versions.size()) {
+        _visitables.get("versions").add(builder);
+        versions.add(builder);
+    } else {
+        _visitables.get("versions").add(builder);
+        versions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVersions(int index,V1GroupVersionForDiscovery item) {
     if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
-    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").set(index, builder); versions.set(index, builder);}
+    if (index < 0 || index >= versions.size()) {
+        _visitables.get("versions").add(builder);
+        versions.add(builder);
+    } else {
+        _visitables.get("versions").add(builder);
+        versions.set(index, builder);
+    }
     return (A)this;
   }
   

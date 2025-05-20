@@ -42,14 +42,26 @@ public class V1ResourceRequirementsFluent<A extends V1ResourceRequirementsFluent
   public A addToClaims(int index,V1ResourceClaim item) {
     if (this.claims == null) {this.claims = new ArrayList<V1ResourceClaimBuilder>();}
     V1ResourceClaimBuilder builder = new V1ResourceClaimBuilder(item);
-    if (index < 0 || index >= claims.size()) { _visitables.get("claims").add(builder); claims.add(builder); } else { _visitables.get("claims").add(index, builder); claims.add(index, builder);}
+    if (index < 0 || index >= claims.size()) {
+        _visitables.get("claims").add(builder);
+        claims.add(builder);
+    } else {
+        _visitables.get("claims").add(builder);
+        claims.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToClaims(int index,V1ResourceClaim item) {
     if (this.claims == null) {this.claims = new ArrayList<V1ResourceClaimBuilder>();}
     V1ResourceClaimBuilder builder = new V1ResourceClaimBuilder(item);
-    if (index < 0 || index >= claims.size()) { _visitables.get("claims").add(builder); claims.add(builder); } else { _visitables.get("claims").set(index, builder); claims.set(index, builder);}
+    if (index < 0 || index >= claims.size()) {
+        _visitables.get("claims").add(builder);
+        claims.add(builder);
+    } else {
+        _visitables.get("claims").add(builder);
+        claims.set(index, builder);
+    }
     return (A)this;
   }
   

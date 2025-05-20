@@ -25,6 +25,7 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluent<V1CSIDriverSpe
     V1CSIDriverSpec buildable = new V1CSIDriverSpec();
     buildable.setAttachRequired(fluent.getAttachRequired());
     buildable.setFsGroupPolicy(fluent.getFsGroupPolicy());
+    buildable.setNodeAllocatableUpdatePeriodSeconds(fluent.getNodeAllocatableUpdatePeriodSeconds());
     buildable.setPodInfoOnMount(fluent.getPodInfoOnMount());
     buildable.setRequiresRepublish(fluent.getRequiresRepublish());
     buildable.setSeLinuxMount(fluent.getSeLinuxMount());

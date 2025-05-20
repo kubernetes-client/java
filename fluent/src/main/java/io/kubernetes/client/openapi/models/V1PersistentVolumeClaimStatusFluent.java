@@ -257,14 +257,26 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   public A addToConditions(int index,V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
