@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,20 +52,22 @@ import io.kubernetes.client.openapi.JSON;
  * Describe a container image
  */
 @ApiModel(description = "Describe a container image")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ContainerImage {
   public static final String SERIALIZED_NAME_NAMES = "names";
   @SerializedName(SERIALIZED_NAME_NAMES)
+  @jakarta.annotation.Nullable
   private List<String> names = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SIZE_BYTES = "sizeBytes";
   @SerializedName(SERIALIZED_NAME_SIZE_BYTES)
+  @jakarta.annotation.Nullable
   private Long sizeBytes;
 
   public V1ContainerImage() {
   }
 
-  public V1ContainerImage names(List<String> names) {
+  public V1ContainerImage names(@jakarta.annotation.Nullable List<String> names) {
     this.names = names;
     return this;
   }
@@ -79,37 +80,37 @@ public class V1ContainerImage {
     return this;
   }
 
-   /**
+  /**
    * Names by which this image is known. e.g. [\&quot;kubernetes.example/hyperkube:v1.0.7\&quot;, \&quot;cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\&quot;]
    * @return names
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]")
   public List<String> getNames() {
     return names;
   }
 
-  public void setNames(List<String> names) {
+  public void setNames(@jakarta.annotation.Nullable List<String> names) {
     this.names = names;
   }
 
 
-  public V1ContainerImage sizeBytes(Long sizeBytes) {
+  public V1ContainerImage sizeBytes(@jakarta.annotation.Nullable Long sizeBytes) {
     this.sizeBytes = sizeBytes;
     return this;
   }
 
-   /**
+  /**
    * The size of the image in bytes.
    * @return sizeBytes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The size of the image in bytes.")
   public Long getSizeBytes() {
     return sizeBytes;
   }
 
-  public void setSizeBytes(Long sizeBytes) {
+  public void setSizeBytes(@jakarta.annotation.Nullable Long sizeBytes) {
     this.sizeBytes = sizeBytes;
   }
 
@@ -168,12 +169,12 @@ public class V1ContainerImage {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ContainerImage
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ContainerImage
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ContainerImage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1ContainerImage {
     }
   }
 
- /**
-  * Create an instance of V1ContainerImage given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ContainerImage
-  * @throws IOException if the JSON string is invalid with respect to V1ContainerImage
-  */
+  /**
+   * Create an instance of V1ContainerImage given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ContainerImage
+   * @throws IOException if the JSON string is invalid with respect to V1ContainerImage
+   */
   public static V1ContainerImage fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ContainerImage.class);
   }
 
- /**
-  * Convert an instance of V1ContainerImage to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ContainerImage to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

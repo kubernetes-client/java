@@ -31,6 +31,7 @@ public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> im
     buildable.setInitContainerStatuses(fluent.buildInitContainerStatuses());
     buildable.setMessage(fluent.getMessage());
     buildable.setNominatedNodeName(fluent.getNominatedNodeName());
+    buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setPhase(fluent.getPhase());
     buildable.setPodIP(fluent.getPodIP());
     buildable.setPodIPs(fluent.buildPodIPs());

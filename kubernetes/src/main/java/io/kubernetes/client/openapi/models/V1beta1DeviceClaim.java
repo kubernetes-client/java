@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,24 +55,27 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClaim defines how to request devices with a ResourceClaim.
  */
 @ApiModel(description = "DeviceClaim defines how to request devices with a ResourceClaim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1DeviceClaim {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
+  @jakarta.annotation.Nullable
   private List<V1beta1DeviceClaimConfiguration> config = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONSTRAINTS = "constraints";
   @SerializedName(SERIALIZED_NAME_CONSTRAINTS)
+  @jakarta.annotation.Nullable
   private List<V1beta1DeviceConstraint> constraints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUESTS = "requests";
   @SerializedName(SERIALIZED_NAME_REQUESTS)
+  @jakarta.annotation.Nullable
   private List<V1beta1DeviceRequest> requests = new ArrayList<>();
 
   public V1beta1DeviceClaim() {
   }
 
-  public V1beta1DeviceClaim config(List<V1beta1DeviceClaimConfiguration> config) {
+  public V1beta1DeviceClaim config(@jakarta.annotation.Nullable List<V1beta1DeviceClaimConfiguration> config) {
     this.config = config;
     return this;
   }
@@ -86,22 +88,22 @@ public class V1beta1DeviceClaim {
     return this;
   }
 
-   /**
+  /**
    * This field holds configuration for multiple potential drivers which could satisfy requests in this claim. It is ignored while allocating the claim.
    * @return config
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This field holds configuration for multiple potential drivers which could satisfy requests in this claim. It is ignored while allocating the claim.")
   public List<V1beta1DeviceClaimConfiguration> getConfig() {
     return config;
   }
 
-  public void setConfig(List<V1beta1DeviceClaimConfiguration> config) {
+  public void setConfig(@jakarta.annotation.Nullable List<V1beta1DeviceClaimConfiguration> config) {
     this.config = config;
   }
 
 
-  public V1beta1DeviceClaim constraints(List<V1beta1DeviceConstraint> constraints) {
+  public V1beta1DeviceClaim constraints(@jakarta.annotation.Nullable List<V1beta1DeviceConstraint> constraints) {
     this.constraints = constraints;
     return this;
   }
@@ -114,22 +116,22 @@ public class V1beta1DeviceClaim {
     return this;
   }
 
-   /**
+  /**
    * These constraints must be satisfied by the set of devices that get allocated for the claim.
    * @return constraints
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "These constraints must be satisfied by the set of devices that get allocated for the claim.")
   public List<V1beta1DeviceConstraint> getConstraints() {
     return constraints;
   }
 
-  public void setConstraints(List<V1beta1DeviceConstraint> constraints) {
+  public void setConstraints(@jakarta.annotation.Nullable List<V1beta1DeviceConstraint> constraints) {
     this.constraints = constraints;
   }
 
 
-  public V1beta1DeviceClaim requests(List<V1beta1DeviceRequest> requests) {
+  public V1beta1DeviceClaim requests(@jakarta.annotation.Nullable List<V1beta1DeviceRequest> requests) {
     this.requests = requests;
     return this;
   }
@@ -142,17 +144,17 @@ public class V1beta1DeviceClaim {
     return this;
   }
 
-   /**
+  /**
    * Requests represent individual requests for distinct devices which must all be satisfied. If empty, nothing needs to be allocated.
    * @return requests
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requests represent individual requests for distinct devices which must all be satisfied. If empty, nothing needs to be allocated.")
   public List<V1beta1DeviceRequest> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<V1beta1DeviceRequest> requests) {
+  public void setRequests(@jakarta.annotation.Nullable List<V1beta1DeviceRequest> requests) {
     this.requests = requests;
   }
 
@@ -214,12 +216,12 @@ public class V1beta1DeviceClaim {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1DeviceClaim
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1DeviceClaim
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1DeviceClaim.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -308,22 +310,22 @@ public class V1beta1DeviceClaim {
     }
   }
 
- /**
-  * Create an instance of V1beta1DeviceClaim given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1DeviceClaim
-  * @throws IOException if the JSON string is invalid with respect to V1beta1DeviceClaim
-  */
+  /**
+   * Create an instance of V1beta1DeviceClaim given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1DeviceClaim
+   * @throws IOException if the JSON string is invalid with respect to V1beta1DeviceClaim
+   */
   public static V1beta1DeviceClaim fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1DeviceClaim.class);
   }
 
- /**
-  * Convert an instance of V1beta1DeviceClaim to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1DeviceClaim to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

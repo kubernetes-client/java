@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,127 +50,132 @@ import io.kubernetes.client.openapi.JSON;
  * ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
  */
 @ApiModel(description = "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ConfigMapNodeConfigSource {
   public static final String SERIALIZED_NAME_KUBELET_CONFIG_KEY = "kubeletConfigKey";
   @SerializedName(SERIALIZED_NAME_KUBELET_CONFIG_KEY)
+  @jakarta.annotation.Nonnull
   private String kubeletConfigKey;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nonnull
   private String namespace;
 
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
   @SerializedName(SERIALIZED_NAME_RESOURCE_VERSION)
+  @jakarta.annotation.Nullable
   private String resourceVersion;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nullable
   private String uid;
 
   public V1ConfigMapNodeConfigSource() {
   }
 
-  public V1ConfigMapNodeConfigSource kubeletConfigKey(String kubeletConfigKey) {
+  public V1ConfigMapNodeConfigSource kubeletConfigKey(@jakarta.annotation.Nonnull String kubeletConfigKey) {
     this.kubeletConfigKey = kubeletConfigKey;
     return this;
   }
 
-   /**
+  /**
    * KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.
    * @return kubeletConfigKey
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.")
   public String getKubeletConfigKey() {
     return kubeletConfigKey;
   }
 
-  public void setKubeletConfigKey(String kubeletConfigKey) {
+  public void setKubeletConfigKey(@jakarta.annotation.Nonnull String kubeletConfigKey) {
     this.kubeletConfigKey = kubeletConfigKey;
   }
 
 
-  public V1ConfigMapNodeConfigSource name(String name) {
+  public V1ConfigMapNodeConfigSource name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1ConfigMapNodeConfigSource namespace(String namespace) {
+  public V1ConfigMapNodeConfigSource namespace(@jakarta.annotation.Nonnull String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nonnull String namespace) {
     this.namespace = namespace;
   }
 
 
-  public V1ConfigMapNodeConfigSource resourceVersion(String resourceVersion) {
+  public V1ConfigMapNodeConfigSource resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return this;
   }
 
-   /**
+  /**
    * ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
    * @return resourceVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.")
   public String getResourceVersion() {
     return resourceVersion;
   }
 
-  public void setResourceVersion(String resourceVersion) {
+  public void setResourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
   }
 
 
-  public V1ConfigMapNodeConfigSource uid(String uid) {
+  public V1ConfigMapNodeConfigSource uid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
   }
 
@@ -242,12 +246,12 @@ public class V1ConfigMapNodeConfigSource {
     openapiRequiredFields.add("namespace");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ConfigMapNodeConfigSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ConfigMapNodeConfigSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ConfigMapNodeConfigSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -316,22 +320,22 @@ public class V1ConfigMapNodeConfigSource {
     }
   }
 
- /**
-  * Create an instance of V1ConfigMapNodeConfigSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ConfigMapNodeConfigSource
-  * @throws IOException if the JSON string is invalid with respect to V1ConfigMapNodeConfigSource
-  */
+  /**
+   * Create an instance of V1ConfigMapNodeConfigSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ConfigMapNodeConfigSource
+   * @throws IOException if the JSON string is invalid with respect to V1ConfigMapNodeConfigSource
+   */
   public static V1ConfigMapNodeConfigSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ConfigMapNodeConfigSource.class);
   }
 
- /**
-  * Convert an instance of V1ConfigMapNodeConfigSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ConfigMapNodeConfigSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

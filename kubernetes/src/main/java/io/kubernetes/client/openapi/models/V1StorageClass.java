@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,72 +56,82 @@ import io.kubernetes.client.openapi.JSON;
  * StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
  */
 @ApiModel(description = "StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1StorageClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ALLOW_VOLUME_EXPANSION = "allowVolumeExpansion";
   @SerializedName(SERIALIZED_NAME_ALLOW_VOLUME_EXPANSION)
+  @jakarta.annotation.Nullable
   private Boolean allowVolumeExpansion;
 
   public static final String SERIALIZED_NAME_ALLOWED_TOPOLOGIES = "allowedTopologies";
   @SerializedName(SERIALIZED_NAME_ALLOWED_TOPOLOGIES)
+  @jakarta.annotation.Nullable
   private List<V1TopologySelectorTerm> allowedTopologies = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_MOUNT_OPTIONS = "mountOptions";
   @SerializedName(SERIALIZED_NAME_MOUNT_OPTIONS)
+  @jakarta.annotation.Nullable
   private List<String> mountOptions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  @jakarta.annotation.Nullable
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROVISIONER = "provisioner";
   @SerializedName(SERIALIZED_NAME_PROVISIONER)
+  @jakarta.annotation.Nonnull
   private String provisioner;
 
   public static final String SERIALIZED_NAME_RECLAIM_POLICY = "reclaimPolicy";
   @SerializedName(SERIALIZED_NAME_RECLAIM_POLICY)
+  @jakarta.annotation.Nullable
   private String reclaimPolicy;
 
   public static final String SERIALIZED_NAME_VOLUME_BINDING_MODE = "volumeBindingMode";
   @SerializedName(SERIALIZED_NAME_VOLUME_BINDING_MODE)
+  @jakarta.annotation.Nullable
   private String volumeBindingMode;
 
   public V1StorageClass() {
   }
 
-  public V1StorageClass allowVolumeExpansion(Boolean allowVolumeExpansion) {
+  public V1StorageClass allowVolumeExpansion(@jakarta.annotation.Nullable Boolean allowVolumeExpansion) {
     this.allowVolumeExpansion = allowVolumeExpansion;
     return this;
   }
 
-   /**
+  /**
    * allowVolumeExpansion shows whether the storage class allow volume expand.
    * @return allowVolumeExpansion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "allowVolumeExpansion shows whether the storage class allow volume expand.")
   public Boolean getAllowVolumeExpansion() {
     return allowVolumeExpansion;
   }
 
-  public void setAllowVolumeExpansion(Boolean allowVolumeExpansion) {
+  public void setAllowVolumeExpansion(@jakarta.annotation.Nullable Boolean allowVolumeExpansion) {
     this.allowVolumeExpansion = allowVolumeExpansion;
   }
 
 
-  public V1StorageClass allowedTopologies(List<V1TopologySelectorTerm> allowedTopologies) {
+  public V1StorageClass allowedTopologies(@jakarta.annotation.Nullable List<V1TopologySelectorTerm> allowedTopologies) {
     this.allowedTopologies = allowedTopologies;
     return this;
   }
@@ -135,82 +144,82 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
     return this;
   }
 
-   /**
+  /**
    * allowedTopologies restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
    * @return allowedTopologies
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "allowedTopologies restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.")
   public List<V1TopologySelectorTerm> getAllowedTopologies() {
     return allowedTopologies;
   }
 
-  public void setAllowedTopologies(List<V1TopologySelectorTerm> allowedTopologies) {
+  public void setAllowedTopologies(@jakarta.annotation.Nullable List<V1TopologySelectorTerm> allowedTopologies) {
     this.allowedTopologies = allowedTopologies;
   }
 
 
-  public V1StorageClass apiVersion(String apiVersion) {
+  public V1StorageClass apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1StorageClass kind(String kind) {
+  public V1StorageClass kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1StorageClass metadata(V1ObjectMeta metadata) {
+  public V1StorageClass metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1StorageClass mountOptions(List<String> mountOptions) {
+  public V1StorageClass mountOptions(@jakarta.annotation.Nullable List<String> mountOptions) {
     this.mountOptions = mountOptions;
     return this;
   }
@@ -223,22 +232,22 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
     return this;
   }
 
-   /**
+  /**
    * mountOptions controls the mountOptions for dynamically provisioned PersistentVolumes of this storage class. e.g. [\&quot;ro\&quot;, \&quot;soft\&quot;]. Not validated - mount of the PVs will simply fail if one is invalid.
    * @return mountOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "mountOptions controls the mountOptions for dynamically provisioned PersistentVolumes of this storage class. e.g. [\"ro\", \"soft\"]. Not validated - mount of the PVs will simply fail if one is invalid.")
   public List<String> getMountOptions() {
     return mountOptions;
   }
 
-  public void setMountOptions(List<String> mountOptions) {
+  public void setMountOptions(@jakarta.annotation.Nullable List<String> mountOptions) {
     this.mountOptions = mountOptions;
   }
 
 
-  public V1StorageClass parameters(Map<String, String> parameters) {
+  public V1StorageClass parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -251,77 +260,77 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
     return this;
   }
 
-   /**
+  /**
    * parameters holds the parameters for the provisioner that should create volumes of this storage class.
    * @return parameters
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "parameters holds the parameters for the provisioner that should create volumes of this storage class.")
   public Map<String, String> getParameters() {
     return parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public V1StorageClass provisioner(String provisioner) {
+  public V1StorageClass provisioner(@jakarta.annotation.Nonnull String provisioner) {
     this.provisioner = provisioner;
     return this;
   }
 
-   /**
+  /**
    * provisioner indicates the type of the provisioner.
    * @return provisioner
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "provisioner indicates the type of the provisioner.")
   public String getProvisioner() {
     return provisioner;
   }
 
-  public void setProvisioner(String provisioner) {
+  public void setProvisioner(@jakarta.annotation.Nonnull String provisioner) {
     this.provisioner = provisioner;
   }
 
 
-  public V1StorageClass reclaimPolicy(String reclaimPolicy) {
+  public V1StorageClass reclaimPolicy(@jakarta.annotation.Nullable String reclaimPolicy) {
     this.reclaimPolicy = reclaimPolicy;
     return this;
   }
 
-   /**
+  /**
    * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class. Defaults to Delete.
    * @return reclaimPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class. Defaults to Delete.")
   public String getReclaimPolicy() {
     return reclaimPolicy;
   }
 
-  public void setReclaimPolicy(String reclaimPolicy) {
+  public void setReclaimPolicy(@jakarta.annotation.Nullable String reclaimPolicy) {
     this.reclaimPolicy = reclaimPolicy;
   }
 
 
-  public V1StorageClass volumeBindingMode(String volumeBindingMode) {
+  public V1StorageClass volumeBindingMode(@jakarta.annotation.Nullable String volumeBindingMode) {
     this.volumeBindingMode = volumeBindingMode;
     return this;
   }
 
-   /**
+  /**
    * volumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.  When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
    * @return volumeBindingMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.  When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.")
   public String getVolumeBindingMode() {
     return volumeBindingMode;
   }
 
-  public void setVolumeBindingMode(String volumeBindingMode) {
+  public void setVolumeBindingMode(@jakarta.annotation.Nullable String volumeBindingMode) {
     this.volumeBindingMode = volumeBindingMode;
   }
 
@@ -405,12 +414,12 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
     openapiRequiredFields.add("provisioner");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1StorageClass
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1StorageClass
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1StorageClass.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -501,22 +510,22 @@ public class V1StorageClass implements io.kubernetes.client.common.KubernetesObj
     }
   }
 
- /**
-  * Create an instance of V1StorageClass given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1StorageClass
-  * @throws IOException if the JSON string is invalid with respect to V1StorageClass
-  */
+  /**
+   * Create an instance of V1StorageClass given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1StorageClass
+   * @throws IOException if the JSON string is invalid with respect to V1StorageClass
+   */
   public static V1StorageClass fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1StorageClass.class);
   }
 
- /**
-  * Convert an instance of V1StorageClass to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1StorageClass to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

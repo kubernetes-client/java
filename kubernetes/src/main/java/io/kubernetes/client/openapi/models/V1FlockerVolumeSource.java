@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1FlockerVolumeSource {
   public static final String SERIALIZED_NAME_DATASET_NAME = "datasetName";
   @SerializedName(SERIALIZED_NAME_DATASET_NAME)
+  @jakarta.annotation.Nullable
   private String datasetName;
 
   public static final String SERIALIZED_NAME_DATASET_U_U_I_D = "datasetUUID";
   @SerializedName(SERIALIZED_NAME_DATASET_U_U_I_D)
+  @jakarta.annotation.Nullable
   private String datasetUUID;
 
   public V1FlockerVolumeSource() {
   }
 
-  public V1FlockerVolumeSource datasetName(String datasetName) {
+  public V1FlockerVolumeSource datasetName(@jakarta.annotation.Nullable String datasetName) {
     this.datasetName = datasetName;
     return this;
   }
 
-   /**
+  /**
    * datasetName is Name of the dataset stored as metadata -&gt; name on the dataset for Flocker should be considered as deprecated
    * @return datasetName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
   public String getDatasetName() {
     return datasetName;
   }
 
-  public void setDatasetName(String datasetName) {
+  public void setDatasetName(@jakarta.annotation.Nullable String datasetName) {
     this.datasetName = datasetName;
   }
 
 
-  public V1FlockerVolumeSource datasetUUID(String datasetUUID) {
+  public V1FlockerVolumeSource datasetUUID(@jakarta.annotation.Nullable String datasetUUID) {
     this.datasetUUID = datasetUUID;
     return this;
   }
 
-   /**
+  /**
    * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
    * @return datasetUUID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset")
   public String getDatasetUUID() {
     return datasetUUID;
   }
 
-  public void setDatasetUUID(String datasetUUID) {
+  public void setDatasetUUID(@jakarta.annotation.Nullable String datasetUUID) {
     this.datasetUUID = datasetUUID;
   }
 
@@ -158,12 +159,12 @@ public class V1FlockerVolumeSource {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1FlockerVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1FlockerVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FlockerVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +217,22 @@ public class V1FlockerVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1FlockerVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1FlockerVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1FlockerVolumeSource
-  */
+  /**
+   * Create an instance of V1FlockerVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1FlockerVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1FlockerVolumeSource
+   */
   public static V1FlockerVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1FlockerVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1FlockerVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1FlockerVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

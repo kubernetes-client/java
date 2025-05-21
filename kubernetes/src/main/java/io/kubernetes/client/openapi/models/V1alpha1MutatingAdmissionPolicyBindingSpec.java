@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,79 +52,82 @@ import io.kubernetes.client.openapi.JSON;
  * MutatingAdmissionPolicyBindingSpec is the specification of the MutatingAdmissionPolicyBinding.
  */
 @ApiModel(description = "MutatingAdmissionPolicyBindingSpec is the specification of the MutatingAdmissionPolicyBinding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1MutatingAdmissionPolicyBindingSpec {
   public static final String SERIALIZED_NAME_MATCH_RESOURCES = "matchResources";
   @SerializedName(SERIALIZED_NAME_MATCH_RESOURCES)
+  @jakarta.annotation.Nullable
   private V1alpha1MatchResources matchResources;
 
   public static final String SERIALIZED_NAME_PARAM_REF = "paramRef";
   @SerializedName(SERIALIZED_NAME_PARAM_REF)
+  @jakarta.annotation.Nullable
   private V1alpha1ParamRef paramRef;
 
   public static final String SERIALIZED_NAME_POLICY_NAME = "policyName";
   @SerializedName(SERIALIZED_NAME_POLICY_NAME)
+  @jakarta.annotation.Nullable
   private String policyName;
 
   public V1alpha1MutatingAdmissionPolicyBindingSpec() {
   }
 
-  public V1alpha1MutatingAdmissionPolicyBindingSpec matchResources(V1alpha1MatchResources matchResources) {
+  public V1alpha1MutatingAdmissionPolicyBindingSpec matchResources(@jakarta.annotation.Nullable V1alpha1MatchResources matchResources) {
     this.matchResources = matchResources;
     return this;
   }
 
-   /**
+  /**
    * Get matchResources
    * @return matchResources
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha1MatchResources getMatchResources() {
     return matchResources;
   }
 
-  public void setMatchResources(V1alpha1MatchResources matchResources) {
+  public void setMatchResources(@jakarta.annotation.Nullable V1alpha1MatchResources matchResources) {
     this.matchResources = matchResources;
   }
 
 
-  public V1alpha1MutatingAdmissionPolicyBindingSpec paramRef(V1alpha1ParamRef paramRef) {
+  public V1alpha1MutatingAdmissionPolicyBindingSpec paramRef(@jakarta.annotation.Nullable V1alpha1ParamRef paramRef) {
     this.paramRef = paramRef;
     return this;
   }
 
-   /**
+  /**
    * Get paramRef
    * @return paramRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha1ParamRef getParamRef() {
     return paramRef;
   }
 
-  public void setParamRef(V1alpha1ParamRef paramRef) {
+  public void setParamRef(@jakarta.annotation.Nullable V1alpha1ParamRef paramRef) {
     this.paramRef = paramRef;
   }
 
 
-  public V1alpha1MutatingAdmissionPolicyBindingSpec policyName(String policyName) {
+  public V1alpha1MutatingAdmissionPolicyBindingSpec policyName(@jakarta.annotation.Nullable String policyName) {
     this.policyName = policyName;
     return this;
   }
 
-   /**
+  /**
    * policyName references a MutatingAdmissionPolicy name which the MutatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.
    * @return policyName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "policyName references a MutatingAdmissionPolicy name which the MutatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.")
   public String getPolicyName() {
     return policyName;
   }
 
-  public void setPolicyName(String policyName) {
+  public void setPolicyName(@jakarta.annotation.Nullable String policyName) {
     this.policyName = policyName;
   }
 
@@ -187,12 +189,12 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1MutatingAdmissionPolicyBindingSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1MutatingAdmissionPolicyBindingSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1MutatingAdmissionPolicyBindingSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -250,22 +252,22 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpec {
     }
   }
 
- /**
-  * Create an instance of V1alpha1MutatingAdmissionPolicyBindingSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1MutatingAdmissionPolicyBindingSpec
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1MutatingAdmissionPolicyBindingSpec
-  */
+  /**
+   * Create an instance of V1alpha1MutatingAdmissionPolicyBindingSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1MutatingAdmissionPolicyBindingSpec
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1MutatingAdmissionPolicyBindingSpec
+   */
   public static V1alpha1MutatingAdmissionPolicyBindingSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1MutatingAdmissionPolicyBindingSpec.class);
   }
 
- /**
-  * Convert an instance of V1alpha1MutatingAdmissionPolicyBindingSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1MutatingAdmissionPolicyBindingSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

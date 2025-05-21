@@ -51,14 +51,26 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
   public A addToSources(int index,V1VolumeProjection item) {
     if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-    if (index < 0 || index >= sources.size()) { _visitables.get("sources").add(builder); sources.add(builder); } else { _visitables.get("sources").add(index, builder); sources.add(index, builder);}
+    if (index < 0 || index >= sources.size()) {
+        _visitables.get("sources").add(builder);
+        sources.add(builder);
+    } else {
+        _visitables.get("sources").add(builder);
+        sources.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSources(int index,V1VolumeProjection item) {
     if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-    if (index < 0 || index >= sources.size()) { _visitables.get("sources").add(builder); sources.add(builder); } else { _visitables.get("sources").set(index, builder); sources.set(index, builder);}
+    if (index < 0 || index >= sources.size()) {
+        _visitables.get("sources").add(builder);
+        sources.add(builder);
+    } else {
+        _visitables.get("sources").add(builder);
+        sources.set(index, builder);
+    }
     return (A)this;
   }
   

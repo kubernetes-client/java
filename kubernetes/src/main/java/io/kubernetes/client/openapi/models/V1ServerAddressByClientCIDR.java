@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
  */
 @ApiModel(description = "ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServerAddressByClientCIDR {
   public static final String SERIALIZED_NAME_CLIENT_C_I_D_R = "clientCIDR";
   @SerializedName(SERIALIZED_NAME_CLIENT_C_I_D_R)
+  @jakarta.annotation.Nonnull
   private String clientCIDR;
 
   public static final String SERIALIZED_NAME_SERVER_ADDRESS = "serverAddress";
   @SerializedName(SERIALIZED_NAME_SERVER_ADDRESS)
+  @jakarta.annotation.Nonnull
   private String serverAddress;
 
   public V1ServerAddressByClientCIDR() {
   }
 
-  public V1ServerAddressByClientCIDR clientCIDR(String clientCIDR) {
+  public V1ServerAddressByClientCIDR clientCIDR(@jakarta.annotation.Nonnull String clientCIDR) {
     this.clientCIDR = clientCIDR;
     return this;
   }
 
-   /**
+  /**
    * The CIDR with which clients can match their IP to figure out the server address that they should use.
    * @return clientCIDR
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The CIDR with which clients can match their IP to figure out the server address that they should use.")
   public String getClientCIDR() {
     return clientCIDR;
   }
 
-  public void setClientCIDR(String clientCIDR) {
+  public void setClientCIDR(@jakarta.annotation.Nonnull String clientCIDR) {
     this.clientCIDR = clientCIDR;
   }
 
 
-  public V1ServerAddressByClientCIDR serverAddress(String serverAddress) {
+  public V1ServerAddressByClientCIDR serverAddress(@jakarta.annotation.Nonnull String serverAddress) {
     this.serverAddress = serverAddress;
     return this;
   }
 
-   /**
+  /**
    * Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
    * @return serverAddress
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.")
   public String getServerAddress() {
     return serverAddress;
   }
 
-  public void setServerAddress(String serverAddress) {
+  public void setServerAddress(@jakarta.annotation.Nonnull String serverAddress) {
     this.serverAddress = serverAddress;
   }
 
@@ -160,12 +161,12 @@ public class V1ServerAddressByClientCIDR {
     openapiRequiredFields.add("serverAddress");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ServerAddressByClientCIDR
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ServerAddressByClientCIDR
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServerAddressByClientCIDR.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1ServerAddressByClientCIDR {
     }
   }
 
- /**
-  * Create an instance of V1ServerAddressByClientCIDR given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ServerAddressByClientCIDR
-  * @throws IOException if the JSON string is invalid with respect to V1ServerAddressByClientCIDR
-  */
+  /**
+   * Create an instance of V1ServerAddressByClientCIDR given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ServerAddressByClientCIDR
+   * @throws IOException if the JSON string is invalid with respect to V1ServerAddressByClientCIDR
+   */
   public static V1ServerAddressByClientCIDR fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ServerAddressByClientCIDR.class);
   }
 
- /**
-  * Convert an instance of V1ServerAddressByClientCIDR to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ServerAddressByClientCIDR to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

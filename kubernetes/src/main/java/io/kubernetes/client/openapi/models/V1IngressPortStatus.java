@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * IngressPortStatus represents the error condition of a service port
  */
 @ApiModel(description = "IngressPortStatus represents the error condition of a service port")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressPortStatus {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
+  @jakarta.annotation.Nullable
   private String error;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nonnull
   private Integer port;
 
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
+  @jakarta.annotation.Nonnull
   private String protocol;
 
   public V1IngressPortStatus() {
   }
 
-  public V1IngressPortStatus error(String error) {
+  public V1IngressPortStatus error(@jakarta.annotation.Nullable String error) {
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use   CamelCase names - cloud provider specific error values must have names that comply with the   format foo.example.com/CamelCase.
    * @return error
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use   CamelCase names - cloud provider specific error values must have names that comply with the   format foo.example.com/CamelCase.")
   public String getError() {
     return error;
   }
 
-  public void setError(String error) {
+  public void setError(@jakarta.annotation.Nullable String error) {
     this.error = error;
   }
 
 
-  public V1IngressPortStatus port(Integer port) {
+  public V1IngressPortStatus port(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * port is the port number of the ingress port.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "port is the port number of the ingress port.")
   public Integer getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
   }
 
 
-  public V1IngressPortStatus protocol(String protocol) {
+  public V1IngressPortStatus protocol(@jakarta.annotation.Nonnull String protocol) {
     this.protocol = protocol;
     return this;
   }
 
-   /**
+  /**
    * protocol is the protocol of the ingress port. The supported values are: \&quot;TCP\&quot;, \&quot;UDP\&quot;, \&quot;SCTP\&quot;
    * @return protocol
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "protocol is the protocol of the ingress port. The supported values are: \"TCP\", \"UDP\", \"SCTP\"")
   public String getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(String protocol) {
+  public void setProtocol(@jakarta.annotation.Nonnull String protocol) {
     this.protocol = protocol;
   }
 
@@ -187,12 +189,12 @@ public class V1IngressPortStatus {
     openapiRequiredFields.add("protocol");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IngressPortStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IngressPortStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressPortStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -252,22 +254,22 @@ public class V1IngressPortStatus {
     }
   }
 
- /**
-  * Create an instance of V1IngressPortStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IngressPortStatus
-  * @throws IOException if the JSON string is invalid with respect to V1IngressPortStatus
-  */
+  /**
+   * Create an instance of V1IngressPortStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IngressPortStatus
+   * @throws IOException if the JSON string is invalid with respect to V1IngressPortStatus
+   */
   public static V1IngressPortStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IngressPortStatus.class);
   }
 
- /**
-  * Convert an instance of V1IngressPortStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IngressPortStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

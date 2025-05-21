@@ -35,14 +35,26 @@ public class V1TopologySelectorTermFluent<A extends V1TopologySelectorTermFluent
   public A addToMatchLabelExpressions(int index,V1TopologySelectorLabelRequirement item) {
     if (this.matchLabelExpressions == null) {this.matchLabelExpressions = new ArrayList<V1TopologySelectorLabelRequirementBuilder>();}
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-    if (index < 0 || index >= matchLabelExpressions.size()) { _visitables.get("matchLabelExpressions").add(builder); matchLabelExpressions.add(builder); } else { _visitables.get("matchLabelExpressions").add(index, builder); matchLabelExpressions.add(index, builder);}
+    if (index < 0 || index >= matchLabelExpressions.size()) {
+        _visitables.get("matchLabelExpressions").add(builder);
+        matchLabelExpressions.add(builder);
+    } else {
+        _visitables.get("matchLabelExpressions").add(builder);
+        matchLabelExpressions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMatchLabelExpressions(int index,V1TopologySelectorLabelRequirement item) {
     if (this.matchLabelExpressions == null) {this.matchLabelExpressions = new ArrayList<V1TopologySelectorLabelRequirementBuilder>();}
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-    if (index < 0 || index >= matchLabelExpressions.size()) { _visitables.get("matchLabelExpressions").add(builder); matchLabelExpressions.add(builder); } else { _visitables.get("matchLabelExpressions").set(index, builder); matchLabelExpressions.set(index, builder);}
+    if (index < 0 || index >= matchLabelExpressions.size()) {
+        _visitables.get("matchLabelExpressions").add(builder);
+        matchLabelExpressions.add(builder);
+    } else {
+        _visitables.get("matchLabelExpressions").add(builder);
+        matchLabelExpressions.set(index, builder);
+    }
     return (A)this;
   }
   

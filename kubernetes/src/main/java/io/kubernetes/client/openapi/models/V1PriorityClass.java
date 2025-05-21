@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,175 +51,182 @@ import io.kubernetes.client.openapi.JSON;
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
  */
 @ApiModel(description = "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PriorityClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @jakarta.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_GLOBAL_DEFAULT = "globalDefault";
   @SerializedName(SERIALIZED_NAME_GLOBAL_DEFAULT)
+  @jakarta.annotation.Nullable
   private Boolean globalDefault;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_PREEMPTION_POLICY = "preemptionPolicy";
   @SerializedName(SERIALIZED_NAME_PREEMPTION_POLICY)
+  @jakarta.annotation.Nullable
   private String preemptionPolicy;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
+  @jakarta.annotation.Nonnull
   private Integer value;
 
   public V1PriorityClass() {
   }
 
-  public V1PriorityClass apiVersion(String apiVersion) {
+  public V1PriorityClass apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1PriorityClass description(String description) {
+  public V1PriorityClass description(@jakarta.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "description is an arbitrary string that usually provides guidelines on when this priority class should be used.")
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public V1PriorityClass globalDefault(Boolean globalDefault) {
+  public V1PriorityClass globalDefault(@jakarta.annotation.Nullable Boolean globalDefault) {
     this.globalDefault = globalDefault;
     return this;
   }
 
-   /**
+  /**
    * globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as &#x60;globalDefault&#x60;. However, if more than one PriorityClasses exists with their &#x60;globalDefault&#x60; field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
    * @return globalDefault
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.")
   public Boolean getGlobalDefault() {
     return globalDefault;
   }
 
-  public void setGlobalDefault(Boolean globalDefault) {
+  public void setGlobalDefault(@jakarta.annotation.Nullable Boolean globalDefault) {
     this.globalDefault = globalDefault;
   }
 
 
-  public V1PriorityClass kind(String kind) {
+  public V1PriorityClass kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1PriorityClass metadata(V1ObjectMeta metadata) {
+  public V1PriorityClass metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1PriorityClass preemptionPolicy(String preemptionPolicy) {
+  public V1PriorityClass preemptionPolicy(@jakarta.annotation.Nullable String preemptionPolicy) {
     this.preemptionPolicy = preemptionPolicy;
     return this;
   }
 
-   /**
+  /**
    * preemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    * @return preemptionPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "preemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.")
   public String getPreemptionPolicy() {
     return preemptionPolicy;
   }
 
-  public void setPreemptionPolicy(String preemptionPolicy) {
+  public void setPreemptionPolicy(@jakarta.annotation.Nullable String preemptionPolicy) {
     this.preemptionPolicy = preemptionPolicy;
   }
 
 
-  public V1PriorityClass value(Integer value) {
+  public V1PriorityClass value(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.")
   public Integer getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
   }
 
@@ -295,12 +301,12 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PriorityClass
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PriorityClass
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PriorityClass.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -370,22 +376,22 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
     }
   }
 
- /**
-  * Create an instance of V1PriorityClass given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PriorityClass
-  * @throws IOException if the JSON string is invalid with respect to V1PriorityClass
-  */
+  /**
+   * Create an instance of V1PriorityClass given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PriorityClass
+   * @throws IOException if the JSON string is invalid with respect to V1PriorityClass
+   */
   public static V1PriorityClass fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PriorityClass.class);
   }
 
- /**
-  * Convert an instance of V1PriorityClass to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PriorityClass to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

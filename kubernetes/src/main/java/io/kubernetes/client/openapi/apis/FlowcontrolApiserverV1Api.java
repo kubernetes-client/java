@@ -78,7 +78,7 @@ public class FlowcontrolApiserverV1Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createFlowSchemaCall(V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFlowSchemaCall(@jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -143,7 +143,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFlowSchemaValidateBeforeCall(V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFlowSchemaValidateBeforeCall(@jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createFlowSchema(Async)");
@@ -154,13 +154,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> createFlowSchemaWithHttpInfo(V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1FlowSchema> createFlowSchemaWithHttpInfo(@jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createFlowSchemaValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createFlowSchemaAsync(V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call createFlowSchemaAsync(@jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFlowSchemaValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -169,13 +169,18 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIcreateFlowSchemaRequest {
+        @jakarta.annotation.Nonnull
         private final V1FlowSchema body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateFlowSchemaRequest(V1FlowSchema body) {
+        private APIcreateFlowSchemaRequest(@jakarta.annotation.Nonnull V1FlowSchema body) {
             this.body = body;
         }
 
@@ -184,7 +189,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateFlowSchemaRequest
          */
-        public APIcreateFlowSchemaRequest pretty(String pretty) {
+        public APIcreateFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -194,7 +199,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateFlowSchemaRequest
          */
-        public APIcreateFlowSchemaRequest dryRun(String dryRun) {
+        public APIcreateFlowSchemaRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -204,7 +209,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateFlowSchemaRequest
          */
-        public APIcreateFlowSchemaRequest fieldManager(String fieldManager) {
+        public APIcreateFlowSchemaRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -214,7 +219,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateFlowSchemaRequest
          */
-        public APIcreateFlowSchemaRequest fieldValidation(String fieldValidation) {
+        public APIcreateFlowSchemaRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -225,7 +230,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -242,7 +248,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -260,7 +267,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -278,7 +286,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -297,7 +306,8 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIcreateFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -305,10 +315,10 @@ public class FlowcontrolApiserverV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateFlowSchemaRequest createFlowSchema(V1FlowSchema body) {
+    public APIcreateFlowSchemaRequest createFlowSchema(@jakarta.annotation.Nonnull V1FlowSchema body) {
         return new APIcreateFlowSchemaRequest(body);
     }
-    private okhttp3.Call createPriorityLevelConfigurationCall(V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPriorityLevelConfigurationCall(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -373,7 +383,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPriorityLevelConfigurationValidateBeforeCall(V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createPriorityLevelConfiguration(Async)");
@@ -384,13 +394,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> createPriorityLevelConfigurationWithHttpInfo(V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> createPriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createPriorityLevelConfigurationValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createPriorityLevelConfigurationAsync(V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call createPriorityLevelConfigurationAsync(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPriorityLevelConfigurationValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -399,13 +409,18 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIcreatePriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nonnull
         private final V1PriorityLevelConfiguration body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreatePriorityLevelConfigurationRequest(V1PriorityLevelConfiguration body) {
+        private APIcreatePriorityLevelConfigurationRequest(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
             this.body = body;
         }
 
@@ -414,7 +429,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreatePriorityLevelConfigurationRequest
          */
-        public APIcreatePriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIcreatePriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -424,7 +439,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreatePriorityLevelConfigurationRequest
          */
-        public APIcreatePriorityLevelConfigurationRequest dryRun(String dryRun) {
+        public APIcreatePriorityLevelConfigurationRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -434,7 +449,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreatePriorityLevelConfigurationRequest
          */
-        public APIcreatePriorityLevelConfigurationRequest fieldManager(String fieldManager) {
+        public APIcreatePriorityLevelConfigurationRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -444,7 +459,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreatePriorityLevelConfigurationRequest
          */
-        public APIcreatePriorityLevelConfigurationRequest fieldValidation(String fieldValidation) {
+        public APIcreatePriorityLevelConfigurationRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -455,7 +470,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -472,7 +488,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -490,7 +507,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -508,7 +526,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -527,7 +546,8 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIcreatePriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -535,10 +555,10 @@ public class FlowcontrolApiserverV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreatePriorityLevelConfigurationRequest createPriorityLevelConfiguration(V1PriorityLevelConfiguration body) {
+    public APIcreatePriorityLevelConfigurationRequest createPriorityLevelConfiguration(@jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
         return new APIcreatePriorityLevelConfigurationRequest(body);
     }
-    private okhttp3.Call deleteCollectionFlowSchemaCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionFlowSchemaCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,19 +663,19 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionFlowSchemaValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionFlowSchemaValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionFlowSchemaCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionFlowSchemaWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionFlowSchemaWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionFlowSchemaValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionFlowSchemaAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionFlowSchemaAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionFlowSchemaValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -664,20 +684,35 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIdeleteCollectionFlowSchemaRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionFlowSchemaRequest() {
@@ -688,7 +723,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest pretty(String pretty) {
+        public APIdeleteCollectionFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -698,7 +733,7 @@ public class FlowcontrolApiserverV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest _continue(String _continue) {
+        public APIdeleteCollectionFlowSchemaRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -708,7 +743,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest dryRun(String dryRun) {
+        public APIdeleteCollectionFlowSchemaRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -718,7 +753,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionFlowSchemaRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -728,7 +763,7 @@ public class FlowcontrolApiserverV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionFlowSchemaRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -738,7 +773,7 @@ public class FlowcontrolApiserverV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionFlowSchemaRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -748,7 +783,7 @@ public class FlowcontrolApiserverV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionFlowSchemaRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -758,7 +793,7 @@ public class FlowcontrolApiserverV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest limit(Integer limit) {
+        public APIdeleteCollectionFlowSchemaRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -768,7 +803,7 @@ public class FlowcontrolApiserverV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionFlowSchemaRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -778,7 +813,7 @@ public class FlowcontrolApiserverV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionFlowSchemaRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -788,7 +823,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionFlowSchemaRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -798,7 +833,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionFlowSchemaRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -808,7 +843,7 @@ public class FlowcontrolApiserverV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionFlowSchemaRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -818,7 +853,7 @@ public class FlowcontrolApiserverV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionFlowSchemaRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -828,7 +863,7 @@ public class FlowcontrolApiserverV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionFlowSchemaRequest
          */
-        public APIdeleteCollectionFlowSchemaRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionFlowSchemaRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -839,7 +874,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -854,7 +890,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -870,7 +907,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -886,7 +924,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -902,7 +941,8 @@ public class FlowcontrolApiserverV1Api {
      * delete collection of FlowSchema
      * @return APIdeleteCollectionFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -911,7 +951,7 @@ public class FlowcontrolApiserverV1Api {
     public APIdeleteCollectionFlowSchemaRequest deleteCollectionFlowSchema() {
         return new APIdeleteCollectionFlowSchemaRequest();
     }
-    private okhttp3.Call deleteCollectionPriorityLevelConfigurationCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionPriorityLevelConfigurationCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1016,19 +1056,19 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionPriorityLevelConfigurationValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionPriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionPriorityLevelConfigurationCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionPriorityLevelConfigurationWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionPriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionPriorityLevelConfigurationValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionPriorityLevelConfigurationAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionPriorityLevelConfigurationAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionPriorityLevelConfigurationValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1037,20 +1077,35 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIdeleteCollectionPriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionPriorityLevelConfigurationRequest() {
@@ -1061,7 +1116,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1071,7 +1126,7 @@ public class FlowcontrolApiserverV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest _continue(String _continue) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1081,7 +1136,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest dryRun(String dryRun) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1091,7 +1146,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1101,7 +1156,7 @@ public class FlowcontrolApiserverV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1111,7 +1166,7 @@ public class FlowcontrolApiserverV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1121,7 +1176,7 @@ public class FlowcontrolApiserverV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1131,7 +1186,7 @@ public class FlowcontrolApiserverV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest limit(Integer limit) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1141,7 +1196,7 @@ public class FlowcontrolApiserverV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1151,7 +1206,7 @@ public class FlowcontrolApiserverV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1161,7 +1216,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1171,7 +1226,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1181,7 +1236,7 @@ public class FlowcontrolApiserverV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1191,7 +1246,7 @@ public class FlowcontrolApiserverV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1201,7 +1256,7 @@ public class FlowcontrolApiserverV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionPriorityLevelConfigurationRequest
          */
-        public APIdeleteCollectionPriorityLevelConfigurationRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionPriorityLevelConfigurationRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1212,7 +1267,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1227,7 +1283,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1243,7 +1300,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1259,7 +1317,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1275,7 +1334,8 @@ public class FlowcontrolApiserverV1Api {
      * delete collection of PriorityLevelConfiguration
      * @return APIdeleteCollectionPriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1284,7 +1344,7 @@ public class FlowcontrolApiserverV1Api {
     public APIdeleteCollectionPriorityLevelConfigurationRequest deleteCollectionPriorityLevelConfiguration() {
         return new APIdeleteCollectionPriorityLevelConfigurationRequest();
     }
-    private okhttp3.Call deleteFlowSchemaCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFlowSchemaCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1358,7 +1418,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFlowSchemaValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFlowSchemaValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteFlowSchema(Async)");
@@ -1369,13 +1429,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteFlowSchemaWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteFlowSchemaWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteFlowSchemaValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteFlowSchemaAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteFlowSchemaAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteFlowSchemaValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1384,16 +1444,24 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIdeleteFlowSchemaRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteFlowSchemaRequest(String name) {
+        private APIdeleteFlowSchemaRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1402,7 +1470,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest pretty(String pretty) {
+        public APIdeleteFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1412,7 +1480,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest dryRun(String dryRun) {
+        public APIdeleteFlowSchemaRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1422,7 +1490,7 @@ public class FlowcontrolApiserverV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteFlowSchemaRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1432,7 +1500,7 @@ public class FlowcontrolApiserverV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteFlowSchemaRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1442,7 +1510,7 @@ public class FlowcontrolApiserverV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteFlowSchemaRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1452,7 +1520,7 @@ public class FlowcontrolApiserverV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteFlowSchemaRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1462,7 +1530,7 @@ public class FlowcontrolApiserverV1Api {
          * @param body  (optional)
          * @return APIdeleteFlowSchemaRequest
          */
-        public APIdeleteFlowSchemaRequest body(V1DeleteOptions body) {
+        public APIdeleteFlowSchemaRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1473,7 +1541,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1489,7 +1558,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1506,7 +1576,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1523,7 +1594,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1541,17 +1613,18 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the FlowSchema (required)
      * @return APIdeleteFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteFlowSchemaRequest deleteFlowSchema(String name) {
+    public APIdeleteFlowSchemaRequest deleteFlowSchema(@jakarta.annotation.Nonnull String name) {
         return new APIdeleteFlowSchemaRequest(name);
     }
-    private okhttp3.Call deletePriorityLevelConfigurationCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePriorityLevelConfigurationCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1625,7 +1698,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePriorityLevelConfigurationValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deletePriorityLevelConfiguration(Async)");
@@ -1636,13 +1709,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1Status> deletePriorityLevelConfigurationWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deletePriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deletePriorityLevelConfigurationValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deletePriorityLevelConfigurationAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deletePriorityLevelConfigurationAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deletePriorityLevelConfigurationValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1651,16 +1724,24 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIdeletePriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeletePriorityLevelConfigurationRequest(String name) {
+        private APIdeletePriorityLevelConfigurationRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1669,7 +1750,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIdeletePriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1679,7 +1760,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest dryRun(String dryRun) {
+        public APIdeletePriorityLevelConfigurationRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1689,7 +1770,7 @@ public class FlowcontrolApiserverV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeletePriorityLevelConfigurationRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1699,7 +1780,7 @@ public class FlowcontrolApiserverV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeletePriorityLevelConfigurationRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1709,7 +1790,7 @@ public class FlowcontrolApiserverV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeletePriorityLevelConfigurationRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1719,7 +1800,7 @@ public class FlowcontrolApiserverV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest propagationPolicy(String propagationPolicy) {
+        public APIdeletePriorityLevelConfigurationRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1729,7 +1810,7 @@ public class FlowcontrolApiserverV1Api {
          * @param body  (optional)
          * @return APIdeletePriorityLevelConfigurationRequest
          */
-        public APIdeletePriorityLevelConfigurationRequest body(V1DeleteOptions body) {
+        public APIdeletePriorityLevelConfigurationRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1740,7 +1821,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1756,7 +1838,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1773,7 +1856,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1790,7 +1874,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1808,14 +1893,15 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the PriorityLevelConfiguration (required)
      * @return APIdeletePriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeletePriorityLevelConfigurationRequest deletePriorityLevelConfiguration(String name) {
+    public APIdeletePriorityLevelConfigurationRequest deletePriorityLevelConfiguration(@jakarta.annotation.Nonnull String name) {
         return new APIdeletePriorityLevelConfigurationRequest(name);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -1897,7 +1983,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1912,7 +1999,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1928,7 +2016,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1944,7 +2033,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1960,7 +2050,8 @@ public class FlowcontrolApiserverV1Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1969,7 +2060,7 @@ public class FlowcontrolApiserverV1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listFlowSchemaCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFlowSchemaCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2064,19 +2155,19 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFlowSchemaValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFlowSchemaValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listFlowSchemaCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1FlowSchemaList> listFlowSchemaWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1FlowSchemaList> listFlowSchemaWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listFlowSchemaValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1FlowSchemaList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listFlowSchemaAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1FlowSchemaList> _callback) throws ApiException {
+    private okhttp3.Call listFlowSchemaAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1FlowSchemaList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listFlowSchemaValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchemaList>(){}.getType();
@@ -2085,16 +2176,27 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIlistFlowSchemaRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistFlowSchemaRequest() {
@@ -2105,7 +2207,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest pretty(String pretty) {
+        public APIlistFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2115,7 +2217,7 @@ public class FlowcontrolApiserverV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistFlowSchemaRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2125,7 +2227,7 @@ public class FlowcontrolApiserverV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest _continue(String _continue) {
+        public APIlistFlowSchemaRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2135,7 +2237,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest fieldSelector(String fieldSelector) {
+        public APIlistFlowSchemaRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2145,7 +2247,7 @@ public class FlowcontrolApiserverV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest labelSelector(String labelSelector) {
+        public APIlistFlowSchemaRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2155,7 +2257,7 @@ public class FlowcontrolApiserverV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest limit(Integer limit) {
+        public APIlistFlowSchemaRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2165,7 +2267,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest resourceVersion(String resourceVersion) {
+        public APIlistFlowSchemaRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2175,7 +2277,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistFlowSchemaRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2185,7 +2287,7 @@ public class FlowcontrolApiserverV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistFlowSchemaRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2195,7 +2297,7 @@ public class FlowcontrolApiserverV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistFlowSchemaRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2205,7 +2307,7 @@ public class FlowcontrolApiserverV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistFlowSchemaRequest
          */
-        public APIlistFlowSchemaRequest watch(Boolean watch) {
+        public APIlistFlowSchemaRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2216,7 +2318,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2231,7 +2334,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchemaList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2247,7 +2351,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchemaList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2263,7 +2368,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2279,7 +2385,8 @@ public class FlowcontrolApiserverV1Api {
      * list or watch objects of kind FlowSchema
      * @return APIlistFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2288,7 +2395,7 @@ public class FlowcontrolApiserverV1Api {
     public APIlistFlowSchemaRequest listFlowSchema() {
         return new APIlistFlowSchemaRequest();
     }
-    private okhttp3.Call listPriorityLevelConfigurationCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPriorityLevelConfigurationCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2383,19 +2490,19 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPriorityLevelConfigurationValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listPriorityLevelConfigurationCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1PriorityLevelConfigurationList> listPriorityLevelConfigurationWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfigurationList> listPriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listPriorityLevelConfigurationValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfigurationList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPriorityLevelConfigurationAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1PriorityLevelConfigurationList> _callback) throws ApiException {
+    private okhttp3.Call listPriorityLevelConfigurationAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1PriorityLevelConfigurationList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listPriorityLevelConfigurationValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfigurationList>(){}.getType();
@@ -2404,16 +2511,27 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIlistPriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistPriorityLevelConfigurationRequest() {
@@ -2424,7 +2542,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIlistPriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2434,7 +2552,7 @@ public class FlowcontrolApiserverV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistPriorityLevelConfigurationRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2444,7 +2562,7 @@ public class FlowcontrolApiserverV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest _continue(String _continue) {
+        public APIlistPriorityLevelConfigurationRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2454,7 +2572,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest fieldSelector(String fieldSelector) {
+        public APIlistPriorityLevelConfigurationRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2464,7 +2582,7 @@ public class FlowcontrolApiserverV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest labelSelector(String labelSelector) {
+        public APIlistPriorityLevelConfigurationRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2474,7 +2592,7 @@ public class FlowcontrolApiserverV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest limit(Integer limit) {
+        public APIlistPriorityLevelConfigurationRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2484,7 +2602,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest resourceVersion(String resourceVersion) {
+        public APIlistPriorityLevelConfigurationRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2494,7 +2612,7 @@ public class FlowcontrolApiserverV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistPriorityLevelConfigurationRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2504,7 +2622,7 @@ public class FlowcontrolApiserverV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistPriorityLevelConfigurationRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2514,7 +2632,7 @@ public class FlowcontrolApiserverV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistPriorityLevelConfigurationRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2524,7 +2642,7 @@ public class FlowcontrolApiserverV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistPriorityLevelConfigurationRequest
          */
-        public APIlistPriorityLevelConfigurationRequest watch(Boolean watch) {
+        public APIlistPriorityLevelConfigurationRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2535,7 +2653,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2550,7 +2669,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfigurationList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2566,7 +2686,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfigurationList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2582,7 +2703,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2598,7 +2720,8 @@ public class FlowcontrolApiserverV1Api {
      * list or watch objects of kind PriorityLevelConfiguration
      * @return APIlistPriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2607,7 +2730,7 @@ public class FlowcontrolApiserverV1Api {
     public APIlistPriorityLevelConfigurationRequest listPriorityLevelConfiguration() {
         return new APIlistPriorityLevelConfigurationRequest();
     }
-    private okhttp3.Call patchFlowSchemaCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2677,7 +2800,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFlowSchemaValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchFlowSchema(Async)");
@@ -2693,13 +2816,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> patchFlowSchemaWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1FlowSchema> patchFlowSchemaWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchFlowSchemaValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchFlowSchemaAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchFlowSchemaValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -2708,15 +2831,22 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIpatchFlowSchemaRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchFlowSchemaRequest(String name, V1Patch body) {
+        private APIpatchFlowSchemaRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2726,7 +2856,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchFlowSchemaRequest
          */
-        public APIpatchFlowSchemaRequest pretty(String pretty) {
+        public APIpatchFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2736,7 +2866,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchFlowSchemaRequest
          */
-        public APIpatchFlowSchemaRequest dryRun(String dryRun) {
+        public APIpatchFlowSchemaRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2746,7 +2876,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchFlowSchemaRequest
          */
-        public APIpatchFlowSchemaRequest fieldManager(String fieldManager) {
+        public APIpatchFlowSchemaRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -2756,7 +2886,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchFlowSchemaRequest
          */
-        public APIpatchFlowSchemaRequest fieldValidation(String fieldValidation) {
+        public APIpatchFlowSchemaRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -2766,7 +2896,7 @@ public class FlowcontrolApiserverV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchFlowSchemaRequest
          */
-        public APIpatchFlowSchemaRequest force(Boolean force) {
+        public APIpatchFlowSchemaRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -2777,7 +2907,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2793,7 +2924,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2810,7 +2942,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2827,7 +2960,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2846,17 +2980,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIpatchFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchFlowSchemaRequest patchFlowSchema(String name, V1Patch body) {
+    public APIpatchFlowSchemaRequest patchFlowSchema(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchFlowSchemaRequest(name, body);
     }
-    private okhttp3.Call patchFlowSchemaStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2926,7 +3061,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFlowSchemaStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchFlowSchemaStatus(Async)");
@@ -2942,13 +3077,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> patchFlowSchemaStatusWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1FlowSchema> patchFlowSchemaStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchFlowSchemaStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchFlowSchemaStatusAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call patchFlowSchemaStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchFlowSchemaStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -2957,15 +3092,22 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIpatchFlowSchemaStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchFlowSchemaStatusRequest(String name, V1Patch body) {
+        private APIpatchFlowSchemaStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2975,7 +3117,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
-        public APIpatchFlowSchemaStatusRequest pretty(String pretty) {
+        public APIpatchFlowSchemaStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2985,7 +3127,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
-        public APIpatchFlowSchemaStatusRequest dryRun(String dryRun) {
+        public APIpatchFlowSchemaStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2995,7 +3137,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
-        public APIpatchFlowSchemaStatusRequest fieldManager(String fieldManager) {
+        public APIpatchFlowSchemaStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3005,7 +3147,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
-        public APIpatchFlowSchemaStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchFlowSchemaStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3015,7 +3157,7 @@ public class FlowcontrolApiserverV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchFlowSchemaStatusRequest
          */
-        public APIpatchFlowSchemaStatusRequest force(Boolean force) {
+        public APIpatchFlowSchemaStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3026,7 +3168,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3042,7 +3185,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3059,7 +3203,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3076,7 +3221,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3095,17 +3241,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIpatchFlowSchemaStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchFlowSchemaStatusRequest patchFlowSchemaStatus(String name, V1Patch body) {
+    public APIpatchFlowSchemaStatusRequest patchFlowSchemaStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchFlowSchemaStatusRequest(name, body);
     }
-    private okhttp3.Call patchPriorityLevelConfigurationCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3175,7 +3322,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPriorityLevelConfigurationValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchPriorityLevelConfiguration(Async)");
@@ -3191,13 +3338,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> patchPriorityLevelConfigurationWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> patchPriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchPriorityLevelConfigurationValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchPriorityLevelConfigurationAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchPriorityLevelConfigurationValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -3206,15 +3353,22 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIpatchPriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchPriorityLevelConfigurationRequest(String name, V1Patch body) {
+        private APIpatchPriorityLevelConfigurationRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -3224,7 +3378,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
-        public APIpatchPriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIpatchPriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3234,7 +3388,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
-        public APIpatchPriorityLevelConfigurationRequest dryRun(String dryRun) {
+        public APIpatchPriorityLevelConfigurationRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3244,7 +3398,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
-        public APIpatchPriorityLevelConfigurationRequest fieldManager(String fieldManager) {
+        public APIpatchPriorityLevelConfigurationRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3254,7 +3408,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
-        public APIpatchPriorityLevelConfigurationRequest fieldValidation(String fieldValidation) {
+        public APIpatchPriorityLevelConfigurationRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3264,7 +3418,7 @@ public class FlowcontrolApiserverV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchPriorityLevelConfigurationRequest
          */
-        public APIpatchPriorityLevelConfigurationRequest force(Boolean force) {
+        public APIpatchPriorityLevelConfigurationRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3275,7 +3429,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3291,7 +3446,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3308,7 +3464,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3325,7 +3482,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3344,17 +3502,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIpatchPriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchPriorityLevelConfigurationRequest patchPriorityLevelConfiguration(String name, V1Patch body) {
+    public APIpatchPriorityLevelConfigurationRequest patchPriorityLevelConfiguration(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchPriorityLevelConfigurationRequest(name, body);
     }
-    private okhttp3.Call patchPriorityLevelConfigurationStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3424,7 +3583,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPriorityLevelConfigurationStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchPriorityLevelConfigurationStatus(Async)");
@@ -3440,13 +3599,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> patchPriorityLevelConfigurationStatusWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> patchPriorityLevelConfigurationStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchPriorityLevelConfigurationStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchPriorityLevelConfigurationStatusAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call patchPriorityLevelConfigurationStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchPriorityLevelConfigurationStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -3455,15 +3614,22 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIpatchPriorityLevelConfigurationStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchPriorityLevelConfigurationStatusRequest(String name, V1Patch body) {
+        private APIpatchPriorityLevelConfigurationStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -3473,7 +3639,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
-        public APIpatchPriorityLevelConfigurationStatusRequest pretty(String pretty) {
+        public APIpatchPriorityLevelConfigurationStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3483,7 +3649,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
-        public APIpatchPriorityLevelConfigurationStatusRequest dryRun(String dryRun) {
+        public APIpatchPriorityLevelConfigurationStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3493,7 +3659,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
-        public APIpatchPriorityLevelConfigurationStatusRequest fieldManager(String fieldManager) {
+        public APIpatchPriorityLevelConfigurationStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3503,7 +3669,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
-        public APIpatchPriorityLevelConfigurationStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchPriorityLevelConfigurationStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3513,7 +3679,7 @@ public class FlowcontrolApiserverV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchPriorityLevelConfigurationStatusRequest
          */
-        public APIpatchPriorityLevelConfigurationStatusRequest force(Boolean force) {
+        public APIpatchPriorityLevelConfigurationStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3524,7 +3690,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3540,7 +3707,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3557,7 +3725,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3574,7 +3743,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3593,17 +3763,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIpatchPriorityLevelConfigurationStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchPriorityLevelConfigurationStatusRequest patchPriorityLevelConfigurationStatus(String name, V1Patch body) {
+    public APIpatchPriorityLevelConfigurationStatusRequest patchPriorityLevelConfigurationStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchPriorityLevelConfigurationStatusRequest(name, body);
     }
-    private okhttp3.Call readFlowSchemaCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3656,7 +3827,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readFlowSchemaValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readFlowSchema(Async)");
@@ -3667,13 +3838,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> readFlowSchemaWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1FlowSchema> readFlowSchemaWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readFlowSchemaValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readFlowSchemaAsync(String name, String pretty, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readFlowSchemaValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -3682,10 +3853,12 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreadFlowSchemaRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadFlowSchemaRequest(String name) {
+        private APIreadFlowSchemaRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3694,7 +3867,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadFlowSchemaRequest
          */
-        public APIreadFlowSchemaRequest pretty(String pretty) {
+        public APIreadFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3705,7 +3878,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3720,7 +3894,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3736,7 +3911,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3752,7 +3928,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3769,16 +3946,17 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the FlowSchema (required)
      * @return APIreadFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadFlowSchemaRequest readFlowSchema(String name) {
+    public APIreadFlowSchemaRequest readFlowSchema(@jakarta.annotation.Nonnull String name) {
         return new APIreadFlowSchemaRequest(name);
     }
-    private okhttp3.Call readFlowSchemaStatusCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3831,7 +4009,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readFlowSchemaStatusValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readFlowSchemaStatus(Async)");
@@ -3842,13 +4020,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> readFlowSchemaStatusWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1FlowSchema> readFlowSchemaStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readFlowSchemaStatusValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readFlowSchemaStatusAsync(String name, String pretty, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call readFlowSchemaStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readFlowSchemaStatusValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -3857,10 +4035,12 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreadFlowSchemaStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadFlowSchemaStatusRequest(String name) {
+        private APIreadFlowSchemaStatusRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3869,7 +4049,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadFlowSchemaStatusRequest
          */
-        public APIreadFlowSchemaStatusRequest pretty(String pretty) {
+        public APIreadFlowSchemaStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3880,7 +4060,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3895,7 +4076,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3911,7 +4093,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3927,7 +4110,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3944,16 +4128,17 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the FlowSchema (required)
      * @return APIreadFlowSchemaStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadFlowSchemaStatusRequest readFlowSchemaStatus(String name) {
+    public APIreadFlowSchemaStatusRequest readFlowSchemaStatus(@jakarta.annotation.Nonnull String name) {
         return new APIreadFlowSchemaStatusRequest(name);
     }
-    private okhttp3.Call readPriorityLevelConfigurationCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4006,7 +4191,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readPriorityLevelConfigurationValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readPriorityLevelConfiguration(Async)");
@@ -4017,13 +4202,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> readPriorityLevelConfigurationWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> readPriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readPriorityLevelConfigurationValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readPriorityLevelConfigurationAsync(String name, String pretty, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readPriorityLevelConfigurationValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -4032,10 +4217,12 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreadPriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadPriorityLevelConfigurationRequest(String name) {
+        private APIreadPriorityLevelConfigurationRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -4044,7 +4231,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPriorityLevelConfigurationRequest
          */
-        public APIreadPriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIreadPriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4055,7 +4242,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4070,7 +4258,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4086,7 +4275,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4102,7 +4292,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4119,16 +4310,17 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the PriorityLevelConfiguration (required)
      * @return APIreadPriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadPriorityLevelConfigurationRequest readPriorityLevelConfiguration(String name) {
+    public APIreadPriorityLevelConfigurationRequest readPriorityLevelConfiguration(@jakarta.annotation.Nonnull String name) {
         return new APIreadPriorityLevelConfigurationRequest(name);
     }
-    private okhttp3.Call readPriorityLevelConfigurationStatusCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4181,7 +4373,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readPriorityLevelConfigurationStatusValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readPriorityLevelConfigurationStatus(Async)");
@@ -4192,13 +4384,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> readPriorityLevelConfigurationStatusWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> readPriorityLevelConfigurationStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readPriorityLevelConfigurationStatusValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readPriorityLevelConfigurationStatusAsync(String name, String pretty, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call readPriorityLevelConfigurationStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readPriorityLevelConfigurationStatusValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -4207,10 +4399,12 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreadPriorityLevelConfigurationStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadPriorityLevelConfigurationStatusRequest(String name) {
+        private APIreadPriorityLevelConfigurationStatusRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -4219,7 +4413,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadPriorityLevelConfigurationStatusRequest
          */
-        public APIreadPriorityLevelConfigurationStatusRequest pretty(String pretty) {
+        public APIreadPriorityLevelConfigurationStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4230,7 +4424,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4245,7 +4440,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4261,7 +4457,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4277,7 +4474,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4294,16 +4492,17 @@ public class FlowcontrolApiserverV1Api {
      * @param name name of the PriorityLevelConfiguration (required)
      * @return APIreadPriorityLevelConfigurationStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadPriorityLevelConfigurationStatusRequest readPriorityLevelConfigurationStatus(String name) {
+    public APIreadPriorityLevelConfigurationStatusRequest readPriorityLevelConfigurationStatus(@jakarta.annotation.Nonnull String name) {
         return new APIreadPriorityLevelConfigurationStatusRequest(name);
     }
-    private okhttp3.Call replaceFlowSchemaCall(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4369,7 +4568,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceFlowSchemaValidateBeforeCall(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceFlowSchema(Async)");
@@ -4385,13 +4584,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> replaceFlowSchemaWithHttpInfo(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1FlowSchema> replaceFlowSchemaWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceFlowSchemaValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceFlowSchemaAsync(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceFlowSchemaValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -4400,14 +4599,20 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreplaceFlowSchemaRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1FlowSchema body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceFlowSchemaRequest(String name, V1FlowSchema body) {
+        private APIreplaceFlowSchemaRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body) {
             this.name = name;
             this.body = body;
         }
@@ -4417,7 +4622,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceFlowSchemaRequest
          */
-        public APIreplaceFlowSchemaRequest pretty(String pretty) {
+        public APIreplaceFlowSchemaRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4427,7 +4632,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceFlowSchemaRequest
          */
-        public APIreplaceFlowSchemaRequest dryRun(String dryRun) {
+        public APIreplaceFlowSchemaRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4437,7 +4642,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceFlowSchemaRequest
          */
-        public APIreplaceFlowSchemaRequest fieldManager(String fieldManager) {
+        public APIreplaceFlowSchemaRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4447,7 +4652,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceFlowSchemaRequest
          */
-        public APIreplaceFlowSchemaRequest fieldValidation(String fieldValidation) {
+        public APIreplaceFlowSchemaRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4458,7 +4663,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4474,7 +4680,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4491,7 +4698,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4508,7 +4716,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4527,17 +4736,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIreplaceFlowSchemaRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceFlowSchemaRequest replaceFlowSchema(String name, V1FlowSchema body) {
+    public APIreplaceFlowSchemaRequest replaceFlowSchema(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body) {
         return new APIreplaceFlowSchemaRequest(name, body);
     }
-    private okhttp3.Call replaceFlowSchemaStatusCall(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4603,7 +4813,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceFlowSchemaStatusValidateBeforeCall(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceFlowSchemaStatus(Async)");
@@ -4619,13 +4829,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1FlowSchema> replaceFlowSchemaStatusWithHttpInfo(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1FlowSchema> replaceFlowSchemaStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceFlowSchemaStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceFlowSchemaStatusAsync(String name, V1FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
+    private okhttp3.Call replaceFlowSchemaStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1FlowSchema> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceFlowSchemaStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1FlowSchema>(){}.getType();
@@ -4634,14 +4844,20 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreplaceFlowSchemaStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1FlowSchema body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceFlowSchemaStatusRequest(String name, V1FlowSchema body) {
+        private APIreplaceFlowSchemaStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body) {
             this.name = name;
             this.body = body;
         }
@@ -4651,7 +4867,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceFlowSchemaStatusRequest
          */
-        public APIreplaceFlowSchemaStatusRequest pretty(String pretty) {
+        public APIreplaceFlowSchemaStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4661,7 +4877,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceFlowSchemaStatusRequest
          */
-        public APIreplaceFlowSchemaStatusRequest dryRun(String dryRun) {
+        public APIreplaceFlowSchemaStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4671,7 +4887,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceFlowSchemaStatusRequest
          */
-        public APIreplaceFlowSchemaStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceFlowSchemaStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4681,7 +4897,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceFlowSchemaStatusRequest
          */
-        public APIreplaceFlowSchemaStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceFlowSchemaStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4692,7 +4908,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4708,7 +4925,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1FlowSchema
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4725,7 +4943,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1FlowSchema&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4742,7 +4961,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4761,17 +4981,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIreplaceFlowSchemaStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceFlowSchemaStatusRequest replaceFlowSchemaStatus(String name, V1FlowSchema body) {
+    public APIreplaceFlowSchemaStatusRequest replaceFlowSchemaStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1FlowSchema body) {
         return new APIreplaceFlowSchemaStatusRequest(name, body);
     }
-    private okhttp3.Call replacePriorityLevelConfigurationCall(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4837,7 +5058,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replacePriorityLevelConfigurationValidateBeforeCall(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replacePriorityLevelConfiguration(Async)");
@@ -4853,13 +5074,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> replacePriorityLevelConfigurationWithHttpInfo(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> replacePriorityLevelConfigurationWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replacePriorityLevelConfigurationValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replacePriorityLevelConfigurationAsync(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replacePriorityLevelConfigurationValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -4868,14 +5089,20 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreplacePriorityLevelConfigurationRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1PriorityLevelConfiguration body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplacePriorityLevelConfigurationRequest(String name, V1PriorityLevelConfiguration body) {
+        private APIreplacePriorityLevelConfigurationRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
             this.name = name;
             this.body = body;
         }
@@ -4885,7 +5112,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePriorityLevelConfigurationRequest
          */
-        public APIreplacePriorityLevelConfigurationRequest pretty(String pretty) {
+        public APIreplacePriorityLevelConfigurationRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4895,7 +5122,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplacePriorityLevelConfigurationRequest
          */
-        public APIreplacePriorityLevelConfigurationRequest dryRun(String dryRun) {
+        public APIreplacePriorityLevelConfigurationRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4905,7 +5132,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplacePriorityLevelConfigurationRequest
          */
-        public APIreplacePriorityLevelConfigurationRequest fieldManager(String fieldManager) {
+        public APIreplacePriorityLevelConfigurationRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4915,7 +5142,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplacePriorityLevelConfigurationRequest
          */
-        public APIreplacePriorityLevelConfigurationRequest fieldValidation(String fieldValidation) {
+        public APIreplacePriorityLevelConfigurationRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4926,7 +5153,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4942,7 +5170,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4959,7 +5188,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4976,7 +5206,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4995,17 +5226,18 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIreplacePriorityLevelConfigurationRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplacePriorityLevelConfigurationRequest replacePriorityLevelConfiguration(String name, V1PriorityLevelConfiguration body) {
+    public APIreplacePriorityLevelConfigurationRequest replacePriorityLevelConfiguration(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
         return new APIreplacePriorityLevelConfigurationRequest(name, body);
     }
-    private okhttp3.Call replacePriorityLevelConfigurationStatusCall(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5071,7 +5303,7 @@ public class FlowcontrolApiserverV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replacePriorityLevelConfigurationStatusValidateBeforeCall(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replacePriorityLevelConfigurationStatus(Async)");
@@ -5087,13 +5319,13 @@ public class FlowcontrolApiserverV1Api {
     }
 
 
-    private ApiResponse<V1PriorityLevelConfiguration> replacePriorityLevelConfigurationStatusWithHttpInfo(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1PriorityLevelConfiguration> replacePriorityLevelConfigurationStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replacePriorityLevelConfigurationStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replacePriorityLevelConfigurationStatusAsync(String name, V1PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
+    private okhttp3.Call replacePriorityLevelConfigurationStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1PriorityLevelConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replacePriorityLevelConfigurationStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1PriorityLevelConfiguration>(){}.getType();
@@ -5102,14 +5334,20 @@ public class FlowcontrolApiserverV1Api {
     }
 
     public class APIreplacePriorityLevelConfigurationStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1PriorityLevelConfiguration body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplacePriorityLevelConfigurationStatusRequest(String name, V1PriorityLevelConfiguration body) {
+        private APIreplacePriorityLevelConfigurationStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
             this.name = name;
             this.body = body;
         }
@@ -5119,7 +5357,7 @@ public class FlowcontrolApiserverV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplacePriorityLevelConfigurationStatusRequest
          */
-        public APIreplacePriorityLevelConfigurationStatusRequest pretty(String pretty) {
+        public APIreplacePriorityLevelConfigurationStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -5129,7 +5367,7 @@ public class FlowcontrolApiserverV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplacePriorityLevelConfigurationStatusRequest
          */
-        public APIreplacePriorityLevelConfigurationStatusRequest dryRun(String dryRun) {
+        public APIreplacePriorityLevelConfigurationStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -5139,7 +5377,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplacePriorityLevelConfigurationStatusRequest
          */
-        public APIreplacePriorityLevelConfigurationStatusRequest fieldManager(String fieldManager) {
+        public APIreplacePriorityLevelConfigurationStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -5149,7 +5387,7 @@ public class FlowcontrolApiserverV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplacePriorityLevelConfigurationStatusRequest
          */
-        public APIreplacePriorityLevelConfigurationStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplacePriorityLevelConfigurationStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -5160,7 +5398,8 @@ public class FlowcontrolApiserverV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5176,7 +5415,8 @@ public class FlowcontrolApiserverV1Api {
          * @return V1PriorityLevelConfiguration
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5193,7 +5433,8 @@ public class FlowcontrolApiserverV1Api {
          * @return ApiResponse&lt;V1PriorityLevelConfiguration&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5210,7 +5451,8 @@ public class FlowcontrolApiserverV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5229,14 +5471,15 @@ public class FlowcontrolApiserverV1Api {
      * @param body  (required)
      * @return APIreplacePriorityLevelConfigurationStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplacePriorityLevelConfigurationStatusRequest replacePriorityLevelConfigurationStatus(String name, V1PriorityLevelConfiguration body) {
+    public APIreplacePriorityLevelConfigurationStatusRequest replacePriorityLevelConfigurationStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1PriorityLevelConfiguration body) {
         return new APIreplacePriorityLevelConfigurationStatusRequest(name, body);
     }
 }

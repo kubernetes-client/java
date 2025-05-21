@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,40 +53,42 @@ import io.kubernetes.client.openapi.JSON;
  * FieldSelectorAttributes indicates a field limited access. Webhook authors are encouraged to * ensure rawSelector and requirements are not both set * consider the requirements field if set * not try to parse or consider the rawSelector field if set. This is to avoid another CVE-2022-2880 (i.e. getting different systems to agree on how exactly to parse a query is not something we want), see https://www.oxeye.io/resources/golang-parameter-smuggling-attack for more details. For the *SubjectAccessReview endpoints of the kube-apiserver: * If rawSelector is empty and requirements are empty, the request is not limited. * If rawSelector is present and requirements are empty, the rawSelector will be parsed and limited if the parsing succeeds. * If rawSelector is empty and requirements are present, the requirements should be honored * If rawSelector is present and requirements are present, the request is invalid.
  */
 @ApiModel(description = "FieldSelectorAttributes indicates a field limited access. Webhook authors are encouraged to * ensure rawSelector and requirements are not both set * consider the requirements field if set * not try to parse or consider the rawSelector field if set. This is to avoid another CVE-2022-2880 (i.e. getting different systems to agree on how exactly to parse a query is not something we want), see https://www.oxeye.io/resources/golang-parameter-smuggling-attack for more details. For the *SubjectAccessReview endpoints of the kube-apiserver: * If rawSelector is empty and requirements are empty, the request is not limited. * If rawSelector is present and requirements are empty, the rawSelector will be parsed and limited if the parsing succeeds. * If rawSelector is empty and requirements are present, the requirements should be honored * If rawSelector is present and requirements are present, the request is invalid.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1FieldSelectorAttributes {
   public static final String SERIALIZED_NAME_RAW_SELECTOR = "rawSelector";
   @SerializedName(SERIALIZED_NAME_RAW_SELECTOR)
+  @jakarta.annotation.Nullable
   private String rawSelector;
 
   public static final String SERIALIZED_NAME_REQUIREMENTS = "requirements";
   @SerializedName(SERIALIZED_NAME_REQUIREMENTS)
+  @jakarta.annotation.Nullable
   private List<V1FieldSelectorRequirement> requirements = new ArrayList<>();
 
   public V1FieldSelectorAttributes() {
   }
 
-  public V1FieldSelectorAttributes rawSelector(String rawSelector) {
+  public V1FieldSelectorAttributes rawSelector(@jakarta.annotation.Nullable String rawSelector) {
     this.rawSelector = rawSelector;
     return this;
   }
 
-   /**
+  /**
    * rawSelector is the serialization of a field selector that would be included in a query parameter. Webhook implementations are encouraged to ignore rawSelector. The kube-apiserver&#39;s *SubjectAccessReview will parse the rawSelector as long as the requirements are not present.
    * @return rawSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "rawSelector is the serialization of a field selector that would be included in a query parameter. Webhook implementations are encouraged to ignore rawSelector. The kube-apiserver's *SubjectAccessReview will parse the rawSelector as long as the requirements are not present.")
   public String getRawSelector() {
     return rawSelector;
   }
 
-  public void setRawSelector(String rawSelector) {
+  public void setRawSelector(@jakarta.annotation.Nullable String rawSelector) {
     this.rawSelector = rawSelector;
   }
 
 
-  public V1FieldSelectorAttributes requirements(List<V1FieldSelectorRequirement> requirements) {
+  public V1FieldSelectorAttributes requirements(@jakarta.annotation.Nullable List<V1FieldSelectorRequirement> requirements) {
     this.requirements = requirements;
     return this;
   }
@@ -100,17 +101,17 @@ public class V1FieldSelectorAttributes {
     return this;
   }
 
-   /**
+  /**
    * requirements is the parsed interpretation of a field selector. All requirements must be met for a resource instance to match the selector. Webhook implementations should handle requirements, but how to handle them is up to the webhook. Since requirements can only limit the request, it is safe to authorize as unlimited request if the requirements are not understood.
    * @return requirements
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "requirements is the parsed interpretation of a field selector. All requirements must be met for a resource instance to match the selector. Webhook implementations should handle requirements, but how to handle them is up to the webhook. Since requirements can only limit the request, it is safe to authorize as unlimited request if the requirements are not understood.")
   public List<V1FieldSelectorRequirement> getRequirements() {
     return requirements;
   }
 
-  public void setRequirements(List<V1FieldSelectorRequirement> requirements) {
+  public void setRequirements(@jakarta.annotation.Nullable List<V1FieldSelectorRequirement> requirements) {
     this.requirements = requirements;
   }
 
@@ -169,12 +170,12 @@ public class V1FieldSelectorAttributes {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1FieldSelectorAttributes
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1FieldSelectorAttributes
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FieldSelectorAttributes.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -238,22 +239,22 @@ public class V1FieldSelectorAttributes {
     }
   }
 
- /**
-  * Create an instance of V1FieldSelectorAttributes given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1FieldSelectorAttributes
-  * @throws IOException if the JSON string is invalid with respect to V1FieldSelectorAttributes
-  */
+  /**
+   * Create an instance of V1FieldSelectorAttributes given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1FieldSelectorAttributes
+   * @throws IOException if the JSON string is invalid with respect to V1FieldSelectorAttributes
+   */
   public static V1FieldSelectorAttributes fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1FieldSelectorAttributes.class);
   }
 
- /**
-  * Convert an instance of V1FieldSelectorAttributes to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1FieldSelectorAttributes to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

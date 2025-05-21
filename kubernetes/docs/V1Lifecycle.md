@@ -10,6 +10,7 @@ Lifecycle describes actions that the management system should take in response t
 |------------ | ------------- | ------------- | -------------|
 |**postStart** | [**V1LifecycleHandler**](V1LifecycleHandler.md) |  |  [optional] |
 |**preStop** | [**V1LifecycleHandler**](V1LifecycleHandler.md) |  |  [optional] |
+|**stopSignal** | **String** | StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name |  [optional] |
 
 
 

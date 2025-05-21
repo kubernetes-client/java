@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,40 +52,42 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceConstraint must have exactly one field set besides Requests.
  */
 @ApiModel(description = "DeviceConstraint must have exactly one field set besides Requests.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3DeviceConstraint {
   public static final String SERIALIZED_NAME_MATCH_ATTRIBUTE = "matchAttribute";
   @SerializedName(SERIALIZED_NAME_MATCH_ATTRIBUTE)
+  @jakarta.annotation.Nullable
   private String matchAttribute;
 
   public static final String SERIALIZED_NAME_REQUESTS = "requests";
   @SerializedName(SERIALIZED_NAME_REQUESTS)
+  @jakarta.annotation.Nullable
   private List<String> requests = new ArrayList<>();
 
   public V1alpha3DeviceConstraint() {
   }
 
-  public V1alpha3DeviceConstraint matchAttribute(String matchAttribute) {
+  public V1alpha3DeviceConstraint matchAttribute(@jakarta.annotation.Nullable String matchAttribute) {
     this.matchAttribute = matchAttribute;
     return this;
   }
 
-   /**
+  /**
    * MatchAttribute requires that all devices in question have this attribute and that its type and value are the same across those devices.  For example, if you specified \&quot;dra.example.com/numa\&quot; (a hypothetical example!), then only devices in the same NUMA node will be chosen. A device which does not have that attribute will not be chosen. All devices should use a value of the same type for this attribute because that is part of its specification, but if one device doesn&#39;t, then it also will not be chosen.  Must include the domain qualifier.
    * @return matchAttribute
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MatchAttribute requires that all devices in question have this attribute and that its type and value are the same across those devices.  For example, if you specified \"dra.example.com/numa\" (a hypothetical example!), then only devices in the same NUMA node will be chosen. A device which does not have that attribute will not be chosen. All devices should use a value of the same type for this attribute because that is part of its specification, but if one device doesn't, then it also will not be chosen.  Must include the domain qualifier.")
   public String getMatchAttribute() {
     return matchAttribute;
   }
 
-  public void setMatchAttribute(String matchAttribute) {
+  public void setMatchAttribute(@jakarta.annotation.Nullable String matchAttribute) {
     this.matchAttribute = matchAttribute;
   }
 
 
-  public V1alpha3DeviceConstraint requests(List<String> requests) {
+  public V1alpha3DeviceConstraint requests(@jakarta.annotation.Nullable List<String> requests) {
     this.requests = requests;
     return this;
   }
@@ -99,17 +100,17 @@ public class V1alpha3DeviceConstraint {
     return this;
   }
 
-   /**
-   * Requests is a list of the one or more requests in this claim which must co-satisfy this constraint. If a request is fulfilled by multiple devices, then all of the devices must satisfy the constraint. If this is not specified, this constraint applies to all requests in this claim.
+  /**
+   * Requests is a list of the one or more requests in this claim which must co-satisfy this constraint. If a request is fulfilled by multiple devices, then all of the devices must satisfy the constraint. If this is not specified, this constraint applies to all requests in this claim.  References to subrequests must include the name of the main request and may include the subrequest using the format &lt;main request&gt;[/&lt;subrequest&gt;]. If just the main request is given, the constraint applies to all subrequests.
    * @return requests
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Requests is a list of the one or more requests in this claim which must co-satisfy this constraint. If a request is fulfilled by multiple devices, then all of the devices must satisfy the constraint. If this is not specified, this constraint applies to all requests in this claim.")
+  @ApiModelProperty(value = "Requests is a list of the one or more requests in this claim which must co-satisfy this constraint. If a request is fulfilled by multiple devices, then all of the devices must satisfy the constraint. If this is not specified, this constraint applies to all requests in this claim.  References to subrequests must include the name of the main request and may include the subrequest using the format <main request>[/<subrequest>]. If just the main request is given, the constraint applies to all subrequests.")
   public List<String> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<String> requests) {
+  public void setRequests(@jakarta.annotation.Nullable List<String> requests) {
     this.requests = requests;
   }
 
@@ -168,12 +169,12 @@ public class V1alpha3DeviceConstraint {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceConstraint
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceConstraint
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3DeviceConstraint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -227,22 +228,22 @@ public class V1alpha3DeviceConstraint {
     }
   }
 
- /**
-  * Create an instance of V1alpha3DeviceConstraint given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3DeviceConstraint
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceConstraint
-  */
+  /**
+   * Create an instance of V1alpha3DeviceConstraint given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3DeviceConstraint
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceConstraint
+   */
   public static V1alpha3DeviceConstraint fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3DeviceConstraint.class);
   }
 
- /**
-  * Convert an instance of V1alpha3DeviceConstraint to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3DeviceConstraint to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

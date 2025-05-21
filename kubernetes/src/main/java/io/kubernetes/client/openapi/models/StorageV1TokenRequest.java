@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequest contains parameters of a service account token.
  */
 @ApiModel(description = "TokenRequest contains parameters of a service account token.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class StorageV1TokenRequest {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
+  @jakarta.annotation.Nonnull
   private String audience;
 
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
+  @jakarta.annotation.Nullable
   private Long expirationSeconds;
 
   public StorageV1TokenRequest() {
   }
 
-  public StorageV1TokenRequest audience(String audience) {
+  public StorageV1TokenRequest audience(@jakarta.annotation.Nonnull String audience) {
     this.audience = audience;
     return this;
   }
 
-   /**
+  /**
    * audience is the intended audience of the token in \&quot;TokenRequestSpec\&quot;. It will default to the audiences of kube apiserver.
    * @return audience
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "audience is the intended audience of the token in \"TokenRequestSpec\". It will default to the audiences of kube apiserver.")
   public String getAudience() {
     return audience;
   }
 
-  public void setAudience(String audience) {
+  public void setAudience(@jakarta.annotation.Nonnull String audience) {
     this.audience = audience;
   }
 
 
-  public StorageV1TokenRequest expirationSeconds(Long expirationSeconds) {
+  public StorageV1TokenRequest expirationSeconds(@jakarta.annotation.Nullable Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return this;
   }
 
-   /**
+  /**
    * expirationSeconds is the duration of validity of the token in \&quot;TokenRequestSpec\&quot;. It has the same default value of \&quot;ExpirationSeconds\&quot; in \&quot;TokenRequestSpec\&quot;.
    * @return expirationSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "expirationSeconds is the duration of validity of the token in \"TokenRequestSpec\". It has the same default value of \"ExpirationSeconds\" in \"TokenRequestSpec\".")
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
 
-  public void setExpirationSeconds(Long expirationSeconds) {
+  public void setExpirationSeconds(@jakarta.annotation.Nullable Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
 
@@ -159,12 +160,12 @@ public class StorageV1TokenRequest {
     openapiRequiredFields.add("audience");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to StorageV1TokenRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StorageV1TokenRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StorageV1TokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -221,22 +222,22 @@ public class StorageV1TokenRequest {
     }
   }
 
- /**
-  * Create an instance of StorageV1TokenRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StorageV1TokenRequest
-  * @throws IOException if the JSON string is invalid with respect to StorageV1TokenRequest
-  */
+  /**
+   * Create an instance of StorageV1TokenRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StorageV1TokenRequest
+   * @throws IOException if the JSON string is invalid with respect to StorageV1TokenRequest
+   */
   public static StorageV1TokenRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StorageV1TokenRequest.class);
   }
 
- /**
-  * Convert an instance of StorageV1TokenRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StorageV1TokenRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

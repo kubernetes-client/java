@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,104 +53,112 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.
  */
 @ApiModel(description = "Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1RBDPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
+  @jakarta.annotation.Nonnull
   private String image;
 
   public static final String SERIALIZED_NAME_KEYRING = "keyring";
   @SerializedName(SERIALIZED_NAME_KEYRING)
+  @jakarta.annotation.Nullable
   private String keyring;
 
   public static final String SERIALIZED_NAME_MONITORS = "monitors";
   @SerializedName(SERIALIZED_NAME_MONITORS)
+  @jakarta.annotation.Nonnull
   private List<String> monitors = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
+  @jakarta.annotation.Nullable
   private String pool;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference secretRef;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
   private String user;
 
   public V1RBDPersistentVolumeSource() {
   }
 
-  public V1RBDPersistentVolumeSource fsType(String fsType) {
+  public V1RBDPersistentVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1RBDPersistentVolumeSource image(String image) {
+  public V1RBDPersistentVolumeSource image(@jakarta.annotation.Nonnull String image) {
     this.image = image;
     return this;
   }
 
-   /**
+  /**
    * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return image
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getImage() {
     return image;
   }
 
-  public void setImage(String image) {
+  public void setImage(@jakarta.annotation.Nonnull String image) {
     this.image = image;
   }
 
 
-  public V1RBDPersistentVolumeSource keyring(String keyring) {
+  public V1RBDPersistentVolumeSource keyring(@jakarta.annotation.Nullable String keyring) {
     this.keyring = keyring;
     return this;
   }
 
-   /**
+  /**
    * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return keyring
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getKeyring() {
     return keyring;
   }
 
-  public void setKeyring(String keyring) {
+  public void setKeyring(@jakarta.annotation.Nullable String keyring) {
     this.keyring = keyring;
   }
 
 
-  public V1RBDPersistentVolumeSource monitors(List<String> monitors) {
+  public V1RBDPersistentVolumeSource monitors(@jakarta.annotation.Nonnull List<String> monitors) {
     this.monitors = monitors;
     return this;
   }
@@ -164,97 +171,97 @@ public class V1RBDPersistentVolumeSource {
     return this;
   }
 
-   /**
+  /**
    * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return monitors
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public List<String> getMonitors() {
     return monitors;
   }
 
-  public void setMonitors(List<String> monitors) {
+  public void setMonitors(@jakarta.annotation.Nonnull List<String> monitors) {
     this.monitors = monitors;
   }
 
 
-  public V1RBDPersistentVolumeSource pool(String pool) {
+  public V1RBDPersistentVolumeSource pool(@jakarta.annotation.Nullable String pool) {
     this.pool = pool;
     return this;
   }
 
-   /**
+  /**
    * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return pool
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getPool() {
     return pool;
   }
 
-  public void setPool(String pool) {
+  public void setPool(@jakarta.annotation.Nullable String pool) {
     this.pool = pool;
   }
 
 
-  public V1RBDPersistentVolumeSource readOnly(Boolean readOnly) {
+  public V1RBDPersistentVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1RBDPersistentVolumeSource secretRef(V1SecretReference secretRef) {
+  public V1RBDPersistentVolumeSource secretRef(@jakarta.annotation.Nullable V1SecretReference secretRef) {
     this.secretRef = secretRef;
     return this;
   }
 
-   /**
+  /**
    * Get secretRef
    * @return secretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
 
-  public void setSecretRef(V1SecretReference secretRef) {
+  public void setSecretRef(@jakarta.annotation.Nullable V1SecretReference secretRef) {
     this.secretRef = secretRef;
   }
 
 
-  public V1RBDPersistentVolumeSource user(String user) {
+  public V1RBDPersistentVolumeSource user(@jakarta.annotation.Nullable String user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return user
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
   public String getUser() {
     return user;
   }
 
-  public void setUser(String user) {
+  public void setUser(@jakarta.annotation.Nullable String user) {
     this.user = user;
   }
 
@@ -333,12 +340,12 @@ public class V1RBDPersistentVolumeSource {
     openapiRequiredFields.add("monitors");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1RBDPersistentVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1RBDPersistentVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RBDPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -417,22 +424,22 @@ public class V1RBDPersistentVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1RBDPersistentVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1RBDPersistentVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1RBDPersistentVolumeSource
-  */
+  /**
+   * Create an instance of V1RBDPersistentVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1RBDPersistentVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1RBDPersistentVolumeSource
+   */
   public static V1RBDPersistentVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1RBDPersistentVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1RBDPersistentVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1RBDPersistentVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

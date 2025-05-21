@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
  */
 @ApiModel(description = "CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceSubresourceScale {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR_PATH = "labelSelectorPath";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR_PATH)
+  @jakarta.annotation.Nullable
   private String labelSelectorPath;
 
   public static final String SERIALIZED_NAME_SPEC_REPLICAS_PATH = "specReplicasPath";
   @SerializedName(SERIALIZED_NAME_SPEC_REPLICAS_PATH)
+  @jakarta.annotation.Nonnull
   private String specReplicasPath;
 
   public static final String SERIALIZED_NAME_STATUS_REPLICAS_PATH = "statusReplicasPath";
   @SerializedName(SERIALIZED_NAME_STATUS_REPLICAS_PATH)
+  @jakarta.annotation.Nonnull
   private String statusReplicasPath;
 
   public V1CustomResourceSubresourceScale() {
   }
 
-  public V1CustomResourceSubresourceScale labelSelectorPath(String labelSelectorPath) {
+  public V1CustomResourceSubresourceScale labelSelectorPath(@jakarta.annotation.Nullable String labelSelectorPath) {
     this.labelSelectorPath = labelSelectorPath;
     return this;
   }
 
-   /**
+  /**
    * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale &#x60;status.selector&#x60;. Only JSON paths without the array notation are allowed. Must be a JSON Path under &#x60;.status&#x60; or &#x60;.spec&#x60;. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the &#x60;status.selector&#x60; value in the &#x60;/scale&#x60; subresource will default to the empty string.
    * @return labelSelectorPath
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status` or `.spec`. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale` subresource will default to the empty string.")
   public String getLabelSelectorPath() {
     return labelSelectorPath;
   }
 
-  public void setLabelSelectorPath(String labelSelectorPath) {
+  public void setLabelSelectorPath(@jakarta.annotation.Nullable String labelSelectorPath) {
     this.labelSelectorPath = labelSelectorPath;
   }
 
 
-  public V1CustomResourceSubresourceScale specReplicasPath(String specReplicasPath) {
+  public V1CustomResourceSubresourceScale specReplicasPath(@jakarta.annotation.Nonnull String specReplicasPath) {
     this.specReplicasPath = specReplicasPath;
     return this;
   }
 
-   /**
+  /**
    * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale &#x60;spec.replicas&#x60;. Only JSON paths without the array notation are allowed. Must be a JSON Path under &#x60;.spec&#x60;. If there is no value under the given path in the custom resource, the &#x60;/scale&#x60; subresource will return an error on GET.
    * @return specReplicasPath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.spec`. If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.")
   public String getSpecReplicasPath() {
     return specReplicasPath;
   }
 
-  public void setSpecReplicasPath(String specReplicasPath) {
+  public void setSpecReplicasPath(@jakarta.annotation.Nonnull String specReplicasPath) {
     this.specReplicasPath = specReplicasPath;
   }
 
 
-  public V1CustomResourceSubresourceScale statusReplicasPath(String statusReplicasPath) {
+  public V1CustomResourceSubresourceScale statusReplicasPath(@jakarta.annotation.Nonnull String statusReplicasPath) {
     this.statusReplicasPath = statusReplicasPath;
     return this;
   }
 
-   /**
+  /**
    * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale &#x60;status.replicas&#x60;. Only JSON paths without the array notation are allowed. Must be a JSON Path under &#x60;.status&#x60;. If there is no value under the given path in the custom resource, the &#x60;status.replicas&#x60; value in the &#x60;/scale&#x60; subresource will default to 0.
    * @return statusReplicasPath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status`. If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource will default to 0.")
   public String getStatusReplicasPath() {
     return statusReplicasPath;
   }
 
-  public void setStatusReplicasPath(String statusReplicasPath) {
+  public void setStatusReplicasPath(@jakarta.annotation.Nonnull String statusReplicasPath) {
     this.statusReplicasPath = statusReplicasPath;
   }
 
@@ -187,12 +189,12 @@ public class V1CustomResourceSubresourceScale {
     openapiRequiredFields.add("statusReplicasPath");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceSubresourceScale
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceSubresourceScale
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceSubresourceScale.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -255,22 +257,22 @@ public class V1CustomResourceSubresourceScale {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceSubresourceScale given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceSubresourceScale
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceSubresourceScale
-  */
+  /**
+   * Create an instance of V1CustomResourceSubresourceScale given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceSubresourceScale
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceSubresourceScale
+   */
   public static V1CustomResourceSubresourceScale fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceSubresourceScale.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceSubresourceScale to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceSubresourceScale to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

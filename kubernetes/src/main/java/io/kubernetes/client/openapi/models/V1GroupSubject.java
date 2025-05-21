@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * GroupSubject holds detailed information for group-kind subject.
  */
 @ApiModel(description = "GroupSubject holds detailed information for group-kind subject.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1GroupSubject {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1GroupSubject() {
   }
 
-  public V1GroupSubject name(String name) {
+  public V1GroupSubject name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the user group that matches, or \&quot;*\&quot; to match all user groups. See https://github.com/kubernetes/apiserver/blob/master/pkg/authentication/user/user.go for some well-known group names. Required.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the user group that matches, or \"*\" to match all user groups. See https://github.com/kubernetes/apiserver/blob/master/pkg/authentication/user/user.go for some well-known group names. Required.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -132,12 +132,12 @@ public class V1GroupSubject {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1GroupSubject
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1GroupSubject
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1GroupSubject.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -194,22 +194,22 @@ public class V1GroupSubject {
     }
   }
 
- /**
-  * Create an instance of V1GroupSubject given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1GroupSubject
-  * @throws IOException if the JSON string is invalid with respect to V1GroupSubject
-  */
+  /**
+   * Create an instance of V1GroupSubject given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1GroupSubject
+   * @throws IOException if the JSON string is invalid with respect to V1GroupSubject
+   */
   public static V1GroupSubject fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1GroupSubject.class);
   }
 
- /**
-  * Convert an instance of V1GroupSubject to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1GroupSubject to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * IngressServiceBackend references a Kubernetes Service as a Backend.
  */
 @ApiModel(description = "IngressServiceBackend references a Kubernetes Service as a Backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressServiceBackend {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nullable
   private V1ServiceBackendPort port;
 
   public V1IngressServiceBackend() {
   }
 
-  public V1IngressServiceBackend name(String name) {
+  public V1IngressServiceBackend name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the referenced service. The service must exist in the same namespace as the Ingress object.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the referenced service. The service must exist in the same namespace as the Ingress object.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1IngressServiceBackend port(V1ServiceBackendPort port) {
+  public V1IngressServiceBackend port(@jakarta.annotation.Nullable V1ServiceBackendPort port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Get port
    * @return port
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceBackendPort getPort() {
     return port;
   }
 
-  public void setPort(V1ServiceBackendPort port) {
+  public void setPort(@jakarta.annotation.Nullable V1ServiceBackendPort port) {
     this.port = port;
   }
 
@@ -160,12 +161,12 @@ public class V1IngressServiceBackend {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IngressServiceBackend
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IngressServiceBackend
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressServiceBackend.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -226,22 +227,22 @@ public class V1IngressServiceBackend {
     }
   }
 
- /**
-  * Create an instance of V1IngressServiceBackend given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IngressServiceBackend
-  * @throws IOException if the JSON string is invalid with respect to V1IngressServiceBackend
-  */
+  /**
+   * Create an instance of V1IngressServiceBackend given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IngressServiceBackend
+   * @throws IOException if the JSON string is invalid with respect to V1IngressServiceBackend
+   */
   public static V1IngressServiceBackend fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IngressServiceBackend.class);
   }
 
- /**
-  * Convert an instance of V1IngressServiceBackend to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IngressServiceBackend to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

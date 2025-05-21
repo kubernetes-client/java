@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,20 +52,22 @@ import io.kubernetes.client.openapi.JSON;
  * IngressTLS describes the transport layer security associated with an ingress.
  */
 @ApiModel(description = "IngressTLS describes the transport layer security associated with an ingress.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressTLS {
   public static final String SERIALIZED_NAME_HOSTS = "hosts";
   @SerializedName(SERIALIZED_NAME_HOSTS)
+  @jakarta.annotation.Nullable
   private List<String> hosts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECRET_NAME = "secretName";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
+  @jakarta.annotation.Nullable
   private String secretName;
 
   public V1IngressTLS() {
   }
 
-  public V1IngressTLS hosts(List<String> hosts) {
+  public V1IngressTLS hosts(@jakarta.annotation.Nullable List<String> hosts) {
     this.hosts = hosts;
     return this;
   }
@@ -79,37 +80,37 @@ public class V1IngressTLS {
     return this;
   }
 
-   /**
+  /**
    * hosts is a list of hosts included in the TLS certificate. The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified.
    * @return hosts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "hosts is a list of hosts included in the TLS certificate. The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified.")
   public List<String> getHosts() {
     return hosts;
   }
 
-  public void setHosts(List<String> hosts) {
+  public void setHosts(@jakarta.annotation.Nullable List<String> hosts) {
     this.hosts = hosts;
   }
 
 
-  public V1IngressTLS secretName(String secretName) {
+  public V1IngressTLS secretName(@jakarta.annotation.Nullable String secretName) {
     this.secretName = secretName;
     return this;
   }
 
-   /**
+  /**
    * secretName is the name of the secret used to terminate TLS traffic on port 443. Field is left optional to allow TLS routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \&quot;Host\&quot; header field used by an IngressRule, the SNI host is used for termination and value of the \&quot;Host\&quot; header is used for routing.
    * @return secretName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "secretName is the name of the secret used to terminate TLS traffic on port 443. Field is left optional to allow TLS routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \"Host\" header field used by an IngressRule, the SNI host is used for termination and value of the \"Host\" header is used for routing.")
   public String getSecretName() {
     return secretName;
   }
 
-  public void setSecretName(String secretName) {
+  public void setSecretName(@jakarta.annotation.Nullable String secretName) {
     this.secretName = secretName;
   }
 
@@ -168,12 +169,12 @@ public class V1IngressTLS {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IngressTLS
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IngressTLS
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressTLS.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -227,22 +228,22 @@ public class V1IngressTLS {
     }
   }
 
- /**
-  * Create an instance of V1IngressTLS given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IngressTLS
-  * @throws IOException if the JSON string is invalid with respect to V1IngressTLS
-  */
+  /**
+   * Create an instance of V1IngressTLS given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IngressTLS
+   * @throws IOException if the JSON string is invalid with respect to V1IngressTLS
+   */
   public static V1IngressTLS fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IngressTLS.class);
   }
 
- /**
-  * Convert an instance of V1IngressTLS to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IngressTLS to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

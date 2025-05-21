@@ -70,7 +70,7 @@ public class LogsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call logFileHandlerCall(String logpath, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call logFileHandlerCall(@jakarta.annotation.Nonnull String logpath, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,7 +115,7 @@ public class LogsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call logFileHandlerValidateBeforeCall(String logpath, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call logFileHandlerValidateBeforeCall(@jakarta.annotation.Nonnull String logpath, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'logpath' is set
         if (logpath == null) {
             throw new ApiException("Missing the required parameter 'logpath' when calling logFileHandler(Async)");
@@ -126,12 +126,12 @@ public class LogsApi {
     }
 
 
-    private ApiResponse<Void> logFileHandlerWithHttpInfo(String logpath) throws ApiException {
+    private ApiResponse<Void> logFileHandlerWithHttpInfo(@jakarta.annotation.Nonnull String logpath) throws ApiException {
         okhttp3.Call localVarCall = logFileHandlerValidateBeforeCall(logpath, null);
         return localVarApiClient.execute(localVarCall);
     }
 
-    private okhttp3.Call logFileHandlerAsync(String logpath, final ApiCallback<Void> _callback) throws ApiException {
+    private okhttp3.Call logFileHandlerAsync(@jakarta.annotation.Nonnull String logpath, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = logFileHandlerValidateBeforeCall(logpath, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -139,9 +139,10 @@ public class LogsApi {
     }
 
     public class APIlogFileHandlerRequest {
+        @jakarta.annotation.Nonnull
         private final String logpath;
 
-        private APIlogFileHandlerRequest(String logpath) {
+        private APIlogFileHandlerRequest(@jakarta.annotation.Nonnull String logpath) {
             this.logpath = logpath;
         }
 
@@ -151,7 +152,8 @@ public class LogsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -164,7 +166,8 @@ public class LogsApi {
          * Execute logFileHandler request
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -178,7 +181,8 @@ public class LogsApi {
          * @return ApiResponse&lt;Void&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -193,7 +197,8 @@ public class LogsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -209,12 +214,13 @@ public class LogsApi {
      * @param logpath path to the log (required)
      * @return APIlogFileHandlerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlogFileHandlerRequest logFileHandler(String logpath) {
+    public APIlogFileHandlerRequest logFileHandler(@jakarta.annotation.Nonnull String logpath) {
         return new APIlogFileHandlerRequest(logpath);
     }
     private okhttp3.Call logFileListHandlerCall(final ApiCallback _callback) throws ApiException {
@@ -290,7 +296,8 @@ public class LogsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -303,7 +310,8 @@ public class LogsApi {
          * Execute logFileListHandler request
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -317,7 +325,8 @@ public class LogsApi {
          * @return ApiResponse&lt;Void&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -332,7 +341,8 @@ public class LogsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          </table>
@@ -347,7 +357,8 @@ public class LogsApi {
      *
      * @return APIlogFileListHandlerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>

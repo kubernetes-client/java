@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
  */
 @ApiModel(description = "DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DaemonSetUpdateStrategy {
   public static final String SERIALIZED_NAME_ROLLING_UPDATE = "rollingUpdate";
   @SerializedName(SERIALIZED_NAME_ROLLING_UPDATE)
+  @jakarta.annotation.Nullable
   private V1RollingUpdateDaemonSet rollingUpdate;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nullable
   private String type;
 
   public V1DaemonSetUpdateStrategy() {
   }
 
-  public V1DaemonSetUpdateStrategy rollingUpdate(V1RollingUpdateDaemonSet rollingUpdate) {
+  public V1DaemonSetUpdateStrategy rollingUpdate(@jakarta.annotation.Nullable V1RollingUpdateDaemonSet rollingUpdate) {
     this.rollingUpdate = rollingUpdate;
     return this;
   }
 
-   /**
+  /**
    * Get rollingUpdate
    * @return rollingUpdate
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RollingUpdateDaemonSet getRollingUpdate() {
     return rollingUpdate;
   }
 
-  public void setRollingUpdate(V1RollingUpdateDaemonSet rollingUpdate) {
+  public void setRollingUpdate(@jakarta.annotation.Nullable V1RollingUpdateDaemonSet rollingUpdate) {
     this.rollingUpdate = rollingUpdate;
   }
 
 
-  public V1DaemonSetUpdateStrategy type(String type) {
+  public V1DaemonSetUpdateStrategy type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of daemon set update. Can be \&quot;RollingUpdate\&quot; or \&quot;OnDelete\&quot;. Default is RollingUpdate.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
@@ -159,12 +160,12 @@ public class V1DaemonSetUpdateStrategy {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DaemonSetUpdateStrategy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DaemonSetUpdateStrategy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DaemonSetUpdateStrategy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -218,22 +219,22 @@ public class V1DaemonSetUpdateStrategy {
     }
   }
 
- /**
-  * Create an instance of V1DaemonSetUpdateStrategy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DaemonSetUpdateStrategy
-  * @throws IOException if the JSON string is invalid with respect to V1DaemonSetUpdateStrategy
-  */
+  /**
+   * Create an instance of V1DaemonSetUpdateStrategy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DaemonSetUpdateStrategy
+   * @throws IOException if the JSON string is invalid with respect to V1DaemonSetUpdateStrategy
+   */
   public static V1DaemonSetUpdateStrategy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DaemonSetUpdateStrategy.class);
   }
 
- /**
-  * Convert an instance of V1DaemonSetUpdateStrategy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DaemonSetUpdateStrategy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

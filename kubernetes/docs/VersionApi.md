@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 
 
-get the code version
+get the version information for this server
 
 ### Example
 ```java

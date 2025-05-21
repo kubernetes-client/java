@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,20 +52,22 @@ import io.kubernetes.client.openapi.JSON;
  * UncountedTerminatedPods holds UIDs of Pods that have terminated but haven&#39;t been accounted in Job status counters.
  */
 @ApiModel(description = "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1UncountedTerminatedPods {
   public static final String SERIALIZED_NAME_FAILED = "failed";
   @SerializedName(SERIALIZED_NAME_FAILED)
+  @jakarta.annotation.Nullable
   private List<String> failed = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUCCEEDED = "succeeded";
   @SerializedName(SERIALIZED_NAME_SUCCEEDED)
+  @jakarta.annotation.Nullable
   private List<String> succeeded = new ArrayList<>();
 
   public V1UncountedTerminatedPods() {
   }
 
-  public V1UncountedTerminatedPods failed(List<String> failed) {
+  public V1UncountedTerminatedPods failed(@jakarta.annotation.Nullable List<String> failed) {
     this.failed = failed;
     return this;
   }
@@ -79,22 +80,22 @@ public class V1UncountedTerminatedPods {
     return this;
   }
 
-   /**
+  /**
    * failed holds UIDs of failed Pods.
    * @return failed
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "failed holds UIDs of failed Pods.")
   public List<String> getFailed() {
     return failed;
   }
 
-  public void setFailed(List<String> failed) {
+  public void setFailed(@jakarta.annotation.Nullable List<String> failed) {
     this.failed = failed;
   }
 
 
-  public V1UncountedTerminatedPods succeeded(List<String> succeeded) {
+  public V1UncountedTerminatedPods succeeded(@jakarta.annotation.Nullable List<String> succeeded) {
     this.succeeded = succeeded;
     return this;
   }
@@ -107,17 +108,17 @@ public class V1UncountedTerminatedPods {
     return this;
   }
 
-   /**
+  /**
    * succeeded holds UIDs of succeeded Pods.
    * @return succeeded
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "succeeded holds UIDs of succeeded Pods.")
   public List<String> getSucceeded() {
     return succeeded;
   }
 
-  public void setSucceeded(List<String> succeeded) {
+  public void setSucceeded(@jakarta.annotation.Nullable List<String> succeeded) {
     this.succeeded = succeeded;
   }
 
@@ -176,12 +177,12 @@ public class V1UncountedTerminatedPods {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1UncountedTerminatedPods
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1UncountedTerminatedPods
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1UncountedTerminatedPods.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -236,22 +237,22 @@ public class V1UncountedTerminatedPods {
     }
   }
 
- /**
-  * Create an instance of V1UncountedTerminatedPods given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1UncountedTerminatedPods
-  * @throws IOException if the JSON string is invalid with respect to V1UncountedTerminatedPods
-  */
+  /**
+   * Create an instance of V1UncountedTerminatedPods given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1UncountedTerminatedPods
+   * @throws IOException if the JSON string is invalid with respect to V1UncountedTerminatedPods
+   */
   public static V1UncountedTerminatedPods fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1UncountedTerminatedPods.class);
   }
 
- /**
-  * Convert an instance of V1UncountedTerminatedPods to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1UncountedTerminatedPods to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

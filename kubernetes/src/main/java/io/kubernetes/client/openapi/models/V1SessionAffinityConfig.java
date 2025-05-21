@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * SessionAffinityConfig represents the configurations of session affinity.
  */
 @ApiModel(description = "SessionAffinityConfig represents the configurations of session affinity.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SessionAffinityConfig {
   public static final String SERIALIZED_NAME_CLIENT_I_P = "clientIP";
   @SerializedName(SERIALIZED_NAME_CLIENT_I_P)
+  @jakarta.annotation.Nullable
   private V1ClientIPConfig clientIP;
 
   public V1SessionAffinityConfig() {
   }
 
-  public V1SessionAffinityConfig clientIP(V1ClientIPConfig clientIP) {
+  public V1SessionAffinityConfig clientIP(@jakarta.annotation.Nullable V1ClientIPConfig clientIP) {
     this.clientIP = clientIP;
     return this;
   }
 
-   /**
+  /**
    * Get clientIP
    * @return clientIP
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ClientIPConfig getClientIP() {
     return clientIP;
   }
 
-  public void setClientIP(V1ClientIPConfig clientIP) {
+  public void setClientIP(@jakarta.annotation.Nullable V1ClientIPConfig clientIP) {
     this.clientIP = clientIP;
   }
 
@@ -132,12 +132,12 @@ public class V1SessionAffinityConfig {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SessionAffinityConfig
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SessionAffinityConfig
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SessionAffinityConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1SessionAffinityConfig {
     }
   }
 
- /**
-  * Create an instance of V1SessionAffinityConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SessionAffinityConfig
-  * @throws IOException if the JSON string is invalid with respect to V1SessionAffinityConfig
-  */
+  /**
+   * Create an instance of V1SessionAffinityConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SessionAffinityConfig
+   * @throws IOException if the JSON string is invalid with respect to V1SessionAffinityConfig
+   */
   public static V1SessionAffinityConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SessionAffinityConfig.class);
   }
 
- /**
-  * Convert an instance of V1SessionAffinityConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SessionAffinityConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

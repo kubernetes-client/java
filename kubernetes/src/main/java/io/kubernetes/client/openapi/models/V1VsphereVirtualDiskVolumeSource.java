@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a vSphere volume resource.
  */
 @ApiModel(description = "Represents a vSphere volume resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VsphereVirtualDiskVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_STORAGE_POLICY_I_D = "storagePolicyID";
   @SerializedName(SERIALIZED_NAME_STORAGE_POLICY_I_D)
+  @jakarta.annotation.Nullable
   private String storagePolicyID;
 
   public static final String SERIALIZED_NAME_STORAGE_POLICY_NAME = "storagePolicyName";
   @SerializedName(SERIALIZED_NAME_STORAGE_POLICY_NAME)
+  @jakarta.annotation.Nullable
   private String storagePolicyName;
 
   public static final String SERIALIZED_NAME_VOLUME_PATH = "volumePath";
   @SerializedName(SERIALIZED_NAME_VOLUME_PATH)
+  @jakarta.annotation.Nonnull
   private String volumePath;
 
   public V1VsphereVirtualDiskVolumeSource() {
   }
 
-  public V1VsphereVirtualDiskVolumeSource fsType(String fsType) {
+  public V1VsphereVirtualDiskVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1VsphereVirtualDiskVolumeSource storagePolicyID(String storagePolicyID) {
+  public V1VsphereVirtualDiskVolumeSource storagePolicyID(@jakarta.annotation.Nullable String storagePolicyID) {
     this.storagePolicyID = storagePolicyID;
     return this;
   }
 
-   /**
+  /**
    * storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
    * @return storagePolicyID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.")
   public String getStoragePolicyID() {
     return storagePolicyID;
   }
 
-  public void setStoragePolicyID(String storagePolicyID) {
+  public void setStoragePolicyID(@jakarta.annotation.Nullable String storagePolicyID) {
     this.storagePolicyID = storagePolicyID;
   }
 
 
-  public V1VsphereVirtualDiskVolumeSource storagePolicyName(String storagePolicyName) {
+  public V1VsphereVirtualDiskVolumeSource storagePolicyName(@jakarta.annotation.Nullable String storagePolicyName) {
     this.storagePolicyName = storagePolicyName;
     return this;
   }
 
-   /**
+  /**
    * storagePolicyName is the storage Policy Based Management (SPBM) profile name.
    * @return storagePolicyName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storagePolicyName is the storage Policy Based Management (SPBM) profile name.")
   public String getStoragePolicyName() {
     return storagePolicyName;
   }
 
-  public void setStoragePolicyName(String storagePolicyName) {
+  public void setStoragePolicyName(@jakarta.annotation.Nullable String storagePolicyName) {
     this.storagePolicyName = storagePolicyName;
   }
 
 
-  public V1VsphereVirtualDiskVolumeSource volumePath(String volumePath) {
+  public V1VsphereVirtualDiskVolumeSource volumePath(@jakarta.annotation.Nonnull String volumePath) {
     this.volumePath = volumePath;
     return this;
   }
 
-   /**
+  /**
    * volumePath is the path that identifies vSphere volume vmdk
    * @return volumePath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "volumePath is the path that identifies vSphere volume vmdk")
   public String getVolumePath() {
     return volumePath;
   }
 
-  public void setVolumePath(String volumePath) {
+  public void setVolumePath(@jakarta.annotation.Nonnull String volumePath) {
     this.volumePath = volumePath;
   }
 
@@ -213,12 +216,12 @@ public class V1VsphereVirtualDiskVolumeSource {
     openapiRequiredFields.add("volumePath");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VsphereVirtualDiskVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VsphereVirtualDiskVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VsphereVirtualDiskVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -284,22 +287,22 @@ public class V1VsphereVirtualDiskVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1VsphereVirtualDiskVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VsphereVirtualDiskVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1VsphereVirtualDiskVolumeSource
-  */
+  /**
+   * Create an instance of V1VsphereVirtualDiskVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VsphereVirtualDiskVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1VsphereVirtualDiskVolumeSource
+   */
   public static V1VsphereVirtualDiskVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VsphereVirtualDiskVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1VsphereVirtualDiskVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VsphereVirtualDiskVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceConversion describes how to convert different versions of a CR.
  */
 @ApiModel(description = "CustomResourceConversion describes how to convert different versions of a CR.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceConversion {
   public static final String SERIALIZED_NAME_STRATEGY = "strategy";
   @SerializedName(SERIALIZED_NAME_STRATEGY)
+  @jakarta.annotation.Nonnull
   private String strategy;
 
   public static final String SERIALIZED_NAME_WEBHOOK = "webhook";
   @SerializedName(SERIALIZED_NAME_WEBHOOK)
+  @jakarta.annotation.Nullable
   private V1WebhookConversion webhook;
 
   public V1CustomResourceConversion() {
   }
 
-  public V1CustomResourceConversion strategy(String strategy) {
+  public V1CustomResourceConversion strategy(@jakarta.annotation.Nonnull String strategy) {
     this.strategy = strategy;
     return this;
   }
 
-   /**
+  /**
    * strategy specifies how custom resources are converted between versions. Allowed values are: - &#x60;\&quot;None\&quot;&#x60;: The converter only change the apiVersion and would not touch any other field in the custom resource. - &#x60;\&quot;Webhook\&quot;&#x60;: API Server will call to an external webhook to do the conversion. Additional information   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
    * @return strategy
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "strategy specifies how custom resources are converted between versions. Allowed values are: - `\"None\"`: The converter only change the apiVersion and would not touch any other field in the custom resource. - `\"Webhook\"`: API Server will call to an external webhook to do the conversion. Additional information   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.")
   public String getStrategy() {
     return strategy;
   }
 
-  public void setStrategy(String strategy) {
+  public void setStrategy(@jakarta.annotation.Nonnull String strategy) {
     this.strategy = strategy;
   }
 
 
-  public V1CustomResourceConversion webhook(V1WebhookConversion webhook) {
+  public V1CustomResourceConversion webhook(@jakarta.annotation.Nullable V1WebhookConversion webhook) {
     this.webhook = webhook;
     return this;
   }
 
-   /**
+  /**
    * Get webhook
    * @return webhook
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1WebhookConversion getWebhook() {
     return webhook;
   }
 
-  public void setWebhook(V1WebhookConversion webhook) {
+  public void setWebhook(@jakarta.annotation.Nullable V1WebhookConversion webhook) {
     this.webhook = webhook;
   }
 
@@ -160,12 +161,12 @@ public class V1CustomResourceConversion {
     openapiRequiredFields.add("strategy");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceConversion
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceConversion
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceConversion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -226,22 +227,22 @@ public class V1CustomResourceConversion {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceConversion given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceConversion
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceConversion
-  */
+  /**
+   * Create an instance of V1CustomResourceConversion given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceConversion
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceConversion
+   */
   public static V1CustomResourceConversion fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceConversion.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceConversion to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceConversion to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

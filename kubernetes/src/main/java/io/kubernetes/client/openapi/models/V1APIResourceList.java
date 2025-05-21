@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,88 +53,92 @@ import io.kubernetes.client.openapi.JSON;
  * APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.
  */
 @ApiModel(description = "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1APIResourceList {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_GROUP_VERSION = "groupVersion";
   @SerializedName(SERIALIZED_NAME_GROUP_VERSION)
+  @jakarta.annotation.Nonnull
   private String groupVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
+  @jakarta.annotation.Nonnull
   private List<V1APIResource> resources = new ArrayList<>();
 
   public V1APIResourceList() {
   }
 
-  public V1APIResourceList apiVersion(String apiVersion) {
+  public V1APIResourceList apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1APIResourceList groupVersion(String groupVersion) {
+  public V1APIResourceList groupVersion(@jakarta.annotation.Nonnull String groupVersion) {
     this.groupVersion = groupVersion;
     return this;
   }
 
-   /**
+  /**
    * groupVersion is the group and version this APIResourceList is for.
    * @return groupVersion
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "groupVersion is the group and version this APIResourceList is for.")
   public String getGroupVersion() {
     return groupVersion;
   }
 
-  public void setGroupVersion(String groupVersion) {
+  public void setGroupVersion(@jakarta.annotation.Nonnull String groupVersion) {
     this.groupVersion = groupVersion;
   }
 
 
-  public V1APIResourceList kind(String kind) {
+  public V1APIResourceList kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1APIResourceList resources(List<V1APIResource> resources) {
+  public V1APIResourceList resources(@jakarta.annotation.Nonnull List<V1APIResource> resources) {
     this.resources = resources;
     return this;
   }
@@ -148,17 +151,17 @@ public class V1APIResourceList {
     return this;
   }
 
-   /**
+  /**
    * resources contains the name of the resources and if they are namespaced.
    * @return resources
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "resources contains the name of the resources and if they are namespaced.")
   public List<V1APIResource> getResources() {
     return resources;
   }
 
-  public void setResources(List<V1APIResource> resources) {
+  public void setResources(@jakarta.annotation.Nonnull List<V1APIResource> resources) {
     this.resources = resources;
   }
 
@@ -225,12 +228,12 @@ public class V1APIResourceList {
     openapiRequiredFields.add("resources");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1APIResourceList
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1APIResourceList
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1APIResourceList.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +306,22 @@ public class V1APIResourceList {
     }
   }
 
- /**
-  * Create an instance of V1APIResourceList given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1APIResourceList
-  * @throws IOException if the JSON string is invalid with respect to V1APIResourceList
-  */
+  /**
+   * Create an instance of V1APIResourceList given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1APIResourceList
+   * @throws IOException if the JSON string is invalid with respect to V1APIResourceList
+   */
   public static V1APIResourceList fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1APIResourceList.class);
   }
 
- /**
-  * Convert an instance of V1APIResourceList to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1APIResourceList to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

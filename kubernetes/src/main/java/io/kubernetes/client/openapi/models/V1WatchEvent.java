@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Event represents a single event to a watched resource.
  */
 @ApiModel(description = "Event represents a single event to a watched resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1WatchEvent {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
+  @jakarta.annotation.Nonnull
   private Object _object;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1WatchEvent() {
   }
 
-  public V1WatchEvent _object(Object _object) {
+  public V1WatchEvent _object(@jakarta.annotation.Nonnull Object _object) {
     this._object = _object;
     return this;
   }
 
-   /**
+  /**
    * Object is:  * If Type is Added or Modified: the new state of the object.  * If Type is Deleted: the state of the object immediately before deletion.  * If Type is Error: *Status is recommended; other types may make sense    depending on context.
    * @return _object
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Object is:  * If Type is Added or Modified: the new state of the object.  * If Type is Deleted: the state of the object immediately before deletion.  * If Type is Error: *Status is recommended; other types may make sense    depending on context.")
   public Object getObject() {
     return _object;
   }
 
-  public void setObject(Object _object) {
+  public void setObject(@jakarta.annotation.Nonnull Object _object) {
     this._object = _object;
   }
 
 
-  public V1WatchEvent type(String type) {
+  public V1WatchEvent type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -160,12 +161,12 @@ public class V1WatchEvent {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1WatchEvent
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1WatchEvent
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1WatchEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -222,22 +223,22 @@ public class V1WatchEvent {
     }
   }
 
- /**
-  * Create an instance of V1WatchEvent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1WatchEvent
-  * @throws IOException if the JSON string is invalid with respect to V1WatchEvent
-  */
+  /**
+   * Create an instance of V1WatchEvent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1WatchEvent
+   * @throws IOException if the JSON string is invalid with respect to V1WatchEvent
+   */
   public static V1WatchEvent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1WatchEvent.class);
   }
 
- /**
-  * Convert an instance of V1WatchEvent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1WatchEvent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

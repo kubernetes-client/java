@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceAccountSubject holds detailed information for service-account-kind subject.
  */
 @ApiModel(description = "ServiceAccountSubject holds detailed information for service-account-kind subject.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServiceAccountSubject {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nonnull
   private String namespace;
 
   public V1ServiceAccountSubject() {
   }
 
-  public V1ServiceAccountSubject name(String name) {
+  public V1ServiceAccountSubject name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * &#x60;name&#x60; is the name of matching ServiceAccount objects, or \&quot;*\&quot; to match regardless of name. Required.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "`name` is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1ServiceAccountSubject namespace(String namespace) {
+  public V1ServiceAccountSubject namespace(@jakarta.annotation.Nonnull String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * &#x60;namespace&#x60; is the namespace of matching ServiceAccount objects. Required.
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "`namespace` is the namespace of matching ServiceAccount objects. Required.")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nonnull String namespace) {
     this.namespace = namespace;
   }
 
@@ -160,12 +161,12 @@ public class V1ServiceAccountSubject {
     openapiRequiredFields.add("namespace");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ServiceAccountSubject
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ServiceAccountSubject
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServiceAccountSubject.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1ServiceAccountSubject {
     }
   }
 
- /**
-  * Create an instance of V1ServiceAccountSubject given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ServiceAccountSubject
-  * @throws IOException if the JSON string is invalid with respect to V1ServiceAccountSubject
-  */
+  /**
+   * Create an instance of V1ServiceAccountSubject given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ServiceAccountSubject
+   * @throws IOException if the JSON string is invalid with respect to V1ServiceAccountSubject
+   */
   public static V1ServiceAccountSubject fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ServiceAccountSubject.class);
   }
 
- /**
-  * Convert an instance of V1ServiceAccountSubject to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ServiceAccountSubject to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

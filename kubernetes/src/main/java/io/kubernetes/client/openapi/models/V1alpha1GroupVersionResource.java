@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * The names of the group, the version, and the resource.
  */
 @ApiModel(description = "The names of the group, the version, and the resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1GroupVersionResource {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @jakarta.annotation.Nullable
   private String group;
 
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
+  @jakarta.annotation.Nullable
   private String resource;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
+  @jakarta.annotation.Nullable
   private String version;
 
   public V1alpha1GroupVersionResource() {
   }
 
-  public V1alpha1GroupVersionResource group(String group) {
+  public V1alpha1GroupVersionResource group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * The name of the group.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the group.")
   public String getGroup() {
     return group;
   }
 
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 
 
-  public V1alpha1GroupVersionResource resource(String resource) {
+  public V1alpha1GroupVersionResource resource(@jakarta.annotation.Nullable String resource) {
     this.resource = resource;
     return this;
   }
 
-   /**
+  /**
    * The name of the resource.
    * @return resource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the resource.")
   public String getResource() {
     return resource;
   }
 
-  public void setResource(String resource) {
+  public void setResource(@jakarta.annotation.Nullable String resource) {
     this.resource = resource;
   }
 
 
-  public V1alpha1GroupVersionResource version(String version) {
+  public V1alpha1GroupVersionResource version(@jakarta.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The name of the version.
    * @return version
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the version.")
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(@jakarta.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -185,12 +187,12 @@ public class V1alpha1GroupVersionResource {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1GroupVersionResource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1GroupVersionResource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1GroupVersionResource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -246,22 +248,22 @@ public class V1alpha1GroupVersionResource {
     }
   }
 
- /**
-  * Create an instance of V1alpha1GroupVersionResource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1GroupVersionResource
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1GroupVersionResource
-  */
+  /**
+   * Create an instance of V1alpha1GroupVersionResource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1GroupVersionResource
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1GroupVersionResource
+   */
   public static V1alpha1GroupVersionResource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1GroupVersionResource.class);
   }
 
- /**
-  * Convert an instance of V1alpha1GroupVersionResource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1GroupVersionResource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

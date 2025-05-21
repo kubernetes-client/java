@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,103 +52,107 @@ import io.kubernetes.client.openapi.JSON;
  * PodTemplate describes a template for creating copies of a predefined pod.
  */
 @ApiModel(description = "PodTemplate describes a template for creating copies of a predefined pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodTemplate implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @jakarta.annotation.Nullable
   private V1PodTemplateSpec template;
 
   public V1PodTemplate() {
   }
 
-  public V1PodTemplate apiVersion(String apiVersion) {
+  public V1PodTemplate apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1PodTemplate kind(String kind) {
+  public V1PodTemplate kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1PodTemplate metadata(V1ObjectMeta metadata) {
+  public V1PodTemplate metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1PodTemplate template(V1PodTemplateSpec template) {
+  public V1PodTemplate template(@jakarta.annotation.Nullable V1PodTemplateSpec template) {
     this.template = template;
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
 
-  public void setTemplate(V1PodTemplateSpec template) {
+  public void setTemplate(@jakarta.annotation.Nullable V1PodTemplateSpec template) {
     this.template = template;
   }
 
@@ -214,12 +217,12 @@ public class V1PodTemplate implements io.kubernetes.client.common.KubernetesObje
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodTemplate
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodTemplate
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodTemplate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -280,22 +283,22 @@ public class V1PodTemplate implements io.kubernetes.client.common.KubernetesObje
     }
   }
 
- /**
-  * Create an instance of V1PodTemplate given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodTemplate
-  * @throws IOException if the JSON string is invalid with respect to V1PodTemplate
-  */
+  /**
+   * Create an instance of V1PodTemplate given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodTemplate
+   * @throws IOException if the JSON string is invalid with respect to V1PodTemplate
+   */
   public static V1PodTemplate fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodTemplate.class);
   }
 
- /**
-  * Convert an instance of V1PodTemplate to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodTemplate to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

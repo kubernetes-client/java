@@ -47,14 +47,26 @@ public class V1beta1ValidatingAdmissionPolicySpecFluent<A extends V1beta1Validat
   public A addToAuditAnnotations(int index,V1beta1AuditAnnotation item) {
     if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1beta1AuditAnnotationBuilder>();}
     V1beta1AuditAnnotationBuilder builder = new V1beta1AuditAnnotationBuilder(item);
-    if (index < 0 || index >= auditAnnotations.size()) { _visitables.get("auditAnnotations").add(builder); auditAnnotations.add(builder); } else { _visitables.get("auditAnnotations").add(index, builder); auditAnnotations.add(index, builder);}
+    if (index < 0 || index >= auditAnnotations.size()) {
+        _visitables.get("auditAnnotations").add(builder);
+        auditAnnotations.add(builder);
+    } else {
+        _visitables.get("auditAnnotations").add(builder);
+        auditAnnotations.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAuditAnnotations(int index,V1beta1AuditAnnotation item) {
     if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1beta1AuditAnnotationBuilder>();}
     V1beta1AuditAnnotationBuilder builder = new V1beta1AuditAnnotationBuilder(item);
-    if (index < 0 || index >= auditAnnotations.size()) { _visitables.get("auditAnnotations").add(builder); auditAnnotations.add(builder); } else { _visitables.get("auditAnnotations").set(index, builder); auditAnnotations.set(index, builder);}
+    if (index < 0 || index >= auditAnnotations.size()) {
+        _visitables.get("auditAnnotations").add(builder);
+        auditAnnotations.add(builder);
+    } else {
+        _visitables.get("auditAnnotations").add(builder);
+        auditAnnotations.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -211,14 +223,26 @@ public class V1beta1ValidatingAdmissionPolicySpecFluent<A extends V1beta1Validat
   public A addToMatchConditions(int index,V1beta1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1beta1MatchConditionBuilder>();}
     V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").add(index, builder); matchConditions.add(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMatchConditions(int index,V1beta1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1beta1MatchConditionBuilder>();}
     V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").set(index, builder); matchConditions.set(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -442,14 +466,26 @@ public class V1beta1ValidatingAdmissionPolicySpecFluent<A extends V1beta1Validat
   public A addToValidations(int index,V1beta1Validation item) {
     if (this.validations == null) {this.validations = new ArrayList<V1beta1ValidationBuilder>();}
     V1beta1ValidationBuilder builder = new V1beta1ValidationBuilder(item);
-    if (index < 0 || index >= validations.size()) { _visitables.get("validations").add(builder); validations.add(builder); } else { _visitables.get("validations").add(index, builder); validations.add(index, builder);}
+    if (index < 0 || index >= validations.size()) {
+        _visitables.get("validations").add(builder);
+        validations.add(builder);
+    } else {
+        _visitables.get("validations").add(builder);
+        validations.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToValidations(int index,V1beta1Validation item) {
     if (this.validations == null) {this.validations = new ArrayList<V1beta1ValidationBuilder>();}
     V1beta1ValidationBuilder builder = new V1beta1ValidationBuilder(item);
-    if (index < 0 || index >= validations.size()) { _visitables.get("validations").add(builder); validations.add(builder); } else { _visitables.get("validations").set(index, builder); validations.set(index, builder);}
+    if (index < 0 || index >= validations.size()) {
+        _visitables.get("validations").add(builder);
+        validations.add(builder);
+    } else {
+        _visitables.get("validations").add(builder);
+        validations.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -593,14 +629,26 @@ public class V1beta1ValidatingAdmissionPolicySpecFluent<A extends V1beta1Validat
   public A addToVariables(int index,V1beta1Variable item) {
     if (this.variables == null) {this.variables = new ArrayList<V1beta1VariableBuilder>();}
     V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) { _visitables.get("variables").add(builder); variables.add(builder); } else { _visitables.get("variables").add(index, builder); variables.add(index, builder);}
+    if (index < 0 || index >= variables.size()) {
+        _visitables.get("variables").add(builder);
+        variables.add(builder);
+    } else {
+        _visitables.get("variables").add(builder);
+        variables.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVariables(int index,V1beta1Variable item) {
     if (this.variables == null) {this.variables = new ArrayList<V1beta1VariableBuilder>();}
     V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) { _visitables.get("variables").add(builder); variables.add(builder); } else { _visitables.get("variables").set(index, builder); variables.set(index, builder);}
+    if (index < 0 || index >= variables.size()) {
+        _visitables.get("variables").add(builder);
+        variables.add(builder);
+    } else {
+        _visitables.get("variables").add(builder);
+        variables.set(index, builder);
+    }
     return (A)this;
   }
   

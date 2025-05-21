@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,82 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeError captures an error encountered during a volume operation.
  */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeError {
+  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  @jakarta.annotation.Nullable
+  private Integer errorCode;
+
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime time;
 
   public V1VolumeError() {
   }
 
-  public V1VolumeError message(String message) {
+  public V1VolumeError errorCode(@jakarta.annotation.Nullable Integer errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+  /**
+   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+   * @return errorCode
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.")
+  public Integer getErrorCode() {
+    return errorCode;
+  }
+
+  public void setErrorCode(@jakarta.annotation.Nullable Integer errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
+  public V1VolumeError message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.")
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public V1VolumeError time(OffsetDateTime time) {
+  public V1VolumeError time(@jakarta.annotation.Nullable OffsetDateTime time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * time represents the time the error was encountered.
    * @return time
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "time represents the time the error was encountered.")
   public OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(OffsetDateTime time) {
+  public void setTime(@jakarta.annotation.Nullable OffsetDateTime time) {
     this.time = time;
   }
 
@@ -115,19 +141,21 @@ public class V1VolumeError {
       return false;
     }
     V1VolumeError v1VolumeError = (V1VolumeError) o;
-    return Objects.equals(this.message, v1VolumeError.message) &&
+    return Objects.equals(this.errorCode, v1VolumeError.errorCode) &&
+        Objects.equals(this.message, v1VolumeError.message) &&
         Objects.equals(this.time, v1VolumeError.time);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, time);
+    return Objects.hash(errorCode, message, time);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1VolumeError {\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("}");
@@ -152,6 +180,7 @@ public class V1VolumeError {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("errorCode");
     openapiFields.add("message");
     openapiFields.add("time");
 
@@ -159,12 +188,12 @@ public class V1VolumeError {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeError
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeError
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeError.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -214,22 +243,22 @@ public class V1VolumeError {
     }
   }
 
- /**
-  * Create an instance of V1VolumeError given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeError
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeError
-  */
+  /**
+   * Create an instance of V1VolumeError given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeError
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeError
+   */
   public static V1VolumeError fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeError.class);
   }
 
- /**
-  * Convert an instance of V1VolumeError to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeError to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

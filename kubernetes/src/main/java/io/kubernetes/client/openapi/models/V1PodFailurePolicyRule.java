@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,64 +54,67 @@ import io.kubernetes.client.openapi.JSON;
  * PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.
  */
 @ApiModel(description = "PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodFailurePolicyRule {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
+  @jakarta.annotation.Nonnull
   private String action;
 
   public static final String SERIALIZED_NAME_ON_EXIT_CODES = "onExitCodes";
   @SerializedName(SERIALIZED_NAME_ON_EXIT_CODES)
+  @jakarta.annotation.Nullable
   private V1PodFailurePolicyOnExitCodesRequirement onExitCodes;
 
   public static final String SERIALIZED_NAME_ON_POD_CONDITIONS = "onPodConditions";
   @SerializedName(SERIALIZED_NAME_ON_POD_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions = new ArrayList<>();
 
   public V1PodFailurePolicyRule() {
   }
 
-  public V1PodFailurePolicyRule action(String action) {
+  public V1PodFailurePolicyRule action(@jakarta.annotation.Nonnull String action) {
     this.action = action;
     return this;
   }
 
-   /**
-   * Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod&#39;s job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod&#39;s index is marked as Failed and will   not be restarted.   This value is beta-level. It can be used when the   &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (enabled by default). - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.
+  /**
+   * Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod&#39;s job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod&#39;s index is marked as Failed and will   not be restarted. - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.
    * @return action
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod's job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod's index is marked as Failed and will   not be restarted.   This value is beta-level. It can be used when the   `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default). - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.")
+  @ApiModelProperty(required = true, value = "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod's job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod's index is marked as Failed and will   not be restarted. - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.")
   public String getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nonnull String action) {
     this.action = action;
   }
 
 
-  public V1PodFailurePolicyRule onExitCodes(V1PodFailurePolicyOnExitCodesRequirement onExitCodes) {
+  public V1PodFailurePolicyRule onExitCodes(@jakarta.annotation.Nullable V1PodFailurePolicyOnExitCodesRequirement onExitCodes) {
     this.onExitCodes = onExitCodes;
     return this;
   }
 
-   /**
+  /**
    * Get onExitCodes
    * @return onExitCodes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodFailurePolicyOnExitCodesRequirement getOnExitCodes() {
     return onExitCodes;
   }
 
-  public void setOnExitCodes(V1PodFailurePolicyOnExitCodesRequirement onExitCodes) {
+  public void setOnExitCodes(@jakarta.annotation.Nullable V1PodFailurePolicyOnExitCodesRequirement onExitCodes) {
     this.onExitCodes = onExitCodes;
   }
 
 
-  public V1PodFailurePolicyRule onPodConditions(List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions) {
+  public V1PodFailurePolicyRule onPodConditions(@jakarta.annotation.Nullable List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions) {
     this.onPodConditions = onPodConditions;
     return this;
   }
@@ -125,17 +127,17 @@ public class V1PodFailurePolicyRule {
     return this;
   }
 
-   /**
+  /**
    * Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.
    * @return onPodConditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.")
   public List<V1PodFailurePolicyOnPodConditionsPattern> getOnPodConditions() {
     return onPodConditions;
   }
 
-  public void setOnPodConditions(List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions) {
+  public void setOnPodConditions(@jakarta.annotation.Nullable List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions) {
     this.onPodConditions = onPodConditions;
   }
 
@@ -198,12 +200,12 @@ public class V1PodFailurePolicyRule {
     openapiRequiredFields.add("action");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicyRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicyRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodFailurePolicyRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -278,22 +280,22 @@ public class V1PodFailurePolicyRule {
     }
   }
 
- /**
-  * Create an instance of V1PodFailurePolicyRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodFailurePolicyRule
-  * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicyRule
-  */
+  /**
+   * Create an instance of V1PodFailurePolicyRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodFailurePolicyRule
+   * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicyRule
+   */
   public static V1PodFailurePolicyRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodFailurePolicyRule.class);
   }
 
- /**
-  * Convert an instance of V1PodFailurePolicyRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodFailurePolicyRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

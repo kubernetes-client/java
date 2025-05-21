@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.
  */
 @ApiModel(description = "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3Device {
   public static final String SERIALIZED_NAME_BASIC = "basic";
   @SerializedName(SERIALIZED_NAME_BASIC)
+  @jakarta.annotation.Nullable
   private V1alpha3BasicDevice basic;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1alpha3Device() {
   }
 
-  public V1alpha3Device basic(V1alpha3BasicDevice basic) {
+  public V1alpha3Device basic(@jakarta.annotation.Nullable V1alpha3BasicDevice basic) {
     this.basic = basic;
     return this;
   }
 
-   /**
+  /**
    * Get basic
    * @return basic
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha3BasicDevice getBasic() {
     return basic;
   }
 
-  public void setBasic(V1alpha3BasicDevice basic) {
+  public void setBasic(@jakarta.annotation.Nullable V1alpha3BasicDevice basic) {
     this.basic = basic;
   }
 
 
-  public V1alpha3Device name(String name) {
+  public V1alpha3Device name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is unique identifier among all devices managed by the driver in the pool. It must be a DNS label.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is unique identifier among all devices managed by the driver in the pool. It must be a DNS label.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -160,12 +161,12 @@ public class V1alpha3Device {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3Device
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3Device
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3Device.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -226,22 +227,22 @@ public class V1alpha3Device {
     }
   }
 
- /**
-  * Create an instance of V1alpha3Device given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3Device
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3Device
-  */
+  /**
+   * Create an instance of V1alpha3Device given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3Device
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3Device
+   */
   public static V1alpha3Device fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3Device.class);
   }
 
- /**
-  * Convert an instance of V1alpha3Device to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3Device to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

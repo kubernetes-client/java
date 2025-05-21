@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,79 +52,82 @@ import io.kubernetes.client.openapi.JSON;
  * Mutation specifies the CEL expression which is used to apply the Mutation.
  */
 @ApiModel(description = "Mutation specifies the CEL expression which is used to apply the Mutation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1Mutation {
   public static final String SERIALIZED_NAME_APPLY_CONFIGURATION = "applyConfiguration";
   @SerializedName(SERIALIZED_NAME_APPLY_CONFIGURATION)
+  @jakarta.annotation.Nullable
   private V1alpha1ApplyConfiguration applyConfiguration;
 
   public static final String SERIALIZED_NAME_JSON_PATCH = "jsonPatch";
   @SerializedName(SERIALIZED_NAME_JSON_PATCH)
+  @jakarta.annotation.Nullable
   private V1alpha1JSONPatch jsonPatch;
 
   public static final String SERIALIZED_NAME_PATCH_TYPE = "patchType";
   @SerializedName(SERIALIZED_NAME_PATCH_TYPE)
+  @jakarta.annotation.Nonnull
   private String patchType;
 
   public V1alpha1Mutation() {
   }
 
-  public V1alpha1Mutation applyConfiguration(V1alpha1ApplyConfiguration applyConfiguration) {
+  public V1alpha1Mutation applyConfiguration(@jakarta.annotation.Nullable V1alpha1ApplyConfiguration applyConfiguration) {
     this.applyConfiguration = applyConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get applyConfiguration
    * @return applyConfiguration
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha1ApplyConfiguration getApplyConfiguration() {
     return applyConfiguration;
   }
 
-  public void setApplyConfiguration(V1alpha1ApplyConfiguration applyConfiguration) {
+  public void setApplyConfiguration(@jakarta.annotation.Nullable V1alpha1ApplyConfiguration applyConfiguration) {
     this.applyConfiguration = applyConfiguration;
   }
 
 
-  public V1alpha1Mutation jsonPatch(V1alpha1JSONPatch jsonPatch) {
+  public V1alpha1Mutation jsonPatch(@jakarta.annotation.Nullable V1alpha1JSONPatch jsonPatch) {
     this.jsonPatch = jsonPatch;
     return this;
   }
 
-   /**
+  /**
    * Get jsonPatch
    * @return jsonPatch
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha1JSONPatch getJsonPatch() {
     return jsonPatch;
   }
 
-  public void setJsonPatch(V1alpha1JSONPatch jsonPatch) {
+  public void setJsonPatch(@jakarta.annotation.Nullable V1alpha1JSONPatch jsonPatch) {
     this.jsonPatch = jsonPatch;
   }
 
 
-  public V1alpha1Mutation patchType(String patchType) {
+  public V1alpha1Mutation patchType(@jakarta.annotation.Nonnull String patchType) {
     this.patchType = patchType;
     return this;
   }
 
-   /**
+  /**
    * patchType indicates the patch strategy used. Allowed values are \&quot;ApplyConfiguration\&quot; and \&quot;JSONPatch\&quot;. Required.
    * @return patchType
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "patchType indicates the patch strategy used. Allowed values are \"ApplyConfiguration\" and \"JSONPatch\". Required.")
   public String getPatchType() {
     return patchType;
   }
 
-  public void setPatchType(String patchType) {
+  public void setPatchType(@jakarta.annotation.Nonnull String patchType) {
     this.patchType = patchType;
   }
 
@@ -188,12 +190,12 @@ public class V1alpha1Mutation {
     openapiRequiredFields.add("patchType");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1Mutation
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1Mutation
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1Mutation.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -258,22 +260,22 @@ public class V1alpha1Mutation {
     }
   }
 
- /**
-  * Create an instance of V1alpha1Mutation given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1Mutation
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1Mutation
-  */
+  /**
+   * Create an instance of V1alpha1Mutation given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1Mutation
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1Mutation
+   */
   public static V1alpha1Mutation fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1Mutation.class);
   }
 
- /**
-  * Convert an instance of V1alpha1Mutation to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1Mutation to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

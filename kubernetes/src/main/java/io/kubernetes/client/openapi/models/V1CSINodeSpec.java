@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * CSINodeSpec holds information about the specification of all CSI drivers installed on a node
  */
 @ApiModel(description = "CSINodeSpec holds information about the specification of all CSI drivers installed on a node")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSINodeSpec {
   public static final String SERIALIZED_NAME_DRIVERS = "drivers";
   @SerializedName(SERIALIZED_NAME_DRIVERS)
+  @jakarta.annotation.Nonnull
   private List<V1CSINodeDriver> drivers = new ArrayList<>();
 
   public V1CSINodeSpec() {
   }
 
-  public V1CSINodeSpec drivers(List<V1CSINodeDriver> drivers) {
+  public V1CSINodeSpec drivers(@jakarta.annotation.Nonnull List<V1CSINodeDriver> drivers) {
     this.drivers = drivers;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1CSINodeSpec {
     return this;
   }
 
-   /**
+  /**
    * drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
    * @return drivers
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.")
   public List<V1CSINodeDriver> getDrivers() {
     return drivers;
   }
 
-  public void setDrivers(List<V1CSINodeDriver> drivers) {
+  public void setDrivers(@jakarta.annotation.Nonnull List<V1CSINodeDriver> drivers) {
     this.drivers = drivers;
   }
 
@@ -143,12 +143,12 @@ public class V1CSINodeSpec {
     openapiRequiredFields.add("drivers");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CSINodeSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CSINodeSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSINodeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -212,22 +212,22 @@ public class V1CSINodeSpec {
     }
   }
 
- /**
-  * Create an instance of V1CSINodeSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CSINodeSpec
-  * @throws IOException if the JSON string is invalid with respect to V1CSINodeSpec
-  */
+  /**
+   * Create an instance of V1CSINodeSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CSINodeSpec
+   * @throws IOException if the JSON string is invalid with respect to V1CSINodeSpec
+   */
   public static V1CSINodeSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CSINodeSpec.class);
   }
 
- /**
-  * Convert an instance of V1CSINodeSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CSINodeSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1HostPathVolumeSource {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nonnull
   private String path;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nullable
   private String type;
 
   public V1HostPathVolumeSource() {
   }
 
-  public V1HostPathVolumeSource path(String path) {
+  public V1HostPathVolumeSource path(@jakarta.annotation.Nonnull String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    * @return path
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nonnull String path) {
     this.path = path;
   }
 
 
-  public V1HostPathVolumeSource type(String type) {
+  public V1HostPathVolumeSource type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type for HostPath Volume Defaults to \&quot;\&quot; More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
@@ -159,12 +160,12 @@ public class V1HostPathVolumeSource {
     openapiRequiredFields.add("path");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1HostPathVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1HostPathVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1HostPathVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1HostPathVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1HostPathVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1HostPathVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1HostPathVolumeSource
-  */
+  /**
+   * Create an instance of V1HostPathVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1HostPathVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1HostPathVolumeSource
+   */
   public static V1HostPathVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1HostPathVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1HostPathVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1HostPathVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

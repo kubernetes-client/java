@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,24 +53,27 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequestSpec contains client provided parameters of a token request.
  */
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1TokenRequestSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
+  @jakarta.annotation.Nonnull
   private List<String> audiences = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BOUND_OBJECT_REF = "boundObjectRef";
   @SerializedName(SERIALIZED_NAME_BOUND_OBJECT_REF)
+  @jakarta.annotation.Nullable
   private V1BoundObjectReference boundObjectRef;
 
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
+  @jakarta.annotation.Nullable
   private Long expirationSeconds;
 
   public V1TokenRequestSpec() {
   }
 
-  public V1TokenRequestSpec audiences(List<String> audiences) {
+  public V1TokenRequestSpec audiences(@jakarta.annotation.Nonnull List<String> audiences) {
     this.audiences = audiences;
     return this;
   }
@@ -84,57 +86,57 @@ public class V1TokenRequestSpec {
     return this;
   }
 
-   /**
+  /**
    * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    * @return audiences
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
   public List<String> getAudiences() {
     return audiences;
   }
 
-  public void setAudiences(List<String> audiences) {
+  public void setAudiences(@jakarta.annotation.Nonnull List<String> audiences) {
     this.audiences = audiences;
   }
 
 
-  public V1TokenRequestSpec boundObjectRef(V1BoundObjectReference boundObjectRef) {
+  public V1TokenRequestSpec boundObjectRef(@jakarta.annotation.Nullable V1BoundObjectReference boundObjectRef) {
     this.boundObjectRef = boundObjectRef;
     return this;
   }
 
-   /**
+  /**
    * Get boundObjectRef
    * @return boundObjectRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1BoundObjectReference getBoundObjectRef() {
     return boundObjectRef;
   }
 
-  public void setBoundObjectRef(V1BoundObjectReference boundObjectRef) {
+  public void setBoundObjectRef(@jakarta.annotation.Nullable V1BoundObjectReference boundObjectRef) {
     this.boundObjectRef = boundObjectRef;
   }
 
 
-  public V1TokenRequestSpec expirationSeconds(Long expirationSeconds) {
+  public V1TokenRequestSpec expirationSeconds(@jakarta.annotation.Nullable Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return this;
   }
 
-   /**
+  /**
    * ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the &#39;expiration&#39; field in a response.
    * @return expirationSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
 
-  public void setExpirationSeconds(Long expirationSeconds) {
+  public void setExpirationSeconds(@jakarta.annotation.Nullable Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
 
@@ -197,12 +199,12 @@ public class V1TokenRequestSpec {
     openapiRequiredFields.add("audiences");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1TokenRequestSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1TokenRequestSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1TokenRequestSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -266,22 +268,22 @@ public class V1TokenRequestSpec {
     }
   }
 
- /**
-  * Create an instance of V1TokenRequestSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1TokenRequestSpec
-  * @throws IOException if the JSON string is invalid with respect to V1TokenRequestSpec
-  */
+  /**
+   * Create an instance of V1TokenRequestSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1TokenRequestSpec
+   * @throws IOException if the JSON string is invalid with respect to V1TokenRequestSpec
+   */
   public static V1TokenRequestSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1TokenRequestSpec.class);
   }
 
- /**
-  * Convert an instance of V1TokenRequestSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1TokenRequestSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

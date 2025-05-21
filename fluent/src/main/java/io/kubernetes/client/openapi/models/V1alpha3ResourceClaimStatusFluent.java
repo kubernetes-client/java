@@ -79,14 +79,26 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
   public A addToDevices(int index,V1alpha3AllocatedDeviceStatus item) {
     if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
     V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);
-    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").add(index, builder); devices.add(index, builder);}
+    if (index < 0 || index >= devices.size()) {
+        _visitables.get("devices").add(builder);
+        devices.add(builder);
+    } else {
+        _visitables.get("devices").add(builder);
+        devices.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToDevices(int index,V1alpha3AllocatedDeviceStatus item) {
     if (this.devices == null) {this.devices = new ArrayList<V1alpha3AllocatedDeviceStatusBuilder>();}
     V1alpha3AllocatedDeviceStatusBuilder builder = new V1alpha3AllocatedDeviceStatusBuilder(item);
-    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").set(index, builder); devices.set(index, builder);}
+    if (index < 0 || index >= devices.size()) {
+        _visitables.get("devices").add(builder);
+        devices.add(builder);
+    } else {
+        _visitables.get("devices").add(builder);
+        devices.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -230,14 +242,26 @@ public class V1alpha3ResourceClaimStatusFluent<A extends V1alpha3ResourceClaimSt
   public A addToReservedFor(int index,V1alpha3ResourceClaimConsumerReference item) {
     if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1alpha3ResourceClaimConsumerReferenceBuilder>();}
     V1alpha3ResourceClaimConsumerReferenceBuilder builder = new V1alpha3ResourceClaimConsumerReferenceBuilder(item);
-    if (index < 0 || index >= reservedFor.size()) { _visitables.get("reservedFor").add(builder); reservedFor.add(builder); } else { _visitables.get("reservedFor").add(index, builder); reservedFor.add(index, builder);}
+    if (index < 0 || index >= reservedFor.size()) {
+        _visitables.get("reservedFor").add(builder);
+        reservedFor.add(builder);
+    } else {
+        _visitables.get("reservedFor").add(builder);
+        reservedFor.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToReservedFor(int index,V1alpha3ResourceClaimConsumerReference item) {
     if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1alpha3ResourceClaimConsumerReferenceBuilder>();}
     V1alpha3ResourceClaimConsumerReferenceBuilder builder = new V1alpha3ResourceClaimConsumerReferenceBuilder(item);
-    if (index < 0 || index >= reservedFor.size()) { _visitables.get("reservedFor").add(builder); reservedFor.add(builder); } else { _visitables.get("reservedFor").set(index, builder); reservedFor.set(index, builder);}
+    if (index < 0 || index >= reservedFor.size()) {
+        _visitables.get("reservedFor").add(builder);
+        reservedFor.add(builder);
+    } else {
+        _visitables.get("reservedFor").add(builder);
+        reservedFor.set(index, builder);
+    }
     return (A)this;
   }
   

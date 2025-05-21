@@ -35,14 +35,26 @@ public class V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends Bas
   public A addToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
     V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
-    if (index < 0 || index >= nodeSelectorTerms.size()) { _visitables.get("nodeSelectorTerms").add(builder); nodeSelectorTerms.add(builder); } else { _visitables.get("nodeSelectorTerms").add(index, builder); nodeSelectorTerms.add(index, builder);}
+    if (index < 0 || index >= nodeSelectorTerms.size()) {
+        _visitables.get("nodeSelectorTerms").add(builder);
+        nodeSelectorTerms.add(builder);
+    } else {
+        _visitables.get("nodeSelectorTerms").add(builder);
+        nodeSelectorTerms.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
     V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
-    if (index < 0 || index >= nodeSelectorTerms.size()) { _visitables.get("nodeSelectorTerms").add(builder); nodeSelectorTerms.add(builder); } else { _visitables.get("nodeSelectorTerms").set(index, builder); nodeSelectorTerms.set(index, builder);}
+    if (index < 0 || index >= nodeSelectorTerms.size()) {
+        _visitables.get("nodeSelectorTerms").add(builder);
+        nodeSelectorTerms.add(builder);
+    } else {
+        _visitables.get("nodeSelectorTerms").add(builder);
+        nodeSelectorTerms.set(index, builder);
+    }
     return (A)this;
   }
   

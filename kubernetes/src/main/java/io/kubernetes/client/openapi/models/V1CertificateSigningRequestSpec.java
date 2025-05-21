@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,64 +54,72 @@ import io.kubernetes.client.openapi.JSON;
  * CertificateSigningRequestSpec contains the certificate request.
  */
 @ApiModel(description = "CertificateSigningRequestSpec contains the certificate request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CertificateSigningRequestSpec {
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer expirationSeconds;
 
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
+  @jakarta.annotation.Nullable
   private Map<String, List<String>> extra = new HashMap<>();
 
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)
+  @jakarta.annotation.Nullable
   private List<String> groups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
+  @jakarta.annotation.Nonnull
   private byte[] request;
 
   public static final String SERIALIZED_NAME_SIGNER_NAME = "signerName";
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
+  @jakarta.annotation.Nonnull
   private String signerName;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nullable
   private String uid;
 
   public static final String SERIALIZED_NAME_USAGES = "usages";
   @SerializedName(SERIALIZED_NAME_USAGES)
+  @jakarta.annotation.Nullable
   private List<String> usages = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
+  @jakarta.annotation.Nullable
   private String username;
 
   public V1CertificateSigningRequestSpec() {
   }
 
-  public V1CertificateSigningRequestSpec expirationSeconds(Integer expirationSeconds) {
+  public V1CertificateSigningRequestSpec expirationSeconds(@jakarta.annotation.Nullable Integer expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return this;
   }
 
-   /**
+  /**
    * expirationSeconds is the requested duration of validity of the issued certificate. The certificate signer may issue a certificate with a different validity duration so a client must check the delta between the notBefore and and notAfter fields in the issued certificate to determine the actual duration.  The v1.22+ in-tree implementations of the well-known Kubernetes signers will honor this field as long as the requested duration is not greater than the maximum duration they will honor per the --cluster-signing-duration CLI flag to the Kubernetes controller manager.  Certificate signers may not honor this field for various reasons:    1. Old signer that is unaware of the field (such as the in-tree      implementations prior to v1.22)   2. Signer whose configured maximum is shorter than the requested duration   3. Signer whose configured minimum is longer than the requested duration  The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
    * @return expirationSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "expirationSeconds is the requested duration of validity of the issued certificate. The certificate signer may issue a certificate with a different validity duration so a client must check the delta between the notBefore and and notAfter fields in the issued certificate to determine the actual duration.  The v1.22+ in-tree implementations of the well-known Kubernetes signers will honor this field as long as the requested duration is not greater than the maximum duration they will honor per the --cluster-signing-duration CLI flag to the Kubernetes controller manager.  Certificate signers may not honor this field for various reasons:    1. Old signer that is unaware of the field (such as the in-tree      implementations prior to v1.22)   2. Signer whose configured maximum is shorter than the requested duration   3. Signer whose configured minimum is longer than the requested duration  The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.")
   public Integer getExpirationSeconds() {
     return expirationSeconds;
   }
 
-  public void setExpirationSeconds(Integer expirationSeconds) {
+  public void setExpirationSeconds(@jakarta.annotation.Nullable Integer expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
 
 
-  public V1CertificateSigningRequestSpec extra(Map<String, List<String>> extra) {
+  public V1CertificateSigningRequestSpec extra(@jakarta.annotation.Nullable Map<String, List<String>> extra) {
     this.extra = extra;
     return this;
   }
@@ -125,22 +132,22 @@ public class V1CertificateSigningRequestSpec {
     return this;
   }
 
-   /**
+  /**
    * extra contains extra attributes of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.
    * @return extra
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "extra contains extra attributes of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.")
   public Map<String, List<String>> getExtra() {
     return extra;
   }
 
-  public void setExtra(Map<String, List<String>> extra) {
+  public void setExtra(@jakarta.annotation.Nullable Map<String, List<String>> extra) {
     this.extra = extra;
   }
 
 
-  public V1CertificateSigningRequestSpec groups(List<String> groups) {
+  public V1CertificateSigningRequestSpec groups(@jakarta.annotation.Nullable List<String> groups) {
     this.groups = groups;
     return this;
   }
@@ -153,82 +160,82 @@ public class V1CertificateSigningRequestSpec {
     return this;
   }
 
-   /**
+  /**
    * groups contains group membership of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.
    * @return groups
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "groups contains group membership of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.")
   public List<String> getGroups() {
     return groups;
   }
 
-  public void setGroups(List<String> groups) {
+  public void setGroups(@jakarta.annotation.Nullable List<String> groups) {
     this.groups = groups;
   }
 
 
-  public V1CertificateSigningRequestSpec request(byte[] request) {
+  public V1CertificateSigningRequestSpec request(@jakarta.annotation.Nonnull byte[] request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * request contains an x509 certificate signing request encoded in a \&quot;CERTIFICATE REQUEST\&quot; PEM block. When serialized as JSON or YAML, the data is additionally base64-encoded.
    * @return request
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "request contains an x509 certificate signing request encoded in a \"CERTIFICATE REQUEST\" PEM block. When serialized as JSON or YAML, the data is additionally base64-encoded.")
   public byte[] getRequest() {
     return request;
   }
 
-  public void setRequest(byte[] request) {
+  public void setRequest(@jakarta.annotation.Nonnull byte[] request) {
     this.request = request;
   }
 
 
-  public V1CertificateSigningRequestSpec signerName(String signerName) {
+  public V1CertificateSigningRequestSpec signerName(@jakarta.annotation.Nonnull String signerName) {
     this.signerName = signerName;
     return this;
   }
 
-   /**
+  /**
    * signerName indicates the requested signer, and is a qualified name.  List/watch requests for CertificateSigningRequests can filter on this field using a \&quot;spec.signerName&#x3D;NAME\&quot; fieldSelector.  Well-known Kubernetes signers are:  1. \&quot;kubernetes.io/kube-apiserver-client\&quot;: issues client certificates that can be used to authenticate to kube-apiserver.   Requests for this signer are never auto-approved by kube-controller-manager, can be issued by the \&quot;csrsigning\&quot; controller in kube-controller-manager.  2. \&quot;kubernetes.io/kube-apiserver-client-kubelet\&quot;: issues client certificates that kubelets use to authenticate to kube-apiserver.   Requests for this signer can be auto-approved by the \&quot;csrapproving\&quot; controller in kube-controller-manager, and can be issued by the \&quot;csrsigning\&quot; controller in kube-controller-manager.  3. \&quot;kubernetes.io/kubelet-serving\&quot; issues serving certificates that kubelets use to serve TLS endpoints, which kube-apiserver can connect to securely.   Requests for this signer are never auto-approved by kube-controller-manager, and can be issued by the \&quot;csrsigning\&quot; controller in kube-controller-manager.  More details are available at https://k8s.io/docs/reference/access-authn-authz/certificate-signing-requests/#kubernetes-signers  Custom signerNames can also be specified. The signer defines:  1. Trust distribution: how trust (CA bundles) are distributed.  2. Permitted subjects: and behavior when a disallowed subject is requested.  3. Required, permitted, or forbidden x509 extensions in the request (including whether subjectAltNames are allowed, which types, restrictions on allowed values) and behavior when a disallowed extension is requested.  4. Required, permitted, or forbidden key usages / extended key usages.  5. Expiration/certificate lifetime: whether it is fixed by the signer, configurable by the admin.  6. Whether or not requests for CA certificates are allowed.
    * @return signerName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "signerName indicates the requested signer, and is a qualified name.  List/watch requests for CertificateSigningRequests can filter on this field using a \"spec.signerName=NAME\" fieldSelector.  Well-known Kubernetes signers are:  1. \"kubernetes.io/kube-apiserver-client\": issues client certificates that can be used to authenticate to kube-apiserver.   Requests for this signer are never auto-approved by kube-controller-manager, can be issued by the \"csrsigning\" controller in kube-controller-manager.  2. \"kubernetes.io/kube-apiserver-client-kubelet\": issues client certificates that kubelets use to authenticate to kube-apiserver.   Requests for this signer can be auto-approved by the \"csrapproving\" controller in kube-controller-manager, and can be issued by the \"csrsigning\" controller in kube-controller-manager.  3. \"kubernetes.io/kubelet-serving\" issues serving certificates that kubelets use to serve TLS endpoints, which kube-apiserver can connect to securely.   Requests for this signer are never auto-approved by kube-controller-manager, and can be issued by the \"csrsigning\" controller in kube-controller-manager.  More details are available at https://k8s.io/docs/reference/access-authn-authz/certificate-signing-requests/#kubernetes-signers  Custom signerNames can also be specified. The signer defines:  1. Trust distribution: how trust (CA bundles) are distributed.  2. Permitted subjects: and behavior when a disallowed subject is requested.  3. Required, permitted, or forbidden x509 extensions in the request (including whether subjectAltNames are allowed, which types, restrictions on allowed values) and behavior when a disallowed extension is requested.  4. Required, permitted, or forbidden key usages / extended key usages.  5. Expiration/certificate lifetime: whether it is fixed by the signer, configurable by the admin.  6. Whether or not requests for CA certificates are allowed.")
   public String getSignerName() {
     return signerName;
   }
 
-  public void setSignerName(String signerName) {
+  public void setSignerName(@jakarta.annotation.Nonnull String signerName) {
     this.signerName = signerName;
   }
 
 
-  public V1CertificateSigningRequestSpec uid(String uid) {
+  public V1CertificateSigningRequestSpec uid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * uid contains the uid of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "uid contains the uid of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
   }
 
 
-  public V1CertificateSigningRequestSpec usages(List<String> usages) {
+  public V1CertificateSigningRequestSpec usages(@jakarta.annotation.Nullable List<String> usages) {
     this.usages = usages;
     return this;
   }
@@ -241,37 +248,37 @@ public class V1CertificateSigningRequestSpec {
     return this;
   }
 
-   /**
+  /**
    * usages specifies a set of key usages requested in the issued certificate.  Requests for TLS client certificates typically request: \&quot;digital signature\&quot;, \&quot;key encipherment\&quot;, \&quot;client auth\&quot;.  Requests for TLS serving certificates typically request: \&quot;key encipherment\&quot;, \&quot;digital signature\&quot;, \&quot;server auth\&quot;.  Valid values are:  \&quot;signing\&quot;, \&quot;digital signature\&quot;, \&quot;content commitment\&quot;,  \&quot;key encipherment\&quot;, \&quot;key agreement\&quot;, \&quot;data encipherment\&quot;,  \&quot;cert sign\&quot;, \&quot;crl sign\&quot;, \&quot;encipher only\&quot;, \&quot;decipher only\&quot;, \&quot;any\&quot;,  \&quot;server auth\&quot;, \&quot;client auth\&quot;,  \&quot;code signing\&quot;, \&quot;email protection\&quot;, \&quot;s/mime\&quot;,  \&quot;ipsec end system\&quot;, \&quot;ipsec tunnel\&quot;, \&quot;ipsec user\&quot;,  \&quot;timestamping\&quot;, \&quot;ocsp signing\&quot;, \&quot;microsoft sgc\&quot;, \&quot;netscape sgc\&quot;
    * @return usages
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "usages specifies a set of key usages requested in the issued certificate.  Requests for TLS client certificates typically request: \"digital signature\", \"key encipherment\", \"client auth\".  Requests for TLS serving certificates typically request: \"key encipherment\", \"digital signature\", \"server auth\".  Valid values are:  \"signing\", \"digital signature\", \"content commitment\",  \"key encipherment\", \"key agreement\", \"data encipherment\",  \"cert sign\", \"crl sign\", \"encipher only\", \"decipher only\", \"any\",  \"server auth\", \"client auth\",  \"code signing\", \"email protection\", \"s/mime\",  \"ipsec end system\", \"ipsec tunnel\", \"ipsec user\",  \"timestamping\", \"ocsp signing\", \"microsoft sgc\", \"netscape sgc\"")
   public List<String> getUsages() {
     return usages;
   }
 
-  public void setUsages(List<String> usages) {
+  public void setUsages(@jakarta.annotation.Nullable List<String> usages) {
     this.usages = usages;
   }
 
 
-  public V1CertificateSigningRequestSpec username(String username) {
+  public V1CertificateSigningRequestSpec username(@jakarta.annotation.Nullable String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * username contains the name of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.
    * @return username
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "username contains the name of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.")
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(String username) {
+  public void setUsername(@jakarta.annotation.Nullable String username) {
     this.username = username;
   }
 
@@ -350,12 +357,12 @@ public class V1CertificateSigningRequestSpec {
     openapiRequiredFields.add("signerName");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CertificateSigningRequestSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CertificateSigningRequestSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CertificateSigningRequestSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -426,22 +433,22 @@ public class V1CertificateSigningRequestSpec {
     }
   }
 
- /**
-  * Create an instance of V1CertificateSigningRequestSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CertificateSigningRequestSpec
-  * @throws IOException if the JSON string is invalid with respect to V1CertificateSigningRequestSpec
-  */
+  /**
+   * Create an instance of V1CertificateSigningRequestSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CertificateSigningRequestSpec
+   * @throws IOException if the JSON string is invalid with respect to V1CertificateSigningRequestSpec
+   */
   public static V1CertificateSigningRequestSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CertificateSigningRequestSpec.class);
   }
 
- /**
-  * Convert an instance of V1CertificateSigningRequestSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CertificateSigningRequestSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

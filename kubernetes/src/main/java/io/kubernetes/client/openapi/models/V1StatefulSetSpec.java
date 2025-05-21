@@ -46,7 +46,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,256 +58,267 @@ import io.kubernetes.client.openapi.JSON;
  * A StatefulSetSpec is the specification of a StatefulSet.
  */
 @ApiModel(description = "A StatefulSetSpec is the specification of a StatefulSet.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1StatefulSetSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer minReadySeconds;
 
   public static final String SERIALIZED_NAME_ORDINALS = "ordinals";
   @SerializedName(SERIALIZED_NAME_ORDINALS)
+  @jakarta.annotation.Nullable
   private V1StatefulSetOrdinals ordinals;
 
   public static final String SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIM_RETENTION_POLICY = "persistentVolumeClaimRetentionPolicy";
   @SerializedName(SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIM_RETENTION_POLICY)
+  @jakarta.annotation.Nullable
   private V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy;
 
   public static final String SERIALIZED_NAME_POD_MANAGEMENT_POLICY = "podManagementPolicy";
   @SerializedName(SERIALIZED_NAME_POD_MANAGEMENT_POLICY)
+  @jakarta.annotation.Nullable
   private String podManagementPolicy;
 
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
   @SerializedName(SERIALIZED_NAME_REPLICAS)
+  @jakarta.annotation.Nullable
   private Integer replicas;
 
   public static final String SERIALIZED_NAME_REVISION_HISTORY_LIMIT = "revisionHistoryLimit";
   @SerializedName(SERIALIZED_NAME_REVISION_HISTORY_LIMIT)
+  @jakarta.annotation.Nullable
   private Integer revisionHistoryLimit;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nonnull
   private V1LabelSelector selector;
 
   public static final String SERIALIZED_NAME_SERVICE_NAME = "serviceName";
   @SerializedName(SERIALIZED_NAME_SERVICE_NAME)
+  @jakarta.annotation.Nullable
   private String serviceName;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @jakarta.annotation.Nonnull
   private V1PodTemplateSpec template;
 
   public static final String SERIALIZED_NAME_UPDATE_STRATEGY = "updateStrategy";
   @SerializedName(SERIALIZED_NAME_UPDATE_STRATEGY)
+  @jakarta.annotation.Nullable
   private V1StatefulSetUpdateStrategy updateStrategy;
 
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES = "volumeClaimTemplates";
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES)
+  @jakarta.annotation.Nullable
   private List<V1PersistentVolumeClaim> volumeClaimTemplates = new ArrayList<>();
 
   public V1StatefulSetSpec() {
   }
 
-  public V1StatefulSetSpec minReadySeconds(Integer minReadySeconds) {
+  public V1StatefulSetSpec minReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
     return this;
   }
 
-   /**
+  /**
    * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    * @return minReadySeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }
 
-  public void setMinReadySeconds(Integer minReadySeconds) {
+  public void setMinReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
   }
 
 
-  public V1StatefulSetSpec ordinals(V1StatefulSetOrdinals ordinals) {
+  public V1StatefulSetSpec ordinals(@jakarta.annotation.Nullable V1StatefulSetOrdinals ordinals) {
     this.ordinals = ordinals;
     return this;
   }
 
-   /**
+  /**
    * Get ordinals
    * @return ordinals
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1StatefulSetOrdinals getOrdinals() {
     return ordinals;
   }
 
-  public void setOrdinals(V1StatefulSetOrdinals ordinals) {
+  public void setOrdinals(@jakarta.annotation.Nullable V1StatefulSetOrdinals ordinals) {
     this.ordinals = ordinals;
   }
 
 
-  public V1StatefulSetSpec persistentVolumeClaimRetentionPolicy(V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
+  public V1StatefulSetSpec persistentVolumeClaimRetentionPolicy(@jakarta.annotation.Nullable V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
     this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
     return this;
   }
 
-   /**
+  /**
    * Get persistentVolumeClaimRetentionPolicy
    * @return persistentVolumeClaimRetentionPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1StatefulSetPersistentVolumeClaimRetentionPolicy getPersistentVolumeClaimRetentionPolicy() {
     return persistentVolumeClaimRetentionPolicy;
   }
 
-  public void setPersistentVolumeClaimRetentionPolicy(V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
+  public void setPersistentVolumeClaimRetentionPolicy(@jakarta.annotation.Nullable V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
     this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
   }
 
 
-  public V1StatefulSetSpec podManagementPolicy(String podManagementPolicy) {
+  public V1StatefulSetSpec podManagementPolicy(@jakarta.annotation.Nullable String podManagementPolicy) {
     this.podManagementPolicy = podManagementPolicy;
     return this;
   }
 
-   /**
+  /**
    * podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is &#x60;OrderedReady&#x60;, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
    * @return podManagementPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.")
   public String getPodManagementPolicy() {
     return podManagementPolicy;
   }
 
-  public void setPodManagementPolicy(String podManagementPolicy) {
+  public void setPodManagementPolicy(@jakarta.annotation.Nullable String podManagementPolicy) {
     this.podManagementPolicy = podManagementPolicy;
   }
 
 
-  public V1StatefulSetSpec replicas(Integer replicas) {
+  public V1StatefulSetSpec replicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
     return this;
   }
 
-   /**
+  /**
    * replicas is the desired number of replicas of the given Template. These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.
    * @return replicas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "replicas is the desired number of replicas of the given Template. These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.")
   public Integer getReplicas() {
     return replicas;
   }
 
-  public void setReplicas(Integer replicas) {
+  public void setReplicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
   }
 
 
-  public V1StatefulSetSpec revisionHistoryLimit(Integer revisionHistoryLimit) {
+  public V1StatefulSetSpec revisionHistoryLimit(@jakarta.annotation.Nullable Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
     return this;
   }
 
-   /**
+  /**
    * revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet&#39;s revision history. The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.
    * @return revisionHistoryLimit
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet's revision history. The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.")
   public Integer getRevisionHistoryLimit() {
     return revisionHistoryLimit;
   }
 
-  public void setRevisionHistoryLimit(Integer revisionHistoryLimit) {
+  public void setRevisionHistoryLimit(@jakarta.annotation.Nullable Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
   }
 
 
-  public V1StatefulSetSpec selector(V1LabelSelector selector) {
+  public V1StatefulSetSpec selector(@jakarta.annotation.Nonnull V1LabelSelector selector) {
     this.selector = selector;
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
 
-  public void setSelector(V1LabelSelector selector) {
+  public void setSelector(@jakarta.annotation.Nonnull V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
-  public V1StatefulSetSpec serviceName(String serviceName) {
+  public V1StatefulSetSpec serviceName(@jakarta.annotation.Nullable String serviceName) {
     this.serviceName = serviceName;
     return this;
   }
 
-   /**
+  /**
    * serviceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \&quot;pod-specific-string\&quot; is managed by the StatefulSet controller.
    * @return serviceName
-  **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "serviceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \"pod-specific-string\" is managed by the StatefulSet controller.")
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "serviceName is the name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where \"pod-specific-string\" is managed by the StatefulSet controller.")
   public String getServiceName() {
     return serviceName;
   }
 
-  public void setServiceName(String serviceName) {
+  public void setServiceName(@jakarta.annotation.Nullable String serviceName) {
     this.serviceName = serviceName;
   }
 
 
-  public V1StatefulSetSpec template(V1PodTemplateSpec template) {
+  public V1StatefulSetSpec template(@jakarta.annotation.Nonnull V1PodTemplateSpec template) {
     this.template = template;
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
 
-  public void setTemplate(V1PodTemplateSpec template) {
+  public void setTemplate(@jakarta.annotation.Nonnull V1PodTemplateSpec template) {
     this.template = template;
   }
 
 
-  public V1StatefulSetSpec updateStrategy(V1StatefulSetUpdateStrategy updateStrategy) {
+  public V1StatefulSetSpec updateStrategy(@jakarta.annotation.Nullable V1StatefulSetUpdateStrategy updateStrategy) {
     this.updateStrategy = updateStrategy;
     return this;
   }
 
-   /**
+  /**
    * Get updateStrategy
    * @return updateStrategy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1StatefulSetUpdateStrategy getUpdateStrategy() {
     return updateStrategy;
   }
 
-  public void setUpdateStrategy(V1StatefulSetUpdateStrategy updateStrategy) {
+  public void setUpdateStrategy(@jakarta.annotation.Nullable V1StatefulSetUpdateStrategy updateStrategy) {
     this.updateStrategy = updateStrategy;
   }
 
 
-  public V1StatefulSetSpec volumeClaimTemplates(List<V1PersistentVolumeClaim> volumeClaimTemplates) {
+  public V1StatefulSetSpec volumeClaimTemplates(@jakarta.annotation.Nullable List<V1PersistentVolumeClaim> volumeClaimTemplates) {
     this.volumeClaimTemplates = volumeClaimTemplates;
     return this;
   }
@@ -321,17 +331,17 @@ public class V1StatefulSetSpec {
     return this;
   }
 
-   /**
+  /**
    * volumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
    * @return volumeClaimTemplates
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.")
   public List<V1PersistentVolumeClaim> getVolumeClaimTemplates() {
     return volumeClaimTemplates;
   }
 
-  public void setVolumeClaimTemplates(List<V1PersistentVolumeClaim> volumeClaimTemplates) {
+  public void setVolumeClaimTemplates(@jakarta.annotation.Nullable List<V1PersistentVolumeClaim> volumeClaimTemplates) {
     this.volumeClaimTemplates = volumeClaimTemplates;
   }
 
@@ -416,16 +426,15 @@ public class V1StatefulSetSpec {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("selector");
-    openapiRequiredFields.add("serviceName");
     openapiRequiredFields.add("template");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1StatefulSetSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1StatefulSetSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1StatefulSetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -461,7 +470,7 @@ public class V1StatefulSetSpec {
       }
       // validate the required field `selector`
       V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
-      if (!jsonObj.get("serviceName").isJsonPrimitive()) {
+      if ((jsonObj.get("serviceName") != null && !jsonObj.get("serviceName").isJsonNull()) && !jsonObj.get("serviceName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `serviceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceName").toString()));
       }
       // validate the required field `template`
@@ -515,22 +524,22 @@ public class V1StatefulSetSpec {
     }
   }
 
- /**
-  * Create an instance of V1StatefulSetSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1StatefulSetSpec
-  * @throws IOException if the JSON string is invalid with respect to V1StatefulSetSpec
-  */
+  /**
+   * Create an instance of V1StatefulSetSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1StatefulSetSpec
+   * @throws IOException if the JSON string is invalid with respect to V1StatefulSetSpec
+   */
   public static V1StatefulSetSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1StatefulSetSpec.class);
   }
 
- /**
-  * Convert an instance of V1StatefulSetSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1StatefulSetSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

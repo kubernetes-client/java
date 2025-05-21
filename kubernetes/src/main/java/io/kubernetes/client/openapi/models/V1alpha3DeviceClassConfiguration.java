@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClassConfiguration is used in DeviceClass.
  */
 @ApiModel(description = "DeviceClassConfiguration is used in DeviceClass.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3DeviceClassConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)
+  @jakarta.annotation.Nullable
   private V1alpha3OpaqueDeviceConfiguration opaque;
 
   public V1alpha3DeviceClassConfiguration() {
   }
 
-  public V1alpha3DeviceClassConfiguration opaque(V1alpha3OpaqueDeviceConfiguration opaque) {
+  public V1alpha3DeviceClassConfiguration opaque(@jakarta.annotation.Nullable V1alpha3OpaqueDeviceConfiguration opaque) {
     this.opaque = opaque;
     return this;
   }
 
-   /**
+  /**
    * Get opaque
    * @return opaque
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha3OpaqueDeviceConfiguration getOpaque() {
     return opaque;
   }
 
-  public void setOpaque(V1alpha3OpaqueDeviceConfiguration opaque) {
+  public void setOpaque(@jakarta.annotation.Nullable V1alpha3OpaqueDeviceConfiguration opaque) {
     this.opaque = opaque;
   }
 
@@ -132,12 +132,12 @@ public class V1alpha3DeviceClassConfiguration {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClassConfiguration
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClassConfiguration
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3DeviceClassConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1alpha3DeviceClassConfiguration {
     }
   }
 
- /**
-  * Create an instance of V1alpha3DeviceClassConfiguration given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3DeviceClassConfiguration
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClassConfiguration
-  */
+  /**
+   * Create an instance of V1alpha3DeviceClassConfiguration given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3DeviceClassConfiguration
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClassConfiguration
+   */
   public static V1alpha3DeviceClassConfiguration fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3DeviceClassConfiguration.class);
   }
 
- /**
-  * Convert an instance of V1alpha3DeviceClassConfiguration to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3DeviceClassConfiguration to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ImageVolumeSource represents a image volume resource.
  */
 @ApiModel(description = "ImageVolumeSource represents a image volume resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ImageVolumeSource {
   public static final String SERIALIZED_NAME_PULL_POLICY = "pullPolicy";
   @SerializedName(SERIALIZED_NAME_PULL_POLICY)
+  @jakarta.annotation.Nullable
   private String pullPolicy;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
+  @jakarta.annotation.Nullable
   private String reference;
 
   public V1ImageVolumeSource() {
   }
 
-  public V1ImageVolumeSource pullPolicy(String pullPolicy) {
+  public V1ImageVolumeSource pullPolicy(@jakarta.annotation.Nullable String pullPolicy) {
     this.pullPolicy = pullPolicy;
     return this;
   }
 
-   /**
+  /**
    * Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn&#39;t present. IfNotPresent: the kubelet pulls if the reference isn&#39;t already present on disk. Container creation will fail if the reference isn&#39;t present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.
    * @return pullPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.")
   public String getPullPolicy() {
     return pullPolicy;
   }
 
-  public void setPullPolicy(String pullPolicy) {
+  public void setPullPolicy(@jakarta.annotation.Nullable String pullPolicy) {
     this.pullPolicy = pullPolicy;
   }
 
 
-  public V1ImageVolumeSource reference(String reference) {
+  public V1ImageVolumeSource reference(@jakarta.annotation.Nullable String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
    * @return reference
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
   public String getReference() {
     return reference;
   }
 
-  public void setReference(String reference) {
+  public void setReference(@jakarta.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
@@ -158,12 +159,12 @@ public class V1ImageVolumeSource {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ImageVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ImageVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ImageVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +217,22 @@ public class V1ImageVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1ImageVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ImageVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1ImageVolumeSource
-  */
+  /**
+   * Create an instance of V1ImageVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ImageVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1ImageVolumeSource
+   */
   public static V1ImageVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ImageVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1ImageVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ImageVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -78,7 +78,7 @@ public class NetworkingV1beta1Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createIPAddressCall(V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createIPAddressCall(@jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -143,7 +143,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createIPAddressValidateBeforeCall(V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createIPAddressValidateBeforeCall(@jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createIPAddress(Async)");
@@ -154,13 +154,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1IPAddress> createIPAddressWithHttpInfo(V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1beta1IPAddress> createIPAddressWithHttpInfo(@jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createIPAddressValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createIPAddressAsync(V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
+    private okhttp3.Call createIPAddressAsync(@jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createIPAddressValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
@@ -169,13 +169,18 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIcreateIPAddressRequest {
+        @jakarta.annotation.Nonnull
         private final V1beta1IPAddress body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateIPAddressRequest(V1beta1IPAddress body) {
+        private APIcreateIPAddressRequest(@jakarta.annotation.Nonnull V1beta1IPAddress body) {
             this.body = body;
         }
 
@@ -184,7 +189,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateIPAddressRequest
          */
-        public APIcreateIPAddressRequest pretty(String pretty) {
+        public APIcreateIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -194,7 +199,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateIPAddressRequest
          */
-        public APIcreateIPAddressRequest dryRun(String dryRun) {
+        public APIcreateIPAddressRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -204,7 +209,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateIPAddressRequest
          */
-        public APIcreateIPAddressRequest fieldManager(String fieldManager) {
+        public APIcreateIPAddressRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -214,7 +219,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateIPAddressRequest
          */
-        public APIcreateIPAddressRequest fieldValidation(String fieldValidation) {
+        public APIcreateIPAddressRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -225,7 +230,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -242,7 +248,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1IPAddress
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -260,7 +267,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1IPAddress&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -278,7 +286,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -297,7 +306,8 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIcreateIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -305,10 +315,10 @@ public class NetworkingV1beta1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateIPAddressRequest createIPAddress(V1beta1IPAddress body) {
+    public APIcreateIPAddressRequest createIPAddress(@jakarta.annotation.Nonnull V1beta1IPAddress body) {
         return new APIcreateIPAddressRequest(body);
     }
-    private okhttp3.Call createServiceCIDRCall(V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createServiceCIDRCall(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -373,7 +383,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createServiceCIDRValidateBeforeCall(V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createServiceCIDRValidateBeforeCall(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createServiceCIDR(Async)");
@@ -384,13 +394,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> createServiceCIDRWithHttpInfo(V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> createServiceCIDRWithHttpInfo(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createServiceCIDRValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createServiceCIDRAsync(V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call createServiceCIDRAsync(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createServiceCIDRValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -399,13 +409,18 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIcreateServiceCIDRRequest {
+        @jakarta.annotation.Nonnull
         private final V1beta1ServiceCIDR body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateServiceCIDRRequest(V1beta1ServiceCIDR body) {
+        private APIcreateServiceCIDRRequest(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
             this.body = body;
         }
 
@@ -414,7 +429,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateServiceCIDRRequest
          */
-        public APIcreateServiceCIDRRequest pretty(String pretty) {
+        public APIcreateServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -424,7 +439,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateServiceCIDRRequest
          */
-        public APIcreateServiceCIDRRequest dryRun(String dryRun) {
+        public APIcreateServiceCIDRRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -434,7 +449,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateServiceCIDRRequest
          */
-        public APIcreateServiceCIDRRequest fieldManager(String fieldManager) {
+        public APIcreateServiceCIDRRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -444,7 +459,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateServiceCIDRRequest
          */
-        public APIcreateServiceCIDRRequest fieldValidation(String fieldValidation) {
+        public APIcreateServiceCIDRRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -455,7 +470,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -472,7 +488,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -490,7 +507,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -508,7 +526,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -527,7 +546,8 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIcreateServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -535,10 +555,10 @@ public class NetworkingV1beta1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateServiceCIDRRequest createServiceCIDR(V1beta1ServiceCIDR body) {
+    public APIcreateServiceCIDRRequest createServiceCIDR(@jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
         return new APIcreateServiceCIDRRequest(body);
     }
-    private okhttp3.Call deleteCollectionIPAddressCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionIPAddressCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,19 +663,19 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionIPAddressValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionIPAddressValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionIPAddressCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionIPAddressWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionIPAddressWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionIPAddressValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionIPAddressAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionIPAddressAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionIPAddressValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -664,20 +684,35 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIdeleteCollectionIPAddressRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionIPAddressRequest() {
@@ -688,7 +723,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest pretty(String pretty) {
+        public APIdeleteCollectionIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -698,7 +733,7 @@ public class NetworkingV1beta1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest _continue(String _continue) {
+        public APIdeleteCollectionIPAddressRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -708,7 +743,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest dryRun(String dryRun) {
+        public APIdeleteCollectionIPAddressRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -718,7 +753,7 @@ public class NetworkingV1beta1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionIPAddressRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -728,7 +763,7 @@ public class NetworkingV1beta1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionIPAddressRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -738,7 +773,7 @@ public class NetworkingV1beta1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionIPAddressRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -748,7 +783,7 @@ public class NetworkingV1beta1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionIPAddressRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -758,7 +793,7 @@ public class NetworkingV1beta1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest limit(Integer limit) {
+        public APIdeleteCollectionIPAddressRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -768,7 +803,7 @@ public class NetworkingV1beta1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionIPAddressRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -778,7 +813,7 @@ public class NetworkingV1beta1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionIPAddressRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -788,7 +823,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionIPAddressRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -798,7 +833,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionIPAddressRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -808,7 +843,7 @@ public class NetworkingV1beta1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionIPAddressRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -818,7 +853,7 @@ public class NetworkingV1beta1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionIPAddressRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -828,7 +863,7 @@ public class NetworkingV1beta1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionIPAddressRequest
          */
-        public APIdeleteCollectionIPAddressRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionIPAddressRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -839,7 +874,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -854,7 +890,8 @@ public class NetworkingV1beta1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -870,7 +907,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -886,7 +924,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -902,7 +941,8 @@ public class NetworkingV1beta1Api {
      * delete collection of IPAddress
      * @return APIdeleteCollectionIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -911,7 +951,7 @@ public class NetworkingV1beta1Api {
     public APIdeleteCollectionIPAddressRequest deleteCollectionIPAddress() {
         return new APIdeleteCollectionIPAddressRequest();
     }
-    private okhttp3.Call deleteCollectionServiceCIDRCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionServiceCIDRCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1016,19 +1056,19 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionServiceCIDRValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionServiceCIDRValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionServiceCIDRCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionServiceCIDRWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionServiceCIDRWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionServiceCIDRValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionServiceCIDRAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionServiceCIDRAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionServiceCIDRValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1037,20 +1077,35 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIdeleteCollectionServiceCIDRRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionServiceCIDRRequest() {
@@ -1061,7 +1116,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest pretty(String pretty) {
+        public APIdeleteCollectionServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1071,7 +1126,7 @@ public class NetworkingV1beta1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest _continue(String _continue) {
+        public APIdeleteCollectionServiceCIDRRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1081,7 +1136,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest dryRun(String dryRun) {
+        public APIdeleteCollectionServiceCIDRRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1091,7 +1146,7 @@ public class NetworkingV1beta1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionServiceCIDRRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1101,7 +1156,7 @@ public class NetworkingV1beta1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionServiceCIDRRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1111,7 +1166,7 @@ public class NetworkingV1beta1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionServiceCIDRRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1121,7 +1176,7 @@ public class NetworkingV1beta1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionServiceCIDRRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1131,7 +1186,7 @@ public class NetworkingV1beta1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest limit(Integer limit) {
+        public APIdeleteCollectionServiceCIDRRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1141,7 +1196,7 @@ public class NetworkingV1beta1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionServiceCIDRRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1151,7 +1206,7 @@ public class NetworkingV1beta1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionServiceCIDRRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1161,7 +1216,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionServiceCIDRRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1171,7 +1226,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionServiceCIDRRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1181,7 +1236,7 @@ public class NetworkingV1beta1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionServiceCIDRRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1191,7 +1246,7 @@ public class NetworkingV1beta1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionServiceCIDRRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1201,7 +1256,7 @@ public class NetworkingV1beta1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionServiceCIDRRequest
          */
-        public APIdeleteCollectionServiceCIDRRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionServiceCIDRRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1212,7 +1267,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1227,7 +1283,8 @@ public class NetworkingV1beta1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1243,7 +1300,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1259,7 +1317,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1275,7 +1334,8 @@ public class NetworkingV1beta1Api {
      * delete collection of ServiceCIDR
      * @return APIdeleteCollectionServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1284,7 +1344,7 @@ public class NetworkingV1beta1Api {
     public APIdeleteCollectionServiceCIDRRequest deleteCollectionServiceCIDR() {
         return new APIdeleteCollectionServiceCIDRRequest();
     }
-    private okhttp3.Call deleteIPAddressCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteIPAddressCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1358,7 +1418,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteIPAddressValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteIPAddressValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteIPAddress(Async)");
@@ -1369,13 +1429,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteIPAddressWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteIPAddressWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteIPAddressValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteIPAddressAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteIPAddressAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteIPAddressValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1384,16 +1444,24 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIdeleteIPAddressRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteIPAddressRequest(String name) {
+        private APIdeleteIPAddressRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1402,7 +1470,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest pretty(String pretty) {
+        public APIdeleteIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1412,7 +1480,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest dryRun(String dryRun) {
+        public APIdeleteIPAddressRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1422,7 +1490,7 @@ public class NetworkingV1beta1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteIPAddressRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1432,7 +1500,7 @@ public class NetworkingV1beta1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteIPAddressRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1442,7 +1510,7 @@ public class NetworkingV1beta1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteIPAddressRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1452,7 +1520,7 @@ public class NetworkingV1beta1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteIPAddressRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1462,7 +1530,7 @@ public class NetworkingV1beta1Api {
          * @param body  (optional)
          * @return APIdeleteIPAddressRequest
          */
-        public APIdeleteIPAddressRequest body(V1DeleteOptions body) {
+        public APIdeleteIPAddressRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1473,7 +1541,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1489,7 +1558,8 @@ public class NetworkingV1beta1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1506,7 +1576,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1523,7 +1594,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1541,17 +1613,18 @@ public class NetworkingV1beta1Api {
      * @param name name of the IPAddress (required)
      * @return APIdeleteIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteIPAddressRequest deleteIPAddress(String name) {
+    public APIdeleteIPAddressRequest deleteIPAddress(@jakarta.annotation.Nonnull String name) {
         return new APIdeleteIPAddressRequest(name);
     }
-    private okhttp3.Call deleteServiceCIDRCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteServiceCIDRCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1625,7 +1698,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteServiceCIDRValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteServiceCIDRValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteServiceCIDR(Async)");
@@ -1636,13 +1709,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteServiceCIDRWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteServiceCIDRWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteServiceCIDRValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteServiceCIDRAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteServiceCIDRAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteServiceCIDRValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1651,16 +1724,24 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIdeleteServiceCIDRRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteServiceCIDRRequest(String name) {
+        private APIdeleteServiceCIDRRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1669,7 +1750,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest pretty(String pretty) {
+        public APIdeleteServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1679,7 +1760,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest dryRun(String dryRun) {
+        public APIdeleteServiceCIDRRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1689,7 +1770,7 @@ public class NetworkingV1beta1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteServiceCIDRRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1699,7 +1780,7 @@ public class NetworkingV1beta1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteServiceCIDRRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1709,7 +1790,7 @@ public class NetworkingV1beta1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteServiceCIDRRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1719,7 +1800,7 @@ public class NetworkingV1beta1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteServiceCIDRRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1729,7 +1810,7 @@ public class NetworkingV1beta1Api {
          * @param body  (optional)
          * @return APIdeleteServiceCIDRRequest
          */
-        public APIdeleteServiceCIDRRequest body(V1DeleteOptions body) {
+        public APIdeleteServiceCIDRRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1740,7 +1821,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1756,7 +1838,8 @@ public class NetworkingV1beta1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1773,7 +1856,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1790,7 +1874,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1808,14 +1893,15 @@ public class NetworkingV1beta1Api {
      * @param name name of the ServiceCIDR (required)
      * @return APIdeleteServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteServiceCIDRRequest deleteServiceCIDR(String name) {
+    public APIdeleteServiceCIDRRequest deleteServiceCIDR(@jakarta.annotation.Nonnull String name) {
         return new APIdeleteServiceCIDRRequest(name);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -1897,7 +1983,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1912,7 +1999,8 @@ public class NetworkingV1beta1Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1928,7 +2016,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1944,7 +2033,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1960,7 +2050,8 @@ public class NetworkingV1beta1Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1969,7 +2060,7 @@ public class NetworkingV1beta1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listIPAddressCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listIPAddressCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2064,19 +2155,19 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listIPAddressValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listIPAddressValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listIPAddressCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1IPAddressList> listIPAddressWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1beta1IPAddressList> listIPAddressWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listIPAddressValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1IPAddressList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listIPAddressAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1IPAddressList> _callback) throws ApiException {
+    private okhttp3.Call listIPAddressAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1IPAddressList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listIPAddressValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1IPAddressList>(){}.getType();
@@ -2085,16 +2176,27 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIlistIPAddressRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistIPAddressRequest() {
@@ -2105,7 +2207,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest pretty(String pretty) {
+        public APIlistIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2115,7 +2217,7 @@ public class NetworkingV1beta1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistIPAddressRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2125,7 +2227,7 @@ public class NetworkingV1beta1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest _continue(String _continue) {
+        public APIlistIPAddressRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2135,7 +2237,7 @@ public class NetworkingV1beta1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest fieldSelector(String fieldSelector) {
+        public APIlistIPAddressRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2145,7 +2247,7 @@ public class NetworkingV1beta1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest labelSelector(String labelSelector) {
+        public APIlistIPAddressRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2155,7 +2257,7 @@ public class NetworkingV1beta1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest limit(Integer limit) {
+        public APIlistIPAddressRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2165,7 +2267,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest resourceVersion(String resourceVersion) {
+        public APIlistIPAddressRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2175,7 +2277,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistIPAddressRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2185,7 +2287,7 @@ public class NetworkingV1beta1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistIPAddressRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2195,7 +2297,7 @@ public class NetworkingV1beta1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistIPAddressRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2205,7 +2307,7 @@ public class NetworkingV1beta1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistIPAddressRequest
          */
-        public APIlistIPAddressRequest watch(Boolean watch) {
+        public APIlistIPAddressRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2216,7 +2318,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2231,7 +2334,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1IPAddressList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2247,7 +2351,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1IPAddressList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2263,7 +2368,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2279,7 +2385,8 @@ public class NetworkingV1beta1Api {
      * list or watch objects of kind IPAddress
      * @return APIlistIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2288,7 +2395,7 @@ public class NetworkingV1beta1Api {
     public APIlistIPAddressRequest listIPAddress() {
         return new APIlistIPAddressRequest();
     }
-    private okhttp3.Call listServiceCIDRCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listServiceCIDRCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2383,19 +2490,19 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listServiceCIDRValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listServiceCIDRValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listServiceCIDRCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDRList> listServiceCIDRWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDRList> listServiceCIDRWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listServiceCIDRValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDRList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listServiceCIDRAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1ServiceCIDRList> _callback) throws ApiException {
+    private okhttp3.Call listServiceCIDRAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ServiceCIDRList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listServiceCIDRValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDRList>(){}.getType();
@@ -2404,16 +2511,27 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIlistServiceCIDRRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistServiceCIDRRequest() {
@@ -2424,7 +2542,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest pretty(String pretty) {
+        public APIlistServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2434,7 +2552,7 @@ public class NetworkingV1beta1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistServiceCIDRRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2444,7 +2562,7 @@ public class NetworkingV1beta1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest _continue(String _continue) {
+        public APIlistServiceCIDRRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2454,7 +2572,7 @@ public class NetworkingV1beta1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest fieldSelector(String fieldSelector) {
+        public APIlistServiceCIDRRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2464,7 +2582,7 @@ public class NetworkingV1beta1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest labelSelector(String labelSelector) {
+        public APIlistServiceCIDRRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2474,7 +2592,7 @@ public class NetworkingV1beta1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest limit(Integer limit) {
+        public APIlistServiceCIDRRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2484,7 +2602,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest resourceVersion(String resourceVersion) {
+        public APIlistServiceCIDRRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2494,7 +2612,7 @@ public class NetworkingV1beta1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistServiceCIDRRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2504,7 +2622,7 @@ public class NetworkingV1beta1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistServiceCIDRRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2514,7 +2632,7 @@ public class NetworkingV1beta1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistServiceCIDRRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2524,7 +2642,7 @@ public class NetworkingV1beta1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistServiceCIDRRequest
          */
-        public APIlistServiceCIDRRequest watch(Boolean watch) {
+        public APIlistServiceCIDRRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2535,7 +2653,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2550,7 +2669,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDRList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2566,7 +2686,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDRList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2582,7 +2703,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2598,7 +2720,8 @@ public class NetworkingV1beta1Api {
      * list or watch objects of kind ServiceCIDR
      * @return APIlistServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2607,7 +2730,7 @@ public class NetworkingV1beta1Api {
     public APIlistServiceCIDRRequest listServiceCIDR() {
         return new APIlistServiceCIDRRequest();
     }
-    private okhttp3.Call patchIPAddressCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchIPAddressCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2677,7 +2800,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchIPAddressValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchIPAddressValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchIPAddress(Async)");
@@ -2693,13 +2816,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1IPAddress> patchIPAddressWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1beta1IPAddress> patchIPAddressWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchIPAddressValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchIPAddressAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
+    private okhttp3.Call patchIPAddressAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchIPAddressValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
@@ -2708,15 +2831,22 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIpatchIPAddressRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchIPAddressRequest(String name, V1Patch body) {
+        private APIpatchIPAddressRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2726,7 +2856,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchIPAddressRequest
          */
-        public APIpatchIPAddressRequest pretty(String pretty) {
+        public APIpatchIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2736,7 +2866,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchIPAddressRequest
          */
-        public APIpatchIPAddressRequest dryRun(String dryRun) {
+        public APIpatchIPAddressRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2746,7 +2876,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchIPAddressRequest
          */
-        public APIpatchIPAddressRequest fieldManager(String fieldManager) {
+        public APIpatchIPAddressRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -2756,7 +2886,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchIPAddressRequest
          */
-        public APIpatchIPAddressRequest fieldValidation(String fieldValidation) {
+        public APIpatchIPAddressRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -2766,7 +2896,7 @@ public class NetworkingV1beta1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchIPAddressRequest
          */
-        public APIpatchIPAddressRequest force(Boolean force) {
+        public APIpatchIPAddressRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -2777,7 +2907,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2793,7 +2924,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1IPAddress
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2810,7 +2942,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1IPAddress&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2827,7 +2960,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2846,17 +2980,18 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIpatchIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchIPAddressRequest patchIPAddress(String name, V1Patch body) {
+    public APIpatchIPAddressRequest patchIPAddress(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchIPAddressRequest(name, body);
     }
-    private okhttp3.Call patchServiceCIDRCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2926,7 +3061,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchServiceCIDRValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchServiceCIDR(Async)");
@@ -2942,13 +3077,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> patchServiceCIDRWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> patchServiceCIDRWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchServiceCIDRValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchServiceCIDRAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchServiceCIDRValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -2957,15 +3092,22 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIpatchServiceCIDRRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchServiceCIDRRequest(String name, V1Patch body) {
+        private APIpatchServiceCIDRRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2975,7 +3117,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchServiceCIDRRequest
          */
-        public APIpatchServiceCIDRRequest pretty(String pretty) {
+        public APIpatchServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2985,7 +3127,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchServiceCIDRRequest
          */
-        public APIpatchServiceCIDRRequest dryRun(String dryRun) {
+        public APIpatchServiceCIDRRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2995,7 +3137,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchServiceCIDRRequest
          */
-        public APIpatchServiceCIDRRequest fieldManager(String fieldManager) {
+        public APIpatchServiceCIDRRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3005,7 +3147,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchServiceCIDRRequest
          */
-        public APIpatchServiceCIDRRequest fieldValidation(String fieldValidation) {
+        public APIpatchServiceCIDRRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3015,7 +3157,7 @@ public class NetworkingV1beta1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchServiceCIDRRequest
          */
-        public APIpatchServiceCIDRRequest force(Boolean force) {
+        public APIpatchServiceCIDRRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3026,7 +3168,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3042,7 +3185,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3059,7 +3203,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3076,7 +3221,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3095,17 +3241,18 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIpatchServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchServiceCIDRRequest patchServiceCIDR(String name, V1Patch body) {
+    public APIpatchServiceCIDRRequest patchServiceCIDR(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchServiceCIDRRequest(name, body);
     }
-    private okhttp3.Call patchServiceCIDRStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3175,7 +3322,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchServiceCIDRStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchServiceCIDRStatus(Async)");
@@ -3191,13 +3338,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> patchServiceCIDRStatusWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> patchServiceCIDRStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchServiceCIDRStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchServiceCIDRStatusAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call patchServiceCIDRStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchServiceCIDRStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -3206,15 +3353,22 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIpatchServiceCIDRStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchServiceCIDRStatusRequest(String name, V1Patch body) {
+        private APIpatchServiceCIDRStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -3224,7 +3378,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchServiceCIDRStatusRequest
          */
-        public APIpatchServiceCIDRStatusRequest pretty(String pretty) {
+        public APIpatchServiceCIDRStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3234,7 +3388,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchServiceCIDRStatusRequest
          */
-        public APIpatchServiceCIDRStatusRequest dryRun(String dryRun) {
+        public APIpatchServiceCIDRStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3244,7 +3398,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchServiceCIDRStatusRequest
          */
-        public APIpatchServiceCIDRStatusRequest fieldManager(String fieldManager) {
+        public APIpatchServiceCIDRStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3254,7 +3408,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchServiceCIDRStatusRequest
          */
-        public APIpatchServiceCIDRStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchServiceCIDRStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3264,7 +3418,7 @@ public class NetworkingV1beta1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchServiceCIDRStatusRequest
          */
-        public APIpatchServiceCIDRStatusRequest force(Boolean force) {
+        public APIpatchServiceCIDRStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3275,7 +3429,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3291,7 +3446,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3308,7 +3464,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3325,7 +3482,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3344,17 +3502,18 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIpatchServiceCIDRStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchServiceCIDRStatusRequest patchServiceCIDRStatus(String name, V1Patch body) {
+    public APIpatchServiceCIDRStatusRequest patchServiceCIDRStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchServiceCIDRStatusRequest(name, body);
     }
-    private okhttp3.Call readIPAddressCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readIPAddressCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3407,7 +3566,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readIPAddressValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readIPAddressValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readIPAddress(Async)");
@@ -3418,13 +3577,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1IPAddress> readIPAddressWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1beta1IPAddress> readIPAddressWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readIPAddressValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readIPAddressAsync(String name, String pretty, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
+    private okhttp3.Call readIPAddressAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readIPAddressValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
@@ -3433,10 +3592,12 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreadIPAddressRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadIPAddressRequest(String name) {
+        private APIreadIPAddressRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3445,7 +3606,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadIPAddressRequest
          */
-        public APIreadIPAddressRequest pretty(String pretty) {
+        public APIreadIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3456,7 +3617,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3471,7 +3633,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1IPAddress
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3487,7 +3650,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1IPAddress&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3503,7 +3667,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3520,16 +3685,17 @@ public class NetworkingV1beta1Api {
      * @param name name of the IPAddress (required)
      * @return APIreadIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadIPAddressRequest readIPAddress(String name) {
+    public APIreadIPAddressRequest readIPAddress(@jakarta.annotation.Nonnull String name) {
         return new APIreadIPAddressRequest(name);
     }
-    private okhttp3.Call readServiceCIDRCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3582,7 +3748,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readServiceCIDRValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readServiceCIDR(Async)");
@@ -3593,13 +3759,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> readServiceCIDRWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> readServiceCIDRWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readServiceCIDRValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readServiceCIDRAsync(String name, String pretty, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readServiceCIDRValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -3608,10 +3774,12 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreadServiceCIDRRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadServiceCIDRRequest(String name) {
+        private APIreadServiceCIDRRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3620,7 +3788,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadServiceCIDRRequest
          */
-        public APIreadServiceCIDRRequest pretty(String pretty) {
+        public APIreadServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3631,7 +3799,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3646,7 +3815,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3662,7 +3832,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3678,7 +3849,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3695,16 +3867,17 @@ public class NetworkingV1beta1Api {
      * @param name name of the ServiceCIDR (required)
      * @return APIreadServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadServiceCIDRRequest readServiceCIDR(String name) {
+    public APIreadServiceCIDRRequest readServiceCIDR(@jakarta.annotation.Nonnull String name) {
         return new APIreadServiceCIDRRequest(name);
     }
-    private okhttp3.Call readServiceCIDRStatusCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3757,7 +3930,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readServiceCIDRStatusValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readServiceCIDRStatus(Async)");
@@ -3768,13 +3941,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> readServiceCIDRStatusWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> readServiceCIDRStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readServiceCIDRStatusValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readServiceCIDRStatusAsync(String name, String pretty, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call readServiceCIDRStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readServiceCIDRStatusValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -3783,10 +3956,12 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreadServiceCIDRStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadServiceCIDRStatusRequest(String name) {
+        private APIreadServiceCIDRStatusRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3795,7 +3970,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadServiceCIDRStatusRequest
          */
-        public APIreadServiceCIDRStatusRequest pretty(String pretty) {
+        public APIreadServiceCIDRStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3806,7 +3981,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3821,7 +3997,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3837,7 +4014,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3853,7 +4031,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3870,16 +4049,17 @@ public class NetworkingV1beta1Api {
      * @param name name of the ServiceCIDR (required)
      * @return APIreadServiceCIDRStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadServiceCIDRStatusRequest readServiceCIDRStatus(String name) {
+    public APIreadServiceCIDRStatusRequest readServiceCIDRStatus(@jakarta.annotation.Nonnull String name) {
         return new APIreadServiceCIDRStatusRequest(name);
     }
-    private okhttp3.Call replaceIPAddressCall(String name, V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceIPAddressCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3945,7 +4125,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceIPAddressValidateBeforeCall(String name, V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceIPAddressValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceIPAddress(Async)");
@@ -3961,13 +4141,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1IPAddress> replaceIPAddressWithHttpInfo(String name, V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1beta1IPAddress> replaceIPAddressWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceIPAddressValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceIPAddressAsync(String name, V1beta1IPAddress body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
+    private okhttp3.Call replaceIPAddressAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1beta1IPAddress> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceIPAddressValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1beta1IPAddress>(){}.getType();
@@ -3976,14 +4156,20 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreplaceIPAddressRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1beta1IPAddress body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceIPAddressRequest(String name, V1beta1IPAddress body) {
+        private APIreplaceIPAddressRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body) {
             this.name = name;
             this.body = body;
         }
@@ -3993,7 +4179,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceIPAddressRequest
          */
-        public APIreplaceIPAddressRequest pretty(String pretty) {
+        public APIreplaceIPAddressRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4003,7 +4189,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceIPAddressRequest
          */
-        public APIreplaceIPAddressRequest dryRun(String dryRun) {
+        public APIreplaceIPAddressRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4013,7 +4199,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceIPAddressRequest
          */
-        public APIreplaceIPAddressRequest fieldManager(String fieldManager) {
+        public APIreplaceIPAddressRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4023,7 +4209,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceIPAddressRequest
          */
-        public APIreplaceIPAddressRequest fieldValidation(String fieldValidation) {
+        public APIreplaceIPAddressRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4034,7 +4220,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4050,7 +4237,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1IPAddress
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4067,7 +4255,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1IPAddress&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4084,7 +4273,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4103,17 +4293,18 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIreplaceIPAddressRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceIPAddressRequest replaceIPAddress(String name, V1beta1IPAddress body) {
+    public APIreplaceIPAddressRequest replaceIPAddress(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1IPAddress body) {
         return new APIreplaceIPAddressRequest(name, body);
     }
-    private okhttp3.Call replaceServiceCIDRCall(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4179,7 +4370,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceServiceCIDRValidateBeforeCall(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceServiceCIDR(Async)");
@@ -4195,13 +4386,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> replaceServiceCIDRWithHttpInfo(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> replaceServiceCIDRWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceServiceCIDRValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceServiceCIDRAsync(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceServiceCIDRValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -4210,14 +4401,20 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreplaceServiceCIDRRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1beta1ServiceCIDR body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceServiceCIDRRequest(String name, V1beta1ServiceCIDR body) {
+        private APIreplaceServiceCIDRRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
             this.name = name;
             this.body = body;
         }
@@ -4227,7 +4424,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceServiceCIDRRequest
          */
-        public APIreplaceServiceCIDRRequest pretty(String pretty) {
+        public APIreplaceServiceCIDRRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4237,7 +4434,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceServiceCIDRRequest
          */
-        public APIreplaceServiceCIDRRequest dryRun(String dryRun) {
+        public APIreplaceServiceCIDRRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4247,7 +4444,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceServiceCIDRRequest
          */
-        public APIreplaceServiceCIDRRequest fieldManager(String fieldManager) {
+        public APIreplaceServiceCIDRRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4257,7 +4454,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceServiceCIDRRequest
          */
-        public APIreplaceServiceCIDRRequest fieldValidation(String fieldValidation) {
+        public APIreplaceServiceCIDRRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4268,7 +4465,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4284,7 +4482,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4301,7 +4500,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4318,7 +4518,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4337,17 +4538,18 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIreplaceServiceCIDRRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceServiceCIDRRequest replaceServiceCIDR(String name, V1beta1ServiceCIDR body) {
+    public APIreplaceServiceCIDRRequest replaceServiceCIDR(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
         return new APIreplaceServiceCIDRRequest(name, body);
     }
-    private okhttp3.Call replaceServiceCIDRStatusCall(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4413,7 +4615,7 @@ public class NetworkingV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceServiceCIDRStatusValidateBeforeCall(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceServiceCIDRStatus(Async)");
@@ -4429,13 +4631,13 @@ public class NetworkingV1beta1Api {
     }
 
 
-    private ApiResponse<V1beta1ServiceCIDR> replaceServiceCIDRStatusWithHttpInfo(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1beta1ServiceCIDR> replaceServiceCIDRStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceServiceCIDRStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceServiceCIDRStatusAsync(String name, V1beta1ServiceCIDR body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
+    private okhttp3.Call replaceServiceCIDRStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1beta1ServiceCIDR> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceServiceCIDRStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ServiceCIDR>(){}.getType();
@@ -4444,14 +4646,20 @@ public class NetworkingV1beta1Api {
     }
 
     public class APIreplaceServiceCIDRStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1beta1ServiceCIDR body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceServiceCIDRStatusRequest(String name, V1beta1ServiceCIDR body) {
+        private APIreplaceServiceCIDRStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
             this.name = name;
             this.body = body;
         }
@@ -4461,7 +4669,7 @@ public class NetworkingV1beta1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceServiceCIDRStatusRequest
          */
-        public APIreplaceServiceCIDRStatusRequest pretty(String pretty) {
+        public APIreplaceServiceCIDRStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4471,7 +4679,7 @@ public class NetworkingV1beta1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceServiceCIDRStatusRequest
          */
-        public APIreplaceServiceCIDRStatusRequest dryRun(String dryRun) {
+        public APIreplaceServiceCIDRStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4481,7 +4689,7 @@ public class NetworkingV1beta1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceServiceCIDRStatusRequest
          */
-        public APIreplaceServiceCIDRStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceServiceCIDRStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4491,7 +4699,7 @@ public class NetworkingV1beta1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceServiceCIDRStatusRequest
          */
-        public APIreplaceServiceCIDRStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceServiceCIDRStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4502,7 +4710,8 @@ public class NetworkingV1beta1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4518,7 +4727,8 @@ public class NetworkingV1beta1Api {
          * @return V1beta1ServiceCIDR
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4535,7 +4745,8 @@ public class NetworkingV1beta1Api {
          * @return ApiResponse&lt;V1beta1ServiceCIDR&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4552,7 +4763,8 @@ public class NetworkingV1beta1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -4571,14 +4783,15 @@ public class NetworkingV1beta1Api {
      * @param body  (required)
      * @return APIreplaceServiceCIDRStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceServiceCIDRStatusRequest replaceServiceCIDRStatus(String name, V1beta1ServiceCIDR body) {
+    public APIreplaceServiceCIDRStatusRequest replaceServiceCIDRStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1beta1ServiceCIDR body) {
         return new APIreplaceServiceCIDRStatusRequest(name, body);
     }
 }

@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,40 +52,42 @@ import io.kubernetes.client.openapi.JSON;
  * IPBlock describes a particular CIDR (Ex. \&quot;192.168.1.0/24\&quot;,\&quot;2001:db8::/64\&quot;) that is allowed to the pods matched by a NetworkPolicySpec&#39;s podSelector. The except entry describes CIDRs that should not be included within this rule.
  */
 @ApiModel(description = "IPBlock describes a particular CIDR (Ex. \"192.168.1.0/24\",\"2001:db8::/64\") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IPBlock {
   public static final String SERIALIZED_NAME_CIDR = "cidr";
   @SerializedName(SERIALIZED_NAME_CIDR)
+  @jakarta.annotation.Nonnull
   private String cidr;
 
   public static final String SERIALIZED_NAME_EXCEPT = "except";
   @SerializedName(SERIALIZED_NAME_EXCEPT)
+  @jakarta.annotation.Nullable
   private List<String> except = new ArrayList<>();
 
   public V1IPBlock() {
   }
 
-  public V1IPBlock cidr(String cidr) {
+  public V1IPBlock cidr(@jakarta.annotation.Nonnull String cidr) {
     this.cidr = cidr;
     return this;
   }
 
-   /**
+  /**
    * cidr is a string representing the IPBlock Valid examples are \&quot;192.168.1.0/24\&quot; or \&quot;2001:db8::/64\&quot;
    * @return cidr
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "cidr is a string representing the IPBlock Valid examples are \"192.168.1.0/24\" or \"2001:db8::/64\"")
   public String getCidr() {
     return cidr;
   }
 
-  public void setCidr(String cidr) {
+  public void setCidr(@jakarta.annotation.Nonnull String cidr) {
     this.cidr = cidr;
   }
 
 
-  public V1IPBlock except(List<String> except) {
+  public V1IPBlock except(@jakarta.annotation.Nullable List<String> except) {
     this.except = except;
     return this;
   }
@@ -99,17 +100,17 @@ public class V1IPBlock {
     return this;
   }
 
-   /**
+  /**
    * except is a slice of CIDRs that should not be included within an IPBlock Valid examples are \&quot;192.168.1.0/24\&quot; or \&quot;2001:db8::/64\&quot; Except values will be rejected if they are outside the cidr range
    * @return except
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "except is a slice of CIDRs that should not be included within an IPBlock Valid examples are \"192.168.1.0/24\" or \"2001:db8::/64\" Except values will be rejected if they are outside the cidr range")
   public List<String> getExcept() {
     return except;
   }
 
-  public void setExcept(List<String> except) {
+  public void setExcept(@jakarta.annotation.Nullable List<String> except) {
     this.except = except;
   }
 
@@ -169,12 +170,12 @@ public class V1IPBlock {
     openapiRequiredFields.add("cidr");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IPBlock
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IPBlock
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IPBlock.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -235,22 +236,22 @@ public class V1IPBlock {
     }
   }
 
- /**
-  * Create an instance of V1IPBlock given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IPBlock
-  * @throws IOException if the JSON string is invalid with respect to V1IPBlock
-  */
+  /**
+   * Create an instance of V1IPBlock given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IPBlock
+   * @throws IOException if the JSON string is invalid with respect to V1IPBlock
+   */
   public static V1IPBlock fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IPBlock.class);
   }
 
- /**
-  * Convert an instance of V1IPBlock to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IPBlock to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

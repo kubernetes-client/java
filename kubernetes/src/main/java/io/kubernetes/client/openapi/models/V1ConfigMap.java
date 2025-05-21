@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,56 +53,62 @@ import io.kubernetes.client.openapi.JSON;
  * ConfigMap holds configuration data for pods to consume.
  */
 @ApiModel(description = "ConfigMap holds configuration data for pods to consume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_BINARY_DATA = "binaryData";
   @SerializedName(SERIALIZED_NAME_BINARY_DATA)
+  @jakarta.annotation.Nullable
   private Map<String, byte[]> binaryData = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
+  @jakarta.annotation.Nullable
   private Map<String, String> data = new HashMap<>();
 
   public static final String SERIALIZED_NAME_IMMUTABLE = "immutable";
   @SerializedName(SERIALIZED_NAME_IMMUTABLE)
+  @jakarta.annotation.Nullable
   private Boolean immutable;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public V1ConfigMap() {
   }
 
-  public V1ConfigMap apiVersion(String apiVersion) {
+  public V1ConfigMap apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1ConfigMap binaryData(Map<String, byte[]> binaryData) {
+  public V1ConfigMap binaryData(@jakarta.annotation.Nullable Map<String, byte[]> binaryData) {
     this.binaryData = binaryData;
     return this;
   }
@@ -116,22 +121,22 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     return this;
   }
 
-   /**
+  /**
    * BinaryData contains the binary data. Each key must consist of alphanumeric characters, &#39;-&#39;, &#39;_&#39; or &#39;.&#39;. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
    * @return binaryData
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.")
   public Map<String, byte[]> getBinaryData() {
     return binaryData;
   }
 
-  public void setBinaryData(Map<String, byte[]> binaryData) {
+  public void setBinaryData(@jakarta.annotation.Nullable Map<String, byte[]> binaryData) {
     this.binaryData = binaryData;
   }
 
 
-  public V1ConfigMap data(Map<String, String> data) {
+  public V1ConfigMap data(@jakarta.annotation.Nullable Map<String, String> data) {
     this.data = data;
     return this;
   }
@@ -144,77 +149,77 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     return this;
   }
 
-   /**
+  /**
    * Data contains the configuration data. Each key must consist of alphanumeric characters, &#39;-&#39;, &#39;_&#39; or &#39;.&#39;. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.")
   public Map<String, String> getData() {
     return data;
   }
 
-  public void setData(Map<String, String> data) {
+  public void setData(@jakarta.annotation.Nullable Map<String, String> data) {
     this.data = data;
   }
 
 
-  public V1ConfigMap immutable(Boolean immutable) {
+  public V1ConfigMap immutable(@jakarta.annotation.Nullable Boolean immutable) {
     this.immutable = immutable;
     return this;
   }
 
-   /**
+  /**
    * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.
    * @return immutable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.")
   public Boolean getImmutable() {
     return immutable;
   }
 
-  public void setImmutable(Boolean immutable) {
+  public void setImmutable(@jakarta.annotation.Nullable Boolean immutable) {
     this.immutable = immutable;
   }
 
 
-  public V1ConfigMap kind(String kind) {
+  public V1ConfigMap kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1ConfigMap metadata(V1ObjectMeta metadata) {
+  public V1ConfigMap metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
@@ -285,12 +290,12 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ConfigMap
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ConfigMap
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ConfigMap.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -347,22 +352,22 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     }
   }
 
- /**
-  * Create an instance of V1ConfigMap given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ConfigMap
-  * @throws IOException if the JSON string is invalid with respect to V1ConfigMap
-  */
+  /**
+   * Create an instance of V1ConfigMap given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ConfigMap
+   * @throws IOException if the JSON string is invalid with respect to V1ConfigMap
+   */
   public static V1ConfigMap fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ConfigMap.class);
   }
 
- /**
-  * Convert an instance of V1ConfigMap to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ConfigMap to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

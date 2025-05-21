@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * StatefulSetOrdinals describes the policy used for replica ordinal assignment in this StatefulSet.
  */
 @ApiModel(description = "StatefulSetOrdinals describes the policy used for replica ordinal assignment in this StatefulSet.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1StatefulSetOrdinals {
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
+  @jakarta.annotation.Nullable
   private Integer start;
 
   public V1StatefulSetOrdinals() {
   }
 
-  public V1StatefulSetOrdinals start(Integer start) {
+  public V1StatefulSetOrdinals start(@jakarta.annotation.Nullable Integer start) {
     this.start = start;
     return this;
   }
 
-   /**
+  /**
    * start is the number representing the first replica&#39;s index. It may be used to number replicas from an alternate index (eg: 1-indexed) over the default 0-indexed names, or to orchestrate progressive movement of replicas from one StatefulSet to another. If set, replica indices will be in the range:   [.spec.ordinals.start, .spec.ordinals.start + .spec.replicas). If unset, defaults to 0. Replica indices will be in the range:   [0, .spec.replicas).
    * @return start
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "start is the number representing the first replica's index. It may be used to number replicas from an alternate index (eg: 1-indexed) over the default 0-indexed names, or to orchestrate progressive movement of replicas from one StatefulSet to another. If set, replica indices will be in the range:   [.spec.ordinals.start, .spec.ordinals.start + .spec.replicas). If unset, defaults to 0. Replica indices will be in the range:   [0, .spec.replicas).")
   public Integer getStart() {
     return start;
   }
 
-  public void setStart(Integer start) {
+  public void setStart(@jakarta.annotation.Nullable Integer start) {
     this.start = start;
   }
 
@@ -131,12 +131,12 @@ public class V1StatefulSetOrdinals {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1StatefulSetOrdinals
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1StatefulSetOrdinals
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1StatefulSetOrdinals.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -183,22 +183,22 @@ public class V1StatefulSetOrdinals {
     }
   }
 
- /**
-  * Create an instance of V1StatefulSetOrdinals given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1StatefulSetOrdinals
-  * @throws IOException if the JSON string is invalid with respect to V1StatefulSetOrdinals
-  */
+  /**
+   * Create an instance of V1StatefulSetOrdinals given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1StatefulSetOrdinals
+   * @throws IOException if the JSON string is invalid with respect to V1StatefulSetOrdinals
+   */
   public static V1StatefulSetOrdinals fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1StatefulSetOrdinals.class);
   }
 
- /**
-  * Convert an instance of V1StatefulSetOrdinals to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1StatefulSetOrdinals to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

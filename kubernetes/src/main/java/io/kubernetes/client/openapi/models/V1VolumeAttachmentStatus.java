@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,68 +53,72 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.
  */
 @ApiModel(description = "VolumeAttachmentStatus is the status of a VolumeAttachment request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeAttachmentStatus {
   public static final String SERIALIZED_NAME_ATTACH_ERROR = "attachError";
   @SerializedName(SERIALIZED_NAME_ATTACH_ERROR)
+  @jakarta.annotation.Nullable
   private V1VolumeError attachError;
 
   public static final String SERIALIZED_NAME_ATTACHED = "attached";
   @SerializedName(SERIALIZED_NAME_ATTACHED)
+  @jakarta.annotation.Nonnull
   private Boolean attached;
 
   public static final String SERIALIZED_NAME_ATTACHMENT_METADATA = "attachmentMetadata";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_METADATA)
+  @jakarta.annotation.Nullable
   private Map<String, String> attachmentMetadata = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DETACH_ERROR = "detachError";
   @SerializedName(SERIALIZED_NAME_DETACH_ERROR)
+  @jakarta.annotation.Nullable
   private V1VolumeError detachError;
 
   public V1VolumeAttachmentStatus() {
   }
 
-  public V1VolumeAttachmentStatus attachError(V1VolumeError attachError) {
+  public V1VolumeAttachmentStatus attachError(@jakarta.annotation.Nullable V1VolumeError attachError) {
     this.attachError = attachError;
     return this;
   }
 
-   /**
+  /**
    * Get attachError
    * @return attachError
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeError getAttachError() {
     return attachError;
   }
 
-  public void setAttachError(V1VolumeError attachError) {
+  public void setAttachError(@jakarta.annotation.Nullable V1VolumeError attachError) {
     this.attachError = attachError;
   }
 
 
-  public V1VolumeAttachmentStatus attached(Boolean attached) {
+  public V1VolumeAttachmentStatus attached(@jakarta.annotation.Nonnull Boolean attached) {
     this.attached = attached;
     return this;
   }
 
-   /**
+  /**
    * attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @return attached
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
   public Boolean getAttached() {
     return attached;
   }
 
-  public void setAttached(Boolean attached) {
+  public void setAttached(@jakarta.annotation.Nonnull Boolean attached) {
     this.attached = attached;
   }
 
 
-  public V1VolumeAttachmentStatus attachmentMetadata(Map<String, String> attachmentMetadata) {
+  public V1VolumeAttachmentStatus attachmentMetadata(@jakarta.annotation.Nullable Map<String, String> attachmentMetadata) {
     this.attachmentMetadata = attachmentMetadata;
     return this;
   }
@@ -128,37 +131,37 @@ public class V1VolumeAttachmentStatus {
     return this;
   }
 
-   /**
+  /**
    * attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @return attachmentMetadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
   public Map<String, String> getAttachmentMetadata() {
     return attachmentMetadata;
   }
 
-  public void setAttachmentMetadata(Map<String, String> attachmentMetadata) {
+  public void setAttachmentMetadata(@jakarta.annotation.Nullable Map<String, String> attachmentMetadata) {
     this.attachmentMetadata = attachmentMetadata;
   }
 
 
-  public V1VolumeAttachmentStatus detachError(V1VolumeError detachError) {
+  public V1VolumeAttachmentStatus detachError(@jakarta.annotation.Nullable V1VolumeError detachError) {
     this.detachError = detachError;
     return this;
   }
 
-   /**
+  /**
    * Get detachError
    * @return detachError
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeError getDetachError() {
     return detachError;
   }
 
-  public void setDetachError(V1VolumeError detachError) {
+  public void setDetachError(@jakarta.annotation.Nullable V1VolumeError detachError) {
     this.detachError = detachError;
   }
 
@@ -224,12 +227,12 @@ public class V1VolumeAttachmentStatus {
     openapiRequiredFields.add("attached");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeAttachmentStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeAttachmentStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeAttachmentStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -291,22 +294,22 @@ public class V1VolumeAttachmentStatus {
     }
   }
 
- /**
-  * Create an instance of V1VolumeAttachmentStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeAttachmentStatus
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeAttachmentStatus
-  */
+  /**
+   * Create an instance of V1VolumeAttachmentStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeAttachmentStatus
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeAttachmentStatus
+   */
   public static V1VolumeAttachmentStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeAttachmentStatus.class);
   }
 
- /**
-  * Convert an instance of V1VolumeAttachmentStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeAttachmentStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

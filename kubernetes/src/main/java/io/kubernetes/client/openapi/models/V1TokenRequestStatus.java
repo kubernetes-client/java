@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequestStatus is the result of a token request.
  */
 @ApiModel(description = "TokenRequestStatus is the result of a token request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1TokenRequestStatus {
   public static final String SERIALIZED_NAME_EXPIRATION_TIMESTAMP = "expirationTimestamp";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_TIMESTAMP)
+  @jakarta.annotation.Nonnull
   private OffsetDateTime expirationTimestamp;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
+  @jakarta.annotation.Nonnull
   private String token;
 
   public V1TokenRequestStatus() {
   }
 
-  public V1TokenRequestStatus expirationTimestamp(OffsetDateTime expirationTimestamp) {
+  public V1TokenRequestStatus expirationTimestamp(@jakarta.annotation.Nonnull OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
     return this;
   }
 
-   /**
+  /**
    * ExpirationTimestamp is the time of expiration of the returned token.
    * @return expirationTimestamp
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ExpirationTimestamp is the time of expiration of the returned token.")
   public OffsetDateTime getExpirationTimestamp() {
     return expirationTimestamp;
   }
 
-  public void setExpirationTimestamp(OffsetDateTime expirationTimestamp) {
+  public void setExpirationTimestamp(@jakarta.annotation.Nonnull OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
   }
 
 
-  public V1TokenRequestStatus token(String token) {
+  public V1TokenRequestStatus token(@jakarta.annotation.Nonnull String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * Token is the opaque bearer token.
    * @return token
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Token is the opaque bearer token.")
   public String getToken() {
     return token;
   }
 
-  public void setToken(String token) {
+  public void setToken(@jakarta.annotation.Nonnull String token) {
     this.token = token;
   }
 
@@ -161,12 +162,12 @@ public class V1TokenRequestStatus {
     openapiRequiredFields.add("token");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1TokenRequestStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1TokenRequestStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1TokenRequestStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -223,22 +224,22 @@ public class V1TokenRequestStatus {
     }
   }
 
- /**
-  * Create an instance of V1TokenRequestStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1TokenRequestStatus
-  * @throws IOException if the JSON string is invalid with respect to V1TokenRequestStatus
-  */
+  /**
+   * Create an instance of V1TokenRequestStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1TokenRequestStatus
+   * @throws IOException if the JSON string is invalid with respect to V1TokenRequestStatus
+   */
   public static V1TokenRequestStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1TokenRequestStatus.class);
   }
 
- /**
-  * Convert an instance of V1TokenRequestStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1TokenRequestStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

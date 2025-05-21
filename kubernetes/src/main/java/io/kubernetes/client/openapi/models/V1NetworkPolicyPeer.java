@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,79 +52,82 @@ import io.kubernetes.client.openapi.JSON;
  * NetworkPolicyPeer describes a peer to allow traffic to/from. Only certain combinations of fields are allowed
  */
 @ApiModel(description = "NetworkPolicyPeer describes a peer to allow traffic to/from. Only certain combinations of fields are allowed")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NetworkPolicyPeer {
   public static final String SERIALIZED_NAME_IP_BLOCK = "ipBlock";
   @SerializedName(SERIALIZED_NAME_IP_BLOCK)
+  @jakarta.annotation.Nullable
   private V1IPBlock ipBlock;
 
   public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
   @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector namespaceSelector;
 
   public static final String SERIALIZED_NAME_POD_SELECTOR = "podSelector";
   @SerializedName(SERIALIZED_NAME_POD_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector podSelector;
 
   public V1NetworkPolicyPeer() {
   }
 
-  public V1NetworkPolicyPeer ipBlock(V1IPBlock ipBlock) {
+  public V1NetworkPolicyPeer ipBlock(@jakarta.annotation.Nullable V1IPBlock ipBlock) {
     this.ipBlock = ipBlock;
     return this;
   }
 
-   /**
+  /**
    * Get ipBlock
    * @return ipBlock
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1IPBlock getIpBlock() {
     return ipBlock;
   }
 
-  public void setIpBlock(V1IPBlock ipBlock) {
+  public void setIpBlock(@jakarta.annotation.Nullable V1IPBlock ipBlock) {
     this.ipBlock = ipBlock;
   }
 
 
-  public V1NetworkPolicyPeer namespaceSelector(V1LabelSelector namespaceSelector) {
+  public V1NetworkPolicyPeer namespaceSelector(@jakarta.annotation.Nullable V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
     return this;
   }
 
-   /**
+  /**
    * Get namespaceSelector
    * @return namespaceSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
 
-  public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
+  public void setNamespaceSelector(@jakarta.annotation.Nullable V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
 
 
-  public V1NetworkPolicyPeer podSelector(V1LabelSelector podSelector) {
+  public V1NetworkPolicyPeer podSelector(@jakarta.annotation.Nullable V1LabelSelector podSelector) {
     this.podSelector = podSelector;
     return this;
   }
 
-   /**
+  /**
    * Get podSelector
    * @return podSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getPodSelector() {
     return podSelector;
   }
 
-  public void setPodSelector(V1LabelSelector podSelector) {
+  public void setPodSelector(@jakarta.annotation.Nullable V1LabelSelector podSelector) {
     this.podSelector = podSelector;
   }
 
@@ -187,12 +189,12 @@ public class V1NetworkPolicyPeer {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NetworkPolicyPeer
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NetworkPolicyPeer
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NetworkPolicyPeer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -251,22 +253,22 @@ public class V1NetworkPolicyPeer {
     }
   }
 
- /**
-  * Create an instance of V1NetworkPolicyPeer given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NetworkPolicyPeer
-  * @throws IOException if the JSON string is invalid with respect to V1NetworkPolicyPeer
-  */
+  /**
+   * Create an instance of V1NetworkPolicyPeer given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NetworkPolicyPeer
+   * @throws IOException if the JSON string is invalid with respect to V1NetworkPolicyPeer
+   */
   public static V1NetworkPolicyPeer fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NetworkPolicyPeer.class);
   }
 
- /**
-  * Convert an instance of V1NetworkPolicyPeer to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NetworkPolicyPeer to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

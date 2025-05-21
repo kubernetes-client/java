@@ -57,14 +57,26 @@ public class V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> extends B
   public A addToHttpHeaders(int index,V1HTTPHeader item) {
     if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
     V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-    if (index < 0 || index >= httpHeaders.size()) { _visitables.get("httpHeaders").add(builder); httpHeaders.add(builder); } else { _visitables.get("httpHeaders").add(index, builder); httpHeaders.add(index, builder);}
+    if (index < 0 || index >= httpHeaders.size()) {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.add(builder);
+    } else {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToHttpHeaders(int index,V1HTTPHeader item) {
     if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
     V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-    if (index < 0 || index >= httpHeaders.size()) { _visitables.get("httpHeaders").add(builder); httpHeaders.add(builder); } else { _visitables.get("httpHeaders").set(index, builder); httpHeaders.set(index, builder);}
+    if (index < 0 || index >= httpHeaders.size()) {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.add(builder);
+    } else {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.set(index, builder);
+    }
     return (A)this;
   }
   

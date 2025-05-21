@@ -146,7 +146,8 @@ public class OpenidApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -161,7 +162,8 @@ public class OpenidApi {
          * @return String
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -177,7 +179,8 @@ public class OpenidApi {
          * @return ApiResponse&lt;String&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -193,7 +196,8 @@ public class OpenidApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -209,7 +213,8 @@ public class OpenidApi {
      * get service account issuer OpenID JSON Web Key Set (contains public token verification keys)
      * @return APIgetServiceAccountIssuerOpenIDKeysetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>

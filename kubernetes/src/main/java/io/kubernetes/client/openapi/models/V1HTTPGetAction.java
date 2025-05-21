@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,52 +54,57 @@ import io.kubernetes.client.openapi.JSON;
  * HTTPGetAction describes an action based on HTTP Get requests.
  */
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1HTTPGetAction {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
+  @jakarta.annotation.Nullable
   private String host;
 
   public static final String SERIALIZED_NAME_HTTP_HEADERS = "httpHeaders";
   @SerializedName(SERIALIZED_NAME_HTTP_HEADERS)
+  @jakarta.annotation.Nullable
   private List<V1HTTPHeader> httpHeaders = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nullable
   private String path;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nonnull
   private IntOrString port;
 
   public static final String SERIALIZED_NAME_SCHEME = "scheme";
   @SerializedName(SERIALIZED_NAME_SCHEME)
+  @jakarta.annotation.Nullable
   private String scheme;
 
   public V1HTTPGetAction() {
   }
 
-  public V1HTTPGetAction host(String host) {
+  public V1HTTPGetAction host(@jakarta.annotation.Nullable String host) {
     this.host = host;
     return this;
   }
 
-   /**
+  /**
    * Host name to connect to, defaults to the pod IP. You probably want to set \&quot;Host\&quot; in httpHeaders instead.
    * @return host
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.")
   public String getHost() {
     return host;
   }
 
-  public void setHost(String host) {
+  public void setHost(@jakarta.annotation.Nullable String host) {
     this.host = host;
   }
 
 
-  public V1HTTPGetAction httpHeaders(List<V1HTTPHeader> httpHeaders) {
+  public V1HTTPGetAction httpHeaders(@jakarta.annotation.Nullable List<V1HTTPHeader> httpHeaders) {
     this.httpHeaders = httpHeaders;
     return this;
   }
@@ -113,77 +117,77 @@ public class V1HTTPGetAction {
     return this;
   }
 
-   /**
+  /**
    * Custom headers to set in the request. HTTP allows repeated headers.
    * @return httpHeaders
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Custom headers to set in the request. HTTP allows repeated headers.")
   public List<V1HTTPHeader> getHttpHeaders() {
     return httpHeaders;
   }
 
-  public void setHttpHeaders(List<V1HTTPHeader> httpHeaders) {
+  public void setHttpHeaders(@jakarta.annotation.Nullable List<V1HTTPHeader> httpHeaders) {
     this.httpHeaders = httpHeaders;
   }
 
 
-  public V1HTTPGetAction path(String path) {
+  public V1HTTPGetAction path(@jakarta.annotation.Nullable String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * Path to access on the HTTP server.
    * @return path
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Path to access on the HTTP server.")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nullable String path) {
     this.path = path;
   }
 
 
-  public V1HTTPGetAction port(IntOrString port) {
+  public V1HTTPGetAction port(@jakarta.annotation.Nonnull IntOrString port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getPort() {
     return port;
   }
 
-  public void setPort(IntOrString port) {
+  public void setPort(@jakarta.annotation.Nonnull IntOrString port) {
     this.port = port;
   }
 
 
-  public V1HTTPGetAction scheme(String scheme) {
+  public V1HTTPGetAction scheme(@jakarta.annotation.Nullable String scheme) {
     this.scheme = scheme;
     return this;
   }
 
-   /**
+  /**
    * Scheme to use for connecting to the host. Defaults to HTTP.
    * @return scheme
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.")
   public String getScheme() {
     return scheme;
   }
 
-  public void setScheme(String scheme) {
+  public void setScheme(@jakarta.annotation.Nullable String scheme) {
     this.scheme = scheme;
   }
 
@@ -252,12 +256,12 @@ public class V1HTTPGetAction {
     openapiRequiredFields.add("port");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1HTTPGetAction
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1HTTPGetAction
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1HTTPGetAction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -337,22 +341,22 @@ public class V1HTTPGetAction {
     }
   }
 
- /**
-  * Create an instance of V1HTTPGetAction given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1HTTPGetAction
-  * @throws IOException if the JSON string is invalid with respect to V1HTTPGetAction
-  */
+  /**
+   * Create an instance of V1HTTPGetAction given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1HTTPGetAction
+   * @throws IOException if the JSON string is invalid with respect to V1HTTPGetAction
+   */
   public static V1HTTPGetAction fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1HTTPGetAction.class);
   }
 
- /**
-  * Convert an instance of V1HTTPGetAction to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1HTTPGetAction to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

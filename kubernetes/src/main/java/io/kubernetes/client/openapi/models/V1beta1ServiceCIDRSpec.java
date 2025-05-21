@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,16 +52,17 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.
  */
 @ApiModel(description = "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1ServiceCIDRSpec {
   public static final String SERIALIZED_NAME_CIDRS = "cidrs";
   @SerializedName(SERIALIZED_NAME_CIDRS)
+  @jakarta.annotation.Nullable
   private List<String> cidrs = new ArrayList<>();
 
   public V1beta1ServiceCIDRSpec() {
   }
 
-  public V1beta1ServiceCIDRSpec cidrs(List<String> cidrs) {
+  public V1beta1ServiceCIDRSpec cidrs(@jakarta.annotation.Nullable List<String> cidrs) {
     this.cidrs = cidrs;
     return this;
   }
@@ -75,17 +75,17 @@ public class V1beta1ServiceCIDRSpec {
     return this;
   }
 
-   /**
+  /**
    * CIDRs defines the IP blocks in CIDR notation (e.g. \&quot;192.168.0.0/24\&quot; or \&quot;2001:db8::/64\&quot;) from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.
    * @return cidrs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.")
   public List<String> getCidrs() {
     return cidrs;
   }
 
-  public void setCidrs(List<String> cidrs) {
+  public void setCidrs(@jakarta.annotation.Nullable List<String> cidrs) {
     this.cidrs = cidrs;
   }
 
@@ -141,12 +141,12 @@ public class V1beta1ServiceCIDRSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1ServiceCIDRSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1ServiceCIDRSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1ServiceCIDRSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -197,22 +197,22 @@ public class V1beta1ServiceCIDRSpec {
     }
   }
 
- /**
-  * Create an instance of V1beta1ServiceCIDRSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1ServiceCIDRSpec
-  * @throws IOException if the JSON string is invalid with respect to V1beta1ServiceCIDRSpec
-  */
+  /**
+   * Create an instance of V1beta1ServiceCIDRSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1ServiceCIDRSpec
+   * @throws IOException if the JSON string is invalid with respect to V1beta1ServiceCIDRSpec
+   */
   public static V1beta1ServiceCIDRSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1ServiceCIDRSpec.class);
   }
 
- /**
-  * Convert an instance of V1beta1ServiceCIDRSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1ServiceCIDRSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

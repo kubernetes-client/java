@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \&quot;pods\&quot; source.  Only one \&quot;target\&quot; type should be set.
  */
 @ApiModel(description = "ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.  Only one \"target\" type should be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2ResourceMetricSource {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
+  @jakarta.annotation.Nonnull
   private V2MetricTarget target;
 
   public V2ResourceMetricSource() {
   }
 
-  public V2ResourceMetricSource name(String name) {
+  public V2ResourceMetricSource name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the resource in question.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of the resource in question.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V2ResourceMetricSource target(V2MetricTarget target) {
+  public V2ResourceMetricSource target(@jakarta.annotation.Nonnull V2MetricTarget target) {
     this.target = target;
     return this;
   }
 
-   /**
+  /**
    * Get target
    * @return target
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V2MetricTarget getTarget() {
     return target;
   }
 
-  public void setTarget(V2MetricTarget target) {
+  public void setTarget(@jakarta.annotation.Nonnull V2MetricTarget target) {
     this.target = target;
   }
 
@@ -161,12 +162,12 @@ public class V2ResourceMetricSource {
     openapiRequiredFields.add("target");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2ResourceMetricSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2ResourceMetricSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2ResourceMetricSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V2ResourceMetricSource {
     }
   }
 
- /**
-  * Create an instance of V2ResourceMetricSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2ResourceMetricSource
-  * @throws IOException if the JSON string is invalid with respect to V2ResourceMetricSource
-  */
+  /**
+   * Create an instance of V2ResourceMetricSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2ResourceMetricSource
+   * @throws IOException if the JSON string is invalid with respect to V2ResourceMetricSource
+   */
   public static V2ResourceMetricSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2ResourceMetricSource.class);
   }
 
- /**
-  * Convert an instance of V2ResourceMetricSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2ResourceMetricSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

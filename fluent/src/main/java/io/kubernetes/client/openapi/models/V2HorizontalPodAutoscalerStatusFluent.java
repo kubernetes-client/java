@@ -48,14 +48,26 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPodAuto
   public A addToConditions(int index,V2HorizontalPodAutoscalerCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
     V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V2HorizontalPodAutoscalerCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
     V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -199,14 +211,26 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPodAuto
   public A addToCurrentMetrics(int index,V2MetricStatus item) {
     if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
     V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-    if (index < 0 || index >= currentMetrics.size()) { _visitables.get("currentMetrics").add(builder); currentMetrics.add(builder); } else { _visitables.get("currentMetrics").add(index, builder); currentMetrics.add(index, builder);}
+    if (index < 0 || index >= currentMetrics.size()) {
+        _visitables.get("currentMetrics").add(builder);
+        currentMetrics.add(builder);
+    } else {
+        _visitables.get("currentMetrics").add(builder);
+        currentMetrics.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToCurrentMetrics(int index,V2MetricStatus item) {
     if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
     V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-    if (index < 0 || index >= currentMetrics.size()) { _visitables.get("currentMetrics").add(builder); currentMetrics.add(builder); } else { _visitables.get("currentMetrics").set(index, builder); currentMetrics.set(index, builder);}
+    if (index < 0 || index >= currentMetrics.size()) {
+        _visitables.get("currentMetrics").add(builder);
+        currentMetrics.add(builder);
+    } else {
+        _visitables.get("currentMetrics").add(builder);
+        currentMetrics.set(index, builder);
+    }
     return (A)this;
   }
   

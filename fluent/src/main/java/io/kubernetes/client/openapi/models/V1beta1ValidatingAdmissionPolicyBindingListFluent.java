@@ -54,14 +54,26 @@ public class V1beta1ValidatingAdmissionPolicyBindingListFluent<A extends V1beta1
   public A addToItems(int index,V1beta1ValidatingAdmissionPolicyBinding item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1ValidatingAdmissionPolicyBindingBuilder>();}
     V1beta1ValidatingAdmissionPolicyBindingBuilder builder = new V1beta1ValidatingAdmissionPolicyBindingBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1beta1ValidatingAdmissionPolicyBinding item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1ValidatingAdmissionPolicyBindingBuilder>();}
     V1beta1ValidatingAdmissionPolicyBindingBuilder builder = new V1beta1ValidatingAdmissionPolicyBindingBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

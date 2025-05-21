@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,48 +52,52 @@ import io.kubernetes.client.openapi.JSON;
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
 @ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
+  @jakarta.annotation.Nullable
   private String apiServerID;
 
   public static final String SERIALIZED_NAME_DECODABLE_VERSIONS = "decodableVersions";
   @SerializedName(SERIALIZED_NAME_DECODABLE_VERSIONS)
+  @jakarta.annotation.Nullable
   private List<String> decodableVersions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENCODING_VERSION = "encodingVersion";
   @SerializedName(SERIALIZED_NAME_ENCODING_VERSION)
+  @jakarta.annotation.Nullable
   private String encodingVersion;
 
   public static final String SERIALIZED_NAME_SERVED_VERSIONS = "servedVersions";
   @SerializedName(SERIALIZED_NAME_SERVED_VERSIONS)
+  @jakarta.annotation.Nullable
   private List<String> servedVersions = new ArrayList<>();
 
   public V1alpha1ServerStorageVersion() {
   }
 
-  public V1alpha1ServerStorageVersion apiServerID(String apiServerID) {
+  public V1alpha1ServerStorageVersion apiServerID(@jakarta.annotation.Nullable String apiServerID) {
     this.apiServerID = apiServerID;
     return this;
   }
 
-   /**
+  /**
    * The ID of the reporting API server.
    * @return apiServerID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the reporting API server.")
   public String getApiServerID() {
     return apiServerID;
   }
 
-  public void setApiServerID(String apiServerID) {
+  public void setApiServerID(@jakarta.annotation.Nullable String apiServerID) {
     this.apiServerID = apiServerID;
   }
 
 
-  public V1alpha1ServerStorageVersion decodableVersions(List<String> decodableVersions) {
+  public V1alpha1ServerStorageVersion decodableVersions(@jakarta.annotation.Nullable List<String> decodableVersions) {
     this.decodableVersions = decodableVersions;
     return this;
   }
@@ -107,42 +110,42 @@ public class V1alpha1ServerStorageVersion {
     return this;
   }
 
-   /**
+  /**
    * The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.
    * @return decodableVersions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
   public List<String> getDecodableVersions() {
     return decodableVersions;
   }
 
-  public void setDecodableVersions(List<String> decodableVersions) {
+  public void setDecodableVersions(@jakarta.annotation.Nullable List<String> decodableVersions) {
     this.decodableVersions = decodableVersions;
   }
 
 
-  public V1alpha1ServerStorageVersion encodingVersion(String encodingVersion) {
+  public V1alpha1ServerStorageVersion encodingVersion(@jakarta.annotation.Nullable String encodingVersion) {
     this.encodingVersion = encodingVersion;
     return this;
   }
 
-   /**
+  /**
    * The API server encodes the object to this version when persisting it in the backend (e.g., etcd).
    * @return encodingVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
   public String getEncodingVersion() {
     return encodingVersion;
   }
 
-  public void setEncodingVersion(String encodingVersion) {
+  public void setEncodingVersion(@jakarta.annotation.Nullable String encodingVersion) {
     this.encodingVersion = encodingVersion;
   }
 
 
-  public V1alpha1ServerStorageVersion servedVersions(List<String> servedVersions) {
+  public V1alpha1ServerStorageVersion servedVersions(@jakarta.annotation.Nullable List<String> servedVersions) {
     this.servedVersions = servedVersions;
     return this;
   }
@@ -155,17 +158,17 @@ public class V1alpha1ServerStorageVersion {
     return this;
   }
 
-   /**
+  /**
    * The API server can serve these versions. DecodableVersions must include all ServedVersions.
    * @return servedVersions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The API server can serve these versions. DecodableVersions must include all ServedVersions.")
   public List<String> getServedVersions() {
     return servedVersions;
   }
 
-  public void setServedVersions(List<String> servedVersions) {
+  public void setServedVersions(@jakarta.annotation.Nullable List<String> servedVersions) {
     this.servedVersions = servedVersions;
   }
 
@@ -230,12 +233,12 @@ public class V1alpha1ServerStorageVersion {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1ServerStorageVersion
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1ServerStorageVersion
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1ServerStorageVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -296,22 +299,22 @@ public class V1alpha1ServerStorageVersion {
     }
   }
 
- /**
-  * Create an instance of V1alpha1ServerStorageVersion given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1ServerStorageVersion
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1ServerStorageVersion
-  */
+  /**
+   * Create an instance of V1alpha1ServerStorageVersion given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1ServerStorageVersion
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1ServerStorageVersion
+   */
   public static V1alpha1ServerStorageVersion fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1ServerStorageVersion.class);
   }
 
- /**
-  * Convert an instance of V1alpha1ServerStorageVersion to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1ServerStorageVersion to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

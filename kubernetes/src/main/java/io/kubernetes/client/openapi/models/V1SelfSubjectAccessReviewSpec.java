@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,55 +52,57 @@ import io.kubernetes.client.openapi.JSON;
  * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
  */
 @ApiModel(description = "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SelfSubjectAccessReviewSpec {
   public static final String SERIALIZED_NAME_NON_RESOURCE_ATTRIBUTES = "nonResourceAttributes";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_ATTRIBUTES)
+  @jakarta.annotation.Nullable
   private V1NonResourceAttributes nonResourceAttributes;
 
   public static final String SERIALIZED_NAME_RESOURCE_ATTRIBUTES = "resourceAttributes";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ATTRIBUTES)
+  @jakarta.annotation.Nullable
   private V1ResourceAttributes resourceAttributes;
 
   public V1SelfSubjectAccessReviewSpec() {
   }
 
-  public V1SelfSubjectAccessReviewSpec nonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
+  public V1SelfSubjectAccessReviewSpec nonResourceAttributes(@jakarta.annotation.Nullable V1NonResourceAttributes nonResourceAttributes) {
     this.nonResourceAttributes = nonResourceAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get nonResourceAttributes
    * @return nonResourceAttributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NonResourceAttributes getNonResourceAttributes() {
     return nonResourceAttributes;
   }
 
-  public void setNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
+  public void setNonResourceAttributes(@jakarta.annotation.Nullable V1NonResourceAttributes nonResourceAttributes) {
     this.nonResourceAttributes = nonResourceAttributes;
   }
 
 
-  public V1SelfSubjectAccessReviewSpec resourceAttributes(V1ResourceAttributes resourceAttributes) {
+  public V1SelfSubjectAccessReviewSpec resourceAttributes(@jakarta.annotation.Nullable V1ResourceAttributes resourceAttributes) {
     this.resourceAttributes = resourceAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get resourceAttributes
    * @return resourceAttributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceAttributes getResourceAttributes() {
     return resourceAttributes;
   }
 
-  public void setResourceAttributes(V1ResourceAttributes resourceAttributes) {
+  public void setResourceAttributes(@jakarta.annotation.Nullable V1ResourceAttributes resourceAttributes) {
     this.resourceAttributes = resourceAttributes;
   }
 
@@ -160,12 +161,12 @@ public class V1SelfSubjectAccessReviewSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SelfSubjectAccessReviewSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SelfSubjectAccessReviewSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SelfSubjectAccessReviewSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -220,22 +221,22 @@ public class V1SelfSubjectAccessReviewSpec {
     }
   }
 
- /**
-  * Create an instance of V1SelfSubjectAccessReviewSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SelfSubjectAccessReviewSpec
-  * @throws IOException if the JSON string is invalid with respect to V1SelfSubjectAccessReviewSpec
-  */
+  /**
+   * Create an instance of V1SelfSubjectAccessReviewSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SelfSubjectAccessReviewSpec
+   * @throws IOException if the JSON string is invalid with respect to V1SelfSubjectAccessReviewSpec
+   */
   public static V1SelfSubjectAccessReviewSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SelfSubjectAccessReviewSpec.class);
   }
 
- /**
-  * Convert an instance of V1SelfSubjectAccessReviewSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SelfSubjectAccessReviewSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

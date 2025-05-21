@@ -60,14 +60,26 @@ public class V1alpha1MutatingAdmissionPolicySpecFluent<A extends V1alpha1Mutatin
   public A addToMatchConditions(int index,V1alpha1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1alpha1MatchConditionBuilder>();}
     V1alpha1MatchConditionBuilder builder = new V1alpha1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").add(index, builder); matchConditions.add(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMatchConditions(int index,V1alpha1MatchCondition item) {
     if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1alpha1MatchConditionBuilder>();}
     V1alpha1MatchConditionBuilder builder = new V1alpha1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) { _visitables.get("matchConditions").add(builder); matchConditions.add(builder); } else { _visitables.get("matchConditions").set(index, builder); matchConditions.set(index, builder);}
+    if (index < 0 || index >= matchConditions.size()) {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.add(builder);
+    } else {
+        _visitables.get("matchConditions").add(builder);
+        matchConditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -251,14 +263,26 @@ public class V1alpha1MutatingAdmissionPolicySpecFluent<A extends V1alpha1Mutatin
   public A addToMutations(int index,V1alpha1Mutation item) {
     if (this.mutations == null) {this.mutations = new ArrayList<V1alpha1MutationBuilder>();}
     V1alpha1MutationBuilder builder = new V1alpha1MutationBuilder(item);
-    if (index < 0 || index >= mutations.size()) { _visitables.get("mutations").add(builder); mutations.add(builder); } else { _visitables.get("mutations").add(index, builder); mutations.add(index, builder);}
+    if (index < 0 || index >= mutations.size()) {
+        _visitables.get("mutations").add(builder);
+        mutations.add(builder);
+    } else {
+        _visitables.get("mutations").add(builder);
+        mutations.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMutations(int index,V1alpha1Mutation item) {
     if (this.mutations == null) {this.mutations = new ArrayList<V1alpha1MutationBuilder>();}
     V1alpha1MutationBuilder builder = new V1alpha1MutationBuilder(item);
-    if (index < 0 || index >= mutations.size()) { _visitables.get("mutations").add(builder); mutations.add(builder); } else { _visitables.get("mutations").set(index, builder); mutations.set(index, builder);}
+    if (index < 0 || index >= mutations.size()) {
+        _visitables.get("mutations").add(builder);
+        mutations.add(builder);
+    } else {
+        _visitables.get("mutations").add(builder);
+        mutations.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -455,14 +479,26 @@ public class V1alpha1MutatingAdmissionPolicySpecFluent<A extends V1alpha1Mutatin
   public A addToVariables(int index,V1alpha1Variable item) {
     if (this.variables == null) {this.variables = new ArrayList<V1alpha1VariableBuilder>();}
     V1alpha1VariableBuilder builder = new V1alpha1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) { _visitables.get("variables").add(builder); variables.add(builder); } else { _visitables.get("variables").add(index, builder); variables.add(index, builder);}
+    if (index < 0 || index >= variables.size()) {
+        _visitables.get("variables").add(builder);
+        variables.add(builder);
+    } else {
+        _visitables.get("variables").add(builder);
+        variables.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVariables(int index,V1alpha1Variable item) {
     if (this.variables == null) {this.variables = new ArrayList<V1alpha1VariableBuilder>();}
     V1alpha1VariableBuilder builder = new V1alpha1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) { _visitables.get("variables").add(builder); variables.add(builder); } else { _visitables.get("variables").set(index, builder); variables.set(index, builder);}
+    if (index < 0 || index >= variables.size()) {
+        _visitables.get("variables").add(builder);
+        variables.add(builder);
+    } else {
+        _visitables.get("variables").add(builder);
+        variables.set(index, builder);
+    }
     return (A)this;
   }
   

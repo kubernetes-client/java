@@ -50,14 +50,26 @@ public class V1LabelSelectorAttributesFluent<A extends V1LabelSelectorAttributes
   public A addToRequirements(int index,V1LabelSelectorRequirement item) {
     if (this.requirements == null) {this.requirements = new ArrayList<V1LabelSelectorRequirementBuilder>();}
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) { _visitables.get("requirements").add(builder); requirements.add(builder); } else { _visitables.get("requirements").add(index, builder); requirements.add(index, builder);}
+    if (index < 0 || index >= requirements.size()) {
+        _visitables.get("requirements").add(builder);
+        requirements.add(builder);
+    } else {
+        _visitables.get("requirements").add(builder);
+        requirements.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRequirements(int index,V1LabelSelectorRequirement item) {
     if (this.requirements == null) {this.requirements = new ArrayList<V1LabelSelectorRequirementBuilder>();}
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) { _visitables.get("requirements").add(builder); requirements.add(builder); } else { _visitables.get("requirements").set(index, builder); requirements.set(index, builder);}
+    if (index < 0 || index >= requirements.size()) {
+        _visitables.get("requirements").add(builder);
+        requirements.add(builder);
+    } else {
+        _visitables.get("requirements").add(builder);
+        requirements.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -50,14 +50,26 @@ public class V1FieldSelectorAttributesFluent<A extends V1FieldSelectorAttributes
   public A addToRequirements(int index,V1FieldSelectorRequirement item) {
     if (this.requirements == null) {this.requirements = new ArrayList<V1FieldSelectorRequirementBuilder>();}
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) { _visitables.get("requirements").add(builder); requirements.add(builder); } else { _visitables.get("requirements").add(index, builder); requirements.add(index, builder);}
+    if (index < 0 || index >= requirements.size()) {
+        _visitables.get("requirements").add(builder);
+        requirements.add(builder);
+    } else {
+        _visitables.get("requirements").add(builder);
+        requirements.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRequirements(int index,V1FieldSelectorRequirement item) {
     if (this.requirements == null) {this.requirements = new ArrayList<V1FieldSelectorRequirementBuilder>();}
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) { _visitables.get("requirements").add(builder); requirements.add(builder); } else { _visitables.get("requirements").set(index, builder); requirements.set(index, builder);}
+    if (index < 0 || index >= requirements.size()) {
+        _visitables.get("requirements").add(builder);
+        requirements.add(builder);
+    } else {
+        _visitables.get("requirements").add(builder);
+        requirements.set(index, builder);
+    }
     return (A)this;
   }
   

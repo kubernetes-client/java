@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * GRPCAction specifies an action involving a GRPC service.
  */
 @ApiModel(description = "GRPCAction specifies an action involving a GRPC service.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1GRPCAction {
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nonnull
   private Integer port;
 
   public static final String SERIALIZED_NAME_SERVICE = "service";
   @SerializedName(SERIALIZED_NAME_SERVICE)
+  @jakarta.annotation.Nullable
   private String service;
 
   public V1GRPCAction() {
   }
 
-  public V1GRPCAction port(Integer port) {
+  public V1GRPCAction port(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Port number of the gRPC service. Number must be in the range 1 to 65535.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Port number of the gRPC service. Number must be in the range 1 to 65535.")
   public Integer getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
   }
 
 
-  public V1GRPCAction service(String service) {
+  public V1GRPCAction service(@jakarta.annotation.Nullable String service) {
     this.service = service;
     return this;
   }
 
-   /**
+  /**
    * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.
    * @return service
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.")
   public String getService() {
     return service;
   }
 
-  public void setService(String service) {
+  public void setService(@jakarta.annotation.Nullable String service) {
     this.service = service;
   }
 
@@ -159,12 +160,12 @@ public class V1GRPCAction {
     openapiRequiredFields.add("port");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1GRPCAction
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1GRPCAction
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1GRPCAction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -221,22 +222,22 @@ public class V1GRPCAction {
     }
   }
 
- /**
-  * Create an instance of V1GRPCAction given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1GRPCAction
-  * @throws IOException if the JSON string is invalid with respect to V1GRPCAction
-  */
+  /**
+   * Create an instance of V1GRPCAction given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1GRPCAction
+   * @throws IOException if the JSON string is invalid with respect to V1GRPCAction
+   */
   public static V1GRPCAction fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1GRPCAction.class);
   }
 
- /**
-  * Convert an instance of V1GRPCAction to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1GRPCAction to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

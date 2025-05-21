@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,88 +54,92 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingAdmissionPolicyBindingSpec is the specification of the ValidatingAdmissionPolicyBinding.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyBindingSpec is the specification of the ValidatingAdmissionPolicyBinding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ValidatingAdmissionPolicyBindingSpec {
   public static final String SERIALIZED_NAME_MATCH_RESOURCES = "matchResources";
   @SerializedName(SERIALIZED_NAME_MATCH_RESOURCES)
+  @jakarta.annotation.Nullable
   private V1MatchResources matchResources;
 
   public static final String SERIALIZED_NAME_PARAM_REF = "paramRef";
   @SerializedName(SERIALIZED_NAME_PARAM_REF)
+  @jakarta.annotation.Nullable
   private V1ParamRef paramRef;
 
   public static final String SERIALIZED_NAME_POLICY_NAME = "policyName";
   @SerializedName(SERIALIZED_NAME_POLICY_NAME)
+  @jakarta.annotation.Nullable
   private String policyName;
 
   public static final String SERIALIZED_NAME_VALIDATION_ACTIONS = "validationActions";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ACTIONS)
+  @jakarta.annotation.Nullable
   private List<String> validationActions = new ArrayList<>();
 
   public V1ValidatingAdmissionPolicyBindingSpec() {
   }
 
-  public V1ValidatingAdmissionPolicyBindingSpec matchResources(V1MatchResources matchResources) {
+  public V1ValidatingAdmissionPolicyBindingSpec matchResources(@jakarta.annotation.Nullable V1MatchResources matchResources) {
     this.matchResources = matchResources;
     return this;
   }
 
-   /**
+  /**
    * Get matchResources
    * @return matchResources
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1MatchResources getMatchResources() {
     return matchResources;
   }
 
-  public void setMatchResources(V1MatchResources matchResources) {
+  public void setMatchResources(@jakarta.annotation.Nullable V1MatchResources matchResources) {
     this.matchResources = matchResources;
   }
 
 
-  public V1ValidatingAdmissionPolicyBindingSpec paramRef(V1ParamRef paramRef) {
+  public V1ValidatingAdmissionPolicyBindingSpec paramRef(@jakarta.annotation.Nullable V1ParamRef paramRef) {
     this.paramRef = paramRef;
     return this;
   }
 
-   /**
+  /**
    * Get paramRef
    * @return paramRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ParamRef getParamRef() {
     return paramRef;
   }
 
-  public void setParamRef(V1ParamRef paramRef) {
+  public void setParamRef(@jakarta.annotation.Nullable V1ParamRef paramRef) {
     this.paramRef = paramRef;
   }
 
 
-  public V1ValidatingAdmissionPolicyBindingSpec policyName(String policyName) {
+  public V1ValidatingAdmissionPolicyBindingSpec policyName(@jakarta.annotation.Nullable String policyName) {
     this.policyName = policyName;
     return this;
   }
 
-   /**
+  /**
    * PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.
    * @return policyName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.")
   public String getPolicyName() {
     return policyName;
   }
 
-  public void setPolicyName(String policyName) {
+  public void setPolicyName(@jakarta.annotation.Nullable String policyName) {
     this.policyName = policyName;
   }
 
 
-  public V1ValidatingAdmissionPolicyBindingSpec validationActions(List<String> validationActions) {
+  public V1ValidatingAdmissionPolicyBindingSpec validationActions(@jakarta.annotation.Nullable List<String> validationActions) {
     this.validationActions = validationActions;
     return this;
   }
@@ -149,17 +152,17 @@ public class V1ValidatingAdmissionPolicyBindingSpec {
     return this;
   }
 
-   /**
+  /**
    * validationActions declares how Validations of the referenced ValidatingAdmissionPolicy are enforced. If a validation evaluates to false it is always enforced according to these actions.  Failures defined by the ValidatingAdmissionPolicy&#39;s FailurePolicy are enforced according to these actions only if the FailurePolicy is set to Fail, otherwise the failures are ignored. This includes compilation errors, runtime errors and misconfigurations of the policy.  validationActions is declared as a set of action values. Order does not matter. validationActions may not contain duplicates of the same action.  The supported actions values are:  \&quot;Deny\&quot; specifies that a validation failure results in a denied request.  \&quot;Warn\&quot; specifies that a validation failure is reported to the request client in HTTP Warning headers, with a warning code of 299. Warnings can be sent both for allowed or denied admission responses.  \&quot;Audit\&quot; specifies that a validation failure is included in the published audit event for the request. The audit event will contain a &#x60;validation.policy.admission.k8s.io/validation_failure&#x60; audit annotation with a value containing the details of the validation failures, formatted as a JSON list of objects, each with the following fields: - message: The validation failure message string - policy: The resource name of the ValidatingAdmissionPolicy - binding: The resource name of the ValidatingAdmissionPolicyBinding - expressionIndex: The index of the failed validations in the ValidatingAdmissionPolicy - validationActions: The enforcement actions enacted for the validation failure Example audit annotation: &#x60;\&quot;validation.policy.admission.k8s.io/validation_failure\&quot;: \&quot;[{\\\&quot;message\\\&quot;: \\\&quot;Invalid value\\\&quot;, {\\\&quot;policy\\\&quot;: \\\&quot;policy.example.com\\\&quot;, {\\\&quot;binding\\\&quot;: \\\&quot;policybinding.example.com\\\&quot;, {\\\&quot;expressionIndex\\\&quot;: \\\&quot;1\\\&quot;, {\\\&quot;validationActions\\\&quot;: [\\\&quot;Audit\\\&quot;]}]\&quot;&#x60;  Clients should expect to handle additional values by ignoring any values not recognized.  \&quot;Deny\&quot; and \&quot;Warn\&quot; may not be used together since this combination needlessly duplicates the validation failure both in the API response body and the HTTP warning headers.  Required.
    * @return validationActions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "validationActions declares how Validations of the referenced ValidatingAdmissionPolicy are enforced. If a validation evaluates to false it is always enforced according to these actions.  Failures defined by the ValidatingAdmissionPolicy's FailurePolicy are enforced according to these actions only if the FailurePolicy is set to Fail, otherwise the failures are ignored. This includes compilation errors, runtime errors and misconfigurations of the policy.  validationActions is declared as a set of action values. Order does not matter. validationActions may not contain duplicates of the same action.  The supported actions values are:  \"Deny\" specifies that a validation failure results in a denied request.  \"Warn\" specifies that a validation failure is reported to the request client in HTTP Warning headers, with a warning code of 299. Warnings can be sent both for allowed or denied admission responses.  \"Audit\" specifies that a validation failure is included in the published audit event for the request. The audit event will contain a `validation.policy.admission.k8s.io/validation_failure` audit annotation with a value containing the details of the validation failures, formatted as a JSON list of objects, each with the following fields: - message: The validation failure message string - policy: The resource name of the ValidatingAdmissionPolicy - binding: The resource name of the ValidatingAdmissionPolicyBinding - expressionIndex: The index of the failed validations in the ValidatingAdmissionPolicy - validationActions: The enforcement actions enacted for the validation failure Example audit annotation: `\"validation.policy.admission.k8s.io/validation_failure\": \"[{\\\"message\\\": \\\"Invalid value\\\", {\\\"policy\\\": \\\"policy.example.com\\\", {\\\"binding\\\": \\\"policybinding.example.com\\\", {\\\"expressionIndex\\\": \\\"1\\\", {\\\"validationActions\\\": [\\\"Audit\\\"]}]\"`  Clients should expect to handle additional values by ignoring any values not recognized.  \"Deny\" and \"Warn\" may not be used together since this combination needlessly duplicates the validation failure both in the API response body and the HTTP warning headers.  Required.")
   public List<String> getValidationActions() {
     return validationActions;
   }
 
-  public void setValidationActions(List<String> validationActions) {
+  public void setValidationActions(@jakarta.annotation.Nullable List<String> validationActions) {
     this.validationActions = validationActions;
   }
 
@@ -224,12 +227,12 @@ public class V1ValidatingAdmissionPolicyBindingSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ValidatingAdmissionPolicyBindingSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ValidatingAdmissionPolicyBindingSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ValidatingAdmissionPolicyBindingSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -291,22 +294,22 @@ public class V1ValidatingAdmissionPolicyBindingSpec {
     }
   }
 
- /**
-  * Create an instance of V1ValidatingAdmissionPolicyBindingSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ValidatingAdmissionPolicyBindingSpec
-  * @throws IOException if the JSON string is invalid with respect to V1ValidatingAdmissionPolicyBindingSpec
-  */
+  /**
+   * Create an instance of V1ValidatingAdmissionPolicyBindingSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ValidatingAdmissionPolicyBindingSpec
+   * @throws IOException if the JSON string is invalid with respect to V1ValidatingAdmissionPolicyBindingSpec
+   */
   public static V1ValidatingAdmissionPolicyBindingSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ValidatingAdmissionPolicyBindingSpec.class);
   }
 
- /**
-  * Convert an instance of V1ValidatingAdmissionPolicyBindingSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ValidatingAdmissionPolicyBindingSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

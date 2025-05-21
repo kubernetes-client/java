@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ObjectFieldSelector selects an APIVersioned field of an object.
  */
 @ApiModel(description = "ObjectFieldSelector selects an APIVersioned field of an object.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ObjectFieldSelector {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_FIELD_PATH = "fieldPath";
   @SerializedName(SERIALIZED_NAME_FIELD_PATH)
+  @jakarta.annotation.Nonnull
   private String fieldPath;
 
   public V1ObjectFieldSelector() {
   }
 
-  public V1ObjectFieldSelector apiVersion(String apiVersion) {
+  public V1ObjectFieldSelector apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * Version of the schema the FieldPath is written in terms of, defaults to \&quot;v1\&quot;.
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1ObjectFieldSelector fieldPath(String fieldPath) {
+  public V1ObjectFieldSelector fieldPath(@jakarta.annotation.Nonnull String fieldPath) {
     this.fieldPath = fieldPath;
     return this;
   }
 
-   /**
+  /**
    * Path of the field to select in the specified API version.
    * @return fieldPath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Path of the field to select in the specified API version.")
   public String getFieldPath() {
     return fieldPath;
   }
 
-  public void setFieldPath(String fieldPath) {
+  public void setFieldPath(@jakarta.annotation.Nonnull String fieldPath) {
     this.fieldPath = fieldPath;
   }
 
@@ -159,12 +160,12 @@ public class V1ObjectFieldSelector {
     openapiRequiredFields.add("fieldPath");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ObjectFieldSelector
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ObjectFieldSelector
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ObjectFieldSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1ObjectFieldSelector {
     }
   }
 
- /**
-  * Create an instance of V1ObjectFieldSelector given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ObjectFieldSelector
-  * @throws IOException if the JSON string is invalid with respect to V1ObjectFieldSelector
-  */
+  /**
+   * Create an instance of V1ObjectFieldSelector given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ObjectFieldSelector
+   * @throws IOException if the JSON string is invalid with respect to V1ObjectFieldSelector
+   */
   public static V1ObjectFieldSelector fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ObjectFieldSelector.class);
   }
 
- /**
-  * Convert an instance of V1ObjectFieldSelector to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ObjectFieldSelector to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

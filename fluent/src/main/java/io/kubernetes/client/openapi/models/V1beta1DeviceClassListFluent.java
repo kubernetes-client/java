@@ -54,14 +54,26 @@ public class V1beta1DeviceClassListFluent<A extends V1beta1DeviceClassListFluent
   public A addToItems(int index,V1beta1DeviceClass item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1DeviceClassBuilder>();}
     V1beta1DeviceClassBuilder builder = new V1beta1DeviceClassBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1beta1DeviceClass item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1DeviceClassBuilder>();}
     V1beta1DeviceClassBuilder builder = new V1beta1DeviceClassBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

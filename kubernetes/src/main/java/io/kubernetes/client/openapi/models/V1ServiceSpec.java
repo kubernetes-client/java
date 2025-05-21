@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,132 +56,152 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceSpec describes the attributes that a user creates on a service.
  */
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS = "allocateLoadBalancerNodePorts";
   @SerializedName(SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS)
+  @jakarta.annotation.Nullable
   private Boolean allocateLoadBalancerNodePorts;
 
   public static final String SERIALIZED_NAME_CLUSTER_I_P = "clusterIP";
   @SerializedName(SERIALIZED_NAME_CLUSTER_I_P)
+  @jakarta.annotation.Nullable
   private String clusterIP;
 
   public static final String SERIALIZED_NAME_CLUSTER_I_PS = "clusterIPs";
   @SerializedName(SERIALIZED_NAME_CLUSTER_I_PS)
+  @jakarta.annotation.Nullable
   private List<String> clusterIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_I_PS = "externalIPs";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_I_PS)
+  @jakarta.annotation.Nullable
   private List<String> externalIPs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_NAME = "externalName";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_NAME)
+  @jakarta.annotation.Nullable
   private String externalName;
 
   public static final String SERIALIZED_NAME_EXTERNAL_TRAFFIC_POLICY = "externalTrafficPolicy";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_TRAFFIC_POLICY)
+  @jakarta.annotation.Nullable
   private String externalTrafficPolicy;
 
   public static final String SERIALIZED_NAME_HEALTH_CHECK_NODE_PORT = "healthCheckNodePort";
   @SerializedName(SERIALIZED_NAME_HEALTH_CHECK_NODE_PORT)
+  @jakarta.annotation.Nullable
   private Integer healthCheckNodePort;
 
   public static final String SERIALIZED_NAME_INTERNAL_TRAFFIC_POLICY = "internalTrafficPolicy";
   @SerializedName(SERIALIZED_NAME_INTERNAL_TRAFFIC_POLICY)
+  @jakarta.annotation.Nullable
   private String internalTrafficPolicy;
 
   public static final String SERIALIZED_NAME_IP_FAMILIES = "ipFamilies";
   @SerializedName(SERIALIZED_NAME_IP_FAMILIES)
+  @jakarta.annotation.Nullable
   private List<String> ipFamilies = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IP_FAMILY_POLICY = "ipFamilyPolicy";
   @SerializedName(SERIALIZED_NAME_IP_FAMILY_POLICY)
+  @jakarta.annotation.Nullable
   private String ipFamilyPolicy;
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER_CLASS = "loadBalancerClass";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER_CLASS)
+  @jakarta.annotation.Nullable
   private String loadBalancerClass;
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER_I_P = "loadBalancerIP";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER_I_P)
+  @jakarta.annotation.Nullable
   private String loadBalancerIP;
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER_SOURCE_RANGES = "loadBalancerSourceRanges";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER_SOURCE_RANGES)
+  @jakarta.annotation.Nullable
   private List<String> loadBalancerSourceRanges = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
+  @jakarta.annotation.Nullable
   private List<V1ServicePort> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PUBLISH_NOT_READY_ADDRESSES = "publishNotReadyAddresses";
   @SerializedName(SERIALIZED_NAME_PUBLISH_NOT_READY_ADDRESSES)
+  @jakarta.annotation.Nullable
   private Boolean publishNotReadyAddresses;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nullable
   private Map<String, String> selector = new HashMap<>();
 
   public static final String SERIALIZED_NAME_SESSION_AFFINITY = "sessionAffinity";
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY)
+  @jakarta.annotation.Nullable
   private String sessionAffinity;
 
   public static final String SERIALIZED_NAME_SESSION_AFFINITY_CONFIG = "sessionAffinityConfig";
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY_CONFIG)
+  @jakarta.annotation.Nullable
   private V1SessionAffinityConfig sessionAffinityConfig;
 
   public static final String SERIALIZED_NAME_TRAFFIC_DISTRIBUTION = "trafficDistribution";
   @SerializedName(SERIALIZED_NAME_TRAFFIC_DISTRIBUTION)
+  @jakarta.annotation.Nullable
   private String trafficDistribution;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nullable
   private String type;
 
   public V1ServiceSpec() {
   }
 
-  public V1ServiceSpec allocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
+  public V1ServiceSpec allocateLoadBalancerNodePorts(@jakarta.annotation.Nullable Boolean allocateLoadBalancerNodePorts) {
     this.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts;
     return this;
   }
 
-   /**
+  /**
    * allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is \&quot;true\&quot;. It may be set to \&quot;false\&quot; if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.
    * @return allocateLoadBalancerNodePorts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is \"true\". It may be set to \"false\" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.")
   public Boolean getAllocateLoadBalancerNodePorts() {
     return allocateLoadBalancerNodePorts;
   }
 
-  public void setAllocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
+  public void setAllocateLoadBalancerNodePorts(@jakarta.annotation.Nullable Boolean allocateLoadBalancerNodePorts) {
     this.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts;
   }
 
 
-  public V1ServiceSpec clusterIP(String clusterIP) {
+  public V1ServiceSpec clusterIP(@jakarta.annotation.Nullable String clusterIP) {
     this.clusterIP = clusterIP;
     return this;
   }
 
-   /**
+  /**
    * clusterIP is the IP address of the service and is usually assigned randomly. If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be blank) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \&quot;None\&quot;, empty string (\&quot;\&quot;), or a valid IP address. Setting this to \&quot;None\&quot; makes a \&quot;headless service\&quot; (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    * @return clusterIP
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "clusterIP is the IP address of the service and is usually assigned randomly. If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be blank) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \"None\", empty string (\"\"), or a valid IP address. Setting this to \"None\" makes a \"headless service\" (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
   public String getClusterIP() {
     return clusterIP;
   }
 
-  public void setClusterIP(String clusterIP) {
+  public void setClusterIP(@jakarta.annotation.Nullable String clusterIP) {
     this.clusterIP = clusterIP;
   }
 
 
-  public V1ServiceSpec clusterIPs(List<String> clusterIPs) {
+  public V1ServiceSpec clusterIPs(@jakarta.annotation.Nullable List<String> clusterIPs) {
     this.clusterIPs = clusterIPs;
     return this;
   }
@@ -195,22 +214,22 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \&quot;None\&quot;, empty string (\&quot;\&quot;), or a valid IP address.  Setting this to \&quot;None\&quot; makes a \&quot;headless service\&quot; (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName.  If this field is not specified, it will be initialized from the clusterIP field.  If this field is specified, clients must ensure that clusterIPs[0] and clusterIP have the same value.  This field may hold a maximum of two entries (dual-stack IPs, in either order). These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    * @return clusterIPs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \"None\", empty string (\"\"), or a valid IP address.  Setting this to \"None\" makes a \"headless service\" (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName.  If this field is not specified, it will be initialized from the clusterIP field.  If this field is specified, clients must ensure that clusterIPs[0] and clusterIP have the same value.  This field may hold a maximum of two entries (dual-stack IPs, in either order). These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
   public List<String> getClusterIPs() {
     return clusterIPs;
   }
 
-  public void setClusterIPs(List<String> clusterIPs) {
+  public void setClusterIPs(@jakarta.annotation.Nullable List<String> clusterIPs) {
     this.clusterIPs = clusterIPs;
   }
 
 
-  public V1ServiceSpec externalIPs(List<String> externalIPs) {
+  public V1ServiceSpec externalIPs(@jakarta.annotation.Nullable List<String> externalIPs) {
     this.externalIPs = externalIPs;
     return this;
   }
@@ -223,102 +242,102 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.
    * @return externalIPs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.")
   public List<String> getExternalIPs() {
     return externalIPs;
   }
 
-  public void setExternalIPs(List<String> externalIPs) {
+  public void setExternalIPs(@jakarta.annotation.Nullable List<String> externalIPs) {
     this.externalIPs = externalIPs;
   }
 
 
-  public V1ServiceSpec externalName(String externalName) {
+  public V1ServiceSpec externalName(@jakarta.annotation.Nullable String externalName) {
     this.externalName = externalName;
     return this;
   }
 
-   /**
+  /**
    * externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires &#x60;type&#x60; to be \&quot;ExternalName\&quot;.
    * @return externalName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires `type` to be \"ExternalName\".")
   public String getExternalName() {
     return externalName;
   }
 
-  public void setExternalName(String externalName) {
+  public void setExternalName(@jakarta.annotation.Nullable String externalName) {
     this.externalName = externalName;
   }
 
 
-  public V1ServiceSpec externalTrafficPolicy(String externalTrafficPolicy) {
+  public V1ServiceSpec externalTrafficPolicy(@jakarta.annotation.Nullable String externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
     return this;
   }
 
-   /**
+  /**
    * externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service&#39;s \&quot;externally-facing\&quot; addresses (NodePorts, ExternalIPs, and LoadBalancer IPs). If set to \&quot;Local\&quot;, the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, \&quot;Cluster\&quot;, uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features). Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get \&quot;Cluster\&quot; semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.
    * @return externalTrafficPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service's \"externally-facing\" addresses (NodePorts, ExternalIPs, and LoadBalancer IPs). If set to \"Local\", the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features). Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get \"Cluster\" semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.")
   public String getExternalTrafficPolicy() {
     return externalTrafficPolicy;
   }
 
-  public void setExternalTrafficPolicy(String externalTrafficPolicy) {
+  public void setExternalTrafficPolicy(@jakarta.annotation.Nullable String externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
   }
 
 
-  public V1ServiceSpec healthCheckNodePort(Integer healthCheckNodePort) {
+  public V1ServiceSpec healthCheckNodePort(@jakarta.annotation.Nullable Integer healthCheckNodePort) {
     this.healthCheckNodePort = healthCheckNodePort;
     return this;
   }
 
-   /**
+  /**
    * healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type). This field cannot be updated once set.
    * @return healthCheckNodePort
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type). This field cannot be updated once set.")
   public Integer getHealthCheckNodePort() {
     return healthCheckNodePort;
   }
 
-  public void setHealthCheckNodePort(Integer healthCheckNodePort) {
+  public void setHealthCheckNodePort(@jakarta.annotation.Nullable Integer healthCheckNodePort) {
     this.healthCheckNodePort = healthCheckNodePort;
   }
 
 
-  public V1ServiceSpec internalTrafficPolicy(String internalTrafficPolicy) {
+  public V1ServiceSpec internalTrafficPolicy(@jakarta.annotation.Nullable String internalTrafficPolicy) {
     this.internalTrafficPolicy = internalTrafficPolicy;
     return this;
   }
 
-   /**
+  /**
    * InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP. If set to \&quot;Local\&quot;, the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints. The default value, \&quot;Cluster\&quot;, uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).
    * @return internalTrafficPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP. If set to \"Local\", the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints. The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).")
   public String getInternalTrafficPolicy() {
     return internalTrafficPolicy;
   }
 
-  public void setInternalTrafficPolicy(String internalTrafficPolicy) {
+  public void setInternalTrafficPolicy(@jakarta.annotation.Nullable String internalTrafficPolicy) {
     this.internalTrafficPolicy = internalTrafficPolicy;
   }
 
 
-  public V1ServiceSpec ipFamilies(List<String> ipFamilies) {
+  public V1ServiceSpec ipFamilies(@jakarta.annotation.Nullable List<String> ipFamilies) {
     this.ipFamilies = ipFamilies;
     return this;
   }
@@ -331,82 +350,82 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service. Valid values are \&quot;IPv4\&quot; and \&quot;IPv6\&quot;.  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to \&quot;headless\&quot; services. This field will be wiped when updating a Service to type ExternalName.  This field may hold a maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.
    * @return ipFamilies
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service. Valid values are \"IPv4\" and \"IPv6\".  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to \"headless\" services. This field will be wiped when updating a Service to type ExternalName.  This field may hold a maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.")
   public List<String> getIpFamilies() {
     return ipFamilies;
   }
 
-  public void setIpFamilies(List<String> ipFamilies) {
+  public void setIpFamilies(@jakarta.annotation.Nullable List<String> ipFamilies) {
     this.ipFamilies = ipFamilies;
   }
 
 
-  public V1ServiceSpec ipFamilyPolicy(String ipFamilyPolicy) {
+  public V1ServiceSpec ipFamilyPolicy(@jakarta.annotation.Nullable String ipFamilyPolicy) {
     this.ipFamilyPolicy = ipFamilyPolicy;
     return this;
   }
 
-   /**
+  /**
    * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be \&quot;SingleStack\&quot; (a single IP family), \&quot;PreferDualStack\&quot; (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or \&quot;RequireDualStack\&quot; (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field. This field will be wiped when updating a service to type ExternalName.
    * @return ipFamilyPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be \"SingleStack\" (a single IP family), \"PreferDualStack\" (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or \"RequireDualStack\" (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field. This field will be wiped when updating a service to type ExternalName.")
   public String getIpFamilyPolicy() {
     return ipFamilyPolicy;
   }
 
-  public void setIpFamilyPolicy(String ipFamilyPolicy) {
+  public void setIpFamilyPolicy(@jakarta.annotation.Nullable String ipFamilyPolicy) {
     this.ipFamilyPolicy = ipFamilyPolicy;
   }
 
 
-  public V1ServiceSpec loadBalancerClass(String loadBalancerClass) {
+  public V1ServiceSpec loadBalancerClass(@jakarta.annotation.Nullable String loadBalancerClass) {
     this.loadBalancerClass = loadBalancerClass;
     return this;
   }
 
-   /**
+  /**
    * loadBalancerClass is the class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix, e.g. \&quot;internal-vip\&quot; or \&quot;example.com/internal-vip\&quot;. Unprefixed names are reserved for end-users. This field can only be set when the Service type is &#39;LoadBalancer&#39;. If not set, the default load balancer implementation is used, today this is typically done through the cloud provider integration, but should apply for any default implementation. If set, it is assumed that a load balancer implementation is watching for Services with a matching class. Any default load balancer implementation (e.g. cloud providers) should ignore Services that set this field. This field can only be set when creating or updating a Service to type &#39;LoadBalancer&#39;. Once set, it can not be changed. This field will be wiped when a service is updated to a non &#39;LoadBalancer&#39; type.
    * @return loadBalancerClass
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "loadBalancerClass is the class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix, e.g. \"internal-vip\" or \"example.com/internal-vip\". Unprefixed names are reserved for end-users. This field can only be set when the Service type is 'LoadBalancer'. If not set, the default load balancer implementation is used, today this is typically done through the cloud provider integration, but should apply for any default implementation. If set, it is assumed that a load balancer implementation is watching for Services with a matching class. Any default load balancer implementation (e.g. cloud providers) should ignore Services that set this field. This field can only be set when creating or updating a Service to type 'LoadBalancer'. Once set, it can not be changed. This field will be wiped when a service is updated to a non 'LoadBalancer' type.")
   public String getLoadBalancerClass() {
     return loadBalancerClass;
   }
 
-  public void setLoadBalancerClass(String loadBalancerClass) {
+  public void setLoadBalancerClass(@jakarta.annotation.Nullable String loadBalancerClass) {
     this.loadBalancerClass = loadBalancerClass;
   }
 
 
-  public V1ServiceSpec loadBalancerIP(String loadBalancerIP) {
+  public V1ServiceSpec loadBalancerIP(@jakarta.annotation.Nullable String loadBalancerIP) {
     this.loadBalancerIP = loadBalancerIP;
     return this;
   }
 
-   /**
+  /**
    * Only applies to Service Type: LoadBalancer. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature. Deprecated: This field was under-specified and its meaning varies across implementations. Using it is non-portable and it may not support dual-stack. Users are encouraged to use implementation-specific annotations when available.
    * @return loadBalancerIP
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Only applies to Service Type: LoadBalancer. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature. Deprecated: This field was under-specified and its meaning varies across implementations. Using it is non-portable and it may not support dual-stack. Users are encouraged to use implementation-specific annotations when available.")
   public String getLoadBalancerIP() {
     return loadBalancerIP;
   }
 
-  public void setLoadBalancerIP(String loadBalancerIP) {
+  public void setLoadBalancerIP(@jakarta.annotation.Nullable String loadBalancerIP) {
     this.loadBalancerIP = loadBalancerIP;
   }
 
 
-  public V1ServiceSpec loadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
+  public V1ServiceSpec loadBalancerSourceRanges(@jakarta.annotation.Nullable List<String> loadBalancerSourceRanges) {
     this.loadBalancerSourceRanges = loadBalancerSourceRanges;
     return this;
   }
@@ -419,22 +438,22 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\&quot; More info: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
    * @return loadBalancerSourceRanges
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/")
   public List<String> getLoadBalancerSourceRanges() {
     return loadBalancerSourceRanges;
   }
 
-  public void setLoadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
+  public void setLoadBalancerSourceRanges(@jakarta.annotation.Nullable List<String> loadBalancerSourceRanges) {
     this.loadBalancerSourceRanges = loadBalancerSourceRanges;
   }
 
 
-  public V1ServiceSpec ports(List<V1ServicePort> ports) {
+  public V1ServiceSpec ports(@jakarta.annotation.Nullable List<V1ServicePort> ports) {
     this.ports = ports;
     return this;
   }
@@ -447,42 +466,42 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    * @return ports
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The list of ports that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
   public List<V1ServicePort> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<V1ServicePort> ports) {
+  public void setPorts(@jakarta.annotation.Nullable List<V1ServicePort> ports) {
     this.ports = ports;
   }
 
 
-  public V1ServiceSpec publishNotReadyAddresses(Boolean publishNotReadyAddresses) {
+  public V1ServiceSpec publishNotReadyAddresses(@jakarta.annotation.Nullable Boolean publishNotReadyAddresses) {
     this.publishNotReadyAddresses = publishNotReadyAddresses;
     return this;
   }
 
-   /**
+  /**
    * publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready. The primary use case for setting this field is for a StatefulSet&#39;s Headless Service to propagate SRV DNS records for its Pods for the purpose of peer discovery. The Kubernetes controllers that generate Endpoints and EndpointSlice resources for Services interpret this to mean that all endpoints are considered \&quot;ready\&quot; even if the Pods themselves are not. Agents which consume only Kubernetes generated endpoints through the Endpoints or EndpointSlice resources can safely assume this behavior.
    * @return publishNotReadyAddresses
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready. The primary use case for setting this field is for a StatefulSet's Headless Service to propagate SRV DNS records for its Pods for the purpose of peer discovery. The Kubernetes controllers that generate Endpoints and EndpointSlice resources for Services interpret this to mean that all endpoints are considered \"ready\" even if the Pods themselves are not. Agents which consume only Kubernetes generated endpoints through the Endpoints or EndpointSlice resources can safely assume this behavior.")
   public Boolean getPublishNotReadyAddresses() {
     return publishNotReadyAddresses;
   }
 
-  public void setPublishNotReadyAddresses(Boolean publishNotReadyAddresses) {
+  public void setPublishNotReadyAddresses(@jakarta.annotation.Nullable Boolean publishNotReadyAddresses) {
     this.publishNotReadyAddresses = publishNotReadyAddresses;
   }
 
 
-  public V1ServiceSpec selector(Map<String, String> selector) {
+  public V1ServiceSpec selector(@jakarta.annotation.Nullable Map<String, String> selector) {
     this.selector = selector;
     return this;
   }
@@ -495,97 +514,97 @@ public class V1ServiceSpec {
     return this;
   }
 
-   /**
+  /**
    * Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/")
   public Map<String, String> getSelector() {
     return selector;
   }
 
-  public void setSelector(Map<String, String> selector) {
+  public void setSelector(@jakarta.annotation.Nullable Map<String, String> selector) {
     this.selector = selector;
   }
 
 
-  public V1ServiceSpec sessionAffinity(String sessionAffinity) {
+  public V1ServiceSpec sessionAffinity(@jakarta.annotation.Nullable String sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
     return this;
   }
 
-   /**
+  /**
    * Supports \&quot;ClientIP\&quot; and \&quot;None\&quot;. Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    * @return sessionAffinity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
   public String getSessionAffinity() {
     return sessionAffinity;
   }
 
-  public void setSessionAffinity(String sessionAffinity) {
+  public void setSessionAffinity(@jakarta.annotation.Nullable String sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
   }
 
 
-  public V1ServiceSpec sessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig) {
+  public V1ServiceSpec sessionAffinityConfig(@jakarta.annotation.Nullable V1SessionAffinityConfig sessionAffinityConfig) {
     this.sessionAffinityConfig = sessionAffinityConfig;
     return this;
   }
 
-   /**
+  /**
    * Get sessionAffinityConfig
    * @return sessionAffinityConfig
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SessionAffinityConfig getSessionAffinityConfig() {
     return sessionAffinityConfig;
   }
 
-  public void setSessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig) {
+  public void setSessionAffinityConfig(@jakarta.annotation.Nullable V1SessionAffinityConfig sessionAffinityConfig) {
     this.sessionAffinityConfig = sessionAffinityConfig;
   }
 
 
-  public V1ServiceSpec trafficDistribution(String trafficDistribution) {
+  public V1ServiceSpec trafficDistribution(@jakarta.annotation.Nullable String trafficDistribution) {
     this.trafficDistribution = trafficDistribution;
     return this;
   }
 
-   /**
-   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are topologically close (e.g., same zone). This is a beta field and requires enabling ServiceTrafficDistribution feature.
+  /**
+   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are in the same zone.
    * @return trafficDistribution
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \"PreferClose\", implementations should prioritize endpoints that are topologically close (e.g., same zone). This is a beta field and requires enabling ServiceTrafficDistribution feature.")
+  @ApiModelProperty(value = "TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \"PreferClose\", implementations should prioritize endpoints that are in the same zone.")
   public String getTrafficDistribution() {
     return trafficDistribution;
   }
 
-  public void setTrafficDistribution(String trafficDistribution) {
+  public void setTrafficDistribution(@jakarta.annotation.Nullable String trafficDistribution) {
     this.trafficDistribution = trafficDistribution;
   }
 
 
-  public V1ServiceSpec type(String type) {
+  public V1ServiceSpec type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \&quot;ClusterIP\&quot; allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is \&quot;None\&quot;, no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. \&quot;NodePort\&quot; builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. \&quot;LoadBalancer\&quot; builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. \&quot;ExternalName\&quot; aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \"ClusterIP\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is \"None\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. \"NodePort\" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. \"LoadBalancer\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. \"ExternalName\" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
@@ -698,12 +717,12 @@ public class V1ServiceSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ServiceSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ServiceSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -814,22 +833,22 @@ public class V1ServiceSpec {
     }
   }
 
- /**
-  * Create an instance of V1ServiceSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ServiceSpec
-  * @throws IOException if the JSON string is invalid with respect to V1ServiceSpec
-  */
+  /**
+   * Create an instance of V1ServiceSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ServiceSpec
+   * @throws IOException if the JSON string is invalid with respect to V1ServiceSpec
+   */
   public static V1ServiceSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ServiceSpec.class);
   }
 
- /**
-  * Convert an instance of V1ServiceSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ServiceSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -27,8 +27,10 @@ public class V1beta1DeviceRequestBuilder extends V1beta1DeviceRequestFluent<V1be
     buildable.setAllocationMode(fluent.getAllocationMode());
     buildable.setCount(fluent.getCount());
     buildable.setDeviceClassName(fluent.getDeviceClassName());
+    buildable.setFirstAvailable(fluent.buildFirstAvailable());
     buildable.setName(fluent.getName());
     buildable.setSelectors(fluent.buildSelectors());
+    buildable.setTolerations(fluent.buildTolerations());
     return buildable;
   }
   

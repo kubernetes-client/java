@@ -37,14 +37,26 @@ public class V1alpha3DeviceAllocationResultFluent<A extends V1alpha3DeviceAlloca
   public A addToConfig(int index,V1alpha3DeviceAllocationConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1alpha3DeviceAllocationConfigurationBuilder>();}
     V1alpha3DeviceAllocationConfigurationBuilder builder = new V1alpha3DeviceAllocationConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").add(index, builder); config.add(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConfig(int index,V1alpha3DeviceAllocationConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1alpha3DeviceAllocationConfigurationBuilder>();}
     V1alpha3DeviceAllocationConfigurationBuilder builder = new V1alpha3DeviceAllocationConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").set(index, builder); config.set(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -188,14 +200,26 @@ public class V1alpha3DeviceAllocationResultFluent<A extends V1alpha3DeviceAlloca
   public A addToResults(int index,V1alpha3DeviceRequestAllocationResult item) {
     if (this.results == null) {this.results = new ArrayList<V1alpha3DeviceRequestAllocationResultBuilder>();}
     V1alpha3DeviceRequestAllocationResultBuilder builder = new V1alpha3DeviceRequestAllocationResultBuilder(item);
-    if (index < 0 || index >= results.size()) { _visitables.get("results").add(builder); results.add(builder); } else { _visitables.get("results").add(index, builder); results.add(index, builder);}
+    if (index < 0 || index >= results.size()) {
+        _visitables.get("results").add(builder);
+        results.add(builder);
+    } else {
+        _visitables.get("results").add(builder);
+        results.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResults(int index,V1alpha3DeviceRequestAllocationResult item) {
     if (this.results == null) {this.results = new ArrayList<V1alpha3DeviceRequestAllocationResultBuilder>();}
     V1alpha3DeviceRequestAllocationResultBuilder builder = new V1alpha3DeviceRequestAllocationResultBuilder(item);
-    if (index < 0 || index >= results.size()) { _visitables.get("results").add(builder); results.add(builder); } else { _visitables.get("results").set(index, builder); results.set(index, builder);}
+    if (index < 0 || index >= results.size()) {
+        _visitables.get("results").add(builder);
+        results.add(builder);
+    } else {
+        _visitables.get("results").add(builder);
+        results.set(index, builder);
+    }
     return (A)this;
   }
   

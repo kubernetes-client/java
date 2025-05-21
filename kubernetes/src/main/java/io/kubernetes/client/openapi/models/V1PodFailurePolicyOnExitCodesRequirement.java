@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,64 +52,67 @@ import io.kubernetes.client.openapi.JSON;
  * PodFailurePolicyOnExitCodesRequirement describes the requirement for handling a failed pod based on its container exit codes. In particular, it lookups the .state.terminated.exitCode for each app container and init container status, represented by the .status.containerStatuses and .status.initContainerStatuses fields in the Pod status, respectively. Containers completed with success (exit code 0) are excluded from the requirement check.
  */
 @ApiModel(description = "PodFailurePolicyOnExitCodesRequirement describes the requirement for handling a failed pod based on its container exit codes. In particular, it lookups the .state.terminated.exitCode for each app container and init container status, represented by the .status.containerStatuses and .status.initContainerStatuses fields in the Pod status, respectively. Containers completed with success (exit code 0) are excluded from the requirement check.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodFailurePolicyOnExitCodesRequirement {
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
+  @jakarta.annotation.Nullable
   private String containerName;
 
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
+  @jakarta.annotation.Nonnull
   private String operator;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
+  @jakarta.annotation.Nonnull
   private List<Integer> values = new ArrayList<>();
 
   public V1PodFailurePolicyOnExitCodesRequirement() {
   }
 
-  public V1PodFailurePolicyOnExitCodesRequirement containerName(String containerName) {
+  public V1PodFailurePolicyOnExitCodesRequirement containerName(@jakarta.annotation.Nullable String containerName) {
     this.containerName = containerName;
     return this;
   }
 
-   /**
+  /**
    * Restricts the check for exit codes to the container with the specified name. When null, the rule applies to all containers. When specified, it should match one the container or initContainer names in the pod template.
    * @return containerName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Restricts the check for exit codes to the container with the specified name. When null, the rule applies to all containers. When specified, it should match one the container or initContainer names in the pod template.")
   public String getContainerName() {
     return containerName;
   }
 
-  public void setContainerName(String containerName) {
+  public void setContainerName(@jakarta.annotation.Nullable String containerName) {
     this.containerName = containerName;
   }
 
 
-  public V1PodFailurePolicyOnExitCodesRequirement operator(String operator) {
+  public V1PodFailurePolicyOnExitCodesRequirement operator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * Represents the relationship between the container exit code(s) and the specified values. Containers completed with success (exit code 0) are excluded from the requirement check. Possible values are:  - In: the requirement is satisfied if at least one container exit code   (might be multiple if there are multiple containers not restricted   by the &#39;containerName&#39; field) is in the set of specified values. - NotIn: the requirement is satisfied if at least one container exit code   (might be multiple if there are multiple containers not restricted   by the &#39;containerName&#39; field) is not in the set of specified values. Additional values are considered to be added in the future. Clients should react to an unknown operator by assuming the requirement is not satisfied.
    * @return operator
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Represents the relationship between the container exit code(s) and the specified values. Containers completed with success (exit code 0) are excluded from the requirement check. Possible values are:  - In: the requirement is satisfied if at least one container exit code   (might be multiple if there are multiple containers not restricted   by the 'containerName' field) is in the set of specified values. - NotIn: the requirement is satisfied if at least one container exit code   (might be multiple if there are multiple containers not restricted   by the 'containerName' field) is not in the set of specified values. Additional values are considered to be added in the future. Clients should react to an unknown operator by assuming the requirement is not satisfied.")
   public String getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
   }
 
 
-  public V1PodFailurePolicyOnExitCodesRequirement values(List<Integer> values) {
+  public V1PodFailurePolicyOnExitCodesRequirement values(@jakarta.annotation.Nonnull List<Integer> values) {
     this.values = values;
     return this;
   }
@@ -123,17 +125,17 @@ public class V1PodFailurePolicyOnExitCodesRequirement {
     return this;
   }
 
-   /**
+  /**
    * Specifies the set of values. Each returned container exit code (might be multiple in case of multiple containers) is checked against this set of values with respect to the operator. The list of values must be ordered and must not contain duplicates. Value &#39;0&#39; cannot be used for the In operator. At least one element is required. At most 255 elements are allowed.
    * @return values
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Specifies the set of values. Each returned container exit code (might be multiple in case of multiple containers) is checked against this set of values with respect to the operator. The list of values must be ordered and must not contain duplicates. Value '0' cannot be used for the In operator. At least one element is required. At most 255 elements are allowed.")
   public List<Integer> getValues() {
     return values;
   }
 
-  public void setValues(List<Integer> values) {
+  public void setValues(@jakarta.annotation.Nonnull List<Integer> values) {
     this.values = values;
   }
 
@@ -197,12 +199,12 @@ public class V1PodFailurePolicyOnExitCodesRequirement {
     openapiRequiredFields.add("values");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicyOnExitCodesRequirement
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicyOnExitCodesRequirement
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodFailurePolicyOnExitCodesRequirement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -268,22 +270,22 @@ public class V1PodFailurePolicyOnExitCodesRequirement {
     }
   }
 
- /**
-  * Create an instance of V1PodFailurePolicyOnExitCodesRequirement given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodFailurePolicyOnExitCodesRequirement
-  * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicyOnExitCodesRequirement
-  */
+  /**
+   * Create an instance of V1PodFailurePolicyOnExitCodesRequirement given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodFailurePolicyOnExitCodesRequirement
+   * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicyOnExitCodesRequirement
+   */
   public static V1PodFailurePolicyOnExitCodesRequirement fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodFailurePolicyOnExitCodesRequirement.class);
   }
 
- /**
-  * Convert an instance of V1PodFailurePolicyOnExitCodesRequirement to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodFailurePolicyOnExitCodesRequirement to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

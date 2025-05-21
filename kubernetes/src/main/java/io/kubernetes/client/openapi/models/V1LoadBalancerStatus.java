@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * LoadBalancerStatus represents the status of a load-balancer.
  */
 @ApiModel(description = "LoadBalancerStatus represents the status of a load-balancer.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LoadBalancerStatus {
   public static final String SERIALIZED_NAME_INGRESS = "ingress";
   @SerializedName(SERIALIZED_NAME_INGRESS)
+  @jakarta.annotation.Nullable
   private List<V1LoadBalancerIngress> ingress = new ArrayList<>();
 
   public V1LoadBalancerStatus() {
   }
 
-  public V1LoadBalancerStatus ingress(List<V1LoadBalancerIngress> ingress) {
+  public V1LoadBalancerStatus ingress(@jakarta.annotation.Nullable List<V1LoadBalancerIngress> ingress) {
     this.ingress = ingress;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1LoadBalancerStatus {
     return this;
   }
 
-   /**
+  /**
    * Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.
    * @return ingress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.")
   public List<V1LoadBalancerIngress> getIngress() {
     return ingress;
   }
 
-  public void setIngress(List<V1LoadBalancerIngress> ingress) {
+  public void setIngress(@jakarta.annotation.Nullable List<V1LoadBalancerIngress> ingress) {
     this.ingress = ingress;
   }
 
@@ -142,12 +142,12 @@ public class V1LoadBalancerStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LoadBalancerStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LoadBalancerStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LoadBalancerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1LoadBalancerStatus {
     }
   }
 
- /**
-  * Create an instance of V1LoadBalancerStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LoadBalancerStatus
-  * @throws IOException if the JSON string is invalid with respect to V1LoadBalancerStatus
-  */
+  /**
+   * Create an instance of V1LoadBalancerStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LoadBalancerStatus
+   * @throws IOException if the JSON string is invalid with respect to V1LoadBalancerStatus
+   */
   public static V1LoadBalancerStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LoadBalancerStatus.class);
   }
 
- /**
-  * Convert an instance of V1LoadBalancerStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LoadBalancerStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,68 +53,72 @@ import io.kubernetes.client.openapi.JSON;
  * ReplicationControllerSpec is the specification of a replication controller.
  */
 @ApiModel(description = "ReplicationControllerSpec is the specification of a replication controller.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ReplicationControllerSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer minReadySeconds;
 
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
   @SerializedName(SERIALIZED_NAME_REPLICAS)
+  @jakarta.annotation.Nullable
   private Integer replicas;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nullable
   private Map<String, String> selector = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @jakarta.annotation.Nullable
   private V1PodTemplateSpec template;
 
   public V1ReplicationControllerSpec() {
   }
 
-  public V1ReplicationControllerSpec minReadySeconds(Integer minReadySeconds) {
+  public V1ReplicationControllerSpec minReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
     return this;
   }
 
-   /**
+  /**
    * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    * @return minReadySeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }
 
-  public void setMinReadySeconds(Integer minReadySeconds) {
+  public void setMinReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
   }
 
 
-  public V1ReplicationControllerSpec replicas(Integer replicas) {
+  public V1ReplicationControllerSpec replicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
     return this;
   }
 
-   /**
+  /**
    * Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller
    * @return replicas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller")
   public Integer getReplicas() {
     return replicas;
   }
 
-  public void setReplicas(Integer replicas) {
+  public void setReplicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
   }
 
 
-  public V1ReplicationControllerSpec selector(Map<String, String> selector) {
+  public V1ReplicationControllerSpec selector(@jakarta.annotation.Nullable Map<String, String> selector) {
     this.selector = selector;
     return this;
   }
@@ -128,37 +131,37 @@ public class V1ReplicationControllerSpec {
     return this;
   }
 
-   /**
+  /**
    * Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors")
   public Map<String, String> getSelector() {
     return selector;
   }
 
-  public void setSelector(Map<String, String> selector) {
+  public void setSelector(@jakarta.annotation.Nullable Map<String, String> selector) {
     this.selector = selector;
   }
 
 
-  public V1ReplicationControllerSpec template(V1PodTemplateSpec template) {
+  public V1ReplicationControllerSpec template(@jakarta.annotation.Nullable V1PodTemplateSpec template) {
     this.template = template;
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
 
-  public void setTemplate(V1PodTemplateSpec template) {
+  public void setTemplate(@jakarta.annotation.Nullable V1PodTemplateSpec template) {
     this.template = template;
   }
 
@@ -223,12 +226,12 @@ public class V1ReplicationControllerSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ReplicationControllerSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ReplicationControllerSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ReplicationControllerSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -279,22 +282,22 @@ public class V1ReplicationControllerSpec {
     }
   }
 
- /**
-  * Create an instance of V1ReplicationControllerSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ReplicationControllerSpec
-  * @throws IOException if the JSON string is invalid with respect to V1ReplicationControllerSpec
-  */
+  /**
+   * Create an instance of V1ReplicationControllerSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ReplicationControllerSpec
+   * @throws IOException if the JSON string is invalid with respect to V1ReplicationControllerSpec
+   */
   public static V1ReplicationControllerSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ReplicationControllerSpec.class);
   }
 
- /**
-  * Convert an instance of V1ReplicationControllerSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ReplicationControllerSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

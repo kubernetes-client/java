@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,32 +54,37 @@ import io.kubernetes.client.openapi.JSON;
  * MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
  */
 @ApiModel(description = "MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1MatchResources {
   public static final String SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES = "excludeResourceRules";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES)
+  @jakarta.annotation.Nullable
   private List<V1beta1NamedRuleWithOperations> excludeResourceRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCH_POLICY = "matchPolicy";
   @SerializedName(SERIALIZED_NAME_MATCH_POLICY)
+  @jakarta.annotation.Nullable
   private String matchPolicy;
 
   public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
   @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector namespaceSelector;
 
   public static final String SERIALIZED_NAME_OBJECT_SELECTOR = "objectSelector";
   @SerializedName(SERIALIZED_NAME_OBJECT_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector objectSelector;
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
+  @jakarta.annotation.Nullable
   private List<V1beta1NamedRuleWithOperations> resourceRules = new ArrayList<>();
 
   public V1beta1MatchResources() {
   }
 
-  public V1beta1MatchResources excludeResourceRules(List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
+  public V1beta1MatchResources excludeResourceRules(@jakarta.annotation.Nullable List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
     this.excludeResourceRules = excludeResourceRules;
     return this;
   }
@@ -93,82 +97,82 @@ public class V1beta1MatchResources {
     return this;
   }
 
-   /**
+  /**
    * ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
    * @return excludeResourceRules
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
   public List<V1beta1NamedRuleWithOperations> getExcludeResourceRules() {
     return excludeResourceRules;
   }
 
-  public void setExcludeResourceRules(List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
+  public void setExcludeResourceRules(@jakarta.annotation.Nullable List<V1beta1NamedRuleWithOperations> excludeResourceRules) {
     this.excludeResourceRules = excludeResourceRules;
   }
 
 
-  public V1beta1MatchResources matchPolicy(String matchPolicy) {
+  public V1beta1MatchResources matchPolicy(@jakarta.annotation.Nullable String matchPolicy) {
     this.matchPolicy = matchPolicy;
     return this;
   }
 
-   /**
+  /**
    * matchPolicy defines how the \&quot;MatchResources\&quot; list is used to match incoming requests. Allowed values are \&quot;Exact\&quot; or \&quot;Equivalent\&quot;.  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \&quot;rules\&quot; only included &#x60;apiGroups:[\&quot;apps\&quot;], apiVersions:[\&quot;v1\&quot;], resources: [\&quot;deployments\&quot;]&#x60;, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the ValidatingAdmissionPolicy.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \&quot;rules\&quot; only included &#x60;apiGroups:[\&quot;apps\&quot;], apiVersions:[\&quot;v1\&quot;], resources: [\&quot;deployments\&quot;]&#x60;, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the ValidatingAdmissionPolicy.  Defaults to \&quot;Equivalent\&quot;
    * @return matchPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "matchPolicy defines how the \"MatchResources\" list is used to match incoming requests. Allowed values are \"Exact\" or \"Equivalent\".  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the ValidatingAdmissionPolicy.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the ValidatingAdmissionPolicy.  Defaults to \"Equivalent\"")
   public String getMatchPolicy() {
     return matchPolicy;
   }
 
-  public void setMatchPolicy(String matchPolicy) {
+  public void setMatchPolicy(@jakarta.annotation.Nullable String matchPolicy) {
     this.matchPolicy = matchPolicy;
   }
 
 
-  public V1beta1MatchResources namespaceSelector(V1LabelSelector namespaceSelector) {
+  public V1beta1MatchResources namespaceSelector(@jakarta.annotation.Nullable V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
     return this;
   }
 
-   /**
+  /**
    * Get namespaceSelector
    * @return namespaceSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
 
-  public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
+  public void setNamespaceSelector(@jakarta.annotation.Nullable V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
 
 
-  public V1beta1MatchResources objectSelector(V1LabelSelector objectSelector) {
+  public V1beta1MatchResources objectSelector(@jakarta.annotation.Nullable V1LabelSelector objectSelector) {
     this.objectSelector = objectSelector;
     return this;
   }
 
-   /**
+  /**
    * Get objectSelector
    * @return objectSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getObjectSelector() {
     return objectSelector;
   }
 
-  public void setObjectSelector(V1LabelSelector objectSelector) {
+  public void setObjectSelector(@jakarta.annotation.Nullable V1LabelSelector objectSelector) {
     this.objectSelector = objectSelector;
   }
 
 
-  public V1beta1MatchResources resourceRules(List<V1beta1NamedRuleWithOperations> resourceRules) {
+  public V1beta1MatchResources resourceRules(@jakarta.annotation.Nullable List<V1beta1NamedRuleWithOperations> resourceRules) {
     this.resourceRules = resourceRules;
     return this;
   }
@@ -181,17 +185,17 @@ public class V1beta1MatchResources {
     return this;
   }
 
-   /**
+  /**
    * ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.
    * @return resourceRules
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.")
   public List<V1beta1NamedRuleWithOperations> getResourceRules() {
     return resourceRules;
   }
 
-  public void setResourceRules(List<V1beta1NamedRuleWithOperations> resourceRules) {
+  public void setResourceRules(@jakarta.annotation.Nullable List<V1beta1NamedRuleWithOperations> resourceRules) {
     this.resourceRules = resourceRules;
   }
 
@@ -259,12 +263,12 @@ public class V1beta1MatchResources {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1MatchResources
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1MatchResources
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1MatchResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -350,22 +354,22 @@ public class V1beta1MatchResources {
     }
   }
 
- /**
-  * Create an instance of V1beta1MatchResources given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1MatchResources
-  * @throws IOException if the JSON string is invalid with respect to V1beta1MatchResources
-  */
+  /**
+   * Create an instance of V1beta1MatchResources given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1MatchResources
+   * @throws IOException if the JSON string is invalid with respect to V1beta1MatchResources
+   */
   public static V1beta1MatchResources fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1MatchResources.class);
   }
 
- /**
-  * Convert an instance of V1beta1MatchResources to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1MatchResources to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

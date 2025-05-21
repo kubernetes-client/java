@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ContainerResizePolicy represents resource resize policy for the container.
  */
 @ApiModel(description = "ContainerResizePolicy represents resource resize policy for the container.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ContainerResizePolicy {
   public static final String SERIALIZED_NAME_RESOURCE_NAME = "resourceName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
+  @jakarta.annotation.Nonnull
   private String resourceName;
 
   public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
+  @jakarta.annotation.Nonnull
   private String restartPolicy;
 
   public V1ContainerResizePolicy() {
   }
 
-  public V1ContainerResizePolicy resourceName(String resourceName) {
+  public V1ContainerResizePolicy resourceName(@jakarta.annotation.Nonnull String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
 
-   /**
+  /**
    * Name of the resource to which this resource resize policy applies. Supported values: cpu, memory.
    * @return resourceName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the resource to which this resource resize policy applies. Supported values: cpu, memory.")
   public String getResourceName() {
     return resourceName;
   }
 
-  public void setResourceName(String resourceName) {
+  public void setResourceName(@jakarta.annotation.Nonnull String resourceName) {
     this.resourceName = resourceName;
   }
 
 
-  public V1ContainerResizePolicy restartPolicy(String restartPolicy) {
+  public V1ContainerResizePolicy restartPolicy(@jakarta.annotation.Nonnull String restartPolicy) {
     this.restartPolicy = restartPolicy;
     return this;
   }
 
-   /**
+  /**
    * Restart policy to apply when specified resource is resized. If not specified, it defaults to NotRequired.
    * @return restartPolicy
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Restart policy to apply when specified resource is resized. If not specified, it defaults to NotRequired.")
   public String getRestartPolicy() {
     return restartPolicy;
   }
 
-  public void setRestartPolicy(String restartPolicy) {
+  public void setRestartPolicy(@jakarta.annotation.Nonnull String restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
@@ -160,12 +161,12 @@ public class V1ContainerResizePolicy {
     openapiRequiredFields.add("restartPolicy");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ContainerResizePolicy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ContainerResizePolicy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ContainerResizePolicy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1ContainerResizePolicy {
     }
   }
 
- /**
-  * Create an instance of V1ContainerResizePolicy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ContainerResizePolicy
-  * @throws IOException if the JSON string is invalid with respect to V1ContainerResizePolicy
-  */
+  /**
+   * Create an instance of V1ContainerResizePolicy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ContainerResizePolicy
+   * @throws IOException if the JSON string is invalid with respect to V1ContainerResizePolicy
+   */
   public static V1ContainerResizePolicy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ContainerResizePolicy.class);
   }
 
- /**
-  * Convert an instance of V1ContainerResizePolicy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ContainerResizePolicy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,127 +50,132 @@ import io.kubernetes.client.openapi.JSON;
  * The pod this Toleration is attached to tolerates any taint that matches the triple &lt;key,value,effect&gt; using the matching operator &lt;operator&gt;.
  */
 @ApiModel(description = "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Toleration {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
+  @jakarta.annotation.Nullable
   private String effect;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
+  @jakarta.annotation.Nullable
   private String key;
 
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
+  @jakarta.annotation.Nullable
   private String operator;
 
   public static final String SERIALIZED_NAME_TOLERATION_SECONDS = "tolerationSeconds";
   @SerializedName(SERIALIZED_NAME_TOLERATION_SECONDS)
+  @jakarta.annotation.Nullable
   private Long tolerationSeconds;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
+  @jakarta.annotation.Nullable
   private String value;
 
   public V1Toleration() {
   }
 
-  public V1Toleration effect(String effect) {
+  public V1Toleration effect(@jakarta.annotation.Nullable String effect) {
     this.effect = effect;
     return this;
   }
 
-   /**
+  /**
    * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
    * @return effect
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.")
   public String getEffect() {
     return effect;
   }
 
-  public void setEffect(String effect) {
+  public void setEffect(@jakarta.annotation.Nullable String effect) {
     this.effect = effect;
   }
 
 
-  public V1Toleration key(String key) {
+  public V1Toleration key(@jakarta.annotation.Nullable String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
    * @return key
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.")
   public String getKey() {
     return key;
   }
 
-  public void setKey(String key) {
+  public void setKey(@jakarta.annotation.Nullable String key) {
     this.key = key;
   }
 
 
-  public V1Toleration operator(String operator) {
+  public V1Toleration operator(@jakarta.annotation.Nullable String operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * Operator represents a key&#39;s relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
    * @return operator
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.")
   public String getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(@jakarta.annotation.Nullable String operator) {
     this.operator = operator;
   }
 
 
-  public V1Toleration tolerationSeconds(Long tolerationSeconds) {
+  public V1Toleration tolerationSeconds(@jakarta.annotation.Nullable Long tolerationSeconds) {
     this.tolerationSeconds = tolerationSeconds;
     return this;
   }
 
-   /**
+  /**
    * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
    * @return tolerationSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.")
   public Long getTolerationSeconds() {
     return tolerationSeconds;
   }
 
-  public void setTolerationSeconds(Long tolerationSeconds) {
+  public void setTolerationSeconds(@jakarta.annotation.Nullable Long tolerationSeconds) {
     this.tolerationSeconds = tolerationSeconds;
   }
 
 
-  public V1Toleration value(String value) {
+  public V1Toleration value(@jakarta.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.")
   public String getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
   }
 
@@ -239,12 +243,12 @@ public class V1Toleration {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Toleration
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Toleration
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Toleration.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +307,22 @@ public class V1Toleration {
     }
   }
 
- /**
-  * Create an instance of V1Toleration given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Toleration
-  * @throws IOException if the JSON string is invalid with respect to V1Toleration
-  */
+  /**
+   * Create an instance of V1Toleration given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Toleration
+   * @throws IOException if the JSON string is invalid with respect to V1Toleration
+   */
   public static V1Toleration fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Toleration.class);
   }
 
- /**
-  * Convert an instance of V1Toleration to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Toleration to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

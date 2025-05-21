@@ -35,14 +35,26 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends V1PriorityLevelC
   public A addToConditions(int index,V1PriorityLevelConfigurationCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PriorityLevelConfigurationConditionBuilder>();}
     V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1PriorityLevelConfigurationCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PriorityLevelConfigurationConditionBuilder>();}
     V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

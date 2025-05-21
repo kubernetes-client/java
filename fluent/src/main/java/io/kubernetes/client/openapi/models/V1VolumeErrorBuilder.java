@@ -23,6 +23,7 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluent<V1VolumeErrorBuild
   
   public V1VolumeError build() {
     V1VolumeError buildable = new V1VolumeError();
+    buildable.setErrorCode(fluent.getErrorCode());
     buildable.setMessage(fluent.getMessage());
     buildable.setTime(fluent.getTime());
     return buildable;

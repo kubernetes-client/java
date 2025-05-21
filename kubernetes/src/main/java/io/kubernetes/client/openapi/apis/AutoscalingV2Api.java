@@ -76,7 +76,7 @@ public class AutoscalingV2Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createNamespacedHorizontalPodAutoscalerCall(String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,7 +142,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedHorizontalPodAutoscalerValidateBeforeCall(String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedHorizontalPodAutoscaler(Async)");
@@ -158,13 +158,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> createNamespacedHorizontalPodAutoscalerWithHttpInfo(String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> createNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedHorizontalPodAutoscalerAsync(String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -173,14 +173,20 @@ public class AutoscalingV2Api {
     }
 
     public class APIcreateNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V2HorizontalPodAutoscaler body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedHorizontalPodAutoscalerRequest(String namespace, V2HorizontalPodAutoscaler body) {
+        private APIcreateNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -190,7 +196,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIcreateNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIcreateNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -200,7 +206,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIcreateNamespacedHorizontalPodAutoscalerRequest dryRun(String dryRun) {
+        public APIcreateNamespacedHorizontalPodAutoscalerRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -210,7 +216,7 @@ public class AutoscalingV2Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIcreateNamespacedHorizontalPodAutoscalerRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedHorizontalPodAutoscalerRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -220,7 +226,7 @@ public class AutoscalingV2Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIcreateNamespacedHorizontalPodAutoscalerRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedHorizontalPodAutoscalerRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -231,7 +237,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -248,7 +255,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -266,7 +274,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -284,7 +293,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -304,7 +314,8 @@ public class AutoscalingV2Api {
      * @param body  (required)
      * @return APIcreateNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -312,10 +323,10 @@ public class AutoscalingV2Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedHorizontalPodAutoscalerRequest createNamespacedHorizontalPodAutoscaler(String namespace, V2HorizontalPodAutoscaler body) {
+    public APIcreateNamespacedHorizontalPodAutoscalerRequest createNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
         return new APIcreateNamespacedHorizontalPodAutoscalerRequest(namespace, body);
     }
-    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -421,7 +432,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedHorizontalPodAutoscaler(Async)");
@@ -432,13 +443,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedHorizontalPodAutoscalerWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -447,24 +458,40 @@ public class AutoscalingV2Api {
     }
 
     public class APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest(String namespace) {
+        private APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -473,7 +500,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -483,7 +510,7 @@ public class AutoscalingV2Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -493,7 +520,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -503,7 +530,7 @@ public class AutoscalingV2Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -513,7 +540,7 @@ public class AutoscalingV2Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -523,7 +550,7 @@ public class AutoscalingV2Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -533,7 +560,7 @@ public class AutoscalingV2Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -543,7 +570,7 @@ public class AutoscalingV2Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -553,7 +580,7 @@ public class AutoscalingV2Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -563,7 +590,7 @@ public class AutoscalingV2Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -573,7 +600,7 @@ public class AutoscalingV2Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -583,7 +610,7 @@ public class AutoscalingV2Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -593,7 +620,7 @@ public class AutoscalingV2Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -603,7 +630,7 @@ public class AutoscalingV2Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -613,7 +640,7 @@ public class AutoscalingV2Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -624,7 +651,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -639,7 +667,8 @@ public class AutoscalingV2Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -655,7 +684,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -671,7 +701,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -688,16 +719,17 @@ public class AutoscalingV2Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest deleteCollectionNamespacedHorizontalPodAutoscaler(String namespace) {
+    public APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest deleteCollectionNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedHorizontalPodAutoscalerRequest(namespace);
     }
-    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -772,7 +804,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedHorizontalPodAutoscaler(Async)");
@@ -788,13 +820,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -803,17 +835,26 @@ public class AutoscalingV2Api {
     }
 
     public class APIdeleteNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedHorizontalPodAutoscalerRequest(String name, String namespace) {
+        private APIdeleteNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -823,7 +864,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -833,7 +874,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -843,7 +884,7 @@ public class AutoscalingV2Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -853,7 +894,7 @@ public class AutoscalingV2Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -863,7 +904,7 @@ public class AutoscalingV2Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -873,7 +914,7 @@ public class AutoscalingV2Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -883,7 +924,7 @@ public class AutoscalingV2Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIdeleteNamespacedHorizontalPodAutoscalerRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedHorizontalPodAutoscalerRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -894,7 +935,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -910,7 +952,8 @@ public class AutoscalingV2Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -927,7 +970,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -944,7 +988,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -963,14 +1008,15 @@ public class AutoscalingV2Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedHorizontalPodAutoscalerRequest deleteNamespacedHorizontalPodAutoscaler(String name, String namespace) {
+    public APIdeleteNamespacedHorizontalPodAutoscalerRequest deleteNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedHorizontalPodAutoscalerRequest(name, namespace);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -1052,7 +1098,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1067,7 +1114,8 @@ public class AutoscalingV2Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1083,7 +1131,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1099,7 +1148,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1115,7 +1165,8 @@ public class AutoscalingV2Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1124,7 +1175,7 @@ public class AutoscalingV2Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1219,19 +1270,19 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listHorizontalPodAutoscalerForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscalerList> listHorizontalPodAutoscalerForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscalerList> listHorizontalPodAutoscalerForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listHorizontalPodAutoscalerForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscalerList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V2HorizontalPodAutoscalerList> _callback) throws ApiException {
+    private okhttp3.Call listHorizontalPodAutoscalerForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V2HorizontalPodAutoscalerList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listHorizontalPodAutoscalerForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscalerList>(){}.getType();
@@ -1240,16 +1291,27 @@ public class AutoscalingV2Api {
     }
 
     public class APIlistHorizontalPodAutoscalerForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistHorizontalPodAutoscalerForAllNamespacesRequest() {
@@ -1260,7 +1322,7 @@ public class AutoscalingV2Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -1270,7 +1332,7 @@ public class AutoscalingV2Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest _continue(String _continue) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1280,7 +1342,7 @@ public class AutoscalingV2Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1290,7 +1352,7 @@ public class AutoscalingV2Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1300,7 +1362,7 @@ public class AutoscalingV2Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest limit(Integer limit) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1310,7 +1372,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest pretty(String pretty) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1320,7 +1382,7 @@ public class AutoscalingV2Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1330,7 +1392,7 @@ public class AutoscalingV2Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1340,7 +1402,7 @@ public class AutoscalingV2Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1350,7 +1412,7 @@ public class AutoscalingV2Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1360,7 +1422,7 @@ public class AutoscalingV2Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
          */
-        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistHorizontalPodAutoscalerForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -1371,7 +1433,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1386,7 +1449,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscalerList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1402,7 +1466,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscalerList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1418,7 +1483,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1434,7 +1500,8 @@ public class AutoscalingV2Api {
      * list or watch objects of kind HorizontalPodAutoscaler
      * @return APIlistHorizontalPodAutoscalerForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1443,7 +1510,7 @@ public class AutoscalingV2Api {
     public APIlistHorizontalPodAutoscalerForAllNamespacesRequest listHorizontalPodAutoscalerForAllNamespaces() {
         return new APIlistHorizontalPodAutoscalerForAllNamespacesRequest();
     }
-    private okhttp3.Call listNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1539,7 +1606,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedHorizontalPodAutoscalerValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedHorizontalPodAutoscaler(Async)");
@@ -1550,13 +1617,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscalerList> listNamespacedHorizontalPodAutoscalerWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscalerList> listNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscalerList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedHorizontalPodAutoscalerAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V2HorizontalPodAutoscalerList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V2HorizontalPodAutoscalerList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedHorizontalPodAutoscalerValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscalerList>(){}.getType();
@@ -1565,20 +1632,32 @@ public class AutoscalingV2Api {
     }
 
     public class APIlistNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedHorizontalPodAutoscalerRequest(String namespace) {
+        private APIlistNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -1587,7 +1666,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1597,7 +1676,7 @@ public class AutoscalingV2Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -1607,7 +1686,7 @@ public class AutoscalingV2Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest _continue(String _continue) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1617,7 +1696,7 @@ public class AutoscalingV2Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1627,7 +1706,7 @@ public class AutoscalingV2Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1637,7 +1716,7 @@ public class AutoscalingV2Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest limit(Integer limit) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1647,7 +1726,7 @@ public class AutoscalingV2Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1657,7 +1736,7 @@ public class AutoscalingV2Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1667,7 +1746,7 @@ public class AutoscalingV2Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1677,7 +1756,7 @@ public class AutoscalingV2Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1687,7 +1766,7 @@ public class AutoscalingV2Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIlistNamespacedHorizontalPodAutoscalerRequest watch(Boolean watch) {
+        public APIlistNamespacedHorizontalPodAutoscalerRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -1698,7 +1777,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1713,7 +1793,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscalerList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1729,7 +1810,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscalerList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1745,7 +1827,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1762,16 +1845,17 @@ public class AutoscalingV2Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedHorizontalPodAutoscalerRequest listNamespacedHorizontalPodAutoscaler(String namespace) {
+    public APIlistNamespacedHorizontalPodAutoscalerRequest listNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedHorizontalPodAutoscalerRequest(namespace);
     }
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1842,7 +1926,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedHorizontalPodAutoscaler(Async)");
@@ -1863,13 +1947,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -1878,16 +1962,24 @@ public class AutoscalingV2Api {
     }
 
     public class APIpatchNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedHorizontalPodAutoscalerRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -1898,7 +1990,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIpatchNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1908,7 +2000,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerRequest dryRun(String dryRun) {
+        public APIpatchNamespacedHorizontalPodAutoscalerRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1918,7 +2010,7 @@ public class AutoscalingV2Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedHorizontalPodAutoscalerRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -1928,7 +2020,7 @@ public class AutoscalingV2Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedHorizontalPodAutoscalerRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -1938,7 +2030,7 @@ public class AutoscalingV2Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerRequest force(Boolean force) {
+        public APIpatchNamespacedHorizontalPodAutoscalerRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -1949,7 +2041,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1965,7 +2058,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1982,7 +2076,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1999,7 +2094,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2019,17 +2115,18 @@ public class AutoscalingV2Api {
      * @param body  (required)
      * @return APIpatchNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedHorizontalPodAutoscalerRequest patchNamespacedHorizontalPodAutoscaler(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedHorizontalPodAutoscalerRequest patchNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedHorizontalPodAutoscalerRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2100,7 +2197,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedHorizontalPodAutoscalerStatus(Async)");
@@ -2121,13 +2218,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedHorizontalPodAutoscalerStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -2136,16 +2233,24 @@ public class AutoscalingV2Api {
     }
 
     public class APIpatchNamespacedHorizontalPodAutoscalerStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedHorizontalPodAutoscalerStatusRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedHorizontalPodAutoscalerStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -2156,7 +2261,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {
+        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2166,7 +2271,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2176,7 +2281,7 @@ public class AutoscalingV2Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -2186,7 +2291,7 @@ public class AutoscalingV2Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -2196,7 +2301,7 @@ public class AutoscalingV2Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest force(Boolean force) {
+        public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -2207,7 +2312,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2223,7 +2329,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2240,7 +2347,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2257,7 +2365,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2277,17 +2386,18 @@ public class AutoscalingV2Api {
      * @param body  (required)
      * @return APIpatchNamespacedHorizontalPodAutoscalerStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest patchNamespacedHorizontalPodAutoscalerStatus(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedHorizontalPodAutoscalerStatusRequest patchNamespacedHorizontalPodAutoscalerStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedHorizontalPodAutoscalerStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2341,7 +2451,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedHorizontalPodAutoscaler(Async)");
@@ -2357,13 +2467,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> readNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> readNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, String pretty, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -2372,11 +2482,14 @@ public class AutoscalingV2Api {
     }
 
     public class APIreadNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedHorizontalPodAutoscalerRequest(String name, String namespace) {
+        private APIreadNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -2386,7 +2499,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIreadNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIreadNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2397,7 +2510,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2412,7 +2526,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2428,7 +2543,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2444,7 +2560,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2462,16 +2579,17 @@ public class AutoscalingV2Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedHorizontalPodAutoscalerRequest readNamespacedHorizontalPodAutoscaler(String name, String namespace) {
+    public APIreadNamespacedHorizontalPodAutoscalerRequest readNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedHorizontalPodAutoscalerRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2525,7 +2643,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedHorizontalPodAutoscalerStatus(Async)");
@@ -2541,13 +2659,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> readNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> readNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusAsync(String name, String namespace, String pretty, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedHorizontalPodAutoscalerStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -2556,11 +2674,14 @@ public class AutoscalingV2Api {
     }
 
     public class APIreadNamespacedHorizontalPodAutoscalerStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedHorizontalPodAutoscalerStatusRequest(String name, String namespace) {
+        private APIreadNamespacedHorizontalPodAutoscalerStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -2570,7 +2691,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIreadNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {
+        public APIreadNamespacedHorizontalPodAutoscalerStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2581,7 +2702,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2596,7 +2718,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2612,7 +2735,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2628,7 +2752,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2646,16 +2771,17 @@ public class AutoscalingV2Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedHorizontalPodAutoscalerStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedHorizontalPodAutoscalerStatusRequest readNamespacedHorizontalPodAutoscalerStatus(String name, String namespace) {
+    public APIreadNamespacedHorizontalPodAutoscalerStatusRequest readNamespacedHorizontalPodAutoscalerStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedHorizontalPodAutoscalerStatusRequest(name, namespace);
     }
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2722,7 +2848,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedHorizontalPodAutoscaler(Async)");
@@ -2743,13 +2869,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> replaceNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> replaceNamespacedHorizontalPodAutoscalerWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -2758,15 +2884,22 @@ public class AutoscalingV2Api {
     }
 
     public class APIreplaceNamespacedHorizontalPodAutoscalerRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V2HorizontalPodAutoscaler body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedHorizontalPodAutoscalerRequest(String name, String namespace, V2HorizontalPodAutoscaler body) {
+        private APIreplaceNamespacedHorizontalPodAutoscalerRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -2777,7 +2910,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerRequest pretty(String pretty) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2787,7 +2920,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2797,7 +2930,7 @@ public class AutoscalingV2Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -2807,7 +2940,7 @@ public class AutoscalingV2Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -2818,7 +2951,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2834,7 +2968,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2851,7 +2986,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2868,7 +3004,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2888,17 +3025,18 @@ public class AutoscalingV2Api {
      * @param body  (required)
      * @return APIreplaceNamespacedHorizontalPodAutoscalerRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedHorizontalPodAutoscalerRequest replaceNamespacedHorizontalPodAutoscaler(String name, String namespace, V2HorizontalPodAutoscaler body) {
+    public APIreplaceNamespacedHorizontalPodAutoscalerRequest replaceNamespacedHorizontalPodAutoscaler(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
         return new APIreplaceNamespacedHorizontalPodAutoscalerRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2965,7 +3103,7 @@ public class AutoscalingV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedHorizontalPodAutoscalerStatus(Async)");
@@ -2986,13 +3124,13 @@ public class AutoscalingV2Api {
     }
 
 
-    private ApiResponse<V2HorizontalPodAutoscaler> replaceNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V2HorizontalPodAutoscaler> replaceNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusAsync(String name, String namespace, V2HorizontalPodAutoscaler body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedHorizontalPodAutoscalerStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V2HorizontalPodAutoscaler> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V2HorizontalPodAutoscaler>(){}.getType();
@@ -3001,15 +3139,22 @@ public class AutoscalingV2Api {
     }
 
     public class APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V2HorizontalPodAutoscaler body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest(String name, String namespace, V2HorizontalPodAutoscaler body) {
+        private APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -3020,7 +3165,7 @@ public class AutoscalingV2Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest pretty(String pretty) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3030,7 +3175,7 @@ public class AutoscalingV2Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3040,7 +3185,7 @@ public class AutoscalingV2Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3050,7 +3195,7 @@ public class AutoscalingV2Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
          */
-        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3061,7 +3206,8 @@ public class AutoscalingV2Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3077,7 +3223,8 @@ public class AutoscalingV2Api {
          * @return V2HorizontalPodAutoscaler
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3094,7 +3241,8 @@ public class AutoscalingV2Api {
          * @return ApiResponse&lt;V2HorizontalPodAutoscaler&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3111,7 +3259,8 @@ public class AutoscalingV2Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3131,14 +3280,15 @@ public class AutoscalingV2Api {
      * @param body  (required)
      * @return APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest replaceNamespacedHorizontalPodAutoscalerStatus(String name, String namespace, V2HorizontalPodAutoscaler body) {
+    public APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest replaceNamespacedHorizontalPodAutoscalerStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V2HorizontalPodAutoscaler body) {
         return new APIreplaceNamespacedHorizontalPodAutoscalerStatusRequest(name, namespace, body);
     }
 }

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,247 +51,257 @@ import io.kubernetes.client.openapi.JSON;
  * ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume
  */
 @ApiModel(description = "ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ScaleIOPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_GATEWAY = "gateway";
   @SerializedName(SERIALIZED_NAME_GATEWAY)
+  @jakarta.annotation.Nonnull
   private String gateway;
 
   public static final String SERIALIZED_NAME_PROTECTION_DOMAIN = "protectionDomain";
   @SerializedName(SERIALIZED_NAME_PROTECTION_DOMAIN)
+  @jakarta.annotation.Nullable
   private String protectionDomain;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
+  @jakarta.annotation.Nonnull
   private V1SecretReference secretRef;
 
   public static final String SERIALIZED_NAME_SSL_ENABLED = "sslEnabled";
   @SerializedName(SERIALIZED_NAME_SSL_ENABLED)
+  @jakarta.annotation.Nullable
   private Boolean sslEnabled;
 
   public static final String SERIALIZED_NAME_STORAGE_MODE = "storageMode";
   @SerializedName(SERIALIZED_NAME_STORAGE_MODE)
+  @jakarta.annotation.Nullable
   private String storageMode;
 
   public static final String SERIALIZED_NAME_STORAGE_POOL = "storagePool";
   @SerializedName(SERIALIZED_NAME_STORAGE_POOL)
+  @jakarta.annotation.Nullable
   private String storagePool;
 
   public static final String SERIALIZED_NAME_SYSTEM = "system";
   @SerializedName(SERIALIZED_NAME_SYSTEM)
+  @jakarta.annotation.Nonnull
   private String system;
 
   public static final String SERIALIZED_NAME_VOLUME_NAME = "volumeName";
   @SerializedName(SERIALIZED_NAME_VOLUME_NAME)
+  @jakarta.annotation.Nullable
   private String volumeName;
 
   public V1ScaleIOPersistentVolumeSource() {
   }
 
-  public V1ScaleIOPersistentVolumeSource fsType(String fsType) {
+  public V1ScaleIOPersistentVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Default is \&quot;xfs\&quot;
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\"")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource gateway(String gateway) {
+  public V1ScaleIOPersistentVolumeSource gateway(@jakarta.annotation.Nonnull String gateway) {
     this.gateway = gateway;
     return this;
   }
 
-   /**
+  /**
    * gateway is the host address of the ScaleIO API Gateway.
    * @return gateway
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "gateway is the host address of the ScaleIO API Gateway.")
   public String getGateway() {
     return gateway;
   }
 
-  public void setGateway(String gateway) {
+  public void setGateway(@jakarta.annotation.Nonnull String gateway) {
     this.gateway = gateway;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource protectionDomain(String protectionDomain) {
+  public V1ScaleIOPersistentVolumeSource protectionDomain(@jakarta.annotation.Nullable String protectionDomain) {
     this.protectionDomain = protectionDomain;
     return this;
   }
 
-   /**
+  /**
    * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
    * @return protectionDomain
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.")
   public String getProtectionDomain() {
     return protectionDomain;
   }
 
-  public void setProtectionDomain(String protectionDomain) {
+  public void setProtectionDomain(@jakarta.annotation.Nullable String protectionDomain) {
     this.protectionDomain = protectionDomain;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource readOnly(Boolean readOnly) {
+  public V1ScaleIOPersistentVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource secretRef(V1SecretReference secretRef) {
+  public V1ScaleIOPersistentVolumeSource secretRef(@jakarta.annotation.Nonnull V1SecretReference secretRef) {
     this.secretRef = secretRef;
     return this;
   }
 
-   /**
+  /**
    * Get secretRef
    * @return secretRef
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
 
-  public void setSecretRef(V1SecretReference secretRef) {
+  public void setSecretRef(@jakarta.annotation.Nonnull V1SecretReference secretRef) {
     this.secretRef = secretRef;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource sslEnabled(Boolean sslEnabled) {
+  public V1ScaleIOPersistentVolumeSource sslEnabled(@jakarta.annotation.Nullable Boolean sslEnabled) {
     this.sslEnabled = sslEnabled;
     return this;
   }
 
-   /**
+  /**
    * sslEnabled is the flag to enable/disable SSL communication with Gateway, default false
    * @return sslEnabled
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "sslEnabled is the flag to enable/disable SSL communication with Gateway, default false")
   public Boolean getSslEnabled() {
     return sslEnabled;
   }
 
-  public void setSslEnabled(Boolean sslEnabled) {
+  public void setSslEnabled(@jakarta.annotation.Nullable Boolean sslEnabled) {
     this.sslEnabled = sslEnabled;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource storageMode(String storageMode) {
+  public V1ScaleIOPersistentVolumeSource storageMode(@jakarta.annotation.Nullable String storageMode) {
     this.storageMode = storageMode;
     return this;
   }
 
-   /**
+  /**
    * storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
    * @return storageMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
   public String getStorageMode() {
     return storageMode;
   }
 
-  public void setStorageMode(String storageMode) {
+  public void setStorageMode(@jakarta.annotation.Nullable String storageMode) {
     this.storageMode = storageMode;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource storagePool(String storagePool) {
+  public V1ScaleIOPersistentVolumeSource storagePool(@jakarta.annotation.Nullable String storagePool) {
     this.storagePool = storagePool;
     return this;
   }
 
-   /**
+  /**
    * storagePool is the ScaleIO Storage Pool associated with the protection domain.
    * @return storagePool
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storagePool is the ScaleIO Storage Pool associated with the protection domain.")
   public String getStoragePool() {
     return storagePool;
   }
 
-  public void setStoragePool(String storagePool) {
+  public void setStoragePool(@jakarta.annotation.Nullable String storagePool) {
     this.storagePool = storagePool;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource system(String system) {
+  public V1ScaleIOPersistentVolumeSource system(@jakarta.annotation.Nonnull String system) {
     this.system = system;
     return this;
   }
 
-   /**
+  /**
    * system is the name of the storage system as configured in ScaleIO.
    * @return system
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "system is the name of the storage system as configured in ScaleIO.")
   public String getSystem() {
     return system;
   }
 
-  public void setSystem(String system) {
+  public void setSystem(@jakarta.annotation.Nonnull String system) {
     this.system = system;
   }
 
 
-  public V1ScaleIOPersistentVolumeSource volumeName(String volumeName) {
+  public V1ScaleIOPersistentVolumeSource volumeName(@jakarta.annotation.Nullable String volumeName) {
     this.volumeName = volumeName;
     return this;
   }
 
-   /**
+  /**
    * volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.
    * @return volumeName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.")
   public String getVolumeName() {
     return volumeName;
   }
 
-  public void setVolumeName(String volumeName) {
+  public void setVolumeName(@jakarta.annotation.Nullable String volumeName) {
     this.volumeName = volumeName;
   }
 
@@ -378,12 +387,12 @@ public class V1ScaleIOPersistentVolumeSource {
     openapiRequiredFields.add("system");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ScaleIOPersistentVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ScaleIOPersistentVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ScaleIOPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -460,22 +469,22 @@ public class V1ScaleIOPersistentVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1ScaleIOPersistentVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ScaleIOPersistentVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1ScaleIOPersistentVolumeSource
-  */
+  /**
+   * Create an instance of V1ScaleIOPersistentVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ScaleIOPersistentVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1ScaleIOPersistentVolumeSource
+   */
   public static V1ScaleIOPersistentVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ScaleIOPersistentVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1ScaleIOPersistentVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ScaleIOPersistentVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

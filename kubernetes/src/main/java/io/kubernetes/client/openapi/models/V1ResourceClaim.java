@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  */
 @ApiModel(description = "ResourceClaim references one entry in PodSpec.ResourceClaims.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
+  @jakarta.annotation.Nullable
   private String request;
 
   public V1ResourceClaim() {
   }
 
-  public V1ResourceClaim name(String name) {
+  public V1ResourceClaim name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1ResourceClaim request(String request) {
+  public V1ResourceClaim request(@jakarta.annotation.Nullable String request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.
    * @return request
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.")
   public String getRequest() {
     return request;
   }
 
-  public void setRequest(String request) {
+  public void setRequest(@jakarta.annotation.Nullable String request) {
     this.request = request;
   }
 
@@ -159,12 +160,12 @@ public class V1ResourceClaim {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ResourceClaim
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ResourceClaim
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceClaim.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1ResourceClaim {
     }
   }
 
- /**
-  * Create an instance of V1ResourceClaim given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ResourceClaim
-  * @throws IOException if the JSON string is invalid with respect to V1ResourceClaim
-  */
+  /**
+   * Create an instance of V1ResourceClaim given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ResourceClaim
+   * @throws IOException if the JSON string is invalid with respect to V1ResourceClaim
+   */
   public static V1ResourceClaim fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ResourceClaim.class);
   }
 
- /**
-  * Convert an instance of V1ResourceClaim to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ResourceClaim to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

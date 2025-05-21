@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,223 +52,232 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
 @ApiModel(description = "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceAttributes {
   public static final String SERIALIZED_NAME_FIELD_SELECTOR = "fieldSelector";
   @SerializedName(SERIALIZED_NAME_FIELD_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1FieldSelectorAttributes fieldSelector;
 
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @jakarta.annotation.Nullable
   private String group;
 
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelectorAttributes labelSelector;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
+  @jakarta.annotation.Nullable
   private String resource;
 
   public static final String SERIALIZED_NAME_SUBRESOURCE = "subresource";
   @SerializedName(SERIALIZED_NAME_SUBRESOURCE)
+  @jakarta.annotation.Nullable
   private String subresource;
 
   public static final String SERIALIZED_NAME_VERB = "verb";
   @SerializedName(SERIALIZED_NAME_VERB)
+  @jakarta.annotation.Nullable
   private String verb;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
+  @jakarta.annotation.Nullable
   private String version;
 
   public V1ResourceAttributes() {
   }
 
-  public V1ResourceAttributes fieldSelector(V1FieldSelectorAttributes fieldSelector) {
+  public V1ResourceAttributes fieldSelector(@jakarta.annotation.Nullable V1FieldSelectorAttributes fieldSelector) {
     this.fieldSelector = fieldSelector;
     return this;
   }
 
-   /**
+  /**
    * Get fieldSelector
    * @return fieldSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FieldSelectorAttributes getFieldSelector() {
     return fieldSelector;
   }
 
-  public void setFieldSelector(V1FieldSelectorAttributes fieldSelector) {
+  public void setFieldSelector(@jakarta.annotation.Nullable V1FieldSelectorAttributes fieldSelector) {
     this.fieldSelector = fieldSelector;
   }
 
 
-  public V1ResourceAttributes group(String group) {
+  public V1ResourceAttributes group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Group is the API Group of the Resource.  \&quot;*\&quot; means all.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group is the API Group of the Resource.  \"*\" means all.")
   public String getGroup() {
     return group;
   }
 
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 
 
-  public V1ResourceAttributes labelSelector(V1LabelSelectorAttributes labelSelector) {
+  public V1ResourceAttributes labelSelector(@jakarta.annotation.Nullable V1LabelSelectorAttributes labelSelector) {
     this.labelSelector = labelSelector;
     return this;
   }
 
-   /**
+  /**
    * Get labelSelector
    * @return labelSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelectorAttributes getLabelSelector() {
     return labelSelector;
   }
 
-  public void setLabelSelector(V1LabelSelectorAttributes labelSelector) {
+  public void setLabelSelector(@jakarta.annotation.Nullable V1LabelSelectorAttributes labelSelector) {
     this.labelSelector = labelSelector;
   }
 
 
-  public V1ResourceAttributes name(String name) {
+  public V1ResourceAttributes name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name of the resource being requested for a \&quot;get\&quot; or deleted for a \&quot;delete\&quot;. \&quot;\&quot; (empty) means all.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1ResourceAttributes namespace(String namespace) {
+  public V1ResourceAttributes namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \&quot;\&quot; (empty) is defaulted for LocalSubjectAccessReviews \&quot;\&quot; (empty) is empty for cluster-scoped resources \&quot;\&quot; (empty) means \&quot;all\&quot; for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public V1ResourceAttributes resource(String resource) {
+  public V1ResourceAttributes resource(@jakarta.annotation.Nullable String resource) {
     this.resource = resource;
     return this;
   }
 
-   /**
+  /**
    * Resource is one of the existing resource types.  \&quot;*\&quot; means all.
    * @return resource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Resource is one of the existing resource types.  \"*\" means all.")
   public String getResource() {
     return resource;
   }
 
-  public void setResource(String resource) {
+  public void setResource(@jakarta.annotation.Nullable String resource) {
     this.resource = resource;
   }
 
 
-  public V1ResourceAttributes subresource(String subresource) {
+  public V1ResourceAttributes subresource(@jakarta.annotation.Nullable String subresource) {
     this.subresource = subresource;
     return this;
   }
 
-   /**
+  /**
    * Subresource is one of the existing resource types.  \&quot;\&quot; means none.
    * @return subresource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Subresource is one of the existing resource types.  \"\" means none.")
   public String getSubresource() {
     return subresource;
   }
 
-  public void setSubresource(String subresource) {
+  public void setSubresource(@jakarta.annotation.Nullable String subresource) {
     this.subresource = subresource;
   }
 
 
-  public V1ResourceAttributes verb(String verb) {
+  public V1ResourceAttributes verb(@jakarta.annotation.Nullable String verb) {
     this.verb = verb;
     return this;
   }
 
-   /**
+  /**
    * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
    * @return verb
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
   public String getVerb() {
     return verb;
   }
 
-  public void setVerb(String verb) {
+  public void setVerb(@jakarta.annotation.Nullable String verb) {
     this.verb = verb;
   }
 
 
-  public V1ResourceAttributes version(String version) {
+  public V1ResourceAttributes version(@jakarta.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Version is the API Version of the Resource.  \&quot;*\&quot; means all.
    * @return version
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version is the API Version of the Resource.  \"*\" means all.")
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(@jakarta.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -349,12 +357,12 @@ public class V1ResourceAttributes {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ResourceAttributes
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ResourceAttributes
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceAttributes.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -430,22 +438,22 @@ public class V1ResourceAttributes {
     }
   }
 
- /**
-  * Create an instance of V1ResourceAttributes given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ResourceAttributes
-  * @throws IOException if the JSON string is invalid with respect to V1ResourceAttributes
-  */
+  /**
+   * Create an instance of V1ResourceAttributes given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ResourceAttributes
+   * @throws IOException if the JSON string is invalid with respect to V1ResourceAttributes
+   */
   public static V1ResourceAttributes fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ResourceAttributes.class);
   }
 
- /**
-  * Convert an instance of V1ResourceAttributes to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ResourceAttributes to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

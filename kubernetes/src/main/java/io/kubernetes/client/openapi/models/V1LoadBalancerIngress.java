@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,88 +53,92 @@ import io.kubernetes.client.openapi.JSON;
  * LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.
  */
 @ApiModel(description = "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LoadBalancerIngress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @jakarta.annotation.Nullable
   private String hostname;
 
   public static final String SERIALIZED_NAME_IP = "ip";
   @SerializedName(SERIALIZED_NAME_IP)
+  @jakarta.annotation.Nullable
   private String ip;
 
   public static final String SERIALIZED_NAME_IP_MODE = "ipMode";
   @SerializedName(SERIALIZED_NAME_IP_MODE)
+  @jakarta.annotation.Nullable
   private String ipMode;
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
+  @jakarta.annotation.Nullable
   private List<V1PortStatus> ports = new ArrayList<>();
 
   public V1LoadBalancerIngress() {
   }
 
-  public V1LoadBalancerIngress hostname(String hostname) {
+  public V1LoadBalancerIngress hostname(@jakarta.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)
    * @return hostname
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)")
   public String getHostname() {
     return hostname;
   }
 
-  public void setHostname(String hostname) {
+  public void setHostname(@jakarta.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public V1LoadBalancerIngress ip(String ip) {
+  public V1LoadBalancerIngress ip(@jakarta.annotation.Nullable String ip) {
     this.ip = ip;
     return this;
   }
 
-   /**
+  /**
    * IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)
    * @return ip
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)")
   public String getIp() {
     return ip;
   }
 
-  public void setIp(String ip) {
+  public void setIp(@jakarta.annotation.Nullable String ip) {
     this.ip = ip;
   }
 
 
-  public V1LoadBalancerIngress ipMode(String ipMode) {
+  public V1LoadBalancerIngress ipMode(@jakarta.annotation.Nullable String ipMode) {
     this.ipMode = ipMode;
     return this;
   }
 
-   /**
+  /**
    * IPMode specifies how the load-balancer IP behaves, and may only be specified when the ip field is specified. Setting this to \&quot;VIP\&quot; indicates that traffic is delivered to the node with the destination set to the load-balancer&#39;s IP and port. Setting this to \&quot;Proxy\&quot; indicates that traffic is delivered to the node or pod with the destination set to the node&#39;s IP and node port or the pod&#39;s IP and port. Service implementations may use this information to adjust traffic routing.
    * @return ipMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IPMode specifies how the load-balancer IP behaves, and may only be specified when the ip field is specified. Setting this to \"VIP\" indicates that traffic is delivered to the node with the destination set to the load-balancer's IP and port. Setting this to \"Proxy\" indicates that traffic is delivered to the node or pod with the destination set to the node's IP and node port or the pod's IP and port. Service implementations may use this information to adjust traffic routing.")
   public String getIpMode() {
     return ipMode;
   }
 
-  public void setIpMode(String ipMode) {
+  public void setIpMode(@jakarta.annotation.Nullable String ipMode) {
     this.ipMode = ipMode;
   }
 
 
-  public V1LoadBalancerIngress ports(List<V1PortStatus> ports) {
+  public V1LoadBalancerIngress ports(@jakarta.annotation.Nullable List<V1PortStatus> ports) {
     this.ports = ports;
     return this;
   }
@@ -148,17 +151,17 @@ public class V1LoadBalancerIngress {
     return this;
   }
 
-   /**
+  /**
    * Ports is a list of records of service ports If used, every port defined in the service should have an entry in it
    * @return ports
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it")
   public List<V1PortStatus> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<V1PortStatus> ports) {
+  public void setPorts(@jakarta.annotation.Nullable List<V1PortStatus> ports) {
     this.ports = ports;
   }
 
@@ -223,12 +226,12 @@ public class V1LoadBalancerIngress {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LoadBalancerIngress
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LoadBalancerIngress
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LoadBalancerIngress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -298,22 +301,22 @@ public class V1LoadBalancerIngress {
     }
   }
 
- /**
-  * Create an instance of V1LoadBalancerIngress given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LoadBalancerIngress
-  * @throws IOException if the JSON string is invalid with respect to V1LoadBalancerIngress
-  */
+  /**
+   * Create an instance of V1LoadBalancerIngress given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LoadBalancerIngress
+   * @throws IOException if the JSON string is invalid with respect to V1LoadBalancerIngress
+   */
   public static V1LoadBalancerIngress fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LoadBalancerIngress.class);
   }
 
- /**
-  * Convert an instance of V1LoadBalancerIngress to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LoadBalancerIngress to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

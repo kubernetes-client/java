@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
  */
 @ApiModel(description = "VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeNodeAffinity {
   public static final String SERIALIZED_NAME_REQUIRED = "required";
   @SerializedName(SERIALIZED_NAME_REQUIRED)
+  @jakarta.annotation.Nullable
   private V1NodeSelector required;
 
   public V1VolumeNodeAffinity() {
   }
 
-  public V1VolumeNodeAffinity required(V1NodeSelector required) {
+  public V1VolumeNodeAffinity required(@jakarta.annotation.Nullable V1NodeSelector required) {
     this.required = required;
     return this;
   }
 
-   /**
+  /**
    * Get required
    * @return required
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSelector getRequired() {
     return required;
   }
 
-  public void setRequired(V1NodeSelector required) {
+  public void setRequired(@jakarta.annotation.Nullable V1NodeSelector required) {
     this.required = required;
   }
 
@@ -132,12 +132,12 @@ public class V1VolumeNodeAffinity {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeNodeAffinity
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeNodeAffinity
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeNodeAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1VolumeNodeAffinity {
     }
   }
 
- /**
-  * Create an instance of V1VolumeNodeAffinity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeNodeAffinity
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeNodeAffinity
-  */
+  /**
+   * Create an instance of V1VolumeNodeAffinity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeNodeAffinity
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeNodeAffinity
+   */
   public static V1VolumeNodeAffinity fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeNodeAffinity.class);
   }
 
- /**
-  * Convert an instance of V1VolumeNodeAffinity to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeNodeAffinity to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

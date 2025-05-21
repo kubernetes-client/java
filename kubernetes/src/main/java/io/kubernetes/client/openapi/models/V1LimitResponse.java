@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * LimitResponse defines how to handle requests that can not be executed right now.
  */
 @ApiModel(description = "LimitResponse defines how to handle requests that can not be executed right now.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LimitResponse {
   public static final String SERIALIZED_NAME_QUEUING = "queuing";
   @SerializedName(SERIALIZED_NAME_QUEUING)
+  @jakarta.annotation.Nullable
   private V1QueuingConfiguration queuing;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1LimitResponse() {
   }
 
-  public V1LimitResponse queuing(V1QueuingConfiguration queuing) {
+  public V1LimitResponse queuing(@jakarta.annotation.Nullable V1QueuingConfiguration queuing) {
     this.queuing = queuing;
     return this;
   }
 
-   /**
+  /**
    * Get queuing
    * @return queuing
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1QueuingConfiguration getQueuing() {
     return queuing;
   }
 
-  public void setQueuing(V1QueuingConfiguration queuing) {
+  public void setQueuing(@jakarta.annotation.Nullable V1QueuingConfiguration queuing) {
     this.queuing = queuing;
   }
 
 
-  public V1LimitResponse type(String type) {
+  public V1LimitResponse type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * &#x60;type&#x60; is \&quot;Queue\&quot; or \&quot;Reject\&quot;. \&quot;Queue\&quot; means that requests that can not be executed upon arrival are held in a queue until they can be executed or a queuing limit is reached. \&quot;Reject\&quot; means that requests that can not be executed upon arrival are rejected. Required.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "`type` is \"Queue\" or \"Reject\". \"Queue\" means that requests that can not be executed upon arrival are held in a queue until they can be executed or a queuing limit is reached. \"Reject\" means that requests that can not be executed upon arrival are rejected. Required.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -160,12 +161,12 @@ public class V1LimitResponse {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LimitResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LimitResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LimitResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -226,22 +227,22 @@ public class V1LimitResponse {
     }
   }
 
- /**
-  * Create an instance of V1LimitResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LimitResponse
-  * @throws IOException if the JSON string is invalid with respect to V1LimitResponse
-  */
+  /**
+   * Create an instance of V1LimitResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LimitResponse
+   * @throws IOException if the JSON string is invalid with respect to V1LimitResponse
+   */
   public static V1LimitResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LimitResponse.class);
   }
 
- /**
-  * Convert an instance of V1LimitResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LimitResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

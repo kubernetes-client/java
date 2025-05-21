@@ -67,7 +67,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -80,136 +79,167 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
+  @jakarta.annotation.Nullable
   private List<String> accessModes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE = "awsElasticBlockStore";
   @SerializedName(SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE)
+  @jakarta.annotation.Nullable
   private V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore;
 
   public static final String SERIALIZED_NAME_AZURE_DISK = "azureDisk";
   @SerializedName(SERIALIZED_NAME_AZURE_DISK)
+  @jakarta.annotation.Nullable
   private V1AzureDiskVolumeSource azureDisk;
 
   public static final String SERIALIZED_NAME_AZURE_FILE = "azureFile";
   @SerializedName(SERIALIZED_NAME_AZURE_FILE)
+  @jakarta.annotation.Nullable
   private V1AzureFilePersistentVolumeSource azureFile;
 
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> capacity = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CEPHFS = "cephfs";
   @SerializedName(SERIALIZED_NAME_CEPHFS)
+  @jakarta.annotation.Nullable
   private V1CephFSPersistentVolumeSource cephfs;
 
   public static final String SERIALIZED_NAME_CINDER = "cinder";
   @SerializedName(SERIALIZED_NAME_CINDER)
+  @jakarta.annotation.Nullable
   private V1CinderPersistentVolumeSource cinder;
 
   public static final String SERIALIZED_NAME_CLAIM_REF = "claimRef";
   @SerializedName(SERIALIZED_NAME_CLAIM_REF)
+  @jakarta.annotation.Nullable
   private V1ObjectReference claimRef;
 
   public static final String SERIALIZED_NAME_CSI = "csi";
   @SerializedName(SERIALIZED_NAME_CSI)
+  @jakarta.annotation.Nullable
   private V1CSIPersistentVolumeSource csi;
 
   public static final String SERIALIZED_NAME_FC = "fc";
   @SerializedName(SERIALIZED_NAME_FC)
+  @jakarta.annotation.Nullable
   private V1FCVolumeSource fc;
 
   public static final String SERIALIZED_NAME_FLEX_VOLUME = "flexVolume";
   @SerializedName(SERIALIZED_NAME_FLEX_VOLUME)
+  @jakarta.annotation.Nullable
   private V1FlexPersistentVolumeSource flexVolume;
 
   public static final String SERIALIZED_NAME_FLOCKER = "flocker";
   @SerializedName(SERIALIZED_NAME_FLOCKER)
+  @jakarta.annotation.Nullable
   private V1FlockerVolumeSource flocker;
 
   public static final String SERIALIZED_NAME_GCE_PERSISTENT_DISK = "gcePersistentDisk";
   @SerializedName(SERIALIZED_NAME_GCE_PERSISTENT_DISK)
+  @jakarta.annotation.Nullable
   private V1GCEPersistentDiskVolumeSource gcePersistentDisk;
 
   public static final String SERIALIZED_NAME_GLUSTERFS = "glusterfs";
   @SerializedName(SERIALIZED_NAME_GLUSTERFS)
+  @jakarta.annotation.Nullable
   private V1GlusterfsPersistentVolumeSource glusterfs;
 
   public static final String SERIALIZED_NAME_HOST_PATH = "hostPath";
   @SerializedName(SERIALIZED_NAME_HOST_PATH)
+  @jakarta.annotation.Nullable
   private V1HostPathVolumeSource hostPath;
 
   public static final String SERIALIZED_NAME_ISCSI = "iscsi";
   @SerializedName(SERIALIZED_NAME_ISCSI)
+  @jakarta.annotation.Nullable
   private V1ISCSIPersistentVolumeSource iscsi;
 
   public static final String SERIALIZED_NAME_LOCAL = "local";
   @SerializedName(SERIALIZED_NAME_LOCAL)
+  @jakarta.annotation.Nullable
   private V1LocalVolumeSource local;
 
   public static final String SERIALIZED_NAME_MOUNT_OPTIONS = "mountOptions";
   @SerializedName(SERIALIZED_NAME_MOUNT_OPTIONS)
+  @jakarta.annotation.Nullable
   private List<String> mountOptions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NFS = "nfs";
   @SerializedName(SERIALIZED_NAME_NFS)
+  @jakarta.annotation.Nullable
   private V1NFSVolumeSource nfs;
 
   public static final String SERIALIZED_NAME_NODE_AFFINITY = "nodeAffinity";
   @SerializedName(SERIALIZED_NAME_NODE_AFFINITY)
+  @jakarta.annotation.Nullable
   private V1VolumeNodeAffinity nodeAffinity;
 
   public static final String SERIALIZED_NAME_PERSISTENT_VOLUME_RECLAIM_POLICY = "persistentVolumeReclaimPolicy";
   @SerializedName(SERIALIZED_NAME_PERSISTENT_VOLUME_RECLAIM_POLICY)
+  @jakarta.annotation.Nullable
   private String persistentVolumeReclaimPolicy;
 
   public static final String SERIALIZED_NAME_PHOTON_PERSISTENT_DISK = "photonPersistentDisk";
   @SerializedName(SERIALIZED_NAME_PHOTON_PERSISTENT_DISK)
+  @jakarta.annotation.Nullable
   private V1PhotonPersistentDiskVolumeSource photonPersistentDisk;
 
   public static final String SERIALIZED_NAME_PORTWORX_VOLUME = "portworxVolume";
   @SerializedName(SERIALIZED_NAME_PORTWORX_VOLUME)
+  @jakarta.annotation.Nullable
   private V1PortworxVolumeSource portworxVolume;
 
   public static final String SERIALIZED_NAME_QUOBYTE = "quobyte";
   @SerializedName(SERIALIZED_NAME_QUOBYTE)
+  @jakarta.annotation.Nullable
   private V1QuobyteVolumeSource quobyte;
 
   public static final String SERIALIZED_NAME_RBD = "rbd";
   @SerializedName(SERIALIZED_NAME_RBD)
+  @jakarta.annotation.Nullable
   private V1RBDPersistentVolumeSource rbd;
 
   public static final String SERIALIZED_NAME_SCALE_I_O = "scaleIO";
   @SerializedName(SERIALIZED_NAME_SCALE_I_O)
+  @jakarta.annotation.Nullable
   private V1ScaleIOPersistentVolumeSource scaleIO;
 
   public static final String SERIALIZED_NAME_STORAGE_CLASS_NAME = "storageClassName";
   @SerializedName(SERIALIZED_NAME_STORAGE_CLASS_NAME)
+  @jakarta.annotation.Nullable
   private String storageClassName;
 
   public static final String SERIALIZED_NAME_STORAGEOS = "storageos";
   @SerializedName(SERIALIZED_NAME_STORAGEOS)
+  @jakarta.annotation.Nullable
   private V1StorageOSPersistentVolumeSource storageos;
 
   public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME = "volumeAttributesClassName";
   @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME)
+  @jakarta.annotation.Nullable
   private String volumeAttributesClassName;
 
   public static final String SERIALIZED_NAME_VOLUME_MODE = "volumeMode";
   @SerializedName(SERIALIZED_NAME_VOLUME_MODE)
+  @jakarta.annotation.Nullable
   private String volumeMode;
 
   public static final String SERIALIZED_NAME_VSPHERE_VOLUME = "vsphereVolume";
   @SerializedName(SERIALIZED_NAME_VSPHERE_VOLUME)
+  @jakarta.annotation.Nullable
   private V1VsphereVirtualDiskVolumeSource vsphereVolume;
 
   public V1PersistentVolumeSpec() {
   }
 
-  public V1PersistentVolumeSpec accessModes(List<String> accessModes) {
+  public V1PersistentVolumeSpec accessModes(@jakarta.annotation.Nullable List<String> accessModes) {
     this.accessModes = accessModes;
     return this;
   }
@@ -222,82 +252,82 @@ public class V1PersistentVolumeSpec {
     return this;
   }
 
-   /**
+  /**
    * accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
    * @return accessModes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes")
   public List<String> getAccessModes() {
     return accessModes;
   }
 
-  public void setAccessModes(List<String> accessModes) {
+  public void setAccessModes(@jakarta.annotation.Nullable List<String> accessModes) {
     this.accessModes = accessModes;
   }
 
 
-  public V1PersistentVolumeSpec awsElasticBlockStore(V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
+  public V1PersistentVolumeSpec awsElasticBlockStore(@jakarta.annotation.Nullable V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
     this.awsElasticBlockStore = awsElasticBlockStore;
     return this;
   }
 
-   /**
+  /**
    * Get awsElasticBlockStore
    * @return awsElasticBlockStore
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore() {
     return awsElasticBlockStore;
   }
 
-  public void setAwsElasticBlockStore(V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
+  public void setAwsElasticBlockStore(@jakarta.annotation.Nullable V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
     this.awsElasticBlockStore = awsElasticBlockStore;
   }
 
 
-  public V1PersistentVolumeSpec azureDisk(V1AzureDiskVolumeSource azureDisk) {
+  public V1PersistentVolumeSpec azureDisk(@jakarta.annotation.Nullable V1AzureDiskVolumeSource azureDisk) {
     this.azureDisk = azureDisk;
     return this;
   }
 
-   /**
+  /**
    * Get azureDisk
    * @return azureDisk
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AzureDiskVolumeSource getAzureDisk() {
     return azureDisk;
   }
 
-  public void setAzureDisk(V1AzureDiskVolumeSource azureDisk) {
+  public void setAzureDisk(@jakarta.annotation.Nullable V1AzureDiskVolumeSource azureDisk) {
     this.azureDisk = azureDisk;
   }
 
 
-  public V1PersistentVolumeSpec azureFile(V1AzureFilePersistentVolumeSource azureFile) {
+  public V1PersistentVolumeSpec azureFile(@jakarta.annotation.Nullable V1AzureFilePersistentVolumeSource azureFile) {
     this.azureFile = azureFile;
     return this;
   }
 
-   /**
+  /**
    * Get azureFile
    * @return azureFile
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AzureFilePersistentVolumeSource getAzureFile() {
     return azureFile;
   }
 
-  public void setAzureFile(V1AzureFilePersistentVolumeSource azureFile) {
+  public void setAzureFile(@jakarta.annotation.Nullable V1AzureFilePersistentVolumeSource azureFile) {
     this.azureFile = azureFile;
   }
 
 
-  public V1PersistentVolumeSpec capacity(Map<String, Quantity> capacity) {
+  public V1PersistentVolumeSpec capacity(@jakarta.annotation.Nullable Map<String, Quantity> capacity) {
     this.capacity = capacity;
     return this;
   }
@@ -310,262 +340,262 @@ public class V1PersistentVolumeSpec {
     return this;
   }
 
-   /**
+  /**
    * capacity is the description of the persistent volume&#39;s resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
    * @return capacity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
 
-  public void setCapacity(Map<String, Quantity> capacity) {
+  public void setCapacity(@jakarta.annotation.Nullable Map<String, Quantity> capacity) {
     this.capacity = capacity;
   }
 
 
-  public V1PersistentVolumeSpec cephfs(V1CephFSPersistentVolumeSource cephfs) {
+  public V1PersistentVolumeSpec cephfs(@jakarta.annotation.Nullable V1CephFSPersistentVolumeSource cephfs) {
     this.cephfs = cephfs;
     return this;
   }
 
-   /**
+  /**
    * Get cephfs
    * @return cephfs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CephFSPersistentVolumeSource getCephfs() {
     return cephfs;
   }
 
-  public void setCephfs(V1CephFSPersistentVolumeSource cephfs) {
+  public void setCephfs(@jakarta.annotation.Nullable V1CephFSPersistentVolumeSource cephfs) {
     this.cephfs = cephfs;
   }
 
 
-  public V1PersistentVolumeSpec cinder(V1CinderPersistentVolumeSource cinder) {
+  public V1PersistentVolumeSpec cinder(@jakarta.annotation.Nullable V1CinderPersistentVolumeSource cinder) {
     this.cinder = cinder;
     return this;
   }
 
-   /**
+  /**
    * Get cinder
    * @return cinder
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CinderPersistentVolumeSource getCinder() {
     return cinder;
   }
 
-  public void setCinder(V1CinderPersistentVolumeSource cinder) {
+  public void setCinder(@jakarta.annotation.Nullable V1CinderPersistentVolumeSource cinder) {
     this.cinder = cinder;
   }
 
 
-  public V1PersistentVolumeSpec claimRef(V1ObjectReference claimRef) {
+  public V1PersistentVolumeSpec claimRef(@jakarta.annotation.Nullable V1ObjectReference claimRef) {
     this.claimRef = claimRef;
     return this;
   }
 
-   /**
+  /**
    * Get claimRef
    * @return claimRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getClaimRef() {
     return claimRef;
   }
 
-  public void setClaimRef(V1ObjectReference claimRef) {
+  public void setClaimRef(@jakarta.annotation.Nullable V1ObjectReference claimRef) {
     this.claimRef = claimRef;
   }
 
 
-  public V1PersistentVolumeSpec csi(V1CSIPersistentVolumeSource csi) {
+  public V1PersistentVolumeSpec csi(@jakarta.annotation.Nullable V1CSIPersistentVolumeSource csi) {
     this.csi = csi;
     return this;
   }
 
-   /**
+  /**
    * Get csi
    * @return csi
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CSIPersistentVolumeSource getCsi() {
     return csi;
   }
 
-  public void setCsi(V1CSIPersistentVolumeSource csi) {
+  public void setCsi(@jakarta.annotation.Nullable V1CSIPersistentVolumeSource csi) {
     this.csi = csi;
   }
 
 
-  public V1PersistentVolumeSpec fc(V1FCVolumeSource fc) {
+  public V1PersistentVolumeSpec fc(@jakarta.annotation.Nullable V1FCVolumeSource fc) {
     this.fc = fc;
     return this;
   }
 
-   /**
+  /**
    * Get fc
    * @return fc
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FCVolumeSource getFc() {
     return fc;
   }
 
-  public void setFc(V1FCVolumeSource fc) {
+  public void setFc(@jakarta.annotation.Nullable V1FCVolumeSource fc) {
     this.fc = fc;
   }
 
 
-  public V1PersistentVolumeSpec flexVolume(V1FlexPersistentVolumeSource flexVolume) {
+  public V1PersistentVolumeSpec flexVolume(@jakarta.annotation.Nullable V1FlexPersistentVolumeSource flexVolume) {
     this.flexVolume = flexVolume;
     return this;
   }
 
-   /**
+  /**
    * Get flexVolume
    * @return flexVolume
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FlexPersistentVolumeSource getFlexVolume() {
     return flexVolume;
   }
 
-  public void setFlexVolume(V1FlexPersistentVolumeSource flexVolume) {
+  public void setFlexVolume(@jakarta.annotation.Nullable V1FlexPersistentVolumeSource flexVolume) {
     this.flexVolume = flexVolume;
   }
 
 
-  public V1PersistentVolumeSpec flocker(V1FlockerVolumeSource flocker) {
+  public V1PersistentVolumeSpec flocker(@jakarta.annotation.Nullable V1FlockerVolumeSource flocker) {
     this.flocker = flocker;
     return this;
   }
 
-   /**
+  /**
    * Get flocker
    * @return flocker
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FlockerVolumeSource getFlocker() {
     return flocker;
   }
 
-  public void setFlocker(V1FlockerVolumeSource flocker) {
+  public void setFlocker(@jakarta.annotation.Nullable V1FlockerVolumeSource flocker) {
     this.flocker = flocker;
   }
 
 
-  public V1PersistentVolumeSpec gcePersistentDisk(V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
+  public V1PersistentVolumeSpec gcePersistentDisk(@jakarta.annotation.Nullable V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
     this.gcePersistentDisk = gcePersistentDisk;
     return this;
   }
 
-   /**
+  /**
    * Get gcePersistentDisk
    * @return gcePersistentDisk
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GCEPersistentDiskVolumeSource getGcePersistentDisk() {
     return gcePersistentDisk;
   }
 
-  public void setGcePersistentDisk(V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
+  public void setGcePersistentDisk(@jakarta.annotation.Nullable V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
     this.gcePersistentDisk = gcePersistentDisk;
   }
 
 
-  public V1PersistentVolumeSpec glusterfs(V1GlusterfsPersistentVolumeSource glusterfs) {
+  public V1PersistentVolumeSpec glusterfs(@jakarta.annotation.Nullable V1GlusterfsPersistentVolumeSource glusterfs) {
     this.glusterfs = glusterfs;
     return this;
   }
 
-   /**
+  /**
    * Get glusterfs
    * @return glusterfs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GlusterfsPersistentVolumeSource getGlusterfs() {
     return glusterfs;
   }
 
-  public void setGlusterfs(V1GlusterfsPersistentVolumeSource glusterfs) {
+  public void setGlusterfs(@jakarta.annotation.Nullable V1GlusterfsPersistentVolumeSource glusterfs) {
     this.glusterfs = glusterfs;
   }
 
 
-  public V1PersistentVolumeSpec hostPath(V1HostPathVolumeSource hostPath) {
+  public V1PersistentVolumeSpec hostPath(@jakarta.annotation.Nullable V1HostPathVolumeSource hostPath) {
     this.hostPath = hostPath;
     return this;
   }
 
-   /**
+  /**
    * Get hostPath
    * @return hostPath
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1HostPathVolumeSource getHostPath() {
     return hostPath;
   }
 
-  public void setHostPath(V1HostPathVolumeSource hostPath) {
+  public void setHostPath(@jakarta.annotation.Nullable V1HostPathVolumeSource hostPath) {
     this.hostPath = hostPath;
   }
 
 
-  public V1PersistentVolumeSpec iscsi(V1ISCSIPersistentVolumeSource iscsi) {
+  public V1PersistentVolumeSpec iscsi(@jakarta.annotation.Nullable V1ISCSIPersistentVolumeSource iscsi) {
     this.iscsi = iscsi;
     return this;
   }
 
-   /**
+  /**
    * Get iscsi
    * @return iscsi
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ISCSIPersistentVolumeSource getIscsi() {
     return iscsi;
   }
 
-  public void setIscsi(V1ISCSIPersistentVolumeSource iscsi) {
+  public void setIscsi(@jakarta.annotation.Nullable V1ISCSIPersistentVolumeSource iscsi) {
     this.iscsi = iscsi;
   }
 
 
-  public V1PersistentVolumeSpec local(V1LocalVolumeSource local) {
+  public V1PersistentVolumeSpec local(@jakarta.annotation.Nullable V1LocalVolumeSource local) {
     this.local = local;
     return this;
   }
 
-   /**
+  /**
    * Get local
    * @return local
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LocalVolumeSource getLocal() {
     return local;
   }
 
-  public void setLocal(V1LocalVolumeSource local) {
+  public void setLocal(@jakarta.annotation.Nullable V1LocalVolumeSource local) {
     this.local = local;
   }
 
 
-  public V1PersistentVolumeSpec mountOptions(List<String> mountOptions) {
+  public V1PersistentVolumeSpec mountOptions(@jakarta.annotation.Nullable List<String> mountOptions) {
     this.mountOptions = mountOptions;
     return this;
   }
@@ -578,277 +608,277 @@ public class V1PersistentVolumeSpec {
     return this;
   }
 
-   /**
+  /**
    * mountOptions is the list of mount options, e.g. [\&quot;ro\&quot;, \&quot;soft\&quot;]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
    * @return mountOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "mountOptions is the list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options")
   public List<String> getMountOptions() {
     return mountOptions;
   }
 
-  public void setMountOptions(List<String> mountOptions) {
+  public void setMountOptions(@jakarta.annotation.Nullable List<String> mountOptions) {
     this.mountOptions = mountOptions;
   }
 
 
-  public V1PersistentVolumeSpec nfs(V1NFSVolumeSource nfs) {
+  public V1PersistentVolumeSpec nfs(@jakarta.annotation.Nullable V1NFSVolumeSource nfs) {
     this.nfs = nfs;
     return this;
   }
 
-   /**
+  /**
    * Get nfs
    * @return nfs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NFSVolumeSource getNfs() {
     return nfs;
   }
 
-  public void setNfs(V1NFSVolumeSource nfs) {
+  public void setNfs(@jakarta.annotation.Nullable V1NFSVolumeSource nfs) {
     this.nfs = nfs;
   }
 
 
-  public V1PersistentVolumeSpec nodeAffinity(V1VolumeNodeAffinity nodeAffinity) {
+  public V1PersistentVolumeSpec nodeAffinity(@jakarta.annotation.Nullable V1VolumeNodeAffinity nodeAffinity) {
     this.nodeAffinity = nodeAffinity;
     return this;
   }
 
-   /**
+  /**
    * Get nodeAffinity
    * @return nodeAffinity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeNodeAffinity getNodeAffinity() {
     return nodeAffinity;
   }
 
-  public void setNodeAffinity(V1VolumeNodeAffinity nodeAffinity) {
+  public void setNodeAffinity(@jakarta.annotation.Nullable V1VolumeNodeAffinity nodeAffinity) {
     this.nodeAffinity = nodeAffinity;
   }
 
 
-  public V1PersistentVolumeSpec persistentVolumeReclaimPolicy(String persistentVolumeReclaimPolicy) {
+  public V1PersistentVolumeSpec persistentVolumeReclaimPolicy(@jakarta.annotation.Nullable String persistentVolumeReclaimPolicy) {
     this.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy;
     return this;
   }
 
-   /**
+  /**
    * persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
    * @return persistentVolumeReclaimPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming")
   public String getPersistentVolumeReclaimPolicy() {
     return persistentVolumeReclaimPolicy;
   }
 
-  public void setPersistentVolumeReclaimPolicy(String persistentVolumeReclaimPolicy) {
+  public void setPersistentVolumeReclaimPolicy(@jakarta.annotation.Nullable String persistentVolumeReclaimPolicy) {
     this.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy;
   }
 
 
-  public V1PersistentVolumeSpec photonPersistentDisk(V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
+  public V1PersistentVolumeSpec photonPersistentDisk(@jakarta.annotation.Nullable V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
     this.photonPersistentDisk = photonPersistentDisk;
     return this;
   }
 
-   /**
+  /**
    * Get photonPersistentDisk
    * @return photonPersistentDisk
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk() {
     return photonPersistentDisk;
   }
 
-  public void setPhotonPersistentDisk(V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
+  public void setPhotonPersistentDisk(@jakarta.annotation.Nullable V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
     this.photonPersistentDisk = photonPersistentDisk;
   }
 
 
-  public V1PersistentVolumeSpec portworxVolume(V1PortworxVolumeSource portworxVolume) {
+  public V1PersistentVolumeSpec portworxVolume(@jakarta.annotation.Nullable V1PortworxVolumeSource portworxVolume) {
     this.portworxVolume = portworxVolume;
     return this;
   }
 
-   /**
+  /**
    * Get portworxVolume
    * @return portworxVolume
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PortworxVolumeSource getPortworxVolume() {
     return portworxVolume;
   }
 
-  public void setPortworxVolume(V1PortworxVolumeSource portworxVolume) {
+  public void setPortworxVolume(@jakarta.annotation.Nullable V1PortworxVolumeSource portworxVolume) {
     this.portworxVolume = portworxVolume;
   }
 
 
-  public V1PersistentVolumeSpec quobyte(V1QuobyteVolumeSource quobyte) {
+  public V1PersistentVolumeSpec quobyte(@jakarta.annotation.Nullable V1QuobyteVolumeSource quobyte) {
     this.quobyte = quobyte;
     return this;
   }
 
-   /**
+  /**
    * Get quobyte
    * @return quobyte
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1QuobyteVolumeSource getQuobyte() {
     return quobyte;
   }
 
-  public void setQuobyte(V1QuobyteVolumeSource quobyte) {
+  public void setQuobyte(@jakarta.annotation.Nullable V1QuobyteVolumeSource quobyte) {
     this.quobyte = quobyte;
   }
 
 
-  public V1PersistentVolumeSpec rbd(V1RBDPersistentVolumeSource rbd) {
+  public V1PersistentVolumeSpec rbd(@jakarta.annotation.Nullable V1RBDPersistentVolumeSource rbd) {
     this.rbd = rbd;
     return this;
   }
 
-   /**
+  /**
    * Get rbd
    * @return rbd
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RBDPersistentVolumeSource getRbd() {
     return rbd;
   }
 
-  public void setRbd(V1RBDPersistentVolumeSource rbd) {
+  public void setRbd(@jakarta.annotation.Nullable V1RBDPersistentVolumeSource rbd) {
     this.rbd = rbd;
   }
 
 
-  public V1PersistentVolumeSpec scaleIO(V1ScaleIOPersistentVolumeSource scaleIO) {
+  public V1PersistentVolumeSpec scaleIO(@jakarta.annotation.Nullable V1ScaleIOPersistentVolumeSource scaleIO) {
     this.scaleIO = scaleIO;
     return this;
   }
 
-   /**
+  /**
    * Get scaleIO
    * @return scaleIO
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ScaleIOPersistentVolumeSource getScaleIO() {
     return scaleIO;
   }
 
-  public void setScaleIO(V1ScaleIOPersistentVolumeSource scaleIO) {
+  public void setScaleIO(@jakarta.annotation.Nullable V1ScaleIOPersistentVolumeSource scaleIO) {
     this.scaleIO = scaleIO;
   }
 
 
-  public V1PersistentVolumeSpec storageClassName(String storageClassName) {
+  public V1PersistentVolumeSpec storageClassName(@jakarta.annotation.Nullable String storageClassName) {
     this.storageClassName = storageClassName;
     return this;
   }
 
-   /**
+  /**
    * storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
    * @return storageClassName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.")
   public String getStorageClassName() {
     return storageClassName;
   }
 
-  public void setStorageClassName(String storageClassName) {
+  public void setStorageClassName(@jakarta.annotation.Nullable String storageClassName) {
     this.storageClassName = storageClassName;
   }
 
 
-  public V1PersistentVolumeSpec storageos(V1StorageOSPersistentVolumeSource storageos) {
+  public V1PersistentVolumeSpec storageos(@jakarta.annotation.Nullable V1StorageOSPersistentVolumeSource storageos) {
     this.storageos = storageos;
     return this;
   }
 
-   /**
+  /**
    * Get storageos
    * @return storageos
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1StorageOSPersistentVolumeSource getStorageos() {
     return storageos;
   }
 
-  public void setStorageos(V1StorageOSPersistentVolumeSource storageos) {
+  public void setStorageos(@jakarta.annotation.Nullable V1StorageOSPersistentVolumeSource storageos) {
     this.storageos = storageos;
   }
 
 
-  public V1PersistentVolumeSpec volumeAttributesClassName(String volumeAttributesClassName) {
+  public V1PersistentVolumeSpec volumeAttributesClassName(@jakarta.annotation.Nullable String volumeAttributesClassName) {
     this.volumeAttributesClassName = volumeAttributesClassName;
     return this;
   }
 
-   /**
+  /**
    * Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).
    * @return volumeAttributesClassName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).")
   public String getVolumeAttributesClassName() {
     return volumeAttributesClassName;
   }
 
-  public void setVolumeAttributesClassName(String volumeAttributesClassName) {
+  public void setVolumeAttributesClassName(@jakarta.annotation.Nullable String volumeAttributesClassName) {
     this.volumeAttributesClassName = volumeAttributesClassName;
   }
 
 
-  public V1PersistentVolumeSpec volumeMode(String volumeMode) {
+  public V1PersistentVolumeSpec volumeMode(@jakarta.annotation.Nullable String volumeMode) {
     this.volumeMode = volumeMode;
     return this;
   }
 
-   /**
+  /**
    * volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.
    * @return volumeMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.")
   public String getVolumeMode() {
     return volumeMode;
   }
 
-  public void setVolumeMode(String volumeMode) {
+  public void setVolumeMode(@jakarta.annotation.Nullable String volumeMode) {
     this.volumeMode = volumeMode;
   }
 
 
-  public V1PersistentVolumeSpec vsphereVolume(V1VsphereVirtualDiskVolumeSource vsphereVolume) {
+  public V1PersistentVolumeSpec vsphereVolume(@jakarta.annotation.Nullable V1VsphereVirtualDiskVolumeSource vsphereVolume) {
     this.vsphereVolume = vsphereVolume;
     return this;
   }
 
-   /**
+  /**
    * Get vsphereVolume
    * @return vsphereVolume
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
     return vsphereVolume;
   }
 
-  public void setVsphereVolume(V1VsphereVirtualDiskVolumeSource vsphereVolume) {
+  public void setVsphereVolume(@jakarta.annotation.Nullable V1VsphereVirtualDiskVolumeSource vsphereVolume) {
     this.vsphereVolume = vsphereVolume;
   }
 
@@ -994,12 +1024,12 @@ public class V1PersistentVolumeSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -1162,22 +1192,22 @@ public class V1PersistentVolumeSpec {
     }
   }
 
- /**
-  * Create an instance of V1PersistentVolumeSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PersistentVolumeSpec
-  * @throws IOException if the JSON string is invalid with respect to V1PersistentVolumeSpec
-  */
+  /**
+   * Create an instance of V1PersistentVolumeSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PersistentVolumeSpec
+   * @throws IOException if the JSON string is invalid with respect to V1PersistentVolumeSpec
+   */
   public static V1PersistentVolumeSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PersistentVolumeSpec.class);
   }
 
- /**
-  * Convert an instance of V1PersistentVolumeSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PersistentVolumeSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -321,14 +321,26 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   public A addToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
-    if (index < 0 || index >= volumeClaimTemplates.size()) { _visitables.get("volumeClaimTemplates").add(builder); volumeClaimTemplates.add(builder); } else { _visitables.get("volumeClaimTemplates").add(index, builder); volumeClaimTemplates.add(index, builder);}
+    if (index < 0 || index >= volumeClaimTemplates.size()) {
+        _visitables.get("volumeClaimTemplates").add(builder);
+        volumeClaimTemplates.add(builder);
+    } else {
+        _visitables.get("volumeClaimTemplates").add(builder);
+        volumeClaimTemplates.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
-    if (index < 0 || index >= volumeClaimTemplates.size()) { _visitables.get("volumeClaimTemplates").add(builder); volumeClaimTemplates.add(builder); } else { _visitables.get("volumeClaimTemplates").set(index, builder); volumeClaimTemplates.set(index, builder);}
+    if (index < 0 || index >= volumeClaimTemplates.size()) {
+        _visitables.get("volumeClaimTemplates").add(builder);
+        volumeClaimTemplates.add(builder);
+    } else {
+        _visitables.get("volumeClaimTemplates").add(builder);
+        volumeClaimTemplates.set(index, builder);
+    }
     return (A)this;
   }
   

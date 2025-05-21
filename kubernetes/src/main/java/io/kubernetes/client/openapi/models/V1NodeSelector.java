@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.
  */
 @ApiModel(description = "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeSelector {
   public static final String SERIALIZED_NAME_NODE_SELECTOR_TERMS = "nodeSelectorTerms";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR_TERMS)
+  @jakarta.annotation.Nonnull
   private List<V1NodeSelectorTerm> nodeSelectorTerms = new ArrayList<>();
 
   public V1NodeSelector() {
   }
 
-  public V1NodeSelector nodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
+  public V1NodeSelector nodeSelectorTerms(@jakarta.annotation.Nonnull List<V1NodeSelectorTerm> nodeSelectorTerms) {
     this.nodeSelectorTerms = nodeSelectorTerms;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1NodeSelector {
     return this;
   }
 
-   /**
+  /**
    * Required. A list of node selector terms. The terms are ORed.
    * @return nodeSelectorTerms
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Required. A list of node selector terms. The terms are ORed.")
   public List<V1NodeSelectorTerm> getNodeSelectorTerms() {
     return nodeSelectorTerms;
   }
 
-  public void setNodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
+  public void setNodeSelectorTerms(@jakarta.annotation.Nonnull List<V1NodeSelectorTerm> nodeSelectorTerms) {
     this.nodeSelectorTerms = nodeSelectorTerms;
   }
 
@@ -143,12 +143,12 @@ public class V1NodeSelector {
     openapiRequiredFields.add("nodeSelectorTerms");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeSelector
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeSelector
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -212,22 +212,22 @@ public class V1NodeSelector {
     }
   }
 
- /**
-  * Create an instance of V1NodeSelector given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeSelector
-  * @throws IOException if the JSON string is invalid with respect to V1NodeSelector
-  */
+  /**
+   * Create an instance of V1NodeSelector given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeSelector
+   * @throws IOException if the JSON string is invalid with respect to V1NodeSelector
+   */
   public static V1NodeSelector fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeSelector.class);
   }
 
- /**
-  * Convert an instance of V1NodeSelector to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeSelector to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

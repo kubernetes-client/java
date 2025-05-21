@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * SeccompProfile defines a pod/container&#39;s seccomp profile settings. Only one profile source may be set.
  */
 @ApiModel(description = "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SeccompProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
   @SerializedName(SERIALIZED_NAME_LOCALHOST_PROFILE)
+  @jakarta.annotation.Nullable
   private String localhostProfile;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1SeccompProfile() {
   }
 
-  public V1SeccompProfile localhostProfile(String localhostProfile) {
+  public V1SeccompProfile localhostProfile(@jakarta.annotation.Nullable String localhostProfile) {
     this.localhostProfile = localhostProfile;
     return this;
   }
 
-   /**
+  /**
    * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet&#39;s configured seccomp profile location. Must be set if type is \&quot;Localhost\&quot;. Must NOT be set for any other type.
    * @return localhostProfile
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must be set if type is \"Localhost\". Must NOT be set for any other type.")
   public String getLocalhostProfile() {
     return localhostProfile;
   }
 
-  public void setLocalhostProfile(String localhostProfile) {
+  public void setLocalhostProfile(@jakarta.annotation.Nullable String localhostProfile) {
     this.localhostProfile = localhostProfile;
   }
 
 
-  public V1SeccompProfile type(String type) {
+  public V1SeccompProfile type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type indicates which kind of seccomp profile will be applied. Valid options are:  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type indicates which kind of seccomp profile will be applied. Valid options are:  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -159,12 +160,12 @@ public class V1SeccompProfile {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SeccompProfile
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SeccompProfile
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SeccompProfile.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1SeccompProfile {
     }
   }
 
- /**
-  * Create an instance of V1SeccompProfile given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SeccompProfile
-  * @throws IOException if the JSON string is invalid with respect to V1SeccompProfile
-  */
+  /**
+   * Create an instance of V1SeccompProfile given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SeccompProfile
+   * @throws IOException if the JSON string is invalid with respect to V1SeccompProfile
+   */
   public static V1SeccompProfile fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SeccompProfile.class);
   }
 
- /**
-  * Convert an instance of V1SeccompProfile to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SeccompProfile to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

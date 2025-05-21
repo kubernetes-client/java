@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,20 +54,22 @@ import io.kubernetes.client.openapi.JSON;
  * NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec&#39;s podSelector. The traffic must match both ports and from.
  */
 @ApiModel(description = "NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and from.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NetworkPolicyIngressRule {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
+  @jakarta.annotation.Nullable
   private List<V1NetworkPolicyPeer> from = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
+  @jakarta.annotation.Nullable
   private List<V1NetworkPolicyPort> ports = new ArrayList<>();
 
   public V1NetworkPolicyIngressRule() {
   }
 
-  public V1NetworkPolicyIngressRule from(List<V1NetworkPolicyPeer> from) {
+  public V1NetworkPolicyIngressRule from(@jakarta.annotation.Nullable List<V1NetworkPolicyPeer> from) {
     this.from = from;
     return this;
   }
@@ -81,22 +82,22 @@ public class V1NetworkPolicyIngressRule {
     return this;
   }
 
-   /**
+  /**
    * from is a list of sources which should be able to access the pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all sources (traffic not restricted by source). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the from list.
    * @return from
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "from is a list of sources which should be able to access the pods selected for this rule. Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all sources (traffic not restricted by source). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the from list.")
   public List<V1NetworkPolicyPeer> getFrom() {
     return from;
   }
 
-  public void setFrom(List<V1NetworkPolicyPeer> from) {
+  public void setFrom(@jakarta.annotation.Nullable List<V1NetworkPolicyPeer> from) {
     this.from = from;
   }
 
 
-  public V1NetworkPolicyIngressRule ports(List<V1NetworkPolicyPort> ports) {
+  public V1NetworkPolicyIngressRule ports(@jakarta.annotation.Nullable List<V1NetworkPolicyPort> ports) {
     this.ports = ports;
     return this;
   }
@@ -109,17 +110,17 @@ public class V1NetworkPolicyIngressRule {
     return this;
   }
 
-   /**
+  /**
    * ports is a list of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.
    * @return ports
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ports is a list of ports which should be made accessible on the pods selected for this rule. Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.")
   public List<V1NetworkPolicyPort> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<V1NetworkPolicyPort> ports) {
+  public void setPorts(@jakarta.annotation.Nullable List<V1NetworkPolicyPort> ports) {
     this.ports = ports;
   }
 
@@ -178,12 +179,12 @@ public class V1NetworkPolicyIngressRule {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NetworkPolicyIngressRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NetworkPolicyIngressRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NetworkPolicyIngressRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -258,22 +259,22 @@ public class V1NetworkPolicyIngressRule {
     }
   }
 
- /**
-  * Create an instance of V1NetworkPolicyIngressRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NetworkPolicyIngressRule
-  * @throws IOException if the JSON string is invalid with respect to V1NetworkPolicyIngressRule
-  */
+  /**
+   * Create an instance of V1NetworkPolicyIngressRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NetworkPolicyIngressRule
+   * @throws IOException if the JSON string is invalid with respect to V1NetworkPolicyIngressRule
+   */
   public static V1NetworkPolicyIngressRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NetworkPolicyIngressRule.class);
   }
 
- /**
-  * Convert an instance of V1NetworkPolicyIngressRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NetworkPolicyIngressRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

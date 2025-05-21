@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * PodDNSConfigOption defines DNS resolver options of a pod.
  */
 @ApiModel(description = "PodDNSConfigOption defines DNS resolver options of a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodDNSConfigOption {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
+  @jakarta.annotation.Nullable
   private String value;
 
   public V1PodDNSConfigOption() {
   }
 
-  public V1PodDNSConfigOption name(String name) {
+  public V1PodDNSConfigOption name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is this DNS resolver option&#39;s name. Required.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name is this DNS resolver option's name. Required.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1PodDNSConfigOption value(String value) {
+  public V1PodDNSConfigOption value(@jakarta.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * Value is this DNS resolver option&#39;s value.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Value is this DNS resolver option's value.")
   public String getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
   }
 
@@ -158,12 +159,12 @@ public class V1PodDNSConfigOption {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodDNSConfigOption
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodDNSConfigOption
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodDNSConfigOption.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +217,22 @@ public class V1PodDNSConfigOption {
     }
   }
 
- /**
-  * Create an instance of V1PodDNSConfigOption given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodDNSConfigOption
-  * @throws IOException if the JSON string is invalid with respect to V1PodDNSConfigOption
-  */
+  /**
+   * Create an instance of V1PodDNSConfigOption given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodDNSConfigOption
+   * @throws IOException if the JSON string is invalid with respect to V1PodDNSConfigOption
+   */
   public static V1PodDNSConfigOption fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodDNSConfigOption.class);
   }
 
- /**
-  * Convert an instance of V1PodDNSConfigOption to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodDNSConfigOption to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,127 +51,132 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceDefinitionCondition contains details for the current condition of this pod.
  */
 @ApiModel(description = "CustomResourceDefinitionCondition contains details for the current condition of this pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceDefinitionCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1CustomResourceDefinitionCondition() {
   }
 
-  public V1CustomResourceDefinitionCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
+  public V1CustomResourceDefinitionCondition lastTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
     return this;
   }
 
-   /**
+  /**
    * lastTransitionTime last time the condition transitioned from one status to another.
    * @return lastTransitionTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lastTransitionTime last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
+  public void setLastTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 
 
-  public V1CustomResourceDefinitionCondition message(String message) {
+  public V1CustomResourceDefinitionCondition message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * message is a human-readable message indicating details about last transition.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "message is a human-readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public V1CustomResourceDefinitionCondition reason(String reason) {
+  public V1CustomResourceDefinitionCondition reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * reason is a unique, one-word, CamelCase reason for the condition&#39;s last transition.
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reason is a unique, one-word, CamelCase reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
 
-  public V1CustomResourceDefinitionCondition status(String status) {
+  public V1CustomResourceDefinitionCondition status(@jakarta.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * status is the status of the condition. Can be True, False, Unknown.
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "status is the status of the condition. Can be True, False, Unknown.")
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public V1CustomResourceDefinitionCondition type(String type) {
+  public V1CustomResourceDefinitionCondition type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type is the type of the condition. Types include Established, NamesAccepted and Terminating.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -242,12 +246,12 @@ public class V1CustomResourceDefinitionCondition {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionCondition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionCondition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceDefinitionCondition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -313,22 +317,22 @@ public class V1CustomResourceDefinitionCondition {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceDefinitionCondition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceDefinitionCondition
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionCondition
-  */
+  /**
+   * Create an instance of V1CustomResourceDefinitionCondition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceDefinitionCondition
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionCondition
+   */
   public static V1CustomResourceDefinitionCondition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceDefinitionCondition.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceDefinitionCondition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceDefinitionCondition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

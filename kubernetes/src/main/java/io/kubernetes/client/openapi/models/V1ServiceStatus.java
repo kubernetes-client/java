@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,20 +54,22 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceStatus represents the current status of a service.
  */
 @ApiModel(description = "ServiceStatus represents the current status of a service.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServiceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1Condition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)
+  @jakarta.annotation.Nullable
   private V1LoadBalancerStatus loadBalancer;
 
   public V1ServiceStatus() {
   }
 
-  public V1ServiceStatus conditions(List<V1Condition> conditions) {
+  public V1ServiceStatus conditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -81,37 +82,37 @@ public class V1ServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Current service state
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Current service state")
   public List<V1Condition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1Condition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1ServiceStatus loadBalancer(V1LoadBalancerStatus loadBalancer) {
+  public V1ServiceStatus loadBalancer(@jakarta.annotation.Nullable V1LoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
     return this;
   }
 
-   /**
+  /**
    * Get loadBalancer
    * @return loadBalancer
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LoadBalancerStatus getLoadBalancer() {
     return loadBalancer;
   }
 
-  public void setLoadBalancer(V1LoadBalancerStatus loadBalancer) {
+  public void setLoadBalancer(@jakarta.annotation.Nullable V1LoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
   }
 
@@ -170,12 +171,12 @@ public class V1ServiceStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ServiceStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ServiceStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServiceStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -240,22 +241,22 @@ public class V1ServiceStatus {
     }
   }
 
- /**
-  * Create an instance of V1ServiceStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ServiceStatus
-  * @throws IOException if the JSON string is invalid with respect to V1ServiceStatus
-  */
+  /**
+   * Create an instance of V1ServiceStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ServiceStatus
+   * @throws IOException if the JSON string is invalid with respect to V1ServiceStatus
+   */
   public static V1ServiceStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ServiceStatus.class);
   }
 
- /**
-  * Convert an instance of V1ServiceStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ServiceStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,24 +54,27 @@ import io.kubernetes.client.openapi.JSON;
  * CronJobStatus represents the current state of a cron job.
  */
 @ApiModel(description = "CronJobStatus represents the current state of a cron job.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CronJobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
+  @jakarta.annotation.Nullable
   private List<V1ObjectReference> active = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LAST_SCHEDULE_TIME = "lastScheduleTime";
   @SerializedName(SERIALIZED_NAME_LAST_SCHEDULE_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastScheduleTime;
 
   public static final String SERIALIZED_NAME_LAST_SUCCESSFUL_TIME = "lastSuccessfulTime";
   @SerializedName(SERIALIZED_NAME_LAST_SUCCESSFUL_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastSuccessfulTime;
 
   public V1CronJobStatus() {
   }
 
-  public V1CronJobStatus active(List<V1ObjectReference> active) {
+  public V1CronJobStatus active(@jakarta.annotation.Nullable List<V1ObjectReference> active) {
     this.active = active;
     return this;
   }
@@ -85,57 +87,57 @@ public class V1CronJobStatus {
     return this;
   }
 
-   /**
+  /**
    * A list of pointers to currently running jobs.
    * @return active
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of pointers to currently running jobs.")
   public List<V1ObjectReference> getActive() {
     return active;
   }
 
-  public void setActive(List<V1ObjectReference> active) {
+  public void setActive(@jakarta.annotation.Nullable List<V1ObjectReference> active) {
     this.active = active;
   }
 
 
-  public V1CronJobStatus lastScheduleTime(OffsetDateTime lastScheduleTime) {
+  public V1CronJobStatus lastScheduleTime(@jakarta.annotation.Nullable OffsetDateTime lastScheduleTime) {
     this.lastScheduleTime = lastScheduleTime;
     return this;
   }
 
-   /**
+  /**
    * Information when was the last time the job was successfully scheduled.
    * @return lastScheduleTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information when was the last time the job was successfully scheduled.")
   public OffsetDateTime getLastScheduleTime() {
     return lastScheduleTime;
   }
 
-  public void setLastScheduleTime(OffsetDateTime lastScheduleTime) {
+  public void setLastScheduleTime(@jakarta.annotation.Nullable OffsetDateTime lastScheduleTime) {
     this.lastScheduleTime = lastScheduleTime;
   }
 
 
-  public V1CronJobStatus lastSuccessfulTime(OffsetDateTime lastSuccessfulTime) {
+  public V1CronJobStatus lastSuccessfulTime(@jakarta.annotation.Nullable OffsetDateTime lastSuccessfulTime) {
     this.lastSuccessfulTime = lastSuccessfulTime;
     return this;
   }
 
-   /**
+  /**
    * Information when was the last time the job successfully completed.
    * @return lastSuccessfulTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information when was the last time the job successfully completed.")
   public OffsetDateTime getLastSuccessfulTime() {
     return lastSuccessfulTime;
   }
 
-  public void setLastSuccessfulTime(OffsetDateTime lastSuccessfulTime) {
+  public void setLastSuccessfulTime(@jakarta.annotation.Nullable OffsetDateTime lastSuccessfulTime) {
     this.lastSuccessfulTime = lastSuccessfulTime;
   }
 
@@ -197,12 +199,12 @@ public class V1CronJobStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CronJobStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CronJobStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CronJobStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -263,22 +265,22 @@ public class V1CronJobStatus {
     }
   }
 
- /**
-  * Create an instance of V1CronJobStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CronJobStatus
-  * @throws IOException if the JSON string is invalid with respect to V1CronJobStatus
-  */
+  /**
+   * Create an instance of V1CronJobStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CronJobStatus
+   * @throws IOException if the JSON string is invalid with respect to V1CronJobStatus
+   */
   public static V1CronJobStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CronJobStatus.class);
   }
 
- /**
-  * Convert an instance of V1CronJobStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CronJobStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

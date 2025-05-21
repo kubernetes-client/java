@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.  The contents of the target ConfigMap&#39;s Data field will represent the key-value pairs as environment variables.
  */
 @ApiModel(description = "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.  The contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ConfigMapEnvSource {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
+  @jakarta.annotation.Nullable
   private Boolean optional;
 
   public V1ConfigMapEnvSource() {
   }
 
-  public V1ConfigMapEnvSource name(String name) {
+  public V1ConfigMapEnvSource name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1ConfigMapEnvSource optional(Boolean optional) {
+  public V1ConfigMapEnvSource optional(@jakarta.annotation.Nullable Boolean optional) {
     this.optional = optional;
     return this;
   }
 
-   /**
+  /**
    * Specify whether the ConfigMap must be defined
    * @return optional
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the ConfigMap must be defined")
   public Boolean getOptional() {
     return optional;
   }
 
-  public void setOptional(Boolean optional) {
+  public void setOptional(@jakarta.annotation.Nullable Boolean optional) {
     this.optional = optional;
   }
 
@@ -158,12 +159,12 @@ public class V1ConfigMapEnvSource {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ConfigMapEnvSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ConfigMapEnvSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ConfigMapEnvSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -213,22 +214,22 @@ public class V1ConfigMapEnvSource {
     }
   }
 
- /**
-  * Create an instance of V1ConfigMapEnvSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ConfigMapEnvSource
-  * @throws IOException if the JSON string is invalid with respect to V1ConfigMapEnvSource
-  */
+  /**
+   * Create an instance of V1ConfigMapEnvSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ConfigMapEnvSource
+   * @throws IOException if the JSON string is invalid with respect to V1ConfigMapEnvSource
+   */
   public static V1ConfigMapEnvSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ConfigMapEnvSource.class);
   }
 
- /**
-  * Convert an instance of V1ConfigMapEnvSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ConfigMapEnvSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

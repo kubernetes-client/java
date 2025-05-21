@@ -35,14 +35,26 @@ public class V1ScopeSelectorFluent<A extends V1ScopeSelectorFluent<A>> extends B
   public A addToMatchExpressions(int index,V1ScopedResourceSelectorRequirement item) {
     if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1ScopedResourceSelectorRequirementBuilder>();}
     V1ScopedResourceSelectorRequirementBuilder builder = new V1ScopedResourceSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchExpressions.size()) { _visitables.get("matchExpressions").add(builder); matchExpressions.add(builder); } else { _visitables.get("matchExpressions").add(index, builder); matchExpressions.add(index, builder);}
+    if (index < 0 || index >= matchExpressions.size()) {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.add(builder);
+    } else {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMatchExpressions(int index,V1ScopedResourceSelectorRequirement item) {
     if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1ScopedResourceSelectorRequirementBuilder>();}
     V1ScopedResourceSelectorRequirementBuilder builder = new V1ScopedResourceSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchExpressions.size()) { _visitables.get("matchExpressions").add(builder); matchExpressions.add(builder); } else { _visitables.get("matchExpressions").set(index, builder); matchExpressions.set(index, builder);}
+    if (index < 0 || index >= matchExpressions.size()) {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.add(builder);
+    } else {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.set(index, builder);
+    }
     return (A)this;
   }
   

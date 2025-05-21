@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it&#39;s a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
  */
 @ApiModel(description = "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PreferredSchedulingTerm {
   public static final String SERIALIZED_NAME_PREFERENCE = "preference";
   @SerializedName(SERIALIZED_NAME_PREFERENCE)
+  @jakarta.annotation.Nonnull
   private V1NodeSelectorTerm preference;
 
   public static final String SERIALIZED_NAME_WEIGHT = "weight";
   @SerializedName(SERIALIZED_NAME_WEIGHT)
+  @jakarta.annotation.Nonnull
   private Integer weight;
 
   public V1PreferredSchedulingTerm() {
   }
 
-  public V1PreferredSchedulingTerm preference(V1NodeSelectorTerm preference) {
+  public V1PreferredSchedulingTerm preference(@jakarta.annotation.Nonnull V1NodeSelectorTerm preference) {
     this.preference = preference;
     return this;
   }
 
-   /**
+  /**
    * Get preference
    * @return preference
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1NodeSelectorTerm getPreference() {
     return preference;
   }
 
-  public void setPreference(V1NodeSelectorTerm preference) {
+  public void setPreference(@jakarta.annotation.Nonnull V1NodeSelectorTerm preference) {
     this.preference = preference;
   }
 
 
-  public V1PreferredSchedulingTerm weight(Integer weight) {
+  public V1PreferredSchedulingTerm weight(@jakarta.annotation.Nonnull Integer weight) {
     this.weight = weight;
     return this;
   }
 
-   /**
+  /**
    * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
    * @return weight
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.")
   public Integer getWeight() {
     return weight;
   }
 
-  public void setWeight(Integer weight) {
+  public void setWeight(@jakarta.annotation.Nonnull Integer weight) {
     this.weight = weight;
   }
 
@@ -161,12 +162,12 @@ public class V1PreferredSchedulingTerm {
     openapiRequiredFields.add("weight");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PreferredSchedulingTerm
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PreferredSchedulingTerm
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PreferredSchedulingTerm.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -222,22 +223,22 @@ public class V1PreferredSchedulingTerm {
     }
   }
 
- /**
-  * Create an instance of V1PreferredSchedulingTerm given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PreferredSchedulingTerm
-  * @throws IOException if the JSON string is invalid with respect to V1PreferredSchedulingTerm
-  */
+  /**
+   * Create an instance of V1PreferredSchedulingTerm given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PreferredSchedulingTerm
+   * @throws IOException if the JSON string is invalid with respect to V1PreferredSchedulingTerm
+   */
   public static V1PreferredSchedulingTerm fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PreferredSchedulingTerm.class);
   }
 
- /**
-  * Convert an instance of V1PreferredSchedulingTerm to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PreferredSchedulingTerm to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

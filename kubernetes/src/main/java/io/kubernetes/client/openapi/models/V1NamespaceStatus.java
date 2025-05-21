@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,20 +53,22 @@ import io.kubernetes.client.openapi.JSON;
  * NamespaceStatus is information about the current status of a Namespace.
  */
 @ApiModel(description = "NamespaceStatus is information about the current status of a Namespace.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NamespaceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1NamespaceCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
+  @jakarta.annotation.Nullable
   private String phase;
 
   public V1NamespaceStatus() {
   }
 
-  public V1NamespaceStatus conditions(List<V1NamespaceCondition> conditions) {
+  public V1NamespaceStatus conditions(@jakarta.annotation.Nullable List<V1NamespaceCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -80,37 +81,37 @@ public class V1NamespaceStatus {
     return this;
   }
 
-   /**
+  /**
    * Represents the latest available observations of a namespace&#39;s current state.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents the latest available observations of a namespace's current state.")
   public List<V1NamespaceCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1NamespaceCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1NamespaceCondition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1NamespaceStatus phase(String phase) {
+  public V1NamespaceStatus phase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
     return this;
   }
 
-   /**
+  /**
    * Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
    * @return phase
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/")
   public String getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
   }
 
@@ -169,12 +170,12 @@ public class V1NamespaceStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NamespaceStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NamespaceStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NamespaceStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -238,22 +239,22 @@ public class V1NamespaceStatus {
     }
   }
 
- /**
-  * Create an instance of V1NamespaceStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NamespaceStatus
-  * @throws IOException if the JSON string is invalid with respect to V1NamespaceStatus
-  */
+  /**
+   * Create an instance of V1NamespaceStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NamespaceStatus
+   * @throws IOException if the JSON string is invalid with respect to V1NamespaceStatus
+   */
   public static V1NamespaceStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NamespaceStatus.class);
   }
 
- /**
-  * Convert an instance of V1NamespaceStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NamespaceStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

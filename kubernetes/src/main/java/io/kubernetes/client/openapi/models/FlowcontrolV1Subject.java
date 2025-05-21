@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,103 +53,107 @@ import io.kubernetes.client.openapi.JSON;
  * Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.
  */
 @ApiModel(description = "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class FlowcontrolV1Subject {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @jakarta.annotation.Nullable
   private V1GroupSubject group;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nonnull
   private String kind;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT = "serviceAccount";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT)
+  @jakarta.annotation.Nullable
   private V1ServiceAccountSubject serviceAccount;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
   private V1UserSubject user;
 
   public FlowcontrolV1Subject() {
   }
 
-  public FlowcontrolV1Subject group(V1GroupSubject group) {
+  public FlowcontrolV1Subject group(@jakarta.annotation.Nullable V1GroupSubject group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Get group
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GroupSubject getGroup() {
     return group;
   }
 
-  public void setGroup(V1GroupSubject group) {
+  public void setGroup(@jakarta.annotation.Nullable V1GroupSubject group) {
     this.group = group;
   }
 
 
-  public FlowcontrolV1Subject kind(String kind) {
+  public FlowcontrolV1Subject kind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * &#x60;kind&#x60; indicates which one of the other fields is non-empty. Required
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "`kind` indicates which one of the other fields is non-empty. Required")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
   }
 
 
-  public FlowcontrolV1Subject serviceAccount(V1ServiceAccountSubject serviceAccount) {
+  public FlowcontrolV1Subject serviceAccount(@jakarta.annotation.Nullable V1ServiceAccountSubject serviceAccount) {
     this.serviceAccount = serviceAccount;
     return this;
   }
 
-   /**
+  /**
    * Get serviceAccount
    * @return serviceAccount
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceAccountSubject getServiceAccount() {
     return serviceAccount;
   }
 
-  public void setServiceAccount(V1ServiceAccountSubject serviceAccount) {
+  public void setServiceAccount(@jakarta.annotation.Nullable V1ServiceAccountSubject serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
 
 
-  public FlowcontrolV1Subject user(V1UserSubject user) {
+  public FlowcontrolV1Subject user(@jakarta.annotation.Nullable V1UserSubject user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1UserSubject getUser() {
     return user;
   }
 
-  public void setUser(V1UserSubject user) {
+  public void setUser(@jakarta.annotation.Nullable V1UserSubject user) {
     this.user = user;
   }
 
@@ -216,12 +219,12 @@ public class FlowcontrolV1Subject {
     openapiRequiredFields.add("kind");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to FlowcontrolV1Subject
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to FlowcontrolV1Subject
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FlowcontrolV1Subject.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -290,22 +293,22 @@ public class FlowcontrolV1Subject {
     }
   }
 
- /**
-  * Create an instance of FlowcontrolV1Subject given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of FlowcontrolV1Subject
-  * @throws IOException if the JSON string is invalid with respect to FlowcontrolV1Subject
-  */
+  /**
+   * Create an instance of FlowcontrolV1Subject given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of FlowcontrolV1Subject
+   * @throws IOException if the JSON string is invalid with respect to FlowcontrolV1Subject
+   */
   public static FlowcontrolV1Subject fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, FlowcontrolV1Subject.class);
   }
 
- /**
-  * Convert an instance of FlowcontrolV1Subject to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of FlowcontrolV1Subject to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

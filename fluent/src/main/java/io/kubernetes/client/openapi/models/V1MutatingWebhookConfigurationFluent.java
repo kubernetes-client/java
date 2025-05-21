@@ -107,14 +107,26 @@ public class V1MutatingWebhookConfigurationFluent<A extends V1MutatingWebhookCon
   public A addToWebhooks(int index,V1MutatingWebhook item) {
     if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
     V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-    if (index < 0 || index >= webhooks.size()) { _visitables.get("webhooks").add(builder); webhooks.add(builder); } else { _visitables.get("webhooks").add(index, builder); webhooks.add(index, builder);}
+    if (index < 0 || index >= webhooks.size()) {
+        _visitables.get("webhooks").add(builder);
+        webhooks.add(builder);
+    } else {
+        _visitables.get("webhooks").add(builder);
+        webhooks.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToWebhooks(int index,V1MutatingWebhook item) {
     if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
     V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-    if (index < 0 || index >= webhooks.size()) { _visitables.get("webhooks").add(builder); webhooks.add(builder); } else { _visitables.get("webhooks").set(index, builder); webhooks.set(index, builder);}
+    if (index < 0 || index >= webhooks.size()) {
+        _visitables.get("webhooks").add(builder);
+        webhooks.add(builder);
+    } else {
+        _visitables.get("webhooks").add(builder);
+        webhooks.set(index, builder);
+    }
     return (A)this;
   }
   

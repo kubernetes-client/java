@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.  DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod&#39;s container.
  */
 @ApiModel(description = "Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.  DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1GitRepoVolumeSource {
   public static final String SERIALIZED_NAME_DIRECTORY = "directory";
   @SerializedName(SERIALIZED_NAME_DIRECTORY)
+  @jakarta.annotation.Nullable
   private String directory;
 
   public static final String SERIALIZED_NAME_REPOSITORY = "repository";
   @SerializedName(SERIALIZED_NAME_REPOSITORY)
+  @jakarta.annotation.Nonnull
   private String repository;
 
   public static final String SERIALIZED_NAME_REVISION = "revision";
   @SerializedName(SERIALIZED_NAME_REVISION)
+  @jakarta.annotation.Nullable
   private String revision;
 
   public V1GitRepoVolumeSource() {
   }
 
-  public V1GitRepoVolumeSource directory(String directory) {
+  public V1GitRepoVolumeSource directory(@jakarta.annotation.Nullable String directory) {
     this.directory = directory;
     return this;
   }
 
-   /**
+  /**
    * directory is the target directory name. Must not contain or start with &#39;..&#39;.  If &#39;.&#39; is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
    * @return directory
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.")
   public String getDirectory() {
     return directory;
   }
 
-  public void setDirectory(String directory) {
+  public void setDirectory(@jakarta.annotation.Nullable String directory) {
     this.directory = directory;
   }
 
 
-  public V1GitRepoVolumeSource repository(String repository) {
+  public V1GitRepoVolumeSource repository(@jakarta.annotation.Nonnull String repository) {
     this.repository = repository;
     return this;
   }
 
-   /**
+  /**
    * repository is the URL
    * @return repository
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "repository is the URL")
   public String getRepository() {
     return repository;
   }
 
-  public void setRepository(String repository) {
+  public void setRepository(@jakarta.annotation.Nonnull String repository) {
     this.repository = repository;
   }
 
 
-  public V1GitRepoVolumeSource revision(String revision) {
+  public V1GitRepoVolumeSource revision(@jakarta.annotation.Nullable String revision) {
     this.revision = revision;
     return this;
   }
 
-   /**
+  /**
    * revision is the commit hash for the specified revision.
    * @return revision
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "revision is the commit hash for the specified revision.")
   public String getRevision() {
     return revision;
   }
 
-  public void setRevision(String revision) {
+  public void setRevision(@jakarta.annotation.Nullable String revision) {
     this.revision = revision;
   }
 
@@ -186,12 +188,12 @@ public class V1GitRepoVolumeSource {
     openapiRequiredFields.add("repository");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1GitRepoVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1GitRepoVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1GitRepoVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -254,22 +256,22 @@ public class V1GitRepoVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1GitRepoVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1GitRepoVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1GitRepoVolumeSource
-  */
+  /**
+   * Create an instance of V1GitRepoVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1GitRepoVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1GitRepoVolumeSource
+   */
   public static V1GitRepoVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1GitRepoVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1GitRepoVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1GitRepoVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

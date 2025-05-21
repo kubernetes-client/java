@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,151 +50,157 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceColumnDefinition specifies a column for server side printing.
  */
 @ApiModel(description = "CustomResourceColumnDefinition specifies a column for server side printing.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceColumnDefinition {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @jakarta.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
+  @jakarta.annotation.Nullable
   private String format;
 
   public static final String SERIALIZED_NAME_JSON_PATH = "jsonPath";
   @SerializedName(SERIALIZED_NAME_JSON_PATH)
+  @jakarta.annotation.Nonnull
   private String jsonPath;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
+  @jakarta.annotation.Nullable
   private Integer priority;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1CustomResourceColumnDefinition() {
   }
 
-  public V1CustomResourceColumnDefinition description(String description) {
+  public V1CustomResourceColumnDefinition description(@jakarta.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * description is a human readable description of this column.
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "description is a human readable description of this column.")
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public V1CustomResourceColumnDefinition format(String format) {
+  public V1CustomResourceColumnDefinition format(@jakarta.annotation.Nullable String format) {
     this.format = format;
     return this;
   }
 
-   /**
+  /**
    * format is an optional OpenAPI type definition for this column. The &#39;name&#39; format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
    * @return format
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.")
   public String getFormat() {
     return format;
   }
 
-  public void setFormat(String format) {
+  public void setFormat(@jakarta.annotation.Nullable String format) {
     this.format = format;
   }
 
 
-  public V1CustomResourceColumnDefinition jsonPath(String jsonPath) {
+  public V1CustomResourceColumnDefinition jsonPath(@jakarta.annotation.Nonnull String jsonPath) {
     this.jsonPath = jsonPath;
     return this;
   }
 
-   /**
+  /**
    * jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
    * @return jsonPath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.")
   public String getJsonPath() {
     return jsonPath;
   }
 
-  public void setJsonPath(String jsonPath) {
+  public void setJsonPath(@jakarta.annotation.Nonnull String jsonPath) {
     this.jsonPath = jsonPath;
   }
 
 
-  public V1CustomResourceColumnDefinition name(String name) {
+  public V1CustomResourceColumnDefinition name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is a human readable name for the column.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is a human readable name for the column.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1CustomResourceColumnDefinition priority(Integer priority) {
+  public V1CustomResourceColumnDefinition priority(@jakarta.annotation.Nullable Integer priority) {
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
    * @return priority
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.")
   public Integer getPriority() {
     return priority;
   }
 
-  public void setPriority(Integer priority) {
+  public void setPriority(@jakarta.annotation.Nullable Integer priority) {
     this.priority = priority;
   }
 
 
-  public V1CustomResourceColumnDefinition type(String type) {
+  public V1CustomResourceColumnDefinition type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -269,12 +274,12 @@ public class V1CustomResourceColumnDefinition {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceColumnDefinition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceColumnDefinition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceColumnDefinition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -343,22 +348,22 @@ public class V1CustomResourceColumnDefinition {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceColumnDefinition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceColumnDefinition
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceColumnDefinition
-  */
+  /**
+   * Create an instance of V1CustomResourceColumnDefinition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceColumnDefinition
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceColumnDefinition
+   */
   public static V1CustomResourceColumnDefinition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceColumnDefinition.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceColumnDefinition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceColumnDefinition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

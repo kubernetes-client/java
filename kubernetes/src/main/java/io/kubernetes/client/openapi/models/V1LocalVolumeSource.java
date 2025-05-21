@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Local represents directly-attached storage with node affinity
  */
 @ApiModel(description = "Local represents directly-attached storage with node affinity")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LocalVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nonnull
   private String path;
 
   public V1LocalVolumeSource() {
   }
 
-  public V1LocalVolumeSource fsType(String fsType) {
+  public V1LocalVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is the filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default value is to auto-select a filesystem if unspecified.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is the filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default value is to auto-select a filesystem if unspecified.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1LocalVolumeSource path(String path) {
+  public V1LocalVolumeSource path(@jakarta.annotation.Nonnull String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * path of the full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).
    * @return path
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "path of the full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nonnull String path) {
     this.path = path;
   }
 
@@ -159,12 +160,12 @@ public class V1LocalVolumeSource {
     openapiRequiredFields.add("path");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LocalVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LocalVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LocalVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1LocalVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1LocalVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LocalVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1LocalVolumeSource
-  */
+  /**
+   * Create an instance of V1LocalVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LocalVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1LocalVolumeSource
+   */
   public static V1LocalVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LocalVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1LocalVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LocalVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
