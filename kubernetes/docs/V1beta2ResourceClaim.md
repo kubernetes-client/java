@@ -1,8 +1,8 @@
 
 
-# V1beta1SelfSubjectReview
+# V1beta2ResourceClaim
 
-SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request. When using impersonation, users will receive the user info of the user being impersonated.  If impersonation or request header authentication is used, any extra keys will have their case ignored and returned as lowercase.
+ResourceClaim describes a request for access to resources in the cluster, for use by workloads. For example, if a workload needs an accelerator device with specific properties, this is how that request is expressed. The status stanza tracks whether this claim has been satisfied and what specific resources have been allocated.  This is an alpha type and requires enabling the DynamicResourceAllocation feature gate.
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **apiVersion** | **String** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |  [optional]
 **kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |  [optional]
 **metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  |  [optional]
-**status** | [**V1beta1SelfSubjectReviewStatus**](V1beta1SelfSubjectReviewStatus.md) |  |  [optional]
+**spec** | [**V1beta2ResourceClaimSpec**](V1beta2ResourceClaimSpec.md) |  | 
+**status** | [**V1beta2ResourceClaimStatus**](V1beta2ResourceClaimStatus.md) |  |  [optional]
 
 
 ## Implemented Interfaces

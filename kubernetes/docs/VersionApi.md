@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 
-get the code version
+get the version information for this server
 
 ### Example
 ```java
