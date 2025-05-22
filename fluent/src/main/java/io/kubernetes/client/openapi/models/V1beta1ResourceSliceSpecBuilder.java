@@ -28,7 +28,9 @@ public class V1beta1ResourceSliceSpecBuilder extends V1beta1ResourceSliceSpecFlu
     buildable.setDriver(fluent.getDriver());
     buildable.setNodeName(fluent.getNodeName());
     buildable.setNodeSelector(fluent.buildNodeSelector());
+    buildable.setPerDeviceNodeSelection(fluent.getPerDeviceNodeSelection());
     buildable.setPool(fluent.buildPool());
+    buildable.setSharedCounters(fluent.buildSharedCounters());
     return buildable;
   }
   

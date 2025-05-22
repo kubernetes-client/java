@@ -570,14 +570,26 @@ public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseF
   public A addToPorts(int index,V1ServicePort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
     V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,V1ServicePort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
     V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   

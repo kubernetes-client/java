@@ -107,14 +107,26 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
   public A addToRules(int index,V1PolicyRule item) {
     if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").add(index, builder); rules.add(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRules(int index,V1PolicyRule item) {
     if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").set(index, builder); rules.set(index, builder);}
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.set(index, builder);
+    }
     return (A)this;
   }
   

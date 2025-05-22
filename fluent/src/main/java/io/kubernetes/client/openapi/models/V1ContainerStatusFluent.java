@@ -40,6 +40,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   private Integer restartCount;
   private Boolean started;
   private V1ContainerStateBuilder state;
+  private String stopSignal;
   private V1ContainerUserBuilder user;
   private ArrayList<V1VolumeMountStatusBuilder> volumeMounts;
   
@@ -58,6 +59,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
           this.withRestartCount(instance.getRestartCount());
           this.withStarted(instance.getStarted());
           this.withState(instance.getState());
+          this.withStopSignal(instance.getStopSignal());
           this.withUser(instance.getUser());
           this.withVolumeMounts(instance.getVolumeMounts());
         }
@@ -103,14 +105,26 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   public A addToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
     if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-    if (index < 0 || index >= allocatedResourcesStatus.size()) { _visitables.get("allocatedResourcesStatus").add(builder); allocatedResourcesStatus.add(builder); } else { _visitables.get("allocatedResourcesStatus").add(index, builder); allocatedResourcesStatus.add(index, builder);}
+    if (index < 0 || index >= allocatedResourcesStatus.size()) {
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        allocatedResourcesStatus.add(builder);
+    } else {
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        allocatedResourcesStatus.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
     if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-    if (index < 0 || index >= allocatedResourcesStatus.size()) { _visitables.get("allocatedResourcesStatus").add(builder); allocatedResourcesStatus.add(builder); } else { _visitables.get("allocatedResourcesStatus").set(index, builder); allocatedResourcesStatus.set(index, builder);}
+    if (index < 0 || index >= allocatedResourcesStatus.size()) {
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        allocatedResourcesStatus.add(builder);
+    } else {
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        allocatedResourcesStatus.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -462,6 +476,19 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(item));
   }
   
+  public String getStopSignal() {
+    return this.stopSignal;
+  }
+  
+  public A withStopSignal(String stopSignal) {
+    this.stopSignal = stopSignal;
+    return (A) this;
+  }
+  
+  public boolean hasStopSignal() {
+    return this.stopSignal != null;
+  }
+  
   public V1ContainerUser buildUser() {
     return this.user != null ? this.user.build() : null;
   }
@@ -505,14 +532,26 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   public A addToVolumeMounts(int index,V1VolumeMountStatus item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").add(index, builder); volumeMounts.add(index, builder);}
+    if (index < 0 || index >= volumeMounts.size()) {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(builder);
+    } else {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumeMounts(int index,V1VolumeMountStatus item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").set(index, builder); volumeMounts.set(index, builder);}
+    if (index < 0 || index >= volumeMounts.size()) {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(builder);
+    } else {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -670,13 +709,14 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (!java.util.Objects.equals(restartCount, that.restartCount)) return false;
     if (!java.util.Objects.equals(started, that.started)) return false;
     if (!java.util.Objects.equals(state, that.state)) return false;
+    if (!java.util.Objects.equals(stopSignal, that.stopSignal)) return false;
     if (!java.util.Objects.equals(user, that.user)) return false;
     if (!java.util.Objects.equals(volumeMounts, that.volumeMounts)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocatedResources,  allocatedResourcesStatus,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  user,  volumeMounts,  super.hashCode());
+    return java.util.Objects.hash(allocatedResources,  allocatedResourcesStatus,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  stopSignal,  user,  volumeMounts,  super.hashCode());
   }
   
   public String toString() {
@@ -694,6 +734,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     if (restartCount != null) { sb.append("restartCount:"); sb.append(restartCount + ","); }
     if (started != null) { sb.append("started:"); sb.append(started + ","); }
     if (state != null) { sb.append("state:"); sb.append(state + ","); }
+    if (stopSignal != null) { sb.append("stopSignal:"); sb.append(stopSignal + ","); }
     if (user != null) { sb.append("user:"); sb.append(user + ","); }
     if (volumeMounts != null && !volumeMounts.isEmpty()) { sb.append("volumeMounts:"); sb.append(volumeMounts); }
     sb.append("}");

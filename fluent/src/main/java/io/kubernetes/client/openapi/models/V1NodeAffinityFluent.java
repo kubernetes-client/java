@@ -37,14 +37,26 @@ public class V1NodeAffinityFluent<A extends V1NodeAffinityFluent<A>> extends Bas
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PreferredSchedulingTermBuilder>();}
     V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder); preferredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(index, builder); preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);}
+    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PreferredSchedulingTermBuilder>();}
     V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder); preferredDuringSchedulingIgnoredDuringExecution.add(builder); } else { _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").set(index, builder); preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);}
+    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    } else {
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);
+    }
     return (A)this;
   }
   

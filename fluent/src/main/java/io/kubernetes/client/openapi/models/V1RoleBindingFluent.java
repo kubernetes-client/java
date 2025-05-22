@@ -149,14 +149,26 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   public A addToSubjects(int index,RbacV1Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").add(index, builder); subjects.add(index, builder);}
+    if (index < 0 || index >= subjects.size()) {
+        _visitables.get("subjects").add(builder);
+        subjects.add(builder);
+    } else {
+        _visitables.get("subjects").add(builder);
+        subjects.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSubjects(int index,RbacV1Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").set(index, builder); subjects.set(index, builder);}
+    if (index < 0 || index >= subjects.size()) {
+        _visitables.get("subjects").add(builder);
+        subjects.add(builder);
+    } else {
+        _visitables.get("subjects").add(builder);
+        subjects.set(index, builder);
+    }
     return (A)this;
   }
   

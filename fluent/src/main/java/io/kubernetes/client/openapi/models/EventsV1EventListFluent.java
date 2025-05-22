@@ -54,14 +54,26 @@ public class EventsV1EventListFluent<A extends EventsV1EventListFluent<A>> exten
   public A addToItems(int index,EventsV1Event item) {
     if (this.items == null) {this.items = new ArrayList<EventsV1EventBuilder>();}
     EventsV1EventBuilder builder = new EventsV1EventBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,EventsV1Event item) {
     if (this.items == null) {this.items = new ArrayList<EventsV1EventBuilder>();}
     EventsV1EventBuilder builder = new EventsV1EventBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

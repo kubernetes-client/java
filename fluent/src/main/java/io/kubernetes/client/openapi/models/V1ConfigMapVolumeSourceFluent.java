@@ -56,14 +56,26 @@ public class V1ConfigMapVolumeSourceFluent<A extends V1ConfigMapVolumeSourceFlue
   public A addToItems(int index,V1KeyToPath item) {
     if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1KeyToPath item) {
     if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

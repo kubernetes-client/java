@@ -54,14 +54,26 @@ public class V1ValidatingAdmissionPolicyListFluent<A extends V1ValidatingAdmissi
   public A addToItems(int index,V1ValidatingAdmissionPolicy item) {
     if (this.items == null) {this.items = new ArrayList<V1ValidatingAdmissionPolicyBuilder>();}
     V1ValidatingAdmissionPolicyBuilder builder = new V1ValidatingAdmissionPolicyBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1ValidatingAdmissionPolicy item) {
     if (this.items == null) {this.items = new ArrayList<V1ValidatingAdmissionPolicyBuilder>();}
     V1ValidatingAdmissionPolicyBuilder builder = new V1ValidatingAdmissionPolicyBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -26,6 +26,7 @@ public class V2HPAScalingRulesBuilder extends V2HPAScalingRulesFluent<V2HPAScali
     buildable.setPolicies(fluent.buildPolicies());
     buildable.setSelectPolicy(fluent.getSelectPolicy());
     buildable.setStabilizationWindowSeconds(fluent.getStabilizationWindowSeconds());
+    buildable.setTolerance(fluent.getTolerance());
     return buildable;
   }
   

@@ -23,8 +23,13 @@ public class V1alpha3BasicDeviceBuilder extends V1alpha3BasicDeviceFluent<V1alph
   
   public V1alpha3BasicDevice build() {
     V1alpha3BasicDevice buildable = new V1alpha3BasicDevice();
+    buildable.setAllNodes(fluent.getAllNodes());
     buildable.setAttributes(fluent.getAttributes());
     buildable.setCapacity(fluent.getCapacity());
+    buildable.setConsumesCounters(fluent.buildConsumesCounters());
+    buildable.setNodeName(fluent.getNodeName());
+    buildable.setNodeSelector(fluent.buildNodeSelector());
+    buildable.setTaints(fluent.buildTaints());
     return buildable;
   }
   
