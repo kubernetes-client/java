@@ -97,14 +97,26 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   public A addToMetrics(int index,V2MetricSpec item) {
     if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
-    if (index < 0 || index >= metrics.size()) { _visitables.get("metrics").add(builder); metrics.add(builder); } else { _visitables.get("metrics").add(index, builder); metrics.add(index, builder);}
+    if (index < 0 || index >= metrics.size()) {
+        _visitables.get("metrics").add(builder);
+        metrics.add(builder);
+    } else {
+        _visitables.get("metrics").add(builder);
+        metrics.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToMetrics(int index,V2MetricSpec item) {
     if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
-    if (index < 0 || index >= metrics.size()) { _visitables.get("metrics").add(builder); metrics.add(builder); } else { _visitables.get("metrics").set(index, builder); metrics.set(index, builder);}
+    if (index < 0 || index >= metrics.size()) {
+        _visitables.get("metrics").add(builder);
+        metrics.add(builder);
+    } else {
+        _visitables.get("metrics").add(builder);
+        metrics.set(index, builder);
+    }
     return (A)this;
   }
   

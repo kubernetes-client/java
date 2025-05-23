@@ -35,14 +35,26 @@ public class V1IngressLoadBalancerStatusFluent<A extends V1IngressLoadBalancerSt
   public A addToIngress(int index,V1IngressLoadBalancerIngress item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1IngressLoadBalancerIngressBuilder>();}
     V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").add(index, builder); ingress.add(index, builder);}
+    if (index < 0 || index >= ingress.size()) {
+        _visitables.get("ingress").add(builder);
+        ingress.add(builder);
+    } else {
+        _visitables.get("ingress").add(builder);
+        ingress.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToIngress(int index,V1IngressLoadBalancerIngress item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1IngressLoadBalancerIngressBuilder>();}
     V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").set(index, builder); ingress.set(index, builder);}
+    if (index < 0 || index >= ingress.size()) {
+        _visitables.get("ingress").add(builder);
+        ingress.add(builder);
+    } else {
+        _visitables.get("ingress").add(builder);
+        ingress.set(index, builder);
+    }
     return (A)this;
   }
   

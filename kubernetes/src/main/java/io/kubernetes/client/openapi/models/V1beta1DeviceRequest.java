@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1beta1DeviceSelector;
+import io.kubernetes.client.openapi.models.V1beta1DeviceSubRequest;
+import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,10 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.  A DeviceClassName is currently required. Clients must check that it is indeed set. It&#39;s absence indicates that something changed in a way that is not supported by the client yet, in which case it must refuse to handle the request.
+ * DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.
  */
-@ApiModel(description = "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.  A DeviceClassName is currently required. Clients must check that it is indeed set. It's absence indicates that something changed in a way that is not supported by the client yet, in which case it must refuse to handle the request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@ApiModel(description = "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1beta1DeviceRequest {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -48,6 +50,10 @@ public class V1beta1DeviceRequest {
   @SerializedName(SERIALIZED_NAME_DEVICE_CLASS_NAME)
   private String deviceClassName;
 
+  public static final String SERIALIZED_NAME_FIRST_AVAILABLE = "firstAvailable";
+  @SerializedName(SERIALIZED_NAME_FIRST_AVAILABLE)
+  private List<V1beta1DeviceSubRequest> firstAvailable = null;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -55,6 +61,10 @@ public class V1beta1DeviceRequest {
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
   private List<V1beta1DeviceSelector> selectors = null;
+
+  public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
+  @SerializedName(SERIALIZED_NAME_TOLERATIONS)
+  private List<V1beta1DeviceToleration> tolerations = null;
 
 
   public V1beta1DeviceRequest adminAccess(Boolean adminAccess) {
@@ -64,11 +74,11 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
+   * AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
    * @return adminAccess
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
+  @ApiModelProperty(value = "AdminAccess indicates that this is a claim for administrative access to the device(s). Claims with AdminAccess are expected to be used for monitoring or other management services for a device.  They ignore all ordinary claims to the device with respect to access modes and any resource allocations.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
 
   public Boolean getAdminAccess() {
     return adminAccess;
@@ -87,11 +97,11 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AlloctionMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.
+   * AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   At least one device must exist on the node for the allocation to succeed.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AllocationMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.
    * @return allocationMode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AlloctionMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.")
+  @ApiModelProperty(value = "AllocationMode and its related fields define how devices are allocated to satisfy this request. Supported values are:  - ExactCount: This request is for a specific number of devices.   This is the default. The exact number is provided in the   count field.  - All: This request is for all of the matching devices in a pool.   At least one device must exist on the node for the allocation to succeed.   Allocation will fail if some devices are already allocated,   unless adminAccess is requested.  If AllocationMode is not specified, the default mode is ExactCount. If the mode is ExactCount and count is not specified, the default count is one. Any other requests must specify this field.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  More modes may get added in the future. Clients must refuse to handle requests with unknown modes.")
 
   public String getAllocationMode() {
     return allocationMode;
@@ -110,11 +120,11 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * Count is used only when the count mode is \&quot;ExactCount\&quot;. Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.
+   * Count is used only when the count mode is \&quot;ExactCount\&quot;. Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Count is used only when the count mode is \"ExactCount\". Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.")
+  @ApiModelProperty(value = "Count is used only when the count mode is \"ExactCount\". Must be greater than zero. If AllocationMode is ExactCount and this field is not specified, the default is one.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.")
 
   public Long getCount() {
     return count;
@@ -133,10 +143,11 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.
+   * DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required if no subrequests are specified in the firstAvailable list and no class can be set if subrequests are specified in the firstAvailable list. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.
    * @return deviceClassName
   **/
-  @ApiModelProperty(required = true, value = "DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DeviceClassName references a specific DeviceClass, which can define additional configuration and selectors to be inherited by this request.  A class is required if no subrequests are specified in the firstAvailable list and no class can be set if subrequests are specified in the firstAvailable list. Which classes are available depends on the cluster.  Administrators may use this to restrict which devices may get requested by only installing classes with selectors for permitted devices. If users are free to request anything without restrictions, then administrators can create an empty DeviceClass for users to reference.")
 
   public String getDeviceClassName() {
     return deviceClassName;
@@ -148,6 +159,37 @@ public class V1beta1DeviceRequest {
   }
 
 
+  public V1beta1DeviceRequest firstAvailable(List<V1beta1DeviceSubRequest> firstAvailable) {
+
+    this.firstAvailable = firstAvailable;
+    return this;
+  }
+
+  public V1beta1DeviceRequest addFirstAvailableItem(V1beta1DeviceSubRequest firstAvailableItem) {
+    if (this.firstAvailable == null) {
+      this.firstAvailable = new ArrayList<>();
+    }
+    this.firstAvailable.add(firstAvailableItem);
+    return this;
+  }
+
+   /**
+   * FirstAvailable contains subrequests, of which exactly one will be satisfied by the scheduler to satisfy this request. It tries to satisfy them in the order in which they are listed here. So if there are two entries in the list, the scheduler will only check the second one if it determines that the first one cannot be used.  This field may only be set in the entries of DeviceClaim.Requests.  DRA does not yet implement scoring, so the scheduler will select the first set of devices that satisfies all the requests in the claim. And if the requirements can be satisfied on more than one node, other scheduling features will determine which node is chosen. This means that the set of devices allocated to a claim might not be the optimal set available to the cluster. Scoring will be implemented later.
+   * @return firstAvailable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "FirstAvailable contains subrequests, of which exactly one will be satisfied by the scheduler to satisfy this request. It tries to satisfy them in the order in which they are listed here. So if there are two entries in the list, the scheduler will only check the second one if it determines that the first one cannot be used.  This field may only be set in the entries of DeviceClaim.Requests.  DRA does not yet implement scoring, so the scheduler will select the first set of devices that satisfies all the requests in the claim. And if the requirements can be satisfied on more than one node, other scheduling features will determine which node is chosen. This means that the set of devices allocated to a claim might not be the optimal set available to the cluster. Scoring will be implemented later.")
+
+  public List<V1beta1DeviceSubRequest> getFirstAvailable() {
+    return firstAvailable;
+  }
+
+
+  public void setFirstAvailable(List<V1beta1DeviceSubRequest> firstAvailable) {
+    this.firstAvailable = firstAvailable;
+  }
+
+
   public V1beta1DeviceRequest name(String name) {
 
     this.name = name;
@@ -155,10 +197,10 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label.
+   * Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label and unique among all DeviceRequests in a ResourceClaim.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label.")
+  @ApiModelProperty(required = true, value = "Name can be used to reference this request in a pod.spec.containers[].resources.claims entry and in a constraint of the claim.  Must be a DNS label and unique among all DeviceRequests in a ResourceClaim.")
 
   public String getName() {
     return name;
@@ -185,11 +227,11 @@ public class V1beta1DeviceRequest {
   }
 
    /**
-   * Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.
+   * Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.
    * @return selectors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.")
+  @ApiModelProperty(value = "Selectors define criteria which must be satisfied by a specific device in order for that device to be considered for this request. All selectors must be satisfied for a device to be considered.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.")
 
   public List<V1beta1DeviceSelector> getSelectors() {
     return selectors;
@@ -198,6 +240,37 @@ public class V1beta1DeviceRequest {
 
   public void setSelectors(List<V1beta1DeviceSelector> selectors) {
     this.selectors = selectors;
+  }
+
+
+  public V1beta1DeviceRequest tolerations(List<V1beta1DeviceToleration> tolerations) {
+
+    this.tolerations = tolerations;
+    return this;
+  }
+
+  public V1beta1DeviceRequest addTolerationsItem(V1beta1DeviceToleration tolerationsItem) {
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList<>();
+    }
+    this.tolerations.add(tolerationsItem);
+    return this;
+  }
+
+   /**
+   * If specified, the request&#39;s tolerations.  Tolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.  In addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.  The maximum number of tolerations is 16.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * @return tolerations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If specified, the request's tolerations.  Tolerations for NoSchedule are required to allocate a device which has a taint with that effect. The same applies to NoExecute.  In addition, should any of the allocated devices get tainted with NoExecute after allocation and that effect is not tolerated, then all pods consuming the ResourceClaim get deleted to evict them. The scheduler will not let new pods reserve the claim while it has these tainted devices. Once all pods are evicted, the claim will get deallocated.  The maximum number of tolerations is 16.  This field can only be set when deviceClassName is set and no subrequests are specified in the firstAvailable list.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+
+  public List<V1beta1DeviceToleration> getTolerations() {
+    return tolerations;
+  }
+
+
+  public void setTolerations(List<V1beta1DeviceToleration> tolerations) {
+    this.tolerations = tolerations;
   }
 
 
@@ -214,13 +287,15 @@ public class V1beta1DeviceRequest {
         Objects.equals(this.allocationMode, v1beta1DeviceRequest.allocationMode) &&
         Objects.equals(this.count, v1beta1DeviceRequest.count) &&
         Objects.equals(this.deviceClassName, v1beta1DeviceRequest.deviceClassName) &&
+        Objects.equals(this.firstAvailable, v1beta1DeviceRequest.firstAvailable) &&
         Objects.equals(this.name, v1beta1DeviceRequest.name) &&
-        Objects.equals(this.selectors, v1beta1DeviceRequest.selectors);
+        Objects.equals(this.selectors, v1beta1DeviceRequest.selectors) &&
+        Objects.equals(this.tolerations, v1beta1DeviceRequest.tolerations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, allocationMode, count, deviceClassName, name, selectors);
+    return Objects.hash(adminAccess, allocationMode, count, deviceClassName, firstAvailable, name, selectors, tolerations);
   }
 
 
@@ -232,8 +307,10 @@ public class V1beta1DeviceRequest {
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
+    sb.append("    firstAvailable: ").append(toIndentedString(firstAvailable)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
+    sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,7 +31,7 @@ import java.io.IOException;
  * EnvVarSource represents a source for the value of an EnvVar.
  */
 @ApiModel(description = "EnvVarSource represents a source for the value of an EnvVar.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1EnvVarSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)

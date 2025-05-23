@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1NodeSwapStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -64,6 +65,10 @@ public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_OS_IMAGE = "osImage";
   @SerializedName(SERIALIZED_NAME_OS_IMAGE)
   private String osImage;
+
+  public static final String SERIALIZED_NAME_SWAP = "swap";
+  @SerializedName(SERIALIZED_NAME_SWAP)
+  private V1NodeSwapStatus swap;
 
   public static final String SERIALIZED_NAME_SYSTEM_U_U_I_D = "systemUUID";
   @SerializedName(SERIALIZED_NAME_SYSTEM_U_U_I_D)
@@ -268,6 +273,29 @@ public class V1NodeSystemInfo {
   }
 
 
+  public V1NodeSystemInfo swap(V1NodeSwapStatus swap) {
+
+    this.swap = swap;
+    return this;
+  }
+
+   /**
+   * Get swap
+   * @return swap
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1NodeSwapStatus getSwap() {
+    return swap;
+  }
+
+
+  public void setSwap(V1NodeSwapStatus swap) {
+    this.swap = swap;
+  }
+
+
   public V1NodeSystemInfo systemUUID(String systemUUID) {
 
     this.systemUUID = systemUUID;
@@ -308,12 +336,13 @@ public class V1NodeSystemInfo {
         Objects.equals(this.machineID, v1NodeSystemInfo.machineID) &&
         Objects.equals(this.operatingSystem, v1NodeSystemInfo.operatingSystem) &&
         Objects.equals(this.osImage, v1NodeSystemInfo.osImage) &&
+        Objects.equals(this.swap, v1NodeSystemInfo.swap) &&
         Objects.equals(this.systemUUID, v1NodeSystemInfo.systemUUID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, systemUUID);
+    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, swap, systemUUID);
   }
 
 
@@ -330,6 +359,7 @@ public class V1NodeSystemInfo {
     sb.append("    machineID: ").append(toIndentedString(machineID)).append("\n");
     sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("    osImage: ").append(toIndentedString(osImage)).append("\n");
+    sb.append("    swap: ").append(toIndentedString(swap)).append("\n");
     sb.append("    systemUUID: ").append(toIndentedString(systemUUID)).append("\n");
     sb.append("}");
     return sb.toString();

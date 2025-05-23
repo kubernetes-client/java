@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeSelector;
+import io.kubernetes.client.openapi.models.V1beta1CounterSet;
 import io.kubernetes.client.openapi.models.V1beta1Device;
 import io.kubernetes.client.openapi.models.V1beta1ResourcePool;
 import io.swagger.annotations.ApiModel;
@@ -32,7 +33,7 @@ import java.util.List;
  * ResourceSliceSpec contains the information published by the driver in one ResourceSlice.
  */
 @ApiModel(description = "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1beta1ResourceSliceSpec {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
@@ -54,9 +55,17 @@ public class V1beta1ResourceSliceSpec {
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
   private V1NodeSelector nodeSelector;
 
+  public static final String SERIALIZED_NAME_PER_DEVICE_NODE_SELECTION = "perDeviceNodeSelection";
+  @SerializedName(SERIALIZED_NAME_PER_DEVICE_NODE_SELECTION)
+  private Boolean perDeviceNodeSelection;
+
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
   private V1beta1ResourcePool pool;
+
+  public static final String SERIALIZED_NAME_SHARED_COUNTERS = "sharedCounters";
+  @SerializedName(SERIALIZED_NAME_SHARED_COUNTERS)
+  private List<V1beta1CounterSet> sharedCounters = null;
 
 
   public V1beta1ResourceSliceSpec allNodes(Boolean allNodes) {
@@ -66,11 +75,11 @@ public class V1beta1ResourceSliceSpec {
   }
 
    /**
-   * AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector and AllNodes must be set.
+   * AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.
    * @return allNodes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector and AllNodes must be set.")
+  @ApiModelProperty(value = "AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.")
 
   public Boolean getAllNodes() {
     return allNodes;
@@ -142,11 +151,11 @@ public class V1beta1ResourceSliceSpec {
   }
 
    /**
-   * NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.
+   * NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.
    * @return nodeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.")
+  @ApiModelProperty(value = "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.")
 
   public String getNodeName() {
     return nodeName;
@@ -181,6 +190,29 @@ public class V1beta1ResourceSliceSpec {
   }
 
 
+  public V1beta1ResourceSliceSpec perDeviceNodeSelection(Boolean perDeviceNodeSelection) {
+
+    this.perDeviceNodeSelection = perDeviceNodeSelection;
+    return this;
+  }
+
+   /**
+   * PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.
+   * @return perDeviceNodeSelection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.")
+
+  public Boolean getPerDeviceNodeSelection() {
+    return perDeviceNodeSelection;
+  }
+
+
+  public void setPerDeviceNodeSelection(Boolean perDeviceNodeSelection) {
+    this.perDeviceNodeSelection = perDeviceNodeSelection;
+  }
+
+
   public V1beta1ResourceSliceSpec pool(V1beta1ResourcePool pool) {
 
     this.pool = pool;
@@ -203,6 +235,37 @@ public class V1beta1ResourceSliceSpec {
   }
 
 
+  public V1beta1ResourceSliceSpec sharedCounters(List<V1beta1CounterSet> sharedCounters) {
+
+    this.sharedCounters = sharedCounters;
+    return this;
+  }
+
+  public V1beta1ResourceSliceSpec addSharedCountersItem(V1beta1CounterSet sharedCountersItem) {
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList<>();
+    }
+    this.sharedCounters.add(sharedCountersItem);
+    return this;
+  }
+
+   /**
+   * SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of SharedCounters is 32.
+   * @return sharedCounters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of SharedCounters is 32.")
+
+  public List<V1beta1CounterSet> getSharedCounters() {
+    return sharedCounters;
+  }
+
+
+  public void setSharedCounters(List<V1beta1CounterSet> sharedCounters) {
+    this.sharedCounters = sharedCounters;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -217,12 +280,14 @@ public class V1beta1ResourceSliceSpec {
         Objects.equals(this.driver, v1beta1ResourceSliceSpec.driver) &&
         Objects.equals(this.nodeName, v1beta1ResourceSliceSpec.nodeName) &&
         Objects.equals(this.nodeSelector, v1beta1ResourceSliceSpec.nodeSelector) &&
-        Objects.equals(this.pool, v1beta1ResourceSliceSpec.pool);
+        Objects.equals(this.perDeviceNodeSelection, v1beta1ResourceSliceSpec.perDeviceNodeSelection) &&
+        Objects.equals(this.pool, v1beta1ResourceSliceSpec.pool) &&
+        Objects.equals(this.sharedCounters, v1beta1ResourceSliceSpec.sharedCounters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, pool);
+    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, perDeviceNodeSelection, pool, sharedCounters);
   }
 
 
@@ -235,7 +300,9 @@ public class V1beta1ResourceSliceSpec {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
+    sb.append("    perDeviceNodeSelection: ").append(toIndentedString(perDeviceNodeSelection)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
+    sb.append("    sharedCounters: ").append(toIndentedString(sharedCounters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

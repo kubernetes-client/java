@@ -30,7 +30,7 @@ import java.util.List;
  * DeploymentStatus is the most recently observed status of the Deployment.
  */
 @ApiModel(description = "DeploymentStatus is the most recently observed status of the Deployment.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1DeploymentStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_REPLICAS)
@@ -56,6 +56,10 @@ public class V1DeploymentStatus {
   @SerializedName(SERIALIZED_NAME_REPLICAS)
   private Integer replicas;
 
+  public static final String SERIALIZED_NAME_TERMINATING_REPLICAS = "terminatingReplicas";
+  @SerializedName(SERIALIZED_NAME_TERMINATING_REPLICAS)
+  private Integer terminatingReplicas;
+
   public static final String SERIALIZED_NAME_UNAVAILABLE_REPLICAS = "unavailableReplicas";
   @SerializedName(SERIALIZED_NAME_UNAVAILABLE_REPLICAS)
   private Integer unavailableReplicas;
@@ -72,11 +76,11 @@ public class V1DeploymentStatus {
   }
 
    /**
-   * Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.
+   * Total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.
    * @return availableReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.")
+  @ApiModelProperty(value = "Total number of available non-terminating pods (ready for at least minReadySeconds) targeted by this deployment.")
 
   public Integer getAvailableReplicas() {
     return availableReplicas;
@@ -172,11 +176,11 @@ public class V1DeploymentStatus {
   }
 
    /**
-   * readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.
+   * Total number of non-terminating pods targeted by this Deployment with a Ready Condition.
    * @return readyReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.")
+  @ApiModelProperty(value = "Total number of non-terminating pods targeted by this Deployment with a Ready Condition.")
 
   public Integer getReadyReplicas() {
     return readyReplicas;
@@ -195,11 +199,11 @@ public class V1DeploymentStatus {
   }
 
    /**
-   * Total number of non-terminated pods targeted by this deployment (their labels match the selector).
+   * Total number of non-terminating pods targeted by this deployment (their labels match the selector).
    * @return replicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of non-terminated pods targeted by this deployment (their labels match the selector).")
+  @ApiModelProperty(value = "Total number of non-terminating pods targeted by this deployment (their labels match the selector).")
 
   public Integer getReplicas() {
     return replicas;
@@ -208,6 +212,29 @@ public class V1DeploymentStatus {
 
   public void setReplicas(Integer replicas) {
     this.replicas = replicas;
+  }
+
+
+  public V1DeploymentStatus terminatingReplicas(Integer terminatingReplicas) {
+
+    this.terminatingReplicas = terminatingReplicas;
+    return this;
+  }
+
+   /**
+   * Total number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.  This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.
+   * @return terminatingReplicas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total number of terminating pods targeted by this deployment. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.  This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.")
+
+  public Integer getTerminatingReplicas() {
+    return terminatingReplicas;
+  }
+
+
+  public void setTerminatingReplicas(Integer terminatingReplicas) {
+    this.terminatingReplicas = terminatingReplicas;
   }
 
 
@@ -241,11 +268,11 @@ public class V1DeploymentStatus {
   }
 
    /**
-   * Total number of non-terminated pods targeted by this deployment that have the desired template spec.
+   * Total number of non-terminating pods targeted by this deployment that have the desired template spec.
    * @return updatedReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of non-terminated pods targeted by this deployment that have the desired template spec.")
+  @ApiModelProperty(value = "Total number of non-terminating pods targeted by this deployment that have the desired template spec.")
 
   public Integer getUpdatedReplicas() {
     return updatedReplicas;
@@ -272,13 +299,14 @@ public class V1DeploymentStatus {
         Objects.equals(this.observedGeneration, v1DeploymentStatus.observedGeneration) &&
         Objects.equals(this.readyReplicas, v1DeploymentStatus.readyReplicas) &&
         Objects.equals(this.replicas, v1DeploymentStatus.replicas) &&
+        Objects.equals(this.terminatingReplicas, v1DeploymentStatus.terminatingReplicas) &&
         Objects.equals(this.unavailableReplicas, v1DeploymentStatus.unavailableReplicas) &&
         Objects.equals(this.updatedReplicas, v1DeploymentStatus.updatedReplicas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableReplicas, collisionCount, conditions, observedGeneration, readyReplicas, replicas, unavailableReplicas, updatedReplicas);
+    return Objects.hash(availableReplicas, collisionCount, conditions, observedGeneration, readyReplicas, replicas, terminatingReplicas, unavailableReplicas, updatedReplicas);
   }
 
 
@@ -292,6 +320,7 @@ public class V1DeploymentStatus {
     sb.append("    observedGeneration: ").append(toIndentedString(observedGeneration)).append("\n");
     sb.append("    readyReplicas: ").append(toIndentedString(readyReplicas)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
+    sb.append("    terminatingReplicas: ").append(toIndentedString(terminatingReplicas)).append("\n");
     sb.append("    unavailableReplicas: ").append(toIndentedString(unavailableReplicas)).append("\n");
     sb.append("    updatedReplicas: ").append(toIndentedString(updatedReplicas)).append("\n");
     sb.append("}");

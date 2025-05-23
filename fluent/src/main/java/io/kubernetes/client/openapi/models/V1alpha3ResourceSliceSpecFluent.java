@@ -29,7 +29,9 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
   private String driver;
   private String nodeName;
   private V1NodeSelectorBuilder nodeSelector;
+  private Boolean perDeviceNodeSelection;
   private V1alpha3ResourcePoolBuilder pool;
+  private ArrayList<V1alpha3CounterSetBuilder> sharedCounters;
   
   protected void copyInstance(V1alpha3ResourceSliceSpec instance) {
     instance = (instance != null ? instance : new V1alpha3ResourceSliceSpec());
@@ -39,7 +41,9 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
           this.withDriver(instance.getDriver());
           this.withNodeName(instance.getNodeName());
           this.withNodeSelector(instance.getNodeSelector());
+          this.withPerDeviceNodeSelection(instance.getPerDeviceNodeSelection());
           this.withPool(instance.getPool());
+          this.withSharedCounters(instance.getSharedCounters());
         }
   }
   
@@ -59,14 +63,26 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
   public A addToDevices(int index,V1alpha3Device item) {
     if (this.devices == null) {this.devices = new ArrayList<V1alpha3DeviceBuilder>();}
     V1alpha3DeviceBuilder builder = new V1alpha3DeviceBuilder(item);
-    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").add(index, builder); devices.add(index, builder);}
+    if (index < 0 || index >= devices.size()) {
+        _visitables.get("devices").add(builder);
+        devices.add(builder);
+    } else {
+        _visitables.get("devices").add(builder);
+        devices.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToDevices(int index,V1alpha3Device item) {
     if (this.devices == null) {this.devices = new ArrayList<V1alpha3DeviceBuilder>();}
     V1alpha3DeviceBuilder builder = new V1alpha3DeviceBuilder(item);
-    if (index < 0 || index >= devices.size()) { _visitables.get("devices").add(builder); devices.add(builder); } else { _visitables.get("devices").set(index, builder); devices.set(index, builder);}
+    if (index < 0 || index >= devices.size()) {
+        _visitables.get("devices").add(builder);
+        devices.add(builder);
+    } else {
+        _visitables.get("devices").add(builder);
+        devices.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -273,6 +289,19 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
     return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(item));
   }
   
+  public Boolean getPerDeviceNodeSelection() {
+    return this.perDeviceNodeSelection;
+  }
+  
+  public A withPerDeviceNodeSelection(Boolean perDeviceNodeSelection) {
+    this.perDeviceNodeSelection = perDeviceNodeSelection;
+    return (A) this;
+  }
+  
+  public boolean hasPerDeviceNodeSelection() {
+    return this.perDeviceNodeSelection != null;
+  }
+  
   public V1alpha3ResourcePool buildPool() {
     return this.pool != null ? this.pool.build() : null;
   }
@@ -313,6 +342,169 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
     return withNewPoolLike(java.util.Optional.ofNullable(buildPool()).orElse(item));
   }
   
+  public A addToSharedCounters(int index,V1alpha3CounterSet item) {
+    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1alpha3CounterSetBuilder>();}
+    V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);
+    if (index < 0 || index >= sharedCounters.size()) {
+        _visitables.get("sharedCounters").add(builder);
+        sharedCounters.add(builder);
+    } else {
+        _visitables.get("sharedCounters").add(builder);
+        sharedCounters.add(index, builder);
+    }
+    return (A)this;
+  }
+  
+  public A setToSharedCounters(int index,V1alpha3CounterSet item) {
+    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1alpha3CounterSetBuilder>();}
+    V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);
+    if (index < 0 || index >= sharedCounters.size()) {
+        _visitables.get("sharedCounters").add(builder);
+        sharedCounters.add(builder);
+    } else {
+        _visitables.get("sharedCounters").add(builder);
+        sharedCounters.set(index, builder);
+    }
+    return (A)this;
+  }
+  
+  public A addToSharedCounters(io.kubernetes.client.openapi.models.V1alpha3CounterSet... items) {
+    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1alpha3CounterSetBuilder>();}
+    for (V1alpha3CounterSet item : items) {V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);_visitables.get("sharedCounters").add(builder);this.sharedCounters.add(builder);} return (A)this;
+  }
+  
+  public A addAllToSharedCounters(Collection<V1alpha3CounterSet> items) {
+    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1alpha3CounterSetBuilder>();}
+    for (V1alpha3CounterSet item : items) {V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);_visitables.get("sharedCounters").add(builder);this.sharedCounters.add(builder);} return (A)this;
+  }
+  
+  public A removeFromSharedCounters(io.kubernetes.client.openapi.models.V1alpha3CounterSet... items) {
+    if (this.sharedCounters == null) return (A)this;
+    for (V1alpha3CounterSet item : items) {V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);_visitables.get("sharedCounters").remove(builder); this.sharedCounters.remove(builder);} return (A)this;
+  }
+  
+  public A removeAllFromSharedCounters(Collection<V1alpha3CounterSet> items) {
+    if (this.sharedCounters == null) return (A)this;
+    for (V1alpha3CounterSet item : items) {V1alpha3CounterSetBuilder builder = new V1alpha3CounterSetBuilder(item);_visitables.get("sharedCounters").remove(builder); this.sharedCounters.remove(builder);} return (A)this;
+  }
+  
+  public A removeMatchingFromSharedCounters(Predicate<V1alpha3CounterSetBuilder> predicate) {
+    if (sharedCounters == null) return (A) this;
+    final Iterator<V1alpha3CounterSetBuilder> each = sharedCounters.iterator();
+    final List visitables = _visitables.get("sharedCounters");
+    while (each.hasNext()) {
+      V1alpha3CounterSetBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  public List<V1alpha3CounterSet> buildSharedCounters() {
+    return this.sharedCounters != null ? build(sharedCounters) : null;
+  }
+  
+  public V1alpha3CounterSet buildSharedCounter(int index) {
+    return this.sharedCounters.get(index).build();
+  }
+  
+  public V1alpha3CounterSet buildFirstSharedCounter() {
+    return this.sharedCounters.get(0).build();
+  }
+  
+  public V1alpha3CounterSet buildLastSharedCounter() {
+    return this.sharedCounters.get(sharedCounters.size() - 1).build();
+  }
+  
+  public V1alpha3CounterSet buildMatchingSharedCounter(Predicate<V1alpha3CounterSetBuilder> predicate) {
+      for (V1alpha3CounterSetBuilder item : sharedCounters) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasMatchingSharedCounter(Predicate<V1alpha3CounterSetBuilder> predicate) {
+      for (V1alpha3CounterSetBuilder item : sharedCounters) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public A withSharedCounters(List<V1alpha3CounterSet> sharedCounters) {
+    if (this.sharedCounters != null) {
+      this._visitables.get("sharedCounters").clear();
+    }
+    if (sharedCounters != null) {
+        this.sharedCounters = new ArrayList();
+        for (V1alpha3CounterSet item : sharedCounters) {
+          this.addToSharedCounters(item);
+        }
+    } else {
+      this.sharedCounters = null;
+    }
+    return (A) this;
+  }
+  
+  public A withSharedCounters(io.kubernetes.client.openapi.models.V1alpha3CounterSet... sharedCounters) {
+    if (this.sharedCounters != null) {
+        this.sharedCounters.clear();
+        _visitables.remove("sharedCounters");
+    }
+    if (sharedCounters != null) {
+      for (V1alpha3CounterSet item : sharedCounters) {
+        this.addToSharedCounters(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSharedCounters() {
+    return this.sharedCounters != null && !this.sharedCounters.isEmpty();
+  }
+  
+  public SharedCountersNested<A> addNewSharedCounter() {
+    return new SharedCountersNested(-1, null);
+  }
+  
+  public SharedCountersNested<A> addNewSharedCounterLike(V1alpha3CounterSet item) {
+    return new SharedCountersNested(-1, item);
+  }
+  
+  public SharedCountersNested<A> setNewSharedCounterLike(int index,V1alpha3CounterSet item) {
+    return new SharedCountersNested(index, item);
+  }
+  
+  public SharedCountersNested<A> editSharedCounter(int index) {
+    if (sharedCounters.size() <= index) throw new RuntimeException("Can't edit sharedCounters. Index exceeds size.");
+    return setNewSharedCounterLike(index, buildSharedCounter(index));
+  }
+  
+  public SharedCountersNested<A> editFirstSharedCounter() {
+    if (sharedCounters.size() == 0) throw new RuntimeException("Can't edit first sharedCounters. The list is empty.");
+    return setNewSharedCounterLike(0, buildSharedCounter(0));
+  }
+  
+  public SharedCountersNested<A> editLastSharedCounter() {
+    int index = sharedCounters.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last sharedCounters. The list is empty.");
+    return setNewSharedCounterLike(index, buildSharedCounter(index));
+  }
+  
+  public SharedCountersNested<A> editMatchingSharedCounter(Predicate<V1alpha3CounterSetBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<sharedCounters.size();i++) { 
+    if (predicate.test(sharedCounters.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching sharedCounters. No match found.");
+    return setNewSharedCounterLike(index, buildSharedCounter(index));
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -323,12 +515,14 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
     if (!java.util.Objects.equals(driver, that.driver)) return false;
     if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
     if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
+    if (!java.util.Objects.equals(perDeviceNodeSelection, that.perDeviceNodeSelection)) return false;
     if (!java.util.Objects.equals(pool, that.pool)) return false;
+    if (!java.util.Objects.equals(sharedCounters, that.sharedCounters)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allNodes,  devices,  driver,  nodeName,  nodeSelector,  pool,  super.hashCode());
+    return java.util.Objects.hash(allNodes,  devices,  driver,  nodeName,  nodeSelector,  perDeviceNodeSelection,  pool,  sharedCounters,  super.hashCode());
   }
   
   public String toString() {
@@ -339,13 +533,19 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
     if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
     if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
     if (nodeSelector != null) { sb.append("nodeSelector:"); sb.append(nodeSelector + ","); }
-    if (pool != null) { sb.append("pool:"); sb.append(pool); }
+    if (perDeviceNodeSelection != null) { sb.append("perDeviceNodeSelection:"); sb.append(perDeviceNodeSelection + ","); }
+    if (pool != null) { sb.append("pool:"); sb.append(pool + ","); }
+    if (sharedCounters != null && !sharedCounters.isEmpty()) { sb.append("sharedCounters:"); sb.append(sharedCounters); }
     sb.append("}");
     return sb.toString();
   }
   
   public A withAllNodes() {
     return withAllNodes(true);
+  }
+  
+  public A withPerDeviceNodeSelection() {
+    return withPerDeviceNodeSelection(true);
   }
   public class DevicesNested<N> extends V1alpha3DeviceFluent<DevicesNested<N>> implements Nested<N>{
     DevicesNested(int index,V1alpha3Device item) {
@@ -392,6 +592,24 @@ public class V1alpha3ResourceSliceSpecFluent<A extends V1alpha3ResourceSliceSpec
     }
     
     public N endPool() {
+      return and();
+    }
+    
+  
+  }
+  public class SharedCountersNested<N> extends V1alpha3CounterSetFluent<SharedCountersNested<N>> implements Nested<N>{
+    SharedCountersNested(int index,V1alpha3CounterSet item) {
+      this.index = index;
+      this.builder = new V1alpha3CounterSetBuilder(this, item);
+    }
+    V1alpha3CounterSetBuilder builder;
+    int index;
+    
+    public N and() {
+      return (N) V1alpha3ResourceSliceSpecFluent.this.setToSharedCounters(index,builder.build());
+    }
+    
+    public N endSharedCounter() {
       return and();
     }
     

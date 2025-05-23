@@ -35,14 +35,26 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
   public A addToExpressionWarnings(int index,V1ExpressionWarning item) {
     if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-    if (index < 0 || index >= expressionWarnings.size()) { _visitables.get("expressionWarnings").add(builder); expressionWarnings.add(builder); } else { _visitables.get("expressionWarnings").add(index, builder); expressionWarnings.add(index, builder);}
+    if (index < 0 || index >= expressionWarnings.size()) {
+        _visitables.get("expressionWarnings").add(builder);
+        expressionWarnings.add(builder);
+    } else {
+        _visitables.get("expressionWarnings").add(builder);
+        expressionWarnings.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToExpressionWarnings(int index,V1ExpressionWarning item) {
     if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-    if (index < 0 || index >= expressionWarnings.size()) { _visitables.get("expressionWarnings").add(builder); expressionWarnings.add(builder); } else { _visitables.get("expressionWarnings").set(index, builder); expressionWarnings.set(index, builder);}
+    if (index < 0 || index >= expressionWarnings.size()) {
+        _visitables.get("expressionWarnings").add(builder);
+        expressionWarnings.add(builder);
+    } else {
+        _visitables.get("expressionWarnings").add(builder);
+        expressionWarnings.set(index, builder);
+    }
     return (A)this;
   }
   

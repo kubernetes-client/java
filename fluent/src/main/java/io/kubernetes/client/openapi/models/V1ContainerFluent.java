@@ -270,14 +270,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToEnv(int index,V1EnvVar item) {
     if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
     V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
-    if (index < 0 || index >= env.size()) { _visitables.get("env").add(builder); env.add(builder); } else { _visitables.get("env").add(index, builder); env.add(index, builder);}
+    if (index < 0 || index >= env.size()) {
+        _visitables.get("env").add(builder);
+        env.add(builder);
+    } else {
+        _visitables.get("env").add(builder);
+        env.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEnv(int index,V1EnvVar item) {
     if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
     V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
-    if (index < 0 || index >= env.size()) { _visitables.get("env").add(builder); env.add(builder); } else { _visitables.get("env").set(index, builder); env.set(index, builder);}
+    if (index < 0 || index >= env.size()) {
+        _visitables.get("env").add(builder);
+        env.add(builder);
+    } else {
+        _visitables.get("env").add(builder);
+        env.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -421,14 +433,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToEnvFrom(int index,V1EnvFromSource item) {
     if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
     V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
-    if (index < 0 || index >= envFrom.size()) { _visitables.get("envFrom").add(builder); envFrom.add(builder); } else { _visitables.get("envFrom").add(index, builder); envFrom.add(index, builder);}
+    if (index < 0 || index >= envFrom.size()) {
+        _visitables.get("envFrom").add(builder);
+        envFrom.add(builder);
+    } else {
+        _visitables.get("envFrom").add(builder);
+        envFrom.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEnvFrom(int index,V1EnvFromSource item) {
     if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
     V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
-    if (index < 0 || index >= envFrom.size()) { _visitables.get("envFrom").add(builder); envFrom.add(builder); } else { _visitables.get("envFrom").set(index, builder); envFrom.set(index, builder);}
+    if (index < 0 || index >= envFrom.size()) {
+        _visitables.get("envFrom").add(builder);
+        envFrom.add(builder);
+    } else {
+        _visitables.get("envFrom").add(builder);
+        envFrom.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -691,14 +715,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToPorts(int index,V1ContainerPort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
     V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,V1ContainerPort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
     V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -882,14 +918,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToResizePolicy(int index,V1ContainerResizePolicy item) {
     if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
     V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
-    if (index < 0 || index >= resizePolicy.size()) { _visitables.get("resizePolicy").add(builder); resizePolicy.add(builder); } else { _visitables.get("resizePolicy").add(index, builder); resizePolicy.add(index, builder);}
+    if (index < 0 || index >= resizePolicy.size()) {
+        _visitables.get("resizePolicy").add(builder);
+        resizePolicy.add(builder);
+    } else {
+        _visitables.get("resizePolicy").add(builder);
+        resizePolicy.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResizePolicy(int index,V1ContainerResizePolicy item) {
     if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
     V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
-    if (index < 0 || index >= resizePolicy.size()) { _visitables.get("resizePolicy").add(builder); resizePolicy.add(builder); } else { _visitables.get("resizePolicy").set(index, builder); resizePolicy.set(index, builder);}
+    if (index < 0 || index >= resizePolicy.size()) {
+        _visitables.get("resizePolicy").add(builder);
+        resizePolicy.add(builder);
+    } else {
+        _visitables.get("resizePolicy").add(builder);
+        resizePolicy.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1231,14 +1279,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToVolumeDevices(int index,V1VolumeDevice item) {
     if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
     V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
-    if (index < 0 || index >= volumeDevices.size()) { _visitables.get("volumeDevices").add(builder); volumeDevices.add(builder); } else { _visitables.get("volumeDevices").add(index, builder); volumeDevices.add(index, builder);}
+    if (index < 0 || index >= volumeDevices.size()) {
+        _visitables.get("volumeDevices").add(builder);
+        volumeDevices.add(builder);
+    } else {
+        _visitables.get("volumeDevices").add(builder);
+        volumeDevices.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumeDevices(int index,V1VolumeDevice item) {
     if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
     V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
-    if (index < 0 || index >= volumeDevices.size()) { _visitables.get("volumeDevices").add(builder); volumeDevices.add(builder); } else { _visitables.get("volumeDevices").set(index, builder); volumeDevices.set(index, builder);}
+    if (index < 0 || index >= volumeDevices.size()) {
+        _visitables.get("volumeDevices").add(builder);
+        volumeDevices.add(builder);
+    } else {
+        _visitables.get("volumeDevices").add(builder);
+        volumeDevices.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1382,14 +1442,26 @@ public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluen
   public A addToVolumeMounts(int index,V1VolumeMount item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
     V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").add(index, builder); volumeMounts.add(index, builder);}
+    if (index < 0 || index >= volumeMounts.size()) {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(builder);
+    } else {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumeMounts(int index,V1VolumeMount item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
     V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").set(index, builder); volumeMounts.set(index, builder);}
+    if (index < 0 || index >= volumeMounts.size()) {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.add(builder);
+    } else {
+        _visitables.get("volumeMounts").add(builder);
+        volumeMounts.set(index, builder);
+    }
     return (A)this;
   }
   

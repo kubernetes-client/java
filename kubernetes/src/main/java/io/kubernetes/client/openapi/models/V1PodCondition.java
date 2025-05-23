@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * PodCondition contains details for the current condition of this pod.
  */
 @ApiModel(description = "PodCondition contains details for the current condition of this pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1PodCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
@@ -41,6 +41,10 @@ public class V1PodCondition {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
+
+  public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
+  @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
+  private Long observedGeneration;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -124,6 +128,29 @@ public class V1PodCondition {
   }
 
 
+  public V1PodCondition observedGeneration(Long observedGeneration) {
+
+    this.observedGeneration = observedGeneration;
+    return this;
+  }
+
+   /**
+   * If set, this represents the .metadata.generation that the pod condition was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.
+   * @return observedGeneration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set, this represents the .metadata.generation that the pod condition was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.")
+
+  public Long getObservedGeneration() {
+    return observedGeneration;
+  }
+
+
+  public void setObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+  }
+
+
   public V1PodCondition reason(String reason) {
 
     this.reason = reason;
@@ -203,6 +230,7 @@ public class V1PodCondition {
     return Objects.equals(this.lastProbeTime, v1PodCondition.lastProbeTime) &&
         Objects.equals(this.lastTransitionTime, v1PodCondition.lastTransitionTime) &&
         Objects.equals(this.message, v1PodCondition.message) &&
+        Objects.equals(this.observedGeneration, v1PodCondition.observedGeneration) &&
         Objects.equals(this.reason, v1PodCondition.reason) &&
         Objects.equals(this.status, v1PodCondition.status) &&
         Objects.equals(this.type, v1PodCondition.type);
@@ -210,7 +238,7 @@ public class V1PodCondition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastProbeTime, lastTransitionTime, message, reason, status, type);
+    return Objects.hash(lastProbeTime, lastTransitionTime, message, observedGeneration, reason, status, type);
   }
 
 
@@ -221,6 +249,7 @@ public class V1PodCondition {
     sb.append("    lastProbeTime: ").append(toIndentedString(lastProbeTime)).append("\n");
     sb.append("    lastTransitionTime: ").append(toIndentedString(lastTransitionTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    observedGeneration: ").append(toIndentedString(observedGeneration)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

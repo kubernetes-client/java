@@ -30,7 +30,7 @@ import java.util.List;
  * CSIDriverSpec is the specification of a CSIDriver.
  */
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
@@ -39,6 +39,10 @@ public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_FS_GROUP_POLICY = "fsGroupPolicy";
   @SerializedName(SERIALIZED_NAME_FS_GROUP_POLICY)
   private String fsGroupPolicy;
+
+  public static final String SERIALIZED_NAME_NODE_ALLOCATABLE_UPDATE_PERIOD_SECONDS = "nodeAllocatableUpdatePeriodSeconds";
+  @SerializedName(SERIALIZED_NAME_NODE_ALLOCATABLE_UPDATE_PERIOD_SECONDS)
+  private Long nodeAllocatableUpdatePeriodSeconds;
 
   public static final String SERIALIZED_NAME_POD_INFO_ON_MOUNT = "podInfoOnMount";
   @SerializedName(SERIALIZED_NAME_POD_INFO_ON_MOUNT)
@@ -108,6 +112,29 @@ public class V1CSIDriverSpec {
 
   public void setFsGroupPolicy(String fsGroupPolicy) {
     this.fsGroupPolicy = fsGroupPolicy;
+  }
+
+
+  public V1CSIDriverSpec nodeAllocatableUpdatePeriodSeconds(Long nodeAllocatableUpdatePeriodSeconds) {
+
+    this.nodeAllocatableUpdatePeriodSeconds = nodeAllocatableUpdatePeriodSeconds;
+    return this;
+  }
+
+   /**
+   * nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This is an alpha feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.
+   * @return nodeAllocatableUpdatePeriodSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This is an alpha feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.")
+
+  public Long getNodeAllocatableUpdatePeriodSeconds() {
+    return nodeAllocatableUpdatePeriodSeconds;
+  }
+
+
+  public void setNodeAllocatableUpdatePeriodSeconds(Long nodeAllocatableUpdatePeriodSeconds) {
+    this.nodeAllocatableUpdatePeriodSeconds = nodeAllocatableUpdatePeriodSeconds;
   }
 
 
@@ -276,6 +303,7 @@ public class V1CSIDriverSpec {
     V1CSIDriverSpec v1CSIDriverSpec = (V1CSIDriverSpec) o;
     return Objects.equals(this.attachRequired, v1CSIDriverSpec.attachRequired) &&
         Objects.equals(this.fsGroupPolicy, v1CSIDriverSpec.fsGroupPolicy) &&
+        Objects.equals(this.nodeAllocatableUpdatePeriodSeconds, v1CSIDriverSpec.nodeAllocatableUpdatePeriodSeconds) &&
         Objects.equals(this.podInfoOnMount, v1CSIDriverSpec.podInfoOnMount) &&
         Objects.equals(this.requiresRepublish, v1CSIDriverSpec.requiresRepublish) &&
         Objects.equals(this.seLinuxMount, v1CSIDriverSpec.seLinuxMount) &&
@@ -286,7 +314,7 @@ public class V1CSIDriverSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachRequired, fsGroupPolicy, podInfoOnMount, requiresRepublish, seLinuxMount, storageCapacity, tokenRequests, volumeLifecycleModes);
+    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, storageCapacity, tokenRequests, volumeLifecycleModes);
   }
 
 
@@ -296,6 +324,7 @@ public class V1CSIDriverSpec {
     sb.append("class V1CSIDriverSpec {\n");
     sb.append("    attachRequired: ").append(toIndentedString(attachRequired)).append("\n");
     sb.append("    fsGroupPolicy: ").append(toIndentedString(fsGroupPolicy)).append("\n");
+    sb.append("    nodeAllocatableUpdatePeriodSeconds: ").append(toIndentedString(nodeAllocatableUpdatePeriodSeconds)).append("\n");
     sb.append("    podInfoOnMount: ").append(toIndentedString(podInfoOnMount)).append("\n");
     sb.append("    requiresRepublish: ").append(toIndentedString(requiresRepublish)).append("\n");
     sb.append("    seLinuxMount: ").append(toIndentedString(seLinuxMount)).append("\n");

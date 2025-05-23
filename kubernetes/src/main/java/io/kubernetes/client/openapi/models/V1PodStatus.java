@@ -35,7 +35,7 @@ import java.util.List;
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.
  */
 @ApiModel(description = "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -68,6 +68,10 @@ public class V1PodStatus {
   public static final String SERIALIZED_NAME_NOMINATED_NODE_NAME = "nominatedNodeName";
   @SerializedName(SERIALIZED_NAME_NOMINATED_NODE_NAME)
   private String nominatedNodeName;
+
+  public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
+  @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
+  private Long observedGeneration;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
@@ -326,6 +330,29 @@ public class V1PodStatus {
   }
 
 
+  public V1PodStatus observedGeneration(Long observedGeneration) {
+
+    this.observedGeneration = observedGeneration;
+    return this;
+  }
+
+   /**
+   * If set, this represents the .metadata.generation that the pod status was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.
+   * @return observedGeneration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set, this represents the .metadata.generation that the pod status was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.")
+
+  public Long getObservedGeneration() {
+    return observedGeneration;
+  }
+
+
+  public void setObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+  }
+
+
   public V1PodStatus phase(String phase) {
 
     this.phase = phase;
@@ -456,11 +483,11 @@ public class V1PodStatus {
   }
 
    /**
-   * Status of resources resize desired for pod&#39;s containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \&quot;Proposed\&quot;
+   * Status of resources resize desired for pod&#39;s containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \&quot;Proposed\&quot; Deprecated: Resize status is moved to two pod conditions PodResizePending and PodResizeInProgress. PodResizePending will track states where the spec has been resized, but the Kubelet has not yet allocated the resources. PodResizeInProgress will track in-progress resizes, and should be present whenever allocated resources !&#x3D; acknowledged resources.
    * @return resize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\"")
+  @ApiModelProperty(value = "Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to \"Proposed\" Deprecated: Resize status is moved to two pod conditions PodResizePending and PodResizeInProgress. PodResizePending will track states where the spec has been resized, but the Kubelet has not yet allocated the resources. PodResizeInProgress will track in-progress resizes, and should be present whenever allocated resources != acknowledged resources.")
 
   public String getResize() {
     return resize;
@@ -543,6 +570,7 @@ public class V1PodStatus {
         Objects.equals(this.initContainerStatuses, v1PodStatus.initContainerStatuses) &&
         Objects.equals(this.message, v1PodStatus.message) &&
         Objects.equals(this.nominatedNodeName, v1PodStatus.nominatedNodeName) &&
+        Objects.equals(this.observedGeneration, v1PodStatus.observedGeneration) &&
         Objects.equals(this.phase, v1PodStatus.phase) &&
         Objects.equals(this.podIP, v1PodStatus.podIP) &&
         Objects.equals(this.podIPs, v1PodStatus.podIPs) &&
@@ -555,7 +583,7 @@ public class V1PodStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
+    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
   }
 
 
@@ -571,6 +599,7 @@ public class V1PodStatus {
     sb.append("    initContainerStatuses: ").append(toIndentedString(initContainerStatuses)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    nominatedNodeName: ").append(toIndentedString(nominatedNodeName)).append("\n");
+    sb.append("    observedGeneration: ").append(toIndentedString(observedGeneration)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("    podIP: ").append(toIndentedString(podIP)).append("\n");
     sb.append("    podIPs: ").append(toIndentedString(podIPs)).append("\n");

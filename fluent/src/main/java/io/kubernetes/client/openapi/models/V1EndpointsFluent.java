@@ -107,14 +107,26 @@ public class V1EndpointsFluent<A extends V1EndpointsFluent<A>> extends BaseFluen
   public A addToSubsets(int index,V1EndpointSubset item) {
     if (this.subsets == null) {this.subsets = new ArrayList<V1EndpointSubsetBuilder>();}
     V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-    if (index < 0 || index >= subsets.size()) { _visitables.get("subsets").add(builder); subsets.add(builder); } else { _visitables.get("subsets").add(index, builder); subsets.add(index, builder);}
+    if (index < 0 || index >= subsets.size()) {
+        _visitables.get("subsets").add(builder);
+        subsets.add(builder);
+    } else {
+        _visitables.get("subsets").add(builder);
+        subsets.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSubsets(int index,V1EndpointSubset item) {
     if (this.subsets == null) {this.subsets = new ArrayList<V1EndpointSubsetBuilder>();}
     V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-    if (index < 0 || index >= subsets.size()) { _visitables.get("subsets").add(builder); subsets.add(builder); } else { _visitables.get("subsets").set(index, builder); subsets.set(index, builder);}
+    if (index < 0 || index >= subsets.size()) {
+        _visitables.get("subsets").add(builder);
+        subsets.add(builder);
+    } else {
+        _visitables.get("subsets").add(builder);
+        subsets.set(index, builder);
+    }
     return (A)this;
   }
   

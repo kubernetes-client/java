@@ -67,14 +67,26 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").add(index, builder); serverAddressByClientCIDRs.add(index, builder);}
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(builder);
+    } else {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").set(index, builder); serverAddressByClientCIDRs.set(index, builder);}
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.add(builder);
+    } else {
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        serverAddressByClientCIDRs.set(index, builder);
+    }
     return (A)this;
   }
   

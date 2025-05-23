@@ -68,14 +68,26 @@ public class V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReviewStat
   public A addToNonResourceRules(int index,V1NonResourceRule item) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1NonResourceRuleBuilder>();}
     V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
-    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").add(index, builder); nonResourceRules.add(index, builder);}
+    if (index < 0 || index >= nonResourceRules.size()) {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(builder);
+    } else {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToNonResourceRules(int index,V1NonResourceRule item) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1NonResourceRuleBuilder>();}
     V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
-    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").set(index, builder); nonResourceRules.set(index, builder);}
+    if (index < 0 || index >= nonResourceRules.size()) {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.add(builder);
+    } else {
+        _visitables.get("nonResourceRules").add(builder);
+        nonResourceRules.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -219,14 +231,26 @@ public class V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReviewStat
   public A addToResourceRules(int index,V1ResourceRule item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1ResourceRuleBuilder>();}
     V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").add(index, builder); resourceRules.add(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResourceRules(int index,V1ResourceRule item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1ResourceRuleBuilder>();}
     V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").set(index, builder); resourceRules.set(index, builder);}
+    if (index < 0 || index >= resourceRules.size()) {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.add(builder);
+    } else {
+        _visitables.get("resourceRules").add(builder);
+        resourceRules.set(index, builder);
+    }
     return (A)this;
   }
   

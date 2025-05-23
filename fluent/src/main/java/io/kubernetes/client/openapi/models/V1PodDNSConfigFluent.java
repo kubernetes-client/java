@@ -133,14 +133,26 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   public A addToOptions(int index,V1PodDNSConfigOption item) {
     if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-    if (index < 0 || index >= options.size()) { _visitables.get("options").add(builder); options.add(builder); } else { _visitables.get("options").add(index, builder); options.add(index, builder);}
+    if (index < 0 || index >= options.size()) {
+        _visitables.get("options").add(builder);
+        options.add(builder);
+    } else {
+        _visitables.get("options").add(builder);
+        options.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToOptions(int index,V1PodDNSConfigOption item) {
     if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-    if (index < 0 || index >= options.size()) { _visitables.get("options").add(builder); options.add(builder); } else { _visitables.get("options").set(index, builder); options.set(index, builder);}
+    if (index < 0 || index >= options.size()) {
+        _visitables.get("options").add(builder);
+        options.add(builder);
+    } else {
+        _visitables.get("options").add(builder);
+        options.set(index, builder);
+    }
     return (A)this;
   }
   

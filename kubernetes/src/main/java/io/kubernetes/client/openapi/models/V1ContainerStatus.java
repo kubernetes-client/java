@@ -37,7 +37,7 @@ import java.util.Map;
  * ContainerStatus contains details for the current status of this container.
  */
 @ApiModel(description = "ContainerStatus contains details for the current status of this container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -86,6 +86,10 @@ public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
+
+  public static final String SERIALIZED_NAME_STOP_SIGNAL = "stopSignal";
+  @SerializedName(SERIALIZED_NAME_STOP_SIGNAL)
+  private String stopSignal;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -383,6 +387,29 @@ public class V1ContainerStatus {
   }
 
 
+  public V1ContainerStatus stopSignal(String stopSignal) {
+
+    this.stopSignal = stopSignal;
+    return this;
+  }
+
+   /**
+   * StopSignal reports the effective stop signal for this container
+   * @return stopSignal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "StopSignal reports the effective stop signal for this container")
+
+  public String getStopSignal() {
+    return stopSignal;
+  }
+
+
+  public void setStopSignal(String stopSignal) {
+    this.stopSignal = stopSignal;
+  }
+
+
   public V1ContainerStatus user(V1ContainerUser user) {
 
     this.user = user;
@@ -458,13 +485,14 @@ public class V1ContainerStatus {
         Objects.equals(this.restartCount, v1ContainerStatus.restartCount) &&
         Objects.equals(this.started, v1ContainerStatus.started) &&
         Objects.equals(this.state, v1ContainerStatus.state) &&
+        Objects.equals(this.stopSignal, v1ContainerStatus.stopSignal) &&
         Objects.equals(this.user, v1ContainerStatus.user) &&
         Objects.equals(this.volumeMounts, v1ContainerStatus.volumeMounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedResources, allocatedResourcesStatus, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, user, volumeMounts);
+    return Objects.hash(allocatedResources, allocatedResourcesStatus, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, stopSignal, user, volumeMounts);
   }
 
 
@@ -484,6 +512,7 @@ public class V1ContainerStatus {
     sb.append("    restartCount: ").append(toIndentedString(restartCount)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stopSignal: ").append(toIndentedString(stopSignal)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    volumeMounts: ").append(toIndentedString(volumeMounts)).append("\n");
     sb.append("}");

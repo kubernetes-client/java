@@ -28,7 +28,7 @@ import java.io.IOException;
  * NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.
  */
 @ApiModel(description = "NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1NodeConfigStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)

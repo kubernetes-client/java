@@ -300,14 +300,26 @@ public class V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends BaseFlu
   public A addToManagedFields(int index,V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-    if (index < 0 || index >= managedFields.size()) { _visitables.get("managedFields").add(builder); managedFields.add(builder); } else { _visitables.get("managedFields").add(index, builder); managedFields.add(index, builder);}
+    if (index < 0 || index >= managedFields.size()) {
+        _visitables.get("managedFields").add(builder);
+        managedFields.add(builder);
+    } else {
+        _visitables.get("managedFields").add(builder);
+        managedFields.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToManagedFields(int index,V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-    if (index < 0 || index >= managedFields.size()) { _visitables.get("managedFields").add(builder); managedFields.add(builder); } else { _visitables.get("managedFields").set(index, builder); managedFields.set(index, builder);}
+    if (index < 0 || index >= managedFields.size()) {
+        _visitables.get("managedFields").add(builder);
+        managedFields.add(builder);
+    } else {
+        _visitables.get("managedFields").add(builder);
+        managedFields.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -477,14 +489,26 @@ public class V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends BaseFlu
   public A addToOwnerReferences(int index,V1OwnerReference item) {
     if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-    if (index < 0 || index >= ownerReferences.size()) { _visitables.get("ownerReferences").add(builder); ownerReferences.add(builder); } else { _visitables.get("ownerReferences").add(index, builder); ownerReferences.add(index, builder);}
+    if (index < 0 || index >= ownerReferences.size()) {
+        _visitables.get("ownerReferences").add(builder);
+        ownerReferences.add(builder);
+    } else {
+        _visitables.get("ownerReferences").add(builder);
+        ownerReferences.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToOwnerReferences(int index,V1OwnerReference item) {
     if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-    if (index < 0 || index >= ownerReferences.size()) { _visitables.get("ownerReferences").add(builder); ownerReferences.add(builder); } else { _visitables.get("ownerReferences").set(index, builder); ownerReferences.set(index, builder);}
+    if (index < 0 || index >= ownerReferences.size()) {
+        _visitables.get("ownerReferences").add(builder);
+        ownerReferences.add(builder);
+    } else {
+        _visitables.get("ownerReferences").add(builder);
+        ownerReferences.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -27,7 +27,7 @@ import java.io.IOException;
  * ValidationRule describes a validation rule written in the CEL expression language.
  */
 @ApiModel(description = "ValidationRule describes a validation rule written in the CEL expression language.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1ValidationRule {
   public static final String SERIALIZED_NAME_FIELD_PATH = "fieldPath";
   @SerializedName(SERIALIZED_NAME_FIELD_PATH)

@@ -25,6 +25,7 @@ public class V1LifecycleBuilder extends V1LifecycleFluent<V1LifecycleBuilder> im
     V1Lifecycle buildable = new V1Lifecycle();
     buildable.setPostStart(fluent.buildPostStart());
     buildable.setPreStop(fluent.buildPreStop());
+    buildable.setStopSignal(fluent.getStopSignal());
     return buildable;
   }
   

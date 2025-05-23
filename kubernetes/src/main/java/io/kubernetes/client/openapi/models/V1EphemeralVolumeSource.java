@@ -28,7 +28,7 @@ import java.io.IOException;
  * Represents an ephemeral volume that is handled by a normal storage driver.
  */
 @ApiModel(description = "Represents an ephemeral volume that is handled by a normal storage driver.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1EphemeralVolumeSource {
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE = "volumeClaimTemplate";
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE)

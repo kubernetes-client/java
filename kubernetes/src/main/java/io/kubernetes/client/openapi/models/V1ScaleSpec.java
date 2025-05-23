@@ -27,7 +27,7 @@ import java.io.IOException;
  * ScaleSpec describes the attributes of a scale subresource.
  */
 @ApiModel(description = "ScaleSpec describes the attributes of a scale subresource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1ScaleSpec {
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
   @SerializedName(SERIALIZED_NAME_REPLICAS)

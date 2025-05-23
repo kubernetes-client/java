@@ -19,12 +19,14 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
   }
   private V1LifecycleHandlerBuilder postStart;
   private V1LifecycleHandlerBuilder preStop;
+  private String stopSignal;
   
   protected void copyInstance(V1Lifecycle instance) {
     instance = (instance != null ? instance : new V1Lifecycle());
     if (instance != null) {
           this.withPostStart(instance.getPostStart());
           this.withPreStop(instance.getPreStop());
+          this.withStopSignal(instance.getStopSignal());
         }
   }
   
@@ -108,6 +110,19 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
     return withNewPreStopLike(java.util.Optional.ofNullable(buildPreStop()).orElse(item));
   }
   
+  public String getStopSignal() {
+    return this.stopSignal;
+  }
+  
+  public A withStopSignal(String stopSignal) {
+    this.stopSignal = stopSignal;
+    return (A) this;
+  }
+  
+  public boolean hasStopSignal() {
+    return this.stopSignal != null;
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -115,18 +130,20 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
     V1LifecycleFluent that = (V1LifecycleFluent) o;
     if (!java.util.Objects.equals(postStart, that.postStart)) return false;
     if (!java.util.Objects.equals(preStop, that.preStop)) return false;
+    if (!java.util.Objects.equals(stopSignal, that.stopSignal)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(postStart,  preStop,  super.hashCode());
+    return java.util.Objects.hash(postStart,  preStop,  stopSignal,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (postStart != null) { sb.append("postStart:"); sb.append(postStart + ","); }
-    if (preStop != null) { sb.append("preStop:"); sb.append(preStop); }
+    if (preStop != null) { sb.append("preStop:"); sb.append(preStop + ","); }
+    if (stopSignal != null) { sb.append("stopSignal:"); sb.append(stopSignal); }
     sb.append("}");
     return sb.toString();
   }

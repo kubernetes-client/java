@@ -27,7 +27,7 @@ import java.io.IOException;
  * IngressPortStatus represents the error condition of a service port
  */
 @ApiModel(description = "IngressPortStatus represents the error condition of a service port")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1IngressPortStatus {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)

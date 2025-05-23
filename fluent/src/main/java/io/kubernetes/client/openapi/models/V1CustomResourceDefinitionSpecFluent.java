@@ -165,14 +165,26 @@ public class V1CustomResourceDefinitionSpecFluent<A extends V1CustomResourceDefi
   public A addToVersions(int index,V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
     V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
-    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").add(index, builder); versions.add(index, builder);}
+    if (index < 0 || index >= versions.size()) {
+        _visitables.get("versions").add(builder);
+        versions.add(builder);
+    } else {
+        _visitables.get("versions").add(builder);
+        versions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVersions(int index,V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
     V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
-    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").set(index, builder); versions.set(index, builder);}
+    if (index < 0 || index >= versions.size()) {
+        _visitables.get("versions").add(builder);
+        versions.add(builder);
+    } else {
+        _visitables.get("versions").add(builder);
+        versions.set(index, builder);
+    }
     return (A)this;
   }
   

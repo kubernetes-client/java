@@ -35,6 +35,7 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1Containe
     buildable.setRestartCount(fluent.getRestartCount());
     buildable.setStarted(fluent.getStarted());
     buildable.setState(fluent.buildState());
+    buildable.setStopSignal(fluent.getStopSignal());
     buildable.setUser(fluent.buildUser());
     buildable.setVolumeMounts(fluent.buildVolumeMounts());
     return buildable;

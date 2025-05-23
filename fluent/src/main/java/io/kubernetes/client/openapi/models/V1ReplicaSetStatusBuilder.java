@@ -29,6 +29,7 @@ public class V1ReplicaSetStatusBuilder extends V1ReplicaSetStatusFluent<V1Replic
     buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setReadyReplicas(fluent.getReadyReplicas());
     buildable.setReplicas(fluent.getReplicas());
+    buildable.setTerminatingReplicas(fluent.getTerminatingReplicas());
     return buildable;
   }
   

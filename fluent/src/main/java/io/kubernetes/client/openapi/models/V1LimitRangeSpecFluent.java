@@ -35,14 +35,26 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
   public A addToLimits(int index,V1LimitRangeItem item) {
     if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-    if (index < 0 || index >= limits.size()) { _visitables.get("limits").add(builder); limits.add(builder); } else { _visitables.get("limits").add(index, builder); limits.add(index, builder);}
+    if (index < 0 || index >= limits.size()) {
+        _visitables.get("limits").add(builder);
+        limits.add(builder);
+    } else {
+        _visitables.get("limits").add(builder);
+        limits.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToLimits(int index,V1LimitRangeItem item) {
     if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-    if (index < 0 || index >= limits.size()) { _visitables.get("limits").add(builder); limits.add(builder); } else { _visitables.get("limits").set(index, builder); limits.set(index, builder);}
+    if (index < 0 || index >= limits.size()) {
+        _visitables.get("limits").add(builder);
+        limits.add(builder);
+    } else {
+        _visitables.get("limits").add(builder);
+        limits.set(index, builder);
+    }
     return (A)this;
   }
   

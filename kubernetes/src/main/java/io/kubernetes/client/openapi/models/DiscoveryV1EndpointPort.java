@@ -27,7 +27,7 @@ import java.io.IOException;
  * EndpointPort represents a Port used by an EndpointSlice
  */
 @ApiModel(description = "EndpointPort represents a Port used by an EndpointSlice")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class DiscoveryV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
@@ -99,11 +99,11 @@ public class DiscoveryV1EndpointPort {
   }
 
    /**
-   * port represents the port number of the endpoint. If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.
+   * port represents the port number of the endpoint. If the EndpointSlice is derived from a Kubernetes service, this must be set to the service&#39;s target port. EndpointSlices used for other purposes may have a nil port.
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "port represents the port number of the endpoint. If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.")
+  @ApiModelProperty(value = "port represents the port number of the endpoint. If the EndpointSlice is derived from a Kubernetes service, this must be set to the service's target port. EndpointSlices used for other purposes may have a nil port.")
 
   public Integer getPort() {
     return port;

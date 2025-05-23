@@ -32,7 +32,7 @@ import java.io.IOException;
  * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  */
 @ApiModel(description = "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)

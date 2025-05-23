@@ -27,7 +27,7 @@ import java.io.IOException;
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  */
 @ApiModel(description = "ResourceClaim references one entry in PodSpec.ResourceClaims.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1ResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

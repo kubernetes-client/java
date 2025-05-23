@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * LeaseCandidateSpec is a specification of a Lease.
  */
 @ApiModel(description = "LeaseCandidateSpec is a specification of a Lease.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1alpha2LeaseCandidateSpec {
   public static final String SERIALIZED_NAME_BINARY_VERSION = "binaryVersion";
   @SerializedName(SERIALIZED_NAME_BINARY_VERSION)
@@ -175,10 +175,10 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
    /**
-   * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+   * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
    * @return strategy
   **/
-  @ApiModelProperty(required = true, value = "Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
+  @ApiModelProperty(required = true, value = "Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.")
 
   public String getStrategy() {
     return strategy;

@@ -164,14 +164,26 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   public A addToAllOf(int index,V1JSONSchemaProps item) {
     if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= allOf.size()) { _visitables.get("allOf").add(builder); allOf.add(builder); } else { _visitables.get("allOf").add(index, builder); allOf.add(index, builder);}
+    if (index < 0 || index >= allOf.size()) {
+        _visitables.get("allOf").add(builder);
+        allOf.add(builder);
+    } else {
+        _visitables.get("allOf").add(builder);
+        allOf.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAllOf(int index,V1JSONSchemaProps item) {
     if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= allOf.size()) { _visitables.get("allOf").add(builder); allOf.add(builder); } else { _visitables.get("allOf").set(index, builder); allOf.set(index, builder);}
+    if (index < 0 || index >= allOf.size()) {
+        _visitables.get("allOf").add(builder);
+        allOf.add(builder);
+    } else {
+        _visitables.get("allOf").add(builder);
+        allOf.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -315,14 +327,26 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   public A addToAnyOf(int index,V1JSONSchemaProps item) {
     if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= anyOf.size()) { _visitables.get("anyOf").add(builder); anyOf.add(builder); } else { _visitables.get("anyOf").add(index, builder); anyOf.add(index, builder);}
+    if (index < 0 || index >= anyOf.size()) {
+        _visitables.get("anyOf").add(builder);
+        anyOf.add(builder);
+    } else {
+        _visitables.get("anyOf").add(builder);
+        anyOf.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAnyOf(int index,V1JSONSchemaProps item) {
     if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= anyOf.size()) { _visitables.get("anyOf").add(builder); anyOf.add(builder); } else { _visitables.get("anyOf").set(index, builder); anyOf.set(index, builder);}
+    if (index < 0 || index >= anyOf.size()) {
+        _visitables.get("anyOf").add(builder);
+        anyOf.add(builder);
+    } else {
+        _visitables.get("anyOf").add(builder);
+        anyOf.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -948,14 +972,26 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   public A addToOneOf(int index,V1JSONSchemaProps item) {
     if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= oneOf.size()) { _visitables.get("oneOf").add(builder); oneOf.add(builder); } else { _visitables.get("oneOf").add(index, builder); oneOf.add(index, builder);}
+    if (index < 0 || index >= oneOf.size()) {
+        _visitables.get("oneOf").add(builder);
+        oneOf.add(builder);
+    } else {
+        _visitables.get("oneOf").add(builder);
+        oneOf.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToOneOf(int index,V1JSONSchemaProps item) {
     if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= oneOf.size()) { _visitables.get("oneOf").add(builder); oneOf.add(builder); } else { _visitables.get("oneOf").set(index, builder); oneOf.set(index, builder);}
+    if (index < 0 || index >= oneOf.size()) {
+        _visitables.get("oneOf").add(builder);
+        oneOf.add(builder);
+    } else {
+        _visitables.get("oneOf").add(builder);
+        oneOf.set(index, builder);
+    }
     return (A)this;
   }
   

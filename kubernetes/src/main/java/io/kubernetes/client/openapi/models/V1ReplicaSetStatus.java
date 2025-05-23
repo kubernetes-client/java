@@ -30,7 +30,7 @@ import java.util.List;
  * ReplicaSetStatus represents the current status of a ReplicaSet.
  */
 @ApiModel(description = "ReplicaSetStatus represents the current status of a ReplicaSet.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1ReplicaSetStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_REPLICAS)
@@ -56,6 +56,10 @@ public class V1ReplicaSetStatus {
   @SerializedName(SERIALIZED_NAME_REPLICAS)
   private Integer replicas;
 
+  public static final String SERIALIZED_NAME_TERMINATING_REPLICAS = "terminatingReplicas";
+  @SerializedName(SERIALIZED_NAME_TERMINATING_REPLICAS)
+  private Integer terminatingReplicas;
+
 
   public V1ReplicaSetStatus availableReplicas(Integer availableReplicas) {
 
@@ -64,11 +68,11 @@ public class V1ReplicaSetStatus {
   }
 
    /**
-   * The number of available replicas (ready for at least minReadySeconds) for this replica set.
+   * The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.
    * @return availableReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of available replicas (ready for at least minReadySeconds) for this replica set.")
+  @ApiModelProperty(value = "The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.")
 
   public Integer getAvailableReplicas() {
     return availableReplicas;
@@ -118,11 +122,11 @@ public class V1ReplicaSetStatus {
   }
 
    /**
-   * The number of pods that have labels matching the labels of the pod template of the replicaset.
+   * The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.
    * @return fullyLabeledReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods that have labels matching the labels of the pod template of the replicaset.")
+  @ApiModelProperty(value = "The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.")
 
   public Integer getFullyLabeledReplicas() {
     return fullyLabeledReplicas;
@@ -164,11 +168,11 @@ public class V1ReplicaSetStatus {
   }
 
    /**
-   * readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.
+   * The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.
    * @return readyReplicas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.")
+  @ApiModelProperty(value = "The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.")
 
   public Integer getReadyReplicas() {
     return readyReplicas;
@@ -187,10 +191,10 @@ public class V1ReplicaSetStatus {
   }
 
    /**
-   * Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+   * Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
    * @return replicas
   **/
-  @ApiModelProperty(required = true, value = "Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller")
+  @ApiModelProperty(required = true, value = "Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset")
 
   public Integer getReplicas() {
     return replicas;
@@ -199,6 +203,29 @@ public class V1ReplicaSetStatus {
 
   public void setReplicas(Integer replicas) {
     this.replicas = replicas;
+  }
+
+
+  public V1ReplicaSetStatus terminatingReplicas(Integer terminatingReplicas) {
+
+    this.terminatingReplicas = terminatingReplicas;
+    return this;
+  }
+
+   /**
+   * The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.  This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.
+   * @return terminatingReplicas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.  This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.")
+
+  public Integer getTerminatingReplicas() {
+    return terminatingReplicas;
+  }
+
+
+  public void setTerminatingReplicas(Integer terminatingReplicas) {
+    this.terminatingReplicas = terminatingReplicas;
   }
 
 
@@ -216,12 +243,13 @@ public class V1ReplicaSetStatus {
         Objects.equals(this.fullyLabeledReplicas, v1ReplicaSetStatus.fullyLabeledReplicas) &&
         Objects.equals(this.observedGeneration, v1ReplicaSetStatus.observedGeneration) &&
         Objects.equals(this.readyReplicas, v1ReplicaSetStatus.readyReplicas) &&
-        Objects.equals(this.replicas, v1ReplicaSetStatus.replicas);
+        Objects.equals(this.replicas, v1ReplicaSetStatus.replicas) &&
+        Objects.equals(this.terminatingReplicas, v1ReplicaSetStatus.terminatingReplicas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableReplicas, conditions, fullyLabeledReplicas, observedGeneration, readyReplicas, replicas);
+    return Objects.hash(availableReplicas, conditions, fullyLabeledReplicas, observedGeneration, readyReplicas, replicas, terminatingReplicas);
   }
 
 
@@ -235,6 +263,7 @@ public class V1ReplicaSetStatus {
     sb.append("    observedGeneration: ").append(toIndentedString(observedGeneration)).append("\n");
     sb.append("    readyReplicas: ").append(toIndentedString(readyReplicas)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
+    sb.append("    terminatingReplicas: ").append(toIndentedString(terminatingReplicas)).append("\n");
     sb.append("}");
     return sb.toString();
   }

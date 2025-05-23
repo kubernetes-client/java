@@ -37,14 +37,26 @@ public class V1NetworkPolicyEgressRuleFluent<A extends V1NetworkPolicyEgressRule
   public A addToPorts(int index,V1NetworkPolicyPort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,V1NetworkPolicyPort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -188,14 +200,26 @@ public class V1NetworkPolicyEgressRuleFluent<A extends V1NetworkPolicyEgressRule
   public A addToTo(int index,V1NetworkPolicyPeer item) {
     if (this.to == null) {this.to = new ArrayList<V1NetworkPolicyPeerBuilder>();}
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-    if (index < 0 || index >= to.size()) { _visitables.get("to").add(builder); to.add(builder); } else { _visitables.get("to").add(index, builder); to.add(index, builder);}
+    if (index < 0 || index >= to.size()) {
+        _visitables.get("to").add(builder);
+        to.add(builder);
+    } else {
+        _visitables.get("to").add(builder);
+        to.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTo(int index,V1NetworkPolicyPeer item) {
     if (this.to == null) {this.to = new ArrayList<V1NetworkPolicyPeerBuilder>();}
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-    if (index < 0 || index >= to.size()) { _visitables.get("to").add(builder); to.add(builder); } else { _visitables.get("to").set(index, builder); to.set(index, builder);}
+    if (index < 0 || index >= to.size()) {
+        _visitables.get("to").add(builder);
+        to.add(builder);
+    } else {
+        _visitables.get("to").add(builder);
+        to.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -105,7 +105,7 @@ public class VersionApi {
 
     /**
      *
-     * get the code version
+     * get the version information for this server
      * @return VersionInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -122,7 +122,7 @@ public class VersionApi {
 
     /**
      *
-     * get the code version
+     * get the version information for this server
      * @return ApiResponse&lt;VersionInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -140,7 +140,7 @@ public class VersionApi {
 
     /**
      *  (asynchronously)
-     * get the code version
+     * get the version information for this server
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

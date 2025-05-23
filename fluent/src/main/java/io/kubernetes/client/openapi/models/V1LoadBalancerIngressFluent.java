@@ -80,14 +80,26 @@ public class V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFluent<A
   public A addToPorts(int index,V1PortStatus item) {
     if (this.ports == null) {this.ports = new ArrayList<V1PortStatusBuilder>();}
     V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,V1PortStatus item) {
     if (this.ports == null) {this.ports = new ArrayList<V1PortStatusBuilder>();}
     V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   

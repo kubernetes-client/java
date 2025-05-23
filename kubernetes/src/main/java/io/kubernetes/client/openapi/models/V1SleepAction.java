@@ -27,7 +27,7 @@ import java.io.IOException;
  * SleepAction describes a \&quot;sleep\&quot; action.
  */
 @ApiModel(description = "SleepAction describes a \"sleep\" action.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1SleepAction {
   public static final String SERIALIZED_NAME_SECONDS = "seconds";
   @SerializedName(SERIALIZED_NAME_SECONDS)

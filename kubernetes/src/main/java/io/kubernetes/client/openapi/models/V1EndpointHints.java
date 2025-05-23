@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ForNode;
 import io.kubernetes.client.openapi.models.V1ForZone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,11 +31,46 @@ import java.util.List;
  * EndpointHints provides hints describing how an endpoint should be consumed.
  */
 @ApiModel(description = "EndpointHints provides hints describing how an endpoint should be consumed.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1EndpointHints {
+  public static final String SERIALIZED_NAME_FOR_NODES = "forNodes";
+  @SerializedName(SERIALIZED_NAME_FOR_NODES)
+  private List<V1ForNode> forNodes = null;
+
   public static final String SERIALIZED_NAME_FOR_ZONES = "forZones";
   @SerializedName(SERIALIZED_NAME_FOR_ZONES)
   private List<V1ForZone> forZones = null;
+
+
+  public V1EndpointHints forNodes(List<V1ForNode> forNodes) {
+
+    this.forNodes = forNodes;
+    return this;
+  }
+
+  public V1EndpointHints addForNodesItem(V1ForNode forNodesItem) {
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList<>();
+    }
+    this.forNodes.add(forNodesItem);
+    return this;
+  }
+
+   /**
+   * forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.
+   * @return forNodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.")
+
+  public List<V1ForNode> getForNodes() {
+    return forNodes;
+  }
+
+
+  public void setForNodes(List<V1ForNode> forNodes) {
+    this.forNodes = forNodes;
+  }
 
 
   public V1EndpointHints forZones(List<V1ForZone> forZones) {
@@ -52,11 +88,11 @@ public class V1EndpointHints {
   }
 
    /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.
+   * forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.
    * @return forZones
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.")
+  @ApiModelProperty(value = "forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.")
 
   public List<V1ForZone> getForZones() {
     return forZones;
@@ -77,12 +113,13 @@ public class V1EndpointHints {
       return false;
     }
     V1EndpointHints v1EndpointHints = (V1EndpointHints) o;
-    return Objects.equals(this.forZones, v1EndpointHints.forZones);
+    return Objects.equals(this.forNodes, v1EndpointHints.forNodes) &&
+        Objects.equals(this.forZones, v1EndpointHints.forZones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forZones);
+    return Objects.hash(forNodes, forZones);
   }
 
 
@@ -90,6 +127,7 @@ public class V1EndpointHints {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1EndpointHints {\n");
+    sb.append("    forNodes: ").append(toIndentedString(forNodes)).append("\n");
     sb.append("    forZones: ").append(toIndentedString(forZones)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,7 +27,7 @@ import java.io.IOException;
  * SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the \&quot;succeededIndexes\&quot; or \&quot;succeededCount\&quot; specified.
  */
 @ApiModel(description = "SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the \"succeededIndexes\" or \"succeededCount\" specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1SuccessPolicyRule {
   public static final String SERIALIZED_NAME_SUCCEEDED_COUNT = "succeededCount";
   @SerializedName(SERIALIZED_NAME_SUCCEEDED_COUNT)

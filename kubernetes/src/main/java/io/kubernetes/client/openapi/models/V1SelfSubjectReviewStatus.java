@@ -28,7 +28,7 @@ import java.io.IOException;
  * SelfSubjectReviewStatus is filled by the kube-apiserver and sent back to a user.
  */
 @ApiModel(description = "SelfSubjectReviewStatus is filled by the kube-apiserver and sent back to a user.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1SelfSubjectReviewStatus {
   public static final String SERIALIZED_NAME_USER_INFO = "userInfo";
   @SerializedName(SERIALIZED_NAME_USER_INFO)

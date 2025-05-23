@@ -76,14 +76,26 @@ public class V1SchedulingFluent<A extends V1SchedulingFluent<A>> extends BaseFlu
   public A addToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").add(index, builder); tolerations.add(index, builder);}
+    if (index < 0 || index >= tolerations.size()) {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(builder);
+    } else {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").set(index, builder); tolerations.set(index, builder);}
+    if (index < 0 || index >= tolerations.size()) {
+        _visitables.get("tolerations").add(builder);
+        tolerations.add(builder);
+    } else {
+        _visitables.get("tolerations").add(builder);
+        tolerations.set(index, builder);
+    }
     return (A)this;
   }
   

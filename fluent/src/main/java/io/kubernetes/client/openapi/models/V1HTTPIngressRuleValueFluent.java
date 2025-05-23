@@ -35,14 +35,26 @@ public class V1HTTPIngressRuleValueFluent<A extends V1HTTPIngressRuleValueFluent
   public A addToPaths(int index,V1HTTPIngressPath item) {
     if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-    if (index < 0 || index >= paths.size()) { _visitables.get("paths").add(builder); paths.add(builder); } else { _visitables.get("paths").add(index, builder); paths.add(index, builder);}
+    if (index < 0 || index >= paths.size()) {
+        _visitables.get("paths").add(builder);
+        paths.add(builder);
+    } else {
+        _visitables.get("paths").add(builder);
+        paths.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPaths(int index,V1HTTPIngressPath item) {
     if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-    if (index < 0 || index >= paths.size()) { _visitables.get("paths").add(builder); paths.add(builder); } else { _visitables.get("paths").set(index, builder); paths.set(index, builder);}
+    if (index < 0 || index >= paths.size()) {
+        _visitables.get("paths").add(builder);
+        paths.add(builder);
+    } else {
+        _visitables.get("paths").add(builder);
+        paths.set(index, builder);
+    }
     return (A)this;
   }
   

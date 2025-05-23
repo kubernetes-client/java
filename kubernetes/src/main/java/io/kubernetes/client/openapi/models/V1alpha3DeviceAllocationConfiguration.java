@@ -30,7 +30,7 @@ import java.util.List;
  * DeviceAllocationConfiguration gets embedded in an AllocationResult.
  */
 @ApiModel(description = "DeviceAllocationConfiguration gets embedded in an AllocationResult.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1alpha3DeviceAllocationConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)
@@ -83,11 +83,11 @@ public class V1alpha3DeviceAllocationConfiguration {
   }
 
    /**
-   * Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.
+   * Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.  References to subrequests must include the name of the main request and may include the subrequest using the format &lt;main request&gt;[/&lt;subrequest&gt;]. If just the main request is given, the configuration applies to all subrequests.
    * @return requests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.")
+  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, its applies to all requests.  References to subrequests must include the name of the main request and may include the subrequest using the format <main request>[/<subrequest>]. If just the main request is given, the configuration applies to all subrequests.")
 
   public List<String> getRequests() {
     return requests;

@@ -20,10 +20,14 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1NodeSelector;
 import io.kubernetes.client.openapi.models.V1alpha3DeviceAttribute;
+import io.kubernetes.client.openapi.models.V1alpha3DeviceCounterConsumption;
+import io.kubernetes.client.openapi.models.V1alpha3DeviceTaint;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +36,12 @@ import java.util.Map;
  * BasicDevice defines one device instance.
  */
 @ApiModel(description = "BasicDevice defines one device instance.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1alpha3BasicDevice {
+  public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
+  @SerializedName(SERIALIZED_NAME_ALL_NODES)
+  private Boolean allNodes;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, V1alpha3DeviceAttribute> attributes = null;
@@ -41,6 +49,45 @@ public class V1alpha3BasicDevice {
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
   private Map<String, Quantity> capacity = null;
+
+  public static final String SERIALIZED_NAME_CONSUMES_COUNTERS = "consumesCounters";
+  @SerializedName(SERIALIZED_NAME_CONSUMES_COUNTERS)
+  private List<V1alpha3DeviceCounterConsumption> consumesCounters = null;
+
+  public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
+  @SerializedName(SERIALIZED_NAME_NODE_NAME)
+  private String nodeName;
+
+  public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
+  @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
+  private V1NodeSelector nodeSelector;
+
+  public static final String SERIALIZED_NAME_TAINTS = "taints";
+  @SerializedName(SERIALIZED_NAME_TAINTS)
+  private List<V1alpha3DeviceTaint> taints = null;
+
+
+  public V1alpha3BasicDevice allNodes(Boolean allNodes) {
+
+    this.allNodes = allNodes;
+    return this;
+  }
+
+   /**
+   * AllNodes indicates that all nodes have access to the device.  Must only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.
+   * @return allNodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllNodes indicates that all nodes have access to the device.  Must only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.")
+
+  public Boolean getAllNodes() {
+    return allNodes;
+  }
+
+
+  public void setAllNodes(Boolean allNodes) {
+    this.allNodes = allNodes;
+  }
 
 
   public V1alpha3BasicDevice attributes(Map<String, V1alpha3DeviceAttribute> attributes) {
@@ -105,6 +152,114 @@ public class V1alpha3BasicDevice {
   }
 
 
+  public V1alpha3BasicDevice consumesCounters(List<V1alpha3DeviceCounterConsumption> consumesCounters) {
+
+    this.consumesCounters = consumesCounters;
+    return this;
+  }
+
+  public V1alpha3BasicDevice addConsumesCountersItem(V1alpha3DeviceCounterConsumption consumesCountersItem) {
+    if (this.consumesCounters == null) {
+      this.consumesCounters = new ArrayList<>();
+    }
+    this.consumesCounters.add(consumesCountersItem);
+    return this;
+  }
+
+   /**
+   * ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.  There can only be a single entry per counterSet.  The total number of device counter consumption entries must be &lt;&#x3D; 32. In addition, the total number in the entire ResourceSlice must be &lt;&#x3D; 1024 (for example, 64 devices with 16 counters each).
+   * @return consumesCounters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.  There can only be a single entry per counterSet.  The total number of device counter consumption entries must be <= 32. In addition, the total number in the entire ResourceSlice must be <= 1024 (for example, 64 devices with 16 counters each).")
+
+  public List<V1alpha3DeviceCounterConsumption> getConsumesCounters() {
+    return consumesCounters;
+  }
+
+
+  public void setConsumesCounters(List<V1alpha3DeviceCounterConsumption> consumesCounters) {
+    this.consumesCounters = consumesCounters;
+  }
+
+
+  public V1alpha3BasicDevice nodeName(String nodeName) {
+
+    this.nodeName = nodeName;
+    return this;
+  }
+
+   /**
+   * NodeName identifies the node where the device is available.  Must only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.
+   * @return nodeName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "NodeName identifies the node where the device is available.  Must only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.")
+
+  public String getNodeName() {
+    return nodeName;
+  }
+
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
+
+  public V1alpha3BasicDevice nodeSelector(V1NodeSelector nodeSelector) {
+
+    this.nodeSelector = nodeSelector;
+    return this;
+  }
+
+   /**
+   * Get nodeSelector
+   * @return nodeSelector
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1NodeSelector getNodeSelector() {
+    return nodeSelector;
+  }
+
+
+  public void setNodeSelector(V1NodeSelector nodeSelector) {
+    this.nodeSelector = nodeSelector;
+  }
+
+
+  public V1alpha3BasicDevice taints(List<V1alpha3DeviceTaint> taints) {
+
+    this.taints = taints;
+    return this;
+  }
+
+  public V1alpha3BasicDevice addTaintsItem(V1alpha3DeviceTaint taintsItem) {
+    if (this.taints == null) {
+      this.taints = new ArrayList<>();
+    }
+    this.taints.add(taintsItem);
+    return this;
+  }
+
+   /**
+   * If specified, these are the driver-defined taints.  The maximum number of taints is 4.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * @return taints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If specified, these are the driver-defined taints.  The maximum number of taints is 4.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+
+  public List<V1alpha3DeviceTaint> getTaints() {
+    return taints;
+  }
+
+
+  public void setTaints(List<V1alpha3DeviceTaint> taints) {
+    this.taints = taints;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,13 +269,18 @@ public class V1alpha3BasicDevice {
       return false;
     }
     V1alpha3BasicDevice v1alpha3BasicDevice = (V1alpha3BasicDevice) o;
-    return Objects.equals(this.attributes, v1alpha3BasicDevice.attributes) &&
-        Objects.equals(this.capacity, v1alpha3BasicDevice.capacity);
+    return Objects.equals(this.allNodes, v1alpha3BasicDevice.allNodes) &&
+        Objects.equals(this.attributes, v1alpha3BasicDevice.attributes) &&
+        Objects.equals(this.capacity, v1alpha3BasicDevice.capacity) &&
+        Objects.equals(this.consumesCounters, v1alpha3BasicDevice.consumesCounters) &&
+        Objects.equals(this.nodeName, v1alpha3BasicDevice.nodeName) &&
+        Objects.equals(this.nodeSelector, v1alpha3BasicDevice.nodeSelector) &&
+        Objects.equals(this.taints, v1alpha3BasicDevice.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, capacity);
+    return Objects.hash(allNodes, attributes, capacity, consumesCounters, nodeName, nodeSelector, taints);
   }
 
 
@@ -128,8 +288,13 @@ public class V1alpha3BasicDevice {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1alpha3BasicDevice {\n");
+    sb.append("    allNodes: ").append(toIndentedString(allNodes)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
+    sb.append("    consumesCounters: ").append(toIndentedString(consumesCounters)).append("\n");
+    sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
+    sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
+    sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

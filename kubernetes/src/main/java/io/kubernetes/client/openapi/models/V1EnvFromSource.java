@@ -26,10 +26,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * EnvFromSource represents the source of a set of ConfigMaps
+ * EnvFromSource represents the source of a set of ConfigMaps or Secrets
  */
-@ApiModel(description = "EnvFromSource represents the source of a set of ConfigMaps")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@ApiModel(description = "EnvFromSource represents the source of a set of ConfigMaps or Secrets")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1EnvFromSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_REF = "configMapRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_REF)
@@ -74,11 +74,11 @@ public class V1EnvFromSource {
   }
 
    /**
-   * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+   * Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.")
+  @ApiModelProperty(value = "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.")
 
   public String getPrefix() {
     return prefix;

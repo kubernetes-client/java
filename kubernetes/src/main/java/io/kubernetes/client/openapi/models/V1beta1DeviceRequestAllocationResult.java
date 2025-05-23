@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
 @ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1beta1DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -48,6 +51,10 @@ public class V1beta1DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
   private String request;
+
+  public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
+  @SerializedName(SERIALIZED_NAME_TOLERATIONS)
+  private List<V1beta1DeviceToleration> tolerations = null;
 
 
   public V1beta1DeviceRequestAllocationResult adminAccess(Boolean adminAccess) {
@@ -146,10 +153,10 @@ public class V1beta1DeviceRequestAllocationResult {
   }
 
    /**
-   * Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.
+   * Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format &lt;main request&gt;/&lt;subrequest&gt;.  Multiple devices may have been allocated per request.
    * @return request
   **/
-  @ApiModelProperty(required = true, value = "Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.")
+  @ApiModelProperty(required = true, value = "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.  Multiple devices may have been allocated per request.")
 
   public String getRequest() {
     return request;
@@ -158,6 +165,37 @@ public class V1beta1DeviceRequestAllocationResult {
 
   public void setRequest(String request) {
     this.request = request;
+  }
+
+
+  public V1beta1DeviceRequestAllocationResult tolerations(List<V1beta1DeviceToleration> tolerations) {
+
+    this.tolerations = tolerations;
+    return this;
+  }
+
+  public V1beta1DeviceRequestAllocationResult addTolerationsItem(V1beta1DeviceToleration tolerationsItem) {
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList<>();
+    }
+    this.tolerations.add(tolerationsItem);
+    return this;
+  }
+
+   /**
+   * A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * @return tolerations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+
+  public List<V1beta1DeviceToleration> getTolerations() {
+    return tolerations;
+  }
+
+
+  public void setTolerations(List<V1beta1DeviceToleration> tolerations) {
+    this.tolerations = tolerations;
   }
 
 
@@ -174,12 +212,13 @@ public class V1beta1DeviceRequestAllocationResult {
         Objects.equals(this.device, v1beta1DeviceRequestAllocationResult.device) &&
         Objects.equals(this.driver, v1beta1DeviceRequestAllocationResult.driver) &&
         Objects.equals(this.pool, v1beta1DeviceRequestAllocationResult.pool) &&
-        Objects.equals(this.request, v1beta1DeviceRequestAllocationResult.request);
+        Objects.equals(this.request, v1beta1DeviceRequestAllocationResult.request) &&
+        Objects.equals(this.tolerations, v1beta1DeviceRequestAllocationResult.tolerations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, device, driver, pool, request);
+    return Objects.hash(adminAccess, device, driver, pool, request, tolerations);
   }
 
 
@@ -192,6 +231,7 @@ public class V1beta1DeviceRequestAllocationResult {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

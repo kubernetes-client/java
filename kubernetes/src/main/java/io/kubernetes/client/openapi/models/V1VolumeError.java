@@ -28,8 +28,12 @@ import java.time.OffsetDateTime;
  * VolumeError captures an error encountered during a volume operation.
  */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1VolumeError {
+  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  private Integer errorCode;
+
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
@@ -37,6 +41,29 @@ public class V1VolumeError {
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
   private OffsetDateTime time;
+
+
+  public V1VolumeError errorCode(Integer errorCode) {
+
+    this.errorCode = errorCode;
+    return this;
+  }
+
+   /**
+   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+   * @return errorCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.")
+
+  public Integer getErrorCode() {
+    return errorCode;
+  }
+
+
+  public void setErrorCode(Integer errorCode) {
+    this.errorCode = errorCode;
+  }
 
 
   public V1VolumeError message(String message) {
@@ -94,13 +121,14 @@ public class V1VolumeError {
       return false;
     }
     V1VolumeError v1VolumeError = (V1VolumeError) o;
-    return Objects.equals(this.message, v1VolumeError.message) &&
+    return Objects.equals(this.errorCode, v1VolumeError.errorCode) &&
+        Objects.equals(this.message, v1VolumeError.message) &&
         Objects.equals(this.time, v1VolumeError.time);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, time);
+    return Objects.hash(errorCode, message, time);
   }
 
 
@@ -108,6 +136,7 @@ public class V1VolumeError {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1VolumeError {\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("}");

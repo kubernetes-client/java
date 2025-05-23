@@ -54,14 +54,26 @@ public class V1beta1IPAddressListFluent<A extends V1beta1IPAddressListFluent<A>>
   public A addToItems(int index,V1beta1IPAddress item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1IPAddressBuilder>();}
     V1beta1IPAddressBuilder builder = new V1beta1IPAddressBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1beta1IPAddress item) {
     if (this.items == null) {this.items = new ArrayList<V1beta1IPAddressBuilder>();}
     V1beta1IPAddressBuilder builder = new V1beta1IPAddressBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

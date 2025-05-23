@@ -1,0 +1,225 @@
+/*
+Copyright 2025 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha3DeviceSelector;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * DeviceTaintSelector defines which device(s) a DeviceTaintRule applies to. The empty selector matches all devices. Without a selector, no devices are matched.
+ */
+@ApiModel(description = "DeviceTaintSelector defines which device(s) a DeviceTaintRule applies to. The empty selector matches all devices. Without a selector, no devices are matched.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+public class V1alpha3DeviceTaintSelector {
+  public static final String SERIALIZED_NAME_DEVICE = "device";
+  @SerializedName(SERIALIZED_NAME_DEVICE)
+  private String device;
+
+  public static final String SERIALIZED_NAME_DEVICE_CLASS_NAME = "deviceClassName";
+  @SerializedName(SERIALIZED_NAME_DEVICE_CLASS_NAME)
+  private String deviceClassName;
+
+  public static final String SERIALIZED_NAME_DRIVER = "driver";
+  @SerializedName(SERIALIZED_NAME_DRIVER)
+  private String driver;
+
+  public static final String SERIALIZED_NAME_POOL = "pool";
+  @SerializedName(SERIALIZED_NAME_POOL)
+  private String pool;
+
+  public static final String SERIALIZED_NAME_SELECTORS = "selectors";
+  @SerializedName(SERIALIZED_NAME_SELECTORS)
+  private List<V1alpha3DeviceSelector> selectors = null;
+
+
+  public V1alpha3DeviceTaintSelector device(String device) {
+
+    this.device = device;
+    return this;
+  }
+
+   /**
+   * If device is set, only devices with that name are selected. This field corresponds to slice.spec.devices[].name.  Setting also driver and pool may be required to avoid ambiguity, but is not required.
+   * @return device
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If device is set, only devices with that name are selected. This field corresponds to slice.spec.devices[].name.  Setting also driver and pool may be required to avoid ambiguity, but is not required.")
+
+  public String getDevice() {
+    return device;
+  }
+
+
+  public void setDevice(String device) {
+    this.device = device;
+  }
+
+
+  public V1alpha3DeviceTaintSelector deviceClassName(String deviceClassName) {
+
+    this.deviceClassName = deviceClassName;
+    return this;
+  }
+
+   /**
+   * If DeviceClassName is set, the selectors defined there must be satisfied by a device to be selected. This field corresponds to class.metadata.name.
+   * @return deviceClassName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If DeviceClassName is set, the selectors defined there must be satisfied by a device to be selected. This field corresponds to class.metadata.name.")
+
+  public String getDeviceClassName() {
+    return deviceClassName;
+  }
+
+
+  public void setDeviceClassName(String deviceClassName) {
+    this.deviceClassName = deviceClassName;
+  }
+
+
+  public V1alpha3DeviceTaintSelector driver(String driver) {
+
+    this.driver = driver;
+    return this;
+  }
+
+   /**
+   * If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.
+   * @return driver
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If driver is set, only devices from that driver are selected. This fields corresponds to slice.spec.driver.")
+
+  public String getDriver() {
+    return driver;
+  }
+
+
+  public void setDriver(String driver) {
+    this.driver = driver;
+  }
+
+
+  public V1alpha3DeviceTaintSelector pool(String pool) {
+
+    this.pool = pool;
+    return this;
+  }
+
+   /**
+   * If pool is set, only devices in that pool are selected.  Also setting the driver name may be useful to avoid ambiguity when different drivers use the same pool name, but this is not required because selecting pools from different drivers may also be useful, for example when drivers with node-local devices use the node name as their pool name.
+   * @return pool
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If pool is set, only devices in that pool are selected.  Also setting the driver name may be useful to avoid ambiguity when different drivers use the same pool name, but this is not required because selecting pools from different drivers may also be useful, for example when drivers with node-local devices use the node name as their pool name.")
+
+  public String getPool() {
+    return pool;
+  }
+
+
+  public void setPool(String pool) {
+    this.pool = pool;
+  }
+
+
+  public V1alpha3DeviceTaintSelector selectors(List<V1alpha3DeviceSelector> selectors) {
+
+    this.selectors = selectors;
+    return this;
+  }
+
+  public V1alpha3DeviceTaintSelector addSelectorsItem(V1alpha3DeviceSelector selectorsItem) {
+    if (this.selectors == null) {
+      this.selectors = new ArrayList<>();
+    }
+    this.selectors.add(selectorsItem);
+    return this;
+  }
+
+   /**
+   * Selectors contains the same selection criteria as a ResourceClaim. Currently, CEL expressions are supported. All of these selectors must be satisfied.
+   * @return selectors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Selectors contains the same selection criteria as a ResourceClaim. Currently, CEL expressions are supported. All of these selectors must be satisfied.")
+
+  public List<V1alpha3DeviceSelector> getSelectors() {
+    return selectors;
+  }
+
+
+  public void setSelectors(List<V1alpha3DeviceSelector> selectors) {
+    this.selectors = selectors;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha3DeviceTaintSelector v1alpha3DeviceTaintSelector = (V1alpha3DeviceTaintSelector) o;
+    return Objects.equals(this.device, v1alpha3DeviceTaintSelector.device) &&
+        Objects.equals(this.deviceClassName, v1alpha3DeviceTaintSelector.deviceClassName) &&
+        Objects.equals(this.driver, v1alpha3DeviceTaintSelector.driver) &&
+        Objects.equals(this.pool, v1alpha3DeviceTaintSelector.pool) &&
+        Objects.equals(this.selectors, v1alpha3DeviceTaintSelector.selectors);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(device, deviceClassName, driver, pool, selectors);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha3DeviceTaintSelector {\n");
+    sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
+    sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
+    sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
+    sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

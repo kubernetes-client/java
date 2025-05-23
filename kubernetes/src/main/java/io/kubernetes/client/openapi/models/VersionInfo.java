@@ -27,7 +27,7 @@ import java.io.IOException;
  * Info contains versioning information. how we&#39;ll want to distribute that information.
  */
 @ApiModel(description = "Info contains versioning information. how we'll want to distribute that information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class VersionInfo {
   public static final String SERIALIZED_NAME_BUILD_DATE = "buildDate";
   @SerializedName(SERIALIZED_NAME_BUILD_DATE)
@@ -36,6 +36,14 @@ public class VersionInfo {
   public static final String SERIALIZED_NAME_COMPILER = "compiler";
   @SerializedName(SERIALIZED_NAME_COMPILER)
   private String compiler;
+
+  public static final String SERIALIZED_NAME_EMULATION_MAJOR = "emulationMajor";
+  @SerializedName(SERIALIZED_NAME_EMULATION_MAJOR)
+  private String emulationMajor;
+
+  public static final String SERIALIZED_NAME_EMULATION_MINOR = "emulationMinor";
+  @SerializedName(SERIALIZED_NAME_EMULATION_MINOR)
+  private String emulationMinor;
 
   public static final String SERIALIZED_NAME_GIT_COMMIT = "gitCommit";
   @SerializedName(SERIALIZED_NAME_GIT_COMMIT)
@@ -56,6 +64,14 @@ public class VersionInfo {
   public static final String SERIALIZED_NAME_MAJOR = "major";
   @SerializedName(SERIALIZED_NAME_MAJOR)
   private String major;
+
+  public static final String SERIALIZED_NAME_MIN_COMPATIBILITY_MAJOR = "minCompatibilityMajor";
+  @SerializedName(SERIALIZED_NAME_MIN_COMPATIBILITY_MAJOR)
+  private String minCompatibilityMajor;
+
+  public static final String SERIALIZED_NAME_MIN_COMPATIBILITY_MINOR = "minCompatibilityMinor";
+  @SerializedName(SERIALIZED_NAME_MIN_COMPATIBILITY_MINOR)
+  private String minCompatibilityMinor;
 
   public static final String SERIALIZED_NAME_MINOR = "minor";
   @SerializedName(SERIALIZED_NAME_MINOR)
@@ -107,6 +123,52 @@ public class VersionInfo {
 
   public void setCompiler(String compiler) {
     this.compiler = compiler;
+  }
+
+
+  public VersionInfo emulationMajor(String emulationMajor) {
+
+    this.emulationMajor = emulationMajor;
+    return this;
+  }
+
+   /**
+   * EmulationMajor is the major version of the emulation version
+   * @return emulationMajor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EmulationMajor is the major version of the emulation version")
+
+  public String getEmulationMajor() {
+    return emulationMajor;
+  }
+
+
+  public void setEmulationMajor(String emulationMajor) {
+    this.emulationMajor = emulationMajor;
+  }
+
+
+  public VersionInfo emulationMinor(String emulationMinor) {
+
+    this.emulationMinor = emulationMinor;
+    return this;
+  }
+
+   /**
+   * EmulationMinor is the minor version of the emulation version
+   * @return emulationMinor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "EmulationMinor is the minor version of the emulation version")
+
+  public String getEmulationMinor() {
+    return emulationMinor;
+  }
+
+
+  public void setEmulationMinor(String emulationMinor) {
+    this.emulationMinor = emulationMinor;
   }
 
 
@@ -205,10 +267,10 @@ public class VersionInfo {
   }
 
    /**
-   * Get major
+   * Major is the major version of the binary version
    * @return major
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Major is the major version of the binary version")
 
   public String getMajor() {
     return major;
@@ -220,6 +282,52 @@ public class VersionInfo {
   }
 
 
+  public VersionInfo minCompatibilityMajor(String minCompatibilityMajor) {
+
+    this.minCompatibilityMajor = minCompatibilityMajor;
+    return this;
+  }
+
+   /**
+   * MinCompatibilityMajor is the major version of the minimum compatibility version
+   * @return minCompatibilityMajor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MinCompatibilityMajor is the major version of the minimum compatibility version")
+
+  public String getMinCompatibilityMajor() {
+    return minCompatibilityMajor;
+  }
+
+
+  public void setMinCompatibilityMajor(String minCompatibilityMajor) {
+    this.minCompatibilityMajor = minCompatibilityMajor;
+  }
+
+
+  public VersionInfo minCompatibilityMinor(String minCompatibilityMinor) {
+
+    this.minCompatibilityMinor = minCompatibilityMinor;
+    return this;
+  }
+
+   /**
+   * MinCompatibilityMinor is the minor version of the minimum compatibility version
+   * @return minCompatibilityMinor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MinCompatibilityMinor is the minor version of the minimum compatibility version")
+
+  public String getMinCompatibilityMinor() {
+    return minCompatibilityMinor;
+  }
+
+
+  public void setMinCompatibilityMinor(String minCompatibilityMinor) {
+    this.minCompatibilityMinor = minCompatibilityMinor;
+  }
+
+
   public VersionInfo minor(String minor) {
 
     this.minor = minor;
@@ -227,10 +335,10 @@ public class VersionInfo {
   }
 
    /**
-   * Get minor
+   * Minor is the minor version of the binary version
    * @return minor
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Minor is the minor version of the binary version")
 
   public String getMinor() {
     return minor;
@@ -275,18 +383,22 @@ public class VersionInfo {
     VersionInfo versionInfo = (VersionInfo) o;
     return Objects.equals(this.buildDate, versionInfo.buildDate) &&
         Objects.equals(this.compiler, versionInfo.compiler) &&
+        Objects.equals(this.emulationMajor, versionInfo.emulationMajor) &&
+        Objects.equals(this.emulationMinor, versionInfo.emulationMinor) &&
         Objects.equals(this.gitCommit, versionInfo.gitCommit) &&
         Objects.equals(this.gitTreeState, versionInfo.gitTreeState) &&
         Objects.equals(this.gitVersion, versionInfo.gitVersion) &&
         Objects.equals(this.goVersion, versionInfo.goVersion) &&
         Objects.equals(this.major, versionInfo.major) &&
+        Objects.equals(this.minCompatibilityMajor, versionInfo.minCompatibilityMajor) &&
+        Objects.equals(this.minCompatibilityMinor, versionInfo.minCompatibilityMinor) &&
         Objects.equals(this.minor, versionInfo.minor) &&
         Objects.equals(this.platform, versionInfo.platform);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buildDate, compiler, gitCommit, gitTreeState, gitVersion, goVersion, major, minor, platform);
+    return Objects.hash(buildDate, compiler, emulationMajor, emulationMinor, gitCommit, gitTreeState, gitVersion, goVersion, major, minCompatibilityMajor, minCompatibilityMinor, minor, platform);
   }
 
 
@@ -296,11 +408,15 @@ public class VersionInfo {
     sb.append("class VersionInfo {\n");
     sb.append("    buildDate: ").append(toIndentedString(buildDate)).append("\n");
     sb.append("    compiler: ").append(toIndentedString(compiler)).append("\n");
+    sb.append("    emulationMajor: ").append(toIndentedString(emulationMajor)).append("\n");
+    sb.append("    emulationMinor: ").append(toIndentedString(emulationMinor)).append("\n");
     sb.append("    gitCommit: ").append(toIndentedString(gitCommit)).append("\n");
     sb.append("    gitTreeState: ").append(toIndentedString(gitTreeState)).append("\n");
     sb.append("    gitVersion: ").append(toIndentedString(gitVersion)).append("\n");
     sb.append("    goVersion: ").append(toIndentedString(goVersion)).append("\n");
     sb.append("    major: ").append(toIndentedString(major)).append("\n");
+    sb.append("    minCompatibilityMajor: ").append(toIndentedString(minCompatibilityMajor)).append("\n");
+    sb.append("    minCompatibilityMinor: ").append(toIndentedString(minCompatibilityMinor)).append("\n");
     sb.append("    minor: ").append(toIndentedString(minor)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("}");

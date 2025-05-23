@@ -29,7 +29,7 @@ import java.io.IOException;
  * PriorityLevelConfigurationSpec specifies the configuration of a priority level.
  */
 @ApiModel(description = "PriorityLevelConfigurationSpec specifies the configuration of a priority level.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1PriorityLevelConfigurationSpec {
   public static final String SERIALIZED_NAME_EXEMPT = "exempt";
   @SerializedName(SERIALIZED_NAME_EXEMPT)

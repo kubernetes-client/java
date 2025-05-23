@@ -41,14 +41,26 @@ public class V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A>> e
   public A addToEgress(int index,V1NetworkPolicyEgressRule item) {
     if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
     V1NetworkPolicyEgressRuleBuilder builder = new V1NetworkPolicyEgressRuleBuilder(item);
-    if (index < 0 || index >= egress.size()) { _visitables.get("egress").add(builder); egress.add(builder); } else { _visitables.get("egress").add(index, builder); egress.add(index, builder);}
+    if (index < 0 || index >= egress.size()) {
+        _visitables.get("egress").add(builder);
+        egress.add(builder);
+    } else {
+        _visitables.get("egress").add(builder);
+        egress.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEgress(int index,V1NetworkPolicyEgressRule item) {
     if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
     V1NetworkPolicyEgressRuleBuilder builder = new V1NetworkPolicyEgressRuleBuilder(item);
-    if (index < 0 || index >= egress.size()) { _visitables.get("egress").add(builder); egress.add(builder); } else { _visitables.get("egress").set(index, builder); egress.set(index, builder);}
+    if (index < 0 || index >= egress.size()) {
+        _visitables.get("egress").add(builder);
+        egress.add(builder);
+    } else {
+        _visitables.get("egress").add(builder);
+        egress.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -192,14 +204,26 @@ public class V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A>> e
   public A addToIngress(int index,V1NetworkPolicyIngressRule item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
     V1NetworkPolicyIngressRuleBuilder builder = new V1NetworkPolicyIngressRuleBuilder(item);
-    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").add(index, builder); ingress.add(index, builder);}
+    if (index < 0 || index >= ingress.size()) {
+        _visitables.get("ingress").add(builder);
+        ingress.add(builder);
+    } else {
+        _visitables.get("ingress").add(builder);
+        ingress.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToIngress(int index,V1NetworkPolicyIngressRule item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
     V1NetworkPolicyIngressRuleBuilder builder = new V1NetworkPolicyIngressRuleBuilder(item);
-    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").set(index, builder); ingress.set(index, builder);}
+    if (index < 0 || index >= ingress.size()) {
+        _visitables.get("ingress").add(builder);
+        ingress.add(builder);
+    } else {
+        _visitables.get("ingress").add(builder);
+        ingress.set(index, builder);
+    }
     return (A)this;
   }
   

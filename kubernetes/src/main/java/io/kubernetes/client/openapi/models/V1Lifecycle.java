@@ -28,7 +28,7 @@ import java.io.IOException;
  * Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.
  */
 @ApiModel(description = "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1Lifecycle {
   public static final String SERIALIZED_NAME_POST_START = "postStart";
   @SerializedName(SERIALIZED_NAME_POST_START)
@@ -37,6 +37,10 @@ public class V1Lifecycle {
   public static final String SERIALIZED_NAME_PRE_STOP = "preStop";
   @SerializedName(SERIALIZED_NAME_PRE_STOP)
   private V1LifecycleHandler preStop;
+
+  public static final String SERIALIZED_NAME_STOP_SIGNAL = "stopSignal";
+  @SerializedName(SERIALIZED_NAME_STOP_SIGNAL)
+  private String stopSignal;
 
 
   public V1Lifecycle postStart(V1LifecycleHandler postStart) {
@@ -85,6 +89,29 @@ public class V1Lifecycle {
   }
 
 
+  public V1Lifecycle stopSignal(String stopSignal) {
+
+    this.stopSignal = stopSignal;
+    return this;
+  }
+
+   /**
+   * StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name
+   * @return stopSignal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name")
+
+  public String getStopSignal() {
+    return stopSignal;
+  }
+
+
+  public void setStopSignal(String stopSignal) {
+    this.stopSignal = stopSignal;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -95,12 +122,13 @@ public class V1Lifecycle {
     }
     V1Lifecycle v1Lifecycle = (V1Lifecycle) o;
     return Objects.equals(this.postStart, v1Lifecycle.postStart) &&
-        Objects.equals(this.preStop, v1Lifecycle.preStop);
+        Objects.equals(this.preStop, v1Lifecycle.preStop) &&
+        Objects.equals(this.stopSignal, v1Lifecycle.stopSignal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(postStart, preStop);
+    return Objects.hash(postStart, preStop, stopSignal);
   }
 
 
@@ -110,6 +138,7 @@ public class V1Lifecycle {
     sb.append("class V1Lifecycle {\n");
     sb.append("    postStart: ").append(toIndentedString(postStart)).append("\n");
     sb.append("    preStop: ").append(toIndentedString(preStop)).append("\n");
+    sb.append("    stopSignal: ").append(toIndentedString(stopSignal)).append("\n");
     sb.append("}");
     return sb.toString();
   }

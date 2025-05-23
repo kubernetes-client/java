@@ -31,7 +31,7 @@ import java.util.Map;
  * LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
  */
 @ApiModel(description = "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T23:08:31.638427Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
   @SerializedName(SERIALIZED_NAME_DEFAULT)
