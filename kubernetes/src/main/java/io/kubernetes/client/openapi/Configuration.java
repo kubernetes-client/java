@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class Configuration {
-  public static final String VERSION = "24.0.0-SNAPSHOT";
+  public static final String VERSION = "25.0.0-SNAPSHOT";
 
   private static final AtomicReference<ApiClient> defaultApiClient = new AtomicReference<>();
   private static volatile Supplier<ApiClient> apiClientFactory = ApiClient::new;
