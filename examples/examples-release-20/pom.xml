@@ -121,7 +121,7 @@
 		</plugins>
 	</build>
     <properties>
-        <junit-jupiter.version>5.12.2</junit-jupiter.version>
+        <junit-jupiter.version>5.13.0</junit-jupiter.version>
         <spring.boot.version>3.5.0</spring.boot.version>
     </properties>
 </project>
