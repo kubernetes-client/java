@@ -8,7 +8,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<version>19.0.2-SNAPSHOT</version>
+	<version>19.0.3-SNAPSHOT</version>
 
 	<artifactId>client-java-examples-parent</artifactId>
 	<packaging>pom</packaging>

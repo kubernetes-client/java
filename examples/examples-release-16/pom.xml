@@ -10,6 +10,7 @@
 
 	<artifactId>client-java-examples-release-16</artifactId>
 	<name>client-java-examples-release-16</name>
+	<version>19.0.3-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>

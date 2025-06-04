@@ -10,7 +10,7 @@
         <version>19.0.2-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <version>19.0.2-SNAPSHOT</version>
+    <version>19.0.3-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
