@@ -138,6 +138,9 @@ public class KubectlTop<ApiType extends KubernetesObject, MetricsType>
 
   public static double podMetricSum(PodMetrics podMetrics, String metricName) {
     double sum = 0;
+    if (podMetrics == null) {
+      return 0;
+    }
     for (ContainerMetrics containerMetrics : podMetrics.getContainers()) {
       Quantity value = containerMetrics.getUsage().get(metricName);
       if (value != null) {
@@ -170,7 +173,11 @@ public class KubectlTop<ApiType extends KubernetesObject, MetricsType>
 
     List<Pair<ApiType, MetricsType>> result = new ArrayList<>();
     for (V1Pod pod : items) {
-      result.add(new ImmutablePair<>((ApiType) pod, (MetricsType) findPodMetric(pod, metrics)));
+      PodMetrics podMetrics = findPodMetric(pod, metrics);
+      if (podMetrics == null) {
+        continue;
+      }
+      result.add(new ImmutablePair<>((ApiType) pod, (MetricsType) podMetrics));
     }
     return result;
   }
