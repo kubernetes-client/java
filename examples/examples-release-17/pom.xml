@@ -117,6 +117,6 @@
 	</build>
 	<properties>
 		<junit-jupiter.version>5.13.1</junit-jupiter.version>
-		<spring.boot.version>3.5.0</spring.boot.version>
+		<spring.boot.version>3.5.2</spring.boot.version>
 	</properties>
 </project>
