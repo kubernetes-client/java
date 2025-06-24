@@ -12,6 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.HttpURLConnection;
+import java.time.Duration;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.BiConsumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
@@ -23,16 +35,6 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.Watchable;
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.time.Duration;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.BiConsumer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ReflectorRunnable<
         ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
@@ -87,19 +89,7 @@ public class ReflectorRunnable<
     log.info("{}#Start listing and watching...", apiTypeClass);
 
     try {
-      ApiListType list =
-          listerWatcher.list(
-              new CallGeneratorParams(Boolean.FALSE, getRelistResourceVersion(), null));
-
-      V1ListMeta listMeta = list.getMetadata();
-      String resourceVersion = listMeta.getResourceVersion();
-      List<? extends KubernetesObject> items = list.getItems();
-
-      if (log.isDebugEnabled()) {
-        log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
-      }
-      this.syncWith(items, resourceVersion);
-      this.lastSyncResourceVersion = resourceVersion;
+      this.lastSyncResourceVersion = initialLoad();
       this.isLastSyncResourceVersionUnavailable = false;
 
       if (log.isDebugEnabled()) {
@@ -196,6 +186,22 @@ public class ReflectorRunnable<
       watch.close();
       watch = null;
     }
+  }
+
+  private String initialLoad() throws ApiException {
+      ApiListType list =
+          listerWatcher.list(
+              new CallGeneratorParams(Boolean.FALSE, getRelistResourceVersion(), null));
+
+      V1ListMeta listMeta = list.getMetadata();
+      String resourceVersion = listMeta.getResourceVersion();
+      List<? extends KubernetesObject> items = list.getItems();
+
+      if (log.isDebugEnabled()) {
+        log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
+      }
+      this.syncWith(items, resourceVersion);
+      return resourceVersion;
   }
 
   private void syncWith(List<? extends KubernetesObject> items, String resourceVersion) {
