@@ -139,13 +139,7 @@ public class ReflectorRunnable<
           this.exceptionHandler.accept(apiTypeClass, t);
           return;
         } finally {
-          if (watch != null) {
-            try {
-              watch.close();
-            } catch (IOException e) {
-              log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
-            }
-          }
+          closeWatch(watch);
         }
       }
     } catch (ApiException e) {
@@ -167,6 +161,17 @@ public class ReflectorRunnable<
       isActive.set(false);
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
+    }
+  }
+
+  private synchronized void closeWatch(Watchable<ApiType> watch) {
+    try {
+      if (watch != null) {
+        watch.close();
+        watch = null;
+      }
+    } catch (IOException e) {
+      log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
     }
   }
 
@@ -266,11 +271,7 @@ public class ReflectorRunnable<
         log.debug("{}#Receiving resourceVersion {}", apiTypeClass, lastSyncResourceVersion);
       }
     }
-    try {
-      watch.close();
-    } catch (IOException e) {
-      log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
-    }
+    closeWatch(watch);
   }
 
   static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
