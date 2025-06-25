@@ -12,18 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.time.Duration;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.BiConsumer;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
@@ -35,6 +23,16 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.Watchable;
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.HttpURLConnection;
+import java.time.Duration;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.BiConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReflectorRunnable<
         ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
@@ -167,7 +165,6 @@ public class ReflectorRunnable<
   public void stop() {
     try {
       isActive.set(false);
-      closeWatch();
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
     }
