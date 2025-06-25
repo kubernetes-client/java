@@ -50,8 +50,6 @@ public class ReflectorRunnable<
 
   private boolean isLastSyncResourceVersionUnavailable;
 
-  private Watchable<ApiType> watch;
-
   private ListerWatcher<ApiType, ApiListType> listerWatcher;
 
   private DeltaFIFO store;
@@ -91,16 +89,11 @@ public class ReflectorRunnable<
     try {
       this.lastSyncResourceVersion = initialLoad();
       this.isLastSyncResourceVersionUnavailable = false;
-
+      Watchable<ApiType> watch = null;
       if (log.isDebugEnabled()) {
         log.debug("{}#Start watching with {}...", apiTypeClass, lastSyncResourceVersion);
       }
-      while (true) {
-        if (!isActive.get()) {
-          closeWatch();
-          return;
-        }
-
+      while (isActive.get()) {
         try {
           if (log.isDebugEnabled()) {
             log.debug(
@@ -110,21 +103,14 @@ public class ReflectorRunnable<
           long jitteredWatchTimeoutSeconds =
               Double.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds() * (1 + Math.random()))
                   .longValue();
-          Watchable<ApiType> newWatch =
+          watch =
               listerWatcher.watch(
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
                       Long.valueOf(jitteredWatchTimeoutSeconds).intValue()));
 
-          synchronized (this) {
-            if (!isActive.get()) {
-              newWatch.close();
-              continue;
-            }
-            watch = newWatch;
-          }
-          watchHandler(newWatch);
+          watchHandler(watch);
         } catch (WatchExpiredException e) {
           // Watch calls were failed due to expired resource-version. Returning
           // to unwind the list-watch loops so that we can respawn a new round
@@ -155,7 +141,13 @@ public class ReflectorRunnable<
           this.exceptionHandler.accept(apiTypeClass, t);
           return;
         } finally {
-          closeWatch();
+          if (watch != null) {
+            try {
+              watch.close();
+            } catch (IOException e) {
+              log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
+            }
+          }
         }
       }
     } catch (ApiException e) {
@@ -178,13 +170,6 @@ public class ReflectorRunnable<
       closeWatch();
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
-    }
-  }
-
-  private synchronized void closeWatch() throws IOException {
-    if (watch != null) {
-      watch.close();
-      watch = null;
     }
   }
 
@@ -283,6 +268,11 @@ public class ReflectorRunnable<
       if (log.isDebugEnabled()) {
         log.debug("{}#Receiving resourceVersion {}", apiTypeClass, lastSyncResourceVersion);
       }
+    }
+    try {
+      watch.close();
+    } catch (IOException e) {
+      log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
     }
   }
 
