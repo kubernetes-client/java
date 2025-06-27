@@ -75,7 +75,7 @@
     https://issues.apache.org/jira/browse/MNG-5632. Therefore, we specify
     optional dependencies here to manage them in a single location. -->
     <prometheus.client.optional>true</prometheus.client.optional>
-    <com.amazonaws.aws-java-sdk-sts.optional>true</com.amazonaws.aws-java-sdk-sts.optional>
+    <software.amazon.awssdk.sts.optional>true</software.amazon.awssdk.sts.optional>
     <com.google.auth.google-auth-library-oauth2-http.optional>true</com.google.auth.google-auth-library-oauth2-http.optional>
     <org.springframework.boot.spring-boot-actuator.optional>true</org.springframework.boot.spring-boot-actuator.optional>
 
@@ -150,9 +150,9 @@
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-java-sdk-sts</artifactId>
-        <version>1.12.787</version>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>sts</artifactId>
+        <version>2.31.70</version>
       </dependency>
       <dependency>
         <groupId>com.google.protobuf</groupId>
