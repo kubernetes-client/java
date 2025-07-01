@@ -12,13 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
-import com.amazonaws.auth.AWSSessionCredentialsProvider;
-import com.amazonaws.auth.BasicSessionCredentials;
 import io.kubernetes.client.openapi.ApiClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.when;
 class EKSAuthenticationTest {
 
     @Mock
-    private AWSSessionCredentialsProvider provider;
+    private AwsCredentialsProvider provider;
 
     @Mock
     private ApiClient apiClient;
@@ -39,7 +39,7 @@ class EKSAuthenticationTest {
 
   @Test
   void provideApiClient() {
-        when(provider.getCredentials()).thenReturn(new BasicSessionCredentials("ak", "sk", "session"));
+        when(provider.resolveCredentials()).thenReturn(AwsSessionCredentials.create("ak", "sk", "session"));
         EKSAuthentication authentication = new EKSAuthentication(provider, region, clusterName);
         authentication.provide(apiClient);
         verify(apiClient).setApiKey(anyString());
