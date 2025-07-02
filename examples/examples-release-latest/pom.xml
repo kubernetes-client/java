@@ -90,8 +90,8 @@
 			<version>${spring.boot.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-sts</artifactId>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>sts</artifactId>
 		</dependency>
 
 	</dependencies>
