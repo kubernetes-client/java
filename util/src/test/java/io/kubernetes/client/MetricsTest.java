@@ -58,6 +58,25 @@ class MetricsTest {
   }
 
   @Test
+  void getPodMetricsWithLabelSelectorThrowsAPIExceptionWhenServerReturnsError() {
+    String namespace = "default";
+    Metrics metrics = new Metrics(client);
+    apiServer.stubFor(
+            get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods.*"))
+                    .willReturn(
+                            aResponse()
+                                    .withStatus(503)
+                                    .withHeader("Content-Type", "text/plain")
+                                    .withBody("Service Unavailable")));
+    try {
+      metrics.getPodMetrics(namespace, "foo=bar");
+      failBecauseExceptionWasNotThrown(ApiException.class);
+    } catch (ApiException ex) {
+      assertThat(ex.getCode()).isEqualTo(503);
+    }
+  }
+
+  @Test
   void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
     Metrics metrics = new Metrics(client);
     apiServer.stubFor(
