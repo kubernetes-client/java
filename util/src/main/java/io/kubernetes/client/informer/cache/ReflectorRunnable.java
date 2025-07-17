@@ -48,8 +48,6 @@ public class ReflectorRunnable<
 
   private boolean isLastSyncResourceVersionUnavailable;
 
-  private Watchable<ApiType> watch;
-
   private ListerWatcher<ApiType, ApiListType> listerWatcher;
 
   private DeltaFIFO store;
@@ -87,30 +85,13 @@ public class ReflectorRunnable<
     log.info("{}#Start listing and watching...", apiTypeClass);
 
     try {
-      ApiListType list =
-          listerWatcher.list(
-              new CallGeneratorParams(Boolean.FALSE, getRelistResourceVersion(), null));
-
-      V1ListMeta listMeta = list.getMetadata();
-      String resourceVersion = listMeta.getResourceVersion();
-      List<? extends KubernetesObject> items = list.getItems();
-
-      if (log.isDebugEnabled()) {
-        log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
-      }
-      this.syncWith(items, resourceVersion);
-      this.lastSyncResourceVersion = resourceVersion;
+      this.lastSyncResourceVersion = initialLoad();
       this.isLastSyncResourceVersionUnavailable = false;
-
+      Watchable<ApiType> watch = null;
       if (log.isDebugEnabled()) {
         log.debug("{}#Start watching with {}...", apiTypeClass, lastSyncResourceVersion);
       }
-      while (true) {
-        if (!isActive.get()) {
-          closeWatch();
-          return;
-        }
-
+      while (isActive.get()) {
         try {
           if (log.isDebugEnabled()) {
             log.debug(
@@ -120,21 +101,14 @@ public class ReflectorRunnable<
           long jitteredWatchTimeoutSeconds =
               Double.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds() * (1 + Math.random()))
                   .longValue();
-          Watchable<ApiType> newWatch =
+          watch =
               listerWatcher.watch(
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
                       Long.valueOf(jitteredWatchTimeoutSeconds).intValue()));
 
-          synchronized (this) {
-            if (!isActive.get()) {
-              newWatch.close();
-              continue;
-            }
-            watch = newWatch;
-          }
-          watchHandler(newWatch);
+          watchHandler(watch);
         } catch (WatchExpiredException e) {
           // Watch calls were failed due to expired resource-version. Returning
           // to unwind the list-watch loops so that we can respawn a new round
@@ -165,7 +139,7 @@ public class ReflectorRunnable<
           this.exceptionHandler.accept(apiTypeClass, t);
           return;
         } finally {
-          closeWatch();
+          closeWatch(watch);
         }
       }
     } catch (ApiException e) {
@@ -185,17 +159,36 @@ public class ReflectorRunnable<
   public void stop() {
     try {
       isActive.set(false);
-      closeWatch();
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
     }
   }
 
-  private synchronized void closeWatch() throws IOException {
-    if (watch != null) {
-      watch.close();
-      watch = null;
+  private synchronized void closeWatch(Watchable<ApiType> watch) {
+    try {
+      if (watch != null) {
+        watch.close();
+        watch = null;
+      }
+    } catch (IOException e) {
+      log.warn("{}#Error while closing watcher", this.apiTypeClass, e);
     }
+  }
+
+  private String initialLoad() throws ApiException {
+      ApiListType list =
+          listerWatcher.list(
+              new CallGeneratorParams(Boolean.FALSE, getRelistResourceVersion(), null));
+
+      V1ListMeta listMeta = list.getMetadata();
+      String resourceVersion = listMeta.getResourceVersion();
+      List<? extends KubernetesObject> items = list.getItems();
+
+      if (log.isDebugEnabled()) {
+        log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
+      }
+      this.syncWith(items, resourceVersion);
+      return resourceVersion;
   }
 
   private void syncWith(List<? extends KubernetesObject> items, String resourceVersion) {
@@ -278,6 +271,7 @@ public class ReflectorRunnable<
         log.debug("{}#Receiving resourceVersion {}", apiTypeClass, lastSyncResourceVersion);
       }
     }
+    closeWatch(watch);
   }
 
   static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
