@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,79 +51,82 @@ import io.kubernetes.client.openapi.JSON;
  * ContainerResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing a single container in each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \&quot;pods\&quot; source.
  */
 @ApiModel(description = "ContainerResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing a single container in each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2ContainerResourceMetricStatus {
   public static final String SERIALIZED_NAME_CONTAINER = "container";
   @SerializedName(SERIALIZED_NAME_CONTAINER)
+  @jakarta.annotation.Nonnull
   private String container;
 
   public static final String SERIALIZED_NAME_CURRENT = "current";
   @SerializedName(SERIALIZED_NAME_CURRENT)
+  @jakarta.annotation.Nonnull
   private V2MetricValueStatus current;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V2ContainerResourceMetricStatus() {
   }
 
-  public V2ContainerResourceMetricStatus container(String container) {
+  public V2ContainerResourceMetricStatus container(@jakarta.annotation.Nonnull String container) {
     this.container = container;
     return this;
   }
 
-   /**
+  /**
    * container is the name of the container in the pods of the scaling target
    * @return container
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "container is the name of the container in the pods of the scaling target")
   public String getContainer() {
     return container;
   }
 
-  public void setContainer(String container) {
+  public void setContainer(@jakarta.annotation.Nonnull String container) {
     this.container = container;
   }
 
 
-  public V2ContainerResourceMetricStatus current(V2MetricValueStatus current) {
+  public V2ContainerResourceMetricStatus current(@jakarta.annotation.Nonnull V2MetricValueStatus current) {
     this.current = current;
     return this;
   }
 
-   /**
+  /**
    * Get current
    * @return current
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V2MetricValueStatus getCurrent() {
     return current;
   }
 
-  public void setCurrent(V2MetricValueStatus current) {
+  public void setCurrent(@jakarta.annotation.Nonnull V2MetricValueStatus current) {
     this.current = current;
   }
 
 
-  public V2ContainerResourceMetricStatus name(String name) {
+  public V2ContainerResourceMetricStatus name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the resource in question.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of the resource in question.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -189,12 +191,12 @@ public class V2ContainerResourceMetricStatus {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2ContainerResourceMetricStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2ContainerResourceMetricStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2ContainerResourceMetricStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -256,22 +258,22 @@ public class V2ContainerResourceMetricStatus {
     }
   }
 
- /**
-  * Create an instance of V2ContainerResourceMetricStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2ContainerResourceMetricStatus
-  * @throws IOException if the JSON string is invalid with respect to V2ContainerResourceMetricStatus
-  */
+  /**
+   * Create an instance of V2ContainerResourceMetricStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2ContainerResourceMetricStatus
+   * @throws IOException if the JSON string is invalid with respect to V2ContainerResourceMetricStatus
+   */
   public static V2ContainerResourceMetricStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2ContainerResourceMetricStatus.class);
   }
 
- /**
-  * Convert an instance of V2ContainerResourceMetricStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2ContainerResourceMetricStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

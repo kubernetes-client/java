@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,20 +55,22 @@ import io.kubernetes.client.openapi.JSON;
  * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
  */
 @ApiModel(description = "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LabelSelector {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
   @SerializedName(SERIALIZED_NAME_MATCH_EXPRESSIONS)
+  @jakarta.annotation.Nullable
   private List<V1LabelSelectorRequirement> matchExpressions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCH_LABELS = "matchLabels";
   @SerializedName(SERIALIZED_NAME_MATCH_LABELS)
+  @jakarta.annotation.Nullable
   private Map<String, String> matchLabels = new HashMap<>();
 
   public V1LabelSelector() {
   }
 
-  public V1LabelSelector matchExpressions(List<V1LabelSelectorRequirement> matchExpressions) {
+  public V1LabelSelector matchExpressions(@jakarta.annotation.Nullable List<V1LabelSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
     return this;
   }
@@ -82,22 +83,22 @@ public class V1LabelSelector {
     return this;
   }
 
-   /**
+  /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    * @return matchExpressions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "matchExpressions is a list of label selector requirements. The requirements are ANDed.")
   public List<V1LabelSelectorRequirement> getMatchExpressions() {
     return matchExpressions;
   }
 
-  public void setMatchExpressions(List<V1LabelSelectorRequirement> matchExpressions) {
+  public void setMatchExpressions(@jakarta.annotation.Nullable List<V1LabelSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
   }
 
 
-  public V1LabelSelector matchLabels(Map<String, String> matchLabels) {
+  public V1LabelSelector matchLabels(@jakarta.annotation.Nullable Map<String, String> matchLabels) {
     this.matchLabels = matchLabels;
     return this;
   }
@@ -110,17 +111,17 @@ public class V1LabelSelector {
     return this;
   }
 
-   /**
+  /**
    * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \&quot;key\&quot;, the operator is \&quot;In\&quot;, and the values array contains only \&quot;value\&quot;. The requirements are ANDed.
    * @return matchLabels
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.")
   public Map<String, String> getMatchLabels() {
     return matchLabels;
   }
 
-  public void setMatchLabels(Map<String, String> matchLabels) {
+  public void setMatchLabels(@jakarta.annotation.Nullable Map<String, String> matchLabels) {
     this.matchLabels = matchLabels;
   }
 
@@ -179,12 +180,12 @@ public class V1LabelSelector {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LabelSelector
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LabelSelector
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LabelSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -245,22 +246,22 @@ public class V1LabelSelector {
     }
   }
 
- /**
-  * Create an instance of V1LabelSelector given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LabelSelector
-  * @throws IOException if the JSON string is invalid with respect to V1LabelSelector
-  */
+  /**
+   * Create an instance of V1LabelSelector given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LabelSelector
+   * @throws IOException if the JSON string is invalid with respect to V1LabelSelector
+   */
   public static V1LabelSelector fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LabelSelector.class);
   }
 
- /**
-  * Convert an instance of V1LabelSelector to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LabelSelector to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

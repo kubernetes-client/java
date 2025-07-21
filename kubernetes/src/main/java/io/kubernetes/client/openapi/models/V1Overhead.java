@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * Overhead structure represents the resource overhead associated with running a pod.
  */
 @ApiModel(description = "Overhead structure represents the resource overhead associated with running a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Overhead {
   public static final String SERIALIZED_NAME_POD_FIXED = "podFixed";
   @SerializedName(SERIALIZED_NAME_POD_FIXED)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> podFixed = new HashMap<>();
 
   public V1Overhead() {
   }
 
-  public V1Overhead podFixed(Map<String, Quantity> podFixed) {
+  public V1Overhead podFixed(@jakarta.annotation.Nullable Map<String, Quantity> podFixed) {
     this.podFixed = podFixed;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1Overhead {
     return this;
   }
 
-   /**
+  /**
    * podFixed represents the fixed resource overhead associated with running a pod.
    * @return podFixed
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "podFixed represents the fixed resource overhead associated with running a pod.")
   public Map<String, Quantity> getPodFixed() {
     return podFixed;
   }
 
-  public void setPodFixed(Map<String, Quantity> podFixed) {
+  public void setPodFixed(@jakarta.annotation.Nullable Map<String, Quantity> podFixed) {
     this.podFixed = podFixed;
   }
 
@@ -142,12 +142,12 @@ public class V1Overhead {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Overhead
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Overhead
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Overhead.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -194,22 +194,22 @@ public class V1Overhead {
     }
   }
 
- /**
-  * Create an instance of V1Overhead given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Overhead
-  * @throws IOException if the JSON string is invalid with respect to V1Overhead
-  */
+  /**
+   * Create an instance of V1Overhead given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Overhead
+   * @throws IOException if the JSON string is invalid with respect to V1Overhead
+   */
   public static V1Overhead fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Overhead.class);
   }
 
- /**
-  * Convert an instance of V1Overhead to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Overhead to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,175 +50,182 @@ import io.kubernetes.client.openapi.JSON;
  * ObjectReference contains enough information to let you inspect or modify the referred object.
  */
 @ApiModel(description = "ObjectReference contains enough information to let you inspect or modify the referred object.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_FIELD_PATH = "fieldPath";
   @SerializedName(SERIALIZED_NAME_FIELD_PATH)
+  @jakarta.annotation.Nullable
   private String fieldPath;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
   @SerializedName(SERIALIZED_NAME_RESOURCE_VERSION)
+  @jakarta.annotation.Nullable
   private String resourceVersion;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nullable
   private String uid;
 
   public V1ObjectReference() {
   }
 
-  public V1ObjectReference apiVersion(String apiVersion) {
+  public V1ObjectReference apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * API version of the referent.
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "API version of the referent.")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1ObjectReference fieldPath(String fieldPath) {
+  public V1ObjectReference fieldPath(@jakarta.annotation.Nullable String fieldPath) {
     this.fieldPath = fieldPath;
     return this;
   }
 
-   /**
+  /**
    * If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \&quot;spec.containers{name}\&quot; (where \&quot;name\&quot; refers to the name of the container that triggered the event) or if no container name is specified \&quot;spec.containers[2]\&quot; (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
    * @return fieldPath
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.")
   public String getFieldPath() {
     return fieldPath;
   }
 
-  public void setFieldPath(String fieldPath) {
+  public void setFieldPath(@jakarta.annotation.Nullable String fieldPath) {
     this.fieldPath = fieldPath;
   }
 
 
-  public V1ObjectReference kind(String kind) {
+  public V1ObjectReference kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1ObjectReference name(String name) {
+  public V1ObjectReference name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1ObjectReference namespace(String namespace) {
+  public V1ObjectReference namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public V1ObjectReference resourceVersion(String resourceVersion) {
+  public V1ObjectReference resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return this;
   }
 
-   /**
+  /**
    * Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
    * @return resourceVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency")
   public String getResourceVersion() {
     return resourceVersion;
   }
 
-  public void setResourceVersion(String resourceVersion) {
+  public void setResourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
   }
 
 
-  public V1ObjectReference uid(String uid) {
+  public V1ObjectReference uid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
   }
 
@@ -293,12 +299,12 @@ public class V1ObjectReference {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ObjectReference
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ObjectReference
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ObjectReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -366,22 +372,22 @@ public class V1ObjectReference {
     }
   }
 
- /**
-  * Create an instance of V1ObjectReference given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ObjectReference
-  * @throws IOException if the JSON string is invalid with respect to V1ObjectReference
-  */
+  /**
+   * Create an instance of V1ObjectReference given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ObjectReference
+   * @throws IOException if the JSON string is invalid with respect to V1ObjectReference
+   */
   public static V1ObjectReference fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ObjectReference.class);
   }
 
- /**
-  * Convert an instance of V1ObjectReference to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ObjectReference to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

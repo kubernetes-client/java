@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \&quot;pods\&quot; source.
  */
 @ApiModel(description = "ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2ResourceMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT = "current";
   @SerializedName(SERIALIZED_NAME_CURRENT)
+  @jakarta.annotation.Nonnull
   private V2MetricValueStatus current;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V2ResourceMetricStatus() {
   }
 
-  public V2ResourceMetricStatus current(V2MetricValueStatus current) {
+  public V2ResourceMetricStatus current(@jakarta.annotation.Nonnull V2MetricValueStatus current) {
     this.current = current;
     return this;
   }
 
-   /**
+  /**
    * Get current
    * @return current
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V2MetricValueStatus getCurrent() {
     return current;
   }
 
-  public void setCurrent(V2MetricValueStatus current) {
+  public void setCurrent(@jakarta.annotation.Nonnull V2MetricValueStatus current) {
     this.current = current;
   }
 
 
-  public V2ResourceMetricStatus name(String name) {
+  public V2ResourceMetricStatus name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the resource in question.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of the resource in question.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -161,12 +162,12 @@ public class V2ResourceMetricStatus {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2ResourceMetricStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2ResourceMetricStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2ResourceMetricStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V2ResourceMetricStatus {
     }
   }
 
- /**
-  * Create an instance of V2ResourceMetricStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2ResourceMetricStatus
-  * @throws IOException if the JSON string is invalid with respect to V2ResourceMetricStatus
-  */
+  /**
+   * Create an instance of V2ResourceMetricStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2ResourceMetricStatus
+   * @throws IOException if the JSON string is invalid with respect to V2ResourceMetricStatus
+   */
   public static V2ResourceMetricStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2ResourceMetricStatus.class);
   }
 
- /**
-  * Convert an instance of V2ResourceMetricStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2ResourceMetricStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

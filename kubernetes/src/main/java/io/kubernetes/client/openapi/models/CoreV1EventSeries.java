@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
  */
 @ApiModel(description = "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class CoreV1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
+  @jakarta.annotation.Nullable
   private Integer count;
 
   public static final String SERIALIZED_NAME_LAST_OBSERVED_TIME = "lastObservedTime";
   @SerializedName(SERIALIZED_NAME_LAST_OBSERVED_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastObservedTime;
 
   public CoreV1EventSeries() {
   }
 
-  public CoreV1EventSeries count(Integer count) {
+  public CoreV1EventSeries count(@jakarta.annotation.Nullable Integer count) {
     this.count = count;
     return this;
   }
 
-   /**
+  /**
    * Number of occurrences in this series up to the last heartbeat time
    * @return count
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of occurrences in this series up to the last heartbeat time")
   public Integer getCount() {
     return count;
   }
 
-  public void setCount(Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Integer count) {
     this.count = count;
   }
 
 
-  public CoreV1EventSeries lastObservedTime(OffsetDateTime lastObservedTime) {
+  public CoreV1EventSeries lastObservedTime(@jakarta.annotation.Nullable OffsetDateTime lastObservedTime) {
     this.lastObservedTime = lastObservedTime;
     return this;
   }
 
-   /**
+  /**
    * Time of the last occurrence observed
    * @return lastObservedTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time of the last occurrence observed")
   public OffsetDateTime getLastObservedTime() {
     return lastObservedTime;
   }
 
-  public void setLastObservedTime(OffsetDateTime lastObservedTime) {
+  public void setLastObservedTime(@jakarta.annotation.Nullable OffsetDateTime lastObservedTime) {
     this.lastObservedTime = lastObservedTime;
   }
 
@@ -159,12 +160,12 @@ public class CoreV1EventSeries {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CoreV1EventSeries
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CoreV1EventSeries
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CoreV1EventSeries.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -211,22 +212,22 @@ public class CoreV1EventSeries {
     }
   }
 
- /**
-  * Create an instance of CoreV1EventSeries given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CoreV1EventSeries
-  * @throws IOException if the JSON string is invalid with respect to CoreV1EventSeries
-  */
+  /**
+   * Create an instance of CoreV1EventSeries given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CoreV1EventSeries
+   * @throws IOException if the JSON string is invalid with respect to CoreV1EventSeries
+   */
   public static CoreV1EventSeries fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CoreV1EventSeries.class);
   }
 
- /**
-  * Convert an instance of CoreV1EventSeries to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CoreV1EventSeries to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

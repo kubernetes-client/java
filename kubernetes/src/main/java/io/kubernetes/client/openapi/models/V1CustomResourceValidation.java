@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceValidation is a list of validation methods for CustomResources.
  */
 @ApiModel(description = "CustomResourceValidation is a list of validation methods for CustomResources.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceValidation {
   public static final String SERIALIZED_NAME_OPEN_A_P_I_V3_SCHEMA = "openAPIV3Schema";
   @SerializedName(SERIALIZED_NAME_OPEN_A_P_I_V3_SCHEMA)
+  @jakarta.annotation.Nullable
   private V1JSONSchemaProps openAPIV3Schema;
 
   public V1CustomResourceValidation() {
   }
 
-  public V1CustomResourceValidation openAPIV3Schema(V1JSONSchemaProps openAPIV3Schema) {
+  public V1CustomResourceValidation openAPIV3Schema(@jakarta.annotation.Nullable V1JSONSchemaProps openAPIV3Schema) {
     this.openAPIV3Schema = openAPIV3Schema;
     return this;
   }
 
-   /**
+  /**
    * Get openAPIV3Schema
    * @return openAPIV3Schema
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1JSONSchemaProps getOpenAPIV3Schema() {
     return openAPIV3Schema;
   }
 
-  public void setOpenAPIV3Schema(V1JSONSchemaProps openAPIV3Schema) {
+  public void setOpenAPIV3Schema(@jakarta.annotation.Nullable V1JSONSchemaProps openAPIV3Schema) {
     this.openAPIV3Schema = openAPIV3Schema;
   }
 
@@ -132,12 +132,12 @@ public class V1CustomResourceValidation {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceValidation
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceValidation
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceValidation.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1CustomResourceValidation {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceValidation given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceValidation
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceValidation
-  */
+  /**
+   * Create an instance of V1CustomResourceValidation given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceValidation
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceValidation
+   */
   public static V1CustomResourceValidation fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceValidation.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceValidation to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceValidation to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

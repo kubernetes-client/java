@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.
  */
 @ApiModel(description = "ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1ResourceClaimConsumerReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
+  @jakarta.annotation.Nullable
   private String apiGroup;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
+  @jakarta.annotation.Nonnull
   private String resource;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nonnull
   private String uid;
 
   public V1beta1ResourceClaimConsumerReference() {
   }
 
-  public V1beta1ResourceClaimConsumerReference apiGroup(String apiGroup) {
+  public V1beta1ResourceClaimConsumerReference apiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
     return this;
   }
 
-   /**
+  /**
    * APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.
    * @return apiGroup
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIGroup is the group for the resource being referenced. It is empty for the core API. This matches the group in the APIVersion that is used when creating the resources.")
   public String getApiGroup() {
     return apiGroup;
   }
 
-  public void setApiGroup(String apiGroup) {
+  public void setApiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
   }
 
 
-  public V1beta1ResourceClaimConsumerReference name(String name) {
+  public V1beta1ResourceClaimConsumerReference name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name of resource being referenced.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is the name of resource being referenced.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1beta1ResourceClaimConsumerReference resource(String resource) {
+  public V1beta1ResourceClaimConsumerReference resource(@jakarta.annotation.Nonnull String resource) {
     this.resource = resource;
     return this;
   }
 
-   /**
+  /**
    * Resource is the type of resource being referenced, for example \&quot;pods\&quot;.
    * @return resource
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Resource is the type of resource being referenced, for example \"pods\".")
   public String getResource() {
     return resource;
   }
 
-  public void setResource(String resource) {
+  public void setResource(@jakarta.annotation.Nonnull String resource) {
     this.resource = resource;
   }
 
 
-  public V1beta1ResourceClaimConsumerReference uid(String uid) {
+  public V1beta1ResourceClaimConsumerReference uid(@jakarta.annotation.Nonnull String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * UID identifies exactly one incarnation of the resource.
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "UID identifies exactly one incarnation of the resource.")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nonnull String uid) {
     this.uid = uid;
   }
 
@@ -215,12 +218,12 @@ public class V1beta1ResourceClaimConsumerReference {
     openapiRequiredFields.add("uid");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1ResourceClaimConsumerReference
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1ResourceClaimConsumerReference
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1ResourceClaimConsumerReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -286,22 +289,22 @@ public class V1beta1ResourceClaimConsumerReference {
     }
   }
 
- /**
-  * Create an instance of V1beta1ResourceClaimConsumerReference given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1ResourceClaimConsumerReference
-  * @throws IOException if the JSON string is invalid with respect to V1beta1ResourceClaimConsumerReference
-  */
+  /**
+   * Create an instance of V1beta1ResourceClaimConsumerReference given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1ResourceClaimConsumerReference
+   * @throws IOException if the JSON string is invalid with respect to V1beta1ResourceClaimConsumerReference
+   */
   public static V1beta1ResourceClaimConsumerReference fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1ResourceClaimConsumerReference.class);
   }
 
- /**
-  * Convert an instance of V1beta1ResourceClaimConsumerReference to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1ResourceClaimConsumerReference to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

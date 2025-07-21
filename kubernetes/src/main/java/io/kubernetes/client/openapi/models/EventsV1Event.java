@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,415 +55,432 @@ import io.kubernetes.client.openapi.JSON;
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
  */
 @ApiModel(description = "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class EventsV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
+  @jakarta.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_DEPRECATED_COUNT = "deprecatedCount";
   @SerializedName(SERIALIZED_NAME_DEPRECATED_COUNT)
+  @jakarta.annotation.Nullable
   private Integer deprecatedCount;
 
   public static final String SERIALIZED_NAME_DEPRECATED_FIRST_TIMESTAMP = "deprecatedFirstTimestamp";
   @SerializedName(SERIALIZED_NAME_DEPRECATED_FIRST_TIMESTAMP)
+  @jakarta.annotation.Nullable
   private OffsetDateTime deprecatedFirstTimestamp;
 
   public static final String SERIALIZED_NAME_DEPRECATED_LAST_TIMESTAMP = "deprecatedLastTimestamp";
   @SerializedName(SERIALIZED_NAME_DEPRECATED_LAST_TIMESTAMP)
+  @jakarta.annotation.Nullable
   private OffsetDateTime deprecatedLastTimestamp;
 
   public static final String SERIALIZED_NAME_DEPRECATED_SOURCE = "deprecatedSource";
   @SerializedName(SERIALIZED_NAME_DEPRECATED_SOURCE)
+  @jakarta.annotation.Nullable
   private V1EventSource deprecatedSource;
 
   public static final String SERIALIZED_NAME_EVENT_TIME = "eventTime";
   @SerializedName(SERIALIZED_NAME_EVENT_TIME)
+  @jakarta.annotation.Nonnull
   private OffsetDateTime eventTime;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_NOTE = "note";
   @SerializedName(SERIALIZED_NAME_NOTE)
+  @jakarta.annotation.Nullable
   private String note;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public static final String SERIALIZED_NAME_REGARDING = "regarding";
   @SerializedName(SERIALIZED_NAME_REGARDING)
+  @jakarta.annotation.Nullable
   private V1ObjectReference regarding;
 
   public static final String SERIALIZED_NAME_RELATED = "related";
   @SerializedName(SERIALIZED_NAME_RELATED)
+  @jakarta.annotation.Nullable
   private V1ObjectReference related;
 
   public static final String SERIALIZED_NAME_REPORTING_CONTROLLER = "reportingController";
   @SerializedName(SERIALIZED_NAME_REPORTING_CONTROLLER)
+  @jakarta.annotation.Nullable
   private String reportingController;
 
   public static final String SERIALIZED_NAME_REPORTING_INSTANCE = "reportingInstance";
   @SerializedName(SERIALIZED_NAME_REPORTING_INSTANCE)
+  @jakarta.annotation.Nullable
   private String reportingInstance;
 
   public static final String SERIALIZED_NAME_SERIES = "series";
   @SerializedName(SERIALIZED_NAME_SERIES)
+  @jakarta.annotation.Nullable
   private EventsV1EventSeries series;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nullable
   private String type;
 
   public EventsV1Event() {
   }
 
-  public EventsV1Event action(String action) {
+  public EventsV1Event action(@jakarta.annotation.Nullable String action) {
     this.action = action;
     return this;
   }
 
-   /**
+  /**
    * action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return action
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nullable String action) {
     this.action = action;
   }
 
 
-  public EventsV1Event apiVersion(String apiVersion) {
+  public EventsV1Event apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public EventsV1Event deprecatedCount(Integer deprecatedCount) {
+  public EventsV1Event deprecatedCount(@jakarta.annotation.Nullable Integer deprecatedCount) {
     this.deprecatedCount = deprecatedCount;
     return this;
   }
 
-   /**
+  /**
    * deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedCount
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public Integer getDeprecatedCount() {
     return deprecatedCount;
   }
 
-  public void setDeprecatedCount(Integer deprecatedCount) {
+  public void setDeprecatedCount(@jakarta.annotation.Nullable Integer deprecatedCount) {
     this.deprecatedCount = deprecatedCount;
   }
 
 
-  public EventsV1Event deprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
+  public EventsV1Event deprecatedFirstTimestamp(@jakarta.annotation.Nullable OffsetDateTime deprecatedFirstTimestamp) {
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
     return this;
   }
 
-   /**
+  /**
    * deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedFirstTimestamp
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public OffsetDateTime getDeprecatedFirstTimestamp() {
     return deprecatedFirstTimestamp;
   }
 
-  public void setDeprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
+  public void setDeprecatedFirstTimestamp(@jakarta.annotation.Nullable OffsetDateTime deprecatedFirstTimestamp) {
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
   }
 
 
-  public EventsV1Event deprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
+  public EventsV1Event deprecatedLastTimestamp(@jakarta.annotation.Nullable OffsetDateTime deprecatedLastTimestamp) {
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
     return this;
   }
 
-   /**
+  /**
    * deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedLastTimestamp
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
   public OffsetDateTime getDeprecatedLastTimestamp() {
     return deprecatedLastTimestamp;
   }
 
-  public void setDeprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
+  public void setDeprecatedLastTimestamp(@jakarta.annotation.Nullable OffsetDateTime deprecatedLastTimestamp) {
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
   }
 
 
-  public EventsV1Event deprecatedSource(V1EventSource deprecatedSource) {
+  public EventsV1Event deprecatedSource(@jakarta.annotation.Nullable V1EventSource deprecatedSource) {
     this.deprecatedSource = deprecatedSource;
     return this;
   }
 
-   /**
+  /**
    * Get deprecatedSource
    * @return deprecatedSource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EventSource getDeprecatedSource() {
     return deprecatedSource;
   }
 
-  public void setDeprecatedSource(V1EventSource deprecatedSource) {
+  public void setDeprecatedSource(@jakarta.annotation.Nullable V1EventSource deprecatedSource) {
     this.deprecatedSource = deprecatedSource;
   }
 
 
-  public EventsV1Event eventTime(OffsetDateTime eventTime) {
+  public EventsV1Event eventTime(@jakarta.annotation.Nonnull OffsetDateTime eventTime) {
     this.eventTime = eventTime;
     return this;
   }
 
-   /**
+  /**
    * eventTime is the time when this Event was first observed. It is required.
    * @return eventTime
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "eventTime is the time when this Event was first observed. It is required.")
   public OffsetDateTime getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(OffsetDateTime eventTime) {
+  public void setEventTime(@jakarta.annotation.Nonnull OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
 
 
-  public EventsV1Event kind(String kind) {
+  public EventsV1Event kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public EventsV1Event metadata(V1ObjectMeta metadata) {
+  public EventsV1Event metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public EventsV1Event note(String note) {
+  public EventsV1Event note(@jakarta.annotation.Nullable String note) {
     this.note = note;
     return this;
   }
 
-   /**
+  /**
    * note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
    * @return note
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.")
   public String getNote() {
     return note;
   }
 
-  public void setNote(String note) {
+  public void setNote(@jakarta.annotation.Nullable String note) {
     this.note = note;
   }
 
 
-  public EventsV1Event reason(String reason) {
+  public EventsV1Event reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
 
-  public EventsV1Event regarding(V1ObjectReference regarding) {
+  public EventsV1Event regarding(@jakarta.annotation.Nullable V1ObjectReference regarding) {
     this.regarding = regarding;
     return this;
   }
 
-   /**
+  /**
    * Get regarding
    * @return regarding
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getRegarding() {
     return regarding;
   }
 
-  public void setRegarding(V1ObjectReference regarding) {
+  public void setRegarding(@jakarta.annotation.Nullable V1ObjectReference regarding) {
     this.regarding = regarding;
   }
 
 
-  public EventsV1Event related(V1ObjectReference related) {
+  public EventsV1Event related(@jakarta.annotation.Nullable V1ObjectReference related) {
     this.related = related;
     return this;
   }
 
-   /**
+  /**
    * Get related
    * @return related
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getRelated() {
     return related;
   }
 
-  public void setRelated(V1ObjectReference related) {
+  public void setRelated(@jakarta.annotation.Nullable V1ObjectReference related) {
     this.related = related;
   }
 
 
-  public EventsV1Event reportingController(String reportingController) {
+  public EventsV1Event reportingController(@jakarta.annotation.Nullable String reportingController) {
     this.reportingController = reportingController;
     return this;
   }
 
-   /**
+  /**
    * reportingController is the name of the controller that emitted this Event, e.g. &#x60;kubernetes.io/kubelet&#x60;. This field cannot be empty for new Events.
    * @return reportingController
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reportingController is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. This field cannot be empty for new Events.")
   public String getReportingController() {
     return reportingController;
   }
 
-  public void setReportingController(String reportingController) {
+  public void setReportingController(@jakarta.annotation.Nullable String reportingController) {
     this.reportingController = reportingController;
   }
 
 
-  public EventsV1Event reportingInstance(String reportingInstance) {
+  public EventsV1Event reportingInstance(@jakarta.annotation.Nullable String reportingInstance) {
     this.reportingInstance = reportingInstance;
     return this;
   }
 
-   /**
+  /**
    * reportingInstance is the ID of the controller instance, e.g. &#x60;kubelet-xyzf&#x60;. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return reportingInstance
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getReportingInstance() {
     return reportingInstance;
   }
 
-  public void setReportingInstance(String reportingInstance) {
+  public void setReportingInstance(@jakarta.annotation.Nullable String reportingInstance) {
     this.reportingInstance = reportingInstance;
   }
 
 
-  public EventsV1Event series(EventsV1EventSeries series) {
+  public EventsV1Event series(@jakarta.annotation.Nullable EventsV1EventSeries series) {
     this.series = series;
     return this;
   }
 
-   /**
+  /**
    * Get series
    * @return series
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public EventsV1EventSeries getSeries() {
     return series;
   }
 
-  public void setSeries(EventsV1EventSeries series) {
+  public void setSeries(@jakarta.annotation.Nullable EventsV1EventSeries series) {
     this.series = series;
   }
 
 
-  public EventsV1Event type(String type) {
+  public EventsV1Event type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
@@ -569,12 +585,12 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     openapiRequiredFields.add("eventTime");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to EventsV1Event
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to EventsV1Event
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EventsV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -672,22 +688,22 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     }
   }
 
- /**
-  * Create an instance of EventsV1Event given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of EventsV1Event
-  * @throws IOException if the JSON string is invalid with respect to EventsV1Event
-  */
+  /**
+   * Create an instance of EventsV1Event given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of EventsV1Event
+   * @throws IOException if the JSON string is invalid with respect to EventsV1Event
+   */
   public static EventsV1Event fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, EventsV1Event.class);
   }
 
- /**
-  * Convert an instance of EventsV1Event to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of EventsV1Event to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * NodeAddress contains information for the node&#39;s address.
  */
 @ApiModel(description = "NodeAddress contains information for the node's address.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeAddress {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
+  @jakarta.annotation.Nonnull
   private String address;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1NodeAddress() {
   }
 
-  public V1NodeAddress address(String address) {
+  public V1NodeAddress address(@jakarta.annotation.Nonnull String address) {
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * The node address.
    * @return address
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The node address.")
   public String getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  public void setAddress(@jakarta.annotation.Nonnull String address) {
     this.address = address;
   }
 
 
-  public V1NodeAddress type(String type) {
+  public V1NodeAddress type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Node address type, one of Hostname, ExternalIP or InternalIP.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Node address type, one of Hostname, ExternalIP or InternalIP.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -160,12 +161,12 @@ public class V1NodeAddress {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeAddress
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeAddress
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeAddress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1NodeAddress {
     }
   }
 
- /**
-  * Create an instance of V1NodeAddress given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeAddress
-  * @throws IOException if the JSON string is invalid with respect to V1NodeAddress
-  */
+  /**
+   * Create an instance of V1NodeAddress given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeAddress
+   * @throws IOException if the JSON string is invalid with respect to V1NodeAddress
+   */
   public static V1NodeAddress fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeAddress.class);
   }
 
- /**
-  * Convert an instance of V1NodeAddress to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeAddress to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

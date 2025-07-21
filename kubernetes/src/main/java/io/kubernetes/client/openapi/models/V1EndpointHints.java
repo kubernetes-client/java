@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ForNode;
 import io.kubernetes.client.openapi.models.V1ForZone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +54,50 @@ import io.kubernetes.client.openapi.JSON;
  * EndpointHints provides hints describing how an endpoint should be consumed.
  */
 @ApiModel(description = "EndpointHints provides hints describing how an endpoint should be consumed.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EndpointHints {
+  public static final String SERIALIZED_NAME_FOR_NODES = "forNodes";
+  @SerializedName(SERIALIZED_NAME_FOR_NODES)
+  @jakarta.annotation.Nullable
+  private List<V1ForNode> forNodes = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_FOR_ZONES = "forZones";
   @SerializedName(SERIALIZED_NAME_FOR_ZONES)
+  @jakarta.annotation.Nullable
   private List<V1ForZone> forZones = new ArrayList<>();
 
   public V1EndpointHints() {
   }
 
-  public V1EndpointHints forZones(List<V1ForZone> forZones) {
+  public V1EndpointHints forNodes(@jakarta.annotation.Nullable List<V1ForNode> forNodes) {
+    this.forNodes = forNodes;
+    return this;
+  }
+
+  public V1EndpointHints addForNodesItem(V1ForNode forNodesItem) {
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList<>();
+    }
+    this.forNodes.add(forNodesItem);
+    return this;
+  }
+
+  /**
+   * forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.
+   * @return forNodes
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.")
+  public List<V1ForNode> getForNodes() {
+    return forNodes;
+  }
+
+  public void setForNodes(@jakarta.annotation.Nullable List<V1ForNode> forNodes) {
+    this.forNodes = forNodes;
+  }
+
+
+  public V1EndpointHints forZones(@jakarta.annotation.Nullable List<V1ForZone> forZones) {
     this.forZones = forZones;
     return this;
   }
@@ -76,17 +110,17 @@ public class V1EndpointHints {
     return this;
   }
 
-   /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.
+  /**
+   * forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.
    * @return forZones
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.")
+  @ApiModelProperty(value = "forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.")
   public List<V1ForZone> getForZones() {
     return forZones;
   }
 
-  public void setForZones(List<V1ForZone> forZones) {
+  public void setForZones(@jakarta.annotation.Nullable List<V1ForZone> forZones) {
     this.forZones = forZones;
   }
 
@@ -101,18 +135,20 @@ public class V1EndpointHints {
       return false;
     }
     V1EndpointHints v1EndpointHints = (V1EndpointHints) o;
-    return Objects.equals(this.forZones, v1EndpointHints.forZones);
+    return Objects.equals(this.forNodes, v1EndpointHints.forNodes) &&
+        Objects.equals(this.forZones, v1EndpointHints.forZones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forZones);
+    return Objects.hash(forNodes, forZones);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1EndpointHints {\n");
+    sb.append("    forNodes: ").append(toIndentedString(forNodes)).append("\n");
     sb.append("    forZones: ").append(toIndentedString(forZones)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -136,18 +172,19 @@ public class V1EndpointHints {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("forNodes");
     openapiFields.add("forZones");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1EndpointHints
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1EndpointHints
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1EndpointHints.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -163,6 +200,20 @@ public class V1EndpointHints {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("forNodes") != null && !jsonObj.get("forNodes").isJsonNull()) {
+        JsonArray jsonArrayforNodes = jsonObj.getAsJsonArray("forNodes");
+        if (jsonArrayforNodes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("forNodes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `forNodes` to be an array in the JSON string but got `%s`", jsonObj.get("forNodes").toString()));
+          }
+
+          // validate the optional field `forNodes` (array)
+          for (int i = 0; i < jsonArrayforNodes.size(); i++) {
+            V1ForNode.validateJsonElement(jsonArrayforNodes.get(i));
+          };
+        }
+      }
       if (jsonObj.get("forZones") != null && !jsonObj.get("forZones").isJsonNull()) {
         JsonArray jsonArrayforZones = jsonObj.getAsJsonArray("forZones");
         if (jsonArrayforZones != null) {
@@ -208,22 +259,22 @@ public class V1EndpointHints {
     }
   }
 
- /**
-  * Create an instance of V1EndpointHints given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1EndpointHints
-  * @throws IOException if the JSON string is invalid with respect to V1EndpointHints
-  */
+  /**
+   * Create an instance of V1EndpointHints given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1EndpointHints
+   * @throws IOException if the JSON string is invalid with respect to V1EndpointHints
+   */
   public static V1EndpointHints fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1EndpointHints.class);
   }
 
- /**
-  * Convert an instance of V1EndpointHints to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1EndpointHints to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

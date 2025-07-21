@@ -52,14 +52,26 @@ public class V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVersion
   public A addToConditions(int index,V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1alpha1StorageVersionConditionBuilder>();}
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1alpha1StorageVersionConditionBuilder>();}
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -203,14 +215,26 @@ public class V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVersion
   public A addToStorageVersions(int index,V1alpha1ServerStorageVersion item) {
     if (this.storageVersions == null) {this.storageVersions = new ArrayList<V1alpha1ServerStorageVersionBuilder>();}
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-    if (index < 0 || index >= storageVersions.size()) { _visitables.get("storageVersions").add(builder); storageVersions.add(builder); } else { _visitables.get("storageVersions").add(index, builder); storageVersions.add(index, builder);}
+    if (index < 0 || index >= storageVersions.size()) {
+        _visitables.get("storageVersions").add(builder);
+        storageVersions.add(builder);
+    } else {
+        _visitables.get("storageVersions").add(builder);
+        storageVersions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToStorageVersions(int index,V1alpha1ServerStorageVersion item) {
     if (this.storageVersions == null) {this.storageVersions = new ArrayList<V1alpha1ServerStorageVersionBuilder>();}
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-    if (index < 0 || index >= storageVersions.size()) { _visitables.get("storageVersions").add(builder); storageVersions.add(builder); } else { _visitables.get("storageVersions").set(index, builder); storageVersions.set(index, builder);}
+    if (index < 0 || index >= storageVersions.size()) {
+        _visitables.get("storageVersions").add(builder);
+        storageVersions.add(builder);
+    } else {
+        _visitables.get("storageVersions").add(builder);
+        storageVersions.set(index, builder);
+    }
     return (A)this;
   }
   

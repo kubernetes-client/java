@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,100 +54,107 @@ import io.kubernetes.client.openapi.JSON;
  * NodeSpec describes the attributes that a node is created with.
  */
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeSpec {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
   @SerializedName(SERIALIZED_NAME_CONFIG_SOURCE)
+  @jakarta.annotation.Nullable
   private V1NodeConfigSource configSource;
 
   public static final String SERIALIZED_NAME_EXTERNAL_I_D = "externalID";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_I_D)
+  @jakarta.annotation.Nullable
   private String externalID;
 
   public static final String SERIALIZED_NAME_POD_C_I_D_R = "podCIDR";
   @SerializedName(SERIALIZED_NAME_POD_C_I_D_R)
+  @jakarta.annotation.Nullable
   private String podCIDR;
 
   public static final String SERIALIZED_NAME_POD_C_I_D_RS = "podCIDRs";
   @SerializedName(SERIALIZED_NAME_POD_C_I_D_RS)
+  @jakarta.annotation.Nullable
   private List<String> podCIDRs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PROVIDER_I_D = "providerID";
   @SerializedName(SERIALIZED_NAME_PROVIDER_I_D)
+  @jakarta.annotation.Nullable
   private String providerID;
 
   public static final String SERIALIZED_NAME_TAINTS = "taints";
   @SerializedName(SERIALIZED_NAME_TAINTS)
+  @jakarta.annotation.Nullable
   private List<V1Taint> taints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_UNSCHEDULABLE = "unschedulable";
   @SerializedName(SERIALIZED_NAME_UNSCHEDULABLE)
+  @jakarta.annotation.Nullable
   private Boolean unschedulable;
 
   public V1NodeSpec() {
   }
 
-  public V1NodeSpec configSource(V1NodeConfigSource configSource) {
+  public V1NodeSpec configSource(@jakarta.annotation.Nullable V1NodeConfigSource configSource) {
     this.configSource = configSource;
     return this;
   }
 
-   /**
+  /**
    * Get configSource
    * @return configSource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeConfigSource getConfigSource() {
     return configSource;
   }
 
-  public void setConfigSource(V1NodeConfigSource configSource) {
+  public void setConfigSource(@jakarta.annotation.Nullable V1NodeConfigSource configSource) {
     this.configSource = configSource;
   }
 
 
-  public V1NodeSpec externalID(String externalID) {
+  public V1NodeSpec externalID(@jakarta.annotation.Nullable String externalID) {
     this.externalID = externalID;
     return this;
   }
 
-   /**
+  /**
    * Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966
    * @return externalID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966")
   public String getExternalID() {
     return externalID;
   }
 
-  public void setExternalID(String externalID) {
+  public void setExternalID(@jakarta.annotation.Nullable String externalID) {
     this.externalID = externalID;
   }
 
 
-  public V1NodeSpec podCIDR(String podCIDR) {
+  public V1NodeSpec podCIDR(@jakarta.annotation.Nullable String podCIDR) {
     this.podCIDR = podCIDR;
     return this;
   }
 
-   /**
+  /**
    * PodCIDR represents the pod IP range assigned to the node.
    * @return podCIDR
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PodCIDR represents the pod IP range assigned to the node.")
   public String getPodCIDR() {
     return podCIDR;
   }
 
-  public void setPodCIDR(String podCIDR) {
+  public void setPodCIDR(@jakarta.annotation.Nullable String podCIDR) {
     this.podCIDR = podCIDR;
   }
 
 
-  public V1NodeSpec podCIDRs(List<String> podCIDRs) {
+  public V1NodeSpec podCIDRs(@jakarta.annotation.Nullable List<String> podCIDRs) {
     this.podCIDRs = podCIDRs;
     return this;
   }
@@ -161,42 +167,42 @@ public class V1NodeSpec {
     return this;
   }
 
-   /**
+  /**
    * podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.
    * @return podCIDRs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.")
   public List<String> getPodCIDRs() {
     return podCIDRs;
   }
 
-  public void setPodCIDRs(List<String> podCIDRs) {
+  public void setPodCIDRs(@jakarta.annotation.Nullable List<String> podCIDRs) {
     this.podCIDRs = podCIDRs;
   }
 
 
-  public V1NodeSpec providerID(String providerID) {
+  public V1NodeSpec providerID(@jakarta.annotation.Nullable String providerID) {
     this.providerID = providerID;
     return this;
   }
 
-   /**
+  /**
    * ID of the node assigned by the cloud provider in the format: &lt;ProviderName&gt;://&lt;ProviderSpecificNodeID&gt;
    * @return providerID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>")
   public String getProviderID() {
     return providerID;
   }
 
-  public void setProviderID(String providerID) {
+  public void setProviderID(@jakarta.annotation.Nullable String providerID) {
     this.providerID = providerID;
   }
 
 
-  public V1NodeSpec taints(List<V1Taint> taints) {
+  public V1NodeSpec taints(@jakarta.annotation.Nullable List<V1Taint> taints) {
     this.taints = taints;
     return this;
   }
@@ -209,37 +215,37 @@ public class V1NodeSpec {
     return this;
   }
 
-   /**
+  /**
    * If specified, the node&#39;s taints.
    * @return taints
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the node's taints.")
   public List<V1Taint> getTaints() {
     return taints;
   }
 
-  public void setTaints(List<V1Taint> taints) {
+  public void setTaints(@jakarta.annotation.Nullable List<V1Taint> taints) {
     this.taints = taints;
   }
 
 
-  public V1NodeSpec unschedulable(Boolean unschedulable) {
+  public V1NodeSpec unschedulable(@jakarta.annotation.Nullable Boolean unschedulable) {
     this.unschedulable = unschedulable;
     return this;
   }
 
-   /**
+  /**
    * Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration
    * @return unschedulable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration")
   public Boolean getUnschedulable() {
     return unschedulable;
   }
 
-  public void setUnschedulable(Boolean unschedulable) {
+  public void setUnschedulable(@jakarta.annotation.Nullable Boolean unschedulable) {
     this.unschedulable = unschedulable;
   }
 
@@ -313,12 +319,12 @@ public class V1NodeSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -396,22 +402,22 @@ public class V1NodeSpec {
     }
   }
 
- /**
-  * Create an instance of V1NodeSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeSpec
-  * @throws IOException if the JSON string is invalid with respect to V1NodeSpec
-  */
+  /**
+   * Create an instance of V1NodeSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeSpec
+   * @throws IOException if the JSON string is invalid with respect to V1NodeSpec
+   */
   public static V1NodeSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeSpec.class);
   }
 
- /**
-  * Convert an instance of V1NodeSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

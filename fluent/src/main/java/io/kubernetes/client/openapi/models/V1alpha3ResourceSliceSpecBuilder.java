@@ -28,7 +28,9 @@ public class V1alpha3ResourceSliceSpecBuilder extends V1alpha3ResourceSliceSpecF
     buildable.setDriver(fluent.getDriver());
     buildable.setNodeName(fluent.getNodeName());
     buildable.setNodeSelector(fluent.buildNodeSelector());
+    buildable.setPerDeviceNodeSelection(fluent.getPerDeviceNodeSelection());
     buildable.setPool(fluent.buildPool());
+    buildable.setSharedCounters(fluent.buildSharedCounters());
     return buildable;
   }
   

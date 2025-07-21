@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceBackendPort is the service port being referenced.
  */
 @ApiModel(description = "ServiceBackendPort is the service port being referenced.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServiceBackendPort {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NUMBER = "number";
   @SerializedName(SERIALIZED_NAME_NUMBER)
+  @jakarta.annotation.Nullable
   private Integer number;
 
   public V1ServiceBackendPort() {
   }
 
-  public V1ServiceBackendPort name(String name) {
+  public V1ServiceBackendPort name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the port on the Service. This is a mutually exclusive setting with \&quot;Number\&quot;.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1ServiceBackendPort number(Integer number) {
+  public V1ServiceBackendPort number(@jakarta.annotation.Nullable Integer number) {
     this.number = number;
     return this;
   }
 
-   /**
+  /**
    * number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \&quot;Name\&quot;.
    * @return number
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".")
   public Integer getNumber() {
     return number;
   }
 
-  public void setNumber(Integer number) {
+  public void setNumber(@jakarta.annotation.Nullable Integer number) {
     this.number = number;
   }
 
@@ -158,12 +159,12 @@ public class V1ServiceBackendPort {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ServiceBackendPort
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ServiceBackendPort
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServiceBackendPort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -213,22 +214,22 @@ public class V1ServiceBackendPort {
     }
   }
 
- /**
-  * Create an instance of V1ServiceBackendPort given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ServiceBackendPort
-  * @throws IOException if the JSON string is invalid with respect to V1ServiceBackendPort
-  */
+  /**
+   * Create an instance of V1ServiceBackendPort given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ServiceBackendPort
+   * @throws IOException if the JSON string is invalid with respect to V1ServiceBackendPort
+   */
   public static V1ServiceBackendPort fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ServiceBackendPort.class);
   }
 
- /**
-  * Convert an instance of V1ServiceBackendPort to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ServiceBackendPort to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

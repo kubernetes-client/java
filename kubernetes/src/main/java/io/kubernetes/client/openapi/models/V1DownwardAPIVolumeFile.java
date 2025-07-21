@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,103 +52,107 @@ import io.kubernetes.client.openapi.JSON;
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
  */
 @ApiModel(description = "DownwardAPIVolumeFile represents information to create the file containing the pod field")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DownwardAPIVolumeFile {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
+  @jakarta.annotation.Nullable
   private V1ObjectFieldSelector fieldRef;
 
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
+  @jakarta.annotation.Nullable
   private Integer mode;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nonnull
   private String path;
 
   public static final String SERIALIZED_NAME_RESOURCE_FIELD_REF = "resourceFieldRef";
   @SerializedName(SERIALIZED_NAME_RESOURCE_FIELD_REF)
+  @jakarta.annotation.Nullable
   private V1ResourceFieldSelector resourceFieldRef;
 
   public V1DownwardAPIVolumeFile() {
   }
 
-  public V1DownwardAPIVolumeFile fieldRef(V1ObjectFieldSelector fieldRef) {
+  public V1DownwardAPIVolumeFile fieldRef(@jakarta.annotation.Nullable V1ObjectFieldSelector fieldRef) {
     this.fieldRef = fieldRef;
     return this;
   }
 
-   /**
+  /**
    * Get fieldRef
    * @return fieldRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectFieldSelector getFieldRef() {
     return fieldRef;
   }
 
-  public void setFieldRef(V1ObjectFieldSelector fieldRef) {
+  public void setFieldRef(@jakarta.annotation.Nullable V1ObjectFieldSelector fieldRef) {
     this.fieldRef = fieldRef;
   }
 
 
-  public V1DownwardAPIVolumeFile mode(Integer mode) {
+  public V1DownwardAPIVolumeFile mode(@jakarta.annotation.Nullable Integer mode) {
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    * @return mode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getMode() {
     return mode;
   }
 
-  public void setMode(Integer mode) {
+  public void setMode(@jakarta.annotation.Nullable Integer mode) {
     this.mode = mode;
   }
 
 
-  public V1DownwardAPIVolumeFile path(String path) {
+  public V1DownwardAPIVolumeFile path(@jakarta.annotation.Nonnull String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the &#39;..&#39; path. Must be utf-8 encoded. The first item of the relative path must not start with &#39;..&#39;
    * @return path
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nonnull String path) {
     this.path = path;
   }
 
 
-  public V1DownwardAPIVolumeFile resourceFieldRef(V1ResourceFieldSelector resourceFieldRef) {
+  public V1DownwardAPIVolumeFile resourceFieldRef(@jakarta.annotation.Nullable V1ResourceFieldSelector resourceFieldRef) {
     this.resourceFieldRef = resourceFieldRef;
     return this;
   }
 
-   /**
+  /**
    * Get resourceFieldRef
    * @return resourceFieldRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceFieldSelector getResourceFieldRef() {
     return resourceFieldRef;
   }
 
-  public void setResourceFieldRef(V1ResourceFieldSelector resourceFieldRef) {
+  public void setResourceFieldRef(@jakarta.annotation.Nullable V1ResourceFieldSelector resourceFieldRef) {
     this.resourceFieldRef = resourceFieldRef;
   }
 
@@ -215,12 +218,12 @@ public class V1DownwardAPIVolumeFile {
     openapiRequiredFields.add("path");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DownwardAPIVolumeFile
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DownwardAPIVolumeFile
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DownwardAPIVolumeFile.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -285,22 +288,22 @@ public class V1DownwardAPIVolumeFile {
     }
   }
 
- /**
-  * Create an instance of V1DownwardAPIVolumeFile given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DownwardAPIVolumeFile
-  * @throws IOException if the JSON string is invalid with respect to V1DownwardAPIVolumeFile
-  */
+  /**
+   * Create an instance of V1DownwardAPIVolumeFile given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DownwardAPIVolumeFile
+   * @throws IOException if the JSON string is invalid with respect to V1DownwardAPIVolumeFile
+   */
   public static V1DownwardAPIVolumeFile fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DownwardAPIVolumeFile.class);
   }
 
- /**
-  * Convert an instance of V1DownwardAPIVolumeFile to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DownwardAPIVolumeFile to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

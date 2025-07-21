@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
  */
 @ApiModel(description = "AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1AggregationRule {
   public static final String SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS = "clusterRoleSelectors";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS)
+  @jakarta.annotation.Nullable
   private List<V1LabelSelector> clusterRoleSelectors = new ArrayList<>();
 
   public V1AggregationRule() {
   }
 
-  public V1AggregationRule clusterRoleSelectors(List<V1LabelSelector> clusterRoleSelectors) {
+  public V1AggregationRule clusterRoleSelectors(@jakarta.annotation.Nullable List<V1LabelSelector> clusterRoleSelectors) {
     this.clusterRoleSelectors = clusterRoleSelectors;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1AggregationRule {
     return this;
   }
 
-   /**
+  /**
    * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole&#39;s permissions will be added
    * @return clusterRoleSelectors
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added")
   public List<V1LabelSelector> getClusterRoleSelectors() {
     return clusterRoleSelectors;
   }
 
-  public void setClusterRoleSelectors(List<V1LabelSelector> clusterRoleSelectors) {
+  public void setClusterRoleSelectors(@jakarta.annotation.Nullable List<V1LabelSelector> clusterRoleSelectors) {
     this.clusterRoleSelectors = clusterRoleSelectors;
   }
 
@@ -142,12 +142,12 @@ public class V1AggregationRule {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1AggregationRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1AggregationRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AggregationRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1AggregationRule {
     }
   }
 
- /**
-  * Create an instance of V1AggregationRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1AggregationRule
-  * @throws IOException if the JSON string is invalid with respect to V1AggregationRule
-  */
+  /**
+   * Create an instance of V1AggregationRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1AggregationRule
+   * @throws IOException if the JSON string is invalid with respect to V1AggregationRule
+   */
   public static V1AggregationRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1AggregationRule.class);
   }
 
- /**
-  * Convert an instance of V1AggregationRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1AggregationRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

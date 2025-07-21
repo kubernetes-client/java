@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,20 +54,22 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.
  */
 @ApiModel(description = "DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3DeviceClassSpec {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
+  @jakarta.annotation.Nullable
   private List<V1alpha3DeviceClassConfiguration> config = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
+  @jakarta.annotation.Nullable
   private List<V1alpha3DeviceSelector> selectors = new ArrayList<>();
 
   public V1alpha3DeviceClassSpec() {
   }
 
-  public V1alpha3DeviceClassSpec config(List<V1alpha3DeviceClassConfiguration> config) {
+  public V1alpha3DeviceClassSpec config(@jakarta.annotation.Nullable List<V1alpha3DeviceClassConfiguration> config) {
     this.config = config;
     return this;
   }
@@ -81,22 +82,22 @@ public class V1alpha3DeviceClassSpec {
     return this;
   }
 
-   /**
+  /**
    * Config defines configuration parameters that apply to each device that is claimed via this class. Some classses may potentially be satisfied by multiple drivers, so each instance of a vendor configuration applies to exactly one driver.  They are passed to the driver, but are not considered while allocating the claim.
    * @return config
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Config defines configuration parameters that apply to each device that is claimed via this class. Some classses may potentially be satisfied by multiple drivers, so each instance of a vendor configuration applies to exactly one driver.  They are passed to the driver, but are not considered while allocating the claim.")
   public List<V1alpha3DeviceClassConfiguration> getConfig() {
     return config;
   }
 
-  public void setConfig(List<V1alpha3DeviceClassConfiguration> config) {
+  public void setConfig(@jakarta.annotation.Nullable List<V1alpha3DeviceClassConfiguration> config) {
     this.config = config;
   }
 
 
-  public V1alpha3DeviceClassSpec selectors(List<V1alpha3DeviceSelector> selectors) {
+  public V1alpha3DeviceClassSpec selectors(@jakarta.annotation.Nullable List<V1alpha3DeviceSelector> selectors) {
     this.selectors = selectors;
     return this;
   }
@@ -109,17 +110,17 @@ public class V1alpha3DeviceClassSpec {
     return this;
   }
 
-   /**
+  /**
    * Each selector must be satisfied by a device which is claimed via this class.
    * @return selectors
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Each selector must be satisfied by a device which is claimed via this class.")
   public List<V1alpha3DeviceSelector> getSelectors() {
     return selectors;
   }
 
-  public void setSelectors(List<V1alpha3DeviceSelector> selectors) {
+  public void setSelectors(@jakarta.annotation.Nullable List<V1alpha3DeviceSelector> selectors) {
     this.selectors = selectors;
   }
 
@@ -178,12 +179,12 @@ public class V1alpha3DeviceClassSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClassSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClassSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3DeviceClassSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -258,22 +259,22 @@ public class V1alpha3DeviceClassSpec {
     }
   }
 
- /**
-  * Create an instance of V1alpha3DeviceClassSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3DeviceClassSpec
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClassSpec
-  */
+  /**
+   * Create an instance of V1alpha3DeviceClassSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3DeviceClassSpec
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClassSpec
+   */
   public static V1alpha3DeviceClassSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3DeviceClassSpec.class);
   }
 
- /**
-  * Convert an instance of V1alpha3DeviceClassSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3DeviceClassSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

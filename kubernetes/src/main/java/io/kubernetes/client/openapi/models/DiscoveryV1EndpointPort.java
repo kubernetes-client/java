@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * EndpointPort represents a Port used by an EndpointSlice
  */
 @ApiModel(description = "EndpointPort represents a Port used by an EndpointSlice")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class DiscoveryV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
+  @jakarta.annotation.Nullable
   private String appProtocol;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nullable
   private Integer port;
 
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
+  @jakarta.annotation.Nullable
   private String protocol;
 
   public DiscoveryV1EndpointPort() {
   }
 
-  public DiscoveryV1EndpointPort appProtocol(String appProtocol) {
+  public DiscoveryV1EndpointPort appProtocol(@jakarta.annotation.Nullable String appProtocol) {
     this.appProtocol = appProtocol;
     return this;
   }
 
-   /**
+  /**
    * The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * &#39;kubernetes.io/h2c&#39; - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-   * &#39;kubernetes.io/ws&#39;  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455   * &#39;kubernetes.io/wss&#39; - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.
    * @return appProtocol
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-   * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455   * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.")
   public String getAppProtocol() {
     return appProtocol;
   }
 
-  public void setAppProtocol(String appProtocol) {
+  public void setAppProtocol(@jakarta.annotation.Nullable String appProtocol) {
     this.appProtocol = appProtocol;
   }
 
 
-  public DiscoveryV1EndpointPort name(String name) {
+  public DiscoveryV1EndpointPort name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name represents the name of this port. All ports in an EndpointSlice must have a unique name. If the EndpointSlice is derived from a Kubernetes service, this corresponds to the Service.ports[].name. Name must either be an empty string or pass DNS_LABEL validation: * must be no more than 63 characters long. * must consist of lower case alphanumeric characters or &#39;-&#39;. * must start and end with an alphanumeric character. Default is empty string.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "name represents the name of this port. All ports in an EndpointSlice must have a unique name. If the EndpointSlice is derived from a Kubernetes service, this corresponds to the Service.ports[].name. Name must either be an empty string or pass DNS_LABEL validation: * must be no more than 63 characters long. * must consist of lower case alphanumeric characters or '-'. * must start and end with an alphanumeric character. Default is empty string.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public DiscoveryV1EndpointPort port(Integer port) {
+  public DiscoveryV1EndpointPort port(@jakarta.annotation.Nullable Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
-   * port represents the port number of the endpoint. If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.
+  /**
+   * port represents the port number of the endpoint. If the EndpointSlice is derived from a Kubernetes service, this must be set to the service&#39;s target port. EndpointSlices used for other purposes may have a nil port.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "port represents the port number of the endpoint. If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.")
+  @ApiModelProperty(value = "port represents the port number of the endpoint. If the EndpointSlice is derived from a Kubernetes service, this must be set to the service's target port. EndpointSlices used for other purposes may have a nil port.")
   public Integer getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(@jakarta.annotation.Nullable Integer port) {
     this.port = port;
   }
 
 
-  public DiscoveryV1EndpointPort protocol(String protocol) {
+  public DiscoveryV1EndpointPort protocol(@jakarta.annotation.Nullable String protocol) {
     this.protocol = protocol;
     return this;
   }
 
-   /**
+  /**
    * protocol represents the IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
    * @return protocol
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "protocol represents the IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.")
   public String getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(String protocol) {
+  public void setProtocol(@jakarta.annotation.Nullable String protocol) {
     this.protocol = protocol;
   }
 
@@ -212,12 +215,12 @@ public class DiscoveryV1EndpointPort {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DiscoveryV1EndpointPort
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DiscoveryV1EndpointPort
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DiscoveryV1EndpointPort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -273,22 +276,22 @@ public class DiscoveryV1EndpointPort {
     }
   }
 
- /**
-  * Create an instance of DiscoveryV1EndpointPort given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DiscoveryV1EndpointPort
-  * @throws IOException if the JSON string is invalid with respect to DiscoveryV1EndpointPort
-  */
+  /**
+   * Create an instance of DiscoveryV1EndpointPort given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DiscoveryV1EndpointPort
+   * @throws IOException if the JSON string is invalid with respect to DiscoveryV1EndpointPort
+   */
   public static DiscoveryV1EndpointPort fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DiscoveryV1EndpointPort.class);
   }
 
- /**
-  * Convert an instance of DiscoveryV1EndpointPort to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DiscoveryV1EndpointPort to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

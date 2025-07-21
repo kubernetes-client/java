@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * CrossVersionObjectReference contains enough information to let you identify the referred resource.
  */
 @ApiModel(description = "CrossVersionObjectReference contains enough information to let you identify the referred resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CrossVersionObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nonnull
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1CrossVersionObjectReference() {
   }
 
-  public V1CrossVersionObjectReference apiVersion(String apiVersion) {
+  public V1CrossVersionObjectReference apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * apiVersion is the API version of the referent
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "apiVersion is the API version of the referent")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1CrossVersionObjectReference kind(String kind) {
+  public V1CrossVersionObjectReference kind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
   }
 
 
-  public V1CrossVersionObjectReference name(String name) {
+  public V1CrossVersionObjectReference name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -187,12 +189,12 @@ public class V1CrossVersionObjectReference {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CrossVersionObjectReference
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CrossVersionObjectReference
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CrossVersionObjectReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -255,22 +257,22 @@ public class V1CrossVersionObjectReference {
     }
   }
 
- /**
-  * Create an instance of V1CrossVersionObjectReference given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CrossVersionObjectReference
-  * @throws IOException if the JSON string is invalid with respect to V1CrossVersionObjectReference
-  */
+  /**
+   * Create an instance of V1CrossVersionObjectReference given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CrossVersionObjectReference
+   * @throws IOException if the JSON string is invalid with respect to V1CrossVersionObjectReference
+   */
   public static V1CrossVersionObjectReference fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CrossVersionObjectReference.class);
   }
 
- /**
-  * Convert an instance of V1CrossVersionObjectReference to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CrossVersionObjectReference to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

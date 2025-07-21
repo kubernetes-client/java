@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * PodReadinessGate contains the reference to a pod condition
  */
 @ApiModel(description = "PodReadinessGate contains the reference to a pod condition")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodReadinessGate {
   public static final String SERIALIZED_NAME_CONDITION_TYPE = "conditionType";
   @SerializedName(SERIALIZED_NAME_CONDITION_TYPE)
+  @jakarta.annotation.Nonnull
   private String conditionType;
 
   public V1PodReadinessGate() {
   }
 
-  public V1PodReadinessGate conditionType(String conditionType) {
+  public V1PodReadinessGate conditionType(@jakarta.annotation.Nonnull String conditionType) {
     this.conditionType = conditionType;
     return this;
   }
 
-   /**
+  /**
    * ConditionType refers to a condition in the pod&#39;s condition list with matching type.
    * @return conditionType
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ConditionType refers to a condition in the pod's condition list with matching type.")
   public String getConditionType() {
     return conditionType;
   }
 
-  public void setConditionType(String conditionType) {
+  public void setConditionType(@jakarta.annotation.Nonnull String conditionType) {
     this.conditionType = conditionType;
   }
 
@@ -132,12 +132,12 @@ public class V1PodReadinessGate {
     openapiRequiredFields.add("conditionType");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodReadinessGate
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodReadinessGate
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodReadinessGate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -194,22 +194,22 @@ public class V1PodReadinessGate {
     }
   }
 
- /**
-  * Create an instance of V1PodReadinessGate given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodReadinessGate
-  * @throws IOException if the JSON string is invalid with respect to V1PodReadinessGate
-  */
+  /**
+   * Create an instance of V1PodReadinessGate given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodReadinessGate
+   * @throws IOException if the JSON string is invalid with respect to V1PodReadinessGate
+   */
   public static V1PodReadinessGate fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodReadinessGate.class);
   }
 
- /**
-  * Convert an instance of V1PodReadinessGate to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodReadinessGate to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

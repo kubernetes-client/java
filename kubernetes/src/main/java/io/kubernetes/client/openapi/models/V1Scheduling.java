@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,20 +55,22 @@ import io.kubernetes.client.openapi.JSON;
  * Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
  */
 @ApiModel(description = "Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Scheduling {
   public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
+  @jakarta.annotation.Nullable
   private Map<String, String> nodeSelector = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
   @SerializedName(SERIALIZED_NAME_TOLERATIONS)
+  @jakarta.annotation.Nullable
   private List<V1Toleration> tolerations = new ArrayList<>();
 
   public V1Scheduling() {
   }
 
-  public V1Scheduling nodeSelector(Map<String, String> nodeSelector) {
+  public V1Scheduling nodeSelector(@jakarta.annotation.Nullable Map<String, String> nodeSelector) {
     this.nodeSelector = nodeSelector;
     return this;
   }
@@ -82,22 +83,22 @@ public class V1Scheduling {
     return this;
   }
 
-   /**
+  /**
    * nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod&#39;s existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
    * @return nodeSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.")
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
   }
 
-  public void setNodeSelector(Map<String, String> nodeSelector) {
+  public void setNodeSelector(@jakarta.annotation.Nullable Map<String, String> nodeSelector) {
     this.nodeSelector = nodeSelector;
   }
 
 
-  public V1Scheduling tolerations(List<V1Toleration> tolerations) {
+  public V1Scheduling tolerations(@jakarta.annotation.Nullable List<V1Toleration> tolerations) {
     this.tolerations = tolerations;
     return this;
   }
@@ -110,17 +111,17 @@ public class V1Scheduling {
     return this;
   }
 
-   /**
+  /**
    * tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
    * @return tolerations
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.")
   public List<V1Toleration> getTolerations() {
     return tolerations;
   }
 
-  public void setTolerations(List<V1Toleration> tolerations) {
+  public void setTolerations(@jakarta.annotation.Nullable List<V1Toleration> tolerations) {
     this.tolerations = tolerations;
   }
 
@@ -179,12 +180,12 @@ public class V1Scheduling {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Scheduling
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Scheduling
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Scheduling.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -245,22 +246,22 @@ public class V1Scheduling {
     }
   }
 
- /**
-  * Create an instance of V1Scheduling given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Scheduling
-  * @throws IOException if the JSON string is invalid with respect to V1Scheduling
-  */
+  /**
+   * Create an instance of V1Scheduling given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Scheduling
+   * @throws IOException if the JSON string is invalid with respect to V1Scheduling
+   */
   public static V1Scheduling fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Scheduling.class);
   }
 
- /**
-  * Convert an instance of V1Scheduling to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Scheduling to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

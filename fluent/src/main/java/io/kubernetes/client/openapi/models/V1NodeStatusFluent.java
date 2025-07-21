@@ -62,14 +62,26 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   public A addToAddresses(int index,V1NodeAddress item) {
     if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) { _visitables.get("addresses").add(builder); addresses.add(builder); } else { _visitables.get("addresses").add(index, builder); addresses.add(index, builder);}
+    if (index < 0 || index >= addresses.size()) {
+        _visitables.get("addresses").add(builder);
+        addresses.add(builder);
+    } else {
+        _visitables.get("addresses").add(builder);
+        addresses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAddresses(int index,V1NodeAddress item) {
     if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) { _visitables.get("addresses").add(builder); addresses.add(builder); } else { _visitables.get("addresses").set(index, builder); addresses.set(index, builder);}
+    if (index < 0 || index >= addresses.size()) {
+        _visitables.get("addresses").add(builder);
+        addresses.add(builder);
+    } else {
+        _visitables.get("addresses").add(builder);
+        addresses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -287,14 +299,26 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   public A addToConditions(int index,V1NodeCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1NodeCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -558,14 +582,26 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   public A addToImages(int index,V1ContainerImage item) {
     if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-    if (index < 0 || index >= images.size()) { _visitables.get("images").add(builder); images.add(builder); } else { _visitables.get("images").add(index, builder); images.add(index, builder);}
+    if (index < 0 || index >= images.size()) {
+        _visitables.get("images").add(builder);
+        images.add(builder);
+    } else {
+        _visitables.get("images").add(builder);
+        images.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToImages(int index,V1ContainerImage item) {
     if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-    if (index < 0 || index >= images.size()) { _visitables.get("images").add(builder); images.add(builder); } else { _visitables.get("images").set(index, builder); images.set(index, builder);}
+    if (index < 0 || index >= images.size()) {
+        _visitables.get("images").add(builder);
+        images.add(builder);
+    } else {
+        _visitables.get("images").add(builder);
+        images.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -762,14 +798,26 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   public A addToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
     if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-    if (index < 0 || index >= runtimeHandlers.size()) { _visitables.get("runtimeHandlers").add(builder); runtimeHandlers.add(builder); } else { _visitables.get("runtimeHandlers").add(index, builder); runtimeHandlers.add(index, builder);}
+    if (index < 0 || index >= runtimeHandlers.size()) {
+        _visitables.get("runtimeHandlers").add(builder);
+        runtimeHandlers.add(builder);
+    } else {
+        _visitables.get("runtimeHandlers").add(builder);
+        runtimeHandlers.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
     if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-    if (index < 0 || index >= runtimeHandlers.size()) { _visitables.get("runtimeHandlers").add(builder); runtimeHandlers.add(builder); } else { _visitables.get("runtimeHandlers").set(index, builder); runtimeHandlers.set(index, builder);}
+    if (index < 0 || index >= runtimeHandlers.size()) {
+        _visitables.get("runtimeHandlers").add(builder);
+        runtimeHandlers.add(builder);
+    } else {
+        _visitables.get("runtimeHandlers").add(builder);
+        runtimeHandlers.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -913,14 +961,26 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   public A addToVolumesAttached(int index,V1AttachedVolume item) {
     if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-    if (index < 0 || index >= volumesAttached.size()) { _visitables.get("volumesAttached").add(builder); volumesAttached.add(builder); } else { _visitables.get("volumesAttached").add(index, builder); volumesAttached.add(index, builder);}
+    if (index < 0 || index >= volumesAttached.size()) {
+        _visitables.get("volumesAttached").add(builder);
+        volumesAttached.add(builder);
+    } else {
+        _visitables.get("volumesAttached").add(builder);
+        volumesAttached.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToVolumesAttached(int index,V1AttachedVolume item) {
     if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-    if (index < 0 || index >= volumesAttached.size()) { _visitables.get("volumesAttached").add(builder); volumesAttached.add(builder); } else { _visitables.get("volumesAttached").set(index, builder); volumesAttached.set(index, builder);}
+    if (index < 0 || index >= volumesAttached.size()) {
+        _visitables.get("volumesAttached").add(builder);
+        volumesAttached.add(builder);
+    } else {
+        _visitables.get("volumesAttached").add(builder);
+        volumesAttached.set(index, builder);
+    }
     return (A)this;
   }
   

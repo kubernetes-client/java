@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,40 +53,42 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.
  */
 @ApiModel(description = "DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3DeviceClaimConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)
+  @jakarta.annotation.Nullable
   private V1alpha3OpaqueDeviceConfiguration opaque;
 
   public static final String SERIALIZED_NAME_REQUESTS = "requests";
   @SerializedName(SERIALIZED_NAME_REQUESTS)
+  @jakarta.annotation.Nullable
   private List<String> requests = new ArrayList<>();
 
   public V1alpha3DeviceClaimConfiguration() {
   }
 
-  public V1alpha3DeviceClaimConfiguration opaque(V1alpha3OpaqueDeviceConfiguration opaque) {
+  public V1alpha3DeviceClaimConfiguration opaque(@jakarta.annotation.Nullable V1alpha3OpaqueDeviceConfiguration opaque) {
     this.opaque = opaque;
     return this;
   }
 
-   /**
+  /**
    * Get opaque
    * @return opaque
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha3OpaqueDeviceConfiguration getOpaque() {
     return opaque;
   }
 
-  public void setOpaque(V1alpha3OpaqueDeviceConfiguration opaque) {
+  public void setOpaque(@jakarta.annotation.Nullable V1alpha3OpaqueDeviceConfiguration opaque) {
     this.opaque = opaque;
   }
 
 
-  public V1alpha3DeviceClaimConfiguration requests(List<String> requests) {
+  public V1alpha3DeviceClaimConfiguration requests(@jakarta.annotation.Nullable List<String> requests) {
     this.requests = requests;
     return this;
   }
@@ -100,17 +101,17 @@ public class V1alpha3DeviceClaimConfiguration {
     return this;
   }
 
-   /**
-   * Requests lists the names of requests where the configuration applies. If empty, it applies to all requests.
+  /**
+   * Requests lists the names of requests where the configuration applies. If empty, it applies to all requests.  References to subrequests must include the name of the main request and may include the subrequest using the format &lt;main request&gt;[/&lt;subrequest&gt;]. If just the main request is given, the configuration applies to all subrequests.
    * @return requests
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, it applies to all requests.")
+  @ApiModelProperty(value = "Requests lists the names of requests where the configuration applies. If empty, it applies to all requests.  References to subrequests must include the name of the main request and may include the subrequest using the format <main request>[/<subrequest>]. If just the main request is given, the configuration applies to all subrequests.")
   public List<String> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<String> requests) {
+  public void setRequests(@jakarta.annotation.Nullable List<String> requests) {
     this.requests = requests;
   }
 
@@ -169,12 +170,12 @@ public class V1alpha3DeviceClaimConfiguration {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClaimConfiguration
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceClaimConfiguration
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3DeviceClaimConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -229,22 +230,22 @@ public class V1alpha3DeviceClaimConfiguration {
     }
   }
 
- /**
-  * Create an instance of V1alpha3DeviceClaimConfiguration given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3DeviceClaimConfiguration
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClaimConfiguration
-  */
+  /**
+   * Create an instance of V1alpha3DeviceClaimConfiguration given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3DeviceClaimConfiguration
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceClaimConfiguration
+   */
   public static V1alpha3DeviceClaimConfiguration fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3DeviceClaimConfiguration.class);
   }
 
- /**
-  * Convert an instance of V1alpha3DeviceClaimConfiguration to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3DeviceClaimConfiguration to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

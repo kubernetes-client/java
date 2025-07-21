@@ -35,14 +35,26 @@ public class V1beta1ServiceCIDRStatusFluent<A extends V1beta1ServiceCIDRStatusFl
   public A addToConditions(int index,V1Condition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1Condition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

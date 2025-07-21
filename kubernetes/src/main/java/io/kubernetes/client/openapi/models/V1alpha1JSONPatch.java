@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * JSONPatch defines a JSON Patch.
  */
 @ApiModel(description = "JSONPatch defines a JSON Patch.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1JSONPatch {
   public static final String SERIALIZED_NAME_EXPRESSION = "expression";
   @SerializedName(SERIALIZED_NAME_EXPRESSION)
+  @jakarta.annotation.Nullable
   private String expression;
 
   public V1alpha1JSONPatch() {
   }
 
-  public V1alpha1JSONPatch expression(String expression) {
+  public V1alpha1JSONPatch expression(@jakarta.annotation.Nullable String expression) {
     this.expression = expression;
     return this;
   }
 
-   /**
+  /**
    * expression will be evaluated by CEL to create a [JSON patch](https://jsonpatch.com/). ref: https://github.com/google/cel-spec  expression must return an array of JSONPatch values.  For example, this CEL expression returns a JSON patch to conditionally modify a value:     [      JSONPatch{op: \&quot;test\&quot;, path: \&quot;/spec/example\&quot;, value: \&quot;Red\&quot;},      JSONPatch{op: \&quot;replace\&quot;, path: \&quot;/spec/example\&quot;, value: \&quot;Green\&quot;}    ]  To define an object for the patch value, use Object types. For example:     [      JSONPatch{        op: \&quot;add\&quot;,        path: \&quot;/spec/selector\&quot;,        value: Object.spec.selector{matchLabels: {\&quot;environment\&quot;: \&quot;test\&quot;}}      }    ]  To use strings containing &#39;/&#39; and &#39;~&#39; as JSONPatch path keys, use \&quot;jsonpatch.escapeKey\&quot;. For example:     [      JSONPatch{        op: \&quot;add\&quot;,        path: \&quot;/metadata/labels/\&quot; + jsonpatch.escapeKey(\&quot;example.com/environment\&quot;),        value: \&quot;test\&quot;      },    ]  CEL expressions have access to the types needed to create JSON patches and objects:  - &#39;JSONPatch&#39; - CEL type of JSON Patch operations. JSONPatch has the fields &#39;op&#39;, &#39;from&#39;, &#39;path&#39; and &#39;value&#39;.   See [JSON patch](https://jsonpatch.com/) for more details. The &#39;value&#39; field may be set to any of: string,   integer, array, map or object.  If set, the &#39;path&#39; and &#39;from&#39; fields must be set to a   [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901/) string, where the &#39;jsonpatch.escapeKey()&#39; CEL   function may be used to escape path keys containing &#39;/&#39; and &#39;~&#39;. - &#39;Object&#39; - CEL type of the resource object. - &#39;Object.&lt;fieldName&gt;&#39; - CEL type of object field (such as &#39;Object.spec&#39;) - &#39;Object.&lt;fieldName1&gt;.&lt;fieldName2&gt;...&lt;fieldNameN&gt;&#x60; - CEL type of nested field (such as &#39;Object.spec.containers&#39;)  CEL expressions have access to the contents of the API request, organized into CEL variables as well as some other useful variables:  - &#39;object&#39; - The object from the incoming request. The value is null for DELETE requests. - &#39;oldObject&#39; - The existing object. The value is null for CREATE requests. - &#39;request&#39; - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - &#39;params&#39; - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - &#39;namespaceObject&#39; - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - &#39;variables&#39; - Map of composited variables, from its name to its lazily evaluated value.   For example, a variable named &#39;foo&#39; can be accessed as &#39;variables.foo&#39;. - &#39;authorizer&#39; - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.   See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz - &#39;authorizer.requestResource&#39; - A CEL ResourceCheck constructed from the &#39;authorizer&#39; and configured with the   request resource.  CEL expressions have access to [Kubernetes CEL function libraries](https://kubernetes.io/docs/reference/using-api/cel/#cel-options-language-features-and-libraries) as well as:  - &#39;jsonpatch.escapeKey&#39; - Performs JSONPatch key escaping. &#39;~&#39; and  &#39;/&#39; are escaped as &#39;~0&#39; and &#x60;~1&#39; respectively).  Only property names of the form &#x60;[a-zA-Z_.-/][a-zA-Z0-9_.-/]*&#x60; are accessible. Required.
    * @return expression
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "expression will be evaluated by CEL to create a [JSON patch](https://jsonpatch.com/). ref: https://github.com/google/cel-spec  expression must return an array of JSONPatch values.  For example, this CEL expression returns a JSON patch to conditionally modify a value:     [      JSONPatch{op: \"test\", path: \"/spec/example\", value: \"Red\"},      JSONPatch{op: \"replace\", path: \"/spec/example\", value: \"Green\"}    ]  To define an object for the patch value, use Object types. For example:     [      JSONPatch{        op: \"add\",        path: \"/spec/selector\",        value: Object.spec.selector{matchLabels: {\"environment\": \"test\"}}      }    ]  To use strings containing '/' and '~' as JSONPatch path keys, use \"jsonpatch.escapeKey\". For example:     [      JSONPatch{        op: \"add\",        path: \"/metadata/labels/\" + jsonpatch.escapeKey(\"example.com/environment\"),        value: \"test\"      },    ]  CEL expressions have access to the types needed to create JSON patches and objects:  - 'JSONPatch' - CEL type of JSON Patch operations. JSONPatch has the fields 'op', 'from', 'path' and 'value'.   See [JSON patch](https://jsonpatch.com/) for more details. The 'value' field may be set to any of: string,   integer, array, map or object.  If set, the 'path' and 'from' fields must be set to a   [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901/) string, where the 'jsonpatch.escapeKey()' CEL   function may be used to escape path keys containing '/' and '~'. - 'Object' - CEL type of the resource object. - 'Object.<fieldName>' - CEL type of object field (such as 'Object.spec') - 'Object.<fieldName1>.<fieldName2>...<fieldNameN>` - CEL type of nested field (such as 'Object.spec.containers')  CEL expressions have access to the contents of the API request, organized into CEL variables as well as some other useful variables:  - 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.   For example, a variable named 'foo' can be accessed as 'variables.foo'. - 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.   See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz - 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the   request resource.  CEL expressions have access to [Kubernetes CEL function libraries](https://kubernetes.io/docs/reference/using-api/cel/#cel-options-language-features-and-libraries) as well as:  - 'jsonpatch.escapeKey' - Performs JSONPatch key escaping. '~' and  '/' are escaped as '~0' and `~1' respectively).  Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Required.")
   public String getExpression() {
     return expression;
   }
 
-  public void setExpression(String expression) {
+  public void setExpression(@jakarta.annotation.Nullable String expression) {
     this.expression = expression;
   }
 
@@ -131,12 +131,12 @@ public class V1alpha1JSONPatch {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1JSONPatch
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1JSONPatch
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1JSONPatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -186,22 +186,22 @@ public class V1alpha1JSONPatch {
     }
   }
 
- /**
-  * Create an instance of V1alpha1JSONPatch given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1JSONPatch
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1JSONPatch
-  */
+  /**
+   * Create an instance of V1alpha1JSONPatch given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1JSONPatch
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1JSONPatch
+   */
   public static V1alpha1JSONPatch fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1JSONPatch.class);
   }
 
- /**
-  * Convert an instance of V1alpha1JSONPatch to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1JSONPatch to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

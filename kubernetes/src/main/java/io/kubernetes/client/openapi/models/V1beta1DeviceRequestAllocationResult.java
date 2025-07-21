@@ -18,10 +18,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,128 +53,166 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
 @ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
+  @jakarta.annotation.Nullable
   private Boolean adminAccess;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
+  @jakarta.annotation.Nonnull
   private String device;
 
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
+  @jakarta.annotation.Nonnull
   private String pool;
 
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
+  @jakarta.annotation.Nonnull
   private String request;
+
+  public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
+  @SerializedName(SERIALIZED_NAME_TOLERATIONS)
+  @jakarta.annotation.Nullable
+  private List<V1beta1DeviceToleration> tolerations = new ArrayList<>();
 
   public V1beta1DeviceRequestAllocationResult() {
   }
 
-  public V1beta1DeviceRequestAllocationResult adminAccess(Boolean adminAccess) {
+  public V1beta1DeviceRequestAllocationResult adminAccess(@jakarta.annotation.Nullable Boolean adminAccess) {
     this.adminAccess = adminAccess;
     return this;
   }
 
-   /**
+  /**
    * AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
    * @return adminAccess
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
   public Boolean getAdminAccess() {
     return adminAccess;
   }
 
-  public void setAdminAccess(Boolean adminAccess) {
+  public void setAdminAccess(@jakarta.annotation.Nullable Boolean adminAccess) {
     this.adminAccess = adminAccess;
   }
 
 
-  public V1beta1DeviceRequestAllocationResult device(String device) {
+  public V1beta1DeviceRequestAllocationResult device(@jakarta.annotation.Nonnull String device) {
     this.device = device;
     return this;
   }
 
-   /**
+  /**
    * Device references one device instance via its name in the driver&#39;s resource pool. It must be a DNS label.
    * @return device
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.")
   public String getDevice() {
     return device;
   }
 
-  public void setDevice(String device) {
+  public void setDevice(@jakarta.annotation.Nonnull String device) {
     this.device = device;
   }
 
 
-  public V1beta1DeviceRequestAllocationResult driver(String driver) {
+  public V1beta1DeviceRequestAllocationResult driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1beta1DeviceRequestAllocationResult pool(String pool) {
+  public V1beta1DeviceRequestAllocationResult pool(@jakarta.annotation.Nonnull String pool) {
     this.pool = pool;
     return this;
   }
 
-   /**
+  /**
    * This name together with the driver name and the device name field identify which device was allocated (&#x60;&lt;driver name&gt;/&lt;pool name&gt;/&lt;device name&gt;&#x60;).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.
    * @return pool
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.")
   public String getPool() {
     return pool;
   }
 
-  public void setPool(String pool) {
+  public void setPool(@jakarta.annotation.Nonnull String pool) {
     this.pool = pool;
   }
 
 
-  public V1beta1DeviceRequestAllocationResult request(String request) {
+  public V1beta1DeviceRequestAllocationResult request(@jakarta.annotation.Nonnull String request) {
     this.request = request;
     return this;
   }
 
-   /**
-   * Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.
+  /**
+   * Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format &lt;main request&gt;/&lt;subrequest&gt;.  Multiple devices may have been allocated per request.
    * @return request
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Request is the name of the request in the claim which caused this device to be allocated. Multiple devices may have been allocated per request.")
+  @ApiModelProperty(required = true, value = "Request is the name of the request in the claim which caused this device to be allocated. If it references a subrequest in the firstAvailable list on a DeviceRequest, this field must include both the name of the main request and the subrequest using the format <main request>/<subrequest>.  Multiple devices may have been allocated per request.")
   public String getRequest() {
     return request;
   }
 
-  public void setRequest(String request) {
+  public void setRequest(@jakarta.annotation.Nonnull String request) {
     this.request = request;
+  }
+
+
+  public V1beta1DeviceRequestAllocationResult tolerations(@jakarta.annotation.Nullable List<V1beta1DeviceToleration> tolerations) {
+    this.tolerations = tolerations;
+    return this;
+  }
+
+  public V1beta1DeviceRequestAllocationResult addTolerationsItem(V1beta1DeviceToleration tolerationsItem) {
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList<>();
+    }
+    this.tolerations.add(tolerationsItem);
+    return this;
+  }
+
+  /**
+   * A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * @return tolerations
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+  public List<V1beta1DeviceToleration> getTolerations() {
+    return tolerations;
+  }
+
+  public void setTolerations(@jakarta.annotation.Nullable List<V1beta1DeviceToleration> tolerations) {
+    this.tolerations = tolerations;
   }
 
 
@@ -190,12 +230,13 @@ public class V1beta1DeviceRequestAllocationResult {
         Objects.equals(this.device, v1beta1DeviceRequestAllocationResult.device) &&
         Objects.equals(this.driver, v1beta1DeviceRequestAllocationResult.driver) &&
         Objects.equals(this.pool, v1beta1DeviceRequestAllocationResult.pool) &&
-        Objects.equals(this.request, v1beta1DeviceRequestAllocationResult.request);
+        Objects.equals(this.request, v1beta1DeviceRequestAllocationResult.request) &&
+        Objects.equals(this.tolerations, v1beta1DeviceRequestAllocationResult.tolerations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, device, driver, pool, request);
+    return Objects.hash(adminAccess, device, driver, pool, request, tolerations);
   }
 
   @Override
@@ -207,6 +248,7 @@ public class V1beta1DeviceRequestAllocationResult {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -234,6 +276,7 @@ public class V1beta1DeviceRequestAllocationResult {
     openapiFields.add("driver");
     openapiFields.add("pool");
     openapiFields.add("request");
+    openapiFields.add("tolerations");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -243,12 +286,12 @@ public class V1beta1DeviceRequestAllocationResult {
     openapiRequiredFields.add("request");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1DeviceRequestAllocationResult
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1DeviceRequestAllocationResult
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1DeviceRequestAllocationResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -283,6 +326,20 @@ public class V1beta1DeviceRequestAllocationResult {
       if (!jsonObj.get("request").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request").toString()));
       }
+      if (jsonObj.get("tolerations") != null && !jsonObj.get("tolerations").isJsonNull()) {
+        JsonArray jsonArraytolerations = jsonObj.getAsJsonArray("tolerations");
+        if (jsonArraytolerations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("tolerations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
+          }
+
+          // validate the optional field `tolerations` (array)
+          for (int i = 0; i < jsonArraytolerations.size(); i++) {
+            V1beta1DeviceToleration.validateJsonElement(jsonArraytolerations.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -314,22 +371,22 @@ public class V1beta1DeviceRequestAllocationResult {
     }
   }
 
- /**
-  * Create an instance of V1beta1DeviceRequestAllocationResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1DeviceRequestAllocationResult
-  * @throws IOException if the JSON string is invalid with respect to V1beta1DeviceRequestAllocationResult
-  */
+  /**
+   * Create an instance of V1beta1DeviceRequestAllocationResult given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1DeviceRequestAllocationResult
+   * @throws IOException if the JSON string is invalid with respect to V1beta1DeviceRequestAllocationResult
+   */
   public static V1beta1DeviceRequestAllocationResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1DeviceRequestAllocationResult.class);
   }
 
- /**
-  * Convert an instance of V1beta1DeviceRequestAllocationResult to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1DeviceRequestAllocationResult to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

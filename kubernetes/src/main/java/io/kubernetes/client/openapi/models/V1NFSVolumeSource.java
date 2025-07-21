@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NFSVolumeSource {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nonnull
   private String path;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SERVER = "server";
   @SerializedName(SERIALIZED_NAME_SERVER)
+  @jakarta.annotation.Nonnull
   private String server;
 
   public V1NFSVolumeSource() {
   }
 
-  public V1NFSVolumeSource path(String path) {
+  public V1NFSVolumeSource path(@jakarta.annotation.Nonnull String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return path
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nonnull String path) {
     this.path = path;
   }
 
 
-  public V1NFSVolumeSource readOnly(Boolean readOnly) {
+  public V1NFSVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1NFSVolumeSource server(String server) {
+  public V1NFSVolumeSource server(@jakarta.annotation.Nonnull String server) {
     this.server = server;
     return this;
   }
 
-   /**
+  /**
    * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return server
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
   public String getServer() {
     return server;
   }
 
-  public void setServer(String server) {
+  public void setServer(@jakarta.annotation.Nonnull String server) {
     this.server = server;
   }
 
@@ -187,12 +189,12 @@ public class V1NFSVolumeSource {
     openapiRequiredFields.add("server");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NFSVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NFSVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NFSVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -252,22 +254,22 @@ public class V1NFSVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1NFSVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NFSVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1NFSVolumeSource
-  */
+  /**
+   * Create an instance of V1NFSVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NFSVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1NFSVolumeSource
+   */
   public static V1NFSVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NFSVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1NFSVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NFSVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

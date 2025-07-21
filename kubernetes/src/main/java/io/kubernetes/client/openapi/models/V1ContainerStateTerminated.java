@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,175 +51,182 @@ import io.kubernetes.client.openapi.JSON;
  * ContainerStateTerminated is a terminated state of a container.
  */
 @ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
   @SerializedName(SERIALIZED_NAME_CONTAINER_I_D)
+  @jakarta.annotation.Nullable
   private String containerID;
 
   public static final String SERIALIZED_NAME_EXIT_CODE = "exitCode";
   @SerializedName(SERIALIZED_NAME_EXIT_CODE)
+  @jakarta.annotation.Nonnull
   private Integer exitCode;
 
   public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
   @SerializedName(SERIALIZED_NAME_FINISHED_AT)
+  @jakarta.annotation.Nullable
   private OffsetDateTime finishedAt;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public static final String SERIALIZED_NAME_SIGNAL = "signal";
   @SerializedName(SERIALIZED_NAME_SIGNAL)
+  @jakarta.annotation.Nullable
   private Integer signal;
 
   public static final String SERIALIZED_NAME_STARTED_AT = "startedAt";
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
+  @jakarta.annotation.Nullable
   private OffsetDateTime startedAt;
 
   public V1ContainerStateTerminated() {
   }
 
-  public V1ContainerStateTerminated containerID(String containerID) {
+  public V1ContainerStateTerminated containerID(@jakarta.annotation.Nullable String containerID) {
     this.containerID = containerID;
     return this;
   }
 
-   /**
+  /**
    * Container&#39;s ID in the format &#39;&lt;type&gt;://&lt;container_id&gt;&#39;
    * @return containerID
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container's ID in the format '<type>://<container_id>'")
   public String getContainerID() {
     return containerID;
   }
 
-  public void setContainerID(String containerID) {
+  public void setContainerID(@jakarta.annotation.Nullable String containerID) {
     this.containerID = containerID;
   }
 
 
-  public V1ContainerStateTerminated exitCode(Integer exitCode) {
+  public V1ContainerStateTerminated exitCode(@jakarta.annotation.Nonnull Integer exitCode) {
     this.exitCode = exitCode;
     return this;
   }
 
-   /**
+  /**
    * Exit status from the last termination of the container
    * @return exitCode
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Exit status from the last termination of the container")
   public Integer getExitCode() {
     return exitCode;
   }
 
-  public void setExitCode(Integer exitCode) {
+  public void setExitCode(@jakarta.annotation.Nonnull Integer exitCode) {
     this.exitCode = exitCode;
   }
 
 
-  public V1ContainerStateTerminated finishedAt(OffsetDateTime finishedAt) {
+  public V1ContainerStateTerminated finishedAt(@jakarta.annotation.Nullable OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
-   /**
+  /**
    * Time at which the container last terminated
    * @return finishedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time at which the container last terminated")
   public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
 
-  public void setFinishedAt(OffsetDateTime finishedAt) {
+  public void setFinishedAt(@jakarta.annotation.Nullable OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
   }
 
 
-  public V1ContainerStateTerminated message(String message) {
+  public V1ContainerStateTerminated message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Message regarding the last termination of the container
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Message regarding the last termination of the container")
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public V1ContainerStateTerminated reason(String reason) {
+  public V1ContainerStateTerminated reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * (brief) reason from the last termination of the container
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason from the last termination of the container")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
 
-  public V1ContainerStateTerminated signal(Integer signal) {
+  public V1ContainerStateTerminated signal(@jakarta.annotation.Nullable Integer signal) {
     this.signal = signal;
     return this;
   }
 
-   /**
+  /**
    * Signal from the last termination of the container
    * @return signal
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signal from the last termination of the container")
   public Integer getSignal() {
     return signal;
   }
 
-  public void setSignal(Integer signal) {
+  public void setSignal(@jakarta.annotation.Nullable Integer signal) {
     this.signal = signal;
   }
 
 
-  public V1ContainerStateTerminated startedAt(OffsetDateTime startedAt) {
+  public V1ContainerStateTerminated startedAt(@jakarta.annotation.Nullable OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
-   /**
+  /**
    * Time at which previous execution of the container started
    * @return startedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time at which previous execution of the container started")
   public OffsetDateTime getStartedAt() {
     return startedAt;
   }
 
-  public void setStartedAt(OffsetDateTime startedAt) {
+  public void setStartedAt(@jakarta.annotation.Nullable OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
 
@@ -295,12 +301,12 @@ public class V1ContainerStateTerminated {
     openapiRequiredFields.add("exitCode");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ContainerStateTerminated
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ContainerStateTerminated
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ContainerStateTerminated.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -363,22 +369,22 @@ public class V1ContainerStateTerminated {
     }
   }
 
- /**
-  * Create an instance of V1ContainerStateTerminated given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ContainerStateTerminated
-  * @throws IOException if the JSON string is invalid with respect to V1ContainerStateTerminated
-  */
+  /**
+   * Create an instance of V1ContainerStateTerminated given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ContainerStateTerminated
+   * @throws IOException if the JSON string is invalid with respect to V1ContainerStateTerminated
+   */
   public static V1ContainerStateTerminated fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ContainerStateTerminated.class);
   }
 
- /**
-  * Convert an instance of V1ContainerStateTerminated to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ContainerStateTerminated to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

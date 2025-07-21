@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,199 +53,207 @@ import io.kubernetes.client.openapi.JSON;
  * DeploymentSpec is the specification of the desired behavior of the Deployment.
  */
 @ApiModel(description = "DeploymentSpec is the specification of the desired behavior of the Deployment.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DeploymentSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer minReadySeconds;
 
   public static final String SERIALIZED_NAME_PAUSED = "paused";
   @SerializedName(SERIALIZED_NAME_PAUSED)
+  @jakarta.annotation.Nullable
   private Boolean paused;
 
   public static final String SERIALIZED_NAME_PROGRESS_DEADLINE_SECONDS = "progressDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_PROGRESS_DEADLINE_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer progressDeadlineSeconds;
 
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
   @SerializedName(SERIALIZED_NAME_REPLICAS)
+  @jakarta.annotation.Nullable
   private Integer replicas;
 
   public static final String SERIALIZED_NAME_REVISION_HISTORY_LIMIT = "revisionHistoryLimit";
   @SerializedName(SERIALIZED_NAME_REVISION_HISTORY_LIMIT)
+  @jakarta.annotation.Nullable
   private Integer revisionHistoryLimit;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nonnull
   private V1LabelSelector selector;
 
   public static final String SERIALIZED_NAME_STRATEGY = "strategy";
   @SerializedName(SERIALIZED_NAME_STRATEGY)
+  @jakarta.annotation.Nullable
   private V1DeploymentStrategy strategy;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @jakarta.annotation.Nonnull
   private V1PodTemplateSpec template;
 
   public V1DeploymentSpec() {
   }
 
-  public V1DeploymentSpec minReadySeconds(Integer minReadySeconds) {
+  public V1DeploymentSpec minReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
     return this;
   }
 
-   /**
+  /**
    * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    * @return minReadySeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }
 
-  public void setMinReadySeconds(Integer minReadySeconds) {
+  public void setMinReadySeconds(@jakarta.annotation.Nullable Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
   }
 
 
-  public V1DeploymentSpec paused(Boolean paused) {
+  public V1DeploymentSpec paused(@jakarta.annotation.Nullable Boolean paused) {
     this.paused = paused;
     return this;
   }
 
-   /**
+  /**
    * Indicates that the deployment is paused.
    * @return paused
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates that the deployment is paused.")
   public Boolean getPaused() {
     return paused;
   }
 
-  public void setPaused(Boolean paused) {
+  public void setPaused(@jakarta.annotation.Nullable Boolean paused) {
     this.paused = paused;
   }
 
 
-  public V1DeploymentSpec progressDeadlineSeconds(Integer progressDeadlineSeconds) {
+  public V1DeploymentSpec progressDeadlineSeconds(@jakarta.annotation.Nullable Integer progressDeadlineSeconds) {
     this.progressDeadlineSeconds = progressDeadlineSeconds;
     return this;
   }
 
-   /**
+  /**
    * The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.
    * @return progressDeadlineSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.")
   public Integer getProgressDeadlineSeconds() {
     return progressDeadlineSeconds;
   }
 
-  public void setProgressDeadlineSeconds(Integer progressDeadlineSeconds) {
+  public void setProgressDeadlineSeconds(@jakarta.annotation.Nullable Integer progressDeadlineSeconds) {
     this.progressDeadlineSeconds = progressDeadlineSeconds;
   }
 
 
-  public V1DeploymentSpec replicas(Integer replicas) {
+  public V1DeploymentSpec replicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
     return this;
   }
 
-   /**
+  /**
    * Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
    * @return replicas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.")
   public Integer getReplicas() {
     return replicas;
   }
 
-  public void setReplicas(Integer replicas) {
+  public void setReplicas(@jakarta.annotation.Nullable Integer replicas) {
     this.replicas = replicas;
   }
 
 
-  public V1DeploymentSpec revisionHistoryLimit(Integer revisionHistoryLimit) {
+  public V1DeploymentSpec revisionHistoryLimit(@jakarta.annotation.Nullable Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
     return this;
   }
 
-   /**
+  /**
    * The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
    * @return revisionHistoryLimit
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.")
   public Integer getRevisionHistoryLimit() {
     return revisionHistoryLimit;
   }
 
-  public void setRevisionHistoryLimit(Integer revisionHistoryLimit) {
+  public void setRevisionHistoryLimit(@jakarta.annotation.Nullable Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
   }
 
 
-  public V1DeploymentSpec selector(V1LabelSelector selector) {
+  public V1DeploymentSpec selector(@jakarta.annotation.Nonnull V1LabelSelector selector) {
     this.selector = selector;
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
 
-  public void setSelector(V1LabelSelector selector) {
+  public void setSelector(@jakarta.annotation.Nonnull V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
-  public V1DeploymentSpec strategy(V1DeploymentStrategy strategy) {
+  public V1DeploymentSpec strategy(@jakarta.annotation.Nullable V1DeploymentStrategy strategy) {
     this.strategy = strategy;
     return this;
   }
 
-   /**
+  /**
    * Get strategy
    * @return strategy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DeploymentStrategy getStrategy() {
     return strategy;
   }
 
-  public void setStrategy(V1DeploymentStrategy strategy) {
+  public void setStrategy(@jakarta.annotation.Nullable V1DeploymentStrategy strategy) {
     this.strategy = strategy;
   }
 
 
-  public V1DeploymentSpec template(V1PodTemplateSpec template) {
+  public V1DeploymentSpec template(@jakarta.annotation.Nonnull V1PodTemplateSpec template) {
     this.template = template;
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
 
-  public void setTemplate(V1PodTemplateSpec template) {
+  public void setTemplate(@jakarta.annotation.Nonnull V1PodTemplateSpec template) {
     this.template = template;
   }
 
@@ -325,12 +332,12 @@ public class V1DeploymentSpec {
     openapiRequiredFields.add("template");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DeploymentSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DeploymentSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DeploymentSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -392,22 +399,22 @@ public class V1DeploymentSpec {
     }
   }
 
- /**
-  * Create an instance of V1DeploymentSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DeploymentSpec
-  * @throws IOException if the JSON string is invalid with respect to V1DeploymentSpec
-  */
+  /**
+   * Create an instance of V1DeploymentSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DeploymentSpec
+   * @throws IOException if the JSON string is invalid with respect to V1DeploymentSpec
+   */
   public static V1DeploymentSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DeploymentSpec.class);
   }
 
- /**
-  * Convert an instance of V1DeploymentSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DeploymentSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

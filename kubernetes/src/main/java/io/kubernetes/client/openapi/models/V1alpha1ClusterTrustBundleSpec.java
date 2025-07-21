@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ClusterTrustBundleSpec contains the signer and trust anchors.
  */
 @ApiModel(description = "ClusterTrustBundleSpec contains the signer and trust anchors.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1ClusterTrustBundleSpec {
   public static final String SERIALIZED_NAME_SIGNER_NAME = "signerName";
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
+  @jakarta.annotation.Nullable
   private String signerName;
 
   public static final String SERIALIZED_NAME_TRUST_BUNDLE = "trustBundle";
   @SerializedName(SERIALIZED_NAME_TRUST_BUNDLE)
+  @jakarta.annotation.Nonnull
   private String trustBundle;
 
   public V1alpha1ClusterTrustBundleSpec() {
   }
 
-  public V1alpha1ClusterTrustBundleSpec signerName(String signerName) {
+  public V1alpha1ClusterTrustBundleSpec signerName(@jakarta.annotation.Nullable String signerName) {
     this.signerName = signerName;
     return this;
   }
 
-   /**
+  /**
    * signerName indicates the associated signer, if any.  In order to create or update a ClusterTrustBundle that sets signerName, you must have the following cluster-scoped permission: group&#x3D;certificates.k8s.io resource&#x3D;signers resourceName&#x3D;&lt;the signer name&gt; verb&#x3D;attest.  If signerName is not empty, then the ClusterTrustBundle object must be named with the signer name as a prefix (translating slashes to colons). For example, for the signer name &#x60;example.com/foo&#x60;, valid ClusterTrustBundle object names include &#x60;example.com:foo:abc&#x60; and &#x60;example.com:foo:v1&#x60;.  If signerName is empty, then the ClusterTrustBundle object&#39;s name must not have such a prefix.  List/watch requests for ClusterTrustBundles can filter on this field using a &#x60;spec.signerName&#x3D;NAME&#x60; field selector.
    * @return signerName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "signerName indicates the associated signer, if any.  In order to create or update a ClusterTrustBundle that sets signerName, you must have the following cluster-scoped permission: group=certificates.k8s.io resource=signers resourceName=<the signer name> verb=attest.  If signerName is not empty, then the ClusterTrustBundle object must be named with the signer name as a prefix (translating slashes to colons). For example, for the signer name `example.com/foo`, valid ClusterTrustBundle object names include `example.com:foo:abc` and `example.com:foo:v1`.  If signerName is empty, then the ClusterTrustBundle object's name must not have such a prefix.  List/watch requests for ClusterTrustBundles can filter on this field using a `spec.signerName=NAME` field selector.")
   public String getSignerName() {
     return signerName;
   }
 
-  public void setSignerName(String signerName) {
+  public void setSignerName(@jakarta.annotation.Nullable String signerName) {
     this.signerName = signerName;
   }
 
 
-  public V1alpha1ClusterTrustBundleSpec trustBundle(String trustBundle) {
+  public V1alpha1ClusterTrustBundleSpec trustBundle(@jakarta.annotation.Nonnull String trustBundle) {
     this.trustBundle = trustBundle;
     return this;
   }
 
-   /**
+  /**
    * trustBundle contains the individual X.509 trust anchors for this bundle, as PEM bundle of PEM-wrapped, DER-formatted X.509 certificates.  The data must consist only of PEM certificate blocks that parse as valid X.509 certificates.  Each certificate must include a basic constraints extension with the CA bit set.  The API server will reject objects that contain duplicate certificates, or that use PEM block headers.  Users of ClusterTrustBundles, including Kubelet, are free to reorder and deduplicate certificate blocks in this file according to their own logic, as well as to drop PEM block headers and inter-block data.
    * @return trustBundle
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "trustBundle contains the individual X.509 trust anchors for this bundle, as PEM bundle of PEM-wrapped, DER-formatted X.509 certificates.  The data must consist only of PEM certificate blocks that parse as valid X.509 certificates.  Each certificate must include a basic constraints extension with the CA bit set.  The API server will reject objects that contain duplicate certificates, or that use PEM block headers.  Users of ClusterTrustBundles, including Kubelet, are free to reorder and deduplicate certificate blocks in this file according to their own logic, as well as to drop PEM block headers and inter-block data.")
   public String getTrustBundle() {
     return trustBundle;
   }
 
-  public void setTrustBundle(String trustBundle) {
+  public void setTrustBundle(@jakarta.annotation.Nonnull String trustBundle) {
     this.trustBundle = trustBundle;
   }
 
@@ -159,12 +160,12 @@ public class V1alpha1ClusterTrustBundleSpec {
     openapiRequiredFields.add("trustBundle");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1ClusterTrustBundleSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1ClusterTrustBundleSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1ClusterTrustBundleSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1alpha1ClusterTrustBundleSpec {
     }
   }
 
- /**
-  * Create an instance of V1alpha1ClusterTrustBundleSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1ClusterTrustBundleSpec
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1ClusterTrustBundleSpec
-  */
+  /**
+   * Create an instance of V1alpha1ClusterTrustBundleSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1ClusterTrustBundleSpec
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1ClusterTrustBundleSpec
+   */
   public static V1alpha1ClusterTrustBundleSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1ClusterTrustBundleSpec.class);
   }
 
- /**
-  * Convert an instance of V1alpha1ClusterTrustBundleSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1ClusterTrustBundleSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

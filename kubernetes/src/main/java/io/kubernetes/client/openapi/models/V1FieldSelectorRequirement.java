@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,64 +52,67 @@ import io.kubernetes.client.openapi.JSON;
  * FieldSelectorRequirement is a selector that contains values, a key, and an operator that relates the key and values.
  */
 @ApiModel(description = "FieldSelectorRequirement is a selector that contains values, a key, and an operator that relates the key and values.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1FieldSelectorRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
+  @jakarta.annotation.Nonnull
   private String key;
 
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
+  @jakarta.annotation.Nonnull
   private String operator;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
+  @jakarta.annotation.Nullable
   private List<String> values = new ArrayList<>();
 
   public V1FieldSelectorRequirement() {
   }
 
-  public V1FieldSelectorRequirement key(String key) {
+  public V1FieldSelectorRequirement key(@jakarta.annotation.Nonnull String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * key is the field selector key that the requirement applies to.
    * @return key
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "key is the field selector key that the requirement applies to.")
   public String getKey() {
     return key;
   }
 
-  public void setKey(String key) {
+  public void setKey(@jakarta.annotation.Nonnull String key) {
     this.key = key;
   }
 
 
-  public V1FieldSelectorRequirement operator(String operator) {
+  public V1FieldSelectorRequirement operator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * operator represents a key&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. The list of operators may grow in the future.
    * @return operator
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. The list of operators may grow in the future.")
   public String getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
   }
 
 
-  public V1FieldSelectorRequirement values(List<String> values) {
+  public V1FieldSelectorRequirement values(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
     return this;
   }
@@ -123,17 +125,17 @@ public class V1FieldSelectorRequirement {
     return this;
   }
 
-   /**
+  /**
    * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.
    * @return values
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.")
   public List<String> getValues() {
     return values;
   }
 
-  public void setValues(List<String> values) {
+  public void setValues(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
   }
 
@@ -197,12 +199,12 @@ public class V1FieldSelectorRequirement {
     openapiRequiredFields.add("operator");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1FieldSelectorRequirement
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1FieldSelectorRequirement
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FieldSelectorRequirement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -266,22 +268,22 @@ public class V1FieldSelectorRequirement {
     }
   }
 
- /**
-  * Create an instance of V1FieldSelectorRequirement given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1FieldSelectorRequirement
-  * @throws IOException if the JSON string is invalid with respect to V1FieldSelectorRequirement
-  */
+  /**
+   * Create an instance of V1FieldSelectorRequirement given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1FieldSelectorRequirement
+   * @throws IOException if the JSON string is invalid with respect to V1FieldSelectorRequirement
+   */
   public static V1FieldSelectorRequirement fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1FieldSelectorRequirement.class);
   }
 
- /**
-  * Convert an instance of V1FieldSelectorRequirement to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1FieldSelectorRequirement to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

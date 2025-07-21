@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,151 +51,157 @@ import io.kubernetes.client.openapi.JSON;
  * LeaseCandidateSpec is a specification of a Lease.
  */
 @ApiModel(description = "LeaseCandidateSpec is a specification of a Lease.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha2LeaseCandidateSpec {
   public static final String SERIALIZED_NAME_BINARY_VERSION = "binaryVersion";
   @SerializedName(SERIALIZED_NAME_BINARY_VERSION)
+  @jakarta.annotation.Nonnull
   private String binaryVersion;
 
   public static final String SERIALIZED_NAME_EMULATION_VERSION = "emulationVersion";
   @SerializedName(SERIALIZED_NAME_EMULATION_VERSION)
+  @jakarta.annotation.Nullable
   private String emulationVersion;
 
   public static final String SERIALIZED_NAME_LEASE_NAME = "leaseName";
   @SerializedName(SERIALIZED_NAME_LEASE_NAME)
+  @jakarta.annotation.Nonnull
   private String leaseName;
 
   public static final String SERIALIZED_NAME_PING_TIME = "pingTime";
   @SerializedName(SERIALIZED_NAME_PING_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime pingTime;
 
   public static final String SERIALIZED_NAME_RENEW_TIME = "renewTime";
   @SerializedName(SERIALIZED_NAME_RENEW_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime renewTime;
 
   public static final String SERIALIZED_NAME_STRATEGY = "strategy";
   @SerializedName(SERIALIZED_NAME_STRATEGY)
+  @jakarta.annotation.Nonnull
   private String strategy;
 
   public V1alpha2LeaseCandidateSpec() {
   }
 
-  public V1alpha2LeaseCandidateSpec binaryVersion(String binaryVersion) {
+  public V1alpha2LeaseCandidateSpec binaryVersion(@jakarta.annotation.Nonnull String binaryVersion) {
     this.binaryVersion = binaryVersion;
     return this;
   }
 
-   /**
+  /**
    * BinaryVersion is the binary version. It must be in a semver format without leading &#x60;v&#x60;. This field is required.
    * @return binaryVersion
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "BinaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.")
   public String getBinaryVersion() {
     return binaryVersion;
   }
 
-  public void setBinaryVersion(String binaryVersion) {
+  public void setBinaryVersion(@jakarta.annotation.Nonnull String binaryVersion) {
     this.binaryVersion = binaryVersion;
   }
 
 
-  public V1alpha2LeaseCandidateSpec emulationVersion(String emulationVersion) {
+  public V1alpha2LeaseCandidateSpec emulationVersion(@jakarta.annotation.Nullable String emulationVersion) {
     this.emulationVersion = emulationVersion;
     return this;
   }
 
-   /**
+  /**
    * EmulationVersion is the emulation version. It must be in a semver format without leading &#x60;v&#x60;. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \&quot;OldestEmulationVersion\&quot;
    * @return emulationVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EmulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \"OldestEmulationVersion\"")
   public String getEmulationVersion() {
     return emulationVersion;
   }
 
-  public void setEmulationVersion(String emulationVersion) {
+  public void setEmulationVersion(@jakarta.annotation.Nullable String emulationVersion) {
     this.emulationVersion = emulationVersion;
   }
 
 
-  public V1alpha2LeaseCandidateSpec leaseName(String leaseName) {
+  public V1alpha2LeaseCandidateSpec leaseName(@jakarta.annotation.Nonnull String leaseName) {
     this.leaseName = leaseName;
     return this;
   }
 
-   /**
+  /**
    * LeaseName is the name of the lease for which this candidate is contending. This field is immutable.
    * @return leaseName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "LeaseName is the name of the lease for which this candidate is contending. This field is immutable.")
   public String getLeaseName() {
     return leaseName;
   }
 
-  public void setLeaseName(String leaseName) {
+  public void setLeaseName(@jakarta.annotation.Nonnull String leaseName) {
     this.leaseName = leaseName;
   }
 
 
-  public V1alpha2LeaseCandidateSpec pingTime(OffsetDateTime pingTime) {
+  public V1alpha2LeaseCandidateSpec pingTime(@jakarta.annotation.Nullable OffsetDateTime pingTime) {
     this.pingTime = pingTime;
     return this;
   }
 
-   /**
+  /**
    * PingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.
    * @return pingTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.")
   public OffsetDateTime getPingTime() {
     return pingTime;
   }
 
-  public void setPingTime(OffsetDateTime pingTime) {
+  public void setPingTime(@jakarta.annotation.Nullable OffsetDateTime pingTime) {
     this.pingTime = pingTime;
   }
 
 
-  public V1alpha2LeaseCandidateSpec renewTime(OffsetDateTime renewTime) {
+  public V1alpha2LeaseCandidateSpec renewTime(@jakarta.annotation.Nullable OffsetDateTime renewTime) {
     this.renewTime = renewTime;
     return this;
   }
 
-   /**
+  /**
    * RenewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.
    * @return renewTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "RenewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.")
   public OffsetDateTime getRenewTime() {
     return renewTime;
   }
 
-  public void setRenewTime(OffsetDateTime renewTime) {
+  public void setRenewTime(@jakarta.annotation.Nullable OffsetDateTime renewTime) {
     this.renewTime = renewTime;
   }
 
 
-  public V1alpha2LeaseCandidateSpec strategy(String strategy) {
+  public V1alpha2LeaseCandidateSpec strategy(@jakarta.annotation.Nonnull String strategy) {
     this.strategy = strategy;
     return this;
   }
 
-   /**
-   * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+  /**
+   * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
    * @return strategy
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
+  @ApiModelProperty(required = true, value = "Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.")
   public String getStrategy() {
     return strategy;
   }
 
-  public void setStrategy(String strategy) {
+  public void setStrategy(@jakarta.annotation.Nonnull String strategy) {
     this.strategy = strategy;
   }
 
@@ -270,12 +275,12 @@ public class V1alpha2LeaseCandidateSpec {
     openapiRequiredFields.add("strategy");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha2LeaseCandidateSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha2LeaseCandidateSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha2LeaseCandidateSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -341,22 +346,22 @@ public class V1alpha2LeaseCandidateSpec {
     }
   }
 
- /**
-  * Create an instance of V1alpha2LeaseCandidateSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha2LeaseCandidateSpec
-  * @throws IOException if the JSON string is invalid with respect to V1alpha2LeaseCandidateSpec
-  */
+  /**
+   * Create an instance of V1alpha2LeaseCandidateSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha2LeaseCandidateSpec
+   * @throws IOException if the JSON string is invalid with respect to V1alpha2LeaseCandidateSpec
+   */
   public static V1alpha2LeaseCandidateSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha2LeaseCandidateSpec.class);
   }
 
- /**
-  * Convert an instance of V1alpha2LeaseCandidateSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha2LeaseCandidateSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

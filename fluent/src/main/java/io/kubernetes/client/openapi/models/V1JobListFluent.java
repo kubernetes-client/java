@@ -54,14 +54,26 @@ public class V1JobListFluent<A extends V1JobListFluent<A>> extends BaseFluent<A>
   public A addToItems(int index,V1Job item) {
     if (this.items == null) {this.items = new ArrayList<V1JobBuilder>();}
     V1JobBuilder builder = new V1JobBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1Job item) {
     if (this.items == null) {this.items = new ArrayList<V1JobBuilder>();}
     V1JobBuilder builder = new V1JobBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

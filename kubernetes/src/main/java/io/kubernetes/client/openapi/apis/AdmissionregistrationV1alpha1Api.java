@@ -78,7 +78,7 @@ public class AdmissionregistrationV1alpha1Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createMutatingAdmissionPolicyCall(V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyCall(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -143,7 +143,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMutatingAdmissionPolicyValidateBeforeCall(V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createMutatingAdmissionPolicy(Async)");
@@ -154,13 +154,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicy> createMutatingAdmissionPolicyWithHttpInfo(V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicy> createMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createMutatingAdmissionPolicyValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createMutatingAdmissionPolicyAsync(V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyAsync(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createMutatingAdmissionPolicyValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
@@ -169,13 +169,18 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIcreateMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nonnull
         private final V1alpha1MutatingAdmissionPolicy body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateMutatingAdmissionPolicyRequest(V1alpha1MutatingAdmissionPolicy body) {
+        private APIcreateMutatingAdmissionPolicyRequest(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body) {
             this.body = body;
         }
 
@@ -184,7 +189,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateMutatingAdmissionPolicyRequest
          */
-        public APIcreateMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIcreateMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -194,7 +199,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateMutatingAdmissionPolicyRequest
          */
-        public APIcreateMutatingAdmissionPolicyRequest dryRun(String dryRun) {
+        public APIcreateMutatingAdmissionPolicyRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -204,7 +209,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateMutatingAdmissionPolicyRequest
          */
-        public APIcreateMutatingAdmissionPolicyRequest fieldManager(String fieldManager) {
+        public APIcreateMutatingAdmissionPolicyRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -214,7 +219,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateMutatingAdmissionPolicyRequest
          */
-        public APIcreateMutatingAdmissionPolicyRequest fieldValidation(String fieldValidation) {
+        public APIcreateMutatingAdmissionPolicyRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -225,7 +230,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -242,7 +248,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicy
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -260,7 +267,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicy&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -278,7 +286,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -297,7 +306,8 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIcreateMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -305,10 +315,10 @@ public class AdmissionregistrationV1alpha1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateMutatingAdmissionPolicyRequest createMutatingAdmissionPolicy(V1alpha1MutatingAdmissionPolicy body) {
+    public APIcreateMutatingAdmissionPolicyRequest createMutatingAdmissionPolicy(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body) {
         return new APIcreateMutatingAdmissionPolicyRequest(body);
     }
-    private okhttp3.Call createMutatingAdmissionPolicyBindingCall(V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -373,7 +383,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMutatingAdmissionPolicyBindingValidateBeforeCall(V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createMutatingAdmissionPolicyBinding(Async)");
@@ -384,13 +394,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> createMutatingAdmissionPolicyBindingWithHttpInfo(V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> createMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createMutatingAdmissionPolicyBindingValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createMutatingAdmissionPolicyBindingAsync(V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
+    private okhttp3.Call createMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createMutatingAdmissionPolicyBindingValidateBeforeCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
@@ -399,13 +409,18 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIcreateMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nonnull
         private final V1alpha1MutatingAdmissionPolicyBinding body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateMutatingAdmissionPolicyBindingRequest(V1alpha1MutatingAdmissionPolicyBinding body) {
+        private APIcreateMutatingAdmissionPolicyBindingRequest(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body) {
             this.body = body;
         }
 
@@ -414,7 +429,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateMutatingAdmissionPolicyBindingRequest
          */
-        public APIcreateMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIcreateMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -424,7 +439,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateMutatingAdmissionPolicyBindingRequest
          */
-        public APIcreateMutatingAdmissionPolicyBindingRequest dryRun(String dryRun) {
+        public APIcreateMutatingAdmissionPolicyBindingRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -434,7 +449,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateMutatingAdmissionPolicyBindingRequest
          */
-        public APIcreateMutatingAdmissionPolicyBindingRequest fieldManager(String fieldManager) {
+        public APIcreateMutatingAdmissionPolicyBindingRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -444,7 +459,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateMutatingAdmissionPolicyBindingRequest
          */
-        public APIcreateMutatingAdmissionPolicyBindingRequest fieldValidation(String fieldValidation) {
+        public APIcreateMutatingAdmissionPolicyBindingRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -455,7 +470,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -472,7 +488,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyBinding
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -490,7 +507,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyBinding&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -508,7 +526,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -527,7 +546,8 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIcreateMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -535,10 +555,10 @@ public class AdmissionregistrationV1alpha1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateMutatingAdmissionPolicyBindingRequest createMutatingAdmissionPolicyBinding(V1alpha1MutatingAdmissionPolicyBinding body) {
+    public APIcreateMutatingAdmissionPolicyBindingRequest createMutatingAdmissionPolicyBinding(@jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body) {
         return new APIcreateMutatingAdmissionPolicyBindingRequest(body);
     }
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,19 +663,19 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionMutatingAdmissionPolicyCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionMutatingAdmissionPolicyWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionMutatingAdmissionPolicyValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionMutatingAdmissionPolicyValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -664,20 +684,35 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIdeleteCollectionMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionMutatingAdmissionPolicyRequest() {
@@ -688,7 +723,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -698,7 +733,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest _continue(String _continue) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -708,7 +743,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest dryRun(String dryRun) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -718,7 +753,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -728,7 +763,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -738,7 +773,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -748,7 +783,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -758,7 +793,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest limit(Integer limit) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -768,7 +803,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -778,7 +813,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -788,7 +823,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -798,7 +833,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -808,7 +843,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -818,7 +853,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -828,7 +863,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionMutatingAdmissionPolicyRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -839,7 +874,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -854,7 +890,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -870,7 +907,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -886,7 +924,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -902,7 +941,8 @@ public class AdmissionregistrationV1alpha1Api {
      * delete collection of MutatingAdmissionPolicy
      * @return APIdeleteCollectionMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -911,7 +951,7 @@ public class AdmissionregistrationV1alpha1Api {
     public APIdeleteCollectionMutatingAdmissionPolicyRequest deleteCollectionMutatingAdmissionPolicy() {
         return new APIdeleteCollectionMutatingAdmissionPolicyRequest();
     }
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1016,19 +1056,19 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         return deleteCollectionMutatingAdmissionPolicyBindingCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionMutatingAdmissionPolicyBindingWithHttpInfo(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionMutatingAdmissionPolicyBindingValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingAsync(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionMutatingAdmissionPolicyBindingValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1037,20 +1077,35 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIdeleteCollectionMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
         private APIdeleteCollectionMutatingAdmissionPolicyBindingRequest() {
@@ -1061,7 +1116,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1071,7 +1126,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest _continue(String _continue) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1081,7 +1136,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest dryRun(String dryRun) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1091,7 +1146,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1101,7 +1156,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1111,7 +1166,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1121,7 +1176,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1131,7 +1186,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest limit(Integer limit) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1141,7 +1196,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1151,7 +1206,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1161,7 +1216,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1171,7 +1226,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1181,7 +1236,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1191,7 +1246,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1201,7 +1256,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1212,7 +1267,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1227,7 +1283,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1243,7 +1300,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1259,7 +1317,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1275,7 +1334,8 @@ public class AdmissionregistrationV1alpha1Api {
      * delete collection of MutatingAdmissionPolicyBinding
      * @return APIdeleteCollectionMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1284,7 +1344,7 @@ public class AdmissionregistrationV1alpha1Api {
     public APIdeleteCollectionMutatingAdmissionPolicyBindingRequest deleteCollectionMutatingAdmissionPolicyBinding() {
         return new APIdeleteCollectionMutatingAdmissionPolicyBindingRequest();
     }
-    private okhttp3.Call deleteMutatingAdmissionPolicyCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1358,7 +1418,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMutatingAdmissionPolicyValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteMutatingAdmissionPolicy(Async)");
@@ -1369,13 +1429,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteMutatingAdmissionPolicyWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteMutatingAdmissionPolicyValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteMutatingAdmissionPolicyAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteMutatingAdmissionPolicyValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1384,16 +1444,24 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIdeleteMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteMutatingAdmissionPolicyRequest(String name) {
+        private APIdeleteMutatingAdmissionPolicyRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1402,7 +1470,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIdeleteMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1412,7 +1480,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest dryRun(String dryRun) {
+        public APIdeleteMutatingAdmissionPolicyRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1422,7 +1490,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteMutatingAdmissionPolicyRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1432,7 +1500,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteMutatingAdmissionPolicyRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1442,7 +1510,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteMutatingAdmissionPolicyRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1452,7 +1520,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteMutatingAdmissionPolicyRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1462,7 +1530,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param body  (optional)
          * @return APIdeleteMutatingAdmissionPolicyRequest
          */
-        public APIdeleteMutatingAdmissionPolicyRequest body(V1DeleteOptions body) {
+        public APIdeleteMutatingAdmissionPolicyRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1473,7 +1541,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1489,7 +1558,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1506,7 +1576,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1523,7 +1594,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1541,17 +1613,18 @@ public class AdmissionregistrationV1alpha1Api {
      * @param name name of the MutatingAdmissionPolicy (required)
      * @return APIdeleteMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteMutatingAdmissionPolicyRequest deleteMutatingAdmissionPolicy(String name) {
+    public APIdeleteMutatingAdmissionPolicyRequest deleteMutatingAdmissionPolicy(@jakarta.annotation.Nonnull String name) {
         return new APIdeleteMutatingAdmissionPolicyRequest(name);
     }
-    private okhttp3.Call deleteMutatingAdmissionPolicyBindingCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1625,7 +1698,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMutatingAdmissionPolicyBindingValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteMutatingAdmissionPolicyBinding(Async)");
@@ -1636,13 +1709,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteMutatingAdmissionPolicyBindingWithHttpInfo(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteMutatingAdmissionPolicyBindingValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteMutatingAdmissionPolicyBindingAsync(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteMutatingAdmissionPolicyBindingValidateBeforeCall(name, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1651,16 +1724,24 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIdeleteMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteMutatingAdmissionPolicyBindingRequest(String name) {
+        private APIdeleteMutatingAdmissionPolicyBindingRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -1669,7 +1750,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1679,7 +1760,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest dryRun(String dryRun) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1689,7 +1770,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1699,7 +1780,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1709,7 +1790,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1719,7 +1800,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1729,7 +1810,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param body  (optional)
          * @return APIdeleteMutatingAdmissionPolicyBindingRequest
          */
-        public APIdeleteMutatingAdmissionPolicyBindingRequest body(V1DeleteOptions body) {
+        public APIdeleteMutatingAdmissionPolicyBindingRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1740,7 +1821,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1756,7 +1838,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1773,7 +1856,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1790,7 +1874,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1808,14 +1893,15 @@ public class AdmissionregistrationV1alpha1Api {
      * @param name name of the MutatingAdmissionPolicyBinding (required)
      * @return APIdeleteMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteMutatingAdmissionPolicyBindingRequest deleteMutatingAdmissionPolicyBinding(String name) {
+    public APIdeleteMutatingAdmissionPolicyBindingRequest deleteMutatingAdmissionPolicyBinding(@jakarta.annotation.Nonnull String name) {
         return new APIdeleteMutatingAdmissionPolicyBindingRequest(name);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -1897,7 +1983,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1912,7 +1999,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1928,7 +2016,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1944,7 +2033,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1960,7 +2050,8 @@ public class AdmissionregistrationV1alpha1Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1969,7 +2060,7 @@ public class AdmissionregistrationV1alpha1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listMutatingAdmissionPolicyCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2064,19 +2155,19 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMutatingAdmissionPolicyValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listMutatingAdmissionPolicyCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyList> listMutatingAdmissionPolicyWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyList> listMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listMutatingAdmissionPolicyValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMutatingAdmissionPolicyAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1MutatingAdmissionPolicyList> _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1alpha1MutatingAdmissionPolicyList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMutatingAdmissionPolicyValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyList>(){}.getType();
@@ -2085,16 +2176,27 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIlistMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistMutatingAdmissionPolicyRequest() {
@@ -2105,7 +2207,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIlistMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2115,7 +2217,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistMutatingAdmissionPolicyRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2125,7 +2227,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest _continue(String _continue) {
+        public APIlistMutatingAdmissionPolicyRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2135,7 +2237,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest fieldSelector(String fieldSelector) {
+        public APIlistMutatingAdmissionPolicyRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2145,7 +2247,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest labelSelector(String labelSelector) {
+        public APIlistMutatingAdmissionPolicyRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2155,7 +2257,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest limit(Integer limit) {
+        public APIlistMutatingAdmissionPolicyRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2165,7 +2267,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest resourceVersion(String resourceVersion) {
+        public APIlistMutatingAdmissionPolicyRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2175,7 +2277,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistMutatingAdmissionPolicyRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2185,7 +2287,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistMutatingAdmissionPolicyRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2195,7 +2297,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistMutatingAdmissionPolicyRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2205,7 +2307,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistMutatingAdmissionPolicyRequest
          */
-        public APIlistMutatingAdmissionPolicyRequest watch(Boolean watch) {
+        public APIlistMutatingAdmissionPolicyRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2216,7 +2318,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2231,7 +2334,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2247,7 +2351,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2263,7 +2368,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2279,7 +2385,8 @@ public class AdmissionregistrationV1alpha1Api {
      * list or watch objects of kind MutatingAdmissionPolicy
      * @return APIlistMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2288,7 +2395,7 @@ public class AdmissionregistrationV1alpha1Api {
     public APIlistMutatingAdmissionPolicyRequest listMutatingAdmissionPolicy() {
         return new APIlistMutatingAdmissionPolicyRequest();
     }
-    private okhttp3.Call listMutatingAdmissionPolicyBindingCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2383,19 +2490,19 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMutatingAdmissionPolicyBindingValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listMutatingAdmissionPolicyBindingCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyBindingList> listMutatingAdmissionPolicyBindingWithHttpInfo(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyBindingList> listMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listMutatingAdmissionPolicyBindingValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBindingList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMutatingAdmissionPolicyBindingAsync(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1MutatingAdmissionPolicyBindingList> _callback) throws ApiException {
+    private okhttp3.Call listMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1alpha1MutatingAdmissionPolicyBindingList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMutatingAdmissionPolicyBindingValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBindingList>(){}.getType();
@@ -2404,16 +2511,27 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIlistMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistMutatingAdmissionPolicyBindingRequest() {
@@ -2424,7 +2542,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIlistMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2434,7 +2552,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistMutatingAdmissionPolicyBindingRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -2444,7 +2562,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest _continue(String _continue) {
+        public APIlistMutatingAdmissionPolicyBindingRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2454,7 +2572,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest fieldSelector(String fieldSelector) {
+        public APIlistMutatingAdmissionPolicyBindingRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2464,7 +2582,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest labelSelector(String labelSelector) {
+        public APIlistMutatingAdmissionPolicyBindingRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2474,7 +2592,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest limit(Integer limit) {
+        public APIlistMutatingAdmissionPolicyBindingRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2484,7 +2602,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest resourceVersion(String resourceVersion) {
+        public APIlistMutatingAdmissionPolicyBindingRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2494,7 +2612,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistMutatingAdmissionPolicyBindingRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2504,7 +2622,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistMutatingAdmissionPolicyBindingRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2514,7 +2632,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistMutatingAdmissionPolicyBindingRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2524,7 +2642,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistMutatingAdmissionPolicyBindingRequest
          */
-        public APIlistMutatingAdmissionPolicyBindingRequest watch(Boolean watch) {
+        public APIlistMutatingAdmissionPolicyBindingRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -2535,7 +2653,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2550,7 +2669,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyBindingList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2566,7 +2686,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyBindingList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2582,7 +2703,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2598,7 +2720,8 @@ public class AdmissionregistrationV1alpha1Api {
      * list or watch objects of kind MutatingAdmissionPolicyBinding
      * @return APIlistMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2607,7 +2730,7 @@ public class AdmissionregistrationV1alpha1Api {
     public APIlistMutatingAdmissionPolicyBindingRequest listMutatingAdmissionPolicyBinding() {
         return new APIlistMutatingAdmissionPolicyBindingRequest();
     }
-    private okhttp3.Call patchMutatingAdmissionPolicyCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2677,7 +2800,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchMutatingAdmissionPolicyValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchMutatingAdmissionPolicy(Async)");
@@ -2693,13 +2816,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicy> patchMutatingAdmissionPolicyWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicy> patchMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchMutatingAdmissionPolicyValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchMutatingAdmissionPolicyAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchMutatingAdmissionPolicyValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
@@ -2708,15 +2831,22 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIpatchMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchMutatingAdmissionPolicyRequest(String name, V1Patch body) {
+        private APIpatchMutatingAdmissionPolicyRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2726,7 +2856,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchMutatingAdmissionPolicyRequest
          */
-        public APIpatchMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIpatchMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2736,7 +2866,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchMutatingAdmissionPolicyRequest
          */
-        public APIpatchMutatingAdmissionPolicyRequest dryRun(String dryRun) {
+        public APIpatchMutatingAdmissionPolicyRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2746,7 +2876,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchMutatingAdmissionPolicyRequest
          */
-        public APIpatchMutatingAdmissionPolicyRequest fieldManager(String fieldManager) {
+        public APIpatchMutatingAdmissionPolicyRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -2756,7 +2886,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchMutatingAdmissionPolicyRequest
          */
-        public APIpatchMutatingAdmissionPolicyRequest fieldValidation(String fieldValidation) {
+        public APIpatchMutatingAdmissionPolicyRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -2766,7 +2896,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchMutatingAdmissionPolicyRequest
          */
-        public APIpatchMutatingAdmissionPolicyRequest force(Boolean force) {
+        public APIpatchMutatingAdmissionPolicyRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -2777,7 +2907,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2793,7 +2924,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicy
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2810,7 +2942,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicy&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2827,7 +2960,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2846,17 +2980,18 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIpatchMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchMutatingAdmissionPolicyRequest patchMutatingAdmissionPolicy(String name, V1Patch body) {
+    public APIpatchMutatingAdmissionPolicyRequest patchMutatingAdmissionPolicy(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchMutatingAdmissionPolicyRequest(name, body);
     }
-    private okhttp3.Call patchMutatingAdmissionPolicyBindingCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2926,7 +3061,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchMutatingAdmissionPolicyBindingValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchMutatingAdmissionPolicyBinding(Async)");
@@ -2942,13 +3077,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> patchMutatingAdmissionPolicyBindingWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> patchMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchMutatingAdmissionPolicyBindingValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchMutatingAdmissionPolicyBindingAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
+    private okhttp3.Call patchMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchMutatingAdmissionPolicyBindingValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
@@ -2957,15 +3092,22 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIpatchMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchMutatingAdmissionPolicyBindingRequest(String name, V1Patch body) {
+        private APIpatchMutatingAdmissionPolicyBindingRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.body = body;
         }
@@ -2975,7 +3117,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchMutatingAdmissionPolicyBindingRequest
          */
-        public APIpatchMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIpatchMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2985,7 +3127,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchMutatingAdmissionPolicyBindingRequest
          */
-        public APIpatchMutatingAdmissionPolicyBindingRequest dryRun(String dryRun) {
+        public APIpatchMutatingAdmissionPolicyBindingRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2995,7 +3137,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchMutatingAdmissionPolicyBindingRequest
          */
-        public APIpatchMutatingAdmissionPolicyBindingRequest fieldManager(String fieldManager) {
+        public APIpatchMutatingAdmissionPolicyBindingRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3005,7 +3147,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchMutatingAdmissionPolicyBindingRequest
          */
-        public APIpatchMutatingAdmissionPolicyBindingRequest fieldValidation(String fieldValidation) {
+        public APIpatchMutatingAdmissionPolicyBindingRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3015,7 +3157,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchMutatingAdmissionPolicyBindingRequest
          */
-        public APIpatchMutatingAdmissionPolicyBindingRequest force(Boolean force) {
+        public APIpatchMutatingAdmissionPolicyBindingRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -3026,7 +3168,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3042,7 +3185,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyBinding
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3059,7 +3203,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyBinding&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3076,7 +3221,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3095,17 +3241,18 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIpatchMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchMutatingAdmissionPolicyBindingRequest patchMutatingAdmissionPolicyBinding(String name, V1Patch body) {
+    public APIpatchMutatingAdmissionPolicyBindingRequest patchMutatingAdmissionPolicyBinding(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchMutatingAdmissionPolicyBindingRequest(name, body);
     }
-    private okhttp3.Call readMutatingAdmissionPolicyCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3158,7 +3305,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readMutatingAdmissionPolicyValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readMutatingAdmissionPolicy(Async)");
@@ -3169,13 +3316,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicy> readMutatingAdmissionPolicyWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicy> readMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readMutatingAdmissionPolicyValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readMutatingAdmissionPolicyAsync(String name, String pretty, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readMutatingAdmissionPolicyValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
@@ -3184,10 +3331,12 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIreadMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadMutatingAdmissionPolicyRequest(String name) {
+        private APIreadMutatingAdmissionPolicyRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3196,7 +3345,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadMutatingAdmissionPolicyRequest
          */
-        public APIreadMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIreadMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3207,7 +3356,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3222,7 +3372,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicy
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3238,7 +3389,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicy&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3254,7 +3406,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3271,16 +3424,17 @@ public class AdmissionregistrationV1alpha1Api {
      * @param name name of the MutatingAdmissionPolicy (required)
      * @return APIreadMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadMutatingAdmissionPolicyRequest readMutatingAdmissionPolicy(String name) {
+    public APIreadMutatingAdmissionPolicyRequest readMutatingAdmissionPolicy(@jakarta.annotation.Nonnull String name) {
         return new APIreadMutatingAdmissionPolicyRequest(name);
     }
-    private okhttp3.Call readMutatingAdmissionPolicyBindingCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3333,7 +3487,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readMutatingAdmissionPolicyBindingValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readMutatingAdmissionPolicyBinding(Async)");
@@ -3344,13 +3498,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> readMutatingAdmissionPolicyBindingWithHttpInfo(String name, String pretty) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> readMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readMutatingAdmissionPolicyBindingValidateBeforeCall(name, pretty, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readMutatingAdmissionPolicyBindingAsync(String name, String pretty, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
+    private okhttp3.Call readMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readMutatingAdmissionPolicyBindingValidateBeforeCall(name, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
@@ -3359,10 +3513,12 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIreadMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadMutatingAdmissionPolicyBindingRequest(String name) {
+        private APIreadMutatingAdmissionPolicyBindingRequest(@jakarta.annotation.Nonnull String name) {
             this.name = name;
         }
 
@@ -3371,7 +3527,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadMutatingAdmissionPolicyBindingRequest
          */
-        public APIreadMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIreadMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3382,7 +3538,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3397,7 +3554,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyBinding
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3413,7 +3571,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyBinding&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3429,7 +3588,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3446,16 +3606,17 @@ public class AdmissionregistrationV1alpha1Api {
      * @param name name of the MutatingAdmissionPolicyBinding (required)
      * @return APIreadMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadMutatingAdmissionPolicyBindingRequest readMutatingAdmissionPolicyBinding(String name) {
+    public APIreadMutatingAdmissionPolicyBindingRequest readMutatingAdmissionPolicyBinding(@jakarta.annotation.Nonnull String name) {
         return new APIreadMutatingAdmissionPolicyBindingRequest(name);
     }
-    private okhttp3.Call replaceMutatingAdmissionPolicyCall(String name, V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3521,7 +3682,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceMutatingAdmissionPolicyValidateBeforeCall(String name, V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceMutatingAdmissionPolicy(Async)");
@@ -3537,13 +3698,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicy> replaceMutatingAdmissionPolicyWithHttpInfo(String name, V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicy> replaceMutatingAdmissionPolicyWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceMutatingAdmissionPolicyValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceMutatingAdmissionPolicyAsync(String name, V1alpha1MutatingAdmissionPolicy body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicy> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceMutatingAdmissionPolicyValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicy>(){}.getType();
@@ -3552,14 +3713,20 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIreplaceMutatingAdmissionPolicyRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1alpha1MutatingAdmissionPolicy body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceMutatingAdmissionPolicyRequest(String name, V1alpha1MutatingAdmissionPolicy body) {
+        private APIreplaceMutatingAdmissionPolicyRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body) {
             this.name = name;
             this.body = body;
         }
@@ -3569,7 +3736,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceMutatingAdmissionPolicyRequest
          */
-        public APIreplaceMutatingAdmissionPolicyRequest pretty(String pretty) {
+        public APIreplaceMutatingAdmissionPolicyRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3579,7 +3746,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceMutatingAdmissionPolicyRequest
          */
-        public APIreplaceMutatingAdmissionPolicyRequest dryRun(String dryRun) {
+        public APIreplaceMutatingAdmissionPolicyRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3589,7 +3756,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceMutatingAdmissionPolicyRequest
          */
-        public APIreplaceMutatingAdmissionPolicyRequest fieldManager(String fieldManager) {
+        public APIreplaceMutatingAdmissionPolicyRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3599,7 +3766,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceMutatingAdmissionPolicyRequest
          */
-        public APIreplaceMutatingAdmissionPolicyRequest fieldValidation(String fieldValidation) {
+        public APIreplaceMutatingAdmissionPolicyRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3610,7 +3777,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3626,7 +3794,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicy
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3643,7 +3812,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicy&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3660,7 +3830,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3679,17 +3850,18 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIreplaceMutatingAdmissionPolicyRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceMutatingAdmissionPolicyRequest replaceMutatingAdmissionPolicy(String name, V1alpha1MutatingAdmissionPolicy body) {
+    public APIreplaceMutatingAdmissionPolicyRequest replaceMutatingAdmissionPolicy(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicy body) {
         return new APIreplaceMutatingAdmissionPolicyRequest(name, body);
     }
-    private okhttp3.Call replaceMutatingAdmissionPolicyBindingCall(String name, V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyBindingCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3755,7 +3927,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceMutatingAdmissionPolicyBindingValidateBeforeCall(String name, V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyBindingValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceMutatingAdmissionPolicyBinding(Async)");
@@ -3771,13 +3943,13 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
 
-    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> replaceMutatingAdmissionPolicyBindingWithHttpInfo(String name, V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1alpha1MutatingAdmissionPolicyBinding> replaceMutatingAdmissionPolicyBindingWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceMutatingAdmissionPolicyBindingValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceMutatingAdmissionPolicyBindingAsync(String name, V1alpha1MutatingAdmissionPolicyBinding body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
+    private okhttp3.Call replaceMutatingAdmissionPolicyBindingAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1alpha1MutatingAdmissionPolicyBinding> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceMutatingAdmissionPolicyBindingValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1alpha1MutatingAdmissionPolicyBinding>(){}.getType();
@@ -3786,14 +3958,20 @@ public class AdmissionregistrationV1alpha1Api {
     }
 
     public class APIreplaceMutatingAdmissionPolicyBindingRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final V1alpha1MutatingAdmissionPolicyBinding body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceMutatingAdmissionPolicyBindingRequest(String name, V1alpha1MutatingAdmissionPolicyBinding body) {
+        private APIreplaceMutatingAdmissionPolicyBindingRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body) {
             this.name = name;
             this.body = body;
         }
@@ -3803,7 +3981,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceMutatingAdmissionPolicyBindingRequest
          */
-        public APIreplaceMutatingAdmissionPolicyBindingRequest pretty(String pretty) {
+        public APIreplaceMutatingAdmissionPolicyBindingRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3813,7 +3991,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceMutatingAdmissionPolicyBindingRequest
          */
-        public APIreplaceMutatingAdmissionPolicyBindingRequest dryRun(String dryRun) {
+        public APIreplaceMutatingAdmissionPolicyBindingRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3823,7 +4001,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceMutatingAdmissionPolicyBindingRequest
          */
-        public APIreplaceMutatingAdmissionPolicyBindingRequest fieldManager(String fieldManager) {
+        public APIreplaceMutatingAdmissionPolicyBindingRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -3833,7 +4011,7 @@ public class AdmissionregistrationV1alpha1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceMutatingAdmissionPolicyBindingRequest
          */
-        public APIreplaceMutatingAdmissionPolicyBindingRequest fieldValidation(String fieldValidation) {
+        public APIreplaceMutatingAdmissionPolicyBindingRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -3844,7 +4022,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3860,7 +4039,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return V1alpha1MutatingAdmissionPolicyBinding
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3877,7 +4057,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return ApiResponse&lt;V1alpha1MutatingAdmissionPolicyBinding&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3894,7 +4075,8 @@ public class AdmissionregistrationV1alpha1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -3913,14 +4095,15 @@ public class AdmissionregistrationV1alpha1Api {
      * @param body  (required)
      * @return APIreplaceMutatingAdmissionPolicyBindingRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceMutatingAdmissionPolicyBindingRequest replaceMutatingAdmissionPolicyBinding(String name, V1alpha1MutatingAdmissionPolicyBinding body) {
+    public APIreplaceMutatingAdmissionPolicyBindingRequest replaceMutatingAdmissionPolicyBinding(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1alpha1MutatingAdmissionPolicyBinding body) {
         return new APIreplaceMutatingAdmissionPolicyBindingRequest(name, body);
     }
 }

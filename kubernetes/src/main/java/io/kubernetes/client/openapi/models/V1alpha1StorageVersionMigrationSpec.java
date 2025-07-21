@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * Spec of the storage version migration.
  */
 @ApiModel(description = "Spec of the storage version migration.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1StorageVersionMigrationSpec {
   public static final String SERIALIZED_NAME_CONTINUE_TOKEN = "continueToken";
   @SerializedName(SERIALIZED_NAME_CONTINUE_TOKEN)
+  @jakarta.annotation.Nullable
   private String continueToken;
 
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
+  @jakarta.annotation.Nonnull
   private V1alpha1GroupVersionResource resource;
 
   public V1alpha1StorageVersionMigrationSpec() {
   }
 
-  public V1alpha1StorageVersionMigrationSpec continueToken(String continueToken) {
+  public V1alpha1StorageVersionMigrationSpec continueToken(@jakarta.annotation.Nullable String continueToken) {
     this.continueToken = continueToken;
     return this;
   }
 
-   /**
+  /**
    * The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \&quot;Running\&quot;, users can use this token to check the progress of the migration.
    * @return continueToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The token used in the list options to get the next chunk of objects to migrate. When the .status.conditions indicates the migration is \"Running\", users can use this token to check the progress of the migration.")
   public String getContinueToken() {
     return continueToken;
   }
 
-  public void setContinueToken(String continueToken) {
+  public void setContinueToken(@jakarta.annotation.Nullable String continueToken) {
     this.continueToken = continueToken;
   }
 
 
-  public V1alpha1StorageVersionMigrationSpec resource(V1alpha1GroupVersionResource resource) {
+  public V1alpha1StorageVersionMigrationSpec resource(@jakarta.annotation.Nonnull V1alpha1GroupVersionResource resource) {
     this.resource = resource;
     return this;
   }
 
-   /**
+  /**
    * Get resource
    * @return resource
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1alpha1GroupVersionResource getResource() {
     return resource;
   }
 
-  public void setResource(V1alpha1GroupVersionResource resource) {
+  public void setResource(@jakarta.annotation.Nonnull V1alpha1GroupVersionResource resource) {
     this.resource = resource;
   }
 
@@ -160,12 +161,12 @@ public class V1alpha1StorageVersionMigrationSpec {
     openapiRequiredFields.add("resource");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1StorageVersionMigrationSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1StorageVersionMigrationSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1StorageVersionMigrationSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1alpha1StorageVersionMigrationSpec {
     }
   }
 
- /**
-  * Create an instance of V1alpha1StorageVersionMigrationSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1StorageVersionMigrationSpec
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1StorageVersionMigrationSpec
-  */
+  /**
+   * Create an instance of V1alpha1StorageVersionMigrationSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1StorageVersionMigrationSpec
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1StorageVersionMigrationSpec
+   */
   public static V1alpha1StorageVersionMigrationSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1StorageVersionMigrationSpec.class);
   }
 
- /**
-  * Convert an instance of V1alpha1StorageVersionMigrationSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1StorageVersionMigrationSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

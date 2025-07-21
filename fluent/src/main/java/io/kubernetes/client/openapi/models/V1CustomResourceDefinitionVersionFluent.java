@@ -52,14 +52,26 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
   public A addToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= additionalPrinterColumns.size()) { _visitables.get("additionalPrinterColumns").add(builder); additionalPrinterColumns.add(builder); } else { _visitables.get("additionalPrinterColumns").add(index, builder); additionalPrinterColumns.add(index, builder);}
+    if (index < 0 || index >= additionalPrinterColumns.size()) {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.add(builder);
+    } else {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= additionalPrinterColumns.size()) { _visitables.get("additionalPrinterColumns").add(builder); additionalPrinterColumns.add(builder); } else { _visitables.get("additionalPrinterColumns").set(index, builder); additionalPrinterColumns.set(index, builder);}
+    if (index < 0 || index >= additionalPrinterColumns.size()) {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.add(builder);
+    } else {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -282,14 +294,26 @@ public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceD
   public A addToSelectableFields(int index,V1SelectableField item) {
     if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-    if (index < 0 || index >= selectableFields.size()) { _visitables.get("selectableFields").add(builder); selectableFields.add(builder); } else { _visitables.get("selectableFields").add(index, builder); selectableFields.add(index, builder);}
+    if (index < 0 || index >= selectableFields.size()) {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.add(builder);
+    } else {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSelectableFields(int index,V1SelectableField item) {
     if (this.selectableFields == null) {this.selectableFields = new ArrayList<V1SelectableFieldBuilder>();}
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-    if (index < 0 || index >= selectableFields.size()) { _visitables.get("selectableFields").add(builder); selectableFields.add(builder); } else { _visitables.get("selectableFields").set(index, builder); selectableFields.set(index, builder);}
+    if (index < 0 || index >= selectableFields.size()) {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.add(builder);
+    } else {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.set(index, builder);
+    }
     return (A)this;
   }
   

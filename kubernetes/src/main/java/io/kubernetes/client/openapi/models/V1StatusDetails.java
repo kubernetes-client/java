@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,36 +53,42 @@ import io.kubernetes.client.openapi.JSON;
  * StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
  */
 @ApiModel(description = "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1StatusDetails {
   public static final String SERIALIZED_NAME_CAUSES = "causes";
   @SerializedName(SERIALIZED_NAME_CAUSES)
+  @jakarta.annotation.Nullable
   private List<V1StatusCause> causes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @jakarta.annotation.Nullable
   private String group;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_RETRY_AFTER_SECONDS = "retryAfterSeconds";
   @SerializedName(SERIALIZED_NAME_RETRY_AFTER_SECONDS)
+  @jakarta.annotation.Nullable
   private Integer retryAfterSeconds;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nullable
   private String uid;
 
   public V1StatusDetails() {
   }
 
-  public V1StatusDetails causes(List<V1StatusCause> causes) {
+  public V1StatusDetails causes(@jakarta.annotation.Nullable List<V1StatusCause> causes) {
     this.causes = causes;
     return this;
   }
@@ -96,117 +101,117 @@ public class V1StatusDetails {
     return this;
   }
 
-   /**
+  /**
    * The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes.
    * @return causes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes.")
   public List<V1StatusCause> getCauses() {
     return causes;
   }
 
-  public void setCauses(List<V1StatusCause> causes) {
+  public void setCauses(@jakarta.annotation.Nullable List<V1StatusCause> causes) {
     this.causes = causes;
   }
 
 
-  public V1StatusDetails group(String group) {
+  public V1StatusDetails group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * The group attribute of the resource associated with the status StatusReason.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The group attribute of the resource associated with the status StatusReason.")
   public String getGroup() {
     return group;
   }
 
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 
 
-  public V1StatusDetails kind(String kind) {
+  public V1StatusDetails kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1StatusDetails name(String name) {
+  public V1StatusDetails name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described).
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described).")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1StatusDetails retryAfterSeconds(Integer retryAfterSeconds) {
+  public V1StatusDetails retryAfterSeconds(@jakarta.annotation.Nullable Integer retryAfterSeconds) {
     this.retryAfterSeconds = retryAfterSeconds;
     return this;
   }
 
-   /**
+  /**
    * If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action.
    * @return retryAfterSeconds
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action.")
   public Integer getRetryAfterSeconds() {
     return retryAfterSeconds;
   }
 
-  public void setRetryAfterSeconds(Integer retryAfterSeconds) {
+  public void setRetryAfterSeconds(@jakarta.annotation.Nullable Integer retryAfterSeconds) {
     this.retryAfterSeconds = retryAfterSeconds;
   }
 
 
-  public V1StatusDetails uid(String uid) {
+  public V1StatusDetails uid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * UID of the resource. (when there is a single resource which can be described). More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UID of the resource. (when there is a single resource which can be described). More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
   }
 
@@ -277,12 +282,12 @@ public class V1StatusDetails {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1StatusDetails
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1StatusDetails
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1StatusDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -355,22 +360,22 @@ public class V1StatusDetails {
     }
   }
 
- /**
-  * Create an instance of V1StatusDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1StatusDetails
-  * @throws IOException if the JSON string is invalid with respect to V1StatusDetails
-  */
+  /**
+   * Create an instance of V1StatusDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1StatusDetails
+   * @throws IOException if the JSON string is invalid with respect to V1StatusDetails
+   */
   public static V1StatusDetails fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1StatusDetails.class);
   }
 
- /**
-  * Convert an instance of V1StatusDetails to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1StatusDetails to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

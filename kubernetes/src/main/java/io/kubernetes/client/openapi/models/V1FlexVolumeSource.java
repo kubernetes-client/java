@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,72 +53,77 @@ import io.kubernetes.client.openapi.JSON;
  * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
  */
 @ApiModel(description = "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1FlexVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
+  @jakarta.annotation.Nullable
   private Map<String, String> options = new HashMap<>();
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1LocalObjectReference secretRef;
 
   public V1FlexVolumeSource() {
   }
 
-  public V1FlexVolumeSource driver(String driver) {
+  public V1FlexVolumeSource driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * driver is the name of the driver to use for this volume.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "driver is the name of the driver to use for this volume.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1FlexVolumeSource fsType(String fsType) {
+  public V1FlexVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default filesystem depends on FlexVolume script.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1FlexVolumeSource options(Map<String, String> options) {
+  public V1FlexVolumeSource options(@jakarta.annotation.Nullable Map<String, String> options) {
     this.options = options;
     return this;
   }
@@ -132,57 +136,57 @@ public class V1FlexVolumeSource {
     return this;
   }
 
-   /**
+  /**
    * options is Optional: this field holds extra command options if any.
    * @return options
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "options is Optional: this field holds extra command options if any.")
   public Map<String, String> getOptions() {
     return options;
   }
 
-  public void setOptions(Map<String, String> options) {
+  public void setOptions(@jakarta.annotation.Nullable Map<String, String> options) {
     this.options = options;
   }
 
 
-  public V1FlexVolumeSource readOnly(Boolean readOnly) {
+  public V1FlexVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1FlexVolumeSource secretRef(V1LocalObjectReference secretRef) {
+  public V1FlexVolumeSource secretRef(@jakarta.annotation.Nullable V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
     return this;
   }
 
-   /**
+  /**
    * Get secretRef
    * @return secretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
 
-  public void setSecretRef(V1LocalObjectReference secretRef) {
+  public void setSecretRef(@jakarta.annotation.Nullable V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
   }
 
@@ -251,12 +255,12 @@ public class V1FlexVolumeSource {
     openapiRequiredFields.add("driver");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1FlexVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1FlexVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FlexVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -320,22 +324,22 @@ public class V1FlexVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1FlexVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1FlexVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1FlexVolumeSource
-  */
+  /**
+   * Create an instance of V1FlexVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1FlexVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1FlexVolumeSource
+   */
   public static V1FlexVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1FlexVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1FlexVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1FlexVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,20 +53,22 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeResourceRequirements describes the storage resource requirements for a volume.
  */
 @ApiModel(description = "VolumeResourceRequirements describes the storage resource requirements for a volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeResourceRequirements {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> limits = new HashMap<>();
 
   public static final String SERIALIZED_NAME_REQUESTS = "requests";
   @SerializedName(SERIALIZED_NAME_REQUESTS)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> requests = new HashMap<>();
 
   public V1VolumeResourceRequirements() {
   }
 
-  public V1VolumeResourceRequirements limits(Map<String, Quantity> limits) {
+  public V1VolumeResourceRequirements limits(@jakarta.annotation.Nullable Map<String, Quantity> limits) {
     this.limits = limits;
     return this;
   }
@@ -80,22 +81,22 @@ public class V1VolumeResourceRequirements {
     return this;
   }
 
-   /**
+  /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getLimits() {
     return limits;
   }
 
-  public void setLimits(Map<String, Quantity> limits) {
+  public void setLimits(@jakarta.annotation.Nullable Map<String, Quantity> limits) {
     this.limits = limits;
   }
 
 
-  public V1VolumeResourceRequirements requests(Map<String, Quantity> requests) {
+  public V1VolumeResourceRequirements requests(@jakarta.annotation.Nullable Map<String, Quantity> requests) {
     this.requests = requests;
     return this;
   }
@@ -108,17 +109,17 @@ public class V1VolumeResourceRequirements {
     return this;
   }
 
-   /**
+  /**
    * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @return requests
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getRequests() {
     return requests;
   }
 
-  public void setRequests(Map<String, Quantity> requests) {
+  public void setRequests(@jakarta.annotation.Nullable Map<String, Quantity> requests) {
     this.requests = requests;
   }
 
@@ -177,12 +178,12 @@ public class V1VolumeResourceRequirements {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeResourceRequirements
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeResourceRequirements
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeResourceRequirements.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -229,22 +230,22 @@ public class V1VolumeResourceRequirements {
     }
   }
 
- /**
-  * Create an instance of V1VolumeResourceRequirements given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeResourceRequirements
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeResourceRequirements
-  */
+  /**
+   * Create an instance of V1VolumeResourceRequirements given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeResourceRequirements
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeResourceRequirements
+   */
   public static V1VolumeResourceRequirements fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeResourceRequirements.class);
   }
 
- /**
-  * Convert an instance of V1VolumeResourceRequirements to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeResourceRequirements to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

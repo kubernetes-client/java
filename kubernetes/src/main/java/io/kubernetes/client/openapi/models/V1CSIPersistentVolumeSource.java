@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,212 +53,222 @@ import io.kubernetes.client.openapi.JSON;
  * Represents storage that is managed by an external CSI volume driver
  */
 @ApiModel(description = "Represents storage that is managed by an external CSI volume driver")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF = "controllerExpandSecretRef";
   @SerializedName(SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference controllerExpandSecretRef;
 
   public static final String SERIALIZED_NAME_CONTROLLER_PUBLISH_SECRET_REF = "controllerPublishSecretRef";
   @SerializedName(SERIALIZED_NAME_CONTROLLER_PUBLISH_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference controllerPublishSecretRef;
 
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_NODE_EXPAND_SECRET_REF = "nodeExpandSecretRef";
   @SerializedName(SERIALIZED_NAME_NODE_EXPAND_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference nodeExpandSecretRef;
 
   public static final String SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF = "nodePublishSecretRef";
   @SerializedName(SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference nodePublishSecretRef;
 
   public static final String SERIALIZED_NAME_NODE_STAGE_SECRET_REF = "nodeStageSecretRef";
   @SerializedName(SERIALIZED_NAME_NODE_STAGE_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1SecretReference nodeStageSecretRef;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES = "volumeAttributes";
   @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES)
+  @jakarta.annotation.Nullable
   private Map<String, String> volumeAttributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_VOLUME_HANDLE = "volumeHandle";
   @SerializedName(SERIALIZED_NAME_VOLUME_HANDLE)
+  @jakarta.annotation.Nonnull
   private String volumeHandle;
 
   public V1CSIPersistentVolumeSource() {
   }
 
-  public V1CSIPersistentVolumeSource controllerExpandSecretRef(V1SecretReference controllerExpandSecretRef) {
+  public V1CSIPersistentVolumeSource controllerExpandSecretRef(@jakarta.annotation.Nullable V1SecretReference controllerExpandSecretRef) {
     this.controllerExpandSecretRef = controllerExpandSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get controllerExpandSecretRef
    * @return controllerExpandSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getControllerExpandSecretRef() {
     return controllerExpandSecretRef;
   }
 
-  public void setControllerExpandSecretRef(V1SecretReference controllerExpandSecretRef) {
+  public void setControllerExpandSecretRef(@jakarta.annotation.Nullable V1SecretReference controllerExpandSecretRef) {
     this.controllerExpandSecretRef = controllerExpandSecretRef;
   }
 
 
-  public V1CSIPersistentVolumeSource controllerPublishSecretRef(V1SecretReference controllerPublishSecretRef) {
+  public V1CSIPersistentVolumeSource controllerPublishSecretRef(@jakarta.annotation.Nullable V1SecretReference controllerPublishSecretRef) {
     this.controllerPublishSecretRef = controllerPublishSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get controllerPublishSecretRef
    * @return controllerPublishSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getControllerPublishSecretRef() {
     return controllerPublishSecretRef;
   }
 
-  public void setControllerPublishSecretRef(V1SecretReference controllerPublishSecretRef) {
+  public void setControllerPublishSecretRef(@jakarta.annotation.Nullable V1SecretReference controllerPublishSecretRef) {
     this.controllerPublishSecretRef = controllerPublishSecretRef;
   }
 
 
-  public V1CSIPersistentVolumeSource driver(String driver) {
+  public V1CSIPersistentVolumeSource driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * driver is the name of the driver to use for this volume. Required.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "driver is the name of the driver to use for this volume. Required.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1CSIPersistentVolumeSource fsType(String fsType) {
+  public V1CSIPersistentVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\".")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1CSIPersistentVolumeSource nodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
+  public V1CSIPersistentVolumeSource nodeExpandSecretRef(@jakarta.annotation.Nullable V1SecretReference nodeExpandSecretRef) {
     this.nodeExpandSecretRef = nodeExpandSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get nodeExpandSecretRef
    * @return nodeExpandSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodeExpandSecretRef() {
     return nodeExpandSecretRef;
   }
 
-  public void setNodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
+  public void setNodeExpandSecretRef(@jakarta.annotation.Nullable V1SecretReference nodeExpandSecretRef) {
     this.nodeExpandSecretRef = nodeExpandSecretRef;
   }
 
 
-  public V1CSIPersistentVolumeSource nodePublishSecretRef(V1SecretReference nodePublishSecretRef) {
+  public V1CSIPersistentVolumeSource nodePublishSecretRef(@jakarta.annotation.Nullable V1SecretReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get nodePublishSecretRef
    * @return nodePublishSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
   }
 
-  public void setNodePublishSecretRef(V1SecretReference nodePublishSecretRef) {
+  public void setNodePublishSecretRef(@jakarta.annotation.Nullable V1SecretReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
   }
 
 
-  public V1CSIPersistentVolumeSource nodeStageSecretRef(V1SecretReference nodeStageSecretRef) {
+  public V1CSIPersistentVolumeSource nodeStageSecretRef(@jakarta.annotation.Nullable V1SecretReference nodeStageSecretRef) {
     this.nodeStageSecretRef = nodeStageSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get nodeStageSecretRef
    * @return nodeStageSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodeStageSecretRef() {
     return nodeStageSecretRef;
   }
 
-  public void setNodeStageSecretRef(V1SecretReference nodeStageSecretRef) {
+  public void setNodeStageSecretRef(@jakarta.annotation.Nullable V1SecretReference nodeStageSecretRef) {
     this.nodeStageSecretRef = nodeStageSecretRef;
   }
 
 
-  public V1CSIPersistentVolumeSource readOnly(Boolean readOnly) {
+  public V1CSIPersistentVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1CSIPersistentVolumeSource volumeAttributes(Map<String, String> volumeAttributes) {
+  public V1CSIPersistentVolumeSource volumeAttributes(@jakarta.annotation.Nullable Map<String, String> volumeAttributes) {
     this.volumeAttributes = volumeAttributes;
     return this;
   }
@@ -272,37 +281,37 @@ public class V1CSIPersistentVolumeSource {
     return this;
   }
 
-   /**
+  /**
    * volumeAttributes of the volume to publish.
    * @return volumeAttributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeAttributes of the volume to publish.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;
   }
 
-  public void setVolumeAttributes(Map<String, String> volumeAttributes) {
+  public void setVolumeAttributes(@jakarta.annotation.Nullable Map<String, String> volumeAttributes) {
     this.volumeAttributes = volumeAttributes;
   }
 
 
-  public V1CSIPersistentVolumeSource volumeHandle(String volumeHandle) {
+  public V1CSIPersistentVolumeSource volumeHandle(@jakarta.annotation.Nonnull String volumeHandle) {
     this.volumeHandle = volumeHandle;
     return this;
   }
 
-   /**
+  /**
    * volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
    * @return volumeHandle
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.")
   public String getVolumeHandle() {
     return volumeHandle;
   }
 
-  public void setVolumeHandle(String volumeHandle) {
+  public void setVolumeHandle(@jakarta.annotation.Nonnull String volumeHandle) {
     this.volumeHandle = volumeHandle;
   }
 
@@ -387,12 +396,12 @@ public class V1CSIPersistentVolumeSource {
     openapiRequiredFields.add("volumeHandle");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CSIPersistentVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CSIPersistentVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSIPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -475,22 +484,22 @@ public class V1CSIPersistentVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1CSIPersistentVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CSIPersistentVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1CSIPersistentVolumeSource
-  */
+  /**
+   * Create an instance of V1CSIPersistentVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CSIPersistentVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1CSIPersistentVolumeSource
+   */
   public static V1CSIPersistentVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CSIPersistentVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1CSIPersistentVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CSIPersistentVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

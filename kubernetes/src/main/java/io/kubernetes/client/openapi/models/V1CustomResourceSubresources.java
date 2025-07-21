@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceSubresources defines the status and scale subresources for CustomResources.
  */
 @ApiModel(description = "CustomResourceSubresources defines the status and scale subresources for CustomResources.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceSubresources {
   public static final String SERIALIZED_NAME_SCALE = "scale";
   @SerializedName(SERIALIZED_NAME_SCALE)
+  @jakarta.annotation.Nullable
   private V1CustomResourceSubresourceScale scale;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nullable
   private Object status;
 
   public V1CustomResourceSubresources() {
   }
 
-  public V1CustomResourceSubresources scale(V1CustomResourceSubresourceScale scale) {
+  public V1CustomResourceSubresources scale(@jakarta.annotation.Nullable V1CustomResourceSubresourceScale scale) {
     this.scale = scale;
     return this;
   }
 
-   /**
+  /**
    * Get scale
    * @return scale
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceSubresourceScale getScale() {
     return scale;
   }
 
-  public void setScale(V1CustomResourceSubresourceScale scale) {
+  public void setScale(@jakarta.annotation.Nullable V1CustomResourceSubresourceScale scale) {
     this.scale = scale;
   }
 
 
-  public V1CustomResourceSubresources status(Object status) {
+  public V1CustomResourceSubresources status(@jakarta.annotation.Nullable Object status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * status indicates the custom resource should serve a &#x60;/status&#x60; subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the &#x60;status&#x60; stanza of the object. 2. requests to the custom resource &#x60;/status&#x60; subresource ignore changes to anything other than the &#x60;status&#x60; stanza of the object.
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "status indicates the custom resource should serve a `/status` subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object. 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.")
   public Object getStatus() {
     return status;
   }
 
-  public void setStatus(Object status) {
+  public void setStatus(@jakarta.annotation.Nullable Object status) {
     this.status = status;
   }
 
@@ -159,12 +160,12 @@ public class V1CustomResourceSubresources {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceSubresources
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceSubresources
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceSubresources.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -215,22 +216,22 @@ public class V1CustomResourceSubresources {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceSubresources given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceSubresources
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceSubresources
-  */
+  /**
+   * Create an instance of V1CustomResourceSubresources given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceSubresources
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceSubresources
+   */
   public static V1CustomResourceSubresources fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceSubresources.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceSubresources to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceSubresources to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

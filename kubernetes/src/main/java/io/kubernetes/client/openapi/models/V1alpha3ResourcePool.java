@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * ResourcePool describes the pool that ResourceSlices belong to.
  */
 @ApiModel(description = "ResourcePool describes the pool that ResourceSlices belong to.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3ResourcePool {
   public static final String SERIALIZED_NAME_GENERATION = "generation";
   @SerializedName(SERIALIZED_NAME_GENERATION)
+  @jakarta.annotation.Nonnull
   private Long generation;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_RESOURCE_SLICE_COUNT = "resourceSliceCount";
   @SerializedName(SERIALIZED_NAME_RESOURCE_SLICE_COUNT)
+  @jakarta.annotation.Nonnull
   private Long resourceSliceCount;
 
   public V1alpha3ResourcePool() {
   }
 
-  public V1alpha3ResourcePool generation(Long generation) {
+  public V1alpha3ResourcePool generation(@jakarta.annotation.Nonnull Long generation) {
     this.generation = generation;
     return this;
   }
 
-   /**
+  /**
    * Generation tracks the change in a pool over time. Whenever a driver changes something about one or more of the resources in a pool, it must change the generation in all ResourceSlices which are part of that pool. Consumers of ResourceSlices should only consider resources from the pool with the highest generation number. The generation may be reset by drivers, which should be fine for consumers, assuming that all ResourceSlices in a pool are updated to match or deleted.  Combined with ResourceSliceCount, this mechanism enables consumers to detect pools which are comprised of multiple ResourceSlices and are in an incomplete state.
    * @return generation
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Generation tracks the change in a pool over time. Whenever a driver changes something about one or more of the resources in a pool, it must change the generation in all ResourceSlices which are part of that pool. Consumers of ResourceSlices should only consider resources from the pool with the highest generation number. The generation may be reset by drivers, which should be fine for consumers, assuming that all ResourceSlices in a pool are updated to match or deleted.  Combined with ResourceSliceCount, this mechanism enables consumers to detect pools which are comprised of multiple ResourceSlices and are in an incomplete state.")
   public Long getGeneration() {
     return generation;
   }
 
-  public void setGeneration(Long generation) {
+  public void setGeneration(@jakarta.annotation.Nonnull Long generation) {
     this.generation = generation;
   }
 
 
-  public V1alpha3ResourcePool name(String name) {
+  public V1alpha3ResourcePool name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1alpha3ResourcePool resourceSliceCount(Long resourceSliceCount) {
+  public V1alpha3ResourcePool resourceSliceCount(@jakarta.annotation.Nonnull Long resourceSliceCount) {
     this.resourceSliceCount = resourceSliceCount;
     return this;
   }
 
-   /**
+  /**
    * ResourceSliceCount is the total number of ResourceSlices in the pool at this generation number. Must be greater than zero.  Consumers can use this to check whether they have seen all ResourceSlices belonging to the same pool.
    * @return resourceSliceCount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ResourceSliceCount is the total number of ResourceSlices in the pool at this generation number. Must be greater than zero.  Consumers can use this to check whether they have seen all ResourceSlices belonging to the same pool.")
   public Long getResourceSliceCount() {
     return resourceSliceCount;
   }
 
-  public void setResourceSliceCount(Long resourceSliceCount) {
+  public void setResourceSliceCount(@jakarta.annotation.Nonnull Long resourceSliceCount) {
     this.resourceSliceCount = resourceSliceCount;
   }
 
@@ -188,12 +190,12 @@ public class V1alpha3ResourcePool {
     openapiRequiredFields.add("resourceSliceCount");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3ResourcePool
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3ResourcePool
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3ResourcePool.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -250,22 +252,22 @@ public class V1alpha3ResourcePool {
     }
   }
 
- /**
-  * Create an instance of V1alpha3ResourcePool given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3ResourcePool
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3ResourcePool
-  */
+  /**
+   * Create an instance of V1alpha3ResourcePool given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3ResourcePool
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3ResourcePool
+   */
   public static V1alpha3ResourcePool fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3ResourcePool.class);
   }
 
- /**
-  * Convert an instance of V1alpha3ResourcePool to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3ResourcePool to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

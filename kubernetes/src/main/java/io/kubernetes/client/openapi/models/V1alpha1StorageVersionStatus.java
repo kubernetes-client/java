@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,44 +54,47 @@ import io.kubernetes.client.openapi.JSON;
  * API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.
  */
 @ApiModel(description = "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1StorageVersionStatus {
   public static final String SERIALIZED_NAME_COMMON_ENCODING_VERSION = "commonEncodingVersion";
   @SerializedName(SERIALIZED_NAME_COMMON_ENCODING_VERSION)
+  @jakarta.annotation.Nullable
   private String commonEncodingVersion;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1alpha1StorageVersionCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STORAGE_VERSIONS = "storageVersions";
   @SerializedName(SERIALIZED_NAME_STORAGE_VERSIONS)
+  @jakarta.annotation.Nullable
   private List<V1alpha1ServerStorageVersion> storageVersions = new ArrayList<>();
 
   public V1alpha1StorageVersionStatus() {
   }
 
-  public V1alpha1StorageVersionStatus commonEncodingVersion(String commonEncodingVersion) {
+  public V1alpha1StorageVersionStatus commonEncodingVersion(@jakarta.annotation.Nullable String commonEncodingVersion) {
     this.commonEncodingVersion = commonEncodingVersion;
     return this;
   }
 
-   /**
+  /**
    * If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.
    * @return commonEncodingVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.")
   public String getCommonEncodingVersion() {
     return commonEncodingVersion;
   }
 
-  public void setCommonEncodingVersion(String commonEncodingVersion) {
+  public void setCommonEncodingVersion(@jakarta.annotation.Nullable String commonEncodingVersion) {
     this.commonEncodingVersion = commonEncodingVersion;
   }
 
 
-  public V1alpha1StorageVersionStatus conditions(List<V1alpha1StorageVersionCondition> conditions) {
+  public V1alpha1StorageVersionStatus conditions(@jakarta.annotation.Nullable List<V1alpha1StorageVersionCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -105,22 +107,22 @@ public class V1alpha1StorageVersionStatus {
     return this;
   }
 
-   /**
+  /**
    * The latest available observations of the storageVersion&#39;s state.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The latest available observations of the storageVersion's state.")
   public List<V1alpha1StorageVersionCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1alpha1StorageVersionCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1alpha1StorageVersionCondition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1alpha1StorageVersionStatus storageVersions(List<V1alpha1ServerStorageVersion> storageVersions) {
+  public V1alpha1StorageVersionStatus storageVersions(@jakarta.annotation.Nullable List<V1alpha1ServerStorageVersion> storageVersions) {
     this.storageVersions = storageVersions;
     return this;
   }
@@ -133,17 +135,17 @@ public class V1alpha1StorageVersionStatus {
     return this;
   }
 
-   /**
+  /**
    * The reported versions per API server instance.
    * @return storageVersions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The reported versions per API server instance.")
   public List<V1alpha1ServerStorageVersion> getStorageVersions() {
     return storageVersions;
   }
 
-  public void setStorageVersions(List<V1alpha1ServerStorageVersion> storageVersions) {
+  public void setStorageVersions(@jakarta.annotation.Nullable List<V1alpha1ServerStorageVersion> storageVersions) {
     this.storageVersions = storageVersions;
   }
 
@@ -205,12 +207,12 @@ public class V1alpha1StorageVersionStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1StorageVersionStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1StorageVersionStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1StorageVersionStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -288,22 +290,22 @@ public class V1alpha1StorageVersionStatus {
     }
   }
 
- /**
-  * Create an instance of V1alpha1StorageVersionStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1StorageVersionStatus
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1StorageVersionStatus
-  */
+  /**
+   * Create an instance of V1alpha1StorageVersionStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1StorageVersionStatus
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1StorageVersionStatus
+   */
   public static V1alpha1StorageVersionStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1StorageVersionStatus.class);
   }
 
- /**
-  * Convert an instance of V1alpha1StorageVersionStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1StorageVersionStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

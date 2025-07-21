@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the \&quot;succeededIndexes\&quot; or \&quot;succeededCount\&quot; specified.
  */
 @ApiModel(description = "SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the \"succeededIndexes\" or \"succeededCount\" specified.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SuccessPolicyRule {
   public static final String SERIALIZED_NAME_SUCCEEDED_COUNT = "succeededCount";
   @SerializedName(SERIALIZED_NAME_SUCCEEDED_COUNT)
+  @jakarta.annotation.Nullable
   private Integer succeededCount;
 
   public static final String SERIALIZED_NAME_SUCCEEDED_INDEXES = "succeededIndexes";
   @SerializedName(SERIALIZED_NAME_SUCCEEDED_INDEXES)
+  @jakarta.annotation.Nullable
   private String succeededIndexes;
 
   public V1SuccessPolicyRule() {
   }
 
-  public V1SuccessPolicyRule succeededCount(Integer succeededCount) {
+  public V1SuccessPolicyRule succeededCount(@jakarta.annotation.Nullable Integer succeededCount) {
     this.succeededCount = succeededCount;
     return this;
   }
 
-   /**
+  /**
    * succeededCount specifies the minimal required size of the actual set of the succeeded indexes for the Job. When succeededCount is used along with succeededIndexes, the check is constrained only to the set of indexes specified by succeededIndexes. For example, given that succeededIndexes is \&quot;1-4\&quot;, succeededCount is \&quot;3\&quot;, and completed indexes are \&quot;1\&quot;, \&quot;3\&quot;, and \&quot;5\&quot;, the Job isn&#39;t declared as succeeded because only \&quot;1\&quot; and \&quot;3\&quot; indexes are considered in that rules. When this field is null, this doesn&#39;t default to any value and is never evaluated at any time. When specified it needs to be a positive integer.
    * @return succeededCount
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "succeededCount specifies the minimal required size of the actual set of the succeeded indexes for the Job. When succeededCount is used along with succeededIndexes, the check is constrained only to the set of indexes specified by succeededIndexes. For example, given that succeededIndexes is \"1-4\", succeededCount is \"3\", and completed indexes are \"1\", \"3\", and \"5\", the Job isn't declared as succeeded because only \"1\" and \"3\" indexes are considered in that rules. When this field is null, this doesn't default to any value and is never evaluated at any time. When specified it needs to be a positive integer.")
   public Integer getSucceededCount() {
     return succeededCount;
   }
 
-  public void setSucceededCount(Integer succeededCount) {
+  public void setSucceededCount(@jakarta.annotation.Nullable Integer succeededCount) {
     this.succeededCount = succeededCount;
   }
 
 
-  public V1SuccessPolicyRule succeededIndexes(String succeededIndexes) {
+  public V1SuccessPolicyRule succeededIndexes(@jakarta.annotation.Nullable String succeededIndexes) {
     this.succeededIndexes = succeededIndexes;
     return this;
   }
 
-   /**
+  /**
    * succeededIndexes specifies the set of indexes which need to be contained in the actual set of the succeeded indexes for the Job. The list of indexes must be within 0 to \&quot;.spec.completions-1\&quot; and must not contain duplicates. At least one element is required. The indexes are represented as intervals separated by commas. The intervals can be a decimal integer or a pair of decimal integers separated by a hyphen. The number are listed in represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;. When this field is null, this field doesn&#39;t default to any value and is never evaluated at any time.
    * @return succeededIndexes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "succeededIndexes specifies the set of indexes which need to be contained in the actual set of the succeeded indexes for the Job. The list of indexes must be within 0 to \".spec.completions-1\" and must not contain duplicates. At least one element is required. The indexes are represented as intervals separated by commas. The intervals can be a decimal integer or a pair of decimal integers separated by a hyphen. The number are listed in represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". When this field is null, this field doesn't default to any value and is never evaluated at any time.")
   public String getSucceededIndexes() {
     return succeededIndexes;
   }
 
-  public void setSucceededIndexes(String succeededIndexes) {
+  public void setSucceededIndexes(@jakarta.annotation.Nullable String succeededIndexes) {
     this.succeededIndexes = succeededIndexes;
   }
 
@@ -158,12 +159,12 @@ public class V1SuccessPolicyRule {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SuccessPolicyRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SuccessPolicyRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SuccessPolicyRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -213,22 +214,22 @@ public class V1SuccessPolicyRule {
     }
   }
 
- /**
-  * Create an instance of V1SuccessPolicyRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SuccessPolicyRule
-  * @throws IOException if the JSON string is invalid with respect to V1SuccessPolicyRule
-  */
+  /**
+   * Create an instance of V1SuccessPolicyRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SuccessPolicyRule
+   * @throws IOException if the JSON string is invalid with respect to V1SuccessPolicyRule
+   */
   public static V1SuccessPolicyRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SuccessPolicyRule.class);
   }
 
- /**
-  * Convert an instance of V1SuccessPolicyRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SuccessPolicyRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

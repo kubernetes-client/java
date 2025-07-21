@@ -35,14 +35,26 @@ public class V1APIServiceStatusFluent<A extends V1APIServiceStatusFluent<A>> ext
   public A addToConditions(int index,V1APIServiceCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1APIServiceConditionBuilder>();}
     V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1APIServiceCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1APIServiceConditionBuilder>();}
     V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

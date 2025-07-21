@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,151 +50,157 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1QuobyteVolumeSource {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @jakarta.annotation.Nullable
   private String group;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_REGISTRY = "registry";
   @SerializedName(SERIALIZED_NAME_REGISTRY)
+  @jakarta.annotation.Nonnull
   private String registry;
 
   public static final String SERIALIZED_NAME_TENANT = "tenant";
   @SerializedName(SERIALIZED_NAME_TENANT)
+  @jakarta.annotation.Nullable
   private String tenant;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
   private String user;
 
   public static final String SERIALIZED_NAME_VOLUME = "volume";
   @SerializedName(SERIALIZED_NAME_VOLUME)
+  @jakarta.annotation.Nonnull
   private String volume;
 
   public V1QuobyteVolumeSource() {
   }
 
-  public V1QuobyteVolumeSource group(String group) {
+  public V1QuobyteVolumeSource group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * group to map volume access to Default is no group
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "group to map volume access to Default is no group")
   public String getGroup() {
     return group;
   }
 
-  public void setGroup(String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 
 
-  public V1QuobyteVolumeSource readOnly(Boolean readOnly) {
+  public V1QuobyteVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1QuobyteVolumeSource registry(String registry) {
+  public V1QuobyteVolumeSource registry(@jakarta.annotation.Nonnull String registry) {
     this.registry = registry;
     return this;
   }
 
-   /**
+  /**
    * registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
    * @return registry
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes")
   public String getRegistry() {
     return registry;
   }
 
-  public void setRegistry(String registry) {
+  public void setRegistry(@jakarta.annotation.Nonnull String registry) {
     this.registry = registry;
   }
 
 
-  public V1QuobyteVolumeSource tenant(String tenant) {
+  public V1QuobyteVolumeSource tenant(@jakarta.annotation.Nullable String tenant) {
     this.tenant = tenant;
     return this;
   }
 
-   /**
+  /**
    * tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
    * @return tenant
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
   public String getTenant() {
     return tenant;
   }
 
-  public void setTenant(String tenant) {
+  public void setTenant(@jakarta.annotation.Nullable String tenant) {
     this.tenant = tenant;
   }
 
 
-  public V1QuobyteVolumeSource user(String user) {
+  public V1QuobyteVolumeSource user(@jakarta.annotation.Nullable String user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * user to map volume access to Defaults to serivceaccount user
    * @return user
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "user to map volume access to Defaults to serivceaccount user")
   public String getUser() {
     return user;
   }
 
-  public void setUser(String user) {
+  public void setUser(@jakarta.annotation.Nullable String user) {
     this.user = user;
   }
 
 
-  public V1QuobyteVolumeSource volume(String volume) {
+  public V1QuobyteVolumeSource volume(@jakarta.annotation.Nonnull String volume) {
     this.volume = volume;
     return this;
   }
 
-   /**
+  /**
    * volume is a string that references an already created Quobyte volume by name.
    * @return volume
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "volume is a string that references an already created Quobyte volume by name.")
   public String getVolume() {
     return volume;
   }
 
-  public void setVolume(String volume) {
+  public void setVolume(@jakarta.annotation.Nonnull String volume) {
     this.volume = volume;
   }
 
@@ -268,12 +273,12 @@ public class V1QuobyteVolumeSource {
     openapiRequiredFields.add("volume");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1QuobyteVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1QuobyteVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1QuobyteVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -342,22 +347,22 @@ public class V1QuobyteVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1QuobyteVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1QuobyteVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1QuobyteVolumeSource
-  */
+  /**
+   * Create an instance of V1QuobyteVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1QuobyteVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1QuobyteVolumeSource
+   */
   public static V1QuobyteVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1QuobyteVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1QuobyteVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1QuobyteVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

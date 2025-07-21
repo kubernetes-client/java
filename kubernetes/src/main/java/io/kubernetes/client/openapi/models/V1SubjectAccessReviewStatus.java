@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * SubjectAccessReviewStatus
  */
 @ApiModel(description = "SubjectAccessReviewStatus")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SubjectAccessReviewStatus {
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
+  @jakarta.annotation.Nonnull
   private Boolean allowed;
 
   public static final String SERIALIZED_NAME_DENIED = "denied";
   @SerializedName(SERIALIZED_NAME_DENIED)
+  @jakarta.annotation.Nullable
   private Boolean denied;
 
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
   @SerializedName(SERIALIZED_NAME_EVALUATION_ERROR)
+  @jakarta.annotation.Nullable
   private String evaluationError;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public V1SubjectAccessReviewStatus() {
   }
 
-  public V1SubjectAccessReviewStatus allowed(Boolean allowed) {
+  public V1SubjectAccessReviewStatus allowed(@jakarta.annotation.Nonnull Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
 
-   /**
+  /**
    * Allowed is required. True if the action would be allowed, false otherwise.
    * @return allowed
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Allowed is required. True if the action would be allowed, false otherwise.")
   public Boolean getAllowed() {
     return allowed;
   }
 
-  public void setAllowed(Boolean allowed) {
+  public void setAllowed(@jakarta.annotation.Nonnull Boolean allowed) {
     this.allowed = allowed;
   }
 
 
-  public V1SubjectAccessReviewStatus denied(Boolean denied) {
+  public V1SubjectAccessReviewStatus denied(@jakarta.annotation.Nullable Boolean denied) {
     this.denied = denied;
     return this;
   }
 
-   /**
+  /**
    * Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.
    * @return denied
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.")
   public Boolean getDenied() {
     return denied;
   }
 
-  public void setDenied(Boolean denied) {
+  public void setDenied(@jakarta.annotation.Nullable Boolean denied) {
     this.denied = denied;
   }
 
 
-  public V1SubjectAccessReviewStatus evaluationError(String evaluationError) {
+  public V1SubjectAccessReviewStatus evaluationError(@jakarta.annotation.Nullable String evaluationError) {
     this.evaluationError = evaluationError;
     return this;
   }
 
-   /**
+  /**
    * EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
    * @return evaluationError
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.")
   public String getEvaluationError() {
     return evaluationError;
   }
 
-  public void setEvaluationError(String evaluationError) {
+  public void setEvaluationError(@jakarta.annotation.Nullable String evaluationError) {
     this.evaluationError = evaluationError;
   }
 
 
-  public V1SubjectAccessReviewStatus reason(String reason) {
+  public V1SubjectAccessReviewStatus reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * Reason is optional.  It indicates why a request was allowed or denied.
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reason is optional.  It indicates why a request was allowed or denied.")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
@@ -213,12 +216,12 @@ public class V1SubjectAccessReviewStatus {
     openapiRequiredFields.add("allowed");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SubjectAccessReviewStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SubjectAccessReviewStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SubjectAccessReviewStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -278,22 +281,22 @@ public class V1SubjectAccessReviewStatus {
     }
   }
 
- /**
-  * Create an instance of V1SubjectAccessReviewStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SubjectAccessReviewStatus
-  * @throws IOException if the JSON string is invalid with respect to V1SubjectAccessReviewStatus
-  */
+  /**
+   * Create an instance of V1SubjectAccessReviewStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SubjectAccessReviewStatus
+   * @throws IOException if the JSON string is invalid with respect to V1SubjectAccessReviewStatus
+   */
   public static V1SubjectAccessReviewStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SubjectAccessReviewStatus.class);
   }
 
- /**
-  * Convert an instance of V1SubjectAccessReviewStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SubjectAccessReviewStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

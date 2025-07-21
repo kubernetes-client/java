@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,56 +51,83 @@ import io.kubernetes.client.openapi.JSON;
  * Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.
  */
 @ApiModel(description = "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Lifecycle {
   public static final String SERIALIZED_NAME_POST_START = "postStart";
   @SerializedName(SERIALIZED_NAME_POST_START)
+  @jakarta.annotation.Nullable
   private V1LifecycleHandler postStart;
 
   public static final String SERIALIZED_NAME_PRE_STOP = "preStop";
   @SerializedName(SERIALIZED_NAME_PRE_STOP)
+  @jakarta.annotation.Nullable
   private V1LifecycleHandler preStop;
+
+  public static final String SERIALIZED_NAME_STOP_SIGNAL = "stopSignal";
+  @SerializedName(SERIALIZED_NAME_STOP_SIGNAL)
+  @jakarta.annotation.Nullable
+  private String stopSignal;
 
   public V1Lifecycle() {
   }
 
-  public V1Lifecycle postStart(V1LifecycleHandler postStart) {
+  public V1Lifecycle postStart(@jakarta.annotation.Nullable V1LifecycleHandler postStart) {
     this.postStart = postStart;
     return this;
   }
 
-   /**
+  /**
    * Get postStart
    * @return postStart
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LifecycleHandler getPostStart() {
     return postStart;
   }
 
-  public void setPostStart(V1LifecycleHandler postStart) {
+  public void setPostStart(@jakarta.annotation.Nullable V1LifecycleHandler postStart) {
     this.postStart = postStart;
   }
 
 
-  public V1Lifecycle preStop(V1LifecycleHandler preStop) {
+  public V1Lifecycle preStop(@jakarta.annotation.Nullable V1LifecycleHandler preStop) {
     this.preStop = preStop;
     return this;
   }
 
-   /**
+  /**
    * Get preStop
    * @return preStop
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LifecycleHandler getPreStop() {
     return preStop;
   }
 
-  public void setPreStop(V1LifecycleHandler preStop) {
+  public void setPreStop(@jakarta.annotation.Nullable V1LifecycleHandler preStop) {
     this.preStop = preStop;
+  }
+
+
+  public V1Lifecycle stopSignal(@jakarta.annotation.Nullable String stopSignal) {
+    this.stopSignal = stopSignal;
+    return this;
+  }
+
+  /**
+   * StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name
+   * @return stopSignal
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name")
+  public String getStopSignal() {
+    return stopSignal;
+  }
+
+  public void setStopSignal(@jakarta.annotation.Nullable String stopSignal) {
+    this.stopSignal = stopSignal;
   }
 
 
@@ -116,12 +142,13 @@ public class V1Lifecycle {
     }
     V1Lifecycle v1Lifecycle = (V1Lifecycle) o;
     return Objects.equals(this.postStart, v1Lifecycle.postStart) &&
-        Objects.equals(this.preStop, v1Lifecycle.preStop);
+        Objects.equals(this.preStop, v1Lifecycle.preStop) &&
+        Objects.equals(this.stopSignal, v1Lifecycle.stopSignal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(postStart, preStop);
+    return Objects.hash(postStart, preStop, stopSignal);
   }
 
   @Override
@@ -130,6 +157,7 @@ public class V1Lifecycle {
     sb.append("class V1Lifecycle {\n");
     sb.append("    postStart: ").append(toIndentedString(postStart)).append("\n");
     sb.append("    preStop: ").append(toIndentedString(preStop)).append("\n");
+    sb.append("    stopSignal: ").append(toIndentedString(stopSignal)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,17 +182,18 @@ public class V1Lifecycle {
     openapiFields = new HashSet<String>();
     openapiFields.add("postStart");
     openapiFields.add("preStop");
+    openapiFields.add("stopSignal");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Lifecycle
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Lifecycle
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Lifecycle.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -187,6 +216,9 @@ public class V1Lifecycle {
       // validate the optional field `preStop`
       if (jsonObj.get("preStop") != null && !jsonObj.get("preStop").isJsonNull()) {
         V1LifecycleHandler.validateJsonElement(jsonObj.get("preStop"));
+      }
+      if ((jsonObj.get("stopSignal") != null && !jsonObj.get("stopSignal").isJsonNull()) && !jsonObj.get("stopSignal").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stopSignal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stopSignal").toString()));
       }
   }
 
@@ -219,22 +251,22 @@ public class V1Lifecycle {
     }
   }
 
- /**
-  * Create an instance of V1Lifecycle given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Lifecycle
-  * @throws IOException if the JSON string is invalid with respect to V1Lifecycle
-  */
+  /**
+   * Create an instance of V1Lifecycle given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Lifecycle
+   * @throws IOException if the JSON string is invalid with respect to V1Lifecycle
+   */
   public static V1Lifecycle fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Lifecycle.class);
   }
 
- /**
-  * Convert an instance of V1Lifecycle to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Lifecycle to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

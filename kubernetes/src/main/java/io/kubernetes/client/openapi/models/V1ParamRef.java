@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,103 +51,107 @@ import io.kubernetes.client.openapi.JSON;
  * ParamRef describes how to locate the params to be used as input to expressions of rules applied by a policy binding.
  */
 @ApiModel(description = "ParamRef describes how to locate the params to be used as input to expressions of rules applied by a policy binding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ParamRef {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_PARAMETER_NOT_FOUND_ACTION = "parameterNotFoundAction";
   @SerializedName(SERIALIZED_NAME_PARAMETER_NOT_FOUND_ACTION)
+  @jakarta.annotation.Nullable
   private String parameterNotFoundAction;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector selector;
 
   public V1ParamRef() {
   }
 
-  public V1ParamRef name(String name) {
+  public V1ParamRef name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the resource being referenced.  One of &#x60;name&#x60; or &#x60;selector&#x60; must be set, but &#x60;name&#x60; and &#x60;selector&#x60; are mutually exclusive properties. If one is set, the other must be unset.  A single parameter used for all admission requests can be configured by setting the &#x60;name&#x60; field, leaving &#x60;selector&#x60; blank, and setting namespace if &#x60;paramKind&#x60; is namespace-scoped.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "name is the name of the resource being referenced.  One of `name` or `selector` must be set, but `name` and `selector` are mutually exclusive properties. If one is set, the other must be unset.  A single parameter used for all admission requests can be configured by setting the `name` field, leaving `selector` blank, and setting namespace if `paramKind` is namespace-scoped.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1ParamRef namespace(String namespace) {
+  public V1ParamRef namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * namespace is the namespace of the referenced resource. Allows limiting the search for params to a specific namespace. Applies to both &#x60;name&#x60; and &#x60;selector&#x60; fields.  A per-namespace parameter may be used by specifying a namespace-scoped &#x60;paramKind&#x60; in the policy and leaving this field empty.  - If &#x60;paramKind&#x60; is cluster-scoped, this field MUST be unset. Setting this field results in a configuration error.  - If &#x60;paramKind&#x60; is namespace-scoped, the namespace of the object being evaluated for admission will be used when this field is left unset. Take care that if this is left empty the binding must not match any cluster-scoped resources, which will result in an error.
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "namespace is the namespace of the referenced resource. Allows limiting the search for params to a specific namespace. Applies to both `name` and `selector` fields.  A per-namespace parameter may be used by specifying a namespace-scoped `paramKind` in the policy and leaving this field empty.  - If `paramKind` is cluster-scoped, this field MUST be unset. Setting this field results in a configuration error.  - If `paramKind` is namespace-scoped, the namespace of the object being evaluated for admission will be used when this field is left unset. Take care that if this is left empty the binding must not match any cluster-scoped resources, which will result in an error.")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public V1ParamRef parameterNotFoundAction(String parameterNotFoundAction) {
+  public V1ParamRef parameterNotFoundAction(@jakarta.annotation.Nullable String parameterNotFoundAction) {
     this.parameterNotFoundAction = parameterNotFoundAction;
     return this;
   }
 
-   /**
+  /**
    * &#x60;parameterNotFoundAction&#x60; controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to &#x60;Allow&#x60;, then no matched parameters will be treated as successful validation by the binding. If set to &#x60;Deny&#x60;, then no matched parameters will be subject to the &#x60;failurePolicy&#x60; of the policy.  Allowed values are &#x60;Allow&#x60; or &#x60;Deny&#x60;  Required
    * @return parameterNotFoundAction
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.  Allowed values are `Allow` or `Deny`  Required")
   public String getParameterNotFoundAction() {
     return parameterNotFoundAction;
   }
 
-  public void setParameterNotFoundAction(String parameterNotFoundAction) {
+  public void setParameterNotFoundAction(@jakarta.annotation.Nullable String parameterNotFoundAction) {
     this.parameterNotFoundAction = parameterNotFoundAction;
   }
 
 
-  public V1ParamRef selector(V1LabelSelector selector) {
+  public V1ParamRef selector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
 
-  public void setSelector(V1LabelSelector selector) {
+  public void setSelector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
   }
 
@@ -213,12 +216,12 @@ public class V1ParamRef {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ParamRef
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ParamRef
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ParamRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -278,22 +281,22 @@ public class V1ParamRef {
     }
   }
 
- /**
-  * Create an instance of V1ParamRef given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ParamRef
-  * @throws IOException if the JSON string is invalid with respect to V1ParamRef
-  */
+  /**
+   * Create an instance of V1ParamRef given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ParamRef
+   * @throws IOException if the JSON string is invalid with respect to V1ParamRef
+   */
   public static V1ParamRef fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ParamRef.class);
   }
 
- /**
-  * Convert an instance of V1ParamRef to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ParamRef to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

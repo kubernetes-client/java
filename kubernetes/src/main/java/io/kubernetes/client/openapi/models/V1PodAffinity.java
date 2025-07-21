@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,20 +54,22 @@ import io.kubernetes.client.openapi.JSON;
  * Pod affinity is a group of inter pod affinity scheduling rules.
  */
 @ApiModel(description = "Pod affinity is a group of inter pod affinity scheduling rules.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodAffinity {
   public static final String SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "preferredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
+  @jakarta.annotation.Nullable
   private List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "requiredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
+  @jakarta.annotation.Nullable
   private List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
 
   public V1PodAffinity() {
   }
 
-  public V1PodAffinity preferredDuringSchedulingIgnoredDuringExecution(List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
+  public V1PodAffinity preferredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
@@ -81,22 +82,22 @@ public class V1PodAffinity {
     return this;
   }
 
-   /**
+  /**
    * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \&quot;weight\&quot; to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
    * @return preferredDuringSchedulingIgnoredDuringExecution
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.")
   public List<V1WeightedPodAffinityTerm> getPreferredDuringSchedulingIgnoredDuringExecution() {
     return preferredDuringSchedulingIgnoredDuringExecution;
   }
 
-  public void setPreferredDuringSchedulingIgnoredDuringExecution(List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
+  public void setPreferredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
   }
 
 
-  public V1PodAffinity requiredDuringSchedulingIgnoredDuringExecution(List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
+  public V1PodAffinity requiredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
@@ -109,17 +110,17 @@ public class V1PodAffinity {
     return this;
   }
 
-   /**
+  /**
    * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
    * @return requiredDuringSchedulingIgnoredDuringExecution
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.")
   public List<V1PodAffinityTerm> getRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution;
   }
 
-  public void setRequiredDuringSchedulingIgnoredDuringExecution(List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
+  public void setRequiredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
   }
 
@@ -178,12 +179,12 @@ public class V1PodAffinity {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodAffinity
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodAffinity
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -258,22 +259,22 @@ public class V1PodAffinity {
     }
   }
 
- /**
-  * Create an instance of V1PodAffinity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodAffinity
-  * @throws IOException if the JSON string is invalid with respect to V1PodAffinity
-  */
+  /**
+   * Create an instance of V1PodAffinity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodAffinity
+   * @throws IOException if the JSON string is invalid with respect to V1PodAffinity
+   */
   public static V1PodAffinity fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodAffinity.class);
   }
 
- /**
-  * Convert an instance of V1PodAffinity to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodAffinity to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

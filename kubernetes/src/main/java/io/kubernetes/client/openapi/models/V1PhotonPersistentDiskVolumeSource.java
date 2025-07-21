@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Photon Controller persistent disk resource.
  */
 @ApiModel(description = "Represents a Photon Controller persistent disk resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PhotonPersistentDiskVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_PD_I_D = "pdID";
   @SerializedName(SERIALIZED_NAME_PD_I_D)
+  @jakarta.annotation.Nonnull
   private String pdID;
 
   public V1PhotonPersistentDiskVolumeSource() {
   }
 
-  public V1PhotonPersistentDiskVolumeSource fsType(String fsType) {
+  public V1PhotonPersistentDiskVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1PhotonPersistentDiskVolumeSource pdID(String pdID) {
+  public V1PhotonPersistentDiskVolumeSource pdID(@jakarta.annotation.Nonnull String pdID) {
     this.pdID = pdID;
     return this;
   }
 
-   /**
+  /**
    * pdID is the ID that identifies Photon Controller persistent disk
    * @return pdID
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "pdID is the ID that identifies Photon Controller persistent disk")
   public String getPdID() {
     return pdID;
   }
 
-  public void setPdID(String pdID) {
+  public void setPdID(@jakarta.annotation.Nonnull String pdID) {
     this.pdID = pdID;
   }
 
@@ -159,12 +160,12 @@ public class V1PhotonPersistentDiskVolumeSource {
     openapiRequiredFields.add("pdID");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PhotonPersistentDiskVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PhotonPersistentDiskVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PhotonPersistentDiskVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -224,22 +225,22 @@ public class V1PhotonPersistentDiskVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1PhotonPersistentDiskVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PhotonPersistentDiskVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1PhotonPersistentDiskVolumeSource
-  */
+  /**
+   * Create an instance of V1PhotonPersistentDiskVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PhotonPersistentDiskVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1PhotonPersistentDiskVolumeSource
+   */
   public static V1PhotonPersistentDiskVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PhotonPersistentDiskVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1PhotonPersistentDiskVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PhotonPersistentDiskVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

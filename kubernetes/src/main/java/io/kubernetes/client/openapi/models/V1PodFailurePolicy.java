@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * PodFailurePolicy describes how failed pods influence the backoffLimit.
  */
 @ApiModel(description = "PodFailurePolicy describes how failed pods influence the backoffLimit.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodFailurePolicy {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
+  @jakarta.annotation.Nonnull
   private List<V1PodFailurePolicyRule> rules = new ArrayList<>();
 
   public V1PodFailurePolicy() {
   }
 
-  public V1PodFailurePolicy rules(List<V1PodFailurePolicyRule> rules) {
+  public V1PodFailurePolicy rules(@jakarta.annotation.Nonnull List<V1PodFailurePolicyRule> rules) {
     this.rules = rules;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1PodFailurePolicy {
     return this;
   }
 
-   /**
+  /**
    * A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.
    * @return rules
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.")
   public List<V1PodFailurePolicyRule> getRules() {
     return rules;
   }
 
-  public void setRules(List<V1PodFailurePolicyRule> rules) {
+  public void setRules(@jakarta.annotation.Nonnull List<V1PodFailurePolicyRule> rules) {
     this.rules = rules;
   }
 
@@ -143,12 +143,12 @@ public class V1PodFailurePolicy {
     openapiRequiredFields.add("rules");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodFailurePolicy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodFailurePolicy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -212,22 +212,22 @@ public class V1PodFailurePolicy {
     }
   }
 
- /**
-  * Create an instance of V1PodFailurePolicy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodFailurePolicy
-  * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicy
-  */
+  /**
+   * Create an instance of V1PodFailurePolicy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodFailurePolicy
+   * @throws IOException if the JSON string is invalid with respect to V1PodFailurePolicy
+   */
   public static V1PodFailurePolicy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodFailurePolicy.class);
   }
 
- /**
-  * Convert an instance of V1PodFailurePolicy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodFailurePolicy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

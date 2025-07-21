@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,79 +53,82 @@ import io.kubernetes.client.openapi.JSON;
  * Affinity is a group of affinity scheduling rules.
  */
 @ApiModel(description = "Affinity is a group of affinity scheduling rules.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Affinity {
   public static final String SERIALIZED_NAME_NODE_AFFINITY = "nodeAffinity";
   @SerializedName(SERIALIZED_NAME_NODE_AFFINITY)
+  @jakarta.annotation.Nullable
   private V1NodeAffinity nodeAffinity;
 
   public static final String SERIALIZED_NAME_POD_AFFINITY = "podAffinity";
   @SerializedName(SERIALIZED_NAME_POD_AFFINITY)
+  @jakarta.annotation.Nullable
   private V1PodAffinity podAffinity;
 
   public static final String SERIALIZED_NAME_POD_ANTI_AFFINITY = "podAntiAffinity";
   @SerializedName(SERIALIZED_NAME_POD_ANTI_AFFINITY)
+  @jakarta.annotation.Nullable
   private V1PodAntiAffinity podAntiAffinity;
 
   public V1Affinity() {
   }
 
-  public V1Affinity nodeAffinity(V1NodeAffinity nodeAffinity) {
+  public V1Affinity nodeAffinity(@jakarta.annotation.Nullable V1NodeAffinity nodeAffinity) {
     this.nodeAffinity = nodeAffinity;
     return this;
   }
 
-   /**
+  /**
    * Get nodeAffinity
    * @return nodeAffinity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeAffinity getNodeAffinity() {
     return nodeAffinity;
   }
 
-  public void setNodeAffinity(V1NodeAffinity nodeAffinity) {
+  public void setNodeAffinity(@jakarta.annotation.Nullable V1NodeAffinity nodeAffinity) {
     this.nodeAffinity = nodeAffinity;
   }
 
 
-  public V1Affinity podAffinity(V1PodAffinity podAffinity) {
+  public V1Affinity podAffinity(@jakarta.annotation.Nullable V1PodAffinity podAffinity) {
     this.podAffinity = podAffinity;
     return this;
   }
 
-   /**
+  /**
    * Get podAffinity
    * @return podAffinity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodAffinity getPodAffinity() {
     return podAffinity;
   }
 
-  public void setPodAffinity(V1PodAffinity podAffinity) {
+  public void setPodAffinity(@jakarta.annotation.Nullable V1PodAffinity podAffinity) {
     this.podAffinity = podAffinity;
   }
 
 
-  public V1Affinity podAntiAffinity(V1PodAntiAffinity podAntiAffinity) {
+  public V1Affinity podAntiAffinity(@jakarta.annotation.Nullable V1PodAntiAffinity podAntiAffinity) {
     this.podAntiAffinity = podAntiAffinity;
     return this;
   }
 
-   /**
+  /**
    * Get podAntiAffinity
    * @return podAntiAffinity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodAntiAffinity getPodAntiAffinity() {
     return podAntiAffinity;
   }
 
-  public void setPodAntiAffinity(V1PodAntiAffinity podAntiAffinity) {
+  public void setPodAntiAffinity(@jakarta.annotation.Nullable V1PodAntiAffinity podAntiAffinity) {
     this.podAntiAffinity = podAntiAffinity;
   }
 
@@ -188,12 +190,12 @@ public class V1Affinity {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Affinity
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Affinity
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Affinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -252,22 +254,22 @@ public class V1Affinity {
     }
   }
 
- /**
-  * Create an instance of V1Affinity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Affinity
-  * @throws IOException if the JSON string is invalid with respect to V1Affinity
-  */
+  /**
+   * Create an instance of V1Affinity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Affinity
+   * @throws IOException if the JSON string is invalid with respect to V1Affinity
+   */
   public static V1Affinity fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Affinity.class);
   }
 
- /**
-  * Convert an instance of V1Affinity to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Affinity to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

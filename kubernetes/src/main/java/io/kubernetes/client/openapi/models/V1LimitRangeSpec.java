@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * LimitRangeSpec defines a min/max usage limit for resources that match on kind.
  */
 @ApiModel(description = "LimitRangeSpec defines a min/max usage limit for resources that match on kind.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LimitRangeSpec {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
+  @jakarta.annotation.Nonnull
   private List<V1LimitRangeItem> limits = new ArrayList<>();
 
   public V1LimitRangeSpec() {
   }
 
-  public V1LimitRangeSpec limits(List<V1LimitRangeItem> limits) {
+  public V1LimitRangeSpec limits(@jakarta.annotation.Nonnull List<V1LimitRangeItem> limits) {
     this.limits = limits;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1LimitRangeSpec {
     return this;
   }
 
-   /**
+  /**
    * Limits is the list of LimitRangeItem objects that are enforced.
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Limits is the list of LimitRangeItem objects that are enforced.")
   public List<V1LimitRangeItem> getLimits() {
     return limits;
   }
 
-  public void setLimits(List<V1LimitRangeItem> limits) {
+  public void setLimits(@jakarta.annotation.Nonnull List<V1LimitRangeItem> limits) {
     this.limits = limits;
   }
 
@@ -143,12 +143,12 @@ public class V1LimitRangeSpec {
     openapiRequiredFields.add("limits");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LimitRangeSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LimitRangeSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LimitRangeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -212,22 +212,22 @@ public class V1LimitRangeSpec {
     }
   }
 
- /**
-  * Create an instance of V1LimitRangeSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LimitRangeSpec
-  * @throws IOException if the JSON string is invalid with respect to V1LimitRangeSpec
-  */
+  /**
+   * Create an instance of V1LimitRangeSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LimitRangeSpec
+   * @throws IOException if the JSON string is invalid with respect to V1LimitRangeSpec
+   */
   public static V1LimitRangeSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LimitRangeSpec.class);
   }
 
- /**
-  * Convert an instance of V1LimitRangeSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LimitRangeSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

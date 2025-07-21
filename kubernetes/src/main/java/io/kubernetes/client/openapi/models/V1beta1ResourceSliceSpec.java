@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeSelector;
+import io.kubernetes.client.openapi.models.V1beta1CounterSet;
 import io.kubernetes.client.openapi.models.V1beta1Device;
 import io.kubernetes.client.openapi.models.V1beta1ResourcePool;
 import io.swagger.annotations.ApiModel;
@@ -43,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,56 +56,72 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceSliceSpec contains the information published by the driver in one ResourceSlice.
  */
 @ApiModel(description = "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1ResourceSliceSpec {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
+  @jakarta.annotation.Nullable
   private Boolean allNodes;
 
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
+  @jakarta.annotation.Nullable
   private List<V1beta1Device> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
   @SerializedName(SERIALIZED_NAME_NODE_NAME)
+  @jakarta.annotation.Nullable
   private String nodeName;
 
   public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1NodeSelector nodeSelector;
+
+  public static final String SERIALIZED_NAME_PER_DEVICE_NODE_SELECTION = "perDeviceNodeSelection";
+  @SerializedName(SERIALIZED_NAME_PER_DEVICE_NODE_SELECTION)
+  @jakarta.annotation.Nullable
+  private Boolean perDeviceNodeSelection;
 
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
+  @jakarta.annotation.Nonnull
   private V1beta1ResourcePool pool;
+
+  public static final String SERIALIZED_NAME_SHARED_COUNTERS = "sharedCounters";
+  @SerializedName(SERIALIZED_NAME_SHARED_COUNTERS)
+  @jakarta.annotation.Nullable
+  private List<V1beta1CounterSet> sharedCounters = new ArrayList<>();
 
   public V1beta1ResourceSliceSpec() {
   }
 
-  public V1beta1ResourceSliceSpec allNodes(Boolean allNodes) {
+  public V1beta1ResourceSliceSpec allNodes(@jakarta.annotation.Nullable Boolean allNodes) {
     this.allNodes = allNodes;
     return this;
   }
 
-   /**
-   * AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector and AllNodes must be set.
+  /**
+   * AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.
    * @return allNodes
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector and AllNodes must be set.")
+  @ApiModelProperty(value = "AllNodes indicates that all nodes have access to the resources in the pool.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.")
   public Boolean getAllNodes() {
     return allNodes;
   }
 
-  public void setAllNodes(Boolean allNodes) {
+  public void setAllNodes(@jakarta.annotation.Nullable Boolean allNodes) {
     this.allNodes = allNodes;
   }
 
 
-  public V1beta1ResourceSliceSpec devices(List<V1beta1Device> devices) {
+  public V1beta1ResourceSliceSpec devices(@jakarta.annotation.Nullable List<V1beta1Device> devices) {
     this.devices = devices;
     return this;
   }
@@ -118,98 +134,146 @@ public class V1beta1ResourceSliceSpec {
     return this;
   }
 
-   /**
+  /**
    * Devices lists some or all of the devices in this pool.  Must not have more than 128 entries.
    * @return devices
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Devices lists some or all of the devices in this pool.  Must not have more than 128 entries.")
   public List<V1beta1Device> getDevices() {
     return devices;
   }
 
-  public void setDevices(List<V1beta1Device> devices) {
+  public void setDevices(@jakarta.annotation.Nullable List<V1beta1Device> devices) {
     this.devices = devices;
   }
 
 
-  public V1beta1ResourceSliceSpec driver(String driver) {
+  public V1beta1ResourceSliceSpec driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. This field is immutable.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. This field is immutable.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1beta1ResourceSliceSpec nodeName(String nodeName) {
+  public V1beta1ResourceSliceSpec nodeName(@jakarta.annotation.Nullable String nodeName) {
     this.nodeName = nodeName;
     return this;
   }
 
-   /**
-   * NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.
+  /**
+   * NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.
    * @return nodeName
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector and AllNodes must be set. This field is immutable.")
+  @ApiModelProperty(value = "NodeName identifies the node which provides the resources in this pool. A field selector can be used to list only ResourceSlice objects belonging to a certain node.  This field can be used to limit access from nodes to ResourceSlices with the same node name. It also indicates to autoscalers that adding new nodes of the same type as some old node might also make new resources available.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set. This field is immutable.")
   public String getNodeName() {
     return nodeName;
   }
 
-  public void setNodeName(String nodeName) {
+  public void setNodeName(@jakarta.annotation.Nullable String nodeName) {
     this.nodeName = nodeName;
   }
 
 
-  public V1beta1ResourceSliceSpec nodeSelector(V1NodeSelector nodeSelector) {
+  public V1beta1ResourceSliceSpec nodeSelector(@jakarta.annotation.Nullable V1NodeSelector nodeSelector) {
     this.nodeSelector = nodeSelector;
     return this;
   }
 
-   /**
+  /**
    * Get nodeSelector
    * @return nodeSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSelector getNodeSelector() {
     return nodeSelector;
   }
 
-  public void setNodeSelector(V1NodeSelector nodeSelector) {
+  public void setNodeSelector(@jakarta.annotation.Nullable V1NodeSelector nodeSelector) {
     this.nodeSelector = nodeSelector;
   }
 
 
-  public V1beta1ResourceSliceSpec pool(V1beta1ResourcePool pool) {
+  public V1beta1ResourceSliceSpec perDeviceNodeSelection(@jakarta.annotation.Nullable Boolean perDeviceNodeSelection) {
+    this.perDeviceNodeSelection = perDeviceNodeSelection;
+    return this;
+  }
+
+  /**
+   * PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.
+   * @return perDeviceNodeSelection
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "PerDeviceNodeSelection defines whether the access from nodes to resources in the pool is set on the ResourceSlice level or on each device. If it is set to true, every device defined the ResourceSlice must specify this individually.  Exactly one of NodeName, NodeSelector, AllNodes, and PerDeviceNodeSelection must be set.")
+  public Boolean getPerDeviceNodeSelection() {
+    return perDeviceNodeSelection;
+  }
+
+  public void setPerDeviceNodeSelection(@jakarta.annotation.Nullable Boolean perDeviceNodeSelection) {
+    this.perDeviceNodeSelection = perDeviceNodeSelection;
+  }
+
+
+  public V1beta1ResourceSliceSpec pool(@jakarta.annotation.Nonnull V1beta1ResourcePool pool) {
     this.pool = pool;
     return this;
   }
 
-   /**
+  /**
    * Get pool
    * @return pool
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1beta1ResourcePool getPool() {
     return pool;
   }
 
-  public void setPool(V1beta1ResourcePool pool) {
+  public void setPool(@jakarta.annotation.Nonnull V1beta1ResourcePool pool) {
     this.pool = pool;
+  }
+
+
+  public V1beta1ResourceSliceSpec sharedCounters(@jakarta.annotation.Nullable List<V1beta1CounterSet> sharedCounters) {
+    this.sharedCounters = sharedCounters;
+    return this;
+  }
+
+  public V1beta1ResourceSliceSpec addSharedCountersItem(V1beta1CounterSet sharedCountersItem) {
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList<>();
+    }
+    this.sharedCounters.add(sharedCountersItem);
+    return this;
+  }
+
+  /**
+   * SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of SharedCounters is 32.
+   * @return sharedCounters
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of SharedCounters is 32.")
+  public List<V1beta1CounterSet> getSharedCounters() {
+    return sharedCounters;
+  }
+
+  public void setSharedCounters(@jakarta.annotation.Nullable List<V1beta1CounterSet> sharedCounters) {
+    this.sharedCounters = sharedCounters;
   }
 
 
@@ -228,12 +292,14 @@ public class V1beta1ResourceSliceSpec {
         Objects.equals(this.driver, v1beta1ResourceSliceSpec.driver) &&
         Objects.equals(this.nodeName, v1beta1ResourceSliceSpec.nodeName) &&
         Objects.equals(this.nodeSelector, v1beta1ResourceSliceSpec.nodeSelector) &&
-        Objects.equals(this.pool, v1beta1ResourceSliceSpec.pool);
+        Objects.equals(this.perDeviceNodeSelection, v1beta1ResourceSliceSpec.perDeviceNodeSelection) &&
+        Objects.equals(this.pool, v1beta1ResourceSliceSpec.pool) &&
+        Objects.equals(this.sharedCounters, v1beta1ResourceSliceSpec.sharedCounters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, pool);
+    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, perDeviceNodeSelection, pool, sharedCounters);
   }
 
   @Override
@@ -245,7 +311,9 @@ public class V1beta1ResourceSliceSpec {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
+    sb.append("    perDeviceNodeSelection: ").append(toIndentedString(perDeviceNodeSelection)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
+    sb.append("    sharedCounters: ").append(toIndentedString(sharedCounters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -273,7 +341,9 @@ public class V1beta1ResourceSliceSpec {
     openapiFields.add("driver");
     openapiFields.add("nodeName");
     openapiFields.add("nodeSelector");
+    openapiFields.add("perDeviceNodeSelection");
     openapiFields.add("pool");
+    openapiFields.add("sharedCounters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -281,12 +351,12 @@ public class V1beta1ResourceSliceSpec {
     openapiRequiredFields.add("pool");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1ResourceSliceSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1ResourceSliceSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1ResourceSliceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -335,6 +405,20 @@ public class V1beta1ResourceSliceSpec {
       }
       // validate the required field `pool`
       V1beta1ResourcePool.validateJsonElement(jsonObj.get("pool"));
+      if (jsonObj.get("sharedCounters") != null && !jsonObj.get("sharedCounters").isJsonNull()) {
+        JsonArray jsonArraysharedCounters = jsonObj.getAsJsonArray("sharedCounters");
+        if (jsonArraysharedCounters != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("sharedCounters").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `sharedCounters` to be an array in the JSON string but got `%s`", jsonObj.get("sharedCounters").toString()));
+          }
+
+          // validate the optional field `sharedCounters` (array)
+          for (int i = 0; i < jsonArraysharedCounters.size(); i++) {
+            V1beta1CounterSet.validateJsonElement(jsonArraysharedCounters.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -366,22 +450,22 @@ public class V1beta1ResourceSliceSpec {
     }
   }
 
- /**
-  * Create an instance of V1beta1ResourceSliceSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1ResourceSliceSpec
-  * @throws IOException if the JSON string is invalid with respect to V1beta1ResourceSliceSpec
-  */
+  /**
+   * Create an instance of V1beta1ResourceSliceSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1ResourceSliceSpec
+   * @throws IOException if the JSON string is invalid with respect to V1beta1ResourceSliceSpec
+   */
   public static V1beta1ResourceSliceSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1ResourceSliceSpec.class);
   }
 
- /**
-  * Convert an instance of V1beta1ResourceSliceSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1ResourceSliceSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

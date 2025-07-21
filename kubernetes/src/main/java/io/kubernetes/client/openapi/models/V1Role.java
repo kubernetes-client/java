@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,88 +54,92 @@ import io.kubernetes.client.openapi.JSON;
  * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
  */
 @ApiModel(description = "Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Role implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
+  @jakarta.annotation.Nullable
   private List<V1PolicyRule> rules = new ArrayList<>();
 
   public V1Role() {
   }
 
-  public V1Role apiVersion(String apiVersion) {
+  public V1Role apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1Role kind(String kind) {
+  public V1Role kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1Role metadata(V1ObjectMeta metadata) {
+  public V1Role metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1Role rules(List<V1PolicyRule> rules) {
+  public V1Role rules(@jakarta.annotation.Nullable List<V1PolicyRule> rules) {
     this.rules = rules;
     return this;
   }
@@ -149,17 +152,17 @@ public class V1Role implements io.kubernetes.client.common.KubernetesObject {
     return this;
   }
 
-   /**
+  /**
    * Rules holds all the PolicyRules for this Role
    * @return rules
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Rules holds all the PolicyRules for this Role")
   public List<V1PolicyRule> getRules() {
     return rules;
   }
 
-  public void setRules(List<V1PolicyRule> rules) {
+  public void setRules(@jakarta.annotation.Nullable List<V1PolicyRule> rules) {
     this.rules = rules;
   }
 
@@ -224,12 +227,12 @@ public class V1Role implements io.kubernetes.client.common.KubernetesObject {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Role
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Role
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Role.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -300,22 +303,22 @@ public class V1Role implements io.kubernetes.client.common.KubernetesObject {
     }
   }
 
- /**
-  * Create an instance of V1Role given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Role
-  * @throws IOException if the JSON string is invalid with respect to V1Role
-  */
+  /**
+   * Create an instance of V1Role given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Role
+   * @throws IOException if the JSON string is invalid with respect to V1Role
+   */
   public static V1Role fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Role.class);
   }
 
- /**
-  * Convert an instance of V1Role to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Role to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

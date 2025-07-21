@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,127 +50,132 @@ import io.kubernetes.client.openapi.JSON;
  * IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.
  */
 @ApiModel(description = "IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressClassParametersReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
+  @jakarta.annotation.Nullable
   private String apiGroup;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nonnull
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  @jakarta.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_SCOPE = "scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
+  @jakarta.annotation.Nullable
   private String scope;
 
   public V1IngressClassParametersReference() {
   }
 
-  public V1IngressClassParametersReference apiGroup(String apiGroup) {
+  public V1IngressClassParametersReference apiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
     return this;
   }
 
-   /**
+  /**
    * apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
    * @return apiGroup
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "apiGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.")
   public String getApiGroup() {
     return apiGroup;
   }
 
-  public void setApiGroup(String apiGroup) {
+  public void setApiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
   }
 
 
-  public V1IngressClassParametersReference kind(String kind) {
+  public V1IngressClassParametersReference kind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * kind is the type of resource being referenced.
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "kind is the type of resource being referenced.")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
   }
 
 
-  public V1IngressClassParametersReference name(String name) {
+  public V1IngressClassParametersReference name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of resource being referenced.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of resource being referenced.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1IngressClassParametersReference namespace(String namespace) {
+  public V1IngressClassParametersReference namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * namespace is the namespace of the resource being referenced. This field is required when scope is set to \&quot;Namespace\&quot; and must be unset when scope is set to \&quot;Cluster\&quot;.
    * @return namespace
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "namespace is the namespace of the resource being referenced. This field is required when scope is set to \"Namespace\" and must be unset when scope is set to \"Cluster\".")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = namespace;
   }
 
 
-  public V1IngressClassParametersReference scope(String scope) {
+  public V1IngressClassParametersReference scope(@jakarta.annotation.Nullable String scope) {
     this.scope = scope;
     return this;
   }
 
-   /**
+  /**
    * scope represents if this refers to a cluster or namespace scoped resource. This may be set to \&quot;Cluster\&quot; (default) or \&quot;Namespace\&quot;.
    * @return scope
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "scope represents if this refers to a cluster or namespace scoped resource. This may be set to \"Cluster\" (default) or \"Namespace\".")
   public String getScope() {
     return scope;
   }
 
-  public void setScope(String scope) {
+  public void setScope(@jakarta.annotation.Nullable String scope) {
     this.scope = scope;
   }
 
@@ -241,12 +245,12 @@ public class V1IngressClassParametersReference {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IngressClassParametersReference
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IngressClassParametersReference
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressClassParametersReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -315,22 +319,22 @@ public class V1IngressClassParametersReference {
     }
   }
 
- /**
-  * Create an instance of V1IngressClassParametersReference given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IngressClassParametersReference
-  * @throws IOException if the JSON string is invalid with respect to V1IngressClassParametersReference
-  */
+  /**
+   * Create an instance of V1IngressClassParametersReference given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IngressClassParametersReference
+   * @throws IOException if the JSON string is invalid with respect to V1IngressClassParametersReference
+   */
   public static V1IngressClassParametersReference fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IngressClassParametersReference.class);
   }
 
- /**
-  * Convert an instance of V1IngressClassParametersReference to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IngressClassParametersReference to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

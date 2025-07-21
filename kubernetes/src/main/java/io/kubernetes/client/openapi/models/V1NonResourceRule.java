@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,20 +52,22 @@ import io.kubernetes.client.openapi.JSON;
  * NonResourceRule holds information that describes a rule for the non-resource
  */
 @ApiModel(description = "NonResourceRule holds information that describes a rule for the non-resource")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NonResourceRule {
   public static final String SERIALIZED_NAME_NON_RESOURCE_U_R_LS = "nonResourceURLs";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_U_R_LS)
+  @jakarta.annotation.Nullable
   private List<String> nonResourceURLs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
   @SerializedName(SERIALIZED_NAME_VERBS)
+  @jakarta.annotation.Nonnull
   private List<String> verbs = new ArrayList<>();
 
   public V1NonResourceRule() {
   }
 
-  public V1NonResourceRule nonResourceURLs(List<String> nonResourceURLs) {
+  public V1NonResourceRule nonResourceURLs(@jakarta.annotation.Nullable List<String> nonResourceURLs) {
     this.nonResourceURLs = nonResourceURLs;
     return this;
   }
@@ -79,22 +80,22 @@ public class V1NonResourceRule {
     return this;
   }
 
-   /**
+  /**
    * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \&quot;*\&quot; means all.
    * @return nonResourceURLs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.")
   public List<String> getNonResourceURLs() {
     return nonResourceURLs;
   }
 
-  public void setNonResourceURLs(List<String> nonResourceURLs) {
+  public void setNonResourceURLs(@jakarta.annotation.Nullable List<String> nonResourceURLs) {
     this.nonResourceURLs = nonResourceURLs;
   }
 
 
-  public V1NonResourceRule verbs(List<String> verbs) {
+  public V1NonResourceRule verbs(@jakarta.annotation.Nonnull List<String> verbs) {
     this.verbs = verbs;
     return this;
   }
@@ -107,17 +108,17 @@ public class V1NonResourceRule {
     return this;
   }
 
-   /**
+  /**
    * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \&quot;*\&quot; means all.
    * @return verbs
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.")
   public List<String> getVerbs() {
     return verbs;
   }
 
-  public void setVerbs(List<String> verbs) {
+  public void setVerbs(@jakarta.annotation.Nonnull List<String> verbs) {
     this.verbs = verbs;
   }
 
@@ -177,12 +178,12 @@ public class V1NonResourceRule {
     openapiRequiredFields.add("verbs");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NonResourceRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NonResourceRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NonResourceRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -246,22 +247,22 @@ public class V1NonResourceRule {
     }
   }
 
- /**
-  * Create an instance of V1NonResourceRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NonResourceRule
-  * @throws IOException if the JSON string is invalid with respect to V1NonResourceRule
-  */
+  /**
+   * Create an instance of V1NonResourceRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NonResourceRule
+   * @throws IOException if the JSON string is invalid with respect to V1NonResourceRule
+   */
   public static V1NonResourceRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NonResourceRule.class);
   }
 
- /**
-  * Convert an instance of V1NonResourceRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NonResourceRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

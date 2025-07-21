@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,127 +55,132 @@ import io.kubernetes.client.openapi.JSON;
  * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  */
 @ApiModel(description = "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
+  @jakarta.annotation.Nullable
   private V1ClusterTrustBundleProjection clusterTrustBundle;
 
   public static final String SERIALIZED_NAME_CONFIG_MAP = "configMap";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP)
+  @jakarta.annotation.Nullable
   private V1ConfigMapProjection configMap;
 
   public static final String SERIALIZED_NAME_DOWNWARD_A_P_I = "downwardAPI";
   @SerializedName(SERIALIZED_NAME_DOWNWARD_A_P_I)
+  @jakarta.annotation.Nullable
   private V1DownwardAPIProjection downwardAPI;
 
   public static final String SERIALIZED_NAME_SECRET = "secret";
   @SerializedName(SERIALIZED_NAME_SECRET)
+  @jakarta.annotation.Nullable
   private V1SecretProjection secret;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN = "serviceAccountToken";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN)
+  @jakarta.annotation.Nullable
   private V1ServiceAccountTokenProjection serviceAccountToken;
 
   public V1VolumeProjection() {
   }
 
-  public V1VolumeProjection clusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+  public V1VolumeProjection clusterTrustBundle(@jakarta.annotation.Nullable V1ClusterTrustBundleProjection clusterTrustBundle) {
     this.clusterTrustBundle = clusterTrustBundle;
     return this;
   }
 
-   /**
+  /**
    * Get clusterTrustBundle
    * @return clusterTrustBundle
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ClusterTrustBundleProjection getClusterTrustBundle() {
     return clusterTrustBundle;
   }
 
-  public void setClusterTrustBundle(V1ClusterTrustBundleProjection clusterTrustBundle) {
+  public void setClusterTrustBundle(@jakarta.annotation.Nullable V1ClusterTrustBundleProjection clusterTrustBundle) {
     this.clusterTrustBundle = clusterTrustBundle;
   }
 
 
-  public V1VolumeProjection configMap(V1ConfigMapProjection configMap) {
+  public V1VolumeProjection configMap(@jakarta.annotation.Nullable V1ConfigMapProjection configMap) {
     this.configMap = configMap;
     return this;
   }
 
-   /**
+  /**
    * Get configMap
    * @return configMap
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ConfigMapProjection getConfigMap() {
     return configMap;
   }
 
-  public void setConfigMap(V1ConfigMapProjection configMap) {
+  public void setConfigMap(@jakarta.annotation.Nullable V1ConfigMapProjection configMap) {
     this.configMap = configMap;
   }
 
 
-  public V1VolumeProjection downwardAPI(V1DownwardAPIProjection downwardAPI) {
+  public V1VolumeProjection downwardAPI(@jakarta.annotation.Nullable V1DownwardAPIProjection downwardAPI) {
     this.downwardAPI = downwardAPI;
     return this;
   }
 
-   /**
+  /**
    * Get downwardAPI
    * @return downwardAPI
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DownwardAPIProjection getDownwardAPI() {
     return downwardAPI;
   }
 
-  public void setDownwardAPI(V1DownwardAPIProjection downwardAPI) {
+  public void setDownwardAPI(@jakarta.annotation.Nullable V1DownwardAPIProjection downwardAPI) {
     this.downwardAPI = downwardAPI;
   }
 
 
-  public V1VolumeProjection secret(V1SecretProjection secret) {
+  public V1VolumeProjection secret(@jakarta.annotation.Nullable V1SecretProjection secret) {
     this.secret = secret;
     return this;
   }
 
-   /**
+  /**
    * Get secret
    * @return secret
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretProjection getSecret() {
     return secret;
   }
 
-  public void setSecret(V1SecretProjection secret) {
+  public void setSecret(@jakarta.annotation.Nullable V1SecretProjection secret) {
     this.secret = secret;
   }
 
 
-  public V1VolumeProjection serviceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
+  public V1VolumeProjection serviceAccountToken(@jakarta.annotation.Nullable V1ServiceAccountTokenProjection serviceAccountToken) {
     this.serviceAccountToken = serviceAccountToken;
     return this;
   }
 
-   /**
+  /**
    * Get serviceAccountToken
    * @return serviceAccountToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return serviceAccountToken;
   }
 
-  public void setServiceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
+  public void setServiceAccountToken(@jakarta.annotation.Nullable V1ServiceAccountTokenProjection serviceAccountToken) {
     this.serviceAccountToken = serviceAccountToken;
   }
 
@@ -244,12 +248,12 @@ public class V1VolumeProjection {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeProjection
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeProjection
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -316,22 +320,22 @@ public class V1VolumeProjection {
     }
   }
 
- /**
-  * Create an instance of V1VolumeProjection given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeProjection
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeProjection
-  */
+  /**
+   * Create an instance of V1VolumeProjection given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeProjection
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeProjection
+   */
   public static V1VolumeProjection fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeProjection.class);
   }
 
- /**
-  * Convert an instance of V1VolumeProjection to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeProjection to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

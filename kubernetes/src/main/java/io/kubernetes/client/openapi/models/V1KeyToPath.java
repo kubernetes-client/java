@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * Maps a string key to a path within a volume.
  */
 @ApiModel(description = "Maps a string key to a path within a volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1KeyToPath {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
+  @jakarta.annotation.Nonnull
   private String key;
 
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
+  @jakarta.annotation.Nullable
   private Integer mode;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
+  @jakarta.annotation.Nonnull
   private String path;
 
   public V1KeyToPath() {
   }
 
-  public V1KeyToPath key(String key) {
+  public V1KeyToPath key(@jakarta.annotation.Nonnull String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * key is the key to project.
    * @return key
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "key is the key to project.")
   public String getKey() {
     return key;
   }
 
-  public void setKey(String key) {
+  public void setKey(@jakarta.annotation.Nonnull String key) {
     this.key = key;
   }
 
 
-  public V1KeyToPath mode(Integer mode) {
+  public V1KeyToPath mode(@jakarta.annotation.Nullable Integer mode) {
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    * @return mode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getMode() {
     return mode;
   }
 
-  public void setMode(Integer mode) {
+  public void setMode(@jakarta.annotation.Nullable Integer mode) {
     this.mode = mode;
   }
 
 
-  public V1KeyToPath path(String path) {
+  public V1KeyToPath path(@jakarta.annotation.Nonnull String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element &#39;..&#39;. May not start with the string &#39;..&#39;.
    * @return path
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.")
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nonnull String path) {
     this.path = path;
   }
 
@@ -187,12 +189,12 @@ public class V1KeyToPath {
     openapiRequiredFields.add("path");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1KeyToPath
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1KeyToPath
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1KeyToPath.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -252,22 +254,22 @@ public class V1KeyToPath {
     }
   }
 
- /**
-  * Create an instance of V1KeyToPath given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1KeyToPath
-  * @throws IOException if the JSON string is invalid with respect to V1KeyToPath
-  */
+  /**
+   * Create an instance of V1KeyToPath given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1KeyToPath
+   * @throws IOException if the JSON string is invalid with respect to V1KeyToPath
+   */
   public static V1KeyToPath fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1KeyToPath.class);
   }
 
- /**
-  * Convert an instance of V1KeyToPath to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1KeyToPath to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

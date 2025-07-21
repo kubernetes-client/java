@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  */
 @ApiModel(description = "Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Preconditions {
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
   @SerializedName(SERIALIZED_NAME_RESOURCE_VERSION)
+  @jakarta.annotation.Nullable
   private String resourceVersion;
 
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
+  @jakarta.annotation.Nullable
   private String uid;
 
   public V1Preconditions() {
   }
 
-  public V1Preconditions resourceVersion(String resourceVersion) {
+  public V1Preconditions resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return this;
   }
 
-   /**
+  /**
    * Specifies the target ResourceVersion
    * @return resourceVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the target ResourceVersion")
   public String getResourceVersion() {
     return resourceVersion;
   }
 
-  public void setResourceVersion(String resourceVersion) {
+  public void setResourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
     this.resourceVersion = resourceVersion;
   }
 
 
-  public V1Preconditions uid(String uid) {
+  public V1Preconditions uid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * Specifies the target UID.
    * @return uid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the target UID.")
   public String getUid() {
     return uid;
   }
 
-  public void setUid(String uid) {
+  public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
   }
 
@@ -158,12 +159,12 @@ public class V1Preconditions {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Preconditions
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Preconditions
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Preconditions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +217,22 @@ public class V1Preconditions {
     }
   }
 
- /**
-  * Create an instance of V1Preconditions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Preconditions
-  * @throws IOException if the JSON string is invalid with respect to V1Preconditions
-  */
+  /**
+   * Create an instance of V1Preconditions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Preconditions
+   * @throws IOException if the JSON string is invalid with respect to V1Preconditions
+   */
   public static V1Preconditions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Preconditions.class);
   }
 
- /**
-  * Convert an instance of V1Preconditions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Preconditions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

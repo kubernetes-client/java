@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * RoleRef contains information that points to the role being used
  */
 @ApiModel(description = "RoleRef contains information that points to the role being used")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1RoleRef {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
+  @jakarta.annotation.Nonnull
   private String apiGroup;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nonnull
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1RoleRef() {
   }
 
-  public V1RoleRef apiGroup(String apiGroup) {
+  public V1RoleRef apiGroup(@jakarta.annotation.Nonnull String apiGroup) {
     this.apiGroup = apiGroup;
     return this;
   }
 
-   /**
+  /**
    * APIGroup is the group for the resource being referenced
    * @return apiGroup
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "APIGroup is the group for the resource being referenced")
   public String getApiGroup() {
     return apiGroup;
   }
 
-  public void setApiGroup(String apiGroup) {
+  public void setApiGroup(@jakarta.annotation.Nonnull String apiGroup) {
     this.apiGroup = apiGroup;
   }
 
 
-  public V1RoleRef kind(String kind) {
+  public V1RoleRef kind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is the type of resource being referenced
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Kind is the type of resource being referenced")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nonnull String kind) {
     this.kind = kind;
   }
 
 
-  public V1RoleRef name(String name) {
+  public V1RoleRef name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name of resource being referenced
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is the name of resource being referenced")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -188,12 +190,12 @@ public class V1RoleRef {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1RoleRef
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1RoleRef
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RoleRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -256,22 +258,22 @@ public class V1RoleRef {
     }
   }
 
- /**
-  * Create an instance of V1RoleRef given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1RoleRef
-  * @throws IOException if the JSON string is invalid with respect to V1RoleRef
-  */
+  /**
+   * Create an instance of V1RoleRef given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1RoleRef
+   * @throws IOException if the JSON string is invalid with respect to V1RoleRef
+   */
   public static V1RoleRef fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1RoleRef.class);
   }
 
- /**
-  * Convert an instance of V1RoleRef to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1RoleRef to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * IngressStatus describe the current state of the Ingress.
  */
 @ApiModel(description = "IngressStatus describe the current state of the Ingress.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressStatus {
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)
+  @jakarta.annotation.Nullable
   private V1IngressLoadBalancerStatus loadBalancer;
 
   public V1IngressStatus() {
   }
 
-  public V1IngressStatus loadBalancer(V1IngressLoadBalancerStatus loadBalancer) {
+  public V1IngressStatus loadBalancer(@jakarta.annotation.Nullable V1IngressLoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
     return this;
   }
 
-   /**
+  /**
    * Get loadBalancer
    * @return loadBalancer
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1IngressLoadBalancerStatus getLoadBalancer() {
     return loadBalancer;
   }
 
-  public void setLoadBalancer(V1IngressLoadBalancerStatus loadBalancer) {
+  public void setLoadBalancer(@jakarta.annotation.Nullable V1IngressLoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
   }
 
@@ -132,12 +132,12 @@ public class V1IngressStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1IngressStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1IngressStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1IngressStatus {
     }
   }
 
- /**
-  * Create an instance of V1IngressStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1IngressStatus
-  * @throws IOException if the JSON string is invalid with respect to V1IngressStatus
-  */
+  /**
+   * Create an instance of V1IngressStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1IngressStatus
+   * @throws IOException if the JSON string is invalid with respect to V1IngressStatus
+   */
   public static V1IngressStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1IngressStatus.class);
   }
 
- /**
-  * Convert an instance of V1IngressStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1IngressStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

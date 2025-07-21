@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,27 +51,30 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],    Ports:     [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]
+ * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],    Ports:     [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]  Deprecated: This API is deprecated in v1.33+.
  */
-@ApiModel(description = "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]  Deprecated: This API is deprecated in v1.33+.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
+  @jakarta.annotation.Nullable
   private List<V1EndpointAddress> addresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NOT_READY_ADDRESSES = "notReadyAddresses";
   @SerializedName(SERIALIZED_NAME_NOT_READY_ADDRESSES)
+  @jakarta.annotation.Nullable
   private List<V1EndpointAddress> notReadyAddresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
+  @jakarta.annotation.Nullable
   private List<CoreV1EndpointPort> ports = new ArrayList<>();
 
   public V1EndpointSubset() {
   }
 
-  public V1EndpointSubset addresses(List<V1EndpointAddress> addresses) {
+  public V1EndpointSubset addresses(@jakarta.annotation.Nullable List<V1EndpointAddress> addresses) {
     this.addresses = addresses;
     return this;
   }
@@ -85,22 +87,22 @@ public class V1EndpointSubset {
     return this;
   }
 
-   /**
+  /**
    * IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.
    * @return addresses
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.")
   public List<V1EndpointAddress> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<V1EndpointAddress> addresses) {
+  public void setAddresses(@jakarta.annotation.Nullable List<V1EndpointAddress> addresses) {
     this.addresses = addresses;
   }
 
 
-  public V1EndpointSubset notReadyAddresses(List<V1EndpointAddress> notReadyAddresses) {
+  public V1EndpointSubset notReadyAddresses(@jakarta.annotation.Nullable List<V1EndpointAddress> notReadyAddresses) {
     this.notReadyAddresses = notReadyAddresses;
     return this;
   }
@@ -113,22 +115,22 @@ public class V1EndpointSubset {
     return this;
   }
 
-   /**
+  /**
    * IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
    * @return notReadyAddresses
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.")
   public List<V1EndpointAddress> getNotReadyAddresses() {
     return notReadyAddresses;
   }
 
-  public void setNotReadyAddresses(List<V1EndpointAddress> notReadyAddresses) {
+  public void setNotReadyAddresses(@jakarta.annotation.Nullable List<V1EndpointAddress> notReadyAddresses) {
     this.notReadyAddresses = notReadyAddresses;
   }
 
 
-  public V1EndpointSubset ports(List<CoreV1EndpointPort> ports) {
+  public V1EndpointSubset ports(@jakarta.annotation.Nullable List<CoreV1EndpointPort> ports) {
     this.ports = ports;
     return this;
   }
@@ -141,17 +143,17 @@ public class V1EndpointSubset {
     return this;
   }
 
-   /**
+  /**
    * Port numbers available on the related IP addresses.
    * @return ports
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Port numbers available on the related IP addresses.")
   public List<CoreV1EndpointPort> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<CoreV1EndpointPort> ports) {
+  public void setPorts(@jakarta.annotation.Nullable List<CoreV1EndpointPort> ports) {
     this.ports = ports;
   }
 
@@ -213,12 +215,12 @@ public class V1EndpointSubset {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1EndpointSubset
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1EndpointSubset
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1EndpointSubset.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -307,22 +309,22 @@ public class V1EndpointSubset {
     }
   }
 
- /**
-  * Create an instance of V1EndpointSubset given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1EndpointSubset
-  * @throws IOException if the JSON string is invalid with respect to V1EndpointSubset
-  */
+  /**
+   * Create an instance of V1EndpointSubset given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1EndpointSubset
+   * @throws IOException if the JSON string is invalid with respect to V1EndpointSubset
+   */
   public static V1EndpointSubset fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1EndpointSubset.class);
   }
 
- /**
-  * Convert an instance of V1EndpointSubset to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1EndpointSubset to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

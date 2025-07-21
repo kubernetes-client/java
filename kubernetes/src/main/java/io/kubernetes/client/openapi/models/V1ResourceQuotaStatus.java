@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,20 +53,22 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceQuotaStatus defines the enforced hard limits and observed use.
  */
 @ApiModel(description = "ResourceQuotaStatus defines the enforced hard limits and observed use.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceQuotaStatus {
   public static final String SERIALIZED_NAME_HARD = "hard";
   @SerializedName(SERIALIZED_NAME_HARD)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> hard = new HashMap<>();
 
   public static final String SERIALIZED_NAME_USED = "used";
   @SerializedName(SERIALIZED_NAME_USED)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> used = new HashMap<>();
 
   public V1ResourceQuotaStatus() {
   }
 
-  public V1ResourceQuotaStatus hard(Map<String, Quantity> hard) {
+  public V1ResourceQuotaStatus hard(@jakarta.annotation.Nullable Map<String, Quantity> hard) {
     this.hard = hard;
     return this;
   }
@@ -80,22 +81,22 @@ public class V1ResourceQuotaStatus {
     return this;
   }
 
-   /**
+  /**
    * Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
    * @return hard
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/")
   public Map<String, Quantity> getHard() {
     return hard;
   }
 
-  public void setHard(Map<String, Quantity> hard) {
+  public void setHard(@jakarta.annotation.Nullable Map<String, Quantity> hard) {
     this.hard = hard;
   }
 
 
-  public V1ResourceQuotaStatus used(Map<String, Quantity> used) {
+  public V1ResourceQuotaStatus used(@jakarta.annotation.Nullable Map<String, Quantity> used) {
     this.used = used;
     return this;
   }
@@ -108,17 +109,17 @@ public class V1ResourceQuotaStatus {
     return this;
   }
 
-   /**
+  /**
    * Used is the current observed total usage of the resource in the namespace.
    * @return used
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used is the current observed total usage of the resource in the namespace.")
   public Map<String, Quantity> getUsed() {
     return used;
   }
 
-  public void setUsed(Map<String, Quantity> used) {
+  public void setUsed(@jakarta.annotation.Nullable Map<String, Quantity> used) {
     this.used = used;
   }
 
@@ -177,12 +178,12 @@ public class V1ResourceQuotaStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ResourceQuotaStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ResourceQuotaStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceQuotaStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -229,22 +230,22 @@ public class V1ResourceQuotaStatus {
     }
   }
 
- /**
-  * Create an instance of V1ResourceQuotaStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ResourceQuotaStatus
-  * @throws IOException if the JSON string is invalid with respect to V1ResourceQuotaStatus
-  */
+  /**
+   * Create an instance of V1ResourceQuotaStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ResourceQuotaStatus
+   * @throws IOException if the JSON string is invalid with respect to V1ResourceQuotaStatus
+   */
   public static V1ResourceQuotaStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ResourceQuotaStatus.class);
   }
 
- /**
-  * Convert an instance of V1ResourceQuotaStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ResourceQuotaStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

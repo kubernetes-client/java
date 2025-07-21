@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
  */
 @ApiModel(description = "RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1RollingUpdateStatefulSetStrategy {
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
+  @jakarta.annotation.Nullable
   private IntOrString maxUnavailable;
 
   public static final String SERIALIZED_NAME_PARTITION = "partition";
   @SerializedName(SERIALIZED_NAME_PARTITION)
+  @jakarta.annotation.Nullable
   private Integer partition;
 
   public V1RollingUpdateStatefulSetStrategy() {
   }
 
-  public V1RollingUpdateStatefulSetStrategy maxUnavailable(IntOrString maxUnavailable) {
+  public V1RollingUpdateStatefulSetStrategy maxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return maxUnavailable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMaxUnavailable() {
     return maxUnavailable;
   }
 
-  public void setMaxUnavailable(IntOrString maxUnavailable) {
+  public void setMaxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
   }
 
 
-  public V1RollingUpdateStatefulSetStrategy partition(Integer partition) {
+  public V1RollingUpdateStatefulSetStrategy partition(@jakarta.annotation.Nullable Integer partition) {
     this.partition = partition;
     return this;
   }
 
-   /**
+  /**
    * Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.
    * @return partition
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.")
   public Integer getPartition() {
     return partition;
   }
 
-  public void setPartition(Integer partition) {
+  public void setPartition(@jakarta.annotation.Nullable Integer partition) {
     this.partition = partition;
   }
 
@@ -159,12 +160,12 @@ public class V1RollingUpdateStatefulSetStrategy {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1RollingUpdateStatefulSetStrategy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1RollingUpdateStatefulSetStrategy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RollingUpdateStatefulSetStrategy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -214,22 +215,22 @@ public class V1RollingUpdateStatefulSetStrategy {
     }
   }
 
- /**
-  * Create an instance of V1RollingUpdateStatefulSetStrategy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1RollingUpdateStatefulSetStrategy
-  * @throws IOException if the JSON string is invalid with respect to V1RollingUpdateStatefulSetStrategy
-  */
+  /**
+   * Create an instance of V1RollingUpdateStatefulSetStrategy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1RollingUpdateStatefulSetStrategy
+   * @throws IOException if the JSON string is invalid with respect to V1RollingUpdateStatefulSetStrategy
+   */
   public static V1RollingUpdateStatefulSetStrategy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1RollingUpdateStatefulSetStrategy.class);
   }
 
- /**
-  * Convert an instance of V1RollingUpdateStatefulSetStrategy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1RollingUpdateStatefulSetStrategy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

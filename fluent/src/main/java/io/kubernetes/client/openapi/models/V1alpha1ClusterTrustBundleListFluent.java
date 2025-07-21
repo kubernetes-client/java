@@ -54,14 +54,26 @@ public class V1alpha1ClusterTrustBundleListFluent<A extends V1alpha1ClusterTrust
   public A addToItems(int index,V1alpha1ClusterTrustBundle item) {
     if (this.items == null) {this.items = new ArrayList<V1alpha1ClusterTrustBundleBuilder>();}
     V1alpha1ClusterTrustBundleBuilder builder = new V1alpha1ClusterTrustBundleBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1alpha1ClusterTrustBundle item) {
     if (this.items == null) {this.items = new ArrayList<V1alpha1ClusterTrustBundleBuilder>();}
     V1alpha1ClusterTrustBundleBuilder builder = new V1alpha1ClusterTrustBundleBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.  It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.
  */
 @ApiModel(description = "PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.  It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodResourceClaim {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_RESOURCE_CLAIM_NAME = "resourceClaimName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_NAME)
+  @jakarta.annotation.Nullable
   private String resourceClaimName;
 
   public static final String SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME = "resourceClaimTemplateName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME)
+  @jakarta.annotation.Nullable
   private String resourceClaimTemplateName;
 
   public V1PodResourceClaim() {
   }
 
-  public V1PodResourceClaim name(String name) {
+  public V1PodResourceClaim name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1PodResourceClaim resourceClaimName(String resourceClaimName) {
+  public V1PodResourceClaim resourceClaimName(@jakarta.annotation.Nullable String resourceClaimName) {
     this.resourceClaimName = resourceClaimName;
     return this;
   }
 
-   /**
+  /**
    * ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
    * @return resourceClaimName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.")
   public String getResourceClaimName() {
     return resourceClaimName;
   }
 
-  public void setResourceClaimName(String resourceClaimName) {
+  public void setResourceClaimName(@jakarta.annotation.Nullable String resourceClaimName) {
     this.resourceClaimName = resourceClaimName;
   }
 
 
-  public V1PodResourceClaim resourceClaimTemplateName(String resourceClaimTemplateName) {
+  public V1PodResourceClaim resourceClaimTemplateName(@jakarta.annotation.Nullable String resourceClaimTemplateName) {
     this.resourceClaimTemplateName = resourceClaimTemplateName;
     return this;
   }
 
-   /**
+  /**
    * ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.  The template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.  This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
    * @return resourceClaimTemplateName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.  The template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.  This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.")
   public String getResourceClaimTemplateName() {
     return resourceClaimTemplateName;
   }
 
-  public void setResourceClaimTemplateName(String resourceClaimTemplateName) {
+  public void setResourceClaimTemplateName(@jakarta.annotation.Nullable String resourceClaimTemplateName) {
     this.resourceClaimTemplateName = resourceClaimTemplateName;
   }
 
@@ -186,12 +188,12 @@ public class V1PodResourceClaim {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodResourceClaim
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodResourceClaim
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodResourceClaim.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -254,22 +256,22 @@ public class V1PodResourceClaim {
     }
   }
 
- /**
-  * Create an instance of V1PodResourceClaim given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodResourceClaim
-  * @throws IOException if the JSON string is invalid with respect to V1PodResourceClaim
-  */
+  /**
+   * Create an instance of V1PodResourceClaim given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodResourceClaim
+   * @throws IOException if the JSON string is invalid with respect to V1PodResourceClaim
+   */
   public static V1PodResourceClaim fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodResourceClaim.class);
   }
 
- /**
-  * Convert an instance of V1PodResourceClaim to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodResourceClaim to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

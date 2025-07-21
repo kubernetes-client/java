@@ -39,14 +39,26 @@ public class V1beta1DeviceClaimFluent<A extends V1beta1DeviceClaimFluent<A>> ext
   public A addToConfig(int index,V1beta1DeviceClaimConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClaimConfigurationBuilder>();}
     V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").add(index, builder); config.add(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConfig(int index,V1beta1DeviceClaimConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClaimConfigurationBuilder>();}
     V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").set(index, builder); config.set(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -190,14 +202,26 @@ public class V1beta1DeviceClaimFluent<A extends V1beta1DeviceClaimFluent<A>> ext
   public A addToConstraints(int index,V1beta1DeviceConstraint item) {
     if (this.constraints == null) {this.constraints = new ArrayList<V1beta1DeviceConstraintBuilder>();}
     V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
-    if (index < 0 || index >= constraints.size()) { _visitables.get("constraints").add(builder); constraints.add(builder); } else { _visitables.get("constraints").add(index, builder); constraints.add(index, builder);}
+    if (index < 0 || index >= constraints.size()) {
+        _visitables.get("constraints").add(builder);
+        constraints.add(builder);
+    } else {
+        _visitables.get("constraints").add(builder);
+        constraints.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConstraints(int index,V1beta1DeviceConstraint item) {
     if (this.constraints == null) {this.constraints = new ArrayList<V1beta1DeviceConstraintBuilder>();}
     V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
-    if (index < 0 || index >= constraints.size()) { _visitables.get("constraints").add(builder); constraints.add(builder); } else { _visitables.get("constraints").set(index, builder); constraints.set(index, builder);}
+    if (index < 0 || index >= constraints.size()) {
+        _visitables.get("constraints").add(builder);
+        constraints.add(builder);
+    } else {
+        _visitables.get("constraints").add(builder);
+        constraints.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -341,14 +365,26 @@ public class V1beta1DeviceClaimFluent<A extends V1beta1DeviceClaimFluent<A>> ext
   public A addToRequests(int index,V1beta1DeviceRequest item) {
     if (this.requests == null) {this.requests = new ArrayList<V1beta1DeviceRequestBuilder>();}
     V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
-    if (index < 0 || index >= requests.size()) { _visitables.get("requests").add(builder); requests.add(builder); } else { _visitables.get("requests").add(index, builder); requests.add(index, builder);}
+    if (index < 0 || index >= requests.size()) {
+        _visitables.get("requests").add(builder);
+        requests.add(builder);
+    } else {
+        _visitables.get("requests").add(builder);
+        requests.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToRequests(int index,V1beta1DeviceRequest item) {
     if (this.requests == null) {this.requests = new ArrayList<V1beta1DeviceRequestBuilder>();}
     V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
-    if (index < 0 || index >= requests.size()) { _visitables.get("requests").add(builder); requests.add(builder); } else { _visitables.get("requests").set(index, builder); requests.set(index, builder);}
+    if (index < 0 || index >= requests.size()) {
+        _visitables.get("requests").add(builder);
+        requests.add(builder);
+    } else {
+        _visitables.get("requests").add(builder);
+        requests.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,44 +54,47 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition
  */
 @ApiModel(description = "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceDefinitionStatus {
   public static final String SERIALIZED_NAME_ACCEPTED_NAMES = "acceptedNames";
   @SerializedName(SERIALIZED_NAME_ACCEPTED_NAMES)
+  @jakarta.annotation.Nullable
   private V1CustomResourceDefinitionNames acceptedNames;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1CustomResourceDefinitionCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STORED_VERSIONS = "storedVersions";
   @SerializedName(SERIALIZED_NAME_STORED_VERSIONS)
+  @jakarta.annotation.Nullable
   private List<String> storedVersions = new ArrayList<>();
 
   public V1CustomResourceDefinitionStatus() {
   }
 
-  public V1CustomResourceDefinitionStatus acceptedNames(V1CustomResourceDefinitionNames acceptedNames) {
+  public V1CustomResourceDefinitionStatus acceptedNames(@jakarta.annotation.Nullable V1CustomResourceDefinitionNames acceptedNames) {
     this.acceptedNames = acceptedNames;
     return this;
   }
 
-   /**
+  /**
    * Get acceptedNames
    * @return acceptedNames
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceDefinitionNames getAcceptedNames() {
     return acceptedNames;
   }
 
-  public void setAcceptedNames(V1CustomResourceDefinitionNames acceptedNames) {
+  public void setAcceptedNames(@jakarta.annotation.Nullable V1CustomResourceDefinitionNames acceptedNames) {
     this.acceptedNames = acceptedNames;
   }
 
 
-  public V1CustomResourceDefinitionStatus conditions(List<V1CustomResourceDefinitionCondition> conditions) {
+  public V1CustomResourceDefinitionStatus conditions(@jakarta.annotation.Nullable List<V1CustomResourceDefinitionCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -105,22 +107,22 @@ public class V1CustomResourceDefinitionStatus {
     return this;
   }
 
-   /**
+  /**
    * conditions indicate state for particular aspects of a CustomResourceDefinition
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "conditions indicate state for particular aspects of a CustomResourceDefinition")
   public List<V1CustomResourceDefinitionCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1CustomResourceDefinitionCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1CustomResourceDefinitionCondition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1CustomResourceDefinitionStatus storedVersions(List<String> storedVersions) {
+  public V1CustomResourceDefinitionStatus storedVersions(@jakarta.annotation.Nullable List<String> storedVersions) {
     this.storedVersions = storedVersions;
     return this;
   }
@@ -133,17 +135,17 @@ public class V1CustomResourceDefinitionStatus {
     return this;
   }
 
-   /**
+  /**
    * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so a migration controller can finish a migration to another version (ensuring no old objects are left in storage), and then remove the rest of the versions from this list. Versions may not be removed from &#x60;spec.versions&#x60; while they exist in this list.
    * @return storedVersions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "storedVersions lists all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so a migration controller can finish a migration to another version (ensuring no old objects are left in storage), and then remove the rest of the versions from this list. Versions may not be removed from `spec.versions` while they exist in this list.")
   public List<String> getStoredVersions() {
     return storedVersions;
   }
 
-  public void setStoredVersions(List<String> storedVersions) {
+  public void setStoredVersions(@jakarta.annotation.Nullable List<String> storedVersions) {
     this.storedVersions = storedVersions;
   }
 
@@ -205,12 +207,12 @@ public class V1CustomResourceDefinitionStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceDefinitionStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -279,22 +281,22 @@ public class V1CustomResourceDefinitionStatus {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceDefinitionStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceDefinitionStatus
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionStatus
-  */
+  /**
+   * Create an instance of V1CustomResourceDefinitionStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceDefinitionStatus
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionStatus
+   */
   public static V1CustomResourceDefinitionStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceDefinitionStatus.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceDefinitionStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceDefinitionStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

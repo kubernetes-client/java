@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * MetricIdentifier defines the name and optionally selector for a metric
  */
 @ApiModel(description = "MetricIdentifier defines the name and optionally selector for a metric")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2MetricIdentifier {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector selector;
 
   public V2MetricIdentifier() {
   }
 
-  public V2MetricIdentifier name(String name) {
+  public V2MetricIdentifier name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the name of the given metric
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the name of the given metric")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V2MetricIdentifier selector(V1LabelSelector selector) {
+  public V2MetricIdentifier selector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
 
-  public void setSelector(V1LabelSelector selector) {
+  public void setSelector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
   }
 
@@ -160,12 +161,12 @@ public class V2MetricIdentifier {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2MetricIdentifier
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2MetricIdentifier
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2MetricIdentifier.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -226,22 +227,22 @@ public class V2MetricIdentifier {
     }
   }
 
- /**
-  * Create an instance of V2MetricIdentifier given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2MetricIdentifier
-  * @throws IOException if the JSON string is invalid with respect to V2MetricIdentifier
-  */
+  /**
+   * Create an instance of V2MetricIdentifier given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2MetricIdentifier
+   * @throws IOException if the JSON string is invalid with respect to V2MetricIdentifier
+   */
   public static V2MetricIdentifier fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2MetricIdentifier.class);
   }
 
- /**
-  * Convert an instance of V2MetricIdentifier to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2MetricIdentifier to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -48,106 +47,110 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * EndpointPort is a tuple that describes a single port.
+ * EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+.
  */
-@ApiModel(description = "EndpointPort is a tuple that describes a single port.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@ApiModel(description = "EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class CoreV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
+  @jakarta.annotation.Nullable
   private String appProtocol;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nonnull
   private Integer port;
 
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
+  @jakarta.annotation.Nullable
   private String protocol;
 
   public CoreV1EndpointPort() {
   }
 
-  public CoreV1EndpointPort appProtocol(String appProtocol) {
+  public CoreV1EndpointPort appProtocol(@jakarta.annotation.Nullable String appProtocol) {
     this.appProtocol = appProtocol;
     return this;
   }
 
-   /**
+  /**
    * The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * &#39;kubernetes.io/h2c&#39; - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-   * &#39;kubernetes.io/ws&#39;  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455   * &#39;kubernetes.io/wss&#39; - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.
    * @return appProtocol
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-   * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455   * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.")
   public String getAppProtocol() {
     return appProtocol;
   }
 
-  public void setAppProtocol(String appProtocol) {
+  public void setAppProtocol(@jakarta.annotation.Nullable String appProtocol) {
     this.appProtocol = appProtocol;
   }
 
 
-  public CoreV1EndpointPort name(String name) {
+  public CoreV1EndpointPort name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of this port.  This must match the &#39;name&#39; field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public CoreV1EndpointPort port(Integer port) {
+  public CoreV1EndpointPort port(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * The port number of the endpoint.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The port number of the endpoint.")
   public Integer getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
   }
 
 
-  public CoreV1EndpointPort protocol(String protocol) {
+  public CoreV1EndpointPort protocol(@jakarta.annotation.Nullable String protocol) {
     this.protocol = protocol;
     return this;
   }
 
-   /**
+  /**
    * The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
    * @return protocol
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.")
   public String getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(String protocol) {
+  public void setProtocol(@jakarta.annotation.Nullable String protocol) {
     this.protocol = protocol;
   }
 
@@ -213,12 +216,12 @@ public class CoreV1EndpointPort {
     openapiRequiredFields.add("port");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CoreV1EndpointPort
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CoreV1EndpointPort
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CoreV1EndpointPort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -281,22 +284,22 @@ public class CoreV1EndpointPort {
     }
   }
 
- /**
-  * Create an instance of CoreV1EndpointPort given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CoreV1EndpointPort
-  * @throws IOException if the JSON string is invalid with respect to CoreV1EndpointPort
-  */
+  /**
+   * Create an instance of CoreV1EndpointPort given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CoreV1EndpointPort
+   * @throws IOException if the JSON string is invalid with respect to CoreV1EndpointPort
+   */
   public static CoreV1EndpointPort fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CoreV1EndpointPort.class);
   }
 
- /**
-  * Convert an instance of CoreV1EndpointPort to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CoreV1EndpointPort to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

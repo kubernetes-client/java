@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,151 +55,157 @@ import io.kubernetes.client.openapi.JSON;
  * MetricSpec specifies how to scale based on a single metric (only &#x60;type&#x60; and one other matching field should be set at once).
  */
 @ApiModel(description = "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2MetricSpec {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
+  @jakarta.annotation.Nullable
   private V2ContainerResourceMetricSource containerResource;
 
   public static final String SERIALIZED_NAME_EXTERNAL = "external";
   @SerializedName(SERIALIZED_NAME_EXTERNAL)
+  @jakarta.annotation.Nullable
   private V2ExternalMetricSource external;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
+  @jakarta.annotation.Nullable
   private V2ObjectMetricSource _object;
 
   public static final String SERIALIZED_NAME_PODS = "pods";
   @SerializedName(SERIALIZED_NAME_PODS)
+  @jakarta.annotation.Nullable
   private V2PodsMetricSource pods;
 
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
   @SerializedName(SERIALIZED_NAME_RESOURCE)
+  @jakarta.annotation.Nullable
   private V2ResourceMetricSource resource;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V2MetricSpec() {
   }
 
-  public V2MetricSpec containerResource(V2ContainerResourceMetricSource containerResource) {
+  public V2MetricSpec containerResource(@jakarta.annotation.Nullable V2ContainerResourceMetricSource containerResource) {
     this.containerResource = containerResource;
     return this;
   }
 
-   /**
+  /**
    * Get containerResource
    * @return containerResource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2ContainerResourceMetricSource getContainerResource() {
     return containerResource;
   }
 
-  public void setContainerResource(V2ContainerResourceMetricSource containerResource) {
+  public void setContainerResource(@jakarta.annotation.Nullable V2ContainerResourceMetricSource containerResource) {
     this.containerResource = containerResource;
   }
 
 
-  public V2MetricSpec external(V2ExternalMetricSource external) {
+  public V2MetricSpec external(@jakarta.annotation.Nullable V2ExternalMetricSource external) {
     this.external = external;
     return this;
   }
 
-   /**
+  /**
    * Get external
    * @return external
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2ExternalMetricSource getExternal() {
     return external;
   }
 
-  public void setExternal(V2ExternalMetricSource external) {
+  public void setExternal(@jakarta.annotation.Nullable V2ExternalMetricSource external) {
     this.external = external;
   }
 
 
-  public V2MetricSpec _object(V2ObjectMetricSource _object) {
+  public V2MetricSpec _object(@jakarta.annotation.Nullable V2ObjectMetricSource _object) {
     this._object = _object;
     return this;
   }
 
-   /**
+  /**
    * Get _object
    * @return _object
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2ObjectMetricSource getObject() {
     return _object;
   }
 
-  public void setObject(V2ObjectMetricSource _object) {
+  public void setObject(@jakarta.annotation.Nullable V2ObjectMetricSource _object) {
     this._object = _object;
   }
 
 
-  public V2MetricSpec pods(V2PodsMetricSource pods) {
+  public V2MetricSpec pods(@jakarta.annotation.Nullable V2PodsMetricSource pods) {
     this.pods = pods;
     return this;
   }
 
-   /**
+  /**
    * Get pods
    * @return pods
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2PodsMetricSource getPods() {
     return pods;
   }
 
-  public void setPods(V2PodsMetricSource pods) {
+  public void setPods(@jakarta.annotation.Nullable V2PodsMetricSource pods) {
     this.pods = pods;
   }
 
 
-  public V2MetricSpec resource(V2ResourceMetricSource resource) {
+  public V2MetricSpec resource(@jakarta.annotation.Nullable V2ResourceMetricSource resource) {
     this.resource = resource;
     return this;
   }
 
-   /**
+  /**
    * Get resource
    * @return resource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2ResourceMetricSource getResource() {
     return resource;
   }
 
-  public void setResource(V2ResourceMetricSource resource) {
+  public void setResource(@jakarta.annotation.Nullable V2ResourceMetricSource resource) {
     this.resource = resource;
   }
 
 
-  public V2MetricSpec type(String type) {
+  public V2MetricSpec type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type is the type of metric source.  It should be one of \&quot;ContainerResource\&quot;, \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;, each mapping to a matching field in the object.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -272,12 +277,12 @@ public class V2MetricSpec {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2MetricSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2MetricSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2MetricSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -354,22 +359,22 @@ public class V2MetricSpec {
     }
   }
 
- /**
-  * Create an instance of V2MetricSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2MetricSpec
-  * @throws IOException if the JSON string is invalid with respect to V2MetricSpec
-  */
+  /**
+   * Create an instance of V2MetricSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2MetricSpec
+   * @throws IOException if the JSON string is invalid with respect to V2MetricSpec
+   */
   public static V2MetricSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2MetricSpec.class);
   }
 
- /**
-  * Convert an instance of V2MetricSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2MetricSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -32,6 +32,7 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluent<V1NodeSystem
     buildable.setMachineID(fluent.getMachineID());
     buildable.setOperatingSystem(fluent.getOperatingSystem());
     buildable.setOsImage(fluent.getOsImage());
+    buildable.setSwap(fluent.buildSwap());
     buildable.setSystemUUID(fluent.getSystemUUID());
     return buildable;
   }

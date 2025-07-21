@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * DaemonEndpoint contains information about a single Daemon endpoint.
  */
 @ApiModel(description = "DaemonEndpoint contains information about a single Daemon endpoint.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DaemonEndpoint {
   public static final String SERIALIZED_NAME_PORT = "Port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @jakarta.annotation.Nonnull
   private Integer port;
 
   public V1DaemonEndpoint() {
   }
 
-  public V1DaemonEndpoint port(Integer port) {
+  public V1DaemonEndpoint port(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Port number of the given endpoint.
    * @return port
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Port number of the given endpoint.")
   public Integer getPort() {
     return port;
   }
 
-  public void setPort(Integer port) {
+  public void setPort(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
   }
 
@@ -132,12 +132,12 @@ public class V1DaemonEndpoint {
     openapiRequiredFields.add("Port");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DaemonEndpoint
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DaemonEndpoint
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DaemonEndpoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class V1DaemonEndpoint {
     }
   }
 
- /**
-  * Create an instance of V1DaemonEndpoint given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DaemonEndpoint
-  * @throws IOException if the JSON string is invalid with respect to V1DaemonEndpoint
-  */
+  /**
+   * Create an instance of V1DaemonEndpoint given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DaemonEndpoint
+   * @throws IOException if the JSON string is invalid with respect to V1DaemonEndpoint
+   */
   public static V1DaemonEndpoint fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DaemonEndpoint.class);
   }
 
- /**
-  * Convert an instance of V1DaemonEndpoint to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DaemonEndpoint to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

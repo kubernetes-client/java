@@ -69,14 +69,26 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   public A addToAllowedTopologies(int index,V1TopologySelectorTerm item) {
     if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
     V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-    if (index < 0 || index >= allowedTopologies.size()) { _visitables.get("allowedTopologies").add(builder); allowedTopologies.add(builder); } else { _visitables.get("allowedTopologies").add(index, builder); allowedTopologies.add(index, builder);}
+    if (index < 0 || index >= allowedTopologies.size()) {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.add(builder);
+    } else {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToAllowedTopologies(int index,V1TopologySelectorTerm item) {
     if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
     V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-    if (index < 0 || index >= allowedTopologies.size()) { _visitables.get("allowedTopologies").add(builder); allowedTopologies.add(builder); } else { _visitables.get("allowedTopologies").set(index, builder); allowedTopologies.set(index, builder);}
+    if (index < 0 || index >= allowedTopologies.size()) {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.add(builder);
+    } else {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.set(index, builder);
+    }
     return (A)this;
   }
   

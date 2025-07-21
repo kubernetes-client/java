@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,112 +53,117 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a source location of a volume to mount, managed by an external CSI driver
  */
 @ApiModel(description = "Represents a source location of a volume to mount, managed by an external CSI driver")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSIVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF = "nodePublishSecretRef";
   @SerializedName(SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF)
+  @jakarta.annotation.Nullable
   private V1LocalObjectReference nodePublishSecretRef;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES = "volumeAttributes";
   @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES)
+  @jakarta.annotation.Nullable
   private Map<String, String> volumeAttributes = new HashMap<>();
 
   public V1CSIVolumeSource() {
   }
 
-  public V1CSIVolumeSource driver(String driver) {
+  public V1CSIVolumeSource driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1CSIVolumeSource fsType(String fsType) {
+  public V1CSIVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType to mount. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1CSIVolumeSource nodePublishSecretRef(V1LocalObjectReference nodePublishSecretRef) {
+  public V1CSIVolumeSource nodePublishSecretRef(@jakarta.annotation.Nullable V1LocalObjectReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
     return this;
   }
 
-   /**
+  /**
    * Get nodePublishSecretRef
    * @return nodePublishSecretRef
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LocalObjectReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
   }
 
-  public void setNodePublishSecretRef(V1LocalObjectReference nodePublishSecretRef) {
+  public void setNodePublishSecretRef(@jakarta.annotation.Nullable V1LocalObjectReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
   }
 
 
-  public V1CSIVolumeSource readOnly(Boolean readOnly) {
+  public V1CSIVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1CSIVolumeSource volumeAttributes(Map<String, String> volumeAttributes) {
+  public V1CSIVolumeSource volumeAttributes(@jakarta.annotation.Nullable Map<String, String> volumeAttributes) {
     this.volumeAttributes = volumeAttributes;
     return this;
   }
@@ -172,17 +176,17 @@ public class V1CSIVolumeSource {
     return this;
   }
 
-   /**
+  /**
    * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver&#39;s documentation for supported values.
    * @return volumeAttributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;
   }
 
-  public void setVolumeAttributes(Map<String, String> volumeAttributes) {
+  public void setVolumeAttributes(@jakarta.annotation.Nullable Map<String, String> volumeAttributes) {
     this.volumeAttributes = volumeAttributes;
   }
 
@@ -251,12 +255,12 @@ public class V1CSIVolumeSource {
     openapiRequiredFields.add("driver");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CSIVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CSIVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSIVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -320,22 +324,22 @@ public class V1CSIVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1CSIVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CSIVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1CSIVolumeSource
-  */
+  /**
+   * Create an instance of V1CSIVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CSIVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1CSIVolumeSource
+   */
   public static V1CSIVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CSIVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1CSIVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CSIVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

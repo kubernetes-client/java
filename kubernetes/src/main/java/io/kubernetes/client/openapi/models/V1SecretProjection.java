@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,24 +53,27 @@ import io.kubernetes.client.openapi.JSON;
  * Adapts a secret into a projected volume.  The contents of the target Secret&#39;s Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.
  */
 @ApiModel(description = "Adapts a secret into a projected volume.  The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SecretProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
+  @jakarta.annotation.Nullable
   private List<V1KeyToPath> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
+  @jakarta.annotation.Nullable
   private Boolean optional;
 
   public V1SecretProjection() {
   }
 
-  public V1SecretProjection items(List<V1KeyToPath> items) {
+  public V1SecretProjection items(@jakarta.annotation.Nullable List<V1KeyToPath> items) {
     this.items = items;
     return this;
   }
@@ -84,57 +86,57 @@ public class V1SecretProjection {
     return this;
   }
 
-   /**
+  /**
    * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.
    * @return items
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
   public List<V1KeyToPath> getItems() {
     return items;
   }
 
-  public void setItems(List<V1KeyToPath> items) {
+  public void setItems(@jakarta.annotation.Nullable List<V1KeyToPath> items) {
     this.items = items;
   }
 
 
-  public V1SecretProjection name(String name) {
+  public V1SecretProjection name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public V1SecretProjection optional(Boolean optional) {
+  public V1SecretProjection optional(@jakarta.annotation.Nullable Boolean optional) {
     this.optional = optional;
     return this;
   }
 
-   /**
+  /**
    * optional field specify whether the Secret or its key must be defined
    * @return optional
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "optional field specify whether the Secret or its key must be defined")
   public Boolean getOptional() {
     return optional;
   }
 
-  public void setOptional(Boolean optional) {
+  public void setOptional(@jakarta.annotation.Nullable Boolean optional) {
     this.optional = optional;
   }
 
@@ -196,12 +198,12 @@ public class V1SecretProjection {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SecretProjection
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SecretProjection
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SecretProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -265,22 +267,22 @@ public class V1SecretProjection {
     }
   }
 
- /**
-  * Create an instance of V1SecretProjection given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SecretProjection
-  * @throws IOException if the JSON string is invalid with respect to V1SecretProjection
-  */
+  /**
+   * Create an instance of V1SecretProjection given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SecretProjection
+   * @throws IOException if the JSON string is invalid with respect to V1SecretProjection
+   */
   public static V1SecretProjection fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SecretProjection.class);
   }
 
- /**
-  * Convert an instance of V1SecretProjection to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SecretProjection to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.
  */
 @ApiModel(description = "NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeRuntimeHandlerFeatures {
   public static final String SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS = "recursiveReadOnlyMounts";
   @SerializedName(SERIALIZED_NAME_RECURSIVE_READ_ONLY_MOUNTS)
+  @jakarta.annotation.Nullable
   private Boolean recursiveReadOnlyMounts;
 
   public static final String SERIALIZED_NAME_USER_NAMESPACES = "userNamespaces";
   @SerializedName(SERIALIZED_NAME_USER_NAMESPACES)
+  @jakarta.annotation.Nullable
   private Boolean userNamespaces;
 
   public V1NodeRuntimeHandlerFeatures() {
   }
 
-  public V1NodeRuntimeHandlerFeatures recursiveReadOnlyMounts(Boolean recursiveReadOnlyMounts) {
+  public V1NodeRuntimeHandlerFeatures recursiveReadOnlyMounts(@jakarta.annotation.Nullable Boolean recursiveReadOnlyMounts) {
     this.recursiveReadOnlyMounts = recursiveReadOnlyMounts;
     return this;
   }
 
-   /**
+  /**
    * RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.
    * @return recursiveReadOnlyMounts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "RecursiveReadOnlyMounts is set to true if the runtime handler supports RecursiveReadOnlyMounts.")
   public Boolean getRecursiveReadOnlyMounts() {
     return recursiveReadOnlyMounts;
   }
 
-  public void setRecursiveReadOnlyMounts(Boolean recursiveReadOnlyMounts) {
+  public void setRecursiveReadOnlyMounts(@jakarta.annotation.Nullable Boolean recursiveReadOnlyMounts) {
     this.recursiveReadOnlyMounts = recursiveReadOnlyMounts;
   }
 
 
-  public V1NodeRuntimeHandlerFeatures userNamespaces(Boolean userNamespaces) {
+  public V1NodeRuntimeHandlerFeatures userNamespaces(@jakarta.annotation.Nullable Boolean userNamespaces) {
     this.userNamespaces = userNamespaces;
     return this;
   }
 
-   /**
+  /**
    * UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.
    * @return userNamespaces
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.")
   public Boolean getUserNamespaces() {
     return userNamespaces;
   }
 
-  public void setUserNamespaces(Boolean userNamespaces) {
+  public void setUserNamespaces(@jakarta.annotation.Nullable Boolean userNamespaces) {
     this.userNamespaces = userNamespaces;
   }
 
@@ -158,12 +159,12 @@ public class V1NodeRuntimeHandlerFeatures {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeRuntimeHandlerFeatures
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeRuntimeHandlerFeatures
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeRuntimeHandlerFeatures.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -210,22 +211,22 @@ public class V1NodeRuntimeHandlerFeatures {
     }
   }
 
- /**
-  * Create an instance of V1NodeRuntimeHandlerFeatures given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeRuntimeHandlerFeatures
-  * @throws IOException if the JSON string is invalid with respect to V1NodeRuntimeHandlerFeatures
-  */
+  /**
+   * Create an instance of V1NodeRuntimeHandlerFeatures given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeRuntimeHandlerFeatures
+   * @throws IOException if the JSON string is invalid with respect to V1NodeRuntimeHandlerFeatures
+   */
   public static V1NodeRuntimeHandlerFeatures fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeRuntimeHandlerFeatures.class);
   }
 
- /**
-  * Convert an instance of V1NodeRuntimeHandlerFeatures to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeRuntimeHandlerFeatures to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

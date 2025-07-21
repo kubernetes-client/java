@@ -27,8 +27,10 @@ public class V1alpha3DeviceRequestBuilder extends V1alpha3DeviceRequestFluent<V1
     buildable.setAllocationMode(fluent.getAllocationMode());
     buildable.setCount(fluent.getCount());
     buildable.setDeviceClassName(fluent.getDeviceClassName());
+    buildable.setFirstAvailable(fluent.buildFirstAvailable());
     buildable.setName(fluent.getName());
     buildable.setSelectors(fluent.buildSelectors());
+    buildable.setTolerations(fluent.buildTolerations());
     return buildable;
   }
   

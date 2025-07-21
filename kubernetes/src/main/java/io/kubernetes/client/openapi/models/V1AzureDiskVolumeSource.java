@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,151 +50,157 @@ import io.kubernetes.client.openapi.JSON;
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  */
 @ApiModel(description = "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1AzureDiskVolumeSource {
   public static final String SERIALIZED_NAME_CACHING_MODE = "cachingMode";
   @SerializedName(SERIALIZED_NAME_CACHING_MODE)
+  @jakarta.annotation.Nullable
   private String cachingMode;
 
   public static final String SERIALIZED_NAME_DISK_NAME = "diskName";
   @SerializedName(SERIALIZED_NAME_DISK_NAME)
+  @jakarta.annotation.Nonnull
   private String diskName;
 
   public static final String SERIALIZED_NAME_DISK_U_R_I = "diskURI";
   @SerializedName(SERIALIZED_NAME_DISK_U_R_I)
+  @jakarta.annotation.Nonnull
   private String diskURI;
 
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
+  @jakarta.annotation.Nullable
   private String fsType;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public V1AzureDiskVolumeSource() {
   }
 
-  public V1AzureDiskVolumeSource cachingMode(String cachingMode) {
+  public V1AzureDiskVolumeSource cachingMode(@jakarta.annotation.Nullable String cachingMode) {
     this.cachingMode = cachingMode;
     return this;
   }
 
-   /**
+  /**
    * cachingMode is the Host Caching mode: None, Read Only, Read Write.
    * @return cachingMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "cachingMode is the Host Caching mode: None, Read Only, Read Write.")
   public String getCachingMode() {
     return cachingMode;
   }
 
-  public void setCachingMode(String cachingMode) {
+  public void setCachingMode(@jakarta.annotation.Nullable String cachingMode) {
     this.cachingMode = cachingMode;
   }
 
 
-  public V1AzureDiskVolumeSource diskName(String diskName) {
+  public V1AzureDiskVolumeSource diskName(@jakarta.annotation.Nonnull String diskName) {
     this.diskName = diskName;
     return this;
   }
 
-   /**
+  /**
    * diskName is the Name of the data disk in the blob storage
    * @return diskName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "diskName is the Name of the data disk in the blob storage")
   public String getDiskName() {
     return diskName;
   }
 
-  public void setDiskName(String diskName) {
+  public void setDiskName(@jakarta.annotation.Nonnull String diskName) {
     this.diskName = diskName;
   }
 
 
-  public V1AzureDiskVolumeSource diskURI(String diskURI) {
+  public V1AzureDiskVolumeSource diskURI(@jakarta.annotation.Nonnull String diskURI) {
     this.diskURI = diskURI;
     return this;
   }
 
-   /**
+  /**
    * diskURI is the URI of data disk in the blob storage
    * @return diskURI
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "diskURI is the URI of data disk in the blob storage")
   public String getDiskURI() {
     return diskURI;
   }
 
-  public void setDiskURI(String diskURI) {
+  public void setDiskURI(@jakarta.annotation.Nonnull String diskURI) {
     this.diskURI = diskURI;
   }
 
 
-  public V1AzureDiskVolumeSource fsType(String fsType) {
+  public V1AzureDiskVolumeSource fsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
     return this;
   }
 
-   /**
+  /**
    * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified.
    * @return fsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
 
-  public void setFsType(String fsType) {
+  public void setFsType(@jakarta.annotation.Nullable String fsType) {
     this.fsType = fsType;
   }
 
 
-  public V1AzureDiskVolumeSource kind(String kind) {
+  public V1AzureDiskVolumeSource kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1AzureDiskVolumeSource readOnly(Boolean readOnly) {
+  public V1AzureDiskVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
@@ -268,12 +273,12 @@ public class V1AzureDiskVolumeSource {
     openapiRequiredFields.add("diskURI");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1AzureDiskVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1AzureDiskVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AzureDiskVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -342,22 +347,22 @@ public class V1AzureDiskVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1AzureDiskVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1AzureDiskVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1AzureDiskVolumeSource
-  */
+  /**
+   * Create an instance of V1AzureDiskVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1AzureDiskVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1AzureDiskVolumeSource
+   */
   public static V1AzureDiskVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1AzureDiskVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1AzureDiskVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1AzureDiskVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -85,7 +85,7 @@ public class AppsV1Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createNamespacedControllerRevisionCall(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -151,7 +151,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedControllerRevisionValidateBeforeCall(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedControllerRevision(Async)");
@@ -167,13 +167,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ControllerRevision> createNamespacedControllerRevisionWithHttpInfo(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1ControllerRevision> createNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedControllerRevisionAsync(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
@@ -182,14 +182,20 @@ public class AppsV1Api {
     }
 
     public class APIcreateNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1ControllerRevision body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedControllerRevisionRequest(String namespace, V1ControllerRevision body) {
+        private APIcreateNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -199,7 +205,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedControllerRevisionRequest
          */
-        public APIcreateNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIcreateNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -209,7 +215,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedControllerRevisionRequest
          */
-        public APIcreateNamespacedControllerRevisionRequest dryRun(String dryRun) {
+        public APIcreateNamespacedControllerRevisionRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -219,7 +225,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedControllerRevisionRequest
          */
-        public APIcreateNamespacedControllerRevisionRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedControllerRevisionRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -229,7 +235,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedControllerRevisionRequest
          */
-        public APIcreateNamespacedControllerRevisionRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedControllerRevisionRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -240,7 +246,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -257,7 +264,8 @@ public class AppsV1Api {
          * @return V1ControllerRevision
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -275,7 +283,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevision&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -293,7 +302,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -313,7 +323,8 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -321,10 +332,10 @@ public class AppsV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedControllerRevisionRequest createNamespacedControllerRevision(String namespace, V1ControllerRevision body) {
+    public APIcreateNamespacedControllerRevisionRequest createNamespacedControllerRevision(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body) {
         return new APIcreateNamespacedControllerRevisionRequest(namespace, body);
     }
-    private okhttp3.Call createNamespacedDaemonSetCall(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -390,7 +401,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedDaemonSetValidateBeforeCall(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedDaemonSet(Async)");
@@ -406,13 +417,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> createNamespacedDaemonSetWithHttpInfo(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1DaemonSet> createNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedDaemonSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedDaemonSetAsync(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedDaemonSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -421,14 +432,20 @@ public class AppsV1Api {
     }
 
     public class APIcreateNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1DaemonSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedDaemonSetRequest(String namespace, V1DaemonSet body) {
+        private APIcreateNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -438,7 +455,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedDaemonSetRequest
          */
-        public APIcreateNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIcreateNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -448,7 +465,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedDaemonSetRequest
          */
-        public APIcreateNamespacedDaemonSetRequest dryRun(String dryRun) {
+        public APIcreateNamespacedDaemonSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -458,7 +475,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedDaemonSetRequest
          */
-        public APIcreateNamespacedDaemonSetRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedDaemonSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -468,7 +485,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedDaemonSetRequest
          */
-        public APIcreateNamespacedDaemonSetRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedDaemonSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -479,7 +496,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -496,7 +514,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -514,7 +533,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -532,7 +552,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -552,7 +573,8 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -560,10 +582,10 @@ public class AppsV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedDaemonSetRequest createNamespacedDaemonSet(String namespace, V1DaemonSet body) {
+    public APIcreateNamespacedDaemonSetRequest createNamespacedDaemonSet(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
         return new APIcreateNamespacedDaemonSetRequest(namespace, body);
     }
-    private okhttp3.Call createNamespacedDeploymentCall(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDeploymentCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -629,7 +651,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedDeploymentValidateBeforeCall(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedDeployment(Async)");
@@ -645,13 +667,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> createNamespacedDeploymentWithHttpInfo(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Deployment> createNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedDeploymentAsync(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -660,14 +682,20 @@ public class AppsV1Api {
     }
 
     public class APIcreateNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Deployment body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedDeploymentRequest(String namespace, V1Deployment body) {
+        private APIcreateNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -677,7 +705,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedDeploymentRequest
          */
-        public APIcreateNamespacedDeploymentRequest pretty(String pretty) {
+        public APIcreateNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -687,7 +715,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedDeploymentRequest
          */
-        public APIcreateNamespacedDeploymentRequest dryRun(String dryRun) {
+        public APIcreateNamespacedDeploymentRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -697,7 +725,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedDeploymentRequest
          */
-        public APIcreateNamespacedDeploymentRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedDeploymentRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -707,7 +735,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedDeploymentRequest
          */
-        public APIcreateNamespacedDeploymentRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedDeploymentRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -718,7 +746,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -735,7 +764,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -753,7 +783,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -771,7 +802,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -791,7 +823,8 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -799,10 +832,10 @@ public class AppsV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedDeploymentRequest createNamespacedDeployment(String namespace, V1Deployment body) {
+    public APIcreateNamespacedDeploymentRequest createNamespacedDeployment(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
         return new APIcreateNamespacedDeploymentRequest(namespace, body);
     }
-    private okhttp3.Call createNamespacedReplicaSetCall(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -868,7 +901,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedReplicaSetValidateBeforeCall(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedReplicaSet(Async)");
@@ -884,13 +917,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> createNamespacedReplicaSetWithHttpInfo(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1ReplicaSet> createNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedReplicaSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedReplicaSetAsync(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedReplicaSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -899,14 +932,20 @@ public class AppsV1Api {
     }
 
     public class APIcreateNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1ReplicaSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedReplicaSetRequest(String namespace, V1ReplicaSet body) {
+        private APIcreateNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -916,7 +955,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedReplicaSetRequest
          */
-        public APIcreateNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIcreateNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -926,7 +965,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedReplicaSetRequest
          */
-        public APIcreateNamespacedReplicaSetRequest dryRun(String dryRun) {
+        public APIcreateNamespacedReplicaSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -936,7 +975,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedReplicaSetRequest
          */
-        public APIcreateNamespacedReplicaSetRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedReplicaSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -946,7 +985,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedReplicaSetRequest
          */
-        public APIcreateNamespacedReplicaSetRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedReplicaSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -957,7 +996,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -974,7 +1014,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -992,7 +1033,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1010,7 +1052,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1030,7 +1073,8 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1038,10 +1082,10 @@ public class AppsV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedReplicaSetRequest createNamespacedReplicaSet(String namespace, V1ReplicaSet body) {
+    public APIcreateNamespacedReplicaSetRequest createNamespacedReplicaSet(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
         return new APIcreateNamespacedReplicaSetRequest(namespace, body);
     }
-    private okhttp3.Call createNamespacedStatefulSetCall(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1107,7 +1151,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedStatefulSetValidateBeforeCall(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedStatefulSet(Async)");
@@ -1123,13 +1167,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> createNamespacedStatefulSetWithHttpInfo(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1StatefulSet> createNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedStatefulSetAsync(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -1138,14 +1182,20 @@ public class AppsV1Api {
     }
 
     public class APIcreateNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1StatefulSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedStatefulSetRequest(String namespace, V1StatefulSet body) {
+        private APIcreateNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -1155,7 +1205,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedStatefulSetRequest
          */
-        public APIcreateNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIcreateNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1165,7 +1215,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedStatefulSetRequest
          */
-        public APIcreateNamespacedStatefulSetRequest dryRun(String dryRun) {
+        public APIcreateNamespacedStatefulSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1175,7 +1225,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedStatefulSetRequest
          */
-        public APIcreateNamespacedStatefulSetRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedStatefulSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -1185,7 +1235,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedStatefulSetRequest
          */
-        public APIcreateNamespacedStatefulSetRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedStatefulSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -1196,7 +1246,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1213,7 +1264,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1231,7 +1283,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1249,7 +1302,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1269,7 +1323,8 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1277,10 +1332,10 @@ public class AppsV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedStatefulSetRequest createNamespacedStatefulSet(String namespace, V1StatefulSet body) {
+    public APIcreateNamespacedStatefulSetRequest createNamespacedStatefulSet(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
         return new APIcreateNamespacedStatefulSetRequest(namespace, body);
     }
-    private okhttp3.Call deleteCollectionNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1386,7 +1441,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedControllerRevision(Async)");
@@ -1397,13 +1452,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedControllerRevisionWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedControllerRevisionAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1412,24 +1467,40 @@ public class AppsV1Api {
     }
 
     public class APIdeleteCollectionNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedControllerRevisionRequest(String namespace) {
+        private APIdeleteCollectionNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -1438,7 +1509,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1448,7 +1519,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1458,7 +1529,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1468,7 +1539,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1478,7 +1549,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1488,7 +1559,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1498,7 +1569,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1508,7 +1579,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1518,7 +1589,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1528,7 +1599,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1538,7 +1609,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1548,7 +1619,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1558,7 +1629,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1568,7 +1639,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1578,7 +1649,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedControllerRevisionRequest
          */
-        public APIdeleteCollectionNamespacedControllerRevisionRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedControllerRevisionRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1589,7 +1660,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1604,7 +1676,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1620,7 +1693,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1636,7 +1710,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1653,16 +1728,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedControllerRevisionRequest deleteCollectionNamespacedControllerRevision(String namespace) {
+    public APIdeleteCollectionNamespacedControllerRevisionRequest deleteCollectionNamespacedControllerRevision(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedControllerRevisionRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedDaemonSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1768,7 +1844,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedDaemonSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedDaemonSet(Async)");
@@ -1779,13 +1855,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedDaemonSetWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedDaemonSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedDaemonSetAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedDaemonSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -1794,24 +1870,40 @@ public class AppsV1Api {
     }
 
     public class APIdeleteCollectionNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedDaemonSetRequest(String namespace) {
+        private APIdeleteCollectionNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -1820,7 +1912,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1830,7 +1922,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -1840,7 +1932,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1850,7 +1942,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1860,7 +1952,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1870,7 +1962,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -1880,7 +1972,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1890,7 +1982,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1900,7 +1992,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1910,7 +2002,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1920,7 +2012,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -1930,7 +2022,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -1940,7 +2032,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -1950,7 +2042,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -1960,7 +2052,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedDaemonSetRequest
          */
-        public APIdeleteCollectionNamespacedDaemonSetRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedDaemonSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1971,7 +2063,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1986,7 +2079,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2002,7 +2096,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2018,7 +2113,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2035,16 +2131,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedDaemonSetRequest deleteCollectionNamespacedDaemonSet(String namespace) {
+    public APIdeleteCollectionNamespacedDaemonSetRequest deleteCollectionNamespacedDaemonSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedDaemonSetRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedDeploymentCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDeploymentCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2150,7 +2247,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedDeployment(Async)");
@@ -2161,13 +2258,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedDeploymentWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedDeploymentAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -2176,24 +2273,40 @@ public class AppsV1Api {
     }
 
     public class APIdeleteCollectionNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedDeploymentRequest(String namespace) {
+        private APIdeleteCollectionNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -2202,7 +2315,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2212,7 +2325,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedDeploymentRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2222,7 +2335,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedDeploymentRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2232,7 +2345,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedDeploymentRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2242,7 +2355,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedDeploymentRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -2252,7 +2365,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedDeploymentRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -2262,7 +2375,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedDeploymentRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2272,7 +2385,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedDeploymentRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2282,7 +2395,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedDeploymentRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -2292,7 +2405,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedDeploymentRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -2302,7 +2415,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedDeploymentRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2312,7 +2425,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedDeploymentRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2322,7 +2435,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedDeploymentRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2332,7 +2445,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedDeploymentRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2342,7 +2455,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedDeploymentRequest
          */
-        public APIdeleteCollectionNamespacedDeploymentRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedDeploymentRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -2353,7 +2466,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2368,7 +2482,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2384,7 +2499,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2400,7 +2516,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2417,16 +2534,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedDeploymentRequest deleteCollectionNamespacedDeployment(String namespace) {
+    public APIdeleteCollectionNamespacedDeploymentRequest deleteCollectionNamespacedDeployment(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedDeploymentRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedReplicaSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2532,7 +2650,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedReplicaSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedReplicaSet(Async)");
@@ -2543,13 +2661,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedReplicaSetWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedReplicaSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedReplicaSetAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedReplicaSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -2558,24 +2676,40 @@ public class AppsV1Api {
     }
 
     public class APIdeleteCollectionNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedReplicaSetRequest(String namespace) {
+        private APIdeleteCollectionNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -2584,7 +2718,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2594,7 +2728,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2604,7 +2738,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2614,7 +2748,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -2624,7 +2758,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -2634,7 +2768,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -2644,7 +2778,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -2654,7 +2788,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2664,7 +2798,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -2674,7 +2808,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -2684,7 +2818,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -2694,7 +2828,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -2704,7 +2838,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -2714,7 +2848,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -2724,7 +2858,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedReplicaSetRequest
          */
-        public APIdeleteCollectionNamespacedReplicaSetRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedReplicaSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -2735,7 +2869,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2750,7 +2885,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2766,7 +2902,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2782,7 +2919,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2799,16 +2937,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedReplicaSetRequest deleteCollectionNamespacedReplicaSet(String namespace) {
+    public APIdeleteCollectionNamespacedReplicaSetRequest deleteCollectionNamespacedReplicaSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedReplicaSetRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2914,7 +3053,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedStatefulSet(Async)");
@@ -2925,13 +3064,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedStatefulSetWithHttpInfo(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteCollectionNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedStatefulSetAsync(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -2940,24 +3079,40 @@ public class AppsV1Api {
     }
 
     public class APIdeleteCollectionNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedStatefulSetRequest(String namespace) {
+        private APIdeleteCollectionNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -2966,7 +3121,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -2976,7 +3131,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest _continue(String _continue) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -2986,7 +3141,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -2996,7 +3151,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -3006,7 +3161,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -3016,7 +3171,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -3026,7 +3181,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -3036,7 +3191,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest limit(Integer limit) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -3046,7 +3201,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -3056,7 +3211,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -3066,7 +3221,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest resourceVersion(String resourceVersion) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -3076,7 +3231,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -3086,7 +3241,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -3096,7 +3251,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -3106,7 +3261,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedStatefulSetRequest
          */
-        public APIdeleteCollectionNamespacedStatefulSetRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedStatefulSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -3117,7 +3272,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3132,7 +3288,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3148,7 +3305,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3164,7 +3322,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3181,16 +3340,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteCollectionNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedStatefulSetRequest deleteCollectionNamespacedStatefulSet(String namespace) {
+    public APIdeleteCollectionNamespacedStatefulSetRequest deleteCollectionNamespacedStatefulSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedStatefulSetRequest(namespace);
     }
-    private okhttp3.Call deleteNamespacedControllerRevisionCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3265,7 +3425,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedControllerRevision(Async)");
@@ -3281,13 +3441,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedControllerRevisionWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedControllerRevisionAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -3296,17 +3456,26 @@ public class AppsV1Api {
     }
 
     public class APIdeleteNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedControllerRevisionRequest(String name, String namespace) {
+        private APIdeleteNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -3316,7 +3485,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIdeleteNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3326,7 +3495,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedControllerRevisionRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3336,7 +3505,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedControllerRevisionRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -3346,7 +3515,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedControllerRevisionRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -3356,7 +3525,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedControllerRevisionRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -3366,7 +3535,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedControllerRevisionRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -3376,7 +3545,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedControllerRevisionRequest
          */
-        public APIdeleteNamespacedControllerRevisionRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedControllerRevisionRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -3387,7 +3556,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3403,7 +3573,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3420,7 +3591,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3437,7 +3609,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3456,17 +3629,18 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedControllerRevisionRequest deleteNamespacedControllerRevision(String name, String namespace) {
+    public APIdeleteNamespacedControllerRevisionRequest deleteNamespacedControllerRevision(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedControllerRevisionRequest(name, namespace);
     }
-    private okhttp3.Call deleteNamespacedDaemonSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3541,7 +3715,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedDaemonSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedDaemonSet(Async)");
@@ -3557,13 +3731,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedDaemonSetWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedDaemonSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedDaemonSetAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedDaemonSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -3572,17 +3746,26 @@ public class AppsV1Api {
     }
 
     public class APIdeleteNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedDaemonSetRequest(String name, String namespace) {
+        private APIdeleteNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -3592,7 +3775,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIdeleteNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3602,7 +3785,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedDaemonSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3612,7 +3795,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedDaemonSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -3622,7 +3805,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedDaemonSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -3632,7 +3815,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedDaemonSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -3642,7 +3825,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedDaemonSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -3652,7 +3835,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedDaemonSetRequest
          */
-        public APIdeleteNamespacedDaemonSetRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedDaemonSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -3663,7 +3846,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3679,7 +3863,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3696,7 +3881,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3713,7 +3899,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3732,17 +3919,18 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedDaemonSetRequest deleteNamespacedDaemonSet(String name, String namespace) {
+    public APIdeleteNamespacedDaemonSetRequest deleteNamespacedDaemonSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedDaemonSetRequest(name, namespace);
     }
-    private okhttp3.Call deleteNamespacedDeploymentCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDeploymentCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3817,7 +4005,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedDeployment(Async)");
@@ -3833,13 +4021,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedDeploymentWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedDeploymentAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -3848,17 +4036,26 @@ public class AppsV1Api {
     }
 
     public class APIdeleteNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedDeploymentRequest(String name, String namespace) {
+        private APIdeleteNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -3868,7 +4065,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest pretty(String pretty) {
+        public APIdeleteNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3878,7 +4075,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedDeploymentRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -3888,7 +4085,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedDeploymentRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -3898,7 +4095,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedDeploymentRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -3908,7 +4105,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedDeploymentRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -3918,7 +4115,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedDeploymentRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -3928,7 +4125,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedDeploymentRequest
          */
-        public APIdeleteNamespacedDeploymentRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedDeploymentRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -3939,7 +4136,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3955,7 +4153,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3972,7 +4171,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -3989,7 +4189,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4008,17 +4209,18 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedDeploymentRequest deleteNamespacedDeployment(String name, String namespace) {
+    public APIdeleteNamespacedDeploymentRequest deleteNamespacedDeployment(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedDeploymentRequest(name, namespace);
     }
-    private okhttp3.Call deleteNamespacedReplicaSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4093,7 +4295,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedReplicaSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedReplicaSet(Async)");
@@ -4109,13 +4311,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedReplicaSetWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedReplicaSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedReplicaSetAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedReplicaSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -4124,17 +4326,26 @@ public class AppsV1Api {
     }
 
     public class APIdeleteNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedReplicaSetRequest(String name, String namespace) {
+        private APIdeleteNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -4144,7 +4355,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIdeleteNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4154,7 +4365,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedReplicaSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4164,7 +4375,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedReplicaSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -4174,7 +4385,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedReplicaSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -4184,7 +4395,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedReplicaSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -4194,7 +4405,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedReplicaSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -4204,7 +4415,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedReplicaSetRequest
          */
-        public APIdeleteNamespacedReplicaSetRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedReplicaSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -4215,7 +4426,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4231,7 +4443,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4248,7 +4461,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4265,7 +4479,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4284,17 +4499,18 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedReplicaSetRequest deleteNamespacedReplicaSet(String name, String namespace) {
+    public APIdeleteNamespacedReplicaSetRequest deleteNamespacedReplicaSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedReplicaSetRequest(name, namespace);
     }
-    private okhttp3.Call deleteNamespacedStatefulSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4369,7 +4585,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedStatefulSet(Async)");
@@ -4385,13 +4601,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Status> deleteNamespacedStatefulSetWithHttpInfo(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<V1Status> deleteNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedStatefulSetAsync(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean ignoreStoreReadErrorWithClusterBreakingPotential, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, orphanDependents, propagationPolicy, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
@@ -4400,17 +4616,26 @@ public class AppsV1Api {
     }
 
     public class APIdeleteNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean ignoreStoreReadErrorWithClusterBreakingPotential;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedStatefulSetRequest(String name, String namespace) {
+        private APIdeleteNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -4420,7 +4645,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIdeleteNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4430,7 +4655,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedStatefulSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4440,7 +4665,7 @@ public class AppsV1Api {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedStatefulSetRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -4450,7 +4675,7 @@ public class AppsV1Api {
          * @param ignoreStoreReadErrorWithClusterBreakingPotential if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
+        public APIdeleteNamespacedStatefulSetRequest ignoreStoreReadErrorWithClusterBreakingPotential(@jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential) {
             this.ignoreStoreReadErrorWithClusterBreakingPotential = ignoreStoreReadErrorWithClusterBreakingPotential;
             return this;
         }
@@ -4460,7 +4685,7 @@ public class AppsV1Api {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedStatefulSetRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -4470,7 +4695,7 @@ public class AppsV1Api {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedStatefulSetRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -4480,7 +4705,7 @@ public class AppsV1Api {
          * @param body  (optional)
          * @return APIdeleteNamespacedStatefulSetRequest
          */
-        public APIdeleteNamespacedStatefulSetRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedStatefulSetRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -4491,7 +4716,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4507,7 +4733,8 @@ public class AppsV1Api {
          * @return V1Status
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4524,7 +4751,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Status&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4541,7 +4769,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -4560,14 +4789,15 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIdeleteNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedStatefulSetRequest deleteNamespacedStatefulSet(String name, String namespace) {
+    public APIdeleteNamespacedStatefulSetRequest deleteNamespacedStatefulSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteNamespacedStatefulSetRequest(name, namespace);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -4649,7 +4879,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4664,7 +4895,8 @@ public class AppsV1Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4680,7 +4912,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4696,7 +4929,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4712,7 +4946,8 @@ public class AppsV1Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4721,7 +4956,7 @@ public class AppsV1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listControllerRevisionForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listControllerRevisionForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4816,19 +5051,19 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listControllerRevisionForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listControllerRevisionForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listControllerRevisionForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1ControllerRevisionList> listControllerRevisionForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1ControllerRevisionList> listControllerRevisionForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listControllerRevisionForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevisionList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listControllerRevisionForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1ControllerRevisionList> _callback) throws ApiException {
+    private okhttp3.Call listControllerRevisionForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1ControllerRevisionList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listControllerRevisionForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevisionList>(){}.getType();
@@ -4837,16 +5072,27 @@ public class AppsV1Api {
     }
 
     public class APIlistControllerRevisionForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistControllerRevisionForAllNamespacesRequest() {
@@ -4857,7 +5103,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistControllerRevisionForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -4867,7 +5113,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest _continue(String _continue) {
+        public APIlistControllerRevisionForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -4877,7 +5123,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistControllerRevisionForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -4887,7 +5133,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistControllerRevisionForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -4897,7 +5143,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest limit(Integer limit) {
+        public APIlistControllerRevisionForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -4907,7 +5153,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest pretty(String pretty) {
+        public APIlistControllerRevisionForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -4917,7 +5163,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistControllerRevisionForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -4927,7 +5173,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistControllerRevisionForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -4937,7 +5183,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistControllerRevisionForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -4947,7 +5193,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistControllerRevisionForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -4957,7 +5203,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistControllerRevisionForAllNamespacesRequest
          */
-        public APIlistControllerRevisionForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistControllerRevisionForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -4968,7 +5214,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4983,7 +5230,8 @@ public class AppsV1Api {
          * @return V1ControllerRevisionList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4999,7 +5247,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevisionList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5015,7 +5264,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5031,7 +5281,8 @@ public class AppsV1Api {
      * list or watch objects of kind ControllerRevision
      * @return APIlistControllerRevisionForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5040,7 +5291,7 @@ public class AppsV1Api {
     public APIlistControllerRevisionForAllNamespacesRequest listControllerRevisionForAllNamespaces() {
         return new APIlistControllerRevisionForAllNamespacesRequest();
     }
-    private okhttp3.Call listDaemonSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDaemonSetForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5135,19 +5386,19 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDaemonSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDaemonSetForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listDaemonSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1DaemonSetList> listDaemonSetForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1DaemonSetList> listDaemonSetForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listDaemonSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1DaemonSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDaemonSetForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1DaemonSetList> _callback) throws ApiException {
+    private okhttp3.Call listDaemonSetForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1DaemonSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listDaemonSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSetList>(){}.getType();
@@ -5156,16 +5407,27 @@ public class AppsV1Api {
     }
 
     public class APIlistDaemonSetForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistDaemonSetForAllNamespacesRequest() {
@@ -5176,7 +5438,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistDaemonSetForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -5186,7 +5448,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest _continue(String _continue) {
+        public APIlistDaemonSetForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -5196,7 +5458,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistDaemonSetForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -5206,7 +5468,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistDaemonSetForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -5216,7 +5478,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest limit(Integer limit) {
+        public APIlistDaemonSetForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -5226,7 +5488,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest pretty(String pretty) {
+        public APIlistDaemonSetForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -5236,7 +5498,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistDaemonSetForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -5246,7 +5508,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistDaemonSetForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -5256,7 +5518,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistDaemonSetForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -5266,7 +5528,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistDaemonSetForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -5276,7 +5538,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistDaemonSetForAllNamespacesRequest
          */
-        public APIlistDaemonSetForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistDaemonSetForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -5287,7 +5549,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5302,7 +5565,8 @@ public class AppsV1Api {
          * @return V1DaemonSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5318,7 +5582,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5334,7 +5599,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5350,7 +5616,8 @@ public class AppsV1Api {
      * list or watch objects of kind DaemonSet
      * @return APIlistDaemonSetForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5359,7 +5626,7 @@ public class AppsV1Api {
     public APIlistDaemonSetForAllNamespacesRequest listDaemonSetForAllNamespaces() {
         return new APIlistDaemonSetForAllNamespacesRequest();
     }
-    private okhttp3.Call listDeploymentForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeploymentForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5454,19 +5721,19 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDeploymentForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeploymentForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listDeploymentForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1DeploymentList> listDeploymentForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1DeploymentList> listDeploymentForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listDeploymentForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1DeploymentList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeploymentForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1DeploymentList> _callback) throws ApiException {
+    private okhttp3.Call listDeploymentForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1DeploymentList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listDeploymentForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1DeploymentList>(){}.getType();
@@ -5475,16 +5742,27 @@ public class AppsV1Api {
     }
 
     public class APIlistDeploymentForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistDeploymentForAllNamespacesRequest() {
@@ -5495,7 +5773,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistDeploymentForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -5505,7 +5783,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest _continue(String _continue) {
+        public APIlistDeploymentForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -5515,7 +5793,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistDeploymentForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -5525,7 +5803,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistDeploymentForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -5535,7 +5813,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest limit(Integer limit) {
+        public APIlistDeploymentForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -5545,7 +5823,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest pretty(String pretty) {
+        public APIlistDeploymentForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -5555,7 +5833,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistDeploymentForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -5565,7 +5843,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistDeploymentForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -5575,7 +5853,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistDeploymentForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -5585,7 +5863,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistDeploymentForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -5595,7 +5873,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistDeploymentForAllNamespacesRequest
          */
-        public APIlistDeploymentForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistDeploymentForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -5606,7 +5884,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5621,7 +5900,8 @@ public class AppsV1Api {
          * @return V1DeploymentList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5637,7 +5917,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DeploymentList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5653,7 +5934,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5669,7 +5951,8 @@ public class AppsV1Api {
      * list or watch objects of kind Deployment
      * @return APIlistDeploymentForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5678,7 +5961,7 @@ public class AppsV1Api {
     public APIlistDeploymentForAllNamespacesRequest listDeploymentForAllNamespaces() {
         return new APIlistDeploymentForAllNamespacesRequest();
     }
-    private okhttp3.Call listNamespacedControllerRevisionCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5774,7 +6057,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedControllerRevision(Async)");
@@ -5785,13 +6068,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ControllerRevisionList> listNamespacedControllerRevisionWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1ControllerRevisionList> listNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevisionList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedControllerRevisionAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1ControllerRevisionList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1ControllerRevisionList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevisionList>(){}.getType();
@@ -5800,20 +6083,32 @@ public class AppsV1Api {
     }
 
     public class APIlistNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedControllerRevisionRequest(String namespace) {
+        private APIlistNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -5822,7 +6117,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIlistNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -5832,7 +6127,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedControllerRevisionRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -5842,7 +6137,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest _continue(String _continue) {
+        public APIlistNamespacedControllerRevisionRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -5852,7 +6147,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedControllerRevisionRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -5862,7 +6157,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedControllerRevisionRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -5872,7 +6167,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest limit(Integer limit) {
+        public APIlistNamespacedControllerRevisionRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -5882,7 +6177,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedControllerRevisionRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -5892,7 +6187,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedControllerRevisionRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -5902,7 +6197,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedControllerRevisionRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -5912,7 +6207,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedControllerRevisionRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -5922,7 +6217,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedControllerRevisionRequest
          */
-        public APIlistNamespacedControllerRevisionRequest watch(Boolean watch) {
+        public APIlistNamespacedControllerRevisionRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -5933,7 +6228,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5948,7 +6244,8 @@ public class AppsV1Api {
          * @return V1ControllerRevisionList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5964,7 +6261,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevisionList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5980,7 +6278,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5997,16 +6296,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedControllerRevisionRequest listNamespacedControllerRevision(String namespace) {
+    public APIlistNamespacedControllerRevisionRequest listNamespacedControllerRevision(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedControllerRevisionRequest(namespace);
     }
-    private okhttp3.Call listNamespacedDaemonSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6102,7 +6402,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedDaemonSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedDaemonSet(Async)");
@@ -6113,13 +6413,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSetList> listNamespacedDaemonSetWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1DaemonSetList> listNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedDaemonSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1DaemonSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedDaemonSetAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1DaemonSetList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1DaemonSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedDaemonSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSetList>(){}.getType();
@@ -6128,20 +6428,32 @@ public class AppsV1Api {
     }
 
     public class APIlistNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedDaemonSetRequest(String namespace) {
+        private APIlistNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -6150,7 +6462,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIlistNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -6160,7 +6472,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedDaemonSetRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -6170,7 +6482,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest _continue(String _continue) {
+        public APIlistNamespacedDaemonSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -6180,7 +6492,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedDaemonSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -6190,7 +6502,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedDaemonSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -6200,7 +6512,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest limit(Integer limit) {
+        public APIlistNamespacedDaemonSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -6210,7 +6522,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedDaemonSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -6220,7 +6532,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedDaemonSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -6230,7 +6542,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedDaemonSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -6240,7 +6552,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedDaemonSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -6250,7 +6562,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedDaemonSetRequest
          */
-        public APIlistNamespacedDaemonSetRequest watch(Boolean watch) {
+        public APIlistNamespacedDaemonSetRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -6261,7 +6573,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6276,7 +6589,8 @@ public class AppsV1Api {
          * @return V1DaemonSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6292,7 +6606,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6308,7 +6623,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6325,16 +6641,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedDaemonSetRequest listNamespacedDaemonSet(String namespace) {
+    public APIlistNamespacedDaemonSetRequest listNamespacedDaemonSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedDaemonSetRequest(namespace);
     }
-    private okhttp3.Call listNamespacedDeploymentCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDeploymentCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6430,7 +6747,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedDeployment(Async)");
@@ -6441,13 +6758,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DeploymentList> listNamespacedDeploymentWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1DeploymentList> listNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1DeploymentList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedDeploymentAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1DeploymentList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1DeploymentList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1DeploymentList>(){}.getType();
@@ -6456,20 +6773,32 @@ public class AppsV1Api {
     }
 
     public class APIlistNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedDeploymentRequest(String namespace) {
+        private APIlistNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -6478,7 +6807,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest pretty(String pretty) {
+        public APIlistNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -6488,7 +6817,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedDeploymentRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -6498,7 +6827,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest _continue(String _continue) {
+        public APIlistNamespacedDeploymentRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -6508,7 +6837,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedDeploymentRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -6518,7 +6847,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedDeploymentRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -6528,7 +6857,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest limit(Integer limit) {
+        public APIlistNamespacedDeploymentRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -6538,7 +6867,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedDeploymentRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -6548,7 +6877,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedDeploymentRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -6558,7 +6887,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedDeploymentRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -6568,7 +6897,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedDeploymentRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -6578,7 +6907,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedDeploymentRequest
          */
-        public APIlistNamespacedDeploymentRequest watch(Boolean watch) {
+        public APIlistNamespacedDeploymentRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -6589,7 +6918,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6604,7 +6934,8 @@ public class AppsV1Api {
          * @return V1DeploymentList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6620,7 +6951,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DeploymentList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6636,7 +6968,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6653,16 +6986,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedDeploymentRequest listNamespacedDeployment(String namespace) {
+    public APIlistNamespacedDeploymentRequest listNamespacedDeployment(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedDeploymentRequest(namespace);
     }
-    private okhttp3.Call listNamespacedReplicaSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6758,7 +7092,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedReplicaSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedReplicaSet(Async)");
@@ -6769,13 +7103,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSetList> listNamespacedReplicaSetWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1ReplicaSetList> listNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedReplicaSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedReplicaSetAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1ReplicaSetList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1ReplicaSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedReplicaSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSetList>(){}.getType();
@@ -6784,20 +7118,32 @@ public class AppsV1Api {
     }
 
     public class APIlistNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedReplicaSetRequest(String namespace) {
+        private APIlistNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -6806,7 +7152,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIlistNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -6816,7 +7162,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedReplicaSetRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -6826,7 +7172,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest _continue(String _continue) {
+        public APIlistNamespacedReplicaSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -6836,7 +7182,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedReplicaSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -6846,7 +7192,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedReplicaSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -6856,7 +7202,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest limit(Integer limit) {
+        public APIlistNamespacedReplicaSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -6866,7 +7212,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedReplicaSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -6876,7 +7222,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedReplicaSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -6886,7 +7232,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedReplicaSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -6896,7 +7242,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedReplicaSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -6906,7 +7252,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedReplicaSetRequest
          */
-        public APIlistNamespacedReplicaSetRequest watch(Boolean watch) {
+        public APIlistNamespacedReplicaSetRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -6917,7 +7263,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6932,7 +7279,8 @@ public class AppsV1Api {
          * @return V1ReplicaSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6948,7 +7296,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6964,7 +7313,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6981,16 +7331,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedReplicaSetRequest listNamespacedReplicaSet(String namespace) {
+    public APIlistNamespacedReplicaSetRequest listNamespacedReplicaSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedReplicaSetRequest(namespace);
     }
-    private okhttp3.Call listNamespacedStatefulSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7086,7 +7437,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedStatefulSet(Async)");
@@ -7097,13 +7448,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSetList> listNamespacedStatefulSetWithHttpInfo(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1StatefulSetList> listNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1StatefulSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedStatefulSetAsync(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1StatefulSetList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1StatefulSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSetList>(){}.getType();
@@ -7112,20 +7463,32 @@ public class AppsV1Api {
     }
 
     public class APIlistNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedStatefulSetRequest(String namespace) {
+        private APIlistNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String namespace) {
             this.namespace = namespace;
         }
 
@@ -7134,7 +7497,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIlistNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -7144,7 +7507,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedStatefulSetRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -7154,7 +7517,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest _continue(String _continue) {
+        public APIlistNamespacedStatefulSetRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -7164,7 +7527,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedStatefulSetRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -7174,7 +7537,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedStatefulSetRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -7184,7 +7547,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest limit(Integer limit) {
+        public APIlistNamespacedStatefulSetRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -7194,7 +7557,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedStatefulSetRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -7204,7 +7567,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedStatefulSetRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -7214,7 +7577,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistNamespacedStatefulSetRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -7224,7 +7587,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedStatefulSetRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -7234,7 +7597,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistNamespacedStatefulSetRequest
          */
-        public APIlistNamespacedStatefulSetRequest watch(Boolean watch) {
+        public APIlistNamespacedStatefulSetRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -7245,7 +7608,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7260,7 +7624,8 @@ public class AppsV1Api {
          * @return V1StatefulSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7276,7 +7641,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7292,7 +7658,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7309,16 +7676,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIlistNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedStatefulSetRequest listNamespacedStatefulSet(String namespace) {
+    public APIlistNamespacedStatefulSetRequest listNamespacedStatefulSet(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedStatefulSetRequest(namespace);
     }
-    private okhttp3.Call listReplicaSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listReplicaSetForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7413,19 +7781,19 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listReplicaSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listReplicaSetForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listReplicaSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1ReplicaSetList> listReplicaSetForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1ReplicaSetList> listReplicaSetForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listReplicaSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listReplicaSetForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1ReplicaSetList> _callback) throws ApiException {
+    private okhttp3.Call listReplicaSetForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1ReplicaSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listReplicaSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSetList>(){}.getType();
@@ -7434,16 +7802,27 @@ public class AppsV1Api {
     }
 
     public class APIlistReplicaSetForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistReplicaSetForAllNamespacesRequest() {
@@ -7454,7 +7833,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistReplicaSetForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -7464,7 +7843,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest _continue(String _continue) {
+        public APIlistReplicaSetForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -7474,7 +7853,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistReplicaSetForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -7484,7 +7863,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistReplicaSetForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -7494,7 +7873,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest limit(Integer limit) {
+        public APIlistReplicaSetForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -7504,7 +7883,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest pretty(String pretty) {
+        public APIlistReplicaSetForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -7514,7 +7893,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistReplicaSetForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -7524,7 +7903,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistReplicaSetForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -7534,7 +7913,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistReplicaSetForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -7544,7 +7923,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistReplicaSetForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -7554,7 +7933,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistReplicaSetForAllNamespacesRequest
          */
-        public APIlistReplicaSetForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistReplicaSetForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -7565,7 +7944,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7580,7 +7960,8 @@ public class AppsV1Api {
          * @return V1ReplicaSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7596,7 +7977,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7612,7 +7994,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7628,7 +8011,8 @@ public class AppsV1Api {
      * list or watch objects of kind ReplicaSet
      * @return APIlistReplicaSetForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7637,7 +8021,7 @@ public class AppsV1Api {
     public APIlistReplicaSetForAllNamespacesRequest listReplicaSetForAllNamespaces() {
         return new APIlistReplicaSetForAllNamespacesRequest();
     }
-    private okhttp3.Call listStatefulSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listStatefulSetForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7732,19 +8116,19 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listStatefulSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listStatefulSetForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         return listStatefulSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1StatefulSetList> listStatefulSetForAllNamespacesWithHttpInfo(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<V1StatefulSetList> listStatefulSetForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listStatefulSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1StatefulSetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listStatefulSetForAllNamespacesAsync(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1StatefulSetList> _callback) throws ApiException {
+    private okhttp3.Call listStatefulSetForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1StatefulSetList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listStatefulSetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSetList>(){}.getType();
@@ -7753,16 +8137,27 @@ public class AppsV1Api {
     }
 
     public class APIlistStatefulSetForAllNamespacesRequest {
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
         private APIlistStatefulSetForAllNamespacesRequest() {
@@ -7773,7 +8168,7 @@ public class AppsV1Api {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistStatefulSetForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -7783,7 +8178,7 @@ public class AppsV1Api {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest _continue(String _continue) {
+        public APIlistStatefulSetForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -7793,7 +8188,7 @@ public class AppsV1Api {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistStatefulSetForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -7803,7 +8198,7 @@ public class AppsV1Api {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistStatefulSetForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -7813,7 +8208,7 @@ public class AppsV1Api {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest limit(Integer limit) {
+        public APIlistStatefulSetForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -7823,7 +8218,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest pretty(String pretty) {
+        public APIlistStatefulSetForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -7833,7 +8228,7 @@ public class AppsV1Api {
          * @param resourceVersion resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistStatefulSetForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -7843,7 +8238,7 @@ public class AppsV1Api {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistStatefulSetForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -7853,7 +8248,7 @@ public class AppsV1Api {
          * @param sendInitialEvents &#x60;sendInitialEvents&#x3D;true&#x60; may be set together with &#x60;watch&#x3D;true&#x60;. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \&quot;Bookmark\&quot; event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with &#x60;\&quot;k8s.io/initial-events-end\&quot;: \&quot;true\&quot;&#x60; annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.  When &#x60;sendInitialEvents&#x60; option is set, we require &#x60;resourceVersionMatch&#x60; option to also be set. The semantic of the watch request is as following: - &#x60;resourceVersionMatch&#x60; &#x3D; NotOlderThan   is interpreted as \&quot;data at least as new as the provided &#x60;resourceVersion&#x60;\&quot;   and the bookmark event is send when the state is synced   to a &#x60;resourceVersion&#x60; at least as fresh as the one provided by the ListOptions.   If &#x60;resourceVersion&#x60; is unset, this is interpreted as \&quot;consistent read\&quot; and the   bookmark event is send when the state is synced at least to the moment   when request started being processed. - &#x60;resourceVersionMatch&#x60; set to any other value or unset   Invalid error is returned.  Defaults to true if &#x60;resourceVersion&#x3D;\&quot;\&quot;&#x60; or &#x60;resourceVersion&#x3D;\&quot;0\&quot;&#x60; (for backward compatibility reasons) and to false otherwise. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest sendInitialEvents(Boolean sendInitialEvents) {
+        public APIlistStatefulSetForAllNamespacesRequest sendInitialEvents(@jakarta.annotation.Nullable Boolean sendInitialEvents) {
             this.sendInitialEvents = sendInitialEvents;
             return this;
         }
@@ -7863,7 +8258,7 @@ public class AppsV1Api {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistStatefulSetForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -7873,7 +8268,7 @@ public class AppsV1Api {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
          * @return APIlistStatefulSetForAllNamespacesRequest
          */
-        public APIlistStatefulSetForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistStatefulSetForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -7884,7 +8279,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7899,7 +8295,8 @@ public class AppsV1Api {
          * @return V1StatefulSetList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7915,7 +8312,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSetList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7931,7 +8329,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7947,7 +8346,8 @@ public class AppsV1Api {
      * list or watch objects of kind StatefulSet
      * @return APIlistStatefulSetForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -7956,7 +8356,7 @@ public class AppsV1Api {
     public APIlistStatefulSetForAllNamespacesRequest listStatefulSetForAllNamespaces() {
         return new APIlistStatefulSetForAllNamespacesRequest();
     }
-    private okhttp3.Call patchNamespacedControllerRevisionCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8027,7 +8427,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedControllerRevision(Async)");
@@ -8048,13 +8448,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ControllerRevision> patchNamespacedControllerRevisionWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1ControllerRevision> patchNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedControllerRevisionAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
@@ -8063,16 +8463,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedControllerRevisionRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -8083,7 +8491,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedControllerRevisionRequest
          */
-        public APIpatchNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIpatchNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -8093,7 +8501,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedControllerRevisionRequest
          */
-        public APIpatchNamespacedControllerRevisionRequest dryRun(String dryRun) {
+        public APIpatchNamespacedControllerRevisionRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -8103,7 +8511,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedControllerRevisionRequest
          */
-        public APIpatchNamespacedControllerRevisionRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedControllerRevisionRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -8113,7 +8521,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedControllerRevisionRequest
          */
-        public APIpatchNamespacedControllerRevisionRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedControllerRevisionRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -8123,7 +8531,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedControllerRevisionRequest
          */
-        public APIpatchNamespacedControllerRevisionRequest force(Boolean force) {
+        public APIpatchNamespacedControllerRevisionRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -8134,7 +8542,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8150,7 +8559,8 @@ public class AppsV1Api {
          * @return V1ControllerRevision
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8167,7 +8577,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevision&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8184,7 +8595,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8204,17 +8616,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedControllerRevisionRequest patchNamespacedControllerRevision(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedControllerRevisionRequest patchNamespacedControllerRevision(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedControllerRevisionRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedDaemonSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8285,7 +8698,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedDaemonSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDaemonSet(Async)");
@@ -8306,13 +8719,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> patchNamespacedDaemonSetWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1DaemonSet> patchNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedDaemonSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedDaemonSetAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedDaemonSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -8321,16 +8734,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedDaemonSetRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -8341,7 +8762,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedDaemonSetRequest
          */
-        public APIpatchNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIpatchNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -8351,7 +8772,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedDaemonSetRequest
          */
-        public APIpatchNamespacedDaemonSetRequest dryRun(String dryRun) {
+        public APIpatchNamespacedDaemonSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -8361,7 +8782,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedDaemonSetRequest
          */
-        public APIpatchNamespacedDaemonSetRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedDaemonSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -8371,7 +8792,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedDaemonSetRequest
          */
-        public APIpatchNamespacedDaemonSetRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedDaemonSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -8381,7 +8802,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedDaemonSetRequest
          */
-        public APIpatchNamespacedDaemonSetRequest force(Boolean force) {
+        public APIpatchNamespacedDaemonSetRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -8392,7 +8813,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8408,7 +8830,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8425,7 +8848,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8442,7 +8866,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8462,17 +8887,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedDaemonSetRequest patchNamespacedDaemonSet(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedDaemonSetRequest patchNamespacedDaemonSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedDaemonSetRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedDaemonSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8543,7 +8969,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDaemonSetStatus(Async)");
@@ -8564,13 +8990,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> patchNamespacedDaemonSetStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1DaemonSet> patchNamespacedDaemonSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedDaemonSetStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDaemonSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -8579,16 +9005,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedDaemonSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedDaemonSetStatusRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedDaemonSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -8599,7 +9033,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedDaemonSetStatusRequest
          */
-        public APIpatchNamespacedDaemonSetStatusRequest pretty(String pretty) {
+        public APIpatchNamespacedDaemonSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -8609,7 +9043,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedDaemonSetStatusRequest
          */
-        public APIpatchNamespacedDaemonSetStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedDaemonSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -8619,7 +9053,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedDaemonSetStatusRequest
          */
-        public APIpatchNamespacedDaemonSetStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedDaemonSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -8629,7 +9063,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedDaemonSetStatusRequest
          */
-        public APIpatchNamespacedDaemonSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedDaemonSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -8639,7 +9073,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedDaemonSetStatusRequest
          */
-        public APIpatchNamespacedDaemonSetStatusRequest force(Boolean force) {
+        public APIpatchNamespacedDaemonSetStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -8650,7 +9084,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8666,7 +9101,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8683,7 +9119,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8700,7 +9137,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8720,17 +9158,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedDaemonSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedDaemonSetStatusRequest patchNamespacedDaemonSetStatus(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedDaemonSetStatusRequest patchNamespacedDaemonSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedDaemonSetStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedDeploymentCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8801,7 +9240,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeployment(Async)");
@@ -8822,13 +9261,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> patchNamespacedDeploymentWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1Deployment> patchNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedDeploymentAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -8837,16 +9276,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedDeploymentRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -8857,7 +9304,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedDeploymentRequest
          */
-        public APIpatchNamespacedDeploymentRequest pretty(String pretty) {
+        public APIpatchNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -8867,7 +9314,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedDeploymentRequest
          */
-        public APIpatchNamespacedDeploymentRequest dryRun(String dryRun) {
+        public APIpatchNamespacedDeploymentRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -8877,7 +9324,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedDeploymentRequest
          */
-        public APIpatchNamespacedDeploymentRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedDeploymentRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -8887,7 +9334,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedDeploymentRequest
          */
-        public APIpatchNamespacedDeploymentRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedDeploymentRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -8897,7 +9344,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedDeploymentRequest
          */
-        public APIpatchNamespacedDeploymentRequest force(Boolean force) {
+        public APIpatchNamespacedDeploymentRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -8908,7 +9355,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8924,7 +9372,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8941,7 +9390,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8958,7 +9408,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -8978,17 +9429,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedDeploymentRequest patchNamespacedDeployment(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedDeploymentRequest patchNamespacedDeployment(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedDeploymentRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedDeploymentScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9059,7 +9511,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeploymentScale(Async)");
@@ -9080,13 +9532,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> patchNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1Scale> patchNamespacedDeploymentScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedDeploymentScaleAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -9095,16 +9547,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedDeploymentScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedDeploymentScaleRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedDeploymentScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -9115,7 +9575,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedDeploymentScaleRequest
          */
-        public APIpatchNamespacedDeploymentScaleRequest pretty(String pretty) {
+        public APIpatchNamespacedDeploymentScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -9125,7 +9585,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedDeploymentScaleRequest
          */
-        public APIpatchNamespacedDeploymentScaleRequest dryRun(String dryRun) {
+        public APIpatchNamespacedDeploymentScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -9135,7 +9595,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedDeploymentScaleRequest
          */
-        public APIpatchNamespacedDeploymentScaleRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedDeploymentScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -9145,7 +9605,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedDeploymentScaleRequest
          */
-        public APIpatchNamespacedDeploymentScaleRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedDeploymentScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -9155,7 +9615,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedDeploymentScaleRequest
          */
-        public APIpatchNamespacedDeploymentScaleRequest force(Boolean force) {
+        public APIpatchNamespacedDeploymentScaleRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -9166,7 +9626,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9182,7 +9643,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9199,7 +9661,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9216,7 +9679,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9236,17 +9700,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedDeploymentScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedDeploymentScaleRequest patchNamespacedDeploymentScale(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedDeploymentScaleRequest patchNamespacedDeploymentScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedDeploymentScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedDeploymentStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9317,7 +9782,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeploymentStatus(Async)");
@@ -9338,13 +9803,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> patchNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1Deployment> patchNamespacedDeploymentStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedDeploymentStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -9353,16 +9818,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedDeploymentStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedDeploymentStatusRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedDeploymentStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -9373,7 +9846,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedDeploymentStatusRequest
          */
-        public APIpatchNamespacedDeploymentStatusRequest pretty(String pretty) {
+        public APIpatchNamespacedDeploymentStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -9383,7 +9856,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedDeploymentStatusRequest
          */
-        public APIpatchNamespacedDeploymentStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedDeploymentStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -9393,7 +9866,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedDeploymentStatusRequest
          */
-        public APIpatchNamespacedDeploymentStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedDeploymentStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -9403,7 +9876,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedDeploymentStatusRequest
          */
-        public APIpatchNamespacedDeploymentStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedDeploymentStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -9413,7 +9886,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedDeploymentStatusRequest
          */
-        public APIpatchNamespacedDeploymentStatusRequest force(Boolean force) {
+        public APIpatchNamespacedDeploymentStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -9424,7 +9897,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9440,7 +9914,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9457,7 +9932,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9474,7 +9950,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9494,17 +9971,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedDeploymentStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedDeploymentStatusRequest patchNamespacedDeploymentStatus(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedDeploymentStatusRequest patchNamespacedDeploymentStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedDeploymentStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedReplicaSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9575,7 +10053,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedReplicaSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSet(Async)");
@@ -9596,13 +10074,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> patchNamespacedReplicaSetWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1ReplicaSet> patchNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedReplicaSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedReplicaSetAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedReplicaSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -9611,16 +10089,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedReplicaSetRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -9631,7 +10117,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicaSetRequest
          */
-        public APIpatchNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIpatchNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -9641,7 +10127,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedReplicaSetRequest
          */
-        public APIpatchNamespacedReplicaSetRequest dryRun(String dryRun) {
+        public APIpatchNamespacedReplicaSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -9651,7 +10137,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedReplicaSetRequest
          */
-        public APIpatchNamespacedReplicaSetRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedReplicaSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -9661,7 +10147,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedReplicaSetRequest
          */
-        public APIpatchNamespacedReplicaSetRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedReplicaSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -9671,7 +10157,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedReplicaSetRequest
          */
-        public APIpatchNamespacedReplicaSetRequest force(Boolean force) {
+        public APIpatchNamespacedReplicaSetRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -9682,7 +10168,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9698,7 +10185,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9715,7 +10203,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9732,7 +10221,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9752,17 +10242,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedReplicaSetRequest patchNamespacedReplicaSet(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedReplicaSetRequest patchNamespacedReplicaSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedReplicaSetRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedReplicaSetScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9833,7 +10324,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSetScale(Async)");
@@ -9854,13 +10345,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> patchNamespacedReplicaSetScaleWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1Scale> patchNamespacedReplicaSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedReplicaSetScaleAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -9869,16 +10360,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedReplicaSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedReplicaSetScaleRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedReplicaSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -9889,7 +10388,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicaSetScaleRequest
          */
-        public APIpatchNamespacedReplicaSetScaleRequest pretty(String pretty) {
+        public APIpatchNamespacedReplicaSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -9899,7 +10398,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedReplicaSetScaleRequest
          */
-        public APIpatchNamespacedReplicaSetScaleRequest dryRun(String dryRun) {
+        public APIpatchNamespacedReplicaSetScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -9909,7 +10408,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedReplicaSetScaleRequest
          */
-        public APIpatchNamespacedReplicaSetScaleRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedReplicaSetScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -9919,7 +10418,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedReplicaSetScaleRequest
          */
-        public APIpatchNamespacedReplicaSetScaleRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedReplicaSetScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -9929,7 +10428,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedReplicaSetScaleRequest
          */
-        public APIpatchNamespacedReplicaSetScaleRequest force(Boolean force) {
+        public APIpatchNamespacedReplicaSetScaleRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -9940,7 +10439,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9956,7 +10456,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9973,7 +10474,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -9990,7 +10492,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10010,17 +10513,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedReplicaSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedReplicaSetScaleRequest patchNamespacedReplicaSetScale(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedReplicaSetScaleRequest patchNamespacedReplicaSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedReplicaSetScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedReplicaSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10091,7 +10595,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSetStatus(Async)");
@@ -10112,13 +10616,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> patchNamespacedReplicaSetStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1ReplicaSet> patchNamespacedReplicaSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedReplicaSetStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedReplicaSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -10127,16 +10631,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedReplicaSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedReplicaSetStatusRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedReplicaSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -10147,7 +10659,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedReplicaSetStatusRequest
          */
-        public APIpatchNamespacedReplicaSetStatusRequest pretty(String pretty) {
+        public APIpatchNamespacedReplicaSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -10157,7 +10669,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedReplicaSetStatusRequest
          */
-        public APIpatchNamespacedReplicaSetStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedReplicaSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -10167,7 +10679,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedReplicaSetStatusRequest
          */
-        public APIpatchNamespacedReplicaSetStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedReplicaSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -10177,7 +10689,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedReplicaSetStatusRequest
          */
-        public APIpatchNamespacedReplicaSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedReplicaSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -10187,7 +10699,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedReplicaSetStatusRequest
          */
-        public APIpatchNamespacedReplicaSetStatusRequest force(Boolean force) {
+        public APIpatchNamespacedReplicaSetStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -10198,7 +10710,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10214,7 +10727,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10231,7 +10745,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10248,7 +10763,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10268,17 +10784,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedReplicaSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedReplicaSetStatusRequest patchNamespacedReplicaSetStatus(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedReplicaSetStatusRequest patchNamespacedReplicaSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedReplicaSetStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedStatefulSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10349,7 +10866,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSet(Async)");
@@ -10370,13 +10887,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> patchNamespacedStatefulSetWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1StatefulSet> patchNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedStatefulSetAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -10385,16 +10902,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedStatefulSetRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -10405,7 +10930,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedStatefulSetRequest
          */
-        public APIpatchNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIpatchNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -10415,7 +10940,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedStatefulSetRequest
          */
-        public APIpatchNamespacedStatefulSetRequest dryRun(String dryRun) {
+        public APIpatchNamespacedStatefulSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -10425,7 +10950,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedStatefulSetRequest
          */
-        public APIpatchNamespacedStatefulSetRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedStatefulSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -10435,7 +10960,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedStatefulSetRequest
          */
-        public APIpatchNamespacedStatefulSetRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedStatefulSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -10445,7 +10970,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedStatefulSetRequest
          */
-        public APIpatchNamespacedStatefulSetRequest force(Boolean force) {
+        public APIpatchNamespacedStatefulSetRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -10456,7 +10981,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10472,7 +10998,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10489,7 +11016,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10506,7 +11034,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10526,17 +11055,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedStatefulSetRequest patchNamespacedStatefulSet(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedStatefulSetRequest patchNamespacedStatefulSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedStatefulSetRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedStatefulSetScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10607,7 +11137,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSetScale(Async)");
@@ -10628,13 +11158,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> patchNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1Scale> patchNamespacedStatefulSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedStatefulSetScaleAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -10643,16 +11173,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedStatefulSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedStatefulSetScaleRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedStatefulSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -10663,7 +11201,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedStatefulSetScaleRequest
          */
-        public APIpatchNamespacedStatefulSetScaleRequest pretty(String pretty) {
+        public APIpatchNamespacedStatefulSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -10673,7 +11211,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedStatefulSetScaleRequest
          */
-        public APIpatchNamespacedStatefulSetScaleRequest dryRun(String dryRun) {
+        public APIpatchNamespacedStatefulSetScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -10683,7 +11221,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedStatefulSetScaleRequest
          */
-        public APIpatchNamespacedStatefulSetScaleRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedStatefulSetScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -10693,7 +11231,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedStatefulSetScaleRequest
          */
-        public APIpatchNamespacedStatefulSetScaleRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedStatefulSetScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -10703,7 +11241,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedStatefulSetScaleRequest
          */
-        public APIpatchNamespacedStatefulSetScaleRequest force(Boolean force) {
+        public APIpatchNamespacedStatefulSetScaleRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -10714,7 +11252,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10730,7 +11269,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10747,7 +11287,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10764,7 +11305,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10784,17 +11326,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedStatefulSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedStatefulSetScaleRequest patchNamespacedStatefulSetScale(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedStatefulSetScaleRequest patchNamespacedStatefulSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedStatefulSetScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call patchNamespacedStatefulSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10865,7 +11408,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSetStatus(Async)");
@@ -10886,13 +11429,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> patchNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<V1StatefulSet> patchNamespacedStatefulSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedStatefulSetStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -10901,16 +11444,24 @@ public class AppsV1Api {
     }
 
     public class APIpatchNamespacedStatefulSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Patch body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedStatefulSetStatusRequest(String name, String namespace, V1Patch body) {
+        private APIpatchNamespacedStatefulSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -10921,7 +11472,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIpatchNamespacedStatefulSetStatusRequest
          */
-        public APIpatchNamespacedStatefulSetStatusRequest pretty(String pretty) {
+        public APIpatchNamespacedStatefulSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -10931,7 +11482,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedStatefulSetStatusRequest
          */
-        public APIpatchNamespacedStatefulSetStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedStatefulSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -10941,7 +11492,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedStatefulSetStatusRequest
          */
-        public APIpatchNamespacedStatefulSetStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedStatefulSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -10951,7 +11502,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIpatchNamespacedStatefulSetStatusRequest
          */
-        public APIpatchNamespacedStatefulSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedStatefulSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -10961,7 +11512,7 @@ public class AppsV1Api {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedStatefulSetStatusRequest
          */
-        public APIpatchNamespacedStatefulSetStatusRequest force(Boolean force) {
+        public APIpatchNamespacedStatefulSetStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -10972,7 +11523,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -10988,7 +11540,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -11005,7 +11558,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -11022,7 +11576,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -11042,17 +11597,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIpatchNamespacedStatefulSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedStatefulSetStatusRequest patchNamespacedStatefulSetStatus(String name, String namespace, V1Patch body) {
+    public APIpatchNamespacedStatefulSetStatusRequest patchNamespacedStatefulSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchNamespacedStatefulSetStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call readNamespacedControllerRevisionCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11106,7 +11662,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedControllerRevision(Async)");
@@ -11122,13 +11678,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ControllerRevision> readNamespacedControllerRevisionWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1ControllerRevision> readNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedControllerRevisionAsync(String name, String namespace, String pretty, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
@@ -11137,11 +11693,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedControllerRevisionRequest(String name, String namespace) {
+        private APIreadNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -11151,7 +11710,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedControllerRevisionRequest
          */
-        public APIreadNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIreadNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -11162,7 +11721,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11177,7 +11737,8 @@ public class AppsV1Api {
          * @return V1ControllerRevision
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11193,7 +11754,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevision&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11209,7 +11771,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11227,16 +11790,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedControllerRevisionRequest readNamespacedControllerRevision(String name, String namespace) {
+    public APIreadNamespacedControllerRevisionRequest readNamespacedControllerRevision(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedControllerRevisionRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedDaemonSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11290,7 +11854,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedDaemonSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDaemonSet(Async)");
@@ -11306,13 +11870,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> readNamespacedDaemonSetWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1DaemonSet> readNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedDaemonSetValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedDaemonSetAsync(String name, String namespace, String pretty, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedDaemonSetValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -11321,11 +11885,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedDaemonSetRequest(String name, String namespace) {
+        private APIreadNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -11335,7 +11902,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedDaemonSetRequest
          */
-        public APIreadNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIreadNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -11346,7 +11913,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11361,7 +11929,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11377,7 +11946,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11393,7 +11963,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11411,16 +11982,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedDaemonSetRequest readNamespacedDaemonSet(String name, String namespace) {
+    public APIreadNamespacedDaemonSetRequest readNamespacedDaemonSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedDaemonSetRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedDaemonSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11474,7 +12046,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDaemonSetStatus(Async)");
@@ -11490,13 +12062,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> readNamespacedDaemonSetStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1DaemonSet> readNamespacedDaemonSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedDaemonSetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDaemonSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -11505,11 +12077,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedDaemonSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedDaemonSetStatusRequest(String name, String namespace) {
+        private APIreadNamespacedDaemonSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -11519,7 +12094,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedDaemonSetStatusRequest
          */
-        public APIreadNamespacedDaemonSetStatusRequest pretty(String pretty) {
+        public APIreadNamespacedDaemonSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -11530,7 +12105,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11545,7 +12121,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11561,7 +12138,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11577,7 +12155,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11595,16 +12174,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedDaemonSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedDaemonSetStatusRequest readNamespacedDaemonSetStatus(String name, String namespace) {
+    public APIreadNamespacedDaemonSetStatusRequest readNamespacedDaemonSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedDaemonSetStatusRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedDeploymentCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11658,7 +12238,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeployment(Async)");
@@ -11674,13 +12254,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> readNamespacedDeploymentWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1Deployment> readNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedDeploymentAsync(String name, String namespace, String pretty, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -11689,11 +12269,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedDeploymentRequest(String name, String namespace) {
+        private APIreadNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -11703,7 +12286,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedDeploymentRequest
          */
-        public APIreadNamespacedDeploymentRequest pretty(String pretty) {
+        public APIreadNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -11714,7 +12297,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11729,7 +12313,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11745,7 +12330,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11761,7 +12347,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11779,16 +12366,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedDeploymentRequest readNamespacedDeployment(String name, String namespace) {
+    public APIreadNamespacedDeploymentRequest readNamespacedDeployment(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedDeploymentRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedDeploymentScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11842,7 +12430,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeploymentScale(Async)");
@@ -11858,13 +12446,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> readNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1Scale> readNamespacedDeploymentScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedDeploymentScaleAsync(String name, String namespace, String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -11873,11 +12461,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedDeploymentScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedDeploymentScaleRequest(String name, String namespace) {
+        private APIreadNamespacedDeploymentScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -11887,7 +12478,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedDeploymentScaleRequest
          */
-        public APIreadNamespacedDeploymentScaleRequest pretty(String pretty) {
+        public APIreadNamespacedDeploymentScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -11898,7 +12489,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11913,7 +12505,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11929,7 +12522,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11945,7 +12539,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -11963,16 +12558,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedDeploymentScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedDeploymentScaleRequest readNamespacedDeploymentScale(String name, String namespace) {
+    public APIreadNamespacedDeploymentScaleRequest readNamespacedDeploymentScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedDeploymentScaleRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedDeploymentStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12026,7 +12622,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeploymentStatus(Async)");
@@ -12042,13 +12638,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> readNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1Deployment> readNamespacedDeploymentStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedDeploymentStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -12057,11 +12653,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedDeploymentStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedDeploymentStatusRequest(String name, String namespace) {
+        private APIreadNamespacedDeploymentStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12071,7 +12670,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedDeploymentStatusRequest
          */
-        public APIreadNamespacedDeploymentStatusRequest pretty(String pretty) {
+        public APIreadNamespacedDeploymentStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -12082,7 +12681,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12097,7 +12697,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12113,7 +12714,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12129,7 +12731,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12147,16 +12750,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedDeploymentStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedDeploymentStatusRequest readNamespacedDeploymentStatus(String name, String namespace) {
+    public APIreadNamespacedDeploymentStatusRequest readNamespacedDeploymentStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedDeploymentStatusRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedReplicaSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12210,7 +12814,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedReplicaSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSet(Async)");
@@ -12226,13 +12830,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> readNamespacedReplicaSetWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1ReplicaSet> readNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedReplicaSetValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedReplicaSetAsync(String name, String namespace, String pretty, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedReplicaSetValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -12241,11 +12845,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedReplicaSetRequest(String name, String namespace) {
+        private APIreadNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12255,7 +12862,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicaSetRequest
          */
-        public APIreadNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIreadNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -12266,7 +12873,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12281,7 +12889,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12297,7 +12906,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12313,7 +12923,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12331,16 +12942,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedReplicaSetRequest readNamespacedReplicaSet(String name, String namespace) {
+    public APIreadNamespacedReplicaSetRequest readNamespacedReplicaSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedReplicaSetRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedReplicaSetScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12394,7 +13006,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSetScale(Async)");
@@ -12410,13 +13022,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> readNamespacedReplicaSetScaleWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1Scale> readNamespacedReplicaSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedReplicaSetScaleAsync(String name, String namespace, String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -12425,11 +13037,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedReplicaSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedReplicaSetScaleRequest(String name, String namespace) {
+        private APIreadNamespacedReplicaSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12439,7 +13054,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicaSetScaleRequest
          */
-        public APIreadNamespacedReplicaSetScaleRequest pretty(String pretty) {
+        public APIreadNamespacedReplicaSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -12450,7 +13065,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12465,7 +13081,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12481,7 +13098,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12497,7 +13115,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12515,16 +13134,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedReplicaSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedReplicaSetScaleRequest readNamespacedReplicaSetScale(String name, String namespace) {
+    public APIreadNamespacedReplicaSetScaleRequest readNamespacedReplicaSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedReplicaSetScaleRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedReplicaSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12578,7 +13198,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSetStatus(Async)");
@@ -12594,13 +13214,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> readNamespacedReplicaSetStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1ReplicaSet> readNamespacedReplicaSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedReplicaSetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedReplicaSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -12609,11 +13229,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedReplicaSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedReplicaSetStatusRequest(String name, String namespace) {
+        private APIreadNamespacedReplicaSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12623,7 +13246,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedReplicaSetStatusRequest
          */
-        public APIreadNamespacedReplicaSetStatusRequest pretty(String pretty) {
+        public APIreadNamespacedReplicaSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -12634,7 +13257,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12649,7 +13273,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12665,7 +13290,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12681,7 +13307,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12699,16 +13326,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedReplicaSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedReplicaSetStatusRequest readNamespacedReplicaSetStatus(String name, String namespace) {
+    public APIreadNamespacedReplicaSetStatusRequest readNamespacedReplicaSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedReplicaSetStatusRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedStatefulSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12762,7 +13390,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSet(Async)");
@@ -12778,13 +13406,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> readNamespacedStatefulSetWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1StatefulSet> readNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedStatefulSetAsync(String name, String namespace, String pretty, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -12793,11 +13421,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedStatefulSetRequest(String name, String namespace) {
+        private APIreadNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12807,7 +13438,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedStatefulSetRequest
          */
-        public APIreadNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIreadNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -12818,7 +13449,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12833,7 +13465,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12849,7 +13482,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12865,7 +13499,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -12883,16 +13518,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedStatefulSetRequest readNamespacedStatefulSet(String name, String namespace) {
+    public APIreadNamespacedStatefulSetRequest readNamespacedStatefulSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedStatefulSetRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedStatefulSetScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12946,7 +13582,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSetScale(Async)");
@@ -12962,13 +13598,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> readNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1Scale> readNamespacedStatefulSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedStatefulSetScaleAsync(String name, String namespace, String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -12977,11 +13613,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedStatefulSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedStatefulSetScaleRequest(String name, String namespace) {
+        private APIreadNamespacedStatefulSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -12991,7 +13630,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedStatefulSetScaleRequest
          */
-        public APIreadNamespacedStatefulSetScaleRequest pretty(String pretty) {
+        public APIreadNamespacedStatefulSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -13002,7 +13641,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13017,7 +13657,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13033,7 +13674,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13049,7 +13691,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13067,16 +13710,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedStatefulSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedStatefulSetScaleRequest readNamespacedStatefulSetScale(String name, String namespace) {
+    public APIreadNamespacedStatefulSetScaleRequest readNamespacedStatefulSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedStatefulSetScaleRequest(name, namespace);
     }
-    private okhttp3.Call readNamespacedStatefulSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13130,7 +13774,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSetStatus(Async)");
@@ -13146,13 +13790,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> readNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
+    private ApiResponse<V1StatefulSet> readNamespacedStatefulSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call readNamespacedStatefulSetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -13161,11 +13805,14 @@ public class AppsV1Api {
     }
 
     public class APIreadNamespacedStatefulSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIreadNamespacedStatefulSetStatusRequest(String name, String namespace) {
+        private APIreadNamespacedStatefulSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
             this.name = name;
             this.namespace = namespace;
         }
@@ -13175,7 +13822,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreadNamespacedStatefulSetStatusRequest
          */
-        public APIreadNamespacedStatefulSetStatusRequest pretty(String pretty) {
+        public APIreadNamespacedStatefulSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -13186,7 +13833,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13201,7 +13849,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13217,7 +13866,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13233,7 +13883,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -13251,16 +13902,17 @@ public class AppsV1Api {
      * @param namespace object name and auth scope, such as for teams and projects (required)
      * @return APIreadNamespacedStatefulSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreadNamespacedStatefulSetStatusRequest readNamespacedStatefulSetStatus(String name, String namespace) {
+    public APIreadNamespacedStatefulSetStatusRequest readNamespacedStatefulSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace) {
         return new APIreadNamespacedStatefulSetStatusRequest(name, namespace);
     }
-    private okhttp3.Call replaceNamespacedControllerRevisionCall(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedControllerRevisionCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13327,7 +13979,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedControllerRevisionValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedControllerRevision(Async)");
@@ -13348,13 +14000,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ControllerRevision> replaceNamespacedControllerRevisionWithHttpInfo(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1ControllerRevision> replaceNamespacedControllerRevisionWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedControllerRevisionAsync(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedControllerRevisionAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1ControllerRevision> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1ControllerRevision>(){}.getType();
@@ -13363,15 +14015,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedControllerRevisionRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1ControllerRevision body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedControllerRevisionRequest(String name, String namespace, V1ControllerRevision body) {
+        private APIreplaceNamespacedControllerRevisionRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -13382,7 +14041,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedControllerRevisionRequest
          */
-        public APIreplaceNamespacedControllerRevisionRequest pretty(String pretty) {
+        public APIreplaceNamespacedControllerRevisionRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -13392,7 +14051,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedControllerRevisionRequest
          */
-        public APIreplaceNamespacedControllerRevisionRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedControllerRevisionRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -13402,7 +14061,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedControllerRevisionRequest
          */
-        public APIreplaceNamespacedControllerRevisionRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedControllerRevisionRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -13412,7 +14071,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedControllerRevisionRequest
          */
-        public APIreplaceNamespacedControllerRevisionRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedControllerRevisionRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -13423,7 +14082,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13439,7 +14099,8 @@ public class AppsV1Api {
          * @return V1ControllerRevision
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13456,7 +14117,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ControllerRevision&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13473,7 +14135,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13493,17 +14156,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedControllerRevisionRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedControllerRevisionRequest replaceNamespacedControllerRevision(String name, String namespace, V1ControllerRevision body) {
+    public APIreplaceNamespacedControllerRevisionRequest replaceNamespacedControllerRevision(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ControllerRevision body) {
         return new APIreplaceNamespacedControllerRevisionRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedDaemonSetCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13570,7 +14234,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedDaemonSetValidateBeforeCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDaemonSet(Async)");
@@ -13591,13 +14255,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> replaceNamespacedDaemonSetWithHttpInfo(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1DaemonSet> replaceNamespacedDaemonSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedDaemonSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedDaemonSetAsync(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedDaemonSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -13606,15 +14270,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedDaemonSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1DaemonSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedDaemonSetRequest(String name, String namespace, V1DaemonSet body) {
+        private APIreplaceNamespacedDaemonSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -13625,7 +14296,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedDaemonSetRequest
          */
-        public APIreplaceNamespacedDaemonSetRequest pretty(String pretty) {
+        public APIreplaceNamespacedDaemonSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -13635,7 +14306,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedDaemonSetRequest
          */
-        public APIreplaceNamespacedDaemonSetRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedDaemonSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -13645,7 +14316,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedDaemonSetRequest
          */
-        public APIreplaceNamespacedDaemonSetRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedDaemonSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -13655,7 +14326,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedDaemonSetRequest
          */
-        public APIreplaceNamespacedDaemonSetRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedDaemonSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -13666,7 +14337,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13682,7 +14354,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13699,7 +14372,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13716,7 +14390,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13736,17 +14411,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedDaemonSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedDaemonSetRequest replaceNamespacedDaemonSet(String name, String namespace, V1DaemonSet body) {
+    public APIreplaceNamespacedDaemonSetRequest replaceNamespacedDaemonSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
         return new APIreplaceNamespacedDaemonSetRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedDaemonSetStatusCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13813,7 +14489,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDaemonSetStatus(Async)");
@@ -13834,13 +14510,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1DaemonSet> replaceNamespacedDaemonSetStatusWithHttpInfo(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1DaemonSet> replaceNamespacedDaemonSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedDaemonSetStatusAsync(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDaemonSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1DaemonSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedDaemonSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1DaemonSet>(){}.getType();
@@ -13849,15 +14525,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedDaemonSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1DaemonSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedDaemonSetStatusRequest(String name, String namespace, V1DaemonSet body) {
+        private APIreplaceNamespacedDaemonSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -13868,7 +14551,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedDaemonSetStatusRequest
          */
-        public APIreplaceNamespacedDaemonSetStatusRequest pretty(String pretty) {
+        public APIreplaceNamespacedDaemonSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -13878,7 +14561,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedDaemonSetStatusRequest
          */
-        public APIreplaceNamespacedDaemonSetStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedDaemonSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -13888,7 +14571,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedDaemonSetStatusRequest
          */
-        public APIreplaceNamespacedDaemonSetStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedDaemonSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -13898,7 +14581,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedDaemonSetStatusRequest
          */
-        public APIreplaceNamespacedDaemonSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedDaemonSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -13909,7 +14592,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13925,7 +14609,8 @@ public class AppsV1Api {
          * @return V1DaemonSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13942,7 +14627,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1DaemonSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13959,7 +14645,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -13979,17 +14666,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedDaemonSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedDaemonSetStatusRequest replaceNamespacedDaemonSetStatus(String name, String namespace, V1DaemonSet body) {
+    public APIreplaceNamespacedDaemonSetStatusRequest replaceNamespacedDaemonSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1DaemonSet body) {
         return new APIreplaceNamespacedDaemonSetStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedDeploymentCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14056,7 +14744,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeployment(Async)");
@@ -14077,13 +14765,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> replaceNamespacedDeploymentWithHttpInfo(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Deployment> replaceNamespacedDeploymentWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedDeploymentAsync(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -14092,15 +14780,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedDeploymentRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Deployment body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedDeploymentRequest(String name, String namespace, V1Deployment body) {
+        private APIreplaceNamespacedDeploymentRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -14111,7 +14806,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedDeploymentRequest
          */
-        public APIreplaceNamespacedDeploymentRequest pretty(String pretty) {
+        public APIreplaceNamespacedDeploymentRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -14121,7 +14816,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedDeploymentRequest
          */
-        public APIreplaceNamespacedDeploymentRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedDeploymentRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -14131,7 +14826,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedDeploymentRequest
          */
-        public APIreplaceNamespacedDeploymentRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedDeploymentRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -14141,7 +14836,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedDeploymentRequest
          */
-        public APIreplaceNamespacedDeploymentRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedDeploymentRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -14152,7 +14847,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14168,7 +14864,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14185,7 +14882,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14202,7 +14900,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14222,17 +14921,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedDeploymentRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedDeploymentRequest replaceNamespacedDeployment(String name, String namespace, V1Deployment body) {
+    public APIreplaceNamespacedDeploymentRequest replaceNamespacedDeployment(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
         return new APIreplaceNamespacedDeploymentRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedDeploymentScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14299,7 +14999,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeploymentScale(Async)");
@@ -14320,13 +15020,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> replaceNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Scale> replaceNamespacedDeploymentScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedDeploymentScaleAsync(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -14335,15 +15035,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedDeploymentScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Scale body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedDeploymentScaleRequest(String name, String namespace, V1Scale body) {
+        private APIreplaceNamespacedDeploymentScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -14354,7 +15061,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedDeploymentScaleRequest
          */
-        public APIreplaceNamespacedDeploymentScaleRequest pretty(String pretty) {
+        public APIreplaceNamespacedDeploymentScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -14364,7 +15071,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedDeploymentScaleRequest
          */
-        public APIreplaceNamespacedDeploymentScaleRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedDeploymentScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -14374,7 +15081,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedDeploymentScaleRequest
          */
-        public APIreplaceNamespacedDeploymentScaleRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedDeploymentScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -14384,7 +15091,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedDeploymentScaleRequest
          */
-        public APIreplaceNamespacedDeploymentScaleRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedDeploymentScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -14395,7 +15102,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14411,7 +15119,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14428,7 +15137,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14445,7 +15155,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14465,17 +15176,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedDeploymentScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedDeploymentScaleRequest replaceNamespacedDeploymentScale(String name, String namespace, V1Scale body) {
+    public APIreplaceNamespacedDeploymentScaleRequest replaceNamespacedDeploymentScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
         return new APIreplaceNamespacedDeploymentScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedDeploymentStatusCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14542,7 +15254,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeploymentStatus(Async)");
@@ -14563,13 +15275,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Deployment> replaceNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Deployment> replaceNamespacedDeploymentStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedDeploymentStatusAsync(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Deployment> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Deployment>(){}.getType();
@@ -14578,15 +15290,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedDeploymentStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Deployment body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedDeploymentStatusRequest(String name, String namespace, V1Deployment body) {
+        private APIreplaceNamespacedDeploymentStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -14597,7 +15316,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedDeploymentStatusRequest
          */
-        public APIreplaceNamespacedDeploymentStatusRequest pretty(String pretty) {
+        public APIreplaceNamespacedDeploymentStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -14607,7 +15326,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedDeploymentStatusRequest
          */
-        public APIreplaceNamespacedDeploymentStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedDeploymentStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -14617,7 +15336,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedDeploymentStatusRequest
          */
-        public APIreplaceNamespacedDeploymentStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedDeploymentStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -14627,7 +15346,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedDeploymentStatusRequest
          */
-        public APIreplaceNamespacedDeploymentStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedDeploymentStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -14638,7 +15357,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14654,7 +15374,8 @@ public class AppsV1Api {
          * @return V1Deployment
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14671,7 +15392,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Deployment&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14688,7 +15410,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14708,17 +15431,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedDeploymentStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedDeploymentStatusRequest replaceNamespacedDeploymentStatus(String name, String namespace, V1Deployment body) {
+    public APIreplaceNamespacedDeploymentStatusRequest replaceNamespacedDeploymentStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Deployment body) {
         return new APIreplaceNamespacedDeploymentStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedReplicaSetCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14785,7 +15509,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedReplicaSetValidateBeforeCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSet(Async)");
@@ -14806,13 +15530,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> replaceNamespacedReplicaSetWithHttpInfo(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1ReplicaSet> replaceNamespacedReplicaSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedReplicaSetAsync(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -14821,15 +15545,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedReplicaSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1ReplicaSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedReplicaSetRequest(String name, String namespace, V1ReplicaSet body) {
+        private APIreplaceNamespacedReplicaSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -14840,7 +15571,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicaSetRequest
          */
-        public APIreplaceNamespacedReplicaSetRequest pretty(String pretty) {
+        public APIreplaceNamespacedReplicaSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -14850,7 +15581,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedReplicaSetRequest
          */
-        public APIreplaceNamespacedReplicaSetRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedReplicaSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -14860,7 +15591,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedReplicaSetRequest
          */
-        public APIreplaceNamespacedReplicaSetRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedReplicaSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -14870,7 +15601,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedReplicaSetRequest
          */
-        public APIreplaceNamespacedReplicaSetRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedReplicaSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -14881,7 +15612,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14897,7 +15629,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14914,7 +15647,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14931,7 +15665,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -14951,17 +15686,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedReplicaSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedReplicaSetRequest replaceNamespacedReplicaSet(String name, String namespace, V1ReplicaSet body) {
+    public APIreplaceNamespacedReplicaSetRequest replaceNamespacedReplicaSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
         return new APIreplaceNamespacedReplicaSetRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedReplicaSetScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15028,7 +15764,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSetScale(Async)");
@@ -15049,13 +15785,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> replaceNamespacedReplicaSetScaleWithHttpInfo(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Scale> replaceNamespacedReplicaSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedReplicaSetScaleAsync(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -15064,15 +15800,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedReplicaSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Scale body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedReplicaSetScaleRequest(String name, String namespace, V1Scale body) {
+        private APIreplaceNamespacedReplicaSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -15083,7 +15826,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicaSetScaleRequest
          */
-        public APIreplaceNamespacedReplicaSetScaleRequest pretty(String pretty) {
+        public APIreplaceNamespacedReplicaSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -15093,7 +15836,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedReplicaSetScaleRequest
          */
-        public APIreplaceNamespacedReplicaSetScaleRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedReplicaSetScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -15103,7 +15846,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedReplicaSetScaleRequest
          */
-        public APIreplaceNamespacedReplicaSetScaleRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedReplicaSetScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -15113,7 +15856,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedReplicaSetScaleRequest
          */
-        public APIreplaceNamespacedReplicaSetScaleRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedReplicaSetScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -15124,7 +15867,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15140,7 +15884,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15157,7 +15902,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15174,7 +15920,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15194,17 +15941,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedReplicaSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedReplicaSetScaleRequest replaceNamespacedReplicaSetScale(String name, String namespace, V1Scale body) {
+    public APIreplaceNamespacedReplicaSetScaleRequest replaceNamespacedReplicaSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
         return new APIreplaceNamespacedReplicaSetScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedReplicaSetStatusCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15271,7 +16019,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSetStatus(Async)");
@@ -15292,13 +16040,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1ReplicaSet> replaceNamespacedReplicaSetStatusWithHttpInfo(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1ReplicaSet> replaceNamespacedReplicaSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedReplicaSetStatusAsync(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedReplicaSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1ReplicaSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedReplicaSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1ReplicaSet>(){}.getType();
@@ -15307,15 +16055,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedReplicaSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1ReplicaSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedReplicaSetStatusRequest(String name, String namespace, V1ReplicaSet body) {
+        private APIreplaceNamespacedReplicaSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -15326,7 +16081,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedReplicaSetStatusRequest
          */
-        public APIreplaceNamespacedReplicaSetStatusRequest pretty(String pretty) {
+        public APIreplaceNamespacedReplicaSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -15336,7 +16091,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedReplicaSetStatusRequest
          */
-        public APIreplaceNamespacedReplicaSetStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedReplicaSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -15346,7 +16101,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedReplicaSetStatusRequest
          */
-        public APIreplaceNamespacedReplicaSetStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedReplicaSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -15356,7 +16111,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedReplicaSetStatusRequest
          */
-        public APIreplaceNamespacedReplicaSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedReplicaSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -15367,7 +16122,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15383,7 +16139,8 @@ public class AppsV1Api {
          * @return V1ReplicaSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15400,7 +16157,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1ReplicaSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15417,7 +16175,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15437,17 +16196,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedReplicaSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedReplicaSetStatusRequest replaceNamespacedReplicaSetStatus(String name, String namespace, V1ReplicaSet body) {
+    public APIreplaceNamespacedReplicaSetStatusRequest replaceNamespacedReplicaSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1ReplicaSet body) {
         return new APIreplaceNamespacedReplicaSetStatusRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedStatefulSetCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15514,7 +16274,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSet(Async)");
@@ -15535,13 +16295,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> replaceNamespacedStatefulSetWithHttpInfo(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1StatefulSet> replaceNamespacedStatefulSetWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedStatefulSetAsync(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -15550,15 +16310,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedStatefulSetRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1StatefulSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedStatefulSetRequest(String name, String namespace, V1StatefulSet body) {
+        private APIreplaceNamespacedStatefulSetRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -15569,7 +16336,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedStatefulSetRequest
          */
-        public APIreplaceNamespacedStatefulSetRequest pretty(String pretty) {
+        public APIreplaceNamespacedStatefulSetRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -15579,7 +16346,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedStatefulSetRequest
          */
-        public APIreplaceNamespacedStatefulSetRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedStatefulSetRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -15589,7 +16356,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedStatefulSetRequest
          */
-        public APIreplaceNamespacedStatefulSetRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedStatefulSetRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -15599,7 +16366,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedStatefulSetRequest
          */
-        public APIreplaceNamespacedStatefulSetRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedStatefulSetRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -15610,7 +16377,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15626,7 +16394,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15643,7 +16412,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15660,7 +16430,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15680,17 +16451,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedStatefulSetRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedStatefulSetRequest replaceNamespacedStatefulSet(String name, String namespace, V1StatefulSet body) {
+    public APIreplaceNamespacedStatefulSetRequest replaceNamespacedStatefulSet(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
         return new APIreplaceNamespacedStatefulSetRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedStatefulSetScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetScaleCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15757,7 +16529,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetScaleValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSetScale(Async)");
@@ -15778,13 +16550,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1Scale> replaceNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1Scale> replaceNamespacedStatefulSetScaleWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedStatefulSetScaleAsync(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetScaleAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1Scale> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1Scale>(){}.getType();
@@ -15793,15 +16565,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedStatefulSetScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1Scale body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedStatefulSetScaleRequest(String name, String namespace, V1Scale body) {
+        private APIreplaceNamespacedStatefulSetScaleRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -15812,7 +16591,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedStatefulSetScaleRequest
          */
-        public APIreplaceNamespacedStatefulSetScaleRequest pretty(String pretty) {
+        public APIreplaceNamespacedStatefulSetScaleRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -15822,7 +16601,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedStatefulSetScaleRequest
          */
-        public APIreplaceNamespacedStatefulSetScaleRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedStatefulSetScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -15832,7 +16611,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedStatefulSetScaleRequest
          */
-        public APIreplaceNamespacedStatefulSetScaleRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedStatefulSetScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -15842,7 +16621,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedStatefulSetScaleRequest
          */
-        public APIreplaceNamespacedStatefulSetScaleRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedStatefulSetScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -15853,7 +16632,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15869,7 +16649,8 @@ public class AppsV1Api {
          * @return V1Scale
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15886,7 +16667,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1Scale&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15903,7 +16685,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -15923,17 +16706,18 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedStatefulSetScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedStatefulSetScaleRequest replaceNamespacedStatefulSetScale(String name, String namespace, V1Scale body) {
+    public APIreplaceNamespacedStatefulSetScaleRequest replaceNamespacedStatefulSetScale(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Scale body) {
         return new APIreplaceNamespacedStatefulSetScaleRequest(name, namespace, body);
     }
-    private okhttp3.Call replaceNamespacedStatefulSetStatusCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16000,7 +16784,7 @@ public class AppsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSetStatus(Async)");
@@ -16021,13 +16805,13 @@ public class AppsV1Api {
     }
 
 
-    private ApiResponse<V1StatefulSet> replaceNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<V1StatefulSet> replaceNamespacedStatefulSetStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedStatefulSetStatusAsync(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1StatefulSet> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<V1StatefulSet>(){}.getType();
@@ -16036,15 +16820,22 @@ public class AppsV1Api {
     }
 
     public class APIreplaceNamespacedStatefulSetStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1StatefulSet body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedStatefulSetStatusRequest(String name, String namespace, V1StatefulSet body) {
+        private APIreplaceNamespacedStatefulSetStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
             this.name = name;
             this.namespace = namespace;
             this.body = body;
@@ -16055,7 +16846,7 @@ public class AppsV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIreplaceNamespacedStatefulSetStatusRequest
          */
-        public APIreplaceNamespacedStatefulSetStatusRequest pretty(String pretty) {
+        public APIreplaceNamespacedStatefulSetStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -16065,7 +16856,7 @@ public class AppsV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedStatefulSetStatusRequest
          */
-        public APIreplaceNamespacedStatefulSetStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedStatefulSetStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -16075,7 +16866,7 @@ public class AppsV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedStatefulSetStatusRequest
          */
-        public APIreplaceNamespacedStatefulSetStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedStatefulSetStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -16085,7 +16876,7 @@ public class AppsV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIreplaceNamespacedStatefulSetStatusRequest
          */
-        public APIreplaceNamespacedStatefulSetStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedStatefulSetStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -16096,7 +16887,8 @@ public class AppsV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -16112,7 +16904,8 @@ public class AppsV1Api {
          * @return V1StatefulSet
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -16129,7 +16922,8 @@ public class AppsV1Api {
          * @return ApiResponse&lt;V1StatefulSet&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -16146,7 +16940,8 @@ public class AppsV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -16166,14 +16961,15 @@ public class AppsV1Api {
      * @param body  (required)
      * @return APIreplaceNamespacedStatefulSetStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedStatefulSetStatusRequest replaceNamespacedStatefulSetStatus(String name, String namespace, V1StatefulSet body) {
+    public APIreplaceNamespacedStatefulSetStatusRequest replaceNamespacedStatefulSetStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1StatefulSet body) {
         return new APIreplaceNamespacedStatefulSetStatusRequest(name, namespace, body);
     }
 }

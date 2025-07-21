@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * Variable is the definition of a variable that is used for composition. A variable is defined as a named expression.
  */
 @ApiModel(description = "Variable is the definition of a variable that is used for composition. A variable is defined as a named expression.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1Variable {
   public static final String SERIALIZED_NAME_EXPRESSION = "expression";
   @SerializedName(SERIALIZED_NAME_EXPRESSION)
+  @jakarta.annotation.Nonnull
   private String expression;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1beta1Variable() {
   }
 
-  public V1beta1Variable expression(String expression) {
+  public V1beta1Variable expression(@jakarta.annotation.Nonnull String expression) {
     this.expression = expression;
     return this;
   }
 
-   /**
+  /**
    * Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.
    * @return expression
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.")
   public String getExpression() {
     return expression;
   }
 
-  public void setExpression(String expression) {
+  public void setExpression(@jakarta.annotation.Nonnull String expression) {
     this.expression = expression;
   }
 
 
-  public V1beta1Variable name(String name) {
+  public V1beta1Variable name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through &#x60;variables&#x60; For example, if name is \&quot;foo\&quot;, the variable will be available as &#x60;variables.foo&#x60;
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -160,12 +161,12 @@ public class V1beta1Variable {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1Variable
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1Variable
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1Variable.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1beta1Variable {
     }
   }
 
- /**
-  * Create an instance of V1beta1Variable given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1Variable
-  * @throws IOException if the JSON string is invalid with respect to V1beta1Variable
-  */
+  /**
+   * Create an instance of V1beta1Variable given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1Variable
+   * @throws IOException if the JSON string is invalid with respect to V1beta1Variable
+   */
   public static V1beta1Variable fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1Variable.class);
   }
 
- /**
-  * Convert an instance of V1beta1Variable to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1Variable to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

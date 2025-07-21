@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.kubernetes</groupId>
         <artifactId>client-java-parent</artifactId>
-        <version>24.0.0-SNAPSHOT</version>
+        <version>25.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <dependencies>
@@ -60,9 +60,9 @@
             <artifactId>bcpkix-jdk18on</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-sts</artifactId>
-            <optional>${com.amazonaws.aws-java-sdk-sts.optional}</optional>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sts</artifactId>
+            <optional>${software.amazon.awssdk.sts.optional}</optional>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>

@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,103 +52,107 @@ import io.kubernetes.client.openapi.JSON;
  * MutatingAdmissionPolicyBinding binds the MutatingAdmissionPolicy with parametrized resources. MutatingAdmissionPolicyBinding and the optional parameter resource together define how cluster administrators configure policies for clusters.  For a given admission request, each binding will cause its policy to be evaluated N times, where N is 1 for policies/bindings that don&#39;t use params, otherwise N is the number of parameters selected by the binding. Each evaluation is constrained by a [runtime cost budget](https://kubernetes.io/docs/reference/using-api/cel/#runtime-cost-budget).  Adding/removing policies, bindings, or params can not affect whether a given (policy, binding, param) combination is within its own CEL budget.
  */
 @ApiModel(description = "MutatingAdmissionPolicyBinding binds the MutatingAdmissionPolicy with parametrized resources. MutatingAdmissionPolicyBinding and the optional parameter resource together define how cluster administrators configure policies for clusters.  For a given admission request, each binding will cause its policy to be evaluated N times, where N is 1 for policies/bindings that don't use params, otherwise N is the number of parameters selected by the binding. Each evaluation is constrained by a [runtime cost budget](https://kubernetes.io/docs/reference/using-api/cel/#runtime-cost-budget).  Adding/removing policies, bindings, or params can not affect whether a given (policy, binding, param) combination is within its own CEL budget.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1MutatingAdmissionPolicyBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
+  @jakarta.annotation.Nullable
   private V1alpha1MutatingAdmissionPolicyBindingSpec spec;
 
   public V1alpha1MutatingAdmissionPolicyBinding() {
   }
 
-  public V1alpha1MutatingAdmissionPolicyBinding apiVersion(String apiVersion) {
+  public V1alpha1MutatingAdmissionPolicyBinding apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1alpha1MutatingAdmissionPolicyBinding kind(String kind) {
+  public V1alpha1MutatingAdmissionPolicyBinding kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1alpha1MutatingAdmissionPolicyBinding metadata(V1ObjectMeta metadata) {
+  public V1alpha1MutatingAdmissionPolicyBinding metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1alpha1MutatingAdmissionPolicyBinding spec(V1alpha1MutatingAdmissionPolicyBindingSpec spec) {
+  public V1alpha1MutatingAdmissionPolicyBinding spec(@jakarta.annotation.Nullable V1alpha1MutatingAdmissionPolicyBindingSpec spec) {
     this.spec = spec;
     return this;
   }
 
-   /**
+  /**
    * Get spec
    * @return spec
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha1MutatingAdmissionPolicyBindingSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(V1alpha1MutatingAdmissionPolicyBindingSpec spec) {
+  public void setSpec(@jakarta.annotation.Nullable V1alpha1MutatingAdmissionPolicyBindingSpec spec) {
     this.spec = spec;
   }
 
@@ -214,12 +217,12 @@ public class V1alpha1MutatingAdmissionPolicyBinding implements io.kubernetes.cli
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha1MutatingAdmissionPolicyBinding
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha1MutatingAdmissionPolicyBinding
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1MutatingAdmissionPolicyBinding.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -280,22 +283,22 @@ public class V1alpha1MutatingAdmissionPolicyBinding implements io.kubernetes.cli
     }
   }
 
- /**
-  * Create an instance of V1alpha1MutatingAdmissionPolicyBinding given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha1MutatingAdmissionPolicyBinding
-  * @throws IOException if the JSON string is invalid with respect to V1alpha1MutatingAdmissionPolicyBinding
-  */
+  /**
+   * Create an instance of V1alpha1MutatingAdmissionPolicyBinding given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha1MutatingAdmissionPolicyBinding
+   * @throws IOException if the JSON string is invalid with respect to V1alpha1MutatingAdmissionPolicyBinding
+   */
   public static V1alpha1MutatingAdmissionPolicyBinding fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha1MutatingAdmissionPolicyBinding.class);
   }
 
- /**
-  * Convert an instance of V1alpha1MutatingAdmissionPolicyBinding to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha1MutatingAdmissionPolicyBinding to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

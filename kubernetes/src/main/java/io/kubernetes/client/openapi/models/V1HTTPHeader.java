@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * HTTPHeader describes a custom header to be used in HTTP probes
  */
 @ApiModel(description = "HTTPHeader describes a custom header to be used in HTTP probes")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1HTTPHeader {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
+  @jakarta.annotation.Nonnull
   private String value;
 
   public V1HTTPHeader() {
   }
 
-  public V1HTTPHeader name(String name) {
+  public V1HTTPHeader name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1HTTPHeader value(String value) {
+  public V1HTTPHeader value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The header field value
    * @return value
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The header field value")
   public String getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
@@ -160,12 +161,12 @@ public class V1HTTPHeader {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1HTTPHeader
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1HTTPHeader
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1HTTPHeader.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1HTTPHeader {
     }
   }
 
- /**
-  * Create an instance of V1HTTPHeader given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1HTTPHeader
-  * @throws IOException if the JSON string is invalid with respect to V1HTTPHeader
-  */
+  /**
+   * Create an instance of V1HTTPHeader given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1HTTPHeader
+   * @throws IOException if the JSON string is invalid with respect to V1HTTPHeader
+   */
   public static V1HTTPHeader fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1HTTPHeader.class);
   }
 
- /**
-  * Convert an instance of V1HTTPHeader to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1HTTPHeader to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

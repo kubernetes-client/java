@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout Java
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -80,8 +82,8 @@ jobs:
       - name: Apply Manual Diffs
         if: ${{ github.event.inputs.skip_patches != 'true' }}
         run: |
-          ls scripts/patches/*.diff | xargs git apply
-          git add .
+          ls scripts/patches/*.diff | xargs -I {} bash -xc 'patch -p1 < "{}"'
+          git add *.java
           git commit -s -m 'Applied patches under scripts/patches/*.diff'
       - name: Generate Fluent
         run: |
@@ -110,7 +112,7 @@ jobs:
         with:
           source_branch: ${{ env.BRANCH }}
           destination_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
 
 

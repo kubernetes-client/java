@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,103 +52,107 @@ import io.kubernetes.client.openapi.JSON;
  * PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
  */
 @ApiModel(description = "PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodDisruptionBudgetSpec {
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
+  @jakarta.annotation.Nullable
   private IntOrString maxUnavailable;
 
   public static final String SERIALIZED_NAME_MIN_AVAILABLE = "minAvailable";
   @SerializedName(SERIALIZED_NAME_MIN_AVAILABLE)
+  @jakarta.annotation.Nullable
   private IntOrString minAvailable;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1LabelSelector selector;
 
   public static final String SERIALIZED_NAME_UNHEALTHY_POD_EVICTION_POLICY = "unhealthyPodEvictionPolicy";
   @SerializedName(SERIALIZED_NAME_UNHEALTHY_POD_EVICTION_POLICY)
+  @jakarta.annotation.Nullable
   private String unhealthyPodEvictionPolicy;
 
   public V1PodDisruptionBudgetSpec() {
   }
 
-  public V1PodDisruptionBudgetSpec maxUnavailable(IntOrString maxUnavailable) {
+  public V1PodDisruptionBudgetSpec maxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return maxUnavailable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMaxUnavailable() {
     return maxUnavailable;
   }
 
-  public void setMaxUnavailable(IntOrString maxUnavailable) {
+  public void setMaxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
   }
 
 
-  public V1PodDisruptionBudgetSpec minAvailable(IntOrString minAvailable) {
+  public V1PodDisruptionBudgetSpec minAvailable(@jakarta.annotation.Nullable IntOrString minAvailable) {
     this.minAvailable = minAvailable;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return minAvailable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMinAvailable() {
     return minAvailable;
   }
 
-  public void setMinAvailable(IntOrString minAvailable) {
+  public void setMinAvailable(@jakarta.annotation.Nullable IntOrString minAvailable) {
     this.minAvailable = minAvailable;
   }
 
 
-  public V1PodDisruptionBudgetSpec selector(V1LabelSelector selector) {
+  public V1PodDisruptionBudgetSpec selector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;
   }
 
-  public void setSelector(V1LabelSelector selector) {
+  public void setSelector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
   }
 
 
-  public V1PodDisruptionBudgetSpec unhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy) {
+  public V1PodDisruptionBudgetSpec unhealthyPodEvictionPolicy(@jakarta.annotation.Nullable String unhealthyPodEvictionPolicy) {
     this.unhealthyPodEvictionPolicy = unhealthyPodEvictionPolicy;
     return this;
   }
 
-   /**
-   * UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction. Current implementation considers healthy pods, as pods that have status.conditions item with type&#x3D;\&quot;Ready\&quot;,status&#x3D;\&quot;True\&quot;.  Valid policies are IfHealthyBudget and AlwaysAllow. If no policy is specified, the default behavior will be used, which corresponds to the IfHealthyBudget policy.  IfHealthyBudget policy means that running pods (status.phase&#x3D;\&quot;Running\&quot;), but not yet healthy can be evicted only if the guarded application is not disrupted (status.currentHealthy is at least equal to status.desiredHealthy). Healthy pods will be subject to the PDB for eviction.  AlwaysAllow policy means that all running pods (status.phase&#x3D;\&quot;Running\&quot;), but not yet healthy are considered disrupted and can be evicted regardless of whether the criteria in a PDB is met. This means perspective running pods of a disrupted application might not get a chance to become healthy. Healthy pods will be subject to the PDB for eviction.  Additional policies may be added in the future. Clients making eviction decisions should disallow eviction of unhealthy pods if they encounter an unrecognized policy in this field.  This field is beta-level. The eviction API uses this field when the feature gate PDBUnhealthyPodEvictionPolicy is enabled (enabled by default).
+  /**
+   * UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction. Current implementation considers healthy pods, as pods that have status.conditions item with type&#x3D;\&quot;Ready\&quot;,status&#x3D;\&quot;True\&quot;.  Valid policies are IfHealthyBudget and AlwaysAllow. If no policy is specified, the default behavior will be used, which corresponds to the IfHealthyBudget policy.  IfHealthyBudget policy means that running pods (status.phase&#x3D;\&quot;Running\&quot;), but not yet healthy can be evicted only if the guarded application is not disrupted (status.currentHealthy is at least equal to status.desiredHealthy). Healthy pods will be subject to the PDB for eviction.  AlwaysAllow policy means that all running pods (status.phase&#x3D;\&quot;Running\&quot;), but not yet healthy are considered disrupted and can be evicted regardless of whether the criteria in a PDB is met. This means perspective running pods of a disrupted application might not get a chance to become healthy. Healthy pods will be subject to the PDB for eviction.  Additional policies may be added in the future. Clients making eviction decisions should disallow eviction of unhealthy pods if they encounter an unrecognized policy in this field.
    * @return unhealthyPodEvictionPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction. Current implementation considers healthy pods, as pods that have status.conditions item with type=\"Ready\",status=\"True\".  Valid policies are IfHealthyBudget and AlwaysAllow. If no policy is specified, the default behavior will be used, which corresponds to the IfHealthyBudget policy.  IfHealthyBudget policy means that running pods (status.phase=\"Running\"), but not yet healthy can be evicted only if the guarded application is not disrupted (status.currentHealthy is at least equal to status.desiredHealthy). Healthy pods will be subject to the PDB for eviction.  AlwaysAllow policy means that all running pods (status.phase=\"Running\"), but not yet healthy are considered disrupted and can be evicted regardless of whether the criteria in a PDB is met. This means perspective running pods of a disrupted application might not get a chance to become healthy. Healthy pods will be subject to the PDB for eviction.  Additional policies may be added in the future. Clients making eviction decisions should disallow eviction of unhealthy pods if they encounter an unrecognized policy in this field.  This field is beta-level. The eviction API uses this field when the feature gate PDBUnhealthyPodEvictionPolicy is enabled (enabled by default).")
+  @ApiModelProperty(value = "UnhealthyPodEvictionPolicy defines the criteria for when unhealthy pods should be considered for eviction. Current implementation considers healthy pods, as pods that have status.conditions item with type=\"Ready\",status=\"True\".  Valid policies are IfHealthyBudget and AlwaysAllow. If no policy is specified, the default behavior will be used, which corresponds to the IfHealthyBudget policy.  IfHealthyBudget policy means that running pods (status.phase=\"Running\"), but not yet healthy can be evicted only if the guarded application is not disrupted (status.currentHealthy is at least equal to status.desiredHealthy). Healthy pods will be subject to the PDB for eviction.  AlwaysAllow policy means that all running pods (status.phase=\"Running\"), but not yet healthy are considered disrupted and can be evicted regardless of whether the criteria in a PDB is met. This means perspective running pods of a disrupted application might not get a chance to become healthy. Healthy pods will be subject to the PDB for eviction.  Additional policies may be added in the future. Clients making eviction decisions should disallow eviction of unhealthy pods if they encounter an unrecognized policy in this field.")
   public String getUnhealthyPodEvictionPolicy() {
     return unhealthyPodEvictionPolicy;
   }
 
-  public void setUnhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy) {
+  public void setUnhealthyPodEvictionPolicy(@jakarta.annotation.Nullable String unhealthyPodEvictionPolicy) {
     this.unhealthyPodEvictionPolicy = unhealthyPodEvictionPolicy;
   }
 
@@ -214,12 +217,12 @@ public class V1PodDisruptionBudgetSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PodDisruptionBudgetSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PodDisruptionBudgetSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodDisruptionBudgetSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -279,22 +282,22 @@ public class V1PodDisruptionBudgetSpec {
     }
   }
 
- /**
-  * Create an instance of V1PodDisruptionBudgetSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PodDisruptionBudgetSpec
-  * @throws IOException if the JSON string is invalid with respect to V1PodDisruptionBudgetSpec
-  */
+  /**
+   * Create an instance of V1PodDisruptionBudgetSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PodDisruptionBudgetSpec
+   * @throws IOException if the JSON string is invalid with respect to V1PodDisruptionBudgetSpec
+   */
   public static V1PodDisruptionBudgetSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PodDisruptionBudgetSpec.class);
   }
 
- /**
-  * Convert an instance of V1PodDisruptionBudgetSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PodDisruptionBudgetSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

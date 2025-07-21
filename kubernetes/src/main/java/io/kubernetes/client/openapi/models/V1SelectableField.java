@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * SelectableField specifies the JSON path of a field that may be used with field selectors.
  */
 @ApiModel(description = "SelectableField specifies the JSON path of a field that may be used with field selectors.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SelectableField {
   public static final String SERIALIZED_NAME_JSON_PATH = "jsonPath";
   @SerializedName(SERIALIZED_NAME_JSON_PATH)
+  @jakarta.annotation.Nonnull
   private String jsonPath;
 
   public V1SelectableField() {
   }
 
-  public V1SelectableField jsonPath(String jsonPath) {
+  public V1SelectableField jsonPath(@jakarta.annotation.Nonnull String jsonPath) {
     this.jsonPath = jsonPath;
     return this;
   }
 
-   /**
+  /**
    * jsonPath is a simple JSON path which is evaluated against each custom resource to produce a field selector value. Only JSON paths without the array notation are allowed. Must point to a field of type string, boolean or integer. Types with enum values and strings with formats are allowed. If jsonPath refers to absent field in a resource, the jsonPath evaluates to an empty string. Must not point to metdata fields. Required.
    * @return jsonPath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "jsonPath is a simple JSON path which is evaluated against each custom resource to produce a field selector value. Only JSON paths without the array notation are allowed. Must point to a field of type string, boolean or integer. Types with enum values and strings with formats are allowed. If jsonPath refers to absent field in a resource, the jsonPath evaluates to an empty string. Must not point to metdata fields. Required.")
   public String getJsonPath() {
     return jsonPath;
   }
 
-  public void setJsonPath(String jsonPath) {
+  public void setJsonPath(@jakarta.annotation.Nonnull String jsonPath) {
     this.jsonPath = jsonPath;
   }
 
@@ -132,12 +132,12 @@ public class V1SelectableField {
     openapiRequiredFields.add("jsonPath");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SelectableField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SelectableField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SelectableField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -194,22 +194,22 @@ public class V1SelectableField {
     }
   }
 
- /**
-  * Create an instance of V1SelectableField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SelectableField
-  * @throws IOException if the JSON string is invalid with respect to V1SelectableField
-  */
+  /**
+   * Create an instance of V1SelectableField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SelectableField
+   * @throws IOException if the JSON string is invalid with respect to V1SelectableField
+   */
   public static V1SelectableField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SelectableField.class);
   }
 
- /**
-  * Convert an instance of V1SelectableField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SelectableField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

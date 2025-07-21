@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,24 +54,27 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingAdmissionPolicyStatus represents the status of an admission validation policy.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyStatus represents the status of an admission validation policy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ValidatingAdmissionPolicyStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1Condition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
   @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
+  @jakarta.annotation.Nullable
   private Long observedGeneration;
 
   public static final String SERIALIZED_NAME_TYPE_CHECKING = "typeChecking";
   @SerializedName(SERIALIZED_NAME_TYPE_CHECKING)
+  @jakarta.annotation.Nullable
   private V1TypeChecking typeChecking;
 
   public V1ValidatingAdmissionPolicyStatus() {
   }
 
-  public V1ValidatingAdmissionPolicyStatus conditions(List<V1Condition> conditions) {
+  public V1ValidatingAdmissionPolicyStatus conditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -85,57 +87,57 @@ public class V1ValidatingAdmissionPolicyStatus {
     return this;
   }
 
-   /**
+  /**
    * The conditions represent the latest available observations of a policy&#39;s current state.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The conditions represent the latest available observations of a policy's current state.")
   public List<V1Condition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1Condition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1ValidatingAdmissionPolicyStatus observedGeneration(Long observedGeneration) {
+  public V1ValidatingAdmissionPolicyStatus observedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
     this.observedGeneration = observedGeneration;
     return this;
   }
 
-   /**
+  /**
    * The generation observed by the controller.
    * @return observedGeneration
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The generation observed by the controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
 
-  public void setObservedGeneration(Long observedGeneration) {
+  public void setObservedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
     this.observedGeneration = observedGeneration;
   }
 
 
-  public V1ValidatingAdmissionPolicyStatus typeChecking(V1TypeChecking typeChecking) {
+  public V1ValidatingAdmissionPolicyStatus typeChecking(@jakarta.annotation.Nullable V1TypeChecking typeChecking) {
     this.typeChecking = typeChecking;
     return this;
   }
 
-   /**
+  /**
    * Get typeChecking
    * @return typeChecking
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TypeChecking getTypeChecking() {
     return typeChecking;
   }
 
-  public void setTypeChecking(V1TypeChecking typeChecking) {
+  public void setTypeChecking(@jakarta.annotation.Nullable V1TypeChecking typeChecking) {
     this.typeChecking = typeChecking;
   }
 
@@ -197,12 +199,12 @@ public class V1ValidatingAdmissionPolicyStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ValidatingAdmissionPolicyStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ValidatingAdmissionPolicyStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ValidatingAdmissionPolicyStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -267,22 +269,22 @@ public class V1ValidatingAdmissionPolicyStatus {
     }
   }
 
- /**
-  * Create an instance of V1ValidatingAdmissionPolicyStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ValidatingAdmissionPolicyStatus
-  * @throws IOException if the JSON string is invalid with respect to V1ValidatingAdmissionPolicyStatus
-  */
+  /**
+   * Create an instance of V1ValidatingAdmissionPolicyStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ValidatingAdmissionPolicyStatus
+   * @throws IOException if the JSON string is invalid with respect to V1ValidatingAdmissionPolicyStatus
+   */
   public static V1ValidatingAdmissionPolicyStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ValidatingAdmissionPolicyStatus.class);
   }
 
- /**
-  * Convert an instance of V1ValidatingAdmissionPolicyStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ValidatingAdmissionPolicyStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

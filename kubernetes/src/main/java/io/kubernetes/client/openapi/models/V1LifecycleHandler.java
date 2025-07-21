@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,103 +54,107 @@ import io.kubernetes.client.openapi.JSON;
  * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
 @ApiModel(description = "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
   @SerializedName(SERIALIZED_NAME_EXEC)
+  @jakarta.annotation.Nullable
   private V1ExecAction exec;
 
   public static final String SERIALIZED_NAME_HTTP_GET = "httpGet";
   @SerializedName(SERIALIZED_NAME_HTTP_GET)
+  @jakarta.annotation.Nullable
   private V1HTTPGetAction httpGet;
 
   public static final String SERIALIZED_NAME_SLEEP = "sleep";
   @SerializedName(SERIALIZED_NAME_SLEEP)
+  @jakarta.annotation.Nullable
   private V1SleepAction sleep;
 
   public static final String SERIALIZED_NAME_TCP_SOCKET = "tcpSocket";
   @SerializedName(SERIALIZED_NAME_TCP_SOCKET)
+  @jakarta.annotation.Nullable
   private V1TCPSocketAction tcpSocket;
 
   public V1LifecycleHandler() {
   }
 
-  public V1LifecycleHandler exec(V1ExecAction exec) {
+  public V1LifecycleHandler exec(@jakarta.annotation.Nullable V1ExecAction exec) {
     this.exec = exec;
     return this;
   }
 
-   /**
+  /**
    * Get exec
    * @return exec
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ExecAction getExec() {
     return exec;
   }
 
-  public void setExec(V1ExecAction exec) {
+  public void setExec(@jakarta.annotation.Nullable V1ExecAction exec) {
     this.exec = exec;
   }
 
 
-  public V1LifecycleHandler httpGet(V1HTTPGetAction httpGet) {
+  public V1LifecycleHandler httpGet(@jakarta.annotation.Nullable V1HTTPGetAction httpGet) {
     this.httpGet = httpGet;
     return this;
   }
 
-   /**
+  /**
    * Get httpGet
    * @return httpGet
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1HTTPGetAction getHttpGet() {
     return httpGet;
   }
 
-  public void setHttpGet(V1HTTPGetAction httpGet) {
+  public void setHttpGet(@jakarta.annotation.Nullable V1HTTPGetAction httpGet) {
     this.httpGet = httpGet;
   }
 
 
-  public V1LifecycleHandler sleep(V1SleepAction sleep) {
+  public V1LifecycleHandler sleep(@jakarta.annotation.Nullable V1SleepAction sleep) {
     this.sleep = sleep;
     return this;
   }
 
-   /**
+  /**
    * Get sleep
    * @return sleep
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SleepAction getSleep() {
     return sleep;
   }
 
-  public void setSleep(V1SleepAction sleep) {
+  public void setSleep(@jakarta.annotation.Nullable V1SleepAction sleep) {
     this.sleep = sleep;
   }
 
 
-  public V1LifecycleHandler tcpSocket(V1TCPSocketAction tcpSocket) {
+  public V1LifecycleHandler tcpSocket(@jakarta.annotation.Nullable V1TCPSocketAction tcpSocket) {
     this.tcpSocket = tcpSocket;
     return this;
   }
 
-   /**
+  /**
    * Get tcpSocket
    * @return tcpSocket
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TCPSocketAction getTcpSocket() {
     return tcpSocket;
   }
 
-  public void setTcpSocket(V1TCPSocketAction tcpSocket) {
+  public void setTcpSocket(@jakarta.annotation.Nullable V1TCPSocketAction tcpSocket) {
     this.tcpSocket = tcpSocket;
   }
 
@@ -216,12 +219,12 @@ public class V1LifecycleHandler {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1LifecycleHandler
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1LifecycleHandler
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1LifecycleHandler.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -284,22 +287,22 @@ public class V1LifecycleHandler {
     }
   }
 
- /**
-  * Create an instance of V1LifecycleHandler given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1LifecycleHandler
-  * @throws IOException if the JSON string is invalid with respect to V1LifecycleHandler
-  */
+  /**
+   * Create an instance of V1LifecycleHandler given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1LifecycleHandler
+   * @throws IOException if the JSON string is invalid with respect to V1LifecycleHandler
+   */
   public static V1LifecycleHandler fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1LifecycleHandler.class);
   }
 
- /**
-  * Convert an instance of V1LifecycleHandler to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1LifecycleHandler to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

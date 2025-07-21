@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,20 +54,22 @@ import io.kubernetes.client.openapi.JSON;
  * Node affinity is a group of node affinity scheduling rules.
  */
 @ApiModel(description = "Node affinity is a group of node affinity scheduling rules.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeAffinity {
   public static final String SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "preferredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
+  @jakarta.annotation.Nullable
   private List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "requiredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_REQUIRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
+  @jakarta.annotation.Nullable
   private V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution;
 
   public V1NodeAffinity() {
   }
 
-  public V1NodeAffinity preferredDuringSchedulingIgnoredDuringExecution(List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution) {
+  public V1NodeAffinity preferredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
@@ -81,37 +82,37 @@ public class V1NodeAffinity {
     return this;
   }
 
-   /**
+  /**
    * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \&quot;weight\&quot; to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
    * @return preferredDuringSchedulingIgnoredDuringExecution
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.")
   public List<V1PreferredSchedulingTerm> getPreferredDuringSchedulingIgnoredDuringExecution() {
     return preferredDuringSchedulingIgnoredDuringExecution;
   }
 
-  public void setPreferredDuringSchedulingIgnoredDuringExecution(List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution) {
+  public void setPreferredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     this.preferredDuringSchedulingIgnoredDuringExecution = preferredDuringSchedulingIgnoredDuringExecution;
   }
 
 
-  public V1NodeAffinity requiredDuringSchedulingIgnoredDuringExecution(V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution) {
+  public V1NodeAffinity requiredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution) {
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
     return this;
   }
 
-   /**
+  /**
    * Get requiredDuringSchedulingIgnoredDuringExecution
    * @return requiredDuringSchedulingIgnoredDuringExecution
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSelector getRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution;
   }
 
-  public void setRequiredDuringSchedulingIgnoredDuringExecution(V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution) {
+  public void setRequiredDuringSchedulingIgnoredDuringExecution(@jakarta.annotation.Nullable V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution) {
     this.requiredDuringSchedulingIgnoredDuringExecution = requiredDuringSchedulingIgnoredDuringExecution;
   }
 
@@ -170,12 +171,12 @@ public class V1NodeAffinity {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeAffinity
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeAffinity
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -240,22 +241,22 @@ public class V1NodeAffinity {
     }
   }
 
- /**
-  * Create an instance of V1NodeAffinity given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeAffinity
-  * @throws IOException if the JSON string is invalid with respect to V1NodeAffinity
-  */
+  /**
+   * Create an instance of V1NodeAffinity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeAffinity
+   * @throws IOException if the JSON string is invalid with respect to V1NodeAffinity
+   */
   public static V1NodeAffinity fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeAffinity.class);
   }
 
- /**
-  * Convert an instance of V1NodeAffinity to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeAffinity to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

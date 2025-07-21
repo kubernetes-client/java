@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,127 +53,132 @@ import io.kubernetes.client.openapi.JSON;
  * SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list of actions may be incomplete depending on the server&#39;s authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
  */
 @ApiModel(description = "SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SelfSubjectRulesReview implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
+  @jakarta.annotation.Nonnull
   private V1SelfSubjectRulesReviewSpec spec;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nullable
   private V1SubjectRulesReviewStatus status;
 
   public V1SelfSubjectRulesReview() {
   }
 
-  public V1SelfSubjectRulesReview apiVersion(String apiVersion) {
+  public V1SelfSubjectRulesReview apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1SelfSubjectRulesReview kind(String kind) {
+  public V1SelfSubjectRulesReview kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1SelfSubjectRulesReview metadata(V1ObjectMeta metadata) {
+  public V1SelfSubjectRulesReview metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1SelfSubjectRulesReview spec(V1SelfSubjectRulesReviewSpec spec) {
+  public V1SelfSubjectRulesReview spec(@jakarta.annotation.Nonnull V1SelfSubjectRulesReviewSpec spec) {
     this.spec = spec;
     return this;
   }
 
-   /**
+  /**
    * Get spec
    * @return spec
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1SelfSubjectRulesReviewSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(V1SelfSubjectRulesReviewSpec spec) {
+  public void setSpec(@jakarta.annotation.Nonnull V1SelfSubjectRulesReviewSpec spec) {
     this.spec = spec;
   }
 
 
-  public V1SelfSubjectRulesReview status(V1SubjectRulesReviewStatus status) {
+  public V1SelfSubjectRulesReview status(@jakarta.annotation.Nullable V1SubjectRulesReviewStatus status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SubjectRulesReviewStatus getStatus() {
     return status;
   }
 
-  public void setStatus(V1SubjectRulesReviewStatus status) {
+  public void setStatus(@jakarta.annotation.Nullable V1SubjectRulesReviewStatus status) {
     this.status = status;
   }
 
@@ -243,12 +247,12 @@ public class V1SelfSubjectRulesReview implements io.kubernetes.client.common.Kub
     openapiRequiredFields.add("spec");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SelfSubjectRulesReview
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SelfSubjectRulesReview
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SelfSubjectRulesReview.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -318,22 +322,22 @@ public class V1SelfSubjectRulesReview implements io.kubernetes.client.common.Kub
     }
   }
 
- /**
-  * Create an instance of V1SelfSubjectRulesReview given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SelfSubjectRulesReview
-  * @throws IOException if the JSON string is invalid with respect to V1SelfSubjectRulesReview
-  */
+  /**
+   * Create an instance of V1SelfSubjectRulesReview given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SelfSubjectRulesReview
+   * @throws IOException if the JSON string is invalid with respect to V1SelfSubjectRulesReview
+   */
   public static V1SelfSubjectRulesReview fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SelfSubjectRulesReview.class);
   }
 
- /**
-  * Convert an instance of V1SelfSubjectRulesReview to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SelfSubjectRulesReview to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

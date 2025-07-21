@@ -12,8 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
-import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.VersionInfo;
@@ -22,6 +20,9 @@ import io.kubernetes.client.util.credentials.EKSAuthentication;
 import io.kubernetes.client.util.version.Version;
 
 import java.io.IOException;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.services.sts.StsClient;
+import software.amazon.awssdk.services.sts.auth.StsAssumeRoleCredentialsProvider;
 
 public class EKSAuthenticationExample {
     public static void main(String[] args) throws IOException, ApiException {
@@ -37,10 +38,14 @@ public class EKSAuthenticationExample {
         // EKS cluster name.
         String clusterName = "test-2";
 
-        STSAssumeRoleSessionCredentialsProvider credProvider = new STSAssumeRoleSessionCredentialsProvider(
-                new DefaultAWSCredentialsProviderChain().getCredentials(),
-                roleArn,
-                roleSessionName);
+        StsClient stsClient = StsClient.builder()
+                .credentialsProvider(DefaultCredentialsProvider.builder().build())
+                .build();
+
+        StsAssumeRoleCredentialsProvider credProvider = StsAssumeRoleCredentialsProvider.builder()
+                .stsClient(stsClient)
+                .refreshRequest(r -> r.roleArn(roleArn).roleSessionName(roleSessionName))
+                .build();
 
         ApiClient apiClient = ClientBuilder.standard()
                 .setAuthentication(new EKSAuthentication(credProvider, region, clusterName))

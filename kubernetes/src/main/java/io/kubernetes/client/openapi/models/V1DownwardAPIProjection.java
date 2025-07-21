@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.
  */
 @ApiModel(description = "Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DownwardAPIProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
+  @jakarta.annotation.Nullable
   private List<V1DownwardAPIVolumeFile> items = new ArrayList<>();
 
   public V1DownwardAPIProjection() {
   }
 
-  public V1DownwardAPIProjection items(List<V1DownwardAPIVolumeFile> items) {
+  public V1DownwardAPIProjection items(@jakarta.annotation.Nullable List<V1DownwardAPIVolumeFile> items) {
     this.items = items;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1DownwardAPIProjection {
     return this;
   }
 
-   /**
+  /**
    * Items is a list of DownwardAPIVolume file
    * @return items
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Items is a list of DownwardAPIVolume file")
   public List<V1DownwardAPIVolumeFile> getItems() {
     return items;
   }
 
-  public void setItems(List<V1DownwardAPIVolumeFile> items) {
+  public void setItems(@jakarta.annotation.Nullable List<V1DownwardAPIVolumeFile> items) {
     this.items = items;
   }
 
@@ -142,12 +142,12 @@ public class V1DownwardAPIProjection {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DownwardAPIProjection
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DownwardAPIProjection
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DownwardAPIProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1DownwardAPIProjection {
     }
   }
 
- /**
-  * Create an instance of V1DownwardAPIProjection given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DownwardAPIProjection
-  * @throws IOException if the JSON string is invalid with respect to V1DownwardAPIProjection
-  */
+  /**
+   * Create an instance of V1DownwardAPIProjection given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DownwardAPIProjection
+   * @throws IOException if the JSON string is invalid with respect to V1DownwardAPIProjection
+   */
   public static V1DownwardAPIProjection fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DownwardAPIProjection.class);
   }
 
- /**
-  * Convert an instance of V1DownwardAPIProjection to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DownwardAPIProjection to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

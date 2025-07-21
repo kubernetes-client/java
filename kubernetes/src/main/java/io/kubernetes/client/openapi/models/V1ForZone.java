@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,31 +50,32 @@ import io.kubernetes.client.openapi.JSON;
  * ForZone provides information about which zones should consume this endpoint.
  */
 @ApiModel(description = "ForZone provides information about which zones should consume this endpoint.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ForZone {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1ForZone() {
   }
 
-  public V1ForZone name(String name) {
+  public V1ForZone name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name represents the name of the zone.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name represents the name of the zone.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -132,12 +132,12 @@ public class V1ForZone {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ForZone
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ForZone
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ForZone.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -194,22 +194,22 @@ public class V1ForZone {
     }
   }
 
- /**
-  * Create an instance of V1ForZone given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ForZone
-  * @throws IOException if the JSON string is invalid with respect to V1ForZone
-  */
+  /**
+   * Create an instance of V1ForZone given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ForZone
+   * @throws IOException if the JSON string is invalid with respect to V1ForZone
+   */
   public static V1ForZone fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ForZone.class);
   }
 
- /**
-  * Convert an instance of V1ForZone to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ForZone to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -10,6 +10,7 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.time.OffsetDateTime;
+import java.lang.Long;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -32,6 +33,7 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   private ArrayList<V1ContainerStatusBuilder> initContainerStatuses;
   private String message;
   private String nominatedNodeName;
+  private Long observedGeneration;
   private String phase;
   private String podIP;
   private ArrayList<V1PodIPBuilder> podIPs;
@@ -52,6 +54,7 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
           this.withInitContainerStatuses(instance.getInitContainerStatuses());
           this.withMessage(instance.getMessage());
           this.withNominatedNodeName(instance.getNominatedNodeName());
+          this.withObservedGeneration(instance.getObservedGeneration());
           this.withPhase(instance.getPhase());
           this.withPodIP(instance.getPodIP());
           this.withPodIPs(instance.getPodIPs());
@@ -66,14 +69,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToConditions(int index,V1PodCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PodConditionBuilder>();}
     V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1PodCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PodConditionBuilder>();}
     V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -217,14 +232,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToContainerStatuses(int index,V1ContainerStatus item) {
     if (this.containerStatuses == null) {this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= containerStatuses.size()) { _visitables.get("containerStatuses").add(builder); containerStatuses.add(builder); } else { _visitables.get("containerStatuses").add(index, builder); containerStatuses.add(index, builder);}
+    if (index < 0 || index >= containerStatuses.size()) {
+        _visitables.get("containerStatuses").add(builder);
+        containerStatuses.add(builder);
+    } else {
+        _visitables.get("containerStatuses").add(builder);
+        containerStatuses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToContainerStatuses(int index,V1ContainerStatus item) {
     if (this.containerStatuses == null) {this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= containerStatuses.size()) { _visitables.get("containerStatuses").add(builder); containerStatuses.add(builder); } else { _visitables.get("containerStatuses").set(index, builder); containerStatuses.set(index, builder);}
+    if (index < 0 || index >= containerStatuses.size()) {
+        _visitables.get("containerStatuses").add(builder);
+        containerStatuses.add(builder);
+    } else {
+        _visitables.get("containerStatuses").add(builder);
+        containerStatuses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -368,14 +395,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToEphemeralContainerStatuses(int index,V1ContainerStatus item) {
     if (this.ephemeralContainerStatuses == null) {this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= ephemeralContainerStatuses.size()) { _visitables.get("ephemeralContainerStatuses").add(builder); ephemeralContainerStatuses.add(builder); } else { _visitables.get("ephemeralContainerStatuses").add(index, builder); ephemeralContainerStatuses.add(index, builder);}
+    if (index < 0 || index >= ephemeralContainerStatuses.size()) {
+        _visitables.get("ephemeralContainerStatuses").add(builder);
+        ephemeralContainerStatuses.add(builder);
+    } else {
+        _visitables.get("ephemeralContainerStatuses").add(builder);
+        ephemeralContainerStatuses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEphemeralContainerStatuses(int index,V1ContainerStatus item) {
     if (this.ephemeralContainerStatuses == null) {this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= ephemeralContainerStatuses.size()) { _visitables.get("ephemeralContainerStatuses").add(builder); ephemeralContainerStatuses.add(builder); } else { _visitables.get("ephemeralContainerStatuses").set(index, builder); ephemeralContainerStatuses.set(index, builder);}
+    if (index < 0 || index >= ephemeralContainerStatuses.size()) {
+        _visitables.get("ephemeralContainerStatuses").add(builder);
+        ephemeralContainerStatuses.add(builder);
+    } else {
+        _visitables.get("ephemeralContainerStatuses").add(builder);
+        ephemeralContainerStatuses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -532,14 +571,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToHostIPs(int index,V1HostIP item) {
     if (this.hostIPs == null) {this.hostIPs = new ArrayList<V1HostIPBuilder>();}
     V1HostIPBuilder builder = new V1HostIPBuilder(item);
-    if (index < 0 || index >= hostIPs.size()) { _visitables.get("hostIPs").add(builder); hostIPs.add(builder); } else { _visitables.get("hostIPs").add(index, builder); hostIPs.add(index, builder);}
+    if (index < 0 || index >= hostIPs.size()) {
+        _visitables.get("hostIPs").add(builder);
+        hostIPs.add(builder);
+    } else {
+        _visitables.get("hostIPs").add(builder);
+        hostIPs.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToHostIPs(int index,V1HostIP item) {
     if (this.hostIPs == null) {this.hostIPs = new ArrayList<V1HostIPBuilder>();}
     V1HostIPBuilder builder = new V1HostIPBuilder(item);
-    if (index < 0 || index >= hostIPs.size()) { _visitables.get("hostIPs").add(builder); hostIPs.add(builder); } else { _visitables.get("hostIPs").set(index, builder); hostIPs.set(index, builder);}
+    if (index < 0 || index >= hostIPs.size()) {
+        _visitables.get("hostIPs").add(builder);
+        hostIPs.add(builder);
+    } else {
+        _visitables.get("hostIPs").add(builder);
+        hostIPs.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -683,14 +734,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToInitContainerStatuses(int index,V1ContainerStatus item) {
     if (this.initContainerStatuses == null) {this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= initContainerStatuses.size()) { _visitables.get("initContainerStatuses").add(builder); initContainerStatuses.add(builder); } else { _visitables.get("initContainerStatuses").add(index, builder); initContainerStatuses.add(index, builder);}
+    if (index < 0 || index >= initContainerStatuses.size()) {
+        _visitables.get("initContainerStatuses").add(builder);
+        initContainerStatuses.add(builder);
+    } else {
+        _visitables.get("initContainerStatuses").add(builder);
+        initContainerStatuses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToInitContainerStatuses(int index,V1ContainerStatus item) {
     if (this.initContainerStatuses == null) {this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();}
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= initContainerStatuses.size()) { _visitables.get("initContainerStatuses").add(builder); initContainerStatuses.add(builder); } else { _visitables.get("initContainerStatuses").set(index, builder); initContainerStatuses.set(index, builder);}
+    if (index < 0 || index >= initContainerStatuses.size()) {
+        _visitables.get("initContainerStatuses").add(builder);
+        initContainerStatuses.add(builder);
+    } else {
+        _visitables.get("initContainerStatuses").add(builder);
+        initContainerStatuses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -857,6 +920,19 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
     return this.nominatedNodeName != null;
   }
   
+  public Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  
+  public A withObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+    return (A) this;
+  }
+  
+  public boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
+  }
+  
   public String getPhase() {
     return this.phase;
   }
@@ -886,14 +962,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToPodIPs(int index,V1PodIP item) {
     if (this.podIPs == null) {this.podIPs = new ArrayList<V1PodIPBuilder>();}
     V1PodIPBuilder builder = new V1PodIPBuilder(item);
-    if (index < 0 || index >= podIPs.size()) { _visitables.get("podIPs").add(builder); podIPs.add(builder); } else { _visitables.get("podIPs").add(index, builder); podIPs.add(index, builder);}
+    if (index < 0 || index >= podIPs.size()) {
+        _visitables.get("podIPs").add(builder);
+        podIPs.add(builder);
+    } else {
+        _visitables.get("podIPs").add(builder);
+        podIPs.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPodIPs(int index,V1PodIP item) {
     if (this.podIPs == null) {this.podIPs = new ArrayList<V1PodIPBuilder>();}
     V1PodIPBuilder builder = new V1PodIPBuilder(item);
-    if (index < 0 || index >= podIPs.size()) { _visitables.get("podIPs").add(builder); podIPs.add(builder); } else { _visitables.get("podIPs").set(index, builder); podIPs.set(index, builder);}
+    if (index < 0 || index >= podIPs.size()) {
+        _visitables.get("podIPs").add(builder);
+        podIPs.add(builder);
+    } else {
+        _visitables.get("podIPs").add(builder);
+        podIPs.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1076,14 +1164,26 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   public A addToResourceClaimStatuses(int index,V1PodResourceClaimStatus item) {
     if (this.resourceClaimStatuses == null) {this.resourceClaimStatuses = new ArrayList<V1PodResourceClaimStatusBuilder>();}
     V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-    if (index < 0 || index >= resourceClaimStatuses.size()) { _visitables.get("resourceClaimStatuses").add(builder); resourceClaimStatuses.add(builder); } else { _visitables.get("resourceClaimStatuses").add(index, builder); resourceClaimStatuses.add(index, builder);}
+    if (index < 0 || index >= resourceClaimStatuses.size()) {
+        _visitables.get("resourceClaimStatuses").add(builder);
+        resourceClaimStatuses.add(builder);
+    } else {
+        _visitables.get("resourceClaimStatuses").add(builder);
+        resourceClaimStatuses.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToResourceClaimStatuses(int index,V1PodResourceClaimStatus item) {
     if (this.resourceClaimStatuses == null) {this.resourceClaimStatuses = new ArrayList<V1PodResourceClaimStatusBuilder>();}
     V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-    if (index < 0 || index >= resourceClaimStatuses.size()) { _visitables.get("resourceClaimStatuses").add(builder); resourceClaimStatuses.add(builder); } else { _visitables.get("resourceClaimStatuses").set(index, builder); resourceClaimStatuses.set(index, builder);}
+    if (index < 0 || index >= resourceClaimStatuses.size()) {
+        _visitables.get("resourceClaimStatuses").add(builder);
+        resourceClaimStatuses.add(builder);
+    } else {
+        _visitables.get("resourceClaimStatuses").add(builder);
+        resourceClaimStatuses.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -1250,6 +1350,7 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
     if (!java.util.Objects.equals(initContainerStatuses, that.initContainerStatuses)) return false;
     if (!java.util.Objects.equals(message, that.message)) return false;
     if (!java.util.Objects.equals(nominatedNodeName, that.nominatedNodeName)) return false;
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
     if (!java.util.Objects.equals(phase, that.phase)) return false;
     if (!java.util.Objects.equals(podIP, that.podIP)) return false;
     if (!java.util.Objects.equals(podIPs, that.podIPs)) return false;
@@ -1262,7 +1363,7 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(conditions,  containerStatuses,  ephemeralContainerStatuses,  hostIP,  hostIPs,  initContainerStatuses,  message,  nominatedNodeName,  phase,  podIP,  podIPs,  qosClass,  reason,  resize,  resourceClaimStatuses,  startTime,  super.hashCode());
+    return java.util.Objects.hash(conditions,  containerStatuses,  ephemeralContainerStatuses,  hostIP,  hostIPs,  initContainerStatuses,  message,  nominatedNodeName,  observedGeneration,  phase,  podIP,  podIPs,  qosClass,  reason,  resize,  resourceClaimStatuses,  startTime,  super.hashCode());
   }
   
   public String toString() {
@@ -1276,6 +1377,7 @@ public class V1PodStatusFluent<A extends V1PodStatusFluent<A>> extends BaseFluen
     if (initContainerStatuses != null && !initContainerStatuses.isEmpty()) { sb.append("initContainerStatuses:"); sb.append(initContainerStatuses + ","); }
     if (message != null) { sb.append("message:"); sb.append(message + ","); }
     if (nominatedNodeName != null) { sb.append("nominatedNodeName:"); sb.append(nominatedNodeName + ","); }
+    if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (phase != null) { sb.append("phase:"); sb.append(phase + ","); }
     if (podIP != null) { sb.append("podIP:"); sb.append(podIP + ","); }
     if (podIPs != null && !podIPs.isEmpty()) { sb.append("podIPs:"); sb.append(podIPs + ","); }

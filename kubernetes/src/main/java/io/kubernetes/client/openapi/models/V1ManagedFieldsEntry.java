@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,175 +51,182 @@ import io.kubernetes.client.openapi.JSON;
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
  */
 @ApiModel(description = "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_FIELDS_TYPE = "fieldsType";
   @SerializedName(SERIALIZED_NAME_FIELDS_TYPE)
+  @jakarta.annotation.Nullable
   private String fieldsType;
 
   public static final String SERIALIZED_NAME_FIELDS_V1 = "fieldsV1";
   @SerializedName(SERIALIZED_NAME_FIELDS_V1)
+  @jakarta.annotation.Nullable
   private Object fieldsV1;
 
   public static final String SERIALIZED_NAME_MANAGER = "manager";
   @SerializedName(SERIALIZED_NAME_MANAGER)
+  @jakarta.annotation.Nullable
   private String manager;
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @jakarta.annotation.Nullable
   private String operation;
 
   public static final String SERIALIZED_NAME_SUBRESOURCE = "subresource";
   @SerializedName(SERIALIZED_NAME_SUBRESOURCE)
+  @jakarta.annotation.Nullable
   private String subresource;
 
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime time;
 
   public V1ManagedFieldsEntry() {
   }
 
-  public V1ManagedFieldsEntry apiVersion(String apiVersion) {
+  public V1ManagedFieldsEntry apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the version of this resource that this field set applies to. The format is \&quot;group/version\&quot; just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the version of this resource that this field set applies to. The format is \"group/version\" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1ManagedFieldsEntry fieldsType(String fieldsType) {
+  public V1ManagedFieldsEntry fieldsType(@jakarta.annotation.Nullable String fieldsType) {
     this.fieldsType = fieldsType;
     return this;
   }
 
-   /**
+  /**
    * FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: \&quot;FieldsV1\&quot;
    * @return fieldsType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: \"FieldsV1\"")
   public String getFieldsType() {
     return fieldsType;
   }
 
-  public void setFieldsType(String fieldsType) {
+  public void setFieldsType(@jakarta.annotation.Nullable String fieldsType) {
     this.fieldsType = fieldsType;
   }
 
 
-  public V1ManagedFieldsEntry fieldsV1(Object fieldsV1) {
+  public V1ManagedFieldsEntry fieldsV1(@jakarta.annotation.Nullable Object fieldsV1) {
     this.fieldsV1 = fieldsV1;
     return this;
   }
 
-   /**
+  /**
    * FieldsV1 holds the first JSON version format as described in the \&quot;FieldsV1\&quot; type.
    * @return fieldsV1
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "FieldsV1 holds the first JSON version format as described in the \"FieldsV1\" type.")
   public Object getFieldsV1() {
     return fieldsV1;
   }
 
-  public void setFieldsV1(Object fieldsV1) {
+  public void setFieldsV1(@jakarta.annotation.Nullable Object fieldsV1) {
     this.fieldsV1 = fieldsV1;
   }
 
 
-  public V1ManagedFieldsEntry manager(String manager) {
+  public V1ManagedFieldsEntry manager(@jakarta.annotation.Nullable String manager) {
     this.manager = manager;
     return this;
   }
 
-   /**
+  /**
    * Manager is an identifier of the workflow managing these fields.
    * @return manager
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Manager is an identifier of the workflow managing these fields.")
   public String getManager() {
     return manager;
   }
 
-  public void setManager(String manager) {
+  public void setManager(@jakarta.annotation.Nullable String manager) {
     this.manager = manager;
   }
 
 
-  public V1ManagedFieldsEntry operation(String operation) {
+  public V1ManagedFieldsEntry operation(@jakarta.annotation.Nullable String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are &#39;Apply&#39; and &#39;Update&#39;.
    * @return operation
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'.")
   public String getOperation() {
     return operation;
   }
 
-  public void setOperation(String operation) {
+  public void setOperation(@jakarta.annotation.Nullable String operation) {
     this.operation = operation;
   }
 
 
-  public V1ManagedFieldsEntry subresource(String subresource) {
+  public V1ManagedFieldsEntry subresource(@jakarta.annotation.Nullable String subresource) {
     this.subresource = subresource;
     return this;
   }
 
-   /**
+  /**
    * Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.
    * @return subresource
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.")
   public String getSubresource() {
     return subresource;
   }
 
-  public void setSubresource(String subresource) {
+  public void setSubresource(@jakarta.annotation.Nullable String subresource) {
     this.subresource = subresource;
   }
 
 
-  public V1ManagedFieldsEntry time(OffsetDateTime time) {
+  public V1ManagedFieldsEntry time(@jakarta.annotation.Nullable OffsetDateTime time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.
    * @return time
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.")
   public OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(OffsetDateTime time) {
+  public void setTime(@jakarta.annotation.Nullable OffsetDateTime time) {
     this.time = time;
   }
 
@@ -294,12 +300,12 @@ public class V1ManagedFieldsEntry {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ManagedFieldsEntry
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ManagedFieldsEntry
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ManagedFieldsEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -361,22 +367,22 @@ public class V1ManagedFieldsEntry {
     }
   }
 
- /**
-  * Create an instance of V1ManagedFieldsEntry given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ManagedFieldsEntry
-  * @throws IOException if the JSON string is invalid with respect to V1ManagedFieldsEntry
-  */
+  /**
+   * Create an instance of V1ManagedFieldsEntry given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ManagedFieldsEntry
+   * @throws IOException if the JSON string is invalid with respect to V1ManagedFieldsEntry
+   */
   public static V1ManagedFieldsEntry fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ManagedFieldsEntry.class);
   }
 
- /**
-  * Convert an instance of V1ManagedFieldsEntry to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ManagedFieldsEntry to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

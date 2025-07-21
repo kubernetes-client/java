@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * FlowSchemaStatus represents the current state of a FlowSchema.
  */
 @ApiModel(description = "FlowSchemaStatus represents the current state of a FlowSchema.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1FlowSchemaStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1FlowSchemaCondition> conditions = new ArrayList<>();
 
   public V1FlowSchemaStatus() {
   }
 
-  public V1FlowSchemaStatus conditions(List<V1FlowSchemaCondition> conditions) {
+  public V1FlowSchemaStatus conditions(@jakarta.annotation.Nullable List<V1FlowSchemaCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1FlowSchemaStatus {
     return this;
   }
 
-   /**
+  /**
    * &#x60;conditions&#x60; is a list of the current states of FlowSchema.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`conditions` is a list of the current states of FlowSchema.")
   public List<V1FlowSchemaCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1FlowSchemaCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1FlowSchemaCondition> conditions) {
     this.conditions = conditions;
   }
 
@@ -142,12 +142,12 @@ public class V1FlowSchemaStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1FlowSchemaStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1FlowSchemaStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FlowSchemaStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1FlowSchemaStatus {
     }
   }
 
- /**
-  * Create an instance of V1FlowSchemaStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1FlowSchemaStatus
-  * @throws IOException if the JSON string is invalid with respect to V1FlowSchemaStatus
-  */
+  /**
+   * Create an instance of V1FlowSchemaStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1FlowSchemaStatus
+   * @throws IOException if the JSON string is invalid with respect to V1FlowSchemaStatus
+   */
   public static V1FlowSchemaStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1FlowSchemaStatus.class);
   }
 
- /**
-  * Convert an instance of V1FlowSchemaStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1FlowSchemaStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

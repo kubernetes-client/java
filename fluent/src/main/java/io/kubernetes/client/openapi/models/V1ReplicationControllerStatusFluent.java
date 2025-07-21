@@ -60,14 +60,26 @@ public class V1ReplicationControllerStatusFluent<A extends V1ReplicationControll
   public A addToConditions(int index,V1ReplicationControllerCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();}
     V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConditions(int index,V1ReplicationControllerCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();}
     V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
     return (A)this;
   }
   

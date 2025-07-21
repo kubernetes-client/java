@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
  */
 @ApiModel(description = "HPAScalingPolicy is a single policy which must hold true for a specified past interval.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2HPAScalingPolicy {
   public static final String SERIALIZED_NAME_PERIOD_SECONDS = "periodSeconds";
   @SerializedName(SERIALIZED_NAME_PERIOD_SECONDS)
+  @jakarta.annotation.Nonnull
   private Integer periodSeconds;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
+  @jakarta.annotation.Nonnull
   private Integer value;
 
   public V2HPAScalingPolicy() {
   }
 
-  public V2HPAScalingPolicy periodSeconds(Integer periodSeconds) {
+  public V2HPAScalingPolicy periodSeconds(@jakarta.annotation.Nonnull Integer periodSeconds) {
     this.periodSeconds = periodSeconds;
     return this;
   }
 
-   /**
+  /**
    * periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
    * @return periodSeconds
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).")
   public Integer getPeriodSeconds() {
     return periodSeconds;
   }
 
-  public void setPeriodSeconds(Integer periodSeconds) {
+  public void setPeriodSeconds(@jakarta.annotation.Nonnull Integer periodSeconds) {
     this.periodSeconds = periodSeconds;
   }
 
 
-  public V2HPAScalingPolicy type(String type) {
+  public V2HPAScalingPolicy type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type is used to specify the scaling policy.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "type is used to specify the scaling policy.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public V2HPAScalingPolicy value(Integer value) {
+  public V2HPAScalingPolicy value(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * value contains the amount of change which is permitted by the policy. It must be greater than zero
    * @return value
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "value contains the amount of change which is permitted by the policy. It must be greater than zero")
   public Integer getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
   }
 
@@ -188,12 +190,12 @@ public class V2HPAScalingPolicy {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2HPAScalingPolicy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2HPAScalingPolicy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2HPAScalingPolicy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -250,22 +252,22 @@ public class V2HPAScalingPolicy {
     }
   }
 
- /**
-  * Create an instance of V2HPAScalingPolicy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2HPAScalingPolicy
-  * @throws IOException if the JSON string is invalid with respect to V2HPAScalingPolicy
-  */
+  /**
+   * Create an instance of V2HPAScalingPolicy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2HPAScalingPolicy
+   * @throws IOException if the JSON string is invalid with respect to V2HPAScalingPolicy
+   */
   public static V2HPAScalingPolicy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2HPAScalingPolicy.class);
   }
 
- /**
-  * Convert an instance of V2HPAScalingPolicy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2HPAScalingPolicy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

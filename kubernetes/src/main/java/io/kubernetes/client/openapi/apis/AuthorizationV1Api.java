@@ -75,7 +75,7 @@ public class AuthorizationV1Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedLocalSubjectAccessReviewCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -141,7 +141,7 @@ public class AuthorizationV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedLocalSubjectAccessReviewValidateBeforeCall(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedLocalSubjectAccessReviewValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedLocalSubjectAccessReview(Async)");
@@ -157,13 +157,13 @@ public class AuthorizationV1Api {
     }
 
 
-    private ApiResponse<V1LocalSubjectAccessReview> createNamespacedLocalSubjectAccessReviewWithHttpInfo(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty) throws ApiException {
+    private ApiResponse<V1LocalSubjectAccessReview> createNamespacedLocalSubjectAccessReviewWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, dryRun, fieldManager, fieldValidation, pretty, null);
         Type localVarReturnType = new TypeToken<V1LocalSubjectAccessReview>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedLocalSubjectAccessReviewAsync(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback<V1LocalSubjectAccessReview> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedLocalSubjectAccessReviewAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1LocalSubjectAccessReview> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, dryRun, fieldManager, fieldValidation, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1LocalSubjectAccessReview>(){}.getType();
@@ -172,14 +172,20 @@ public class AuthorizationV1Api {
     }
 
     public class APIcreateNamespacedLocalSubjectAccessReviewRequest {
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final V1LocalSubjectAccessReview body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIcreateNamespacedLocalSubjectAccessReviewRequest(String namespace, V1LocalSubjectAccessReview body) {
+        private APIcreateNamespacedLocalSubjectAccessReviewRequest(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body) {
             this.namespace = namespace;
             this.body = body;
         }
@@ -189,7 +195,7 @@ public class AuthorizationV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
          */
-        public APIcreateNamespacedLocalSubjectAccessReviewRequest dryRun(String dryRun) {
+        public APIcreateNamespacedLocalSubjectAccessReviewRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -199,7 +205,7 @@ public class AuthorizationV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
          */
-        public APIcreateNamespacedLocalSubjectAccessReviewRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedLocalSubjectAccessReviewRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -209,7 +215,7 @@ public class AuthorizationV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
          */
-        public APIcreateNamespacedLocalSubjectAccessReviewRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedLocalSubjectAccessReviewRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -219,7 +225,7 @@ public class AuthorizationV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
          */
-        public APIcreateNamespacedLocalSubjectAccessReviewRequest pretty(String pretty) {
+        public APIcreateNamespacedLocalSubjectAccessReviewRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -230,7 +236,8 @@ public class AuthorizationV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -247,7 +254,8 @@ public class AuthorizationV1Api {
          * @return V1LocalSubjectAccessReview
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -265,7 +273,8 @@ public class AuthorizationV1Api {
          * @return ApiResponse&lt;V1LocalSubjectAccessReview&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -283,7 +292,8 @@ public class AuthorizationV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -303,7 +313,8 @@ public class AuthorizationV1Api {
      * @param body  (required)
      * @return APIcreateNamespacedLocalSubjectAccessReviewRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -311,10 +322,10 @@ public class AuthorizationV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedLocalSubjectAccessReviewRequest createNamespacedLocalSubjectAccessReview(String namespace, V1LocalSubjectAccessReview body) {
+    public APIcreateNamespacedLocalSubjectAccessReviewRequest createNamespacedLocalSubjectAccessReview(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1LocalSubjectAccessReview body) {
         return new APIcreateNamespacedLocalSubjectAccessReviewRequest(namespace, body);
     }
-    private okhttp3.Call createSelfSubjectAccessReviewCall(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectAccessReviewCall(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -379,7 +390,7 @@ public class AuthorizationV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSelfSubjectAccessReviewValidateBeforeCall(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectAccessReviewValidateBeforeCall(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSelfSubjectAccessReview(Async)");
@@ -390,13 +401,13 @@ public class AuthorizationV1Api {
     }
 
 
-    private ApiResponse<V1SelfSubjectAccessReview> createSelfSubjectAccessReviewWithHttpInfo(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty) throws ApiException {
+    private ApiResponse<V1SelfSubjectAccessReview> createSelfSubjectAccessReviewWithHttpInfo(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = createSelfSubjectAccessReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, null);
         Type localVarReturnType = new TypeToken<V1SelfSubjectAccessReview>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createSelfSubjectAccessReviewAsync(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback<V1SelfSubjectAccessReview> _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectAccessReviewAsync(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1SelfSubjectAccessReview> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSelfSubjectAccessReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1SelfSubjectAccessReview>(){}.getType();
@@ -405,13 +416,18 @@ public class AuthorizationV1Api {
     }
 
     public class APIcreateSelfSubjectAccessReviewRequest {
+        @jakarta.annotation.Nonnull
         private final V1SelfSubjectAccessReview body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIcreateSelfSubjectAccessReviewRequest(V1SelfSubjectAccessReview body) {
+        private APIcreateSelfSubjectAccessReviewRequest(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body) {
             this.body = body;
         }
 
@@ -420,7 +436,7 @@ public class AuthorizationV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateSelfSubjectAccessReviewRequest
          */
-        public APIcreateSelfSubjectAccessReviewRequest dryRun(String dryRun) {
+        public APIcreateSelfSubjectAccessReviewRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -430,7 +446,7 @@ public class AuthorizationV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateSelfSubjectAccessReviewRequest
          */
-        public APIcreateSelfSubjectAccessReviewRequest fieldManager(String fieldManager) {
+        public APIcreateSelfSubjectAccessReviewRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -440,7 +456,7 @@ public class AuthorizationV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateSelfSubjectAccessReviewRequest
          */
-        public APIcreateSelfSubjectAccessReviewRequest fieldValidation(String fieldValidation) {
+        public APIcreateSelfSubjectAccessReviewRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -450,7 +466,7 @@ public class AuthorizationV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSelfSubjectAccessReviewRequest
          */
-        public APIcreateSelfSubjectAccessReviewRequest pretty(String pretty) {
+        public APIcreateSelfSubjectAccessReviewRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -461,7 +477,8 @@ public class AuthorizationV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -478,7 +495,8 @@ public class AuthorizationV1Api {
          * @return V1SelfSubjectAccessReview
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -496,7 +514,8 @@ public class AuthorizationV1Api {
          * @return ApiResponse&lt;V1SelfSubjectAccessReview&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -514,7 +533,8 @@ public class AuthorizationV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -533,7 +553,8 @@ public class AuthorizationV1Api {
      * @param body  (required)
      * @return APIcreateSelfSubjectAccessReviewRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -541,10 +562,10 @@ public class AuthorizationV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateSelfSubjectAccessReviewRequest createSelfSubjectAccessReview(V1SelfSubjectAccessReview body) {
+    public APIcreateSelfSubjectAccessReviewRequest createSelfSubjectAccessReview(@jakarta.annotation.Nonnull V1SelfSubjectAccessReview body) {
         return new APIcreateSelfSubjectAccessReviewRequest(body);
     }
-    private okhttp3.Call createSelfSubjectRulesReviewCall(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectRulesReviewCall(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -609,7 +630,7 @@ public class AuthorizationV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSelfSubjectRulesReviewValidateBeforeCall(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectRulesReviewValidateBeforeCall(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSelfSubjectRulesReview(Async)");
@@ -620,13 +641,13 @@ public class AuthorizationV1Api {
     }
 
 
-    private ApiResponse<V1SelfSubjectRulesReview> createSelfSubjectRulesReviewWithHttpInfo(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty) throws ApiException {
+    private ApiResponse<V1SelfSubjectRulesReview> createSelfSubjectRulesReviewWithHttpInfo(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = createSelfSubjectRulesReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, null);
         Type localVarReturnType = new TypeToken<V1SelfSubjectRulesReview>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createSelfSubjectRulesReviewAsync(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback<V1SelfSubjectRulesReview> _callback) throws ApiException {
+    private okhttp3.Call createSelfSubjectRulesReviewAsync(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1SelfSubjectRulesReview> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSelfSubjectRulesReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1SelfSubjectRulesReview>(){}.getType();
@@ -635,13 +656,18 @@ public class AuthorizationV1Api {
     }
 
     public class APIcreateSelfSubjectRulesReviewRequest {
+        @jakarta.annotation.Nonnull
         private final V1SelfSubjectRulesReview body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIcreateSelfSubjectRulesReviewRequest(V1SelfSubjectRulesReview body) {
+        private APIcreateSelfSubjectRulesReviewRequest(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body) {
             this.body = body;
         }
 
@@ -650,7 +676,7 @@ public class AuthorizationV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateSelfSubjectRulesReviewRequest
          */
-        public APIcreateSelfSubjectRulesReviewRequest dryRun(String dryRun) {
+        public APIcreateSelfSubjectRulesReviewRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -660,7 +686,7 @@ public class AuthorizationV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateSelfSubjectRulesReviewRequest
          */
-        public APIcreateSelfSubjectRulesReviewRequest fieldManager(String fieldManager) {
+        public APIcreateSelfSubjectRulesReviewRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -670,7 +696,7 @@ public class AuthorizationV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateSelfSubjectRulesReviewRequest
          */
-        public APIcreateSelfSubjectRulesReviewRequest fieldValidation(String fieldValidation) {
+        public APIcreateSelfSubjectRulesReviewRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -680,7 +706,7 @@ public class AuthorizationV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSelfSubjectRulesReviewRequest
          */
-        public APIcreateSelfSubjectRulesReviewRequest pretty(String pretty) {
+        public APIcreateSelfSubjectRulesReviewRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -691,7 +717,8 @@ public class AuthorizationV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -708,7 +735,8 @@ public class AuthorizationV1Api {
          * @return V1SelfSubjectRulesReview
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -726,7 +754,8 @@ public class AuthorizationV1Api {
          * @return ApiResponse&lt;V1SelfSubjectRulesReview&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -744,7 +773,8 @@ public class AuthorizationV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -763,7 +793,8 @@ public class AuthorizationV1Api {
      * @param body  (required)
      * @return APIcreateSelfSubjectRulesReviewRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -771,10 +802,10 @@ public class AuthorizationV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateSelfSubjectRulesReviewRequest createSelfSubjectRulesReview(V1SelfSubjectRulesReview body) {
+    public APIcreateSelfSubjectRulesReviewRequest createSelfSubjectRulesReview(@jakarta.annotation.Nonnull V1SelfSubjectRulesReview body) {
         return new APIcreateSelfSubjectRulesReviewRequest(body);
     }
-    private okhttp3.Call createSubjectAccessReviewCall(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSubjectAccessReviewCall(@jakarta.annotation.Nonnull V1SubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -839,7 +870,7 @@ public class AuthorizationV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSubjectAccessReviewValidateBeforeCall(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSubjectAccessReviewValidateBeforeCall(@jakarta.annotation.Nonnull V1SubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSubjectAccessReview(Async)");
@@ -850,13 +881,13 @@ public class AuthorizationV1Api {
     }
 
 
-    private ApiResponse<V1SubjectAccessReview> createSubjectAccessReviewWithHttpInfo(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty) throws ApiException {
+    private ApiResponse<V1SubjectAccessReview> createSubjectAccessReviewWithHttpInfo(@jakarta.annotation.Nonnull V1SubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty) throws ApiException {
         okhttp3.Call localVarCall = createSubjectAccessReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, null);
         Type localVarReturnType = new TypeToken<V1SubjectAccessReview>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createSubjectAccessReviewAsync(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback<V1SubjectAccessReview> _callback) throws ApiException {
+    private okhttp3.Call createSubjectAccessReviewAsync(@jakarta.annotation.Nonnull V1SubjectAccessReview body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1SubjectAccessReview> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSubjectAccessReviewValidateBeforeCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
         Type localVarReturnType = new TypeToken<V1SubjectAccessReview>(){}.getType();
@@ -865,13 +896,18 @@ public class AuthorizationV1Api {
     }
 
     public class APIcreateSubjectAccessReviewRequest {
+        @jakarta.annotation.Nonnull
         private final V1SubjectAccessReview body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private String pretty;
 
-        private APIcreateSubjectAccessReviewRequest(V1SubjectAccessReview body) {
+        private APIcreateSubjectAccessReviewRequest(@jakarta.annotation.Nonnull V1SubjectAccessReview body) {
             this.body = body;
         }
 
@@ -880,7 +916,7 @@ public class AuthorizationV1Api {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateSubjectAccessReviewRequest
          */
-        public APIcreateSubjectAccessReviewRequest dryRun(String dryRun) {
+        public APIcreateSubjectAccessReviewRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -890,7 +926,7 @@ public class AuthorizationV1Api {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateSubjectAccessReviewRequest
          */
-        public APIcreateSubjectAccessReviewRequest fieldManager(String fieldManager) {
+        public APIcreateSubjectAccessReviewRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -900,7 +936,7 @@ public class AuthorizationV1Api {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
          * @return APIcreateSubjectAccessReviewRequest
          */
-        public APIcreateSubjectAccessReviewRequest fieldValidation(String fieldValidation) {
+        public APIcreateSubjectAccessReviewRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -910,7 +946,7 @@ public class AuthorizationV1Api {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
          * @return APIcreateSubjectAccessReviewRequest
          */
-        public APIcreateSubjectAccessReviewRequest pretty(String pretty) {
+        public APIcreateSubjectAccessReviewRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -921,7 +957,8 @@ public class AuthorizationV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -938,7 +975,8 @@ public class AuthorizationV1Api {
          * @return V1SubjectAccessReview
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -956,7 +994,8 @@ public class AuthorizationV1Api {
          * @return ApiResponse&lt;V1SubjectAccessReview&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -974,7 +1013,8 @@ public class AuthorizationV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -993,7 +1033,8 @@ public class AuthorizationV1Api {
      * @param body  (required)
      * @return APIcreateSubjectAccessReviewRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -1001,7 +1042,7 @@ public class AuthorizationV1Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateSubjectAccessReviewRequest createSubjectAccessReview(V1SubjectAccessReview body) {
+    public APIcreateSubjectAccessReviewRequest createSubjectAccessReview(@jakarta.annotation.Nonnull V1SubjectAccessReview body) {
         return new APIcreateSubjectAccessReviewRequest(body);
     }
     private okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
@@ -1083,7 +1124,8 @@ public class AuthorizationV1Api {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1098,7 +1140,8 @@ public class AuthorizationV1Api {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1114,7 +1157,8 @@ public class AuthorizationV1Api {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1130,7 +1174,8 @@ public class AuthorizationV1Api {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1146,7 +1191,8 @@ public class AuthorizationV1Api {
      * get available resources
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>

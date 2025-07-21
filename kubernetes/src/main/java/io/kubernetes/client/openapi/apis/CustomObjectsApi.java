@@ -72,7 +72,7 @@ public class CustomObjectsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -137,7 +137,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling createClusterCustomObject(Async)");
@@ -163,13 +163,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> createClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -178,16 +178,24 @@ public class CustomObjectsApi {
     }
 
     public class APIcreateClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateClusterCustomObjectRequest(String group, String version, String plural, Object body) {
+        private APIcreateClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -199,7 +207,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIcreateClusterCustomObjectRequest
          */
-        public APIcreateClusterCustomObjectRequest pretty(String pretty) {
+        public APIcreateClusterCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -209,7 +217,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateClusterCustomObjectRequest
          */
-        public APIcreateClusterCustomObjectRequest dryRun(String dryRun) {
+        public APIcreateClusterCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -219,7 +227,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIcreateClusterCustomObjectRequest
          */
-        public APIcreateClusterCustomObjectRequest fieldManager(String fieldManager) {
+        public APIcreateClusterCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -229,7 +237,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIcreateClusterCustomObjectRequest
          */
-        public APIcreateClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIcreateClusterCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -240,7 +248,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -255,7 +264,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -271,7 +281,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -287,7 +298,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -307,16 +319,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to create. (required)
      * @return APIcreateClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateClusterCustomObjectRequest createClusterCustomObject(String group, String version, String plural, Object body) {
+    public APIcreateClusterCustomObjectRequest createClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body) {
         return new APIcreateClusterCustomObjectRequest(group, version, plural, body);
     }
-    private okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -382,7 +395,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling createNamespacedCustomObject(Async)");
@@ -413,13 +426,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -428,17 +441,26 @@ public class CustomObjectsApi {
     }
 
     public class APIcreateNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIcreateNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, Object body) {
+        private APIcreateNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -451,7 +473,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIcreateNamespacedCustomObjectRequest
          */
-        public APIcreateNamespacedCustomObjectRequest pretty(String pretty) {
+        public APIcreateNamespacedCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -461,7 +483,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIcreateNamespacedCustomObjectRequest
          */
-        public APIcreateNamespacedCustomObjectRequest dryRun(String dryRun) {
+        public APIcreateNamespacedCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -471,7 +493,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIcreateNamespacedCustomObjectRequest
          */
-        public APIcreateNamespacedCustomObjectRequest fieldManager(String fieldManager) {
+        public APIcreateNamespacedCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -481,7 +503,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIcreateNamespacedCustomObjectRequest
          */
-        public APIcreateNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIcreateNamespacedCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -492,7 +514,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -507,7 +530,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -523,7 +547,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -539,7 +564,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -560,16 +586,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to create. (required)
      * @return APIcreateNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateNamespacedCustomObjectRequest createNamespacedCustomObject(String group, String version, String namespace, String plural, Object body) {
+    public APIcreateNamespacedCustomObjectRequest createNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull Object body) {
         return new APIcreateNamespacedCustomObjectRequest(group, version, namespace, plural, body);
     }
-    private okhttp3.Call deleteClusterCustomObjectCall(String group, String version, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -635,7 +662,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteClusterCustomObject(Async)");
@@ -661,13 +688,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> deleteClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<Object> deleteClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteClusterCustomObjectAsync(String group, String version, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -676,17 +703,26 @@ public class CustomObjectsApi {
     }
 
     public class APIdeleteClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteClusterCustomObjectRequest(String group, String version, String plural, String name) {
+        private APIdeleteClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -698,7 +734,7 @@ public class CustomObjectsApi {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteClusterCustomObjectRequest
          */
-        public APIdeleteClusterCustomObjectRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteClusterCustomObjectRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -708,7 +744,7 @@ public class CustomObjectsApi {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteClusterCustomObjectRequest
          */
-        public APIdeleteClusterCustomObjectRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteClusterCustomObjectRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -718,7 +754,7 @@ public class CustomObjectsApi {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
          * @return APIdeleteClusterCustomObjectRequest
          */
-        public APIdeleteClusterCustomObjectRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteClusterCustomObjectRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -728,7 +764,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteClusterCustomObjectRequest
          */
-        public APIdeleteClusterCustomObjectRequest dryRun(String dryRun) {
+        public APIdeleteClusterCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -738,7 +774,7 @@ public class CustomObjectsApi {
          * @param body  (optional)
          * @return APIdeleteClusterCustomObjectRequest
          */
-        public APIdeleteClusterCustomObjectRequest body(V1DeleteOptions body) {
+        public APIdeleteClusterCustomObjectRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -749,7 +785,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -764,7 +801,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -780,7 +818,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -796,7 +835,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -816,16 +856,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIdeleteClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteClusterCustomObjectRequest deleteClusterCustomObject(String group, String version, String plural, String name) {
+    public APIdeleteClusterCustomObjectRequest deleteClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIdeleteClusterCustomObjectRequest(group, version, plural, name);
     }
-    private okhttp3.Call deleteCollectionClusterCustomObjectCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -898,7 +939,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteCollectionClusterCustomObject(Async)");
@@ -919,13 +960,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionClusterCustomObjectAsync(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -934,18 +975,28 @@ public class CustomObjectsApi {
     }
 
     public class APIdeleteCollectionClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionClusterCustomObjectRequest(String group, String version, String plural) {
+        private APIdeleteCollectionClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -956,7 +1007,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest pretty(String pretty) {
+        public APIdeleteCollectionClusterCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -966,7 +1017,7 @@ public class CustomObjectsApi {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionClusterCustomObjectRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -976,7 +1027,7 @@ public class CustomObjectsApi {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionClusterCustomObjectRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -986,7 +1037,7 @@ public class CustomObjectsApi {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionClusterCustomObjectRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -996,7 +1047,7 @@ public class CustomObjectsApi {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionClusterCustomObjectRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1006,7 +1057,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest dryRun(String dryRun) {
+        public APIdeleteCollectionClusterCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1016,7 +1067,7 @@ public class CustomObjectsApi {
          * @param body  (optional)
          * @return APIdeleteCollectionClusterCustomObjectRequest
          */
-        public APIdeleteCollectionClusterCustomObjectRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionClusterCustomObjectRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1027,7 +1078,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1042,7 +1094,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1058,7 +1111,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1074,7 +1128,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1093,16 +1148,17 @@ public class CustomObjectsApi {
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIdeleteCollectionClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionClusterCustomObjectRequest deleteCollectionClusterCustomObject(String group, String version, String plural) {
+    public APIdeleteCollectionClusterCustomObjectRequest deleteCollectionClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural) {
         return new APIdeleteCollectionClusterCustomObjectRequest(group, version, plural);
     }
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1180,7 +1236,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteCollectionNamespacedCustomObject(Async)");
@@ -1206,13 +1262,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, String fieldSelector, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, fieldSelector, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -1221,20 +1277,32 @@ public class CustomObjectsApi {
     }
 
     public class APIdeleteCollectionNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteCollectionNamespacedCustomObjectRequest(String group, String version, String namespace, String plural) {
+        private APIdeleteCollectionNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -1246,7 +1314,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest pretty(String pretty) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -1256,7 +1324,7 @@ public class CustomObjectsApi {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest labelSelector(String labelSelector) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -1266,7 +1334,7 @@ public class CustomObjectsApi {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1276,7 +1344,7 @@ public class CustomObjectsApi {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1286,7 +1354,7 @@ public class CustomObjectsApi {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1296,7 +1364,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest dryRun(String dryRun) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1306,7 +1374,7 @@ public class CustomObjectsApi {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest fieldSelector(String fieldSelector) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -1316,7 +1384,7 @@ public class CustomObjectsApi {
          * @param body  (optional)
          * @return APIdeleteCollectionNamespacedCustomObjectRequest
          */
-        public APIdeleteCollectionNamespacedCustomObjectRequest body(V1DeleteOptions body) {
+        public APIdeleteCollectionNamespacedCustomObjectRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1327,7 +1395,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1342,7 +1411,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1358,7 +1428,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1374,7 +1445,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1394,16 +1466,17 @@ public class CustomObjectsApi {
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIdeleteCollectionNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCollectionNamespacedCustomObjectRequest deleteCollectionNamespacedCustomObject(String group, String version, String namespace, String plural) {
+    public APIdeleteCollectionNamespacedCustomObjectRequest deleteCollectionNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural) {
         return new APIdeleteCollectionNamespacedCustomObjectRequest(group, version, namespace, plural);
     }
-    private okhttp3.Call deleteNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1470,7 +1543,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteNamespacedCustomObject(Async)");
@@ -1501,13 +1574,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> deleteNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+    private ApiResponse<Object> deleteNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
         okhttp3.Call localVarCall = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -1516,18 +1589,28 @@ public class CustomObjectsApi {
     }
 
     public class APIdeleteNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nullable
         private Integer gracePeriodSeconds;
+        @jakarta.annotation.Nullable
         private Boolean orphanDependents;
+        @jakarta.annotation.Nullable
         private String propagationPolicy;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private V1DeleteOptions body;
 
-        private APIdeleteNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name) {
+        private APIdeleteNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -1540,7 +1623,7 @@ public class CustomObjectsApi {
          * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
          * @return APIdeleteNamespacedCustomObjectRequest
          */
-        public APIdeleteNamespacedCustomObjectRequest gracePeriodSeconds(Integer gracePeriodSeconds) {
+        public APIdeleteNamespacedCustomObjectRequest gracePeriodSeconds(@jakarta.annotation.Nullable Integer gracePeriodSeconds) {
             this.gracePeriodSeconds = gracePeriodSeconds;
             return this;
         }
@@ -1550,7 +1633,7 @@ public class CustomObjectsApi {
          * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
          * @return APIdeleteNamespacedCustomObjectRequest
          */
-        public APIdeleteNamespacedCustomObjectRequest orphanDependents(Boolean orphanDependents) {
+        public APIdeleteNamespacedCustomObjectRequest orphanDependents(@jakarta.annotation.Nullable Boolean orphanDependents) {
             this.orphanDependents = orphanDependents;
             return this;
         }
@@ -1560,7 +1643,7 @@ public class CustomObjectsApi {
          * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
          * @return APIdeleteNamespacedCustomObjectRequest
          */
-        public APIdeleteNamespacedCustomObjectRequest propagationPolicy(String propagationPolicy) {
+        public APIdeleteNamespacedCustomObjectRequest propagationPolicy(@jakarta.annotation.Nullable String propagationPolicy) {
             this.propagationPolicy = propagationPolicy;
             return this;
         }
@@ -1570,7 +1653,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIdeleteNamespacedCustomObjectRequest
          */
-        public APIdeleteNamespacedCustomObjectRequest dryRun(String dryRun) {
+        public APIdeleteNamespacedCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -1580,7 +1663,7 @@ public class CustomObjectsApi {
          * @param body  (optional)
          * @return APIdeleteNamespacedCustomObjectRequest
          */
-        public APIdeleteNamespacedCustomObjectRequest body(V1DeleteOptions body) {
+        public APIdeleteNamespacedCustomObjectRequest body(@jakarta.annotation.Nullable V1DeleteOptions body) {
             this.body = body;
             return this;
         }
@@ -1591,7 +1674,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1606,7 +1690,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1622,7 +1707,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1638,7 +1724,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1659,16 +1746,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIdeleteNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNamespacedCustomObjectRequest deleteNamespacedCustomObject(String group, String version, String namespace, String plural, String name) {
+    public APIdeleteNamespacedCustomObjectRequest deleteNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIdeleteNamespacedCustomObjectRequest(group, version, namespace, plural, name);
     }
-    private okhttp3.Call getAPIResourcesCall(String group, String version, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAPIResourcesCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1715,7 +1803,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAPIResourcesValidateBeforeCall(String group, String version, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getAPIResources(Async)");
@@ -1731,13 +1819,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo(String group, String version) throws ApiException {
+    private ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version) throws ApiException {
         okhttp3.Call localVarCall = getAPIResourcesValidateBeforeCall(group, version, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getAPIResourcesAsync(String group, String version, final ApiCallback<V1APIResourceList> _callback) throws ApiException {
+    private okhttp3.Call getAPIResourcesAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, final ApiCallback<V1APIResourceList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAPIResourcesValidateBeforeCall(group, version, _callback);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
@@ -1746,10 +1834,12 @@ public class CustomObjectsApi {
     }
 
     public class APIgetAPIResourcesRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
 
-        private APIgetAPIResourcesRequest(String group, String version) {
+        private APIgetAPIResourcesRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version) {
             this.group = group;
             this.version = version;
         }
@@ -1760,7 +1850,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1775,7 +1866,8 @@ public class CustomObjectsApi {
          * @return V1APIResourceList
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1791,7 +1883,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;V1APIResourceList&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1807,7 +1900,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1825,16 +1919,17 @@ public class CustomObjectsApi {
      * @param version The custom resource&#39;s version (required)
      * @return APIgetAPIResourcesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetAPIResourcesRequest getAPIResources(String group, String version) {
+    public APIgetAPIResourcesRequest getAPIResources(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version) {
         return new APIgetAPIResourcesRequest(group, version);
     }
-    private okhttp3.Call getClusterCustomObjectCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1883,7 +1978,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getClusterCustomObject(Async)");
@@ -1909,13 +2004,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getClusterCustomObjectAsync(String group, String version, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -1924,12 +2019,16 @@ public class CustomObjectsApi {
     }
 
     public class APIgetClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetClusterCustomObjectRequest(String group, String version, String plural, String name) {
+        private APIgetClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -1942,7 +2041,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1957,7 +2057,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1973,7 +2074,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1989,7 +2091,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2009,16 +2112,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetClusterCustomObjectRequest getClusterCustomObject(String group, String version, String plural, String name) {
+    public APIgetClusterCustomObjectRequest getClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetClusterCustomObjectRequest(group, version, plural, name);
     }
-    private okhttp3.Call getClusterCustomObjectScaleCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2069,7 +2173,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getClusterCustomObjectScale(Async)");
@@ -2095,13 +2199,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getClusterCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getClusterCustomObjectScaleAsync(String group, String version, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2110,12 +2214,16 @@ public class CustomObjectsApi {
     }
 
     public class APIgetClusterCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetClusterCustomObjectScaleRequest(String group, String version, String plural, String name) {
+        private APIgetClusterCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -2128,7 +2236,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2143,7 +2252,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2159,7 +2269,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2175,7 +2286,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2195,16 +2307,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetClusterCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetClusterCustomObjectScaleRequest getClusterCustomObjectScale(String group, String version, String plural, String name) {
+    public APIgetClusterCustomObjectScaleRequest getClusterCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetClusterCustomObjectScaleRequest(group, version, plural, name);
     }
-    private okhttp3.Call getClusterCustomObjectStatusCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2255,7 +2368,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getClusterCustomObjectStatus(Async)");
@@ -2281,13 +2394,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getClusterCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getClusterCustomObjectStatusAsync(String group, String version, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2296,12 +2409,16 @@ public class CustomObjectsApi {
     }
 
     public class APIgetClusterCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetClusterCustomObjectStatusRequest(String group, String version, String plural, String name) {
+        private APIgetClusterCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -2314,7 +2431,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2329,7 +2447,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2345,7 +2464,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2361,7 +2481,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2381,16 +2502,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetClusterCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetClusterCustomObjectStatusRequest getClusterCustomObjectStatus(String group, String version, String plural, String name) {
+    public APIgetClusterCustomObjectStatusRequest getClusterCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetClusterCustomObjectStatusRequest(group, version, plural, name);
     }
-    private okhttp3.Call getNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2440,7 +2562,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getNamespacedCustomObject(Async)");
@@ -2471,13 +2593,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2486,13 +2608,18 @@ public class CustomObjectsApi {
     }
 
     public class APIgetNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name) {
+        private APIgetNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -2506,7 +2633,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2521,7 +2649,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2537,7 +2666,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2553,7 +2683,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2574,16 +2705,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A single Resource </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetNamespacedCustomObjectRequest getNamespacedCustomObject(String group, String version, String namespace, String plural, String name) {
+    public APIgetNamespacedCustomObjectRequest getNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetNamespacedCustomObjectRequest(group, version, namespace, plural, name);
     }
-    private okhttp3.Call getNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2635,7 +2767,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getNamespacedCustomObjectScale(Async)");
@@ -2666,13 +2798,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getNamespacedCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2681,13 +2813,18 @@ public class CustomObjectsApi {
     }
 
     public class APIgetNamespacedCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetNamespacedCustomObjectScaleRequest(String group, String version, String namespace, String plural, String name) {
+        private APIgetNamespacedCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -2701,7 +2838,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2716,7 +2854,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2732,7 +2871,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2748,7 +2888,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2769,16 +2910,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetNamespacedCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetNamespacedCustomObjectScaleRequest getNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name) {
+    public APIgetNamespacedCustomObjectScaleRequest getNamespacedCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetNamespacedCustomObjectScaleRequest(group, version, namespace, plural, name);
     }
-    private okhttp3.Call getNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2830,7 +2972,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling getNamespacedCustomObjectStatus(Async)");
@@ -2861,13 +3003,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> getNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name) throws ApiException {
+    private ApiResponse<Object> getNamespacedCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2876,13 +3018,18 @@ public class CustomObjectsApi {
     }
 
     public class APIgetNamespacedCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
 
-        private APIgetNamespacedCustomObjectStatusRequest(String group, String version, String namespace, String plural, String name) {
+        private APIgetNamespacedCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -2896,7 +3043,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2911,7 +3059,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2927,7 +3076,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2943,7 +3093,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -2964,16 +3115,17 @@ public class CustomObjectsApi {
      * @param name the custom object&#39;s name (required)
      * @return APIgetNamespacedCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetNamespacedCustomObjectStatusRequest getNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name) {
+    public APIgetNamespacedCustomObjectStatusRequest getNamespacedCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name) {
         return new APIgetNamespacedCustomObjectStatusRequest(group, version, namespace, plural, name);
     }
-    private okhttp3.Call listClusterCustomObjectCall(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3062,7 +3214,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling listClusterCustomObject(Async)");
@@ -3083,13 +3235,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> listClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<Object> listClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listClusterCustomObjectAsync(String group, String version, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call listClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -3098,21 +3250,34 @@ public class CustomObjectsApi {
     }
 
     public class APIlistClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistClusterCustomObjectRequest(String group, String version, String plural) {
+        private APIlistClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -3123,7 +3288,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest pretty(String pretty) {
+        public APIlistClusterCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3133,7 +3298,7 @@ public class CustomObjectsApi {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistClusterCustomObjectRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -3143,7 +3308,7 @@ public class CustomObjectsApi {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest _continue(String _continue) {
+        public APIlistClusterCustomObjectRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -3153,7 +3318,7 @@ public class CustomObjectsApi {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest fieldSelector(String fieldSelector) {
+        public APIlistClusterCustomObjectRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -3163,7 +3328,7 @@ public class CustomObjectsApi {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest labelSelector(String labelSelector) {
+        public APIlistClusterCustomObjectRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -3173,7 +3338,7 @@ public class CustomObjectsApi {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest limit(Integer limit) {
+        public APIlistClusterCustomObjectRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -3183,7 +3348,7 @@ public class CustomObjectsApi {
          * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest resourceVersion(String resourceVersion) {
+        public APIlistClusterCustomObjectRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -3193,7 +3358,7 @@ public class CustomObjectsApi {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistClusterCustomObjectRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -3203,7 +3368,7 @@ public class CustomObjectsApi {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistClusterCustomObjectRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -3213,7 +3378,7 @@ public class CustomObjectsApi {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
          * @return APIlistClusterCustomObjectRequest
          */
-        public APIlistClusterCustomObjectRequest watch(Boolean watch) {
+        public APIlistClusterCustomObjectRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -3224,7 +3389,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3239,7 +3405,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3255,7 +3422,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3271,7 +3439,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3290,16 +3459,17 @@ public class CustomObjectsApi {
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIlistClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistClusterCustomObjectRequest listClusterCustomObject(String group, String version, String plural) {
+    public APIlistClusterCustomObjectRequest listClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural) {
         return new APIlistClusterCustomObjectRequest(group, version, plural);
     }
-    private okhttp3.Call listCustomObjectForAllNamespacesCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3388,7 +3558,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCustomObjectForAllNamespacesValidateBeforeCall(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling listCustomObjectForAllNamespaces(Async)");
@@ -3409,13 +3579,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> listCustomObjectForAllNamespacesWithHttpInfo(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<Object> listCustomObjectForAllNamespacesWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCustomObjectForAllNamespacesAsync(String group, String version, String resourcePlural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call listCustomObjectForAllNamespacesAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCustomObjectForAllNamespacesValidateBeforeCall(group, version, resourcePlural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -3424,21 +3594,34 @@ public class CustomObjectsApi {
     }
 
     public class APIlistCustomObjectForAllNamespacesRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String resourcePlural;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistCustomObjectForAllNamespacesRequest(String group, String version, String resourcePlural) {
+        private APIlistCustomObjectForAllNamespacesRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural) {
             this.group = group;
             this.version = version;
             this.resourcePlural = resourcePlural;
@@ -3449,7 +3632,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest pretty(String pretty) {
+        public APIlistCustomObjectForAllNamespacesRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3459,7 +3642,7 @@ public class CustomObjectsApi {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistCustomObjectForAllNamespacesRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -3469,7 +3652,7 @@ public class CustomObjectsApi {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest _continue(String _continue) {
+        public APIlistCustomObjectForAllNamespacesRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -3479,7 +3662,7 @@ public class CustomObjectsApi {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest fieldSelector(String fieldSelector) {
+        public APIlistCustomObjectForAllNamespacesRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -3489,7 +3672,7 @@ public class CustomObjectsApi {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest labelSelector(String labelSelector) {
+        public APIlistCustomObjectForAllNamespacesRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -3499,7 +3682,7 @@ public class CustomObjectsApi {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest limit(Integer limit) {
+        public APIlistCustomObjectForAllNamespacesRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -3509,7 +3692,7 @@ public class CustomObjectsApi {
          * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest resourceVersion(String resourceVersion) {
+        public APIlistCustomObjectForAllNamespacesRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -3519,7 +3702,7 @@ public class CustomObjectsApi {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistCustomObjectForAllNamespacesRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -3529,7 +3712,7 @@ public class CustomObjectsApi {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistCustomObjectForAllNamespacesRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -3539,7 +3722,7 @@ public class CustomObjectsApi {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
          * @return APIlistCustomObjectForAllNamespacesRequest
          */
-        public APIlistCustomObjectForAllNamespacesRequest watch(Boolean watch) {
+        public APIlistCustomObjectForAllNamespacesRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -3550,7 +3733,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3565,7 +3749,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3581,7 +3766,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3597,7 +3783,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3616,16 +3803,17 @@ public class CustomObjectsApi {
      * @param resourcePlural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIlistCustomObjectForAllNamespacesRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistCustomObjectForAllNamespacesRequest listCustomObjectForAllNamespaces(String group, String version, String resourcePlural) {
+    public APIlistCustomObjectForAllNamespacesRequest listCustomObjectForAllNamespaces(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String resourcePlural) {
         return new APIlistCustomObjectForAllNamespacesRequest(group, version, resourcePlural);
     }
-    private okhttp3.Call listNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3715,7 +3903,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling listNamespacedCustomObject(Async)");
@@ -3741,13 +3929,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> listNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch) throws ApiException {
+    private ApiResponse<Object> listNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
         okhttp3.Call localVarCall = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Integer timeoutSeconds, Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -3756,22 +3944,36 @@ public class CustomObjectsApi {
     }
 
     public class APIlistNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nullable
         private String pretty;
+        @jakarta.annotation.Nullable
         private Boolean allowWatchBookmarks;
+        @jakarta.annotation.Nullable
         private String _continue;
+        @jakarta.annotation.Nullable
         private String fieldSelector;
+        @jakarta.annotation.Nullable
         private String labelSelector;
+        @jakarta.annotation.Nullable
         private Integer limit;
+        @jakarta.annotation.Nullable
         private String resourceVersion;
+        @jakarta.annotation.Nullable
         private String resourceVersionMatch;
+        @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
+        @jakarta.annotation.Nullable
         private Boolean watch;
 
-        private APIlistNamespacedCustomObjectRequest(String group, String version, String namespace, String plural) {
+        private APIlistNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -3783,7 +3985,7 @@ public class CustomObjectsApi {
          * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest pretty(String pretty) {
+        public APIlistNamespacedCustomObjectRequest pretty(@jakarta.annotation.Nullable String pretty) {
             this.pretty = pretty;
             return this;
         }
@@ -3793,7 +3995,7 @@ public class CustomObjectsApi {
          * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest allowWatchBookmarks(Boolean allowWatchBookmarks) {
+        public APIlistNamespacedCustomObjectRequest allowWatchBookmarks(@jakarta.annotation.Nullable Boolean allowWatchBookmarks) {
             this.allowWatchBookmarks = allowWatchBookmarks;
             return this;
         }
@@ -3803,7 +4005,7 @@ public class CustomObjectsApi {
          * @param _continue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest _continue(String _continue) {
+        public APIlistNamespacedCustomObjectRequest _continue(@jakarta.annotation.Nullable String _continue) {
             this._continue = _continue;
             return this;
         }
@@ -3813,7 +4015,7 @@ public class CustomObjectsApi {
          * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest fieldSelector(String fieldSelector) {
+        public APIlistNamespacedCustomObjectRequest fieldSelector(@jakarta.annotation.Nullable String fieldSelector) {
             this.fieldSelector = fieldSelector;
             return this;
         }
@@ -3823,7 +4025,7 @@ public class CustomObjectsApi {
          * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest labelSelector(String labelSelector) {
+        public APIlistNamespacedCustomObjectRequest labelSelector(@jakarta.annotation.Nullable String labelSelector) {
             this.labelSelector = labelSelector;
             return this;
         }
@@ -3833,7 +4035,7 @@ public class CustomObjectsApi {
          * @param limit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest limit(Integer limit) {
+        public APIlistNamespacedCustomObjectRequest limit(@jakarta.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -3843,7 +4045,7 @@ public class CustomObjectsApi {
          * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest resourceVersion(String resourceVersion) {
+        public APIlistNamespacedCustomObjectRequest resourceVersion(@jakarta.annotation.Nullable String resourceVersion) {
             this.resourceVersion = resourceVersion;
             return this;
         }
@@ -3853,7 +4055,7 @@ public class CustomObjectsApi {
          * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest resourceVersionMatch(String resourceVersionMatch) {
+        public APIlistNamespacedCustomObjectRequest resourceVersionMatch(@jakarta.annotation.Nullable String resourceVersionMatch) {
             this.resourceVersionMatch = resourceVersionMatch;
             return this;
         }
@@ -3863,7 +4065,7 @@ public class CustomObjectsApi {
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest timeoutSeconds(Integer timeoutSeconds) {
+        public APIlistNamespacedCustomObjectRequest timeoutSeconds(@jakarta.annotation.Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
@@ -3873,7 +4075,7 @@ public class CustomObjectsApi {
          * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. (optional)
          * @return APIlistNamespacedCustomObjectRequest
          */
-        public APIlistNamespacedCustomObjectRequest watch(Boolean watch) {
+        public APIlistNamespacedCustomObjectRequest watch(@jakarta.annotation.Nullable Boolean watch) {
             this.watch = watch;
             return this;
         }
@@ -3884,7 +4086,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3899,7 +4102,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3915,7 +4119,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3931,7 +4136,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -3951,16 +4157,17 @@ public class CustomObjectsApi {
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @return APIlistNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistNamespacedCustomObjectRequest listNamespacedCustomObject(String group, String version, String namespace, String plural) {
+    public APIlistNamespacedCustomObjectRequest listNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural) {
         return new APIlistNamespacedCustomObjectRequest(group, version, namespace, plural);
     }
-    private okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4026,7 +4233,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObject(Async)");
@@ -4057,13 +4264,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -4072,17 +4279,26 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchClusterCustomObjectRequest(String group, String version, String plural, String name, Object body) {
+        private APIpatchClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -4095,7 +4311,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchClusterCustomObjectRequest
          */
-        public APIpatchClusterCustomObjectRequest dryRun(String dryRun) {
+        public APIpatchClusterCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4105,7 +4321,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchClusterCustomObjectRequest
          */
-        public APIpatchClusterCustomObjectRequest fieldManager(String fieldManager) {
+        public APIpatchClusterCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4115,7 +4331,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchClusterCustomObjectRequest
          */
-        public APIpatchClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIpatchClusterCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4125,7 +4341,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectRequest
          */
-        public APIpatchClusterCustomObjectRequest force(Boolean force) {
+        public APIpatchClusterCustomObjectRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -4136,7 +4352,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4151,7 +4368,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4167,7 +4385,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4183,7 +4402,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4204,16 +4424,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @return APIpatchClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchClusterCustomObjectRequest patchClusterCustomObject(String group, String version, String plural, String name, Object body) {
+    public APIpatchClusterCustomObjectRequest patchClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchClusterCustomObjectRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4281,7 +4502,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObjectScale(Async)");
@@ -4312,13 +4533,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -4327,17 +4548,26 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchClusterCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchClusterCustomObjectScaleRequest(String group, String version, String plural, String name, Object body) {
+        private APIpatchClusterCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -4350,7 +4580,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchClusterCustomObjectScaleRequest
          */
-        public APIpatchClusterCustomObjectScaleRequest dryRun(String dryRun) {
+        public APIpatchClusterCustomObjectScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4360,7 +4590,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchClusterCustomObjectScaleRequest
          */
-        public APIpatchClusterCustomObjectScaleRequest fieldManager(String fieldManager) {
+        public APIpatchClusterCustomObjectScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4370,7 +4600,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchClusterCustomObjectScaleRequest
          */
-        public APIpatchClusterCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+        public APIpatchClusterCustomObjectScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4380,7 +4610,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectScaleRequest
          */
-        public APIpatchClusterCustomObjectScaleRequest force(Boolean force) {
+        public APIpatchClusterCustomObjectScaleRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -4391,7 +4621,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4406,7 +4637,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4422,7 +4654,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4438,7 +4671,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4459,16 +4693,17 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIpatchClusterCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchClusterCustomObjectScaleRequest patchClusterCustomObjectScale(String group, String version, String plural, String name, Object body) {
+    public APIpatchClusterCustomObjectScaleRequest patchClusterCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchClusterCustomObjectScaleRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4536,7 +4771,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObjectStatus(Async)");
@@ -4567,13 +4802,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -4582,17 +4817,26 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchClusterCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchClusterCustomObjectStatusRequest(String group, String version, String plural, String name, Object body) {
+        private APIpatchClusterCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -4605,7 +4849,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchClusterCustomObjectStatusRequest
          */
-        public APIpatchClusterCustomObjectStatusRequest dryRun(String dryRun) {
+        public APIpatchClusterCustomObjectStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4615,7 +4859,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchClusterCustomObjectStatusRequest
          */
-        public APIpatchClusterCustomObjectStatusRequest fieldManager(String fieldManager) {
+        public APIpatchClusterCustomObjectStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4625,7 +4869,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchClusterCustomObjectStatusRequest
          */
-        public APIpatchClusterCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchClusterCustomObjectStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4635,7 +4879,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectStatusRequest
          */
-        public APIpatchClusterCustomObjectStatusRequest force(Boolean force) {
+        public APIpatchClusterCustomObjectStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -4646,7 +4890,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4661,7 +4906,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4677,7 +4923,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4693,7 +4940,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4714,16 +4962,17 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIpatchClusterCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchClusterCustomObjectStatusRequest patchClusterCustomObjectStatus(String group, String version, String plural, String name, Object body) {
+    public APIpatchClusterCustomObjectStatusRequest patchClusterCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchClusterCustomObjectStatusRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4790,7 +5039,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObject(Async)");
@@ -4826,13 +5075,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -4841,18 +5090,28 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIpatchNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -4866,7 +5125,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedCustomObjectRequest
          */
-        public APIpatchNamespacedCustomObjectRequest dryRun(String dryRun) {
+        public APIpatchNamespacedCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -4876,7 +5135,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedCustomObjectRequest
          */
-        public APIpatchNamespacedCustomObjectRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -4886,7 +5145,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchNamespacedCustomObjectRequest
          */
-        public APIpatchNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -4896,7 +5155,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectRequest
          */
-        public APIpatchNamespacedCustomObjectRequest force(Boolean force) {
+        public APIpatchNamespacedCustomObjectRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -4907,7 +5166,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4922,7 +5182,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4938,7 +5199,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4954,7 +5216,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -4976,16 +5239,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @return APIpatchNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedCustomObjectRequest patchNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIpatchNamespacedCustomObjectRequest patchNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchNamespacedCustomObjectRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5054,7 +5318,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObjectScale(Async)");
@@ -5090,13 +5354,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -5105,18 +5369,28 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchNamespacedCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedCustomObjectScaleRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIpatchNamespacedCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -5130,7 +5404,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedCustomObjectScaleRequest
          */
-        public APIpatchNamespacedCustomObjectScaleRequest dryRun(String dryRun) {
+        public APIpatchNamespacedCustomObjectScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -5140,7 +5414,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedCustomObjectScaleRequest
          */
-        public APIpatchNamespacedCustomObjectScaleRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedCustomObjectScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -5150,7 +5424,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchNamespacedCustomObjectScaleRequest
          */
-        public APIpatchNamespacedCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedCustomObjectScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -5160,7 +5434,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectScaleRequest
          */
-        public APIpatchNamespacedCustomObjectScaleRequest force(Boolean force) {
+        public APIpatchNamespacedCustomObjectScaleRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -5171,7 +5445,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5186,7 +5461,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5202,7 +5478,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5218,7 +5495,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5240,16 +5518,17 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIpatchNamespacedCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedCustomObjectScaleRequest patchNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIpatchNamespacedCustomObjectScaleRequest patchNamespacedCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchNamespacedCustomObjectScaleRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5318,7 +5597,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObjectStatus(Async)");
@@ -5354,13 +5633,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+    private ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
         okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -5369,18 +5648,28 @@ public class CustomObjectsApi {
     }
 
     public class APIpatchNamespacedCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
+        @jakarta.annotation.Nullable
         private Boolean force;
 
-        private APIpatchNamespacedCustomObjectStatusRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIpatchNamespacedCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -5394,7 +5683,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIpatchNamespacedCustomObjectStatusRequest
          */
-        public APIpatchNamespacedCustomObjectStatusRequest dryRun(String dryRun) {
+        public APIpatchNamespacedCustomObjectStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -5404,7 +5693,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
          * @return APIpatchNamespacedCustomObjectStatusRequest
          */
-        public APIpatchNamespacedCustomObjectStatusRequest fieldManager(String fieldManager) {
+        public APIpatchNamespacedCustomObjectStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -5414,7 +5703,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIpatchNamespacedCustomObjectStatusRequest
          */
-        public APIpatchNamespacedCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+        public APIpatchNamespacedCustomObjectStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -5424,7 +5713,7 @@ public class CustomObjectsApi {
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectStatusRequest
          */
-        public APIpatchNamespacedCustomObjectStatusRequest force(Boolean force) {
+        public APIpatchNamespacedCustomObjectStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
             this.force = force;
             return this;
         }
@@ -5435,7 +5724,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5450,7 +5740,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5466,7 +5757,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5482,7 +5774,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5504,16 +5797,17 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIpatchNamespacedCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchNamespacedCustomObjectStatusRequest patchNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIpatchNamespacedCustomObjectStatusRequest patchNamespacedCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIpatchNamespacedCustomObjectStatusRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5575,7 +5869,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObject(Async)");
@@ -5606,13 +5900,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -5621,16 +5915,24 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceClusterCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceClusterCustomObjectRequest(String group, String version, String plural, String name, Object body) {
+        private APIreplaceClusterCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -5643,7 +5945,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceClusterCustomObjectRequest
          */
-        public APIreplaceClusterCustomObjectRequest dryRun(String dryRun) {
+        public APIreplaceClusterCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -5653,7 +5955,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceClusterCustomObjectRequest
          */
-        public APIreplaceClusterCustomObjectRequest fieldManager(String fieldManager) {
+        public APIreplaceClusterCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -5663,7 +5965,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceClusterCustomObjectRequest
          */
-        public APIreplaceClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIreplaceClusterCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -5674,7 +5976,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5689,7 +5992,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5705,7 +6009,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5721,7 +6026,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -5742,16 +6048,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @return APIreplaceClusterCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceClusterCustomObjectRequest replaceClusterCustomObject(String group, String version, String plural, String name, Object body) {
+    public APIreplaceClusterCustomObjectRequest replaceClusterCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceClusterCustomObjectRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5815,7 +6122,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObjectScale(Async)");
@@ -5846,13 +6153,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -5861,16 +6168,24 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceClusterCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceClusterCustomObjectScaleRequest(String group, String version, String plural, String name, Object body) {
+        private APIreplaceClusterCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -5883,7 +6198,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceClusterCustomObjectScaleRequest
          */
-        public APIreplaceClusterCustomObjectScaleRequest dryRun(String dryRun) {
+        public APIreplaceClusterCustomObjectScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -5893,7 +6208,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceClusterCustomObjectScaleRequest
          */
-        public APIreplaceClusterCustomObjectScaleRequest fieldManager(String fieldManager) {
+        public APIreplaceClusterCustomObjectScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -5903,7 +6218,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceClusterCustomObjectScaleRequest
          */
-        public APIreplaceClusterCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+        public APIreplaceClusterCustomObjectScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -5914,7 +6229,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5930,7 +6246,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5947,7 +6264,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5964,7 +6282,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -5986,17 +6305,18 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIreplaceClusterCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceClusterCustomObjectScaleRequest replaceClusterCustomObjectScale(String group, String version, String plural, String name, Object body) {
+    public APIreplaceClusterCustomObjectScaleRequest replaceClusterCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceClusterCustomObjectScaleRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6060,7 +6380,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObjectStatus(Async)");
@@ -6091,13 +6411,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -6106,16 +6426,24 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceClusterCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceClusterCustomObjectStatusRequest(String group, String version, String plural, String name, Object body) {
+        private APIreplaceClusterCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.plural = plural;
@@ -6128,7 +6456,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceClusterCustomObjectStatusRequest
          */
-        public APIreplaceClusterCustomObjectStatusRequest dryRun(String dryRun) {
+        public APIreplaceClusterCustomObjectStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -6138,7 +6466,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceClusterCustomObjectStatusRequest
          */
-        public APIreplaceClusterCustomObjectStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceClusterCustomObjectStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -6148,7 +6476,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceClusterCustomObjectStatusRequest
          */
-        public APIreplaceClusterCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceClusterCustomObjectStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -6159,7 +6487,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6175,7 +6504,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6192,7 +6522,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6209,7 +6540,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6231,17 +6563,18 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIreplaceClusterCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceClusterCustomObjectStatusRequest replaceClusterCustomObjectStatus(String group, String version, String plural, String name, Object body) {
+    public APIreplaceClusterCustomObjectStatusRequest replaceClusterCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceClusterCustomObjectStatusRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6304,7 +6637,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObject(Async)");
@@ -6340,13 +6673,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -6355,17 +6688,26 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceNamespacedCustomObjectRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIreplaceNamespacedCustomObjectRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -6379,7 +6721,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedCustomObjectRequest
          */
-        public APIreplaceNamespacedCustomObjectRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedCustomObjectRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -6389,7 +6731,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedCustomObjectRequest
          */
-        public APIreplaceNamespacedCustomObjectRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedCustomObjectRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -6399,7 +6741,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceNamespacedCustomObjectRequest
          */
-        public APIreplaceNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedCustomObjectRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -6410,7 +6752,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6425,7 +6768,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6441,7 +6785,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6457,7 +6802,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -6479,16 +6825,17 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @return APIreplaceNamespacedCustomObjectRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedCustomObjectRequest replaceNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIreplaceNamespacedCustomObjectRequest replaceNamespacedCustomObject(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceNamespacedCustomObjectRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6553,7 +6900,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObjectScale(Async)");
@@ -6589,13 +6936,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -6604,17 +6951,26 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceNamespacedCustomObjectScaleRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedCustomObjectScaleRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIreplaceNamespacedCustomObjectScaleRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -6628,7 +6984,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedCustomObjectScaleRequest
          */
-        public APIreplaceNamespacedCustomObjectScaleRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedCustomObjectScaleRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -6638,7 +6994,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedCustomObjectScaleRequest
          */
-        public APIreplaceNamespacedCustomObjectScaleRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedCustomObjectScaleRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -6648,7 +7004,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceNamespacedCustomObjectScaleRequest
          */
-        public APIreplaceNamespacedCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedCustomObjectScaleRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -6659,7 +7015,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6675,7 +7032,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6692,7 +7050,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6709,7 +7068,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6732,17 +7092,18 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIreplaceNamespacedCustomObjectScaleRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedCustomObjectScaleRequest replaceNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIreplaceNamespacedCustomObjectScaleRequest replaceNamespacedCustomObjectScale(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceNamespacedCustomObjectScaleRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6807,7 +7168,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObjectStatus(Async)");
@@ -6843,13 +7204,13 @@ public class CustomObjectsApi {
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+    private ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusAsync(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -6858,17 +7219,26 @@ public class CustomObjectsApi {
     }
 
     public class APIreplaceNamespacedCustomObjectStatusRequest {
+        @jakarta.annotation.Nonnull
         private final String group;
+        @jakarta.annotation.Nonnull
         private final String version;
+        @jakarta.annotation.Nonnull
         private final String namespace;
+        @jakarta.annotation.Nonnull
         private final String plural;
+        @jakarta.annotation.Nonnull
         private final String name;
+        @jakarta.annotation.Nonnull
         private final Object body;
+        @jakarta.annotation.Nullable
         private String dryRun;
+        @jakarta.annotation.Nullable
         private String fieldManager;
+        @jakarta.annotation.Nullable
         private String fieldValidation;
 
-        private APIreplaceNamespacedCustomObjectStatusRequest(String group, String version, String namespace, String plural, String name, Object body) {
+        private APIreplaceNamespacedCustomObjectStatusRequest(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
             this.group = group;
             this.version = version;
             this.namespace = namespace;
@@ -6882,7 +7252,7 @@ public class CustomObjectsApi {
          * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
          * @return APIreplaceNamespacedCustomObjectStatusRequest
          */
-        public APIreplaceNamespacedCustomObjectStatusRequest dryRun(String dryRun) {
+        public APIreplaceNamespacedCustomObjectStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
             this.dryRun = dryRun;
             return this;
         }
@@ -6892,7 +7262,7 @@ public class CustomObjectsApi {
          * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
          * @return APIreplaceNamespacedCustomObjectStatusRequest
          */
-        public APIreplaceNamespacedCustomObjectStatusRequest fieldManager(String fieldManager) {
+        public APIreplaceNamespacedCustomObjectStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
             this.fieldManager = fieldManager;
             return this;
         }
@@ -6902,7 +7272,7 @@ public class CustomObjectsApi {
          * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
          * @return APIreplaceNamespacedCustomObjectStatusRequest
          */
-        public APIreplaceNamespacedCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+        public APIreplaceNamespacedCustomObjectStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
             this.fieldValidation = fieldValidation;
             return this;
         }
@@ -6913,7 +7283,8 @@ public class CustomObjectsApi {
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6929,7 +7300,8 @@ public class CustomObjectsApi {
          * @return Object
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6946,7 +7318,8 @@ public class CustomObjectsApi {
          * @return ApiResponse&lt;Object&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6963,7 +7336,8 @@ public class CustomObjectsApi {
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          * @http.response.details
-         <table summary="Response Details" border="1">
+         <table border="1">
+       <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
             <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -6986,14 +7360,15 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @return APIreplaceNamespacedCustomObjectStatusRequest
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceNamespacedCustomObjectStatusRequest replaceNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body) {
+    public APIreplaceNamespacedCustomObjectStatusRequest replaceNamespacedCustomObjectStatus(@jakarta.annotation.Nonnull String group, @jakarta.annotation.Nonnull String version, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull String plural, @jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull Object body) {
         return new APIreplaceNamespacedCustomObjectStatusRequest(group, version, namespace, plural, name, body);
     }
 }

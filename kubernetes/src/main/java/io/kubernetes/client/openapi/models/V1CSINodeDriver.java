@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,88 +53,92 @@ import io.kubernetes.client.openapi.JSON;
  * CSINodeDriver holds information about the specification of one CSI driver installed on a node
  */
 @ApiModel(description = "CSINodeDriver holds information about the specification of one CSI driver installed on a node")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSINodeDriver {
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
   @SerializedName(SERIALIZED_NAME_ALLOCATABLE)
+  @jakarta.annotation.Nullable
   private V1VolumeNodeResources allocatable;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NODE_I_D = "nodeID";
   @SerializedName(SERIALIZED_NAME_NODE_I_D)
+  @jakarta.annotation.Nonnull
   private String nodeID;
 
   public static final String SERIALIZED_NAME_TOPOLOGY_KEYS = "topologyKeys";
   @SerializedName(SERIALIZED_NAME_TOPOLOGY_KEYS)
+  @jakarta.annotation.Nullable
   private List<String> topologyKeys = new ArrayList<>();
 
   public V1CSINodeDriver() {
   }
 
-  public V1CSINodeDriver allocatable(V1VolumeNodeResources allocatable) {
+  public V1CSINodeDriver allocatable(@jakarta.annotation.Nullable V1VolumeNodeResources allocatable) {
     this.allocatable = allocatable;
     return this;
   }
 
-   /**
+  /**
    * Get allocatable
    * @return allocatable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeNodeResources getAllocatable() {
     return allocatable;
   }
 
-  public void setAllocatable(V1VolumeNodeResources allocatable) {
+  public void setAllocatable(@jakarta.annotation.Nullable V1VolumeNodeResources allocatable) {
     this.allocatable = allocatable;
   }
 
 
-  public V1CSINodeDriver name(String name) {
+  public V1CSINodeDriver name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name represents the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name represents the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1CSINodeDriver nodeID(String nodeID) {
+  public V1CSINodeDriver nodeID(@jakarta.annotation.Nonnull String nodeID) {
     this.nodeID = nodeID;
     return this;
   }
 
-   /**
+  /**
    * nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as \&quot;node1\&quot;, but the storage system may refer to the same node as \&quot;nodeA\&quot;. When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. \&quot;nodeA\&quot; instead of \&quot;node1\&quot;. This field is required.
    * @return nodeID
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as \"node1\", but the storage system may refer to the same node as \"nodeA\". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. \"nodeA\" instead of \"node1\". This field is required.")
   public String getNodeID() {
     return nodeID;
   }
 
-  public void setNodeID(String nodeID) {
+  public void setNodeID(@jakarta.annotation.Nonnull String nodeID) {
     this.nodeID = nodeID;
   }
 
 
-  public V1CSINodeDriver topologyKeys(List<String> topologyKeys) {
+  public V1CSINodeDriver topologyKeys(@jakarta.annotation.Nullable List<String> topologyKeys) {
     this.topologyKeys = topologyKeys;
     return this;
   }
@@ -148,17 +151,17 @@ public class V1CSINodeDriver {
     return this;
   }
 
-   /**
+  /**
    * topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. \&quot;company.com/zone\&quot;, \&quot;company.com/region\&quot;). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
    * @return topologyKeys
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. \"company.com/zone\", \"company.com/region\"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.")
   public List<String> getTopologyKeys() {
     return topologyKeys;
   }
 
-  public void setTopologyKeys(List<String> topologyKeys) {
+  public void setTopologyKeys(@jakarta.annotation.Nullable List<String> topologyKeys) {
     this.topologyKeys = topologyKeys;
   }
 
@@ -225,12 +228,12 @@ public class V1CSINodeDriver {
     openapiRequiredFields.add("nodeID");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CSINodeDriver
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CSINodeDriver
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSINodeDriver.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -298,22 +301,22 @@ public class V1CSINodeDriver {
     }
   }
 
- /**
-  * Create an instance of V1CSINodeDriver given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CSINodeDriver
-  * @throws IOException if the JSON string is invalid with respect to V1CSINodeDriver
-  */
+  /**
+   * Create an instance of V1CSINodeDriver given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CSINodeDriver
+   * @throws IOException if the JSON string is invalid with respect to V1CSINodeDriver
+   */
   public static V1CSINodeDriver fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CSINodeDriver.class);
   }
 
- /**
-  * Convert an instance of V1CSINodeDriver to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CSINodeDriver to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

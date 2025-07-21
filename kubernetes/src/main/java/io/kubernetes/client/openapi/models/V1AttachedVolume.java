@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * AttachedVolume describes a volume attached to a node
  */
 @ApiModel(description = "AttachedVolume describes a volume attached to a node")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1AttachedVolume {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)
+  @jakarta.annotation.Nonnull
   private String devicePath;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public V1AttachedVolume() {
   }
 
-  public V1AttachedVolume devicePath(String devicePath) {
+  public V1AttachedVolume devicePath(@jakarta.annotation.Nonnull String devicePath) {
     this.devicePath = devicePath;
     return this;
   }
 
-   /**
+  /**
    * DevicePath represents the device path where the volume should be available
    * @return devicePath
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "DevicePath represents the device path where the volume should be available")
   public String getDevicePath() {
     return devicePath;
   }
 
-  public void setDevicePath(String devicePath) {
+  public void setDevicePath(@jakarta.annotation.Nonnull String devicePath) {
     this.devicePath = devicePath;
   }
 
 
-  public V1AttachedVolume name(String name) {
+  public V1AttachedVolume name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the attached volume
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the attached volume")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -160,12 +161,12 @@ public class V1AttachedVolume {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1AttachedVolume
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1AttachedVolume
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AttachedVolume.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -225,22 +226,22 @@ public class V1AttachedVolume {
     }
   }
 
- /**
-  * Create an instance of V1AttachedVolume given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1AttachedVolume
-  * @throws IOException if the JSON string is invalid with respect to V1AttachedVolume
-  */
+  /**
+   * Create an instance of V1AttachedVolume given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1AttachedVolume
+   * @throws IOException if the JSON string is invalid with respect to V1AttachedVolume
+   */
   public static V1AttachedVolume fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1AttachedVolume.class);
   }
 
- /**
-  * Convert an instance of V1AttachedVolume to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1AttachedVolume to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

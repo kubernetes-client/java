@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * Spec to control the desired behavior of rolling update.
  */
 @ApiModel(description = "Spec to control the desired behavior of rolling update.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1RollingUpdateDeployment {
   public static final String SERIALIZED_NAME_MAX_SURGE = "maxSurge";
   @SerializedName(SERIALIZED_NAME_MAX_SURGE)
+  @jakarta.annotation.Nullable
   private IntOrString maxSurge;
 
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
+  @jakarta.annotation.Nullable
   private IntOrString maxUnavailable;
 
   public V1RollingUpdateDeployment() {
   }
 
-  public V1RollingUpdateDeployment maxSurge(IntOrString maxSurge) {
+  public V1RollingUpdateDeployment maxSurge(@jakarta.annotation.Nullable IntOrString maxSurge) {
     this.maxSurge = maxSurge;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return maxSurge
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMaxSurge() {
     return maxSurge;
   }
 
-  public void setMaxSurge(IntOrString maxSurge) {
+  public void setMaxSurge(@jakarta.annotation.Nullable IntOrString maxSurge) {
     this.maxSurge = maxSurge;
   }
 
 
-  public V1RollingUpdateDeployment maxUnavailable(IntOrString maxUnavailable) {
+  public V1RollingUpdateDeployment maxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return this;
   }
 
-   /**
+  /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return maxUnavailable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getMaxUnavailable() {
     return maxUnavailable;
   }
 
-  public void setMaxUnavailable(IntOrString maxUnavailable) {
+  public void setMaxUnavailable(@jakarta.annotation.Nullable IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
   }
 
@@ -159,12 +160,12 @@ public class V1RollingUpdateDeployment {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1RollingUpdateDeployment
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1RollingUpdateDeployment
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RollingUpdateDeployment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -217,22 +218,22 @@ public class V1RollingUpdateDeployment {
     }
   }
 
- /**
-  * Create an instance of V1RollingUpdateDeployment given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1RollingUpdateDeployment
-  * @throws IOException if the JSON string is invalid with respect to V1RollingUpdateDeployment
-  */
+  /**
+   * Create an instance of V1RollingUpdateDeployment given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1RollingUpdateDeployment
+   * @throws IOException if the JSON string is invalid with respect to V1RollingUpdateDeployment
+   */
   public static V1RollingUpdateDeployment fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1RollingUpdateDeployment.class);
   }
 
- /**
-  * Convert an instance of V1RollingUpdateDeployment to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1RollingUpdateDeployment to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

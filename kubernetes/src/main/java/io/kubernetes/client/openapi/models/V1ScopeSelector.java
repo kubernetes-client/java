@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
  */
 @ApiModel(description = "A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ScopeSelector {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
   @SerializedName(SERIALIZED_NAME_MATCH_EXPRESSIONS)
+  @jakarta.annotation.Nullable
   private List<V1ScopedResourceSelectorRequirement> matchExpressions = new ArrayList<>();
 
   public V1ScopeSelector() {
   }
 
-  public V1ScopeSelector matchExpressions(List<V1ScopedResourceSelectorRequirement> matchExpressions) {
+  public V1ScopeSelector matchExpressions(@jakarta.annotation.Nullable List<V1ScopedResourceSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1ScopeSelector {
     return this;
   }
 
-   /**
+  /**
    * A list of scope selector requirements by scope of the resources.
    * @return matchExpressions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of scope selector requirements by scope of the resources.")
   public List<V1ScopedResourceSelectorRequirement> getMatchExpressions() {
     return matchExpressions;
   }
 
-  public void setMatchExpressions(List<V1ScopedResourceSelectorRequirement> matchExpressions) {
+  public void setMatchExpressions(@jakarta.annotation.Nullable List<V1ScopedResourceSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
   }
 
@@ -142,12 +142,12 @@ public class V1ScopeSelector {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ScopeSelector
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ScopeSelector
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ScopeSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1ScopeSelector {
     }
   }
 
- /**
-  * Create an instance of V1ScopeSelector given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ScopeSelector
-  * @throws IOException if the JSON string is invalid with respect to V1ScopeSelector
-  */
+  /**
+   * Create an instance of V1ScopeSelector given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ScopeSelector
+   * @throws IOException if the JSON string is invalid with respect to V1ScopeSelector
+   */
   public static V1ScopeSelector fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ScopeSelector.class);
   }
 
- /**
-  * Convert an instance of V1ScopeSelector to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ScopeSelector to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

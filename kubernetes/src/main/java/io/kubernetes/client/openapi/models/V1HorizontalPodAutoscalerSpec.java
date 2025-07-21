@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,103 +51,107 @@ import io.kubernetes.client.openapi.JSON;
  * specification of a horizontal pod autoscaler.
  */
 @ApiModel(description = "specification of a horizontal pod autoscaler.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1HorizontalPodAutoscalerSpec {
   public static final String SERIALIZED_NAME_MAX_REPLICAS = "maxReplicas";
   @SerializedName(SERIALIZED_NAME_MAX_REPLICAS)
+  @jakarta.annotation.Nonnull
   private Integer maxReplicas;
 
   public static final String SERIALIZED_NAME_MIN_REPLICAS = "minReplicas";
   @SerializedName(SERIALIZED_NAME_MIN_REPLICAS)
+  @jakarta.annotation.Nullable
   private Integer minReplicas;
 
   public static final String SERIALIZED_NAME_SCALE_TARGET_REF = "scaleTargetRef";
   @SerializedName(SERIALIZED_NAME_SCALE_TARGET_REF)
+  @jakarta.annotation.Nonnull
   private V1CrossVersionObjectReference scaleTargetRef;
 
   public static final String SERIALIZED_NAME_TARGET_C_P_U_UTILIZATION_PERCENTAGE = "targetCPUUtilizationPercentage";
   @SerializedName(SERIALIZED_NAME_TARGET_C_P_U_UTILIZATION_PERCENTAGE)
+  @jakarta.annotation.Nullable
   private Integer targetCPUUtilizationPercentage;
 
   public V1HorizontalPodAutoscalerSpec() {
   }
 
-  public V1HorizontalPodAutoscalerSpec maxReplicas(Integer maxReplicas) {
+  public V1HorizontalPodAutoscalerSpec maxReplicas(@jakarta.annotation.Nonnull Integer maxReplicas) {
     this.maxReplicas = maxReplicas;
     return this;
   }
 
-   /**
+  /**
    * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
    * @return maxReplicas
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.")
   public Integer getMaxReplicas() {
     return maxReplicas;
   }
 
-  public void setMaxReplicas(Integer maxReplicas) {
+  public void setMaxReplicas(@jakarta.annotation.Nonnull Integer maxReplicas) {
     this.maxReplicas = maxReplicas;
   }
 
 
-  public V1HorizontalPodAutoscalerSpec minReplicas(Integer minReplicas) {
+  public V1HorizontalPodAutoscalerSpec minReplicas(@jakarta.annotation.Nullable Integer minReplicas) {
     this.minReplicas = minReplicas;
     return this;
   }
 
-   /**
+  /**
    * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
    * @return minReplicas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.")
   public Integer getMinReplicas() {
     return minReplicas;
   }
 
-  public void setMinReplicas(Integer minReplicas) {
+  public void setMinReplicas(@jakarta.annotation.Nullable Integer minReplicas) {
     this.minReplicas = minReplicas;
   }
 
 
-  public V1HorizontalPodAutoscalerSpec scaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
+  public V1HorizontalPodAutoscalerSpec scaleTargetRef(@jakarta.annotation.Nonnull V1CrossVersionObjectReference scaleTargetRef) {
     this.scaleTargetRef = scaleTargetRef;
     return this;
   }
 
-   /**
+  /**
    * Get scaleTargetRef
    * @return scaleTargetRef
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   public V1CrossVersionObjectReference getScaleTargetRef() {
     return scaleTargetRef;
   }
 
-  public void setScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
+  public void setScaleTargetRef(@jakarta.annotation.Nonnull V1CrossVersionObjectReference scaleTargetRef) {
     this.scaleTargetRef = scaleTargetRef;
   }
 
 
-  public V1HorizontalPodAutoscalerSpec targetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
+  public V1HorizontalPodAutoscalerSpec targetCPUUtilizationPercentage(@jakarta.annotation.Nullable Integer targetCPUUtilizationPercentage) {
     this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
     return this;
   }
 
-   /**
+  /**
    * targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
    * @return targetCPUUtilizationPercentage
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.")
   public Integer getTargetCPUUtilizationPercentage() {
     return targetCPUUtilizationPercentage;
   }
 
-  public void setTargetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
+  public void setTargetCPUUtilizationPercentage(@jakarta.annotation.Nullable Integer targetCPUUtilizationPercentage) {
     this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
   }
 
@@ -215,12 +218,12 @@ public class V1HorizontalPodAutoscalerSpec {
     openapiRequiredFields.add("scaleTargetRef");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1HorizontalPodAutoscalerSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1HorizontalPodAutoscalerSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1HorizontalPodAutoscalerSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +279,22 @@ public class V1HorizontalPodAutoscalerSpec {
     }
   }
 
- /**
-  * Create an instance of V1HorizontalPodAutoscalerSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1HorizontalPodAutoscalerSpec
-  * @throws IOException if the JSON string is invalid with respect to V1HorizontalPodAutoscalerSpec
-  */
+  /**
+   * Create an instance of V1HorizontalPodAutoscalerSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1HorizontalPodAutoscalerSpec
+   * @throws IOException if the JSON string is invalid with respect to V1HorizontalPodAutoscalerSpec
+   */
   public static V1HorizontalPodAutoscalerSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1HorizontalPodAutoscalerSpec.class);
   }
 
- /**
-  * Convert an instance of V1HorizontalPodAutoscalerSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1HorizontalPodAutoscalerSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

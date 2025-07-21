@@ -46,14 +46,26 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
   public A addToCauses(int index,V1StatusCause item) {
     if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
-    if (index < 0 || index >= causes.size()) { _visitables.get("causes").add(builder); causes.add(builder); } else { _visitables.get("causes").add(index, builder); causes.add(index, builder);}
+    if (index < 0 || index >= causes.size()) {
+        _visitables.get("causes").add(builder);
+        causes.add(builder);
+    } else {
+        _visitables.get("causes").add(builder);
+        causes.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToCauses(int index,V1StatusCause item) {
     if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
-    if (index < 0 || index >= causes.size()) { _visitables.get("causes").add(builder); causes.add(builder); } else { _visitables.get("causes").set(index, builder); causes.set(index, builder);}
+    if (index < 0 || index >= causes.size()) {
+        _visitables.get("causes").add(builder);
+        causes.add(builder);
+    } else {
+        _visitables.get("causes").add(builder);
+        causes.set(index, builder);
+    }
     return (A)this;
   }
   

@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,31 +51,32 @@ import io.kubernetes.client.openapi.JSON;
  * NodeDaemonEndpoints lists ports opened by daemons running on the Node.
  */
 @ApiModel(description = "NodeDaemonEndpoints lists ports opened by daemons running on the Node.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeDaemonEndpoints {
   public static final String SERIALIZED_NAME_KUBELET_ENDPOINT = "kubeletEndpoint";
   @SerializedName(SERIALIZED_NAME_KUBELET_ENDPOINT)
+  @jakarta.annotation.Nullable
   private V1DaemonEndpoint kubeletEndpoint;
 
   public V1NodeDaemonEndpoints() {
   }
 
-  public V1NodeDaemonEndpoints kubeletEndpoint(V1DaemonEndpoint kubeletEndpoint) {
+  public V1NodeDaemonEndpoints kubeletEndpoint(@jakarta.annotation.Nullable V1DaemonEndpoint kubeletEndpoint) {
     this.kubeletEndpoint = kubeletEndpoint;
     return this;
   }
 
-   /**
+  /**
    * Get kubeletEndpoint
    * @return kubeletEndpoint
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DaemonEndpoint getKubeletEndpoint() {
     return kubeletEndpoint;
   }
 
-  public void setKubeletEndpoint(V1DaemonEndpoint kubeletEndpoint) {
+  public void setKubeletEndpoint(@jakarta.annotation.Nullable V1DaemonEndpoint kubeletEndpoint) {
     this.kubeletEndpoint = kubeletEndpoint;
   }
 
@@ -132,12 +132,12 @@ public class V1NodeDaemonEndpoints {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeDaemonEndpoints
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeDaemonEndpoints
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeDaemonEndpoints.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -188,22 +188,22 @@ public class V1NodeDaemonEndpoints {
     }
   }
 
- /**
-  * Create an instance of V1NodeDaemonEndpoints given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeDaemonEndpoints
-  * @throws IOException if the JSON string is invalid with respect to V1NodeDaemonEndpoints
-  */
+  /**
+   * Create an instance of V1NodeDaemonEndpoints given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeDaemonEndpoints
+   * @throws IOException if the JSON string is invalid with respect to V1NodeDaemonEndpoints
+   */
   public static V1NodeDaemonEndpoints fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeDaemonEndpoints.class);
   }
 
- /**
-  * Convert an instance of V1NodeDaemonEndpoints to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeDaemonEndpoints to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,48 +56,57 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
 @ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
+  @jakarta.annotation.Nullable
   private List<V1CustomResourceColumnDefinition> additionalPrinterColumns = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEPRECATED = "deprecated";
   @SerializedName(SERIALIZED_NAME_DEPRECATED)
+  @jakarta.annotation.Nullable
   private Boolean deprecated;
 
   public static final String SERIALIZED_NAME_DEPRECATION_WARNING = "deprecationWarning";
   @SerializedName(SERIALIZED_NAME_DEPRECATION_WARNING)
+  @jakarta.annotation.Nullable
   private String deprecationWarning;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_SCHEMA = "schema";
   @SerializedName(SERIALIZED_NAME_SCHEMA)
+  @jakarta.annotation.Nullable
   private V1CustomResourceValidation schema;
 
   public static final String SERIALIZED_NAME_SELECTABLE_FIELDS = "selectableFields";
   @SerializedName(SERIALIZED_NAME_SELECTABLE_FIELDS)
+  @jakarta.annotation.Nullable
   private List<V1SelectableField> selectableFields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SERVED = "served";
   @SerializedName(SERIALIZED_NAME_SERVED)
+  @jakarta.annotation.Nonnull
   private Boolean served;
 
   public static final String SERIALIZED_NAME_STORAGE = "storage";
   @SerializedName(SERIALIZED_NAME_STORAGE)
+  @jakarta.annotation.Nonnull
   private Boolean storage;
 
   public static final String SERIALIZED_NAME_SUBRESOURCES = "subresources";
   @SerializedName(SERIALIZED_NAME_SUBRESOURCES)
+  @jakarta.annotation.Nullable
   private V1CustomResourceSubresources subresources;
 
   public V1CustomResourceDefinitionVersion() {
   }
 
-  public V1CustomResourceDefinitionVersion additionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
+  public V1CustomResourceDefinitionVersion additionalPrinterColumns(@jakarta.annotation.Nullable List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
     this.additionalPrinterColumns = additionalPrinterColumns;
     return this;
   }
@@ -111,102 +119,102 @@ public class V1CustomResourceDefinitionVersion {
     return this;
   }
 
-   /**
+  /**
    * additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.
    * @return additionalPrinterColumns
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.")
   public List<V1CustomResourceColumnDefinition> getAdditionalPrinterColumns() {
     return additionalPrinterColumns;
   }
 
-  public void setAdditionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
+  public void setAdditionalPrinterColumns(@jakarta.annotation.Nullable List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
     this.additionalPrinterColumns = additionalPrinterColumns;
   }
 
 
-  public V1CustomResourceDefinitionVersion deprecated(Boolean deprecated) {
+  public V1CustomResourceDefinitionVersion deprecated(@jakarta.annotation.Nullable Boolean deprecated) {
     this.deprecated = deprecated;
     return this;
   }
 
-   /**
+  /**
    * deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.
    * @return deprecated
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.")
   public Boolean getDeprecated() {
     return deprecated;
   }
 
-  public void setDeprecated(Boolean deprecated) {
+  public void setDeprecated(@jakarta.annotation.Nullable Boolean deprecated) {
     this.deprecated = deprecated;
   }
 
 
-  public V1CustomResourceDefinitionVersion deprecationWarning(String deprecationWarning) {
+  public V1CustomResourceDefinitionVersion deprecationWarning(@jakarta.annotation.Nullable String deprecationWarning) {
     this.deprecationWarning = deprecationWarning;
     return this;
   }
 
-   /**
+  /**
    * deprecationWarning overrides the default warning returned to API clients. May only be set when &#x60;deprecated&#x60; is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.
    * @return deprecationWarning
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "deprecationWarning overrides the default warning returned to API clients. May only be set when `deprecated` is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.")
   public String getDeprecationWarning() {
     return deprecationWarning;
   }
 
-  public void setDeprecationWarning(String deprecationWarning) {
+  public void setDeprecationWarning(@jakarta.annotation.Nullable String deprecationWarning) {
     this.deprecationWarning = deprecationWarning;
   }
 
 
-  public V1CustomResourceDefinitionVersion name(String name) {
+  public V1CustomResourceDefinitionVersion name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at &#x60;/apis/&lt;group&gt;/&lt;version&gt;/...&#x60; if &#x60;served&#x60; is true.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at `/apis/<group>/<version>/...` if `served` is true.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1CustomResourceDefinitionVersion schema(V1CustomResourceValidation schema) {
+  public V1CustomResourceDefinitionVersion schema(@jakarta.annotation.Nullable V1CustomResourceValidation schema) {
     this.schema = schema;
     return this;
   }
 
-   /**
+  /**
    * Get schema
    * @return schema
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceValidation getSchema() {
     return schema;
   }
 
-  public void setSchema(V1CustomResourceValidation schema) {
+  public void setSchema(@jakarta.annotation.Nullable V1CustomResourceValidation schema) {
     this.schema = schema;
   }
 
 
-  public V1CustomResourceDefinitionVersion selectableFields(List<V1SelectableField> selectableFields) {
+  public V1CustomResourceDefinitionVersion selectableFields(@jakarta.annotation.Nullable List<V1SelectableField> selectableFields) {
     this.selectableFields = selectableFields;
     return this;
   }
@@ -219,77 +227,77 @@ public class V1CustomResourceDefinitionVersion {
     return this;
   }
 
-   /**
+  /**
    * selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors
    * @return selectableFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors")
   public List<V1SelectableField> getSelectableFields() {
     return selectableFields;
   }
 
-  public void setSelectableFields(List<V1SelectableField> selectableFields) {
+  public void setSelectableFields(@jakarta.annotation.Nullable List<V1SelectableField> selectableFields) {
     this.selectableFields = selectableFields;
   }
 
 
-  public V1CustomResourceDefinitionVersion served(Boolean served) {
+  public V1CustomResourceDefinitionVersion served(@jakarta.annotation.Nonnull Boolean served) {
     this.served = served;
     return this;
   }
 
-   /**
+  /**
    * served is a flag enabling/disabling this version from being served via REST APIs
    * @return served
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "served is a flag enabling/disabling this version from being served via REST APIs")
   public Boolean getServed() {
     return served;
   }
 
-  public void setServed(Boolean served) {
+  public void setServed(@jakarta.annotation.Nonnull Boolean served) {
     this.served = served;
   }
 
 
-  public V1CustomResourceDefinitionVersion storage(Boolean storage) {
+  public V1CustomResourceDefinitionVersion storage(@jakarta.annotation.Nonnull Boolean storage) {
     this.storage = storage;
     return this;
   }
 
-   /**
+  /**
    * storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage&#x3D;true.
    * @return storage
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage=true.")
   public Boolean getStorage() {
     return storage;
   }
 
-  public void setStorage(Boolean storage) {
+  public void setStorage(@jakarta.annotation.Nonnull Boolean storage) {
     this.storage = storage;
   }
 
 
-  public V1CustomResourceDefinitionVersion subresources(V1CustomResourceSubresources subresources) {
+  public V1CustomResourceDefinitionVersion subresources(@jakarta.annotation.Nullable V1CustomResourceSubresources subresources) {
     this.subresources = subresources;
     return this;
   }
 
-   /**
+  /**
    * Get subresources
    * @return subresources
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceSubresources getSubresources() {
     return subresources;
   }
 
-  public void setSubresources(V1CustomResourceSubresources subresources) {
+  public void setSubresources(@jakarta.annotation.Nullable V1CustomResourceSubresources subresources) {
     this.subresources = subresources;
   }
 
@@ -372,12 +380,12 @@ public class V1CustomResourceDefinitionVersion {
     openapiRequiredFields.add("storage");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionVersion
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1CustomResourceDefinitionVersion
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CustomResourceDefinitionVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -473,22 +481,22 @@ public class V1CustomResourceDefinitionVersion {
     }
   }
 
- /**
-  * Create an instance of V1CustomResourceDefinitionVersion given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1CustomResourceDefinitionVersion
-  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionVersion
-  */
+  /**
+   * Create an instance of V1CustomResourceDefinitionVersion given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1CustomResourceDefinitionVersion
+   * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionVersion
+   */
   public static V1CustomResourceDefinitionVersion fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1CustomResourceDefinitionVersion.class);
   }
 
- /**
-  * Convert an instance of V1CustomResourceDefinitionVersion to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1CustomResourceDefinitionVersion to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

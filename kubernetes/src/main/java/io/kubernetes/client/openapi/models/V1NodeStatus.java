@@ -52,7 +52,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,64 +64,77 @@ import io.kubernetes.client.openapi.JSON;
  * NodeStatus is information about the current status of a node.
  */
 @ApiModel(description = "NodeStatus is information about the current status of a node.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
+  @jakarta.annotation.Nullable
   private List<V1NodeAddress> addresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
   @SerializedName(SERIALIZED_NAME_ALLOCATABLE)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> allocatable = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> capacity = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1NodeCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
+  @jakarta.annotation.Nullable
   private V1NodeConfigStatus config;
 
   public static final String SERIALIZED_NAME_DAEMON_ENDPOINTS = "daemonEndpoints";
   @SerializedName(SERIALIZED_NAME_DAEMON_ENDPOINTS)
+  @jakarta.annotation.Nullable
   private V1NodeDaemonEndpoints daemonEndpoints;
 
   public static final String SERIALIZED_NAME_FEATURES = "features";
   @SerializedName(SERIALIZED_NAME_FEATURES)
+  @jakarta.annotation.Nullable
   private V1NodeFeatures features;
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
+  @jakarta.annotation.Nullable
   private List<V1ContainerImage> images = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NODE_INFO = "nodeInfo";
   @SerializedName(SERIALIZED_NAME_NODE_INFO)
+  @jakarta.annotation.Nullable
   private V1NodeSystemInfo nodeInfo;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
+  @jakarta.annotation.Nullable
   private String phase;
 
   public static final String SERIALIZED_NAME_RUNTIME_HANDLERS = "runtimeHandlers";
   @SerializedName(SERIALIZED_NAME_RUNTIME_HANDLERS)
+  @jakarta.annotation.Nullable
   private List<V1NodeRuntimeHandler> runtimeHandlers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_ATTACHED = "volumesAttached";
   @SerializedName(SERIALIZED_NAME_VOLUMES_ATTACHED)
+  @jakarta.annotation.Nullable
   private List<V1AttachedVolume> volumesAttached = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_IN_USE = "volumesInUse";
   @SerializedName(SERIALIZED_NAME_VOLUMES_IN_USE)
+  @jakarta.annotation.Nullable
   private List<String> volumesInUse = new ArrayList<>();
 
   public V1NodeStatus() {
   }
 
-  public V1NodeStatus addresses(List<V1NodeAddress> addresses) {
+  public V1NodeStatus addresses(@jakarta.annotation.Nullable List<V1NodeAddress> addresses) {
     this.addresses = addresses;
     return this;
   }
@@ -135,22 +147,22 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node&#39;s address in its own status or consumers of the downward API (status.hostIP).
    * @return addresses
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).")
   public List<V1NodeAddress> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<V1NodeAddress> addresses) {
+  public void setAddresses(@jakarta.annotation.Nullable List<V1NodeAddress> addresses) {
     this.addresses = addresses;
   }
 
 
-  public V1NodeStatus allocatable(Map<String, Quantity> allocatable) {
+  public V1NodeStatus allocatable(@jakarta.annotation.Nullable Map<String, Quantity> allocatable) {
     this.allocatable = allocatable;
     return this;
   }
@@ -163,22 +175,22 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.
    * @return allocatable
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.")
   public Map<String, Quantity> getAllocatable() {
     return allocatable;
   }
 
-  public void setAllocatable(Map<String, Quantity> allocatable) {
+  public void setAllocatable(@jakarta.annotation.Nullable Map<String, Quantity> allocatable) {
     this.allocatable = allocatable;
   }
 
 
-  public V1NodeStatus capacity(Map<String, Quantity> capacity) {
+  public V1NodeStatus capacity(@jakarta.annotation.Nullable Map<String, Quantity> capacity) {
     this.capacity = capacity;
     return this;
   }
@@ -191,22 +203,22 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity
    * @return capacity
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
 
-  public void setCapacity(Map<String, Quantity> capacity) {
+  public void setCapacity(@jakarta.annotation.Nullable Map<String, Quantity> capacity) {
     this.capacity = capacity;
   }
 
 
-  public V1NodeStatus conditions(List<V1NodeCondition> conditions) {
+  public V1NodeStatus conditions(@jakarta.annotation.Nullable List<V1NodeCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -219,82 +231,82 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition")
   public List<V1NodeCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1NodeCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1NodeCondition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1NodeStatus config(V1NodeConfigStatus config) {
+  public V1NodeStatus config(@jakarta.annotation.Nullable V1NodeConfigStatus config) {
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeConfigStatus getConfig() {
     return config;
   }
 
-  public void setConfig(V1NodeConfigStatus config) {
+  public void setConfig(@jakarta.annotation.Nullable V1NodeConfigStatus config) {
     this.config = config;
   }
 
 
-  public V1NodeStatus daemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
+  public V1NodeStatus daemonEndpoints(@jakarta.annotation.Nullable V1NodeDaemonEndpoints daemonEndpoints) {
     this.daemonEndpoints = daemonEndpoints;
     return this;
   }
 
-   /**
+  /**
    * Get daemonEndpoints
    * @return daemonEndpoints
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeDaemonEndpoints getDaemonEndpoints() {
     return daemonEndpoints;
   }
 
-  public void setDaemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints) {
+  public void setDaemonEndpoints(@jakarta.annotation.Nullable V1NodeDaemonEndpoints daemonEndpoints) {
     this.daemonEndpoints = daemonEndpoints;
   }
 
 
-  public V1NodeStatus features(V1NodeFeatures features) {
+  public V1NodeStatus features(@jakarta.annotation.Nullable V1NodeFeatures features) {
     this.features = features;
     return this;
   }
 
-   /**
+  /**
    * Get features
    * @return features
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeFeatures getFeatures() {
     return features;
   }
 
-  public void setFeatures(V1NodeFeatures features) {
+  public void setFeatures(@jakarta.annotation.Nullable V1NodeFeatures features) {
     this.features = features;
   }
 
 
-  public V1NodeStatus images(List<V1ContainerImage> images) {
+  public V1NodeStatus images(@jakarta.annotation.Nullable List<V1ContainerImage> images) {
     this.images = images;
     return this;
   }
@@ -307,62 +319,62 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * List of container images on this node
    * @return images
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of container images on this node")
   public List<V1ContainerImage> getImages() {
     return images;
   }
 
-  public void setImages(List<V1ContainerImage> images) {
+  public void setImages(@jakarta.annotation.Nullable List<V1ContainerImage> images) {
     this.images = images;
   }
 
 
-  public V1NodeStatus nodeInfo(V1NodeSystemInfo nodeInfo) {
+  public V1NodeStatus nodeInfo(@jakarta.annotation.Nullable V1NodeSystemInfo nodeInfo) {
     this.nodeInfo = nodeInfo;
     return this;
   }
 
-   /**
+  /**
    * Get nodeInfo
    * @return nodeInfo
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSystemInfo getNodeInfo() {
     return nodeInfo;
   }
 
-  public void setNodeInfo(V1NodeSystemInfo nodeInfo) {
+  public void setNodeInfo(@jakarta.annotation.Nullable V1NodeSystemInfo nodeInfo) {
     this.nodeInfo = nodeInfo;
   }
 
 
-  public V1NodeStatus phase(String phase) {
+  public V1NodeStatus phase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
     return this;
   }
 
-   /**
+  /**
    * NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.
    * @return phase
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.")
   public String getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
   }
 
 
-  public V1NodeStatus runtimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
+  public V1NodeStatus runtimeHandlers(@jakarta.annotation.Nullable List<V1NodeRuntimeHandler> runtimeHandlers) {
     this.runtimeHandlers = runtimeHandlers;
     return this;
   }
@@ -375,22 +387,22 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * The available runtime handlers.
    * @return runtimeHandlers
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The available runtime handlers.")
   public List<V1NodeRuntimeHandler> getRuntimeHandlers() {
     return runtimeHandlers;
   }
 
-  public void setRuntimeHandlers(List<V1NodeRuntimeHandler> runtimeHandlers) {
+  public void setRuntimeHandlers(@jakarta.annotation.Nullable List<V1NodeRuntimeHandler> runtimeHandlers) {
     this.runtimeHandlers = runtimeHandlers;
   }
 
 
-  public V1NodeStatus volumesAttached(List<V1AttachedVolume> volumesAttached) {
+  public V1NodeStatus volumesAttached(@jakarta.annotation.Nullable List<V1AttachedVolume> volumesAttached) {
     this.volumesAttached = volumesAttached;
     return this;
   }
@@ -403,22 +415,22 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * List of volumes that are attached to the node.
    * @return volumesAttached
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of volumes that are attached to the node.")
   public List<V1AttachedVolume> getVolumesAttached() {
     return volumesAttached;
   }
 
-  public void setVolumesAttached(List<V1AttachedVolume> volumesAttached) {
+  public void setVolumesAttached(@jakarta.annotation.Nullable List<V1AttachedVolume> volumesAttached) {
     this.volumesAttached = volumesAttached;
   }
 
 
-  public V1NodeStatus volumesInUse(List<String> volumesInUse) {
+  public V1NodeStatus volumesInUse(@jakarta.annotation.Nullable List<String> volumesInUse) {
     this.volumesInUse = volumesInUse;
     return this;
   }
@@ -431,17 +443,17 @@ public class V1NodeStatus {
     return this;
   }
 
-   /**
+  /**
    * List of attachable volumes in use (mounted) by the node.
    * @return volumesInUse
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of attachable volumes in use (mounted) by the node.")
   public List<String> getVolumesInUse() {
     return volumesInUse;
   }
 
-  public void setVolumesInUse(List<String> volumesInUse) {
+  public void setVolumesInUse(@jakarta.annotation.Nullable List<String> volumesInUse) {
     this.volumesInUse = volumesInUse;
   }
 
@@ -533,12 +545,12 @@ public class V1NodeStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -678,22 +690,22 @@ public class V1NodeStatus {
     }
   }
 
- /**
-  * Create an instance of V1NodeStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeStatus
-  * @throws IOException if the JSON string is invalid with respect to V1NodeStatus
-  */
+  /**
+   * Create an instance of V1NodeStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeStatus
+   * @throws IOException if the JSON string is invalid with respect to V1NodeStatus
+   */
   public static V1NodeStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeStatus.class);
   }
 
- /**
-  * Convert an instance of V1NodeStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

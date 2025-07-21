@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,24 +56,27 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceQuotaSpec defines the desired hard limits to enforce for Quota.
  */
 @ApiModel(description = "ResourceQuotaSpec defines the desired hard limits to enforce for Quota.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceQuotaSpec {
   public static final String SERIALIZED_NAME_HARD = "hard";
   @SerializedName(SERIALIZED_NAME_HARD)
+  @jakarta.annotation.Nullable
   private Map<String, Quantity> hard = new HashMap<>();
 
   public static final String SERIALIZED_NAME_SCOPE_SELECTOR = "scopeSelector";
   @SerializedName(SERIALIZED_NAME_SCOPE_SELECTOR)
+  @jakarta.annotation.Nullable
   private V1ScopeSelector scopeSelector;
 
   public static final String SERIALIZED_NAME_SCOPES = "scopes";
   @SerializedName(SERIALIZED_NAME_SCOPES)
+  @jakarta.annotation.Nullable
   private List<String> scopes = new ArrayList<>();
 
   public V1ResourceQuotaSpec() {
   }
 
-  public V1ResourceQuotaSpec hard(Map<String, Quantity> hard) {
+  public V1ResourceQuotaSpec hard(@jakarta.annotation.Nullable Map<String, Quantity> hard) {
     this.hard = hard;
     return this;
   }
@@ -87,42 +89,42 @@ public class V1ResourceQuotaSpec {
     return this;
   }
 
-   /**
+  /**
    * hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
    * @return hard
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/")
   public Map<String, Quantity> getHard() {
     return hard;
   }
 
-  public void setHard(Map<String, Quantity> hard) {
+  public void setHard(@jakarta.annotation.Nullable Map<String, Quantity> hard) {
     this.hard = hard;
   }
 
 
-  public V1ResourceQuotaSpec scopeSelector(V1ScopeSelector scopeSelector) {
+  public V1ResourceQuotaSpec scopeSelector(@jakarta.annotation.Nullable V1ScopeSelector scopeSelector) {
     this.scopeSelector = scopeSelector;
     return this;
   }
 
-   /**
+  /**
    * Get scopeSelector
    * @return scopeSelector
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ScopeSelector getScopeSelector() {
     return scopeSelector;
   }
 
-  public void setScopeSelector(V1ScopeSelector scopeSelector) {
+  public void setScopeSelector(@jakarta.annotation.Nullable V1ScopeSelector scopeSelector) {
     this.scopeSelector = scopeSelector;
   }
 
 
-  public V1ResourceQuotaSpec scopes(List<String> scopes) {
+  public V1ResourceQuotaSpec scopes(@jakarta.annotation.Nullable List<String> scopes) {
     this.scopes = scopes;
     return this;
   }
@@ -135,17 +137,17 @@ public class V1ResourceQuotaSpec {
     return this;
   }
 
-   /**
+  /**
    * A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.
    * @return scopes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.")
   public List<String> getScopes() {
     return scopes;
   }
 
-  public void setScopes(List<String> scopes) {
+  public void setScopes(@jakarta.annotation.Nullable List<String> scopes) {
     this.scopes = scopes;
   }
 
@@ -207,12 +209,12 @@ public class V1ResourceQuotaSpec {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ResourceQuotaSpec
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ResourceQuotaSpec
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceQuotaSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -267,22 +269,22 @@ public class V1ResourceQuotaSpec {
     }
   }
 
- /**
-  * Create an instance of V1ResourceQuotaSpec given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ResourceQuotaSpec
-  * @throws IOException if the JSON string is invalid with respect to V1ResourceQuotaSpec
-  */
+  /**
+   * Create an instance of V1ResourceQuotaSpec given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ResourceQuotaSpec
+   * @throws IOException if the JSON string is invalid with respect to V1ResourceQuotaSpec
+   */
   public static V1ResourceQuotaSpec fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ResourceQuotaSpec.class);
   }
 
- /**
-  * Convert an instance of V1ResourceQuotaSpec to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ResourceQuotaSpec to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

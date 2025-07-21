@@ -50,7 +50,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -63,108 +62,132 @@ import io.kubernetes.client.openapi.JSON;
  * A single application container that you want to run within a pod.
  */
 @ApiModel(description = "A single application container that you want to run within a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
+  @jakarta.annotation.Nullable
   private List<String> args = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COMMAND = "command";
   @SerializedName(SERIALIZED_NAME_COMMAND)
+  @jakarta.annotation.Nullable
   private List<String> command = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)
+  @jakarta.annotation.Nullable
   private List<V1EnvVar> env = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENV_FROM = "envFrom";
   @SerializedName(SERIALIZED_NAME_ENV_FROM)
+  @jakarta.annotation.Nullable
   private List<V1EnvFromSource> envFrom = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
+  @jakarta.annotation.Nullable
   private String image;
 
   public static final String SERIALIZED_NAME_IMAGE_PULL_POLICY = "imagePullPolicy";
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_POLICY)
+  @jakarta.annotation.Nullable
   private String imagePullPolicy;
 
   public static final String SERIALIZED_NAME_LIFECYCLE = "lifecycle";
   @SerializedName(SERIALIZED_NAME_LIFECYCLE)
+  @jakarta.annotation.Nullable
   private V1Lifecycle lifecycle;
 
   public static final String SERIALIZED_NAME_LIVENESS_PROBE = "livenessProbe";
   @SerializedName(SERIALIZED_NAME_LIVENESS_PROBE)
+  @jakarta.annotation.Nullable
   private V1Probe livenessProbe;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
+  @jakarta.annotation.Nullable
   private List<V1ContainerPort> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_READINESS_PROBE = "readinessProbe";
   @SerializedName(SERIALIZED_NAME_READINESS_PROBE)
+  @jakarta.annotation.Nullable
   private V1Probe readinessProbe;
 
   public static final String SERIALIZED_NAME_RESIZE_POLICY = "resizePolicy";
   @SerializedName(SERIALIZED_NAME_RESIZE_POLICY)
+  @jakarta.annotation.Nullable
   private List<V1ContainerResizePolicy> resizePolicy = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
+  @jakarta.annotation.Nullable
   private V1ResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
+  @jakarta.annotation.Nullable
   private String restartPolicy;
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
+  @jakarta.annotation.Nullable
   private V1SecurityContext securityContext;
 
   public static final String SERIALIZED_NAME_STARTUP_PROBE = "startupProbe";
   @SerializedName(SERIALIZED_NAME_STARTUP_PROBE)
+  @jakarta.annotation.Nullable
   private V1Probe startupProbe;
 
   public static final String SERIALIZED_NAME_STDIN = "stdin";
   @SerializedName(SERIALIZED_NAME_STDIN)
+  @jakarta.annotation.Nullable
   private Boolean stdin;
 
   public static final String SERIALIZED_NAME_STDIN_ONCE = "stdinOnce";
   @SerializedName(SERIALIZED_NAME_STDIN_ONCE)
+  @jakarta.annotation.Nullable
   private Boolean stdinOnce;
 
   public static final String SERIALIZED_NAME_TERMINATION_MESSAGE_PATH = "terminationMessagePath";
   @SerializedName(SERIALIZED_NAME_TERMINATION_MESSAGE_PATH)
+  @jakarta.annotation.Nullable
   private String terminationMessagePath;
 
   public static final String SERIALIZED_NAME_TERMINATION_MESSAGE_POLICY = "terminationMessagePolicy";
   @SerializedName(SERIALIZED_NAME_TERMINATION_MESSAGE_POLICY)
+  @jakarta.annotation.Nullable
   private String terminationMessagePolicy;
 
   public static final String SERIALIZED_NAME_TTY = "tty";
   @SerializedName(SERIALIZED_NAME_TTY)
+  @jakarta.annotation.Nullable
   private Boolean tty;
 
   public static final String SERIALIZED_NAME_VOLUME_DEVICES = "volumeDevices";
   @SerializedName(SERIALIZED_NAME_VOLUME_DEVICES)
+  @jakarta.annotation.Nullable
   private List<V1VolumeDevice> volumeDevices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
+  @jakarta.annotation.Nullable
   private List<V1VolumeMount> volumeMounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORKING_DIR = "workingDir";
   @SerializedName(SERIALIZED_NAME_WORKING_DIR)
+  @jakarta.annotation.Nullable
   private String workingDir;
 
   public V1Container() {
   }
 
-  public V1Container args(List<String> args) {
+  public V1Container args(@jakarta.annotation.Nullable List<String> args) {
     this.args = args;
     return this;
   }
@@ -177,22 +200,22 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * Arguments to the entrypoint. The container image&#39;s CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @return args
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getArgs() {
     return args;
   }
 
-  public void setArgs(List<String> args) {
+  public void setArgs(@jakarta.annotation.Nullable List<String> args) {
     this.args = args;
   }
 
 
-  public V1Container command(List<String> command) {
+  public V1Container command(@jakarta.annotation.Nullable List<String> command) {
     this.command = command;
     return this;
   }
@@ -205,22 +228,22 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * Entrypoint array. Not executed within a shell. The container image&#39;s ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @return command
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getCommand() {
     return command;
   }
 
-  public void setCommand(List<String> command) {
+  public void setCommand(@jakarta.annotation.Nullable List<String> command) {
     this.command = command;
   }
 
 
-  public V1Container env(List<V1EnvVar> env) {
+  public V1Container env(@jakarta.annotation.Nullable List<V1EnvVar> env) {
     this.env = env;
     return this;
   }
@@ -233,22 +256,22 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * List of environment variables to set in the container. Cannot be updated.
    * @return env
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of environment variables to set in the container. Cannot be updated.")
   public List<V1EnvVar> getEnv() {
     return env;
   }
 
-  public void setEnv(List<V1EnvVar> env) {
+  public void setEnv(@jakarta.annotation.Nullable List<V1EnvVar> env) {
     this.env = env;
   }
 
 
-  public V1Container envFrom(List<V1EnvFromSource> envFrom) {
+  public V1Container envFrom(@jakarta.annotation.Nullable List<V1EnvFromSource> envFrom) {
     this.envFrom = envFrom;
     return this;
   }
@@ -261,122 +284,122 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
    * @return envFrom
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.")
   public List<V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
 
-  public void setEnvFrom(List<V1EnvFromSource> envFrom) {
+  public void setEnvFrom(@jakarta.annotation.Nullable List<V1EnvFromSource> envFrom) {
     this.envFrom = envFrom;
   }
 
 
-  public V1Container image(String image) {
+  public V1Container image(@jakarta.annotation.Nullable String image) {
     this.image = image;
     return this;
   }
 
-   /**
+  /**
    * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
    * @return image
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
   public String getImage() {
     return image;
   }
 
-  public void setImage(String image) {
+  public void setImage(@jakarta.annotation.Nullable String image) {
     this.image = image;
   }
 
 
-  public V1Container imagePullPolicy(String imagePullPolicy) {
+  public V1Container imagePullPolicy(@jakarta.annotation.Nullable String imagePullPolicy) {
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
 
-   /**
+  /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
    * @return imagePullPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images")
   public String getImagePullPolicy() {
     return imagePullPolicy;
   }
 
-  public void setImagePullPolicy(String imagePullPolicy) {
+  public void setImagePullPolicy(@jakarta.annotation.Nullable String imagePullPolicy) {
     this.imagePullPolicy = imagePullPolicy;
   }
 
 
-  public V1Container lifecycle(V1Lifecycle lifecycle) {
+  public V1Container lifecycle(@jakarta.annotation.Nullable V1Lifecycle lifecycle) {
     this.lifecycle = lifecycle;
     return this;
   }
 
-   /**
+  /**
    * Get lifecycle
    * @return lifecycle
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Lifecycle getLifecycle() {
     return lifecycle;
   }
 
-  public void setLifecycle(V1Lifecycle lifecycle) {
+  public void setLifecycle(@jakarta.annotation.Nullable V1Lifecycle lifecycle) {
     this.lifecycle = lifecycle;
   }
 
 
-  public V1Container livenessProbe(V1Probe livenessProbe) {
+  public V1Container livenessProbe(@jakarta.annotation.Nullable V1Probe livenessProbe) {
     this.livenessProbe = livenessProbe;
     return this;
   }
 
-   /**
+  /**
    * Get livenessProbe
    * @return livenessProbe
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Probe getLivenessProbe() {
     return livenessProbe;
   }
 
-  public void setLivenessProbe(V1Probe livenessProbe) {
+  public void setLivenessProbe(@jakarta.annotation.Nullable V1Probe livenessProbe) {
     this.livenessProbe = livenessProbe;
   }
 
 
-  public V1Container name(String name) {
+  public V1Container name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public V1Container ports(List<V1ContainerPort> ports) {
+  public V1Container ports(@jakarta.annotation.Nullable List<V1ContainerPort> ports) {
     this.ports = ports;
     return this;
   }
@@ -389,42 +412,42 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \&quot;0.0.0.0\&quot; address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
    * @return ports
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.")
   public List<V1ContainerPort> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<V1ContainerPort> ports) {
+  public void setPorts(@jakarta.annotation.Nullable List<V1ContainerPort> ports) {
     this.ports = ports;
   }
 
 
-  public V1Container readinessProbe(V1Probe readinessProbe) {
+  public V1Container readinessProbe(@jakarta.annotation.Nullable V1Probe readinessProbe) {
     this.readinessProbe = readinessProbe;
     return this;
   }
 
-   /**
+  /**
    * Get readinessProbe
    * @return readinessProbe
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Probe getReadinessProbe() {
     return readinessProbe;
   }
 
-  public void setReadinessProbe(V1Probe readinessProbe) {
+  public void setReadinessProbe(@jakarta.annotation.Nullable V1Probe readinessProbe) {
     this.readinessProbe = readinessProbe;
   }
 
 
-  public V1Container resizePolicy(List<V1ContainerResizePolicy> resizePolicy) {
+  public V1Container resizePolicy(@jakarta.annotation.Nullable List<V1ContainerResizePolicy> resizePolicy) {
     this.resizePolicy = resizePolicy;
     return this;
   }
@@ -437,202 +460,202 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * Resources resize policy for the container.
    * @return resizePolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Resources resize policy for the container.")
   public List<V1ContainerResizePolicy> getResizePolicy() {
     return resizePolicy;
   }
 
-  public void setResizePolicy(List<V1ContainerResizePolicy> resizePolicy) {
+  public void setResizePolicy(@jakarta.annotation.Nullable List<V1ContainerResizePolicy> resizePolicy) {
     this.resizePolicy = resizePolicy;
   }
 
 
-  public V1Container resources(V1ResourceRequirements resources) {
+  public V1Container resources(@jakarta.annotation.Nullable V1ResourceRequirements resources) {
     this.resources = resources;
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceRequirements getResources() {
     return resources;
   }
 
-  public void setResources(V1ResourceRequirements resources) {
+  public void setResources(@jakarta.annotation.Nullable V1ResourceRequirements resources) {
     this.resources = resources;
   }
 
 
-  public V1Container restartPolicy(String restartPolicy) {
+  public V1Container restartPolicy(@jakarta.annotation.Nullable String restartPolicy) {
     this.restartPolicy = restartPolicy;
     return this;
   }
 
-   /**
+  /**
    * RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \&quot;Always\&quot;. For non-init containers or when this field is not specified, the restart behavior is defined by the Pod&#39;s restart policy and the container type. Setting the RestartPolicy as \&quot;Always\&quot; for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \&quot;Always\&quot; will be shut down. This lifecycle differs from normal init containers and is often referred to as a \&quot;sidecar\&quot; container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.
    * @return restartPolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \"Always\". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as \"Always\" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \"Always\" will be shut down. This lifecycle differs from normal init containers and is often referred to as a \"sidecar\" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.")
   public String getRestartPolicy() {
     return restartPolicy;
   }
 
-  public void setRestartPolicy(String restartPolicy) {
+  public void setRestartPolicy(@jakarta.annotation.Nullable String restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
 
-  public V1Container securityContext(V1SecurityContext securityContext) {
+  public V1Container securityContext(@jakarta.annotation.Nullable V1SecurityContext securityContext) {
     this.securityContext = securityContext;
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecurityContext getSecurityContext() {
     return securityContext;
   }
 
-  public void setSecurityContext(V1SecurityContext securityContext) {
+  public void setSecurityContext(@jakarta.annotation.Nullable V1SecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
 
-  public V1Container startupProbe(V1Probe startupProbe) {
+  public V1Container startupProbe(@jakarta.annotation.Nullable V1Probe startupProbe) {
     this.startupProbe = startupProbe;
     return this;
   }
 
-   /**
+  /**
    * Get startupProbe
    * @return startupProbe
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Probe getStartupProbe() {
     return startupProbe;
   }
 
-  public void setStartupProbe(V1Probe startupProbe) {
+  public void setStartupProbe(@jakarta.annotation.Nullable V1Probe startupProbe) {
     this.startupProbe = startupProbe;
   }
 
 
-  public V1Container stdin(Boolean stdin) {
+  public V1Container stdin(@jakarta.annotation.Nullable Boolean stdin) {
     this.stdin = stdin;
     return this;
   }
 
-   /**
+  /**
    * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
    * @return stdin
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.")
   public Boolean getStdin() {
     return stdin;
   }
 
-  public void setStdin(Boolean stdin) {
+  public void setStdin(@jakarta.annotation.Nullable Boolean stdin) {
     this.stdin = stdin;
   }
 
 
-  public V1Container stdinOnce(Boolean stdinOnce) {
+  public V1Container stdinOnce(@jakarta.annotation.Nullable Boolean stdinOnce) {
     this.stdinOnce = stdinOnce;
     return this;
   }
 
-   /**
+  /**
    * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
    * @return stdinOnce
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false")
   public Boolean getStdinOnce() {
     return stdinOnce;
   }
 
-  public void setStdinOnce(Boolean stdinOnce) {
+  public void setStdinOnce(@jakarta.annotation.Nullable Boolean stdinOnce) {
     this.stdinOnce = stdinOnce;
   }
 
 
-  public V1Container terminationMessagePath(String terminationMessagePath) {
+  public V1Container terminationMessagePath(@jakarta.annotation.Nullable String terminationMessagePath) {
     this.terminationMessagePath = terminationMessagePath;
     return this;
   }
 
-   /**
+  /**
    * Optional: Path at which the file to which the container&#39;s termination message will be written is mounted into the container&#39;s filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
    * @return terminationMessagePath
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.")
   public String getTerminationMessagePath() {
     return terminationMessagePath;
   }
 
-  public void setTerminationMessagePath(String terminationMessagePath) {
+  public void setTerminationMessagePath(@jakarta.annotation.Nullable String terminationMessagePath) {
     this.terminationMessagePath = terminationMessagePath;
   }
 
 
-  public V1Container terminationMessagePolicy(String terminationMessagePolicy) {
+  public V1Container terminationMessagePolicy(@jakarta.annotation.Nullable String terminationMessagePolicy) {
     this.terminationMessagePolicy = terminationMessagePolicy;
     return this;
   }
 
-   /**
+  /**
    * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
    * @return terminationMessagePolicy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.")
   public String getTerminationMessagePolicy() {
     return terminationMessagePolicy;
   }
 
-  public void setTerminationMessagePolicy(String terminationMessagePolicy) {
+  public void setTerminationMessagePolicy(@jakarta.annotation.Nullable String terminationMessagePolicy) {
     this.terminationMessagePolicy = terminationMessagePolicy;
   }
 
 
-  public V1Container tty(Boolean tty) {
+  public V1Container tty(@jakarta.annotation.Nullable Boolean tty) {
     this.tty = tty;
     return this;
   }
 
-   /**
+  /**
    * Whether this container should allocate a TTY for itself, also requires &#39;stdin&#39; to be true. Default is false.
    * @return tty
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.")
   public Boolean getTty() {
     return tty;
   }
 
-  public void setTty(Boolean tty) {
+  public void setTty(@jakarta.annotation.Nullable Boolean tty) {
     this.tty = tty;
   }
 
 
-  public V1Container volumeDevices(List<V1VolumeDevice> volumeDevices) {
+  public V1Container volumeDevices(@jakarta.annotation.Nullable List<V1VolumeDevice> volumeDevices) {
     this.volumeDevices = volumeDevices;
     return this;
   }
@@ -645,22 +668,22 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * volumeDevices is the list of block devices to be used by the container.
    * @return volumeDevices
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeDevices is the list of block devices to be used by the container.")
   public List<V1VolumeDevice> getVolumeDevices() {
     return volumeDevices;
   }
 
-  public void setVolumeDevices(List<V1VolumeDevice> volumeDevices) {
+  public void setVolumeDevices(@jakarta.annotation.Nullable List<V1VolumeDevice> volumeDevices) {
     this.volumeDevices = volumeDevices;
   }
 
 
-  public V1Container volumeMounts(List<V1VolumeMount> volumeMounts) {
+  public V1Container volumeMounts(@jakarta.annotation.Nullable List<V1VolumeMount> volumeMounts) {
     this.volumeMounts = volumeMounts;
     return this;
   }
@@ -673,37 +696,37 @@ public class V1Container {
     return this;
   }
 
-   /**
+  /**
    * Pod volumes to mount into the container&#39;s filesystem. Cannot be updated.
    * @return volumeMounts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Pod volumes to mount into the container's filesystem. Cannot be updated.")
   public List<V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }
 
-  public void setVolumeMounts(List<V1VolumeMount> volumeMounts) {
+  public void setVolumeMounts(@jakarta.annotation.Nullable List<V1VolumeMount> volumeMounts) {
     this.volumeMounts = volumeMounts;
   }
 
 
-  public V1Container workingDir(String workingDir) {
+  public V1Container workingDir(@jakarta.annotation.Nullable String workingDir) {
     this.workingDir = workingDir;
     return this;
   }
 
-   /**
+  /**
    * Container&#39;s working directory. If not specified, the container runtime&#39;s default will be used, which might be configured in the container image. Cannot be updated.
    * @return workingDir
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.")
   public String getWorkingDir() {
     return workingDir;
   }
 
-  public void setWorkingDir(String workingDir) {
+  public void setWorkingDir(@jakarta.annotation.Nullable String workingDir) {
     this.workingDir = workingDir;
   }
 
@@ -829,12 +852,12 @@ public class V1Container {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Container
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Container
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Container.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -1025,22 +1048,22 @@ public class V1Container {
     }
   }
 
- /**
-  * Create an instance of V1Container given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Container
-  * @throws IOException if the JSON string is invalid with respect to V1Container
-  */
+  /**
+   * Create an instance of V1Container given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Container
+   * @throws IOException if the JSON string is invalid with respect to V1Container
+   */
   public static V1Container fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Container.class);
   }
 
- /**
-  * Convert an instance of V1Container to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Container to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -25,11 +25,15 @@ public class VersionInfoBuilder extends VersionInfoFluent<VersionInfoBuilder> im
     VersionInfo buildable = new VersionInfo();
     buildable.setBuildDate(fluent.getBuildDate());
     buildable.setCompiler(fluent.getCompiler());
+    buildable.setEmulationMajor(fluent.getEmulationMajor());
+    buildable.setEmulationMinor(fluent.getEmulationMinor());
     buildable.setGitCommit(fluent.getGitCommit());
     buildable.setGitTreeState(fluent.getGitTreeState());
     buildable.setGitVersion(fluent.getGitVersion());
     buildable.setGoVersion(fluent.getGoVersion());
     buildable.setMajor(fluent.getMajor());
+    buildable.setMinCompatibilityMajor(fluent.getMinCompatibilityMajor());
+    buildable.setMinCompatibilityMinor(fluent.getMinCompatibilityMinor());
     buildable.setMinor(fluent.getMinor());
     buildable.setPlatform(fluent.getPlatform());
     return buildable;

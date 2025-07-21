@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,55 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeAttachmentSource represents a volume that should be attached. Right now only PersistentVolumes can be attached via external attacher, in the future we may allow also inline volumes in pods. Exactly one member can be set.
  */
 @ApiModel(description = "VolumeAttachmentSource represents a volume that should be attached. Right now only PersistentVolumes can be attached via external attacher, in the future we may allow also inline volumes in pods. Exactly one member can be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeAttachmentSource {
   public static final String SERIALIZED_NAME_INLINE_VOLUME_SPEC = "inlineVolumeSpec";
   @SerializedName(SERIALIZED_NAME_INLINE_VOLUME_SPEC)
+  @jakarta.annotation.Nullable
   private V1PersistentVolumeSpec inlineVolumeSpec;
 
   public static final String SERIALIZED_NAME_PERSISTENT_VOLUME_NAME = "persistentVolumeName";
   @SerializedName(SERIALIZED_NAME_PERSISTENT_VOLUME_NAME)
+  @jakarta.annotation.Nullable
   private String persistentVolumeName;
 
   public V1VolumeAttachmentSource() {
   }
 
-  public V1VolumeAttachmentSource inlineVolumeSpec(V1PersistentVolumeSpec inlineVolumeSpec) {
+  public V1VolumeAttachmentSource inlineVolumeSpec(@jakarta.annotation.Nullable V1PersistentVolumeSpec inlineVolumeSpec) {
     this.inlineVolumeSpec = inlineVolumeSpec;
     return this;
   }
 
-   /**
+  /**
    * Get inlineVolumeSpec
    * @return inlineVolumeSpec
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PersistentVolumeSpec getInlineVolumeSpec() {
     return inlineVolumeSpec;
   }
 
-  public void setInlineVolumeSpec(V1PersistentVolumeSpec inlineVolumeSpec) {
+  public void setInlineVolumeSpec(@jakarta.annotation.Nullable V1PersistentVolumeSpec inlineVolumeSpec) {
     this.inlineVolumeSpec = inlineVolumeSpec;
   }
 
 
-  public V1VolumeAttachmentSource persistentVolumeName(String persistentVolumeName) {
+  public V1VolumeAttachmentSource persistentVolumeName(@jakarta.annotation.Nullable String persistentVolumeName) {
     this.persistentVolumeName = persistentVolumeName;
     return this;
   }
 
-   /**
+  /**
    * persistentVolumeName represents the name of the persistent volume to attach.
    * @return persistentVolumeName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "persistentVolumeName represents the name of the persistent volume to attach.")
   public String getPersistentVolumeName() {
     return persistentVolumeName;
   }
 
-  public void setPersistentVolumeName(String persistentVolumeName) {
+  public void setPersistentVolumeName(@jakarta.annotation.Nullable String persistentVolumeName) {
     this.persistentVolumeName = persistentVolumeName;
   }
 
@@ -159,12 +160,12 @@ public class V1VolumeAttachmentSource {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1VolumeAttachmentSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeAttachmentSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1VolumeAttachmentSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -218,22 +219,22 @@ public class V1VolumeAttachmentSource {
     }
   }
 
- /**
-  * Create an instance of V1VolumeAttachmentSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1VolumeAttachmentSource
-  * @throws IOException if the JSON string is invalid with respect to V1VolumeAttachmentSource
-  */
+  /**
+   * Create an instance of V1VolumeAttachmentSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeAttachmentSource
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeAttachmentSource
+   */
   public static V1VolumeAttachmentSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1VolumeAttachmentSource.class);
   }
 
- /**
-  * Convert an instance of V1VolumeAttachmentSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1VolumeAttachmentSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

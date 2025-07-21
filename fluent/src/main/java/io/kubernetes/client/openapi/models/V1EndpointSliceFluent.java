@@ -71,14 +71,26 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   public A addToEndpoints(int index,V1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
-    if (index < 0 || index >= endpoints.size()) { _visitables.get("endpoints").add(builder); endpoints.add(builder); } else { _visitables.get("endpoints").add(index, builder); endpoints.add(index, builder);}
+    if (index < 0 || index >= endpoints.size()) {
+        _visitables.get("endpoints").add(builder);
+        endpoints.add(builder);
+    } else {
+        _visitables.get("endpoints").add(builder);
+        endpoints.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToEndpoints(int index,V1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
-    if (index < 0 || index >= endpoints.size()) { _visitables.get("endpoints").add(builder); endpoints.add(builder); } else { _visitables.get("endpoints").set(index, builder); endpoints.set(index, builder);}
+    if (index < 0 || index >= endpoints.size()) {
+        _visitables.get("endpoints").add(builder);
+        endpoints.add(builder);
+    } else {
+        _visitables.get("endpoints").add(builder);
+        endpoints.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -275,14 +287,26 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   public A addToPorts(int index,DiscoveryV1EndpointPort item) {
     if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPorts(int index,DiscoveryV1EndpointPort item) {
     if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    if (index < 0 || index >= ports.size()) {
+        _visitables.get("ports").add(builder);
+        ports.add(builder);
+    } else {
+        _visitables.get("ports").add(builder);
+        ports.set(index, builder);
+    }
     return (A)this;
   }
   

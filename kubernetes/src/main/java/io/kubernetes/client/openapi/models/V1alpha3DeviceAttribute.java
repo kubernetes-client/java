@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceAttribute must have exactly one field set.
  */
 @ApiModel(description = "DeviceAttribute must have exactly one field set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3DeviceAttribute {
   public static final String SERIALIZED_NAME_BOOL = "bool";
   @SerializedName(SERIALIZED_NAME_BOOL)
+  @jakarta.annotation.Nullable
   private Boolean bool;
 
   public static final String SERIALIZED_NAME_INT = "int";
   @SerializedName(SERIALIZED_NAME_INT)
+  @jakarta.annotation.Nullable
   private Long _int;
 
   public static final String SERIALIZED_NAME_STRING = "string";
   @SerializedName(SERIALIZED_NAME_STRING)
+  @jakarta.annotation.Nullable
   private String string;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
+  @jakarta.annotation.Nullable
   private String version;
 
   public V1alpha3DeviceAttribute() {
   }
 
-  public V1alpha3DeviceAttribute bool(Boolean bool) {
+  public V1alpha3DeviceAttribute bool(@jakarta.annotation.Nullable Boolean bool) {
     this.bool = bool;
     return this;
   }
 
-   /**
+  /**
    * BoolValue is a true/false value.
    * @return bool
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "BoolValue is a true/false value.")
   public Boolean getBool() {
     return bool;
   }
 
-  public void setBool(Boolean bool) {
+  public void setBool(@jakarta.annotation.Nullable Boolean bool) {
     this.bool = bool;
   }
 
 
-  public V1alpha3DeviceAttribute _int(Long _int) {
+  public V1alpha3DeviceAttribute _int(@jakarta.annotation.Nullable Long _int) {
     this._int = _int;
     return this;
   }
 
-   /**
+  /**
    * IntValue is a number.
    * @return _int
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IntValue is a number.")
   public Long getInt() {
     return _int;
   }
 
-  public void setInt(Long _int) {
+  public void setInt(@jakarta.annotation.Nullable Long _int) {
     this._int = _int;
   }
 
 
-  public V1alpha3DeviceAttribute string(String string) {
+  public V1alpha3DeviceAttribute string(@jakarta.annotation.Nullable String string) {
     this.string = string;
     return this;
   }
 
-   /**
+  /**
    * StringValue is a string. Must not be longer than 64 characters.
    * @return string
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "StringValue is a string. Must not be longer than 64 characters.")
   public String getString() {
     return string;
   }
 
-  public void setString(String string) {
+  public void setString(@jakarta.annotation.Nullable String string) {
     this.string = string;
   }
 
 
-  public V1alpha3DeviceAttribute version(String version) {
+  public V1alpha3DeviceAttribute version(@jakarta.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.
    * @return version
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "VersionValue is a semantic version according to semver.org spec 2.0.0. Must not be longer than 64 characters.")
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public void setVersion(@jakarta.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -212,12 +215,12 @@ public class V1alpha3DeviceAttribute {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceAttribute
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3DeviceAttribute
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3DeviceAttribute.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -270,22 +273,22 @@ public class V1alpha3DeviceAttribute {
     }
   }
 
- /**
-  * Create an instance of V1alpha3DeviceAttribute given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3DeviceAttribute
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceAttribute
-  */
+  /**
+   * Create an instance of V1alpha3DeviceAttribute given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3DeviceAttribute
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3DeviceAttribute
+   */
   public static V1alpha3DeviceAttribute fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3DeviceAttribute.class);
   }
 
- /**
-  * Convert an instance of V1alpha3DeviceAttribute to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3DeviceAttribute to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

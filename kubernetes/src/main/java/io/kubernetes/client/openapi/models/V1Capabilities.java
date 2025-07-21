@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,20 +52,22 @@ import io.kubernetes.client.openapi.JSON;
  * Adds and removes POSIX capabilities from running containers.
  */
 @ApiModel(description = "Adds and removes POSIX capabilities from running containers.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1Capabilities {
   public static final String SERIALIZED_NAME_ADD = "add";
   @SerializedName(SERIALIZED_NAME_ADD)
+  @jakarta.annotation.Nullable
   private List<String> add = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DROP = "drop";
   @SerializedName(SERIALIZED_NAME_DROP)
+  @jakarta.annotation.Nullable
   private List<String> drop = new ArrayList<>();
 
   public V1Capabilities() {
   }
 
-  public V1Capabilities add(List<String> add) {
+  public V1Capabilities add(@jakarta.annotation.Nullable List<String> add) {
     this.add = add;
     return this;
   }
@@ -79,22 +80,22 @@ public class V1Capabilities {
     return this;
   }
 
-   /**
+  /**
    * Added capabilities
    * @return add
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Added capabilities")
   public List<String> getAdd() {
     return add;
   }
 
-  public void setAdd(List<String> add) {
+  public void setAdd(@jakarta.annotation.Nullable List<String> add) {
     this.add = add;
   }
 
 
-  public V1Capabilities drop(List<String> drop) {
+  public V1Capabilities drop(@jakarta.annotation.Nullable List<String> drop) {
     this.drop = drop;
     return this;
   }
@@ -107,17 +108,17 @@ public class V1Capabilities {
     return this;
   }
 
-   /**
+  /**
    * Removed capabilities
    * @return drop
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Removed capabilities")
   public List<String> getDrop() {
     return drop;
   }
 
-  public void setDrop(List<String> drop) {
+  public void setDrop(@jakarta.annotation.Nullable List<String> drop) {
     this.drop = drop;
   }
 
@@ -176,12 +177,12 @@ public class V1Capabilities {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1Capabilities
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1Capabilities
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -236,22 +237,22 @@ public class V1Capabilities {
     }
   }
 
- /**
-  * Create an instance of V1Capabilities given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1Capabilities
-  * @throws IOException if the JSON string is invalid with respect to V1Capabilities
-  */
+  /**
+   * Create an instance of V1Capabilities given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1Capabilities
+   * @throws IOException if the JSON string is invalid with respect to V1Capabilities
+   */
   public static V1Capabilities fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1Capabilities.class);
   }
 
- /**
-  * Convert an instance of V1Capabilities to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1Capabilities to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

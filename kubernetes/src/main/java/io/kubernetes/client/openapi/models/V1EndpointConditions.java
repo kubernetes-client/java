@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,79 +50,82 @@ import io.kubernetes.client.openapi.JSON;
  * EndpointConditions represents the current condition of an endpoint.
  */
 @ApiModel(description = "EndpointConditions represents the current condition of an endpoint.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EndpointConditions {
   public static final String SERIALIZED_NAME_READY = "ready";
   @SerializedName(SERIALIZED_NAME_READY)
+  @jakarta.annotation.Nullable
   private Boolean ready;
 
   public static final String SERIALIZED_NAME_SERVING = "serving";
   @SerializedName(SERIALIZED_NAME_SERVING)
+  @jakarta.annotation.Nullable
   private Boolean serving;
 
   public static final String SERIALIZED_NAME_TERMINATING = "terminating";
   @SerializedName(SERIALIZED_NAME_TERMINATING)
+  @jakarta.annotation.Nullable
   private Boolean terminating;
 
   public V1EndpointConditions() {
   }
 
-  public V1EndpointConditions ready(Boolean ready) {
+  public V1EndpointConditions ready(@jakarta.annotation.Nullable Boolean ready) {
     this.ready = ready;
     return this;
   }
 
-   /**
-   * ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint. A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready. For compatibility reasons, ready should never be \&quot;true\&quot; for terminating endpoints, except when the normal readiness behavior is being explicitly overridden, for example when the associated Service has set the publishNotReadyAddresses flag.
+  /**
+   * ready indicates that this endpoint is ready to receive traffic, according to whatever system is managing the endpoint. A nil value should be interpreted as \&quot;true\&quot;. In general, an endpoint should be marked ready if it is serving and not terminating, though this can be overridden in some cases, such as when the associated Service has set the publishNotReadyAddresses flag.
    * @return ready
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint. A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready. For compatibility reasons, ready should never be \"true\" for terminating endpoints, except when the normal readiness behavior is being explicitly overridden, for example when the associated Service has set the publishNotReadyAddresses flag.")
+  @ApiModelProperty(value = "ready indicates that this endpoint is ready to receive traffic, according to whatever system is managing the endpoint. A nil value should be interpreted as \"true\". In general, an endpoint should be marked ready if it is serving and not terminating, though this can be overridden in some cases, such as when the associated Service has set the publishNotReadyAddresses flag.")
   public Boolean getReady() {
     return ready;
   }
 
-  public void setReady(Boolean ready) {
+  public void setReady(@jakarta.annotation.Nullable Boolean ready) {
     this.ready = ready;
   }
 
 
-  public V1EndpointConditions serving(Boolean serving) {
+  public V1EndpointConditions serving(@jakarta.annotation.Nullable Boolean serving) {
     this.serving = serving;
     return this;
   }
 
-   /**
-   * serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition.
+  /**
+   * serving indicates that this endpoint is able to receive traffic, according to whatever system is managing the endpoint. For endpoints backed by pods, the EndpointSlice controller will mark the endpoint as serving if the pod&#39;s Ready condition is True. A nil value should be interpreted as \&quot;true\&quot;.
    * @return serving
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition.")
+  @ApiModelProperty(value = "serving indicates that this endpoint is able to receive traffic, according to whatever system is managing the endpoint. For endpoints backed by pods, the EndpointSlice controller will mark the endpoint as serving if the pod's Ready condition is True. A nil value should be interpreted as \"true\".")
   public Boolean getServing() {
     return serving;
   }
 
-  public void setServing(Boolean serving) {
+  public void setServing(@jakarta.annotation.Nullable Boolean serving) {
     this.serving = serving;
   }
 
 
-  public V1EndpointConditions terminating(Boolean terminating) {
+  public V1EndpointConditions terminating(@jakarta.annotation.Nullable Boolean terminating) {
     this.terminating = terminating;
     return this;
   }
 
-   /**
-   * terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating.
+  /**
+   * terminating indicates that this endpoint is terminating. A nil value should be interpreted as \&quot;false\&quot;.
    * @return terminating
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating.")
+  @ApiModelProperty(value = "terminating indicates that this endpoint is terminating. A nil value should be interpreted as \"false\".")
   public Boolean getTerminating() {
     return terminating;
   }
 
-  public void setTerminating(Boolean terminating) {
+  public void setTerminating(@jakarta.annotation.Nullable Boolean terminating) {
     this.terminating = terminating;
   }
 
@@ -185,12 +187,12 @@ public class V1EndpointConditions {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1EndpointConditions
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1EndpointConditions
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1EndpointConditions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -237,22 +239,22 @@ public class V1EndpointConditions {
     }
   }
 
- /**
-  * Create an instance of V1EndpointConditions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1EndpointConditions
-  * @throws IOException if the JSON string is invalid with respect to V1EndpointConditions
-  */
+  /**
+   * Create an instance of V1EndpointConditions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1EndpointConditions
+   * @throws IOException if the JSON string is invalid with respect to V1EndpointConditions
+   */
   public static V1EndpointConditions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1EndpointConditions.class);
   }
 
- /**
-  * Convert an instance of V1EndpointConditions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1EndpointConditions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

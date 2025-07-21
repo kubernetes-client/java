@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,48 +54,52 @@ import io.kubernetes.client.openapi.JSON;
  * DaemonSetList is a collection of daemon sets.
  */
 @ApiModel(description = "DaemonSetList is a collection of daemon sets.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1DaemonSetList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
+  @jakarta.annotation.Nonnull
   private List<V1DaemonSet> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ListMeta metadata;
 
   public V1DaemonSetList() {
   }
 
-  public V1DaemonSetList apiVersion(String apiVersion) {
+  public V1DaemonSetList apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1DaemonSetList items(List<V1DaemonSet> items) {
+  public V1DaemonSetList items(@jakarta.annotation.Nonnull List<V1DaemonSet> items) {
     this.items = items;
     return this;
   }
@@ -109,57 +112,57 @@ public class V1DaemonSetList implements io.kubernetes.client.common.KubernetesLi
     return this;
   }
 
-   /**
+  /**
    * A list of daemon sets.
    * @return items
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A list of daemon sets.")
   public List<V1DaemonSet> getItems() {
     return items;
   }
 
-  public void setItems(List<V1DaemonSet> items) {
+  public void setItems(@jakarta.annotation.Nonnull List<V1DaemonSet> items) {
     this.items = items;
   }
 
 
-  public V1DaemonSetList kind(String kind) {
+  public V1DaemonSetList kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1DaemonSetList metadata(V1ListMeta metadata) {
+  public V1DaemonSetList metadata(@jakarta.annotation.Nullable V1ListMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ListMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ListMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ListMeta metadata) {
     this.metadata = metadata;
   }
 
@@ -225,12 +228,12 @@ public class V1DaemonSetList implements io.kubernetes.client.common.KubernetesLi
     openapiRequiredFields.add("items");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1DaemonSetList
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1DaemonSetList
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DaemonSetList.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -304,22 +307,22 @@ public class V1DaemonSetList implements io.kubernetes.client.common.KubernetesLi
     }
   }
 
- /**
-  * Create an instance of V1DaemonSetList given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1DaemonSetList
-  * @throws IOException if the JSON string is invalid with respect to V1DaemonSetList
-  */
+  /**
+   * Create an instance of V1DaemonSetList given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1DaemonSetList
+   * @throws IOException if the JSON string is invalid with respect to V1DaemonSetList
+   */
   public static V1DaemonSetList fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1DaemonSetList.class);
   }
 
- /**
-  * Convert an instance of V1DaemonSetList to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1DaemonSetList to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

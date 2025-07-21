@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
  */
 @ApiModel(description = "AzureFile represents an Azure File Service mount on the host and bind mount to the pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1AzureFilePersistentVolumeSource {
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
+  @jakarta.annotation.Nullable
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SECRET_NAME = "secretName";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
+  @jakarta.annotation.Nonnull
   private String secretName;
 
   public static final String SERIALIZED_NAME_SECRET_NAMESPACE = "secretNamespace";
   @SerializedName(SERIALIZED_NAME_SECRET_NAMESPACE)
+  @jakarta.annotation.Nullable
   private String secretNamespace;
 
   public static final String SERIALIZED_NAME_SHARE_NAME = "shareName";
   @SerializedName(SERIALIZED_NAME_SHARE_NAME)
+  @jakarta.annotation.Nonnull
   private String shareName;
 
   public V1AzureFilePersistentVolumeSource() {
   }
 
-  public V1AzureFilePersistentVolumeSource readOnly(Boolean readOnly) {
+  public V1AzureFilePersistentVolumeSource readOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @return readOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
 
-  public void setReadOnly(Boolean readOnly) {
+  public void setReadOnly(@jakarta.annotation.Nullable Boolean readOnly) {
     this.readOnly = readOnly;
   }
 
 
-  public V1AzureFilePersistentVolumeSource secretName(String secretName) {
+  public V1AzureFilePersistentVolumeSource secretName(@jakarta.annotation.Nonnull String secretName) {
     this.secretName = secretName;
     return this;
   }
 
-   /**
+  /**
    * secretName is the name of secret that contains Azure Storage Account Name and Key
    * @return secretName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "secretName is the name of secret that contains Azure Storage Account Name and Key")
   public String getSecretName() {
     return secretName;
   }
 
-  public void setSecretName(String secretName) {
+  public void setSecretName(@jakarta.annotation.Nonnull String secretName) {
     this.secretName = secretName;
   }
 
 
-  public V1AzureFilePersistentVolumeSource secretNamespace(String secretNamespace) {
+  public V1AzureFilePersistentVolumeSource secretNamespace(@jakarta.annotation.Nullable String secretNamespace) {
     this.secretNamespace = secretNamespace;
     return this;
   }
 
-   /**
+  /**
    * secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
    * @return secretNamespace
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod")
   public String getSecretNamespace() {
     return secretNamespace;
   }
 
-  public void setSecretNamespace(String secretNamespace) {
+  public void setSecretNamespace(@jakarta.annotation.Nullable String secretNamespace) {
     this.secretNamespace = secretNamespace;
   }
 
 
-  public V1AzureFilePersistentVolumeSource shareName(String shareName) {
+  public V1AzureFilePersistentVolumeSource shareName(@jakarta.annotation.Nonnull String shareName) {
     this.shareName = shareName;
     return this;
   }
 
-   /**
+  /**
    * shareName is the azure Share Name
    * @return shareName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "shareName is the azure Share Name")
   public String getShareName() {
     return shareName;
   }
 
-  public void setShareName(String shareName) {
+  public void setShareName(@jakarta.annotation.Nonnull String shareName) {
     this.shareName = shareName;
   }
 
@@ -214,12 +217,12 @@ public class V1AzureFilePersistentVolumeSource {
     openapiRequiredFields.add("shareName");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1AzureFilePersistentVolumeSource
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1AzureFilePersistentVolumeSource
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AzureFilePersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -282,22 +285,22 @@ public class V1AzureFilePersistentVolumeSource {
     }
   }
 
- /**
-  * Create an instance of V1AzureFilePersistentVolumeSource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1AzureFilePersistentVolumeSource
-  * @throws IOException if the JSON string is invalid with respect to V1AzureFilePersistentVolumeSource
-  */
+  /**
+   * Create an instance of V1AzureFilePersistentVolumeSource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1AzureFilePersistentVolumeSource
+   * @throws IOException if the JSON string is invalid with respect to V1AzureFilePersistentVolumeSource
+   */
   public static V1AzureFilePersistentVolumeSource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1AzureFilePersistentVolumeSource.class);
   }
 
- /**
-  * Convert an instance of V1AzureFilePersistentVolumeSource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1AzureFilePersistentVolumeSource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,28 +52,32 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn&#39;t significant, may contain duplicates, and possibly be incomplete.
  */
 @ApiModel(description = "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
+  @jakarta.annotation.Nullable
   private List<String> apiGroups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_NAMES = "resourceNames";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAMES)
+  @jakarta.annotation.Nullable
   private List<String> resourceNames = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
+  @jakarta.annotation.Nullable
   private List<String> resources = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
   @SerializedName(SERIALIZED_NAME_VERBS)
+  @jakarta.annotation.Nonnull
   private List<String> verbs = new ArrayList<>();
 
   public V1ResourceRule() {
   }
 
-  public V1ResourceRule apiGroups(List<String> apiGroups) {
+  public V1ResourceRule apiGroups(@jakarta.annotation.Nullable List<String> apiGroups) {
     this.apiGroups = apiGroups;
     return this;
   }
@@ -87,22 +90,22 @@ public class V1ResourceRule {
     return this;
   }
 
-   /**
+  /**
    * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \&quot;*\&quot; means all.
    * @return apiGroups
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.")
   public List<String> getApiGroups() {
     return apiGroups;
   }
 
-  public void setApiGroups(List<String> apiGroups) {
+  public void setApiGroups(@jakarta.annotation.Nullable List<String> apiGroups) {
     this.apiGroups = apiGroups;
   }
 
 
-  public V1ResourceRule resourceNames(List<String> resourceNames) {
+  public V1ResourceRule resourceNames(@jakarta.annotation.Nullable List<String> resourceNames) {
     this.resourceNames = resourceNames;
     return this;
   }
@@ -115,22 +118,22 @@ public class V1ResourceRule {
     return this;
   }
 
-   /**
+  /**
    * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \&quot;*\&quot; means all.
    * @return resourceNames
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.")
   public List<String> getResourceNames() {
     return resourceNames;
   }
 
-  public void setResourceNames(List<String> resourceNames) {
+  public void setResourceNames(@jakarta.annotation.Nullable List<String> resourceNames) {
     this.resourceNames = resourceNames;
   }
 
 
-  public V1ResourceRule resources(List<String> resources) {
+  public V1ResourceRule resources(@jakarta.annotation.Nullable List<String> resources) {
     this.resources = resources;
     return this;
   }
@@ -143,22 +146,22 @@ public class V1ResourceRule {
     return this;
   }
 
-   /**
+  /**
    * Resources is a list of resources this rule applies to.  \&quot;*\&quot; means all in the specified apiGroups.  \&quot;*_/foo\&quot; represents the subresource &#39;foo&#39; for all resources in the specified apiGroups.
    * @return resources
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.  \"*_/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.")
   public List<String> getResources() {
     return resources;
   }
 
-  public void setResources(List<String> resources) {
+  public void setResources(@jakarta.annotation.Nullable List<String> resources) {
     this.resources = resources;
   }
 
 
-  public V1ResourceRule verbs(List<String> verbs) {
+  public V1ResourceRule verbs(@jakarta.annotation.Nonnull List<String> verbs) {
     this.verbs = verbs;
     return this;
   }
@@ -171,17 +174,17 @@ public class V1ResourceRule {
     return this;
   }
 
-   /**
+  /**
    * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
    * @return verbs
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
   public List<String> getVerbs() {
     return verbs;
   }
 
-  public void setVerbs(List<String> verbs) {
+  public void setVerbs(@jakarta.annotation.Nonnull List<String> verbs) {
     this.verbs = verbs;
   }
 
@@ -247,12 +250,12 @@ public class V1ResourceRule {
     openapiRequiredFields.add("verbs");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ResourceRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ResourceRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -324,22 +327,22 @@ public class V1ResourceRule {
     }
   }
 
- /**
-  * Create an instance of V1ResourceRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ResourceRule
-  * @throws IOException if the JSON string is invalid with respect to V1ResourceRule
-  */
+  /**
+   * Create an instance of V1ResourceRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ResourceRule
+   * @throws IOException if the JSON string is invalid with respect to V1ResourceRule
+   */
   public static V1ResourceRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ResourceRule.class);
   }
 
- /**
-  * Convert an instance of V1ResourceRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ResourceRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

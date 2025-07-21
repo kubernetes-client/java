@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,103 +50,107 @@ import io.kubernetes.client.openapi.JSON;
  * WindowsSecurityContextOptions contain Windows-specific options and credentials.
  */
 @ApiModel(description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
   @SerializedName(SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC)
+  @jakarta.annotation.Nullable
   private String gmsaCredentialSpec;
 
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC_NAME = "gmsaCredentialSpecName";
   @SerializedName(SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC_NAME)
+  @jakarta.annotation.Nullable
   private String gmsaCredentialSpecName;
 
   public static final String SERIALIZED_NAME_HOST_PROCESS = "hostProcess";
   @SerializedName(SERIALIZED_NAME_HOST_PROCESS)
+  @jakarta.annotation.Nullable
   private Boolean hostProcess;
 
   public static final String SERIALIZED_NAME_RUN_AS_USER_NAME = "runAsUserName";
   @SerializedName(SERIALIZED_NAME_RUN_AS_USER_NAME)
+  @jakarta.annotation.Nullable
   private String runAsUserName;
 
   public V1WindowsSecurityContextOptions() {
   }
 
-  public V1WindowsSecurityContextOptions gmsaCredentialSpec(String gmsaCredentialSpec) {
+  public V1WindowsSecurityContextOptions gmsaCredentialSpec(@jakarta.annotation.Nullable String gmsaCredentialSpec) {
     this.gmsaCredentialSpec = gmsaCredentialSpec;
     return this;
   }
 
-   /**
+  /**
    * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
    * @return gmsaCredentialSpec
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.")
   public String getGmsaCredentialSpec() {
     return gmsaCredentialSpec;
   }
 
-  public void setGmsaCredentialSpec(String gmsaCredentialSpec) {
+  public void setGmsaCredentialSpec(@jakarta.annotation.Nullable String gmsaCredentialSpec) {
     this.gmsaCredentialSpec = gmsaCredentialSpec;
   }
 
 
-  public V1WindowsSecurityContextOptions gmsaCredentialSpecName(String gmsaCredentialSpecName) {
+  public V1WindowsSecurityContextOptions gmsaCredentialSpecName(@jakarta.annotation.Nullable String gmsaCredentialSpecName) {
     this.gmsaCredentialSpecName = gmsaCredentialSpecName;
     return this;
   }
 
-   /**
+  /**
    * GMSACredentialSpecName is the name of the GMSA credential spec to use.
    * @return gmsaCredentialSpecName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "GMSACredentialSpecName is the name of the GMSA credential spec to use.")
   public String getGmsaCredentialSpecName() {
     return gmsaCredentialSpecName;
   }
 
-  public void setGmsaCredentialSpecName(String gmsaCredentialSpecName) {
+  public void setGmsaCredentialSpecName(@jakarta.annotation.Nullable String gmsaCredentialSpecName) {
     this.gmsaCredentialSpecName = gmsaCredentialSpecName;
   }
 
 
-  public V1WindowsSecurityContextOptions hostProcess(Boolean hostProcess) {
+  public V1WindowsSecurityContextOptions hostProcess(@jakarta.annotation.Nullable Boolean hostProcess) {
     this.hostProcess = hostProcess;
     return this;
   }
 
-   /**
+  /**
    * HostProcess determines if a container should be run as a &#39;Host Process&#39; container. All of a Pod&#39;s containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.
    * @return hostProcess
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "HostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.")
   public Boolean getHostProcess() {
     return hostProcess;
   }
 
-  public void setHostProcess(Boolean hostProcess) {
+  public void setHostProcess(@jakarta.annotation.Nullable Boolean hostProcess) {
     this.hostProcess = hostProcess;
   }
 
 
-  public V1WindowsSecurityContextOptions runAsUserName(String runAsUserName) {
+  public V1WindowsSecurityContextOptions runAsUserName(@jakarta.annotation.Nullable String runAsUserName) {
     this.runAsUserName = runAsUserName;
     return this;
   }
 
-   /**
+  /**
    * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
    * @return runAsUserName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
   public String getRunAsUserName() {
     return runAsUserName;
   }
 
-  public void setRunAsUserName(String runAsUserName) {
+  public void setRunAsUserName(@jakarta.annotation.Nullable String runAsUserName) {
     this.runAsUserName = runAsUserName;
   }
 
@@ -212,12 +215,12 @@ public class V1WindowsSecurityContextOptions {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1WindowsSecurityContextOptions
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1WindowsSecurityContextOptions
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1WindowsSecurityContextOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -273,22 +276,22 @@ public class V1WindowsSecurityContextOptions {
     }
   }
 
- /**
-  * Create an instance of V1WindowsSecurityContextOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1WindowsSecurityContextOptions
-  * @throws IOException if the JSON string is invalid with respect to V1WindowsSecurityContextOptions
-  */
+  /**
+   * Create an instance of V1WindowsSecurityContextOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1WindowsSecurityContextOptions
+   * @throws IOException if the JSON string is invalid with respect to V1WindowsSecurityContextOptions
+   */
   public static V1WindowsSecurityContextOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1WindowsSecurityContextOptions.class);
   }
 
- /**
-  * Convert an instance of V1WindowsSecurityContextOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1WindowsSecurityContextOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

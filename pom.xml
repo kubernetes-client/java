@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>24.0.0-SNAPSHOT</version>
+  <version>25.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -49,24 +49,24 @@
     <snakeyaml.version>2.4</snakeyaml.version>
     <slf4j.version>2.0.17</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
-    <protobuf.version>4.30.2</protobuf.version>
-    <junit-jupiter.version>5.12.1</junit-jupiter.version>
+    <protobuf.version>4.31.1</protobuf.version>
+    <junit-jupiter.version>5.13.3</junit-jupiter.version>
     <bucket4j.version>8.10.1</bucket4j.version>
-    <bouncycastle.version>1.80</bouncycastle.version>
-    <gson.version>2.12.1</gson.version>
-    <jackson.version>2.18.3</jackson.version>
+    <bouncycastle.version>1.81</bouncycastle.version>
+    <gson.version>2.13.1</gson.version>
+    <jackson.version>2.19.1</jackson.version>
     <jsr305.version>3.0.2</jsr305.version>
-    <okhttp3.version>4.12.0</okhttp3.version>
-    <swagger-core.version>1.6.15</swagger-core.version>
-    <sundrio.version>0.200.3</sundrio.version>
+    <okhttp3.version>5.1.0</okhttp3.version>
+    <swagger-core.version>1.6.16</swagger-core.version>
+    <sundrio.version>0.200.4</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
-    <apache.commons.lang3.version>3.17.0</apache.commons.lang3.version>
-    <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
+    <apache.commons.lang3.version>3.18.0</apache.commons.lang3.version>
+    <apache.commons.collections4.version>4.5.0</apache.commons.collections4.version>
     <apache.commons.compress>1.27.1</apache.commons.compress>
-    <apache.commons.io>2.18.0</apache.commons.io>
+    <apache.commons.io>2.19.0</apache.commons.io>
     <common.codec.version>1.18.0</common.codec.version>
-    <spring.boot.version>3.4.4</spring.boot.version>
-    <spring.version>6.2.5</spring.version>
+    <spring.boot.version>3.5.3</spring.boot.version>
+    <spring.version>6.2.8</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
@@ -75,7 +75,7 @@
     https://issues.apache.org/jira/browse/MNG-5632. Therefore, we specify
     optional dependencies here to manage them in a single location. -->
     <prometheus.client.optional>true</prometheus.client.optional>
-    <com.amazonaws.aws-java-sdk-sts.optional>true</com.amazonaws.aws-java-sdk-sts.optional>
+    <software.amazon.awssdk.sts.optional>true</software.amazon.awssdk.sts.optional>
     <com.google.auth.google-auth-library-oauth2-http.optional>true</com.google.auth.google-auth-library-oauth2-http.optional>
     <org.springframework.boot.spring-boot-actuator.optional>true</org.springframework.boot.spring-boot-actuator.optional>
 
@@ -150,9 +150,9 @@
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-java-sdk-sts</artifactId>
-        <version>1.12.782</version>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>sts</artifactId>
+        <version>2.32.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.protobuf</groupId>
@@ -257,7 +257,7 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.33.1</version>
+        <version>1.37.1</version>
       </dependency>
 
       <!-- tests -->
@@ -276,19 +276,19 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
-        <version>5.16.1</version>
+        <version>5.18.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>uk.org.webcompere</groupId>
         <artifactId>system-stubs-jupiter</artifactId>
-        <version>2.1.7</version>
+        <version>2.1.8</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.wiremock</groupId>
         <artifactId>wiremock</artifactId>
-        <version>3.12.1</version>
+        <version>3.13.1</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -348,7 +348,7 @@
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>
-          <version>2.44.3</version>
+          <version>2.45.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
@@ -387,7 +387,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -410,7 +410,7 @@
         <plugin>
           <groupId>org.codehaus.gmavenplus</groupId>
           <artifactId>gmavenplus-plugin</artifactId>
-          <version>4.1.1</version>
+          <version>4.2.1</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -420,7 +420,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.5.0</version>
+          <version>3.6.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -596,7 +596,7 @@ limitations under the License.
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>3.2.7</version>
+            <version>3.2.8</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>

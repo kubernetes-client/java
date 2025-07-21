@@ -38,7 +38,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,55 +50,57 @@ import io.kubernetes.client.openapi.JSON;
  * ExternalDocumentation allows referencing an external resource for extended documentation.
  */
 @ApiModel(description = "ExternalDocumentation allows referencing an external resource for extended documentation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ExternalDocumentation {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @jakarta.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @jakarta.annotation.Nullable
   private String url;
 
   public V1ExternalDocumentation() {
   }
 
-  public V1ExternalDocumentation description(String description) {
+  public V1ExternalDocumentation description(@jakarta.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public V1ExternalDocumentation url(String url) {
+  public V1ExternalDocumentation url(@jakarta.annotation.Nullable String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nullable String url) {
     this.url = url;
   }
 
@@ -158,12 +159,12 @@ public class V1ExternalDocumentation {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ExternalDocumentation
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ExternalDocumentation
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ExternalDocumentation.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +217,22 @@ public class V1ExternalDocumentation {
     }
   }
 
- /**
-  * Create an instance of V1ExternalDocumentation given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ExternalDocumentation
-  * @throws IOException if the JSON string is invalid with respect to V1ExternalDocumentation
-  */
+  /**
+   * Create an instance of V1ExternalDocumentation given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ExternalDocumentation
+   * @throws IOException if the JSON string is invalid with respect to V1ExternalDocumentation
+   */
   public static V1ExternalDocumentation fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ExternalDocumentation.class);
   }
 
- /**
-  * Convert an instance of V1ExternalDocumentation to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ExternalDocumentation to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

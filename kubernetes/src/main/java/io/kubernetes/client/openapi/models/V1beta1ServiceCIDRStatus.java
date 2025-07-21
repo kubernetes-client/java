@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceCIDRStatus describes the current state of the ServiceCIDR.
  */
 @ApiModel(description = "ServiceCIDRStatus describes the current state of the ServiceCIDR.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1ServiceCIDRStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1Condition> conditions = new ArrayList<>();
 
   public V1beta1ServiceCIDRStatus() {
   }
 
-  public V1beta1ServiceCIDRStatus conditions(List<V1Condition> conditions) {
+  public V1beta1ServiceCIDRStatus conditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1beta1ServiceCIDRStatus {
     return this;
   }
 
-   /**
+  /**
    * conditions holds an array of metav1.Condition that describe the state of the ServiceCIDR. Current service state
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "conditions holds an array of metav1.Condition that describe the state of the ServiceCIDR. Current service state")
   public List<V1Condition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1Condition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
   }
 
@@ -142,12 +142,12 @@ public class V1beta1ServiceCIDRStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1beta1ServiceCIDRStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1beta1ServiceCIDRStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta1ServiceCIDRStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -208,22 +208,22 @@ public class V1beta1ServiceCIDRStatus {
     }
   }
 
- /**
-  * Create an instance of V1beta1ServiceCIDRStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1beta1ServiceCIDRStatus
-  * @throws IOException if the JSON string is invalid with respect to V1beta1ServiceCIDRStatus
-  */
+  /**
+   * Create an instance of V1beta1ServiceCIDRStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1beta1ServiceCIDRStatus
+   * @throws IOException if the JSON string is invalid with respect to V1beta1ServiceCIDRStatus
+   */
   public static V1beta1ServiceCIDRStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1beta1ServiceCIDRStatus.class);
   }
 
- /**
-  * Convert an instance of V1beta1ServiceCIDRStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1beta1ServiceCIDRStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

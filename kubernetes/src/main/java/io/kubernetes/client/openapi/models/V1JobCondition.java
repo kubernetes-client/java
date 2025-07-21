@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,151 +51,157 @@ import io.kubernetes.client.openapi.JSON;
  * JobCondition describes current state of a job.
  */
 @ApiModel(description = "JobCondition describes current state of a job.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1JobCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastProbeTime;
 
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1JobCondition() {
   }
 
-  public V1JobCondition lastProbeTime(OffsetDateTime lastProbeTime) {
+  public V1JobCondition lastProbeTime(@jakarta.annotation.Nullable OffsetDateTime lastProbeTime) {
     this.lastProbeTime = lastProbeTime;
     return this;
   }
 
-   /**
+  /**
    * Last time the condition was checked.
    * @return lastProbeTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition was checked.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
   }
 
-  public void setLastProbeTime(OffsetDateTime lastProbeTime) {
+  public void setLastProbeTime(@jakarta.annotation.Nullable OffsetDateTime lastProbeTime) {
     this.lastProbeTime = lastProbeTime;
   }
 
 
-  public V1JobCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
+  public V1JobCondition lastTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
     return this;
   }
 
-   /**
+  /**
    * Last time the condition transit from one status to another.
    * @return lastTransitionTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transit from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
+  public void setLastTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 
 
-  public V1JobCondition message(String message) {
+  public V1JobCondition message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Human readable message indicating details about last transition.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public V1JobCondition reason(String reason) {
+  public V1JobCondition reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * (brief) reason for the condition&#39;s last transition.
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
 
-  public V1JobCondition status(String status) {
+  public V1JobCondition status(@jakarta.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Status of the condition, one of True, False, Unknown.
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public V1JobCondition type(String type) {
+  public V1JobCondition type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of job condition, Complete or Failed.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of job condition, Complete or Failed.")
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -269,12 +274,12 @@ public class V1JobCondition {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1JobCondition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1JobCondition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1JobCondition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -340,22 +345,22 @@ public class V1JobCondition {
     }
   }
 
- /**
-  * Create an instance of V1JobCondition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1JobCondition
-  * @throws IOException if the JSON string is invalid with respect to V1JobCondition
-  */
+  /**
+   * Create an instance of V1JobCondition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1JobCondition
+   * @throws IOException if the JSON string is invalid with respect to V1JobCondition
+   */
   public static V1JobCondition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1JobCondition.class);
   }
 
- /**
-  * Convert an instance of V1JobCondition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1JobCondition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

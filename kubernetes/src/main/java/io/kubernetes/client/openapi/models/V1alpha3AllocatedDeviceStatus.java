@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,36 +54,42 @@ import io.kubernetes.client.openapi.JSON;
  * AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.
  */
 @ApiModel(description = "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha3AllocatedDeviceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V1Condition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
+  @jakarta.annotation.Nullable
   private Object data;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
+  @jakarta.annotation.Nonnull
   private String device;
 
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
+  @jakarta.annotation.Nonnull
   private String driver;
 
   public static final String SERIALIZED_NAME_NETWORK_DATA = "networkData";
   @SerializedName(SERIALIZED_NAME_NETWORK_DATA)
+  @jakarta.annotation.Nullable
   private V1alpha3NetworkDeviceData networkData;
 
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
+  @jakarta.annotation.Nonnull
   private String pool;
 
   public V1alpha3AllocatedDeviceStatus() {
   }
 
-  public V1alpha3AllocatedDeviceStatus conditions(List<V1Condition> conditions) {
+  public V1alpha3AllocatedDeviceStatus conditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -97,117 +102,117 @@ public class V1alpha3AllocatedDeviceStatus {
     return this;
   }
 
-   /**
-   * Conditions contains the latest observation of the device&#39;s state. If the device has been configured according to the class and claim config references, the &#x60;Ready&#x60; condition should be True.
+  /**
+   * Conditions contains the latest observation of the device&#39;s state. If the device has been configured according to the class and claim config references, the &#x60;Ready&#x60; condition should be True.  Must not contain more than 8 entries.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Conditions contains the latest observation of the device's state. If the device has been configured according to the class and claim config references, the `Ready` condition should be True.")
+  @ApiModelProperty(value = "Conditions contains the latest observation of the device's state. If the device has been configured according to the class and claim config references, the `Ready` condition should be True.  Must not contain more than 8 entries.")
   public List<V1Condition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V1Condition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V1Condition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V1alpha3AllocatedDeviceStatus data(Object data) {
+  public V1alpha3AllocatedDeviceStatus data(@jakarta.annotation.Nullable Object data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Data contains arbitrary driver-specific data.  The length of the raw data must be smaller or equal to 10 Ki.
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Data contains arbitrary driver-specific data.  The length of the raw data must be smaller or equal to 10 Ki.")
   public Object getData() {
     return data;
   }
 
-  public void setData(Object data) {
+  public void setData(@jakarta.annotation.Nullable Object data) {
     this.data = data;
   }
 
 
-  public V1alpha3AllocatedDeviceStatus device(String device) {
+  public V1alpha3AllocatedDeviceStatus device(@jakarta.annotation.Nonnull String device) {
     this.device = device;
     return this;
   }
 
-   /**
+  /**
    * Device references one device instance via its name in the driver&#39;s resource pool. It must be a DNS label.
    * @return device
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Device references one device instance via its name in the driver's resource pool. It must be a DNS label.")
   public String getDevice() {
     return device;
   }
 
-  public void setDevice(String device) {
+  public void setDevice(@jakarta.annotation.Nonnull String device) {
     this.device = device;
   }
 
 
-  public V1alpha3AllocatedDeviceStatus driver(String driver) {
+  public V1alpha3AllocatedDeviceStatus driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.
    * @return driver
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.")
   public String getDriver() {
     return driver;
   }
 
-  public void setDriver(String driver) {
+  public void setDriver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
   }
 
 
-  public V1alpha3AllocatedDeviceStatus networkData(V1alpha3NetworkDeviceData networkData) {
+  public V1alpha3AllocatedDeviceStatus networkData(@jakarta.annotation.Nullable V1alpha3NetworkDeviceData networkData) {
     this.networkData = networkData;
     return this;
   }
 
-   /**
+  /**
    * Get networkData
    * @return networkData
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha3NetworkDeviceData getNetworkData() {
     return networkData;
   }
 
-  public void setNetworkData(V1alpha3NetworkDeviceData networkData) {
+  public void setNetworkData(@jakarta.annotation.Nullable V1alpha3NetworkDeviceData networkData) {
     this.networkData = networkData;
   }
 
 
-  public V1alpha3AllocatedDeviceStatus pool(String pool) {
+  public V1alpha3AllocatedDeviceStatus pool(@jakarta.annotation.Nonnull String pool) {
     this.pool = pool;
     return this;
   }
 
-   /**
+  /**
    * This name together with the driver name and the device name field identify which device was allocated (&#x60;&lt;driver name&gt;/&lt;pool name&gt;/&lt;device name&gt;&#x60;).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.
    * @return pool
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "This name together with the driver name and the device name field identify which device was allocated (`<driver name>/<pool name>/<device name>`).  Must not be longer than 253 characters and may contain one or more DNS sub-domains separated by slashes.")
   public String getPool() {
     return pool;
   }
 
-  public void setPool(String pool) {
+  public void setPool(@jakarta.annotation.Nonnull String pool) {
     this.pool = pool;
   }
 
@@ -281,12 +286,12 @@ public class V1alpha3AllocatedDeviceStatus {
     openapiRequiredFields.add("pool");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1alpha3AllocatedDeviceStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3AllocatedDeviceStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha3AllocatedDeviceStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -367,22 +372,22 @@ public class V1alpha3AllocatedDeviceStatus {
     }
   }
 
- /**
-  * Create an instance of V1alpha3AllocatedDeviceStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1alpha3AllocatedDeviceStatus
-  * @throws IOException if the JSON string is invalid with respect to V1alpha3AllocatedDeviceStatus
-  */
+  /**
+   * Create an instance of V1alpha3AllocatedDeviceStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3AllocatedDeviceStatus
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3AllocatedDeviceStatus
+   */
   public static V1alpha3AllocatedDeviceStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1alpha3AllocatedDeviceStatus.class);
   }
 
- /**
-  * Convert an instance of V1alpha3AllocatedDeviceStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1alpha3AllocatedDeviceStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

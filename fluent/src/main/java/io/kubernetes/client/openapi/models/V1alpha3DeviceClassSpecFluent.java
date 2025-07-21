@@ -37,14 +37,26 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
   public A addToConfig(int index,V1alpha3DeviceClassConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1alpha3DeviceClassConfigurationBuilder>();}
     V1alpha3DeviceClassConfigurationBuilder builder = new V1alpha3DeviceClassConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").add(index, builder); config.add(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToConfig(int index,V1alpha3DeviceClassConfiguration item) {
     if (this.config == null) {this.config = new ArrayList<V1alpha3DeviceClassConfigurationBuilder>();}
     V1alpha3DeviceClassConfigurationBuilder builder = new V1alpha3DeviceClassConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) { _visitables.get("config").add(builder); config.add(builder); } else { _visitables.get("config").set(index, builder); config.set(index, builder);}
+    if (index < 0 || index >= config.size()) {
+        _visitables.get("config").add(builder);
+        config.add(builder);
+    } else {
+        _visitables.get("config").add(builder);
+        config.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -188,14 +200,26 @@ public class V1alpha3DeviceClassSpecFluent<A extends V1alpha3DeviceClassSpecFlue
   public A addToSelectors(int index,V1alpha3DeviceSelector item) {
     if (this.selectors == null) {this.selectors = new ArrayList<V1alpha3DeviceSelectorBuilder>();}
     V1alpha3DeviceSelectorBuilder builder = new V1alpha3DeviceSelectorBuilder(item);
-    if (index < 0 || index >= selectors.size()) { _visitables.get("selectors").add(builder); selectors.add(builder); } else { _visitables.get("selectors").add(index, builder); selectors.add(index, builder);}
+    if (index < 0 || index >= selectors.size()) {
+        _visitables.get("selectors").add(builder);
+        selectors.add(builder);
+    } else {
+        _visitables.get("selectors").add(builder);
+        selectors.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToSelectors(int index,V1alpha3DeviceSelector item) {
     if (this.selectors == null) {this.selectors = new ArrayList<V1alpha3DeviceSelectorBuilder>();}
     V1alpha3DeviceSelectorBuilder builder = new V1alpha3DeviceSelectorBuilder(item);
-    if (index < 0 || index >= selectors.size()) { _visitables.get("selectors").add(builder); selectors.add(builder); } else { _visitables.get("selectors").set(index, builder); selectors.set(index, builder);}
+    if (index < 0 || index >= selectors.size()) {
+        _visitables.get("selectors").add(builder);
+        selectors.add(builder);
+    } else {
+        _visitables.get("selectors").add(builder);
+        selectors.set(index, builder);
+    }
     return (A)this;
   }
   

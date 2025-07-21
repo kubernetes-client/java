@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -55,48 +54,52 @@ import io.kubernetes.client.openapi.JSON;
  * Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated in v1.19+
  */
 @ApiModel(description = "Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated in v1.19+")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ComponentStatusList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
+  @jakarta.annotation.Nullable
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
+  @jakarta.annotation.Nonnull
   private List<V1ComponentStatus> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
   private V1ListMeta metadata;
 
   public V1ComponentStatusList() {
   }
 
-  public V1ComponentStatusList apiVersion(String apiVersion) {
+  public V1ComponentStatusList apiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   public String getApiVersion() {
     return apiVersion;
   }
 
-  public void setApiVersion(String apiVersion) {
+  public void setApiVersion(@jakarta.annotation.Nullable String apiVersion) {
     this.apiVersion = apiVersion;
   }
 
 
-  public V1ComponentStatusList items(List<V1ComponentStatus> items) {
+  public V1ComponentStatusList items(@jakarta.annotation.Nonnull List<V1ComponentStatus> items) {
     this.items = items;
     return this;
   }
@@ -109,57 +112,57 @@ public class V1ComponentStatusList implements io.kubernetes.client.common.Kubern
     return this;
   }
 
-   /**
+  /**
    * List of ComponentStatus objects.
    * @return items
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "List of ComponentStatus objects.")
   public List<V1ComponentStatus> getItems() {
     return items;
   }
 
-  public void setItems(List<V1ComponentStatus> items) {
+  public void setItems(@jakarta.annotation.Nonnull List<V1ComponentStatus> items) {
     this.items = items;
   }
 
 
-  public V1ComponentStatusList kind(String kind) {
+  public V1ComponentStatusList kind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   public String getKind() {
     return kind;
   }
 
-  public void setKind(String kind) {
+  public void setKind(@jakarta.annotation.Nullable String kind) {
     this.kind = kind;
   }
 
 
-  public V1ComponentStatusList metadata(V1ListMeta metadata) {
+  public V1ComponentStatusList metadata(@jakarta.annotation.Nullable V1ListMeta metadata) {
     this.metadata = metadata;
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ListMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(V1ListMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nullable V1ListMeta metadata) {
     this.metadata = metadata;
   }
 
@@ -225,12 +228,12 @@ public class V1ComponentStatusList implements io.kubernetes.client.common.Kubern
     openapiRequiredFields.add("items");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ComponentStatusList
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ComponentStatusList
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ComponentStatusList.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -304,22 +307,22 @@ public class V1ComponentStatusList implements io.kubernetes.client.common.Kubern
     }
   }
 
- /**
-  * Create an instance of V1ComponentStatusList given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ComponentStatusList
-  * @throws IOException if the JSON string is invalid with respect to V1ComponentStatusList
-  */
+  /**
+   * Create an instance of V1ComponentStatusList given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ComponentStatusList
+   * @throws IOException if the JSON string is invalid with respect to V1ComponentStatusList
+   */
   public static V1ComponentStatusList fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ComponentStatusList.class);
   }
 
- /**
-  * Convert an instance of V1ComponentStatusList to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ComponentStatusList to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

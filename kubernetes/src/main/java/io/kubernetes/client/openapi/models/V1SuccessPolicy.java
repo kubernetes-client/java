@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,16 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * SuccessPolicy describes when a Job can be declared as succeeded based on the success of some indexes.
  */
 @ApiModel(description = "SuccessPolicy describes when a Job can be declared as succeeded based on the success of some indexes.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SuccessPolicy {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
+  @jakarta.annotation.Nonnull
   private List<V1SuccessPolicyRule> rules = new ArrayList<>();
 
   public V1SuccessPolicy() {
   }
 
-  public V1SuccessPolicy rules(List<V1SuccessPolicyRule> rules) {
+  public V1SuccessPolicy rules(@jakarta.annotation.Nonnull List<V1SuccessPolicyRule> rules) {
     this.rules = rules;
     return this;
   }
@@ -76,17 +76,17 @@ public class V1SuccessPolicy {
     return this;
   }
 
-   /**
+  /**
    * rules represents the list of alternative rules for the declaring the Jobs as successful before &#x60;.status.succeeded &gt;&#x3D; .spec.completions&#x60;. Once any of the rules are met, the \&quot;SucceededCriteriaMet\&quot; condition is added, and the lingering pods are removed. The terminal state for such a Job has the \&quot;Complete\&quot; condition. Additionally, these rules are evaluated in order; Once the Job meets one of the rules, other rules are ignored. At most 20 elements are allowed.
    * @return rules
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "rules represents the list of alternative rules for the declaring the Jobs as successful before `.status.succeeded >= .spec.completions`. Once any of the rules are met, the \"SucceededCriteriaMet\" condition is added, and the lingering pods are removed. The terminal state for such a Job has the \"Complete\" condition. Additionally, these rules are evaluated in order; Once the Job meets one of the rules, other rules are ignored. At most 20 elements are allowed.")
   public List<V1SuccessPolicyRule> getRules() {
     return rules;
   }
 
-  public void setRules(List<V1SuccessPolicyRule> rules) {
+  public void setRules(@jakarta.annotation.Nonnull List<V1SuccessPolicyRule> rules) {
     this.rules = rules;
   }
 
@@ -143,12 +143,12 @@ public class V1SuccessPolicy {
     openapiRequiredFields.add("rules");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1SuccessPolicy
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1SuccessPolicy
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SuccessPolicy.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -212,22 +212,22 @@ public class V1SuccessPolicy {
     }
   }
 
- /**
-  * Create an instance of V1SuccessPolicy given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1SuccessPolicy
-  * @throws IOException if the JSON string is invalid with respect to V1SuccessPolicy
-  */
+  /**
+   * Create an instance of V1SuccessPolicy given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1SuccessPolicy
+   * @throws IOException if the JSON string is invalid with respect to V1SuccessPolicy
+   */
   public static V1SuccessPolicy fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1SuccessPolicy.class);
   }
 
- /**
-  * Convert an instance of V1SuccessPolicy to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1SuccessPolicy to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

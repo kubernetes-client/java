@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,28 +53,32 @@ import io.kubernetes.client.openapi.JSON;
  * TokenReviewStatus is the result of the token authentication request.
  */
 @ApiModel(description = "TokenReviewStatus is the result of the token authentication request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1TokenReviewStatus {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
+  @jakarta.annotation.Nullable
   private List<String> audiences = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AUTHENTICATED = "authenticated";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATED)
+  @jakarta.annotation.Nullable
   private Boolean authenticated;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
+  @jakarta.annotation.Nullable
   private String error;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
   private V1UserInfo user;
 
   public V1TokenReviewStatus() {
   }
 
-  public V1TokenReviewStatus audiences(List<String> audiences) {
+  public V1TokenReviewStatus audiences(@jakarta.annotation.Nullable List<String> audiences) {
     this.audiences = audiences;
     return this;
   }
@@ -88,77 +91,77 @@ public class V1TokenReviewStatus {
     return this;
   }
 
-   /**
+  /**
    * Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token&#39;s audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \&quot;true\&quot;, the token is valid against the audience of the Kubernetes API server.
    * @return audiences
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.")
   public List<String> getAudiences() {
     return audiences;
   }
 
-  public void setAudiences(List<String> audiences) {
+  public void setAudiences(@jakarta.annotation.Nullable List<String> audiences) {
     this.audiences = audiences;
   }
 
 
-  public V1TokenReviewStatus authenticated(Boolean authenticated) {
+  public V1TokenReviewStatus authenticated(@jakarta.annotation.Nullable Boolean authenticated) {
     this.authenticated = authenticated;
     return this;
   }
 
-   /**
+  /**
    * Authenticated indicates that the token was associated with a known user.
    * @return authenticated
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Authenticated indicates that the token was associated with a known user.")
   public Boolean getAuthenticated() {
     return authenticated;
   }
 
-  public void setAuthenticated(Boolean authenticated) {
+  public void setAuthenticated(@jakarta.annotation.Nullable Boolean authenticated) {
     this.authenticated = authenticated;
   }
 
 
-  public V1TokenReviewStatus error(String error) {
+  public V1TokenReviewStatus error(@jakarta.annotation.Nullable String error) {
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Error indicates that the token couldn&#39;t be checked
    * @return error
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error indicates that the token couldn't be checked")
   public String getError() {
     return error;
   }
 
-  public void setError(String error) {
+  public void setError(@jakarta.annotation.Nullable String error) {
     this.error = error;
   }
 
 
-  public V1TokenReviewStatus user(V1UserInfo user) {
+  public V1TokenReviewStatus user(@jakarta.annotation.Nullable V1UserInfo user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1UserInfo getUser() {
     return user;
   }
 
-  public void setUser(V1UserInfo user) {
+  public void setUser(@jakarta.annotation.Nullable V1UserInfo user) {
     this.user = user;
   }
 
@@ -223,12 +226,12 @@ public class V1TokenReviewStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1TokenReviewStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1TokenReviewStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1TokenReviewStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -286,22 +289,22 @@ public class V1TokenReviewStatus {
     }
   }
 
- /**
-  * Create an instance of V1TokenReviewStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1TokenReviewStatus
-  * @throws IOException if the JSON string is invalid with respect to V1TokenReviewStatus
-  */
+  /**
+   * Create an instance of V1TokenReviewStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1TokenReviewStatus
+   * @throws IOException if the JSON string is invalid with respect to V1TokenReviewStatus
+   */
   public static V1TokenReviewStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1TokenReviewStatus.class);
   }
 
- /**
-  * Convert an instance of V1TokenReviewStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1TokenReviewStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

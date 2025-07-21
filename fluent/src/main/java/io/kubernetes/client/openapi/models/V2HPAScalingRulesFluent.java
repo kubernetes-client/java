@@ -4,6 +4,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
+import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
@@ -27,6 +28,7 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
   private ArrayList<V2HPAScalingPolicyBuilder> policies;
   private String selectPolicy;
   private Integer stabilizationWindowSeconds;
+  private Quantity tolerance;
   
   protected void copyInstance(V2HPAScalingRules instance) {
     instance = (instance != null ? instance : new V2HPAScalingRules());
@@ -34,20 +36,33 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
           this.withPolicies(instance.getPolicies());
           this.withSelectPolicy(instance.getSelectPolicy());
           this.withStabilizationWindowSeconds(instance.getStabilizationWindowSeconds());
+          this.withTolerance(instance.getTolerance());
         }
   }
   
   public A addToPolicies(int index,V2HPAScalingPolicy item) {
     if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-    if (index < 0 || index >= policies.size()) { _visitables.get("policies").add(builder); policies.add(builder); } else { _visitables.get("policies").add(index, builder); policies.add(index, builder);}
+    if (index < 0 || index >= policies.size()) {
+        _visitables.get("policies").add(builder);
+        policies.add(builder);
+    } else {
+        _visitables.get("policies").add(builder);
+        policies.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToPolicies(int index,V2HPAScalingPolicy item) {
     if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-    if (index < 0 || index >= policies.size()) { _visitables.get("policies").add(builder); policies.add(builder); } else { _visitables.get("policies").set(index, builder); policies.set(index, builder);}
+    if (index < 0 || index >= policies.size()) {
+        _visitables.get("policies").add(builder);
+        policies.add(builder);
+    } else {
+        _visitables.get("policies").add(builder);
+        policies.set(index, builder);
+    }
     return (A)this;
   }
   
@@ -214,6 +229,23 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
     return this.stabilizationWindowSeconds != null;
   }
   
+  public Quantity getTolerance() {
+    return this.tolerance;
+  }
+  
+  public A withTolerance(Quantity tolerance) {
+    this.tolerance = tolerance;
+    return (A) this;
+  }
+  
+  public boolean hasTolerance() {
+    return this.tolerance != null;
+  }
+  
+  public A withNewTolerance(String value) {
+    return (A)withTolerance(new Quantity(value));
+  }
+  
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -222,11 +254,12 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
     if (!java.util.Objects.equals(policies, that.policies)) return false;
     if (!java.util.Objects.equals(selectPolicy, that.selectPolicy)) return false;
     if (!java.util.Objects.equals(stabilizationWindowSeconds, that.stabilizationWindowSeconds)) return false;
+    if (!java.util.Objects.equals(tolerance, that.tolerance)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(policies,  selectPolicy,  stabilizationWindowSeconds,  super.hashCode());
+    return java.util.Objects.hash(policies,  selectPolicy,  stabilizationWindowSeconds,  tolerance,  super.hashCode());
   }
   
   public String toString() {
@@ -234,7 +267,8 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
     sb.append("{");
     if (policies != null && !policies.isEmpty()) { sb.append("policies:"); sb.append(policies + ","); }
     if (selectPolicy != null) { sb.append("selectPolicy:"); sb.append(selectPolicy + ","); }
-    if (stabilizationWindowSeconds != null) { sb.append("stabilizationWindowSeconds:"); sb.append(stabilizationWindowSeconds); }
+    if (stabilizationWindowSeconds != null) { sb.append("stabilizationWindowSeconds:"); sb.append(stabilizationWindowSeconds + ","); }
+    if (tolerance != null) { sb.append("tolerance:"); sb.append(tolerance); }
     sb.append("}");
     return sb.toString();
   }

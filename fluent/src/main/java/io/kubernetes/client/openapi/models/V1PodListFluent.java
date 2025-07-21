@@ -54,14 +54,26 @@ public class V1PodListFluent<A extends V1PodListFluent<A>> extends BaseFluent<A>
   public A addToItems(int index,V1Pod item) {
     if (this.items == null) {this.items = new ArrayList<V1PodBuilder>();}
     V1PodBuilder builder = new V1PodBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.add(index, builder);
+    }
     return (A)this;
   }
   
   public A setToItems(int index,V1Pod item) {
     if (this.items == null) {this.items = new ArrayList<V1PodBuilder>();}
     V1PodBuilder builder = new V1PodBuilder(item);
-    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
     return (A)this;
   }
   

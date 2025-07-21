@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,103 +51,107 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastPhaseTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
+  @jakarta.annotation.Nullable
   private String phase;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nullable
   private String reason;
 
   public V1PersistentVolumeStatus() {
   }
 
-  public V1PersistentVolumeStatus lastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+  public V1PersistentVolumeStatus lastPhaseTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastPhaseTransitionTime) {
     this.lastPhaseTransitionTime = lastPhaseTransitionTime;
     return this;
   }
 
-   /**
+  /**
    * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions.
    * @return lastPhaseTransitionTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions.")
   public OffsetDateTime getLastPhaseTransitionTime() {
     return lastPhaseTransitionTime;
   }
 
-  public void setLastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+  public void setLastPhaseTransitionTime(@jakarta.annotation.Nullable OffsetDateTime lastPhaseTransitionTime) {
     this.lastPhaseTransitionTime = lastPhaseTransitionTime;
   }
 
 
-  public V1PersistentVolumeStatus message(String message) {
+  public V1PersistentVolumeStatus message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * message is a human-readable message indicating details about why the volume is in this state.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "message is a human-readable message indicating details about why the volume is in this state.")
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
 
-  public V1PersistentVolumeStatus phase(String phase) {
+  public V1PersistentVolumeStatus phase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
     return this;
   }
 
-   /**
+  /**
    * phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
    * @return phase
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase")
   public String getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(@jakarta.annotation.Nullable String phase) {
     this.phase = phase;
   }
 
 
-  public V1PersistentVolumeStatus reason(String reason) {
+  public V1PersistentVolumeStatus reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
@@ -213,12 +216,12 @@ public class V1PersistentVolumeStatus {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1PersistentVolumeStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -274,22 +277,22 @@ public class V1PersistentVolumeStatus {
     }
   }
 
- /**
-  * Create an instance of V1PersistentVolumeStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1PersistentVolumeStatus
-  * @throws IOException if the JSON string is invalid with respect to V1PersistentVolumeStatus
-  */
+  /**
+   * Create an instance of V1PersistentVolumeStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1PersistentVolumeStatus
+   * @throws IOException if the JSON string is invalid with respect to V1PersistentVolumeStatus
+   */
   public static V1PersistentVolumeStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1PersistentVolumeStatus.class);
   }
 
- /**
-  * Convert an instance of V1PersistentVolumeStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1PersistentVolumeStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

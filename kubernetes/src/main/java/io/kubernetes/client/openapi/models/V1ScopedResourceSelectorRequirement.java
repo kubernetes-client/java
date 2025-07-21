@@ -40,7 +40,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -53,64 +52,67 @@ import io.kubernetes.client.openapi.JSON;
  * A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
  */
 @ApiModel(description = "A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ScopedResourceSelectorRequirement {
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
+  @jakarta.annotation.Nonnull
   private String operator;
 
   public static final String SERIALIZED_NAME_SCOPE_NAME = "scopeName";
   @SerializedName(SERIALIZED_NAME_SCOPE_NAME)
+  @jakarta.annotation.Nonnull
   private String scopeName;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
+  @jakarta.annotation.Nullable
   private List<String> values = new ArrayList<>();
 
   public V1ScopedResourceSelectorRequirement() {
   }
 
-  public V1ScopedResourceSelectorRequirement operator(String operator) {
+  public V1ScopedResourceSelectorRequirement operator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * Represents a scope&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.
    * @return operator
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Represents a scope's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.")
   public String getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(@jakarta.annotation.Nonnull String operator) {
     this.operator = operator;
   }
 
 
-  public V1ScopedResourceSelectorRequirement scopeName(String scopeName) {
+  public V1ScopedResourceSelectorRequirement scopeName(@jakarta.annotation.Nonnull String scopeName) {
     this.scopeName = scopeName;
     return this;
   }
 
-   /**
+  /**
    * The name of the scope that the selector applies to.
    * @return scopeName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the scope that the selector applies to.")
   public String getScopeName() {
     return scopeName;
   }
 
-  public void setScopeName(String scopeName) {
+  public void setScopeName(@jakarta.annotation.Nonnull String scopeName) {
     this.scopeName = scopeName;
   }
 
 
-  public V1ScopedResourceSelectorRequirement values(List<String> values) {
+  public V1ScopedResourceSelectorRequirement values(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
     return this;
   }
@@ -123,17 +125,17 @@ public class V1ScopedResourceSelectorRequirement {
     return this;
   }
 
-   /**
+  /**
    * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
    * @return values
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.")
   public List<String> getValues() {
     return values;
   }
 
-  public void setValues(List<String> values) {
+  public void setValues(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
   }
 
@@ -197,12 +199,12 @@ public class V1ScopedResourceSelectorRequirement {
     openapiRequiredFields.add("scopeName");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1ScopedResourceSelectorRequirement
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1ScopedResourceSelectorRequirement
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ScopedResourceSelectorRequirement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -266,22 +268,22 @@ public class V1ScopedResourceSelectorRequirement {
     }
   }
 
- /**
-  * Create an instance of V1ScopedResourceSelectorRequirement given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1ScopedResourceSelectorRequirement
-  * @throws IOException if the JSON string is invalid with respect to V1ScopedResourceSelectorRequirement
-  */
+  /**
+   * Create an instance of V1ScopedResourceSelectorRequirement given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1ScopedResourceSelectorRequirement
+   * @throws IOException if the JSON string is invalid with respect to V1ScopedResourceSelectorRequirement
+   */
   public static V1ScopedResourceSelectorRequirement fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1ScopedResourceSelectorRequirement.class);
   }
 
- /**
-  * Convert an instance of V1ScopedResourceSelectorRequirement to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1ScopedResourceSelectorRequirement to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

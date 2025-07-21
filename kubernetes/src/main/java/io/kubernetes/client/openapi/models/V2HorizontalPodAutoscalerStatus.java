@@ -43,7 +43,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,36 +55,42 @@ import io.kubernetes.client.openapi.JSON;
  * HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.
  */
 @ApiModel(description = "HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V2HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  @jakarta.annotation.Nullable
   private List<V2HorizontalPodAutoscalerCondition> conditions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENT_METRICS = "currentMetrics";
   @SerializedName(SERIALIZED_NAME_CURRENT_METRICS)
+  @jakarta.annotation.Nullable
   private List<V2MetricStatus> currentMetrics = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENT_REPLICAS = "currentReplicas";
   @SerializedName(SERIALIZED_NAME_CURRENT_REPLICAS)
+  @jakarta.annotation.Nullable
   private Integer currentReplicas;
 
   public static final String SERIALIZED_NAME_DESIRED_REPLICAS = "desiredReplicas";
   @SerializedName(SERIALIZED_NAME_DESIRED_REPLICAS)
+  @jakarta.annotation.Nonnull
   private Integer desiredReplicas;
 
   public static final String SERIALIZED_NAME_LAST_SCALE_TIME = "lastScaleTime";
   @SerializedName(SERIALIZED_NAME_LAST_SCALE_TIME)
+  @jakarta.annotation.Nullable
   private OffsetDateTime lastScaleTime;
 
   public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
   @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
+  @jakarta.annotation.Nullable
   private Long observedGeneration;
 
   public V2HorizontalPodAutoscalerStatus() {
   }
 
-  public V2HorizontalPodAutoscalerStatus conditions(List<V2HorizontalPodAutoscalerCondition> conditions) {
+  public V2HorizontalPodAutoscalerStatus conditions(@jakarta.annotation.Nullable List<V2HorizontalPodAutoscalerCondition> conditions) {
     this.conditions = conditions;
     return this;
   }
@@ -98,22 +103,22 @@ public class V2HorizontalPodAutoscalerStatus {
     return this;
   }
 
-   /**
+  /**
    * conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.
    * @return conditions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.")
   public List<V2HorizontalPodAutoscalerCondition> getConditions() {
     return conditions;
   }
 
-  public void setConditions(List<V2HorizontalPodAutoscalerCondition> conditions) {
+  public void setConditions(@jakarta.annotation.Nullable List<V2HorizontalPodAutoscalerCondition> conditions) {
     this.conditions = conditions;
   }
 
 
-  public V2HorizontalPodAutoscalerStatus currentMetrics(List<V2MetricStatus> currentMetrics) {
+  public V2HorizontalPodAutoscalerStatus currentMetrics(@jakarta.annotation.Nullable List<V2MetricStatus> currentMetrics) {
     this.currentMetrics = currentMetrics;
     return this;
   }
@@ -126,97 +131,97 @@ public class V2HorizontalPodAutoscalerStatus {
     return this;
   }
 
-   /**
+  /**
    * currentMetrics is the last read state of the metrics used by this autoscaler.
    * @return currentMetrics
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "currentMetrics is the last read state of the metrics used by this autoscaler.")
   public List<V2MetricStatus> getCurrentMetrics() {
     return currentMetrics;
   }
 
-  public void setCurrentMetrics(List<V2MetricStatus> currentMetrics) {
+  public void setCurrentMetrics(@jakarta.annotation.Nullable List<V2MetricStatus> currentMetrics) {
     this.currentMetrics = currentMetrics;
   }
 
 
-  public V2HorizontalPodAutoscalerStatus currentReplicas(Integer currentReplicas) {
+  public V2HorizontalPodAutoscalerStatus currentReplicas(@jakarta.annotation.Nullable Integer currentReplicas) {
     this.currentReplicas = currentReplicas;
     return this;
   }
 
-   /**
+  /**
    * currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.
    * @return currentReplicas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.")
   public Integer getCurrentReplicas() {
     return currentReplicas;
   }
 
-  public void setCurrentReplicas(Integer currentReplicas) {
+  public void setCurrentReplicas(@jakarta.annotation.Nullable Integer currentReplicas) {
     this.currentReplicas = currentReplicas;
   }
 
 
-  public V2HorizontalPodAutoscalerStatus desiredReplicas(Integer desiredReplicas) {
+  public V2HorizontalPodAutoscalerStatus desiredReplicas(@jakarta.annotation.Nonnull Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
     return this;
   }
 
-   /**
+  /**
    * desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.
    * @return desiredReplicas
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.")
   public Integer getDesiredReplicas() {
     return desiredReplicas;
   }
 
-  public void setDesiredReplicas(Integer desiredReplicas) {
+  public void setDesiredReplicas(@jakarta.annotation.Nonnull Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
   }
 
 
-  public V2HorizontalPodAutoscalerStatus lastScaleTime(OffsetDateTime lastScaleTime) {
+  public V2HorizontalPodAutoscalerStatus lastScaleTime(@jakarta.annotation.Nullable OffsetDateTime lastScaleTime) {
     this.lastScaleTime = lastScaleTime;
     return this;
   }
 
-   /**
+  /**
    * lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.
    * @return lastScaleTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.")
   public OffsetDateTime getLastScaleTime() {
     return lastScaleTime;
   }
 
-  public void setLastScaleTime(OffsetDateTime lastScaleTime) {
+  public void setLastScaleTime(@jakarta.annotation.Nullable OffsetDateTime lastScaleTime) {
     this.lastScaleTime = lastScaleTime;
   }
 
 
-  public V2HorizontalPodAutoscalerStatus observedGeneration(Long observedGeneration) {
+  public V2HorizontalPodAutoscalerStatus observedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
     this.observedGeneration = observedGeneration;
     return this;
   }
 
-   /**
+  /**
    * observedGeneration is the most recent generation observed by this autoscaler.
    * @return observedGeneration
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "observedGeneration is the most recent generation observed by this autoscaler.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
 
-  public void setObservedGeneration(Long observedGeneration) {
+  public void setObservedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
     this.observedGeneration = observedGeneration;
   }
 
@@ -288,12 +293,12 @@ public class V2HorizontalPodAutoscalerStatus {
     openapiRequiredFields.add("desiredReplicas");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V2HorizontalPodAutoscalerStatus
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2HorizontalPodAutoscalerStatus
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2HorizontalPodAutoscalerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -375,22 +380,22 @@ public class V2HorizontalPodAutoscalerStatus {
     }
   }
 
- /**
-  * Create an instance of V2HorizontalPodAutoscalerStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V2HorizontalPodAutoscalerStatus
-  * @throws IOException if the JSON string is invalid with respect to V2HorizontalPodAutoscalerStatus
-  */
+  /**
+   * Create an instance of V2HorizontalPodAutoscalerStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2HorizontalPodAutoscalerStatus
+   * @throws IOException if the JSON string is invalid with respect to V2HorizontalPodAutoscalerStatus
+   */
   public static V2HorizontalPodAutoscalerStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V2HorizontalPodAutoscalerStatus.class);
   }
 
- /**
-  * Convert an instance of V2HorizontalPodAutoscalerStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V2HorizontalPodAutoscalerStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

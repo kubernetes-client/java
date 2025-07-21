@@ -41,7 +41,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,20 +53,22 @@ import io.kubernetes.client.openapi.JSON;
  * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
  */
 @ApiModel(description = "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:15:49.397498Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeSelectorTerm {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
   @SerializedName(SERIALIZED_NAME_MATCH_EXPRESSIONS)
+  @jakarta.annotation.Nullable
   private List<V1NodeSelectorRequirement> matchExpressions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCH_FIELDS = "matchFields";
   @SerializedName(SERIALIZED_NAME_MATCH_FIELDS)
+  @jakarta.annotation.Nullable
   private List<V1NodeSelectorRequirement> matchFields = new ArrayList<>();
 
   public V1NodeSelectorTerm() {
   }
 
-  public V1NodeSelectorTerm matchExpressions(List<V1NodeSelectorRequirement> matchExpressions) {
+  public V1NodeSelectorTerm matchExpressions(@jakarta.annotation.Nullable List<V1NodeSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
     return this;
   }
@@ -80,22 +81,22 @@ public class V1NodeSelectorTerm {
     return this;
   }
 
-   /**
+  /**
    * A list of node selector requirements by node&#39;s labels.
    * @return matchExpressions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's labels.")
   public List<V1NodeSelectorRequirement> getMatchExpressions() {
     return matchExpressions;
   }
 
-  public void setMatchExpressions(List<V1NodeSelectorRequirement> matchExpressions) {
+  public void setMatchExpressions(@jakarta.annotation.Nullable List<V1NodeSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
   }
 
 
-  public V1NodeSelectorTerm matchFields(List<V1NodeSelectorRequirement> matchFields) {
+  public V1NodeSelectorTerm matchFields(@jakarta.annotation.Nullable List<V1NodeSelectorRequirement> matchFields) {
     this.matchFields = matchFields;
     return this;
   }
@@ -108,17 +109,17 @@ public class V1NodeSelectorTerm {
     return this;
   }
 
-   /**
+  /**
    * A list of node selector requirements by node&#39;s fields.
    * @return matchFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's fields.")
   public List<V1NodeSelectorRequirement> getMatchFields() {
     return matchFields;
   }
 
-  public void setMatchFields(List<V1NodeSelectorRequirement> matchFields) {
+  public void setMatchFields(@jakarta.annotation.Nullable List<V1NodeSelectorRequirement> matchFields) {
     this.matchFields = matchFields;
   }
 
@@ -177,12 +178,12 @@ public class V1NodeSelectorTerm {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to V1NodeSelectorTerm
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1NodeSelectorTerm
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeSelectorTerm.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -257,22 +258,22 @@ public class V1NodeSelectorTerm {
     }
   }
 
- /**
-  * Create an instance of V1NodeSelectorTerm given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of V1NodeSelectorTerm
-  * @throws IOException if the JSON string is invalid with respect to V1NodeSelectorTerm
-  */
+  /**
+   * Create an instance of V1NodeSelectorTerm given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1NodeSelectorTerm
+   * @throws IOException if the JSON string is invalid with respect to V1NodeSelectorTerm
+   */
   public static V1NodeSelectorTerm fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, V1NodeSelectorTerm.class);
   }
 
- /**
-  * Convert an instance of V1NodeSelectorTerm to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of V1NodeSelectorTerm to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
