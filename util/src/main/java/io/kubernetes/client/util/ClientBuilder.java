@@ -73,6 +73,7 @@ public class ClientBuilder {
   // time to refresh exec based credentials
   // TODO: Read the expiration from the credential itself
   private Duration execCredentialRefreshPeriod = null;
+  private ApiClient apiClient = null;
 
   /**
    * Creates an {@link ApiClient} by calling {@link #standard()} and {@link #build()}.
@@ -435,8 +436,17 @@ public class ClientBuilder {
     return this;
   }
 
+  public ApiClient getApiClient() {
+    return this.apiClient;
+  }
+
+  public ClientBuilder setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
+    return this;
+  }
+
   public ApiClient build() {
-    final ApiClient client = new ApiClient();
+    final ApiClient client = this.apiClient == null ? new ApiClient() : this.apiClient;
 
     client.setHttpClient(
         client
