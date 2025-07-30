@@ -25,6 +25,9 @@ import io.kubernetes.client.util.generic.options.ListOptions;
 public class Metrics {
   private static final String API_GROUP = "metrics.k8s.io";
   private static final String API_VERSION = "v1beta1";
+  private static final String PODS = "pods";
+  private static final String NODES = "nodes";
+
   private ApiClient apiClient;
 
   /** Simple Metrics API constructor, uses default configuration */
@@ -66,7 +69,7 @@ public class Metrics {
             NodeMetricsList.class,
             Metrics.API_GROUP,
             Metrics.API_VERSION,
-            "nodes",
+            Metrics.NODES,
             apiClient);
     return metricsClient.list().throwsApiException().getObject();
   }
@@ -85,7 +88,7 @@ public class Metrics {
   public PodMetricsList getPodMetrics(String namespace, String labelSelector) throws ApiException {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
             new GenericKubernetesApi<>(
-                    PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, "pods", apiClient);
+                    PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, Metrics.PODS, apiClient);
     final ListOptions listOptions = new ListOptions();
     listOptions.setLabelSelector(labelSelector);
     return metricsClient.list(namespace, listOptions).throwsApiException().getObject();
