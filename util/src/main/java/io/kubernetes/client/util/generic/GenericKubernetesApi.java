@@ -707,7 +707,7 @@ public class GenericKubernetesApi<
             this.resourcePlural,
             object)
                 .dryRun(createOptions.getDryRun())
-                .dryRun(createOptions.getFieldManager())
+                .fieldManager(createOptions.getFieldManager())
                 .buildCall(null);
   }
 
