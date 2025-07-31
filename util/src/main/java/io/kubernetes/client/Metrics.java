@@ -22,6 +22,8 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.ListOptions;
 
+import javax.annotation.Nullable;
+
 public class Metrics {
   private static final String API_GROUP = "metrics.k8s.io";
   private static final String API_VERSION = "v1beta1";
@@ -85,7 +87,7 @@ public class Metrics {
    * @return  PodMetricList, never null.
    * @throws ApiException   If the ApiClient cannot complete the request.
    */
-  public PodMetricsList getPodMetrics(String namespace, String labelSelector) throws ApiException {
+  public PodMetricsList getPodMetrics(String namespace, @Nullable String labelSelector) throws ApiException {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
             new GenericKubernetesApi<>(
                     PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, Metrics.PODS, apiClient);
