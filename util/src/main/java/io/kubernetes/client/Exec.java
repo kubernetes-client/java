@@ -35,6 +35,7 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -438,7 +439,7 @@ public class Exec {
       String[] encodedCommand = new String[command.length];
       for (int i = 0; i < command.length; i++) {
         try {
-          encodedCommand[i] = URLEncoder.encode(command[i], "UTF-8");
+          encodedCommand[i] = URLEncoder.encode(command[i], StandardCharsets.UTF_8);
         } catch (UnsupportedEncodingException ex) {
           throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
         }
@@ -614,7 +615,7 @@ public class Exec {
     public void resize(int width, int height) throws IOException {
       OutputStream resizeStream = getResizeStream();
       String resize = "{ \"width\": " + width + ", \"height\": " + height + " }\n";
-      resizeStream.write(resize.getBytes("UTF-8"));
+      resizeStream.write(resize.getBytes(StandardCharsets.UTF_8));
       resizeStream.flush();
     }
 

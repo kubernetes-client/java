@@ -172,7 +172,7 @@ class ExecTest {
     process.resize(100, 100);
     process.destroy();
 
-    String out = bos.toString("UTF-8");
+    String out = bos.toString(StandardCharsets.UTF_8);
     assertThat(out).isEqualTo("{ \"width\": 100, \"height\": 100 }\n");
   }
 
