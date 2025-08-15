@@ -438,11 +438,7 @@ public class Exec {
     private String makePath() {
       String[] encodedCommand = new String[command.length];
       for (int i = 0; i < command.length; i++) {
-        try {
-          encodedCommand[i] = URLEncoder.encode(command[i], StandardCharsets.UTF_8);
-        } catch (UnsupportedEncodingException ex) {
-          throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
-        }
+        encodedCommand[i] = URLEncoder.encode(command[i], StandardCharsets.UTF_8);
       }
       return "/api/v1/namespaces/"
           + namespace
