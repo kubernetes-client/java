@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 import okio.ByteString;
@@ -68,7 +69,7 @@ class WebsocketStreamHandlerTest {
 
     OutputStream outputStream = handler.getOutputStream(testStreamId);
 
-    byte[] bytes = "This is a test string".getBytes("UTF-8");
+    byte[] bytes = "This is a test string".getBytes(StandardCharsets.UTF_8);
     byte[] output = new byte[bytes.length + 1];
     output[0] = 0;
     for (int i = 0; i < bytes.length; i++) {

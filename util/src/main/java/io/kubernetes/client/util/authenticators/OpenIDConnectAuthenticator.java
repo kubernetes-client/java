@@ -216,7 +216,7 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       String urlData =
           new StringBuilder()
               .append("refresh_token=")
-              .append(URLEncoder.encode(refreshToken, "UTF-8"))
+              .append(URLEncoder.encode(refreshToken, StandardCharsets.UTF_8))
               .append("&grant_type=refresh_token")
               .toString();
       OutputStream ou = https.getOutputStream();
