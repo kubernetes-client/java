@@ -27,6 +27,7 @@ import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -491,7 +492,7 @@ public class ModelMapper {
   }
 
   private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
-    String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
+    String jarFileName = URLDecoder.decode(packageURL.getFile(), StandardCharsets.UTF_8);
     JarFile jf = null;
     // jar: client in repository; nested: client in a fat jar
     if (jarFileName.startsWith("jar:") || jarFileName.startsWith("nested:")) {
