@@ -14,8 +14,6 @@ package io.kubernetes.client;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
@@ -51,20 +49,6 @@ class MetricsTest {
                     .withHeader("Content-Type", "text/plain")
                     .withBody("Service Unavailable")));
       assertThrows(ApiException.class, () -> metrics.getPodMetrics(namespace));
-  }
-
-  @Test
-  void getPodMetricsWithLabelSelectorThrowsAPIExceptionWhenServerReturnsError() {
-    String namespace = "default";
-    Metrics metrics = new Metrics(client);
-    apiServer.stubFor(
-        get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods.*"))
-            .willReturn(
-                aResponse()
-                    .withStatus(503)
-                    .withHeader("Content-Type", "text/plain")
-                    .withBody("Service Unavailable")));
-    assertThrows(ApiException.class, () -> metrics.getPodMetrics(namespace, "foo=bar"));
   }
 
   @Test

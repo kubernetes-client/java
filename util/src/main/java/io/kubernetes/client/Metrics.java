@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.ListOptions;
 
 import javax.annotation.Nullable;
@@ -91,8 +92,15 @@ public class Metrics {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
             new GenericKubernetesApi<>(
                     PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, Metrics.PODS, apiClient);
-    final ListOptions listOptions = new ListOptions();
-    listOptions.setLabelSelector(labelSelector);
-    return metricsClient.list(namespace, listOptions).throwsApiException().getObject();
+    final KubernetesApiResponse<PodMetricsList> response;
+    if (labelSelector == null || labelSelector.trim().isEmpty()) {
+        response = metricsClient.list(namespace);
+    } else {
+        final ListOptions listOptions = new ListOptions();
+        listOptions.setLabelSelector(labelSelector);
+        response = metricsClient.list(namespace, listOptions);
+    }
+
+    return response.throwsApiException().getObject();
   }
 }
