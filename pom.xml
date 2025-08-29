@@ -53,7 +53,7 @@
     <junit.version>4.13</junit.version>
     <bucket4j.version>7.6.0</bucket4j.version>
     <bouncycastle.version>1.81</bouncycastle.version>
-    <jackson.version>2.19.2</jackson.version>
+    <jackson.version>2.20</jackson.version>
     <gson.version>2.13.1</gson.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>5.1.0</okhttp3.version>
