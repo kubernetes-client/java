@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TopologySelectorTermBuilder extends V1TopologySelectorTermFluent<V1TopologySelectorTermBuilder> implements VisitableBuilder<V1TopologySelectorTerm,V1TopologySelectorTermBuilder>{
   public V1TopologySelectorTermBuilder() {
     this(new V1TopologySelectorTerm());

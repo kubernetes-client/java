@@ -101,7 +101,7 @@ public final class Visitors{
         }
   }
   
-  private static <T>Optional<Type> getMatchingInterface(Class<?> targetInterface,java.lang.reflect.Type... candidates) {
+  private static <T>Optional<Type> getMatchingInterface(Class<?> targetInterface,Type... candidates) {
     if (candidates == null || candidates.length == 0) {
           return Optional.empty();
         }

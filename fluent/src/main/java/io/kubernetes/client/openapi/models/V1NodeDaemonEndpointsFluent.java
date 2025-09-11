@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFluent<A>> extends BaseFluent<A>{
+public class V1NodeDaemonEndpointsFluent<A extends io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent<A>> extends BaseFluent<A>{
   public V1NodeDaemonEndpointsFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFluent<A
   private V1DaemonEndpointBuilder kubeletEndpoint;
   
   protected void copyInstance(V1NodeDaemonEndpoints instance) {
-    instance = (instance != null ? instance : new V1NodeDaemonEndpoints());
+    instance = instance != null ? instance : new V1NodeDaemonEndpoints();
     if (instance != null) {
-          this.withKubeletEndpoint(instance.getKubeletEndpoint());
-        }
+      this.withKubeletEndpoint(instance.getKubeletEndpoint());
+    }
   }
   
   public V1DaemonEndpoint buildKubeletEndpoint() {
@@ -55,34 +58,45 @@ public class V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFluent<A
   }
   
   public KubeletEndpointNested<A> editKubeletEndpoint() {
-    return withNewKubeletEndpointLike(java.util.Optional.ofNullable(buildKubeletEndpoint()).orElse(null));
+    return this.withNewKubeletEndpointLike(Optional.ofNullable(this.buildKubeletEndpoint()).orElse(null));
   }
   
   public KubeletEndpointNested<A> editOrNewKubeletEndpoint() {
-    return withNewKubeletEndpointLike(java.util.Optional.ofNullable(buildKubeletEndpoint()).orElse(new V1DaemonEndpointBuilder().build()));
+    return this.withNewKubeletEndpointLike(Optional.ofNullable(this.buildKubeletEndpoint()).orElse(new V1DaemonEndpointBuilder().build()));
   }
   
   public KubeletEndpointNested<A> editOrNewKubeletEndpointLike(V1DaemonEndpoint item) {
-    return withNewKubeletEndpointLike(java.util.Optional.ofNullable(buildKubeletEndpoint()).orElse(item));
+    return this.withNewKubeletEndpointLike(Optional.ofNullable(this.buildKubeletEndpoint()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeDaemonEndpointsFluent that = (V1NodeDaemonEndpointsFluent) o;
-    if (!java.util.Objects.equals(kubeletEndpoint, that.kubeletEndpoint)) return false;
+    if (!(Objects.equals(kubeletEndpoint, that.kubeletEndpoint))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(kubeletEndpoint,  super.hashCode());
+    return Objects.hash(kubeletEndpoint);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (kubeletEndpoint != null) { sb.append("kubeletEndpoint:"); sb.append(kubeletEndpoint); }
+    if (!(kubeletEndpoint == null)) {
+        sb.append("kubeletEndpoint:");
+        sb.append(kubeletEndpoint);
+    }
     sb.append("}");
     return sb.toString();
   }

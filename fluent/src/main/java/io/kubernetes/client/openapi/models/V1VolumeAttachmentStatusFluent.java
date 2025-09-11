@@ -1,10 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 import java.util.Map;
@@ -13,7 +16,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFluent<A>> extends BaseFluent<A>{
+public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent<A>> extends BaseFluent<A>{
   public V1VolumeAttachmentStatusFluent() {
   }
   
@@ -26,13 +29,13 @@ public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFl
   private V1VolumeErrorBuilder detachError;
   
   protected void copyInstance(V1VolumeAttachmentStatus instance) {
-    instance = (instance != null ? instance : new V1VolumeAttachmentStatus());
+    instance = instance != null ? instance : new V1VolumeAttachmentStatus();
     if (instance != null) {
-          this.withAttachError(instance.getAttachError());
-          this.withAttached(instance.getAttached());
-          this.withAttachmentMetadata(instance.getAttachmentMetadata());
-          this.withDetachError(instance.getDetachError());
-        }
+        this.withAttachError(instance.getAttachError());
+        this.withAttached(instance.getAttached());
+        this.withAttachmentMetadata(instance.getAttachmentMetadata());
+        this.withDetachError(instance.getDetachError());
+    }
   }
   
   public V1VolumeError buildAttachError() {
@@ -64,15 +67,15 @@ public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFl
   }
   
   public AttachErrorNested<A> editAttachError() {
-    return withNewAttachErrorLike(java.util.Optional.ofNullable(buildAttachError()).orElse(null));
+    return this.withNewAttachErrorLike(Optional.ofNullable(this.buildAttachError()).orElse(null));
   }
   
   public AttachErrorNested<A> editOrNewAttachError() {
-    return withNewAttachErrorLike(java.util.Optional.ofNullable(buildAttachError()).orElse(new V1VolumeErrorBuilder().build()));
+    return this.withNewAttachErrorLike(Optional.ofNullable(this.buildAttachError()).orElse(new V1VolumeErrorBuilder().build()));
   }
   
   public AttachErrorNested<A> editOrNewAttachErrorLike(V1VolumeError item) {
-    return withNewAttachErrorLike(java.util.Optional.ofNullable(buildAttachError()).orElse(item));
+    return this.withNewAttachErrorLike(Optional.ofNullable(this.buildAttachError()).orElse(item));
   }
   
   public Boolean getAttached() {
@@ -89,23 +92,47 @@ public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFl
   }
   
   public A addToAttachmentMetadata(String key,String value) {
-    if(this.attachmentMetadata == null && key != null && value != null) { this.attachmentMetadata = new LinkedHashMap(); }
-    if(key != null && value != null) {this.attachmentMetadata.put(key, value);} return (A)this;
+    if (this.attachmentMetadata == null && key != null && value != null) {
+      this.attachmentMetadata = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.attachmentMetadata.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToAttachmentMetadata(Map<String,String> map) {
-    if(this.attachmentMetadata == null && map != null) { this.attachmentMetadata = new LinkedHashMap(); }
-    if(map != null) { this.attachmentMetadata.putAll(map);} return (A)this;
+    if (this.attachmentMetadata == null && map != null) {
+      this.attachmentMetadata = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.attachmentMetadata.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromAttachmentMetadata(String key) {
-    if(this.attachmentMetadata == null) { return (A) this; }
-    if(key != null && this.attachmentMetadata != null) {this.attachmentMetadata.remove(key);} return (A)this;
+    if (this.attachmentMetadata == null) {
+      return (A) this;
+    }
+    if (key != null && this.attachmentMetadata != null) {
+      this.attachmentMetadata.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromAttachmentMetadata(Map<String,String> map) {
-    if(this.attachmentMetadata == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.attachmentMetadata != null){this.attachmentMetadata.remove(key);}}} return (A)this;
+    if (this.attachmentMetadata == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.attachmentMetadata != null) {
+          this.attachmentMetadata.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getAttachmentMetadata() {
@@ -154,40 +181,69 @@ public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFl
   }
   
   public DetachErrorNested<A> editDetachError() {
-    return withNewDetachErrorLike(java.util.Optional.ofNullable(buildDetachError()).orElse(null));
+    return this.withNewDetachErrorLike(Optional.ofNullable(this.buildDetachError()).orElse(null));
   }
   
   public DetachErrorNested<A> editOrNewDetachError() {
-    return withNewDetachErrorLike(java.util.Optional.ofNullable(buildDetachError()).orElse(new V1VolumeErrorBuilder().build()));
+    return this.withNewDetachErrorLike(Optional.ofNullable(this.buildDetachError()).orElse(new V1VolumeErrorBuilder().build()));
   }
   
   public DetachErrorNested<A> editOrNewDetachErrorLike(V1VolumeError item) {
-    return withNewDetachErrorLike(java.util.Optional.ofNullable(buildDetachError()).orElse(item));
+    return this.withNewDetachErrorLike(Optional.ofNullable(this.buildDetachError()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeAttachmentStatusFluent that = (V1VolumeAttachmentStatusFluent) o;
-    if (!java.util.Objects.equals(attachError, that.attachError)) return false;
-    if (!java.util.Objects.equals(attached, that.attached)) return false;
-    if (!java.util.Objects.equals(attachmentMetadata, that.attachmentMetadata)) return false;
-    if (!java.util.Objects.equals(detachError, that.detachError)) return false;
+    if (!(Objects.equals(attachError, that.attachError))) {
+      return false;
+    }
+    if (!(Objects.equals(attached, that.attached))) {
+      return false;
+    }
+    if (!(Objects.equals(attachmentMetadata, that.attachmentMetadata))) {
+      return false;
+    }
+    if (!(Objects.equals(detachError, that.detachError))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(attachError,  attached,  attachmentMetadata,  detachError,  super.hashCode());
+    return Objects.hash(attachError, attached, attachmentMetadata, detachError);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (attachError != null) { sb.append("attachError:"); sb.append(attachError + ","); }
-    if (attached != null) { sb.append("attached:"); sb.append(attached + ","); }
-    if (attachmentMetadata != null && !attachmentMetadata.isEmpty()) { sb.append("attachmentMetadata:"); sb.append(attachmentMetadata + ","); }
-    if (detachError != null) { sb.append("detachError:"); sb.append(detachError); }
+    if (!(attachError == null)) {
+        sb.append("attachError:");
+        sb.append(attachError);
+        sb.append(",");
+    }
+    if (!(attached == null)) {
+        sb.append("attached:");
+        sb.append(attached);
+        sb.append(",");
+    }
+    if (!(attachmentMetadata == null) && !(attachmentMetadata.isEmpty())) {
+        sb.append("attachmentMetadata:");
+        sb.append(attachmentMetadata);
+        sb.append(",");
+    }
+    if (!(detachError == null)) {
+        sb.append("detachError:");
+        sb.append(detachError);
+    }
     sb.append("}");
     return sb.toString();
   }

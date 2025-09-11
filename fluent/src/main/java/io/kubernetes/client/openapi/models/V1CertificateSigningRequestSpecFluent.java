@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.lang.String;
@@ -8,6 +9,7 @@ import java.util.function.Predicate;
 import java.lang.Integer;
 import java.lang.Byte;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSigningRequestSpecFluent<A>> extends BaseFluent<A>{
+public class V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<A>> extends BaseFluent<A>{
   public V1CertificateSigningRequestSpecFluent() {
   }
   
@@ -34,17 +36,17 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   private String username;
   
   protected void copyInstance(V1CertificateSigningRequestSpec instance) {
-    instance = (instance != null ? instance : new V1CertificateSigningRequestSpec());
+    instance = instance != null ? instance : new V1CertificateSigningRequestSpec();
     if (instance != null) {
-          this.withExpirationSeconds(instance.getExpirationSeconds());
-          this.withExtra(instance.getExtra());
-          this.withGroups(instance.getGroups());
-          this.withRequest(instance.getRequest());
-          this.withSignerName(instance.getSignerName());
-          this.withUid(instance.getUid());
-          this.withUsages(instance.getUsages());
-          this.withUsername(instance.getUsername());
-        }
+        this.withExpirationSeconds(instance.getExpirationSeconds());
+        this.withExtra(instance.getExtra());
+        this.withGroups(instance.getGroups());
+        this.withRequest(instance.getRequest());
+        this.withSignerName(instance.getSignerName());
+        this.withUid(instance.getUid());
+        this.withUsages(instance.getUsages());
+        this.withUsername(instance.getUsername());
+    }
   }
   
   public Integer getExpirationSeconds() {
@@ -61,23 +63,47 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public A addToExtra(String key,List<String> value) {
-    if(this.extra == null && key != null && value != null) { this.extra = new LinkedHashMap(); }
-    if(key != null && value != null) {this.extra.put(key, value);} return (A)this;
+    if (this.extra == null && key != null && value != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.extra.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToExtra(Map<String,List<String>> map) {
-    if(this.extra == null && map != null) { this.extra = new LinkedHashMap(); }
-    if(map != null) { this.extra.putAll(map);} return (A)this;
+    if (this.extra == null && map != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.extra.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(String key) {
-    if(this.extra == null) { return (A) this; }
-    if(key != null && this.extra != null) {this.extra.remove(key);} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (key != null && this.extra != null) {
+      this.extra.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(Map<String,List<String>> map) {
-    if(this.extra == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.extra != null){this.extra.remove(key);}}} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.extra != null) {
+          this.extra.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,List<String>> getExtra() {
@@ -98,34 +124,59 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public A addToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
     this.groups.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    this.groups.set(index, item); return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    this.groups.set(index, item);
+    return (A) this;
   }
   
-  public A addToGroups(java.lang.String... items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+  public A addToGroups(String... items) {
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToGroups(Collection<String> items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromGroups(java.lang.String... items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+  public A removeFromGroups(String... items) {
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromGroups(Collection<String> items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getGroups() {
@@ -174,7 +225,7 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
     return (A) this;
   }
   
-  public A withGroups(java.lang.String... groups) {
+  public A withGroups(String... groups) {
     if (this.groups != null) {
         this.groups.clear();
         _visitables.remove("groups");
@@ -188,7 +239,7 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public boolean hasGroups() {
-    return this.groups != null && !this.groups.isEmpty();
+    return this.groups != null && !(this.groups.isEmpty());
   }
   
   public A withRequest(byte... request) {
@@ -205,12 +256,12 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public byte[] getRequest() {
-    int size = request != null ? request.size() : 0;;
-    byte[] result = new byte[size];;
+    int size = request != null ? request.size() : 0;
+    byte[] result = new byte[size];
     if (size == 0) {
       return result;
     }
-    int index = 0;;
+    int index = 0;
     for (byte item : request) {
       result[index++] = item;
     }
@@ -218,38 +269,63 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public A addToRequest(int index,Byte item) {
-    if (this.request == null) {this.request =  new ArrayList<Byte>();}
+    if (this.request == null) {
+      this.request = new ArrayList();
+    }
     this.request.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequest(int index,Byte item) {
-    if (this.request == null) {this.request =  new ArrayList<Byte>();}
-    this.request.set(index, item); return (A)this;
+    if (this.request == null) {
+      this.request = new ArrayList();
+    }
+    this.request.set(index, item);
+    return (A) this;
   }
   
-  public A addToRequest(java.lang.Byte... items) {
-    if (this.request == null) {this.request =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.request.add(item);} return (A)this;
+  public A addToRequest(Byte... items) {
+    if (this.request == null) {
+      this.request = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.request.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToRequest(Collection<Byte> items) {
-    if (this.request == null) {this.request =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.request.add(item);} return (A)this;
+    if (this.request == null) {
+      this.request = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.request.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequest(java.lang.Byte... items) {
-    if (this.request == null) return (A)this;
-    for (Byte item : items) { this.request.remove(item);} return (A)this;
+  public A removeFromRequest(Byte... items) {
+    if (this.request == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.request.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequest(Collection<Byte> items) {
-    if (this.request == null) return (A)this;
-    for (Byte item : items) { this.request.remove(item);} return (A)this;
+    if (this.request == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.request.remove(item);
+    }
+    return (A) this;
   }
   
   public boolean hasRequest() {
-    return this.request != null && !this.request.isEmpty();
+    return this.request != null && !(this.request.isEmpty());
   }
   
   public String getSignerName() {
@@ -279,34 +355,59 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public A addToUsages(int index,String item) {
-    if (this.usages == null) {this.usages = new ArrayList<String>();}
+    if (this.usages == null) {
+      this.usages = new ArrayList();
+    }
     this.usages.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToUsages(int index,String item) {
-    if (this.usages == null) {this.usages = new ArrayList<String>();}
-    this.usages.set(index, item); return (A)this;
+    if (this.usages == null) {
+      this.usages = new ArrayList();
+    }
+    this.usages.set(index, item);
+    return (A) this;
   }
   
-  public A addToUsages(java.lang.String... items) {
-    if (this.usages == null) {this.usages = new ArrayList<String>();}
-    for (String item : items) {this.usages.add(item);} return (A)this;
+  public A addToUsages(String... items) {
+    if (this.usages == null) {
+      this.usages = new ArrayList();
+    }
+    for (String item : items) {
+      this.usages.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToUsages(Collection<String> items) {
-    if (this.usages == null) {this.usages = new ArrayList<String>();}
-    for (String item : items) {this.usages.add(item);} return (A)this;
+    if (this.usages == null) {
+      this.usages = new ArrayList();
+    }
+    for (String item : items) {
+      this.usages.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromUsages(java.lang.String... items) {
-    if (this.usages == null) return (A)this;
-    for (String item : items) { this.usages.remove(item);} return (A)this;
+  public A removeFromUsages(String... items) {
+    if (this.usages == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.usages.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromUsages(Collection<String> items) {
-    if (this.usages == null) return (A)this;
-    for (String item : items) { this.usages.remove(item);} return (A)this;
+    if (this.usages == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.usages.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getUsages() {
@@ -355,7 +456,7 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
     return (A) this;
   }
   
-  public A withUsages(java.lang.String... usages) {
+  public A withUsages(String... usages) {
     if (this.usages != null) {
         this.usages.clear();
         _visitables.remove("usages");
@@ -369,7 +470,7 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public boolean hasUsages() {
-    return this.usages != null && !this.usages.isEmpty();
+    return this.usages != null && !(this.usages.isEmpty());
   }
   
   public String getUsername() {
@@ -386,36 +487,89 @@ public class V1CertificateSigningRequestSpecFluent<A extends V1CertificateSignin
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CertificateSigningRequestSpecFluent that = (V1CertificateSigningRequestSpecFluent) o;
-    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
-    if (!java.util.Objects.equals(extra, that.extra)) return false;
-    if (!java.util.Objects.equals(groups, that.groups)) return false;
-    if (!java.util.Objects.equals(request, that.request)) return false;
-    if (!java.util.Objects.equals(signerName, that.signerName)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
-    if (!java.util.Objects.equals(usages, that.usages)) return false;
-    if (!java.util.Objects.equals(username, that.username)) return false;
+    if (!(Objects.equals(expirationSeconds, that.expirationSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(extra, that.extra))) {
+      return false;
+    }
+    if (!(Objects.equals(groups, that.groups))) {
+      return false;
+    }
+    if (!(Objects.equals(request, that.request))) {
+      return false;
+    }
+    if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
+    if (!(Objects.equals(usages, that.usages))) {
+      return false;
+    }
+    if (!(Objects.equals(username, that.username))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expirationSeconds,  extra,  groups,  request,  signerName,  uid,  usages,  username,  super.hashCode());
+    return Objects.hash(expirationSeconds, extra, groups, request, signerName, uid, usages, username);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expirationSeconds != null) { sb.append("expirationSeconds:"); sb.append(expirationSeconds + ","); }
-    if (extra != null && !extra.isEmpty()) { sb.append("extra:"); sb.append(extra + ","); }
-    if (groups != null && !groups.isEmpty()) { sb.append("groups:"); sb.append(groups + ","); }
-    if (request != null && !request.isEmpty()) { sb.append("request:"); sb.append(request + ","); }
-    if (signerName != null) { sb.append("signerName:"); sb.append(signerName + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid + ","); }
-    if (usages != null && !usages.isEmpty()) { sb.append("usages:"); sb.append(usages + ","); }
-    if (username != null) { sb.append("username:"); sb.append(username); }
+    if (!(expirationSeconds == null)) {
+        sb.append("expirationSeconds:");
+        sb.append(expirationSeconds);
+        sb.append(",");
+    }
+    if (!(extra == null) && !(extra.isEmpty())) {
+        sb.append("extra:");
+        sb.append(extra);
+        sb.append(",");
+    }
+    if (!(groups == null) && !(groups.isEmpty())) {
+        sb.append("groups:");
+        sb.append(groups);
+        sb.append(",");
+    }
+    if (!(request == null) && !(request.isEmpty())) {
+        sb.append("request:");
+        sb.append(request);
+        sb.append(",");
+    }
+    if (!(signerName == null)) {
+        sb.append("signerName:");
+        sb.append(signerName);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+        sb.append(",");
+    }
+    if (!(usages == null) && !(usages.isEmpty())) {
+        sb.append("usages:");
+        sb.append(usages);
+        sb.append(",");
+    }
+    if (!(username == null)) {
+        sb.append("username:");
+        sb.append(username);
+    }
     sb.append("}");
     return sb.toString();
   }

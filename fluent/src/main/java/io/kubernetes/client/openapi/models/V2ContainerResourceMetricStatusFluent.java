@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2ContainerResourceMetricStatusFluent<A extends V2ContainerResourceMetricStatusFluent<A>> extends BaseFluent<A>{
+public class V2ContainerResourceMetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatusFluent<A>> extends BaseFluent<A>{
   public V2ContainerResourceMetricStatusFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V2ContainerResourceMetricStatusFluent<A extends V2ContainerResource
   private String name;
   
   protected void copyInstance(V2ContainerResourceMetricStatus instance) {
-    instance = (instance != null ? instance : new V2ContainerResourceMetricStatus());
+    instance = instance != null ? instance : new V2ContainerResourceMetricStatus();
     if (instance != null) {
-          this.withContainer(instance.getContainer());
-          this.withCurrent(instance.getCurrent());
-          this.withName(instance.getName());
-        }
+        this.withContainer(instance.getContainer());
+        this.withCurrent(instance.getCurrent());
+        this.withName(instance.getName());
+    }
   }
   
   public String getContainer() {
@@ -72,15 +75,15 @@ public class V2ContainerResourceMetricStatusFluent<A extends V2ContainerResource
   }
   
   public CurrentNested<A> editCurrent() {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(null));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(null));
   }
   
   public CurrentNested<A> editOrNewCurrent() {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(new V2MetricValueStatusBuilder().build()));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(new V2MetricValueStatusBuilder().build()));
   }
   
   public CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(item));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(item));
   }
   
   public String getName() {
@@ -97,26 +100,49 @@ public class V2ContainerResourceMetricStatusFluent<A extends V2ContainerResource
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2ContainerResourceMetricStatusFluent that = (V2ContainerResourceMetricStatusFluent) o;
-    if (!java.util.Objects.equals(container, that.container)) return false;
-    if (!java.util.Objects.equals(current, that.current)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(container, that.container))) {
+      return false;
+    }
+    if (!(Objects.equals(current, that.current))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(container,  current,  name,  super.hashCode());
+    return Objects.hash(container, current, name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (container != null) { sb.append("container:"); sb.append(container + ","); }
-    if (current != null) { sb.append("current:"); sb.append(current + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(container == null)) {
+        sb.append("container:");
+        sb.append(container);
+        sb.append(",");
+    }
+    if (!(current == null)) {
+        sb.append("current:");
+        sb.append(current);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DaemonEndpointFluent<A extends V1DaemonEndpointFluent<A>> extends BaseFluent<A>{
+public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<A>> extends BaseFluent<A>{
   public V1DaemonEndpointFluent() {
   }
   
@@ -20,10 +22,10 @@ public class V1DaemonEndpointFluent<A extends V1DaemonEndpointFluent<A>> extends
   private Integer port;
   
   protected void copyInstance(V1DaemonEndpoint instance) {
-    instance = (instance != null ? instance : new V1DaemonEndpoint());
+    instance = instance != null ? instance : new V1DaemonEndpoint();
     if (instance != null) {
-          this.withPort(instance.getPort());
-        }
+      this.withPort(instance.getPort());
+    }
   }
   
   public Integer getPort() {
@@ -40,22 +42,33 @@ public class V1DaemonEndpointFluent<A extends V1DaemonEndpointFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DaemonEndpointFluent that = (V1DaemonEndpointFluent) o;
-    if (!java.util.Objects.equals(port, that.port)) return false;
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(port,  super.hashCode());
+    return Objects.hash(port);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (port != null) { sb.append("port:"); sb.append(port); }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+    }
     sb.append("}");
     return sb.toString();
   }

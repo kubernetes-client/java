@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends BaseFluent<A>{
+public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.models.V1ValidationRuleFluent<A>> extends BaseFluent<A>{
   public V1ValidationRuleFluent() {
   }
   
@@ -25,15 +27,15 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
   private String rule;
   
   protected void copyInstance(V1ValidationRule instance) {
-    instance = (instance != null ? instance : new V1ValidationRule());
+    instance = instance != null ? instance : new V1ValidationRule();
     if (instance != null) {
-          this.withFieldPath(instance.getFieldPath());
-          this.withMessage(instance.getMessage());
-          this.withMessageExpression(instance.getMessageExpression());
-          this.withOptionalOldSelf(instance.getOptionalOldSelf());
-          this.withReason(instance.getReason());
-          this.withRule(instance.getRule());
-        }
+        this.withFieldPath(instance.getFieldPath());
+        this.withMessage(instance.getMessage());
+        this.withMessageExpression(instance.getMessageExpression());
+        this.withOptionalOldSelf(instance.getOptionalOldSelf());
+        this.withReason(instance.getReason());
+        this.withRule(instance.getRule());
+    }
   }
   
   public String getFieldPath() {
@@ -115,32 +117,73 @@ public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ValidationRuleFluent that = (V1ValidationRuleFluent) o;
-    if (!java.util.Objects.equals(fieldPath, that.fieldPath)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(messageExpression, that.messageExpression)) return false;
-    if (!java.util.Objects.equals(optionalOldSelf, that.optionalOldSelf)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(rule, that.rule)) return false;
+    if (!(Objects.equals(fieldPath, that.fieldPath))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(messageExpression, that.messageExpression))) {
+      return false;
+    }
+    if (!(Objects.equals(optionalOldSelf, that.optionalOldSelf))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(rule, that.rule))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fieldPath,  message,  messageExpression,  optionalOldSelf,  reason,  rule,  super.hashCode());
+    return Objects.hash(fieldPath, message, messageExpression, optionalOldSelf, reason, rule);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fieldPath != null) { sb.append("fieldPath:"); sb.append(fieldPath + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (messageExpression != null) { sb.append("messageExpression:"); sb.append(messageExpression + ","); }
-    if (optionalOldSelf != null) { sb.append("optionalOldSelf:"); sb.append(optionalOldSelf + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (rule != null) { sb.append("rule:"); sb.append(rule); }
+    if (!(fieldPath == null)) {
+        sb.append("fieldPath:");
+        sb.append(fieldPath);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(messageExpression == null)) {
+        sb.append("messageExpression:");
+        sb.append(messageExpression);
+        sb.append(",");
+    }
+    if (!(optionalOldSelf == null)) {
+        sb.append("optionalOldSelf:");
+        sb.append(optionalOldSelf);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(rule == null)) {
+        sb.append("rule:");
+        sb.append(rule);
+    }
     sb.append("}");
     return sb.toString();
   }

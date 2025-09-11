@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1FlowSchemaConditionBuilder extends V1FlowSchemaConditionFluent<V1FlowSchemaConditionBuilder> implements VisitableBuilder<V1FlowSchemaCondition,V1FlowSchemaConditionBuilder>{
   public V1FlowSchemaConditionBuilder() {
     this(new V1FlowSchemaCondition());

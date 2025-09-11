@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2PodsMetricSourceFluent<A extends V2PodsMetricSourceFluent<A>> extends BaseFluent<A>{
+public class V2PodsMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2PodsMetricSourceFluent<A>> extends BaseFluent<A>{
   public V2PodsMetricSourceFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V2PodsMetricSourceFluent<A extends V2PodsMetricSourceFluent<A>> ext
   private V2MetricTargetBuilder target;
   
   protected void copyInstance(V2PodsMetricSource instance) {
-    instance = (instance != null ? instance : new V2PodsMetricSource());
+    instance = instance != null ? instance : new V2PodsMetricSource();
     if (instance != null) {
-          this.withMetric(instance.getMetric());
-          this.withTarget(instance.getTarget());
-        }
+        this.withMetric(instance.getMetric());
+        this.withTarget(instance.getTarget());
+    }
   }
   
   public V2MetricIdentifier buildMetric() {
@@ -57,15 +60,15 @@ public class V2PodsMetricSourceFluent<A extends V2PodsMetricSourceFluent<A>> ext
   }
   
   public MetricNested<A> editMetric() {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(null));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(null));
   }
   
   public MetricNested<A> editOrNewMetric() {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(new V2MetricIdentifierBuilder().build()));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(new V2MetricIdentifierBuilder().build()));
   }
   
   public MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(item));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(item));
   }
   
   public V2MetricTarget buildTarget() {
@@ -97,36 +100,53 @@ public class V2PodsMetricSourceFluent<A extends V2PodsMetricSourceFluent<A>> ext
   }
   
   public TargetNested<A> editTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(null));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(null));
   }
   
   public TargetNested<A> editOrNewTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(new V2MetricTargetBuilder().build()));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(new V2MetricTargetBuilder().build()));
   }
   
   public TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(item));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2PodsMetricSourceFluent that = (V2PodsMetricSourceFluent) o;
-    if (!java.util.Objects.equals(metric, that.metric)) return false;
-    if (!java.util.Objects.equals(target, that.target)) return false;
+    if (!(Objects.equals(metric, that.metric))) {
+      return false;
+    }
+    if (!(Objects.equals(target, that.target))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(metric,  target,  super.hashCode());
+    return Objects.hash(metric, target);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (metric != null) { sb.append("metric:"); sb.append(metric + ","); }
-    if (target != null) { sb.append("target:"); sb.append(target); }
+    if (!(metric == null)) {
+        sb.append("metric:");
+        sb.append(metric);
+        sb.append(",");
+    }
+    if (!(target == null)) {
+        sb.append("target:");
+        sb.append(target);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,31 +1,50 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2AllocationResultFluent<A extends V1beta2AllocationResultFluent<A>> extends BaseFluent<A>{
+public class V1beta2AllocationResultFluent<A extends io.kubernetes.client.openapi.models.V1beta2AllocationResultFluent<A>> extends BaseFluent<A>{
   public V1beta2AllocationResultFluent() {
   }
   
   public V1beta2AllocationResultFluent(V1beta2AllocationResult instance) {
     this.copyInstance(instance);
   }
+  private OffsetDateTime allocationTimestamp;
   private V1beta2DeviceAllocationResultBuilder devices;
   private V1NodeSelectorBuilder nodeSelector;
   
   protected void copyInstance(V1beta2AllocationResult instance) {
-    instance = (instance != null ? instance : new V1beta2AllocationResult());
+    instance = instance != null ? instance : new V1beta2AllocationResult();
     if (instance != null) {
-          this.withDevices(instance.getDevices());
-          this.withNodeSelector(instance.getNodeSelector());
-        }
+        this.withAllocationTimestamp(instance.getAllocationTimestamp());
+        this.withDevices(instance.getDevices());
+        this.withNodeSelector(instance.getNodeSelector());
+    }
+  }
+  
+  public OffsetDateTime getAllocationTimestamp() {
+    return this.allocationTimestamp;
+  }
+  
+  public A withAllocationTimestamp(OffsetDateTime allocationTimestamp) {
+    this.allocationTimestamp = allocationTimestamp;
+    return (A) this;
+  }
+  
+  public boolean hasAllocationTimestamp() {
+    return this.allocationTimestamp != null;
   }
   
   public V1beta2DeviceAllocationResult buildDevices() {
@@ -57,15 +76,15 @@ public class V1beta2AllocationResultFluent<A extends V1beta2AllocationResultFlue
   }
   
   public DevicesNested<A> editDevices() {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(null));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(null));
   }
   
   public DevicesNested<A> editOrNewDevices() {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(new V1beta2DeviceAllocationResultBuilder().build()));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(new V1beta2DeviceAllocationResultBuilder().build()));
   }
   
   public DevicesNested<A> editOrNewDevicesLike(V1beta2DeviceAllocationResult item) {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(item));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(item));
   }
   
   public V1NodeSelector buildNodeSelector() {
@@ -97,36 +116,61 @@ public class V1beta2AllocationResultFluent<A extends V1beta2AllocationResultFlue
   }
   
   public NodeSelectorNested<A> editNodeSelector() {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(null));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(null));
   }
   
   public NodeSelectorNested<A> editOrNewNodeSelector() {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(new V1NodeSelectorBuilder().build()));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(new V1NodeSelectorBuilder().build()));
   }
   
   public NodeSelectorNested<A> editOrNewNodeSelectorLike(V1NodeSelector item) {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(item));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2AllocationResultFluent that = (V1beta2AllocationResultFluent) o;
-    if (!java.util.Objects.equals(devices, that.devices)) return false;
-    if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
+    if (!(Objects.equals(allocationTimestamp, that.allocationTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(devices, that.devices))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeSelector, that.nodeSelector))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(devices,  nodeSelector,  super.hashCode());
+    return Objects.hash(allocationTimestamp, devices, nodeSelector);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (devices != null) { sb.append("devices:"); sb.append(devices + ","); }
-    if (nodeSelector != null) { sb.append("nodeSelector:"); sb.append(nodeSelector); }
+    if (!(allocationTimestamp == null)) {
+        sb.append("allocationTimestamp:");
+        sb.append(allocationTimestamp);
+        sb.append(",");
+    }
+    if (!(devices == null)) {
+        sb.append("devices:");
+        sb.append(devices);
+        sb.append(",");
+    }
+    if (!(nodeSelector == null)) {
+        sb.append("nodeSelector:");
+        sb.append(nodeSelector);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1DeviceClassBuilder extends V1beta1DeviceClassFluent<V1beta1DeviceClassBuilder> implements VisitableBuilder<V1beta1DeviceClass,V1beta1DeviceClassBuilder>{
   public V1beta1DeviceClassBuilder() {
     this(new V1beta1DeviceClass());

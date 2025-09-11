@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> extends BaseFluent<A>{
+public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.models.V1WebhookConversionFluent<A>> extends BaseFluent<A>{
   public V1WebhookConversionFluent() {
   }
   
@@ -25,11 +28,11 @@ public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> e
   private List<String> conversionReviewVersions;
   
   protected void copyInstance(V1WebhookConversion instance) {
-    instance = (instance != null ? instance : new V1WebhookConversion());
+    instance = instance != null ? instance : new V1WebhookConversion();
     if (instance != null) {
-          this.withClientConfig(instance.getClientConfig());
-          this.withConversionReviewVersions(instance.getConversionReviewVersions());
-        }
+        this.withClientConfig(instance.getClientConfig());
+        this.withConversionReviewVersions(instance.getConversionReviewVersions());
+    }
   }
   
   public ApiextensionsV1WebhookClientConfig buildClientConfig() {
@@ -61,46 +64,71 @@ public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> e
   }
   
   public ClientConfigNested<A> editClientConfig() {
-    return withNewClientConfigLike(java.util.Optional.ofNullable(buildClientConfig()).orElse(null));
+    return this.withNewClientConfigLike(Optional.ofNullable(this.buildClientConfig()).orElse(null));
   }
   
   public ClientConfigNested<A> editOrNewClientConfig() {
-    return withNewClientConfigLike(java.util.Optional.ofNullable(buildClientConfig()).orElse(new ApiextensionsV1WebhookClientConfigBuilder().build()));
+    return this.withNewClientConfigLike(Optional.ofNullable(this.buildClientConfig()).orElse(new ApiextensionsV1WebhookClientConfigBuilder().build()));
   }
   
   public ClientConfigNested<A> editOrNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
-    return withNewClientConfigLike(java.util.Optional.ofNullable(buildClientConfig()).orElse(item));
+    return this.withNewClientConfigLike(Optional.ofNullable(this.buildClientConfig()).orElse(item));
   }
   
   public A addToConversionReviewVersions(int index,String item) {
-    if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
+    if (this.conversionReviewVersions == null) {
+      this.conversionReviewVersions = new ArrayList();
+    }
     this.conversionReviewVersions.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConversionReviewVersions(int index,String item) {
-    if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
-    this.conversionReviewVersions.set(index, item); return (A)this;
+    if (this.conversionReviewVersions == null) {
+      this.conversionReviewVersions = new ArrayList();
+    }
+    this.conversionReviewVersions.set(index, item);
+    return (A) this;
   }
   
-  public A addToConversionReviewVersions(java.lang.String... items) {
-    if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
-    for (String item : items) {this.conversionReviewVersions.add(item);} return (A)this;
+  public A addToConversionReviewVersions(String... items) {
+    if (this.conversionReviewVersions == null) {
+      this.conversionReviewVersions = new ArrayList();
+    }
+    for (String item : items) {
+      this.conversionReviewVersions.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToConversionReviewVersions(Collection<String> items) {
-    if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
-    for (String item : items) {this.conversionReviewVersions.add(item);} return (A)this;
+    if (this.conversionReviewVersions == null) {
+      this.conversionReviewVersions = new ArrayList();
+    }
+    for (String item : items) {
+      this.conversionReviewVersions.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromConversionReviewVersions(java.lang.String... items) {
-    if (this.conversionReviewVersions == null) return (A)this;
-    for (String item : items) { this.conversionReviewVersions.remove(item);} return (A)this;
+  public A removeFromConversionReviewVersions(String... items) {
+    if (this.conversionReviewVersions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.conversionReviewVersions.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConversionReviewVersions(Collection<String> items) {
-    if (this.conversionReviewVersions == null) return (A)this;
-    for (String item : items) { this.conversionReviewVersions.remove(item);} return (A)this;
+    if (this.conversionReviewVersions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.conversionReviewVersions.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getConversionReviewVersions() {
@@ -149,7 +177,7 @@ public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> e
     return (A) this;
   }
   
-  public A withConversionReviewVersions(java.lang.String... conversionReviewVersions) {
+  public A withConversionReviewVersions(String... conversionReviewVersions) {
     if (this.conversionReviewVersions != null) {
         this.conversionReviewVersions.clear();
         _visitables.remove("conversionReviewVersions");
@@ -163,28 +191,45 @@ public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> e
   }
   
   public boolean hasConversionReviewVersions() {
-    return this.conversionReviewVersions != null && !this.conversionReviewVersions.isEmpty();
+    return this.conversionReviewVersions != null && !(this.conversionReviewVersions.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1WebhookConversionFluent that = (V1WebhookConversionFluent) o;
-    if (!java.util.Objects.equals(clientConfig, that.clientConfig)) return false;
-    if (!java.util.Objects.equals(conversionReviewVersions, that.conversionReviewVersions)) return false;
+    if (!(Objects.equals(clientConfig, that.clientConfig))) {
+      return false;
+    }
+    if (!(Objects.equals(conversionReviewVersions, that.conversionReviewVersions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(clientConfig,  conversionReviewVersions,  super.hashCode());
+    return Objects.hash(clientConfig, conversionReviewVersions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (clientConfig != null) { sb.append("clientConfig:"); sb.append(clientConfig + ","); }
-    if (conversionReviewVersions != null && !conversionReviewVersions.isEmpty()) { sb.append("conversionReviewVersions:"); sb.append(conversionReviewVersions); }
+    if (!(clientConfig == null)) {
+        sb.append("clientConfig:");
+        sb.append(clientConfig);
+        sb.append(",");
+    }
+    if (!(conversionReviewVersions == null) && !(conversionReviewVersions.isEmpty())) {
+        sb.append("conversionReviewVersions:");
+        sb.append(conversionReviewVersions);
+    }
     sb.append("}");
     return sb.toString();
   }

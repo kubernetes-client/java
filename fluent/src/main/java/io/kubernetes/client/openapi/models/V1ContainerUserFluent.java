@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerUserFluent<A extends V1ContainerUserFluent<A>> extends BaseFluent<A>{
+public class V1ContainerUserFluent<A extends io.kubernetes.client.openapi.models.V1ContainerUserFluent<A>> extends BaseFluent<A>{
   public V1ContainerUserFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1ContainerUserFluent<A extends V1ContainerUserFluent<A>> extends B
   private V1LinuxContainerUserBuilder linux;
   
   protected void copyInstance(V1ContainerUser instance) {
-    instance = (instance != null ? instance : new V1ContainerUser());
+    instance = instance != null ? instance : new V1ContainerUser();
     if (instance != null) {
-          this.withLinux(instance.getLinux());
-        }
+      this.withLinux(instance.getLinux());
+    }
   }
   
   public V1LinuxContainerUser buildLinux() {
@@ -55,34 +58,45 @@ public class V1ContainerUserFluent<A extends V1ContainerUserFluent<A>> extends B
   }
   
   public LinuxNested<A> editLinux() {
-    return withNewLinuxLike(java.util.Optional.ofNullable(buildLinux()).orElse(null));
+    return this.withNewLinuxLike(Optional.ofNullable(this.buildLinux()).orElse(null));
   }
   
   public LinuxNested<A> editOrNewLinux() {
-    return withNewLinuxLike(java.util.Optional.ofNullable(buildLinux()).orElse(new V1LinuxContainerUserBuilder().build()));
+    return this.withNewLinuxLike(Optional.ofNullable(this.buildLinux()).orElse(new V1LinuxContainerUserBuilder().build()));
   }
   
   public LinuxNested<A> editOrNewLinuxLike(V1LinuxContainerUser item) {
-    return withNewLinuxLike(java.util.Optional.ofNullable(buildLinux()).orElse(item));
+    return this.withNewLinuxLike(Optional.ofNullable(this.buildLinux()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerUserFluent that = (V1ContainerUserFluent) o;
-    if (!java.util.Objects.equals(linux, that.linux)) return false;
+    if (!(Objects.equals(linux, that.linux))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(linux,  super.hashCode());
+    return Objects.hash(linux);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (linux != null) { sb.append("linux:"); sb.append(linux); }
+    if (!(linux == null)) {
+        sb.append("linux:");
+        sb.append(linux);
+    }
     sb.append("}");
     return sb.toString();
   }

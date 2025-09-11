@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1StorageVersionConditionBuilder extends V1alpha1StorageVersionConditionFluent<V1alpha1StorageVersionConditionBuilder> implements VisitableBuilder<V1alpha1StorageVersionCondition,V1alpha1StorageVersionConditionBuilder>{
   public V1alpha1StorageVersionConditionBuilder() {
     this(new V1alpha1StorageVersionCondition());

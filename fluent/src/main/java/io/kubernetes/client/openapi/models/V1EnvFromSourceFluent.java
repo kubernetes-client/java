@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> extends BaseFluent<A>{
+public class V1EnvFromSourceFluent<A extends io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<A>> extends BaseFluent<A>{
   public V1EnvFromSourceFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> extends B
   private V1SecretEnvSourceBuilder secretRef;
   
   protected void copyInstance(V1EnvFromSource instance) {
-    instance = (instance != null ? instance : new V1EnvFromSource());
+    instance = instance != null ? instance : new V1EnvFromSource();
     if (instance != null) {
-          this.withConfigMapRef(instance.getConfigMapRef());
-          this.withPrefix(instance.getPrefix());
-          this.withSecretRef(instance.getSecretRef());
-        }
+        this.withConfigMapRef(instance.getConfigMapRef());
+        this.withPrefix(instance.getPrefix());
+        this.withSecretRef(instance.getSecretRef());
+    }
   }
   
   public V1ConfigMapEnvSource buildConfigMapRef() {
@@ -59,15 +62,15 @@ public class V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> extends B
   }
   
   public ConfigMapRefNested<A> editConfigMapRef() {
-    return withNewConfigMapRefLike(java.util.Optional.ofNullable(buildConfigMapRef()).orElse(null));
+    return this.withNewConfigMapRefLike(Optional.ofNullable(this.buildConfigMapRef()).orElse(null));
   }
   
   public ConfigMapRefNested<A> editOrNewConfigMapRef() {
-    return withNewConfigMapRefLike(java.util.Optional.ofNullable(buildConfigMapRef()).orElse(new V1ConfigMapEnvSourceBuilder().build()));
+    return this.withNewConfigMapRefLike(Optional.ofNullable(this.buildConfigMapRef()).orElse(new V1ConfigMapEnvSourceBuilder().build()));
   }
   
   public ConfigMapRefNested<A> editOrNewConfigMapRefLike(V1ConfigMapEnvSource item) {
-    return withNewConfigMapRefLike(java.util.Optional.ofNullable(buildConfigMapRef()).orElse(item));
+    return this.withNewConfigMapRefLike(Optional.ofNullable(this.buildConfigMapRef()).orElse(item));
   }
   
   public String getPrefix() {
@@ -112,38 +115,61 @@ public class V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> extends B
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1SecretEnvSourceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1SecretEnvSourceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1SecretEnvSource item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EnvFromSourceFluent that = (V1EnvFromSourceFluent) o;
-    if (!java.util.Objects.equals(configMapRef, that.configMapRef)) return false;
-    if (!java.util.Objects.equals(prefix, that.prefix)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+    if (!(Objects.equals(configMapRef, that.configMapRef))) {
+      return false;
+    }
+    if (!(Objects.equals(prefix, that.prefix))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(configMapRef,  prefix,  secretRef,  super.hashCode());
+    return Objects.hash(configMapRef, prefix, secretRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (configMapRef != null) { sb.append("configMapRef:"); sb.append(configMapRef + ","); }
-    if (prefix != null) { sb.append("prefix:"); sb.append(prefix + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef); }
+    if (!(configMapRef == null)) {
+        sb.append("configMapRef:");
+        sb.append(configMapRef);
+        sb.append(",");
+    }
+    if (!(prefix == null)) {
+        sb.append("prefix:");
+        sb.append(prefix);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+    }
     sb.append("}");
     return sb.toString();
   }

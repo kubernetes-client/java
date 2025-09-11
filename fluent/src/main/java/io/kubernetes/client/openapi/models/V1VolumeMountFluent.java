@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseFluent<A>{
+public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V1VolumeMountFluent<A>> extends BaseFluent<A>{
   public V1VolumeMountFluent() {
   }
   
@@ -26,16 +28,16 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
   private String subPathExpr;
   
   protected void copyInstance(V1VolumeMount instance) {
-    instance = (instance != null ? instance : new V1VolumeMount());
+    instance = instance != null ? instance : new V1VolumeMount();
     if (instance != null) {
-          this.withMountPath(instance.getMountPath());
-          this.withMountPropagation(instance.getMountPropagation());
-          this.withName(instance.getName());
-          this.withReadOnly(instance.getReadOnly());
-          this.withRecursiveReadOnly(instance.getRecursiveReadOnly());
-          this.withSubPath(instance.getSubPath());
-          this.withSubPathExpr(instance.getSubPathExpr());
-        }
+        this.withMountPath(instance.getMountPath());
+        this.withMountPropagation(instance.getMountPropagation());
+        this.withName(instance.getName());
+        this.withReadOnly(instance.getReadOnly());
+        this.withRecursiveReadOnly(instance.getRecursiveReadOnly());
+        this.withSubPath(instance.getSubPath());
+        this.withSubPathExpr(instance.getSubPathExpr());
+    }
   }
   
   public String getMountPath() {
@@ -130,34 +132,81 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeMountFluent that = (V1VolumeMountFluent) o;
-    if (!java.util.Objects.equals(mountPath, that.mountPath)) return false;
-    if (!java.util.Objects.equals(mountPropagation, that.mountPropagation)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(recursiveReadOnly, that.recursiveReadOnly)) return false;
-    if (!java.util.Objects.equals(subPath, that.subPath)) return false;
-    if (!java.util.Objects.equals(subPathExpr, that.subPathExpr)) return false;
+    if (!(Objects.equals(mountPath, that.mountPath))) {
+      return false;
+    }
+    if (!(Objects.equals(mountPropagation, that.mountPropagation))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(recursiveReadOnly, that.recursiveReadOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(subPath, that.subPath))) {
+      return false;
+    }
+    if (!(Objects.equals(subPathExpr, that.subPathExpr))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(mountPath,  mountPropagation,  name,  readOnly,  recursiveReadOnly,  subPath,  subPathExpr,  super.hashCode());
+    return Objects.hash(mountPath, mountPropagation, name, readOnly, recursiveReadOnly, subPath, subPathExpr);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (mountPath != null) { sb.append("mountPath:"); sb.append(mountPath + ","); }
-    if (mountPropagation != null) { sb.append("mountPropagation:"); sb.append(mountPropagation + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (recursiveReadOnly != null) { sb.append("recursiveReadOnly:"); sb.append(recursiveReadOnly + ","); }
-    if (subPath != null) { sb.append("subPath:"); sb.append(subPath + ","); }
-    if (subPathExpr != null) { sb.append("subPathExpr:"); sb.append(subPathExpr); }
+    if (!(mountPath == null)) {
+        sb.append("mountPath:");
+        sb.append(mountPath);
+        sb.append(",");
+    }
+    if (!(mountPropagation == null)) {
+        sb.append("mountPropagation:");
+        sb.append(mountPropagation);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(recursiveReadOnly == null)) {
+        sb.append("recursiveReadOnly:");
+        sb.append(recursiveReadOnly);
+        sb.append(",");
+    }
+    if (!(subPath == null)) {
+        sb.append("subPath:");
+        sb.append(subPath);
+        sb.append(",");
+    }
+    if (!(subPathExpr == null)) {
+        sb.append("subPathExpr:");
+        sb.append(subPathExpr);
+    }
     sb.append("}");
     return sb.toString();
   }

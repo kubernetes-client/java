@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1FlowDistinguisherMethodBuilder extends V1FlowDistinguisherMethodFluent<V1FlowDistinguisherMethodBuilder> implements VisitableBuilder<V1FlowDistinguisherMethod,V1FlowDistinguisherMethodBuilder>{
   public V1FlowDistinguisherMethodBuilder() {
     this(new V1FlowDistinguisherMethod());

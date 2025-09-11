@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1FlowDistinguisherMethodFluent<A extends V1FlowDistinguisherMethodFluent<A>> extends BaseFluent<A>{
+public class V1FlowDistinguisherMethodFluent<A extends io.kubernetes.client.openapi.models.V1FlowDistinguisherMethodFluent<A>> extends BaseFluent<A>{
   public V1FlowDistinguisherMethodFluent() {
   }
   
@@ -19,10 +21,10 @@ public class V1FlowDistinguisherMethodFluent<A extends V1FlowDistinguisherMethod
   private String type;
   
   protected void copyInstance(V1FlowDistinguisherMethod instance) {
-    instance = (instance != null ? instance : new V1FlowDistinguisherMethod());
+    instance = instance != null ? instance : new V1FlowDistinguisherMethod();
     if (instance != null) {
-          this.withType(instance.getType());
-        }
+      this.withType(instance.getType());
+    }
   }
   
   public String getType() {
@@ -39,22 +41,33 @@ public class V1FlowDistinguisherMethodFluent<A extends V1FlowDistinguisherMethod
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1FlowDistinguisherMethodFluent that = (V1FlowDistinguisherMethodFluent) o;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(type,  super.hashCode());
+    return Objects.hash(type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ManagedFieldsEntryFluent<A extends V1ManagedFieldsEntryFluent<A>> extends BaseFluent<A>{
+public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<A>> extends BaseFluent<A>{
   public V1ManagedFieldsEntryFluent() {
   }
   
@@ -26,16 +28,16 @@ public class V1ManagedFieldsEntryFluent<A extends V1ManagedFieldsEntryFluent<A>>
   private OffsetDateTime time;
   
   protected void copyInstance(V1ManagedFieldsEntry instance) {
-    instance = (instance != null ? instance : new V1ManagedFieldsEntry());
+    instance = instance != null ? instance : new V1ManagedFieldsEntry();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withFieldsType(instance.getFieldsType());
-          this.withFieldsV1(instance.getFieldsV1());
-          this.withManager(instance.getManager());
-          this.withOperation(instance.getOperation());
-          this.withSubresource(instance.getSubresource());
-          this.withTime(instance.getTime());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withFieldsType(instance.getFieldsType());
+        this.withFieldsV1(instance.getFieldsV1());
+        this.withManager(instance.getManager());
+        this.withOperation(instance.getOperation());
+        this.withSubresource(instance.getSubresource());
+        this.withTime(instance.getTime());
+    }
   }
   
   public String getApiVersion() {
@@ -130,34 +132,81 @@ public class V1ManagedFieldsEntryFluent<A extends V1ManagedFieldsEntryFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ManagedFieldsEntryFluent that = (V1ManagedFieldsEntryFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(fieldsType, that.fieldsType)) return false;
-    if (!java.util.Objects.equals(fieldsV1, that.fieldsV1)) return false;
-    if (!java.util.Objects.equals(manager, that.manager)) return false;
-    if (!java.util.Objects.equals(operation, that.operation)) return false;
-    if (!java.util.Objects.equals(subresource, that.subresource)) return false;
-    if (!java.util.Objects.equals(time, that.time)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(fieldsType, that.fieldsType))) {
+      return false;
+    }
+    if (!(Objects.equals(fieldsV1, that.fieldsV1))) {
+      return false;
+    }
+    if (!(Objects.equals(manager, that.manager))) {
+      return false;
+    }
+    if (!(Objects.equals(operation, that.operation))) {
+      return false;
+    }
+    if (!(Objects.equals(subresource, that.subresource))) {
+      return false;
+    }
+    if (!(Objects.equals(time, that.time))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  fieldsType,  fieldsV1,  manager,  operation,  subresource,  time,  super.hashCode());
+    return Objects.hash(apiVersion, fieldsType, fieldsV1, manager, operation, subresource, time);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (fieldsType != null) { sb.append("fieldsType:"); sb.append(fieldsType + ","); }
-    if (fieldsV1 != null) { sb.append("fieldsV1:"); sb.append(fieldsV1 + ","); }
-    if (manager != null) { sb.append("manager:"); sb.append(manager + ","); }
-    if (operation != null) { sb.append("operation:"); sb.append(operation + ","); }
-    if (subresource != null) { sb.append("subresource:"); sb.append(subresource + ","); }
-    if (time != null) { sb.append("time:"); sb.append(time); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(fieldsType == null)) {
+        sb.append("fieldsType:");
+        sb.append(fieldsType);
+        sb.append(",");
+    }
+    if (!(fieldsV1 == null)) {
+        sb.append("fieldsV1:");
+        sb.append(fieldsV1);
+        sb.append(",");
+    }
+    if (!(manager == null)) {
+        sb.append("manager:");
+        sb.append(manager);
+        sb.append(",");
+    }
+    if (!(operation == null)) {
+        sb.append("operation:");
+        sb.append(operation);
+        sb.append(",");
+    }
+    if (!(subresource == null)) {
+        sb.append("subresource:");
+        sb.append(subresource);
+        sb.append(",");
+    }
+    if (!(time == null)) {
+        sb.append("time:");
+        sb.append(time);
+    }
     sb.append("}");
     return sb.toString();
   }

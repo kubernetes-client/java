@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends BaseFluent<A>{
+public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1WatchEventFluent<A>> extends BaseFluent<A>{
   public V1WatchEventFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends BaseFlu
   private String type;
   
   protected void copyInstance(V1WatchEvent instance) {
-    instance = (instance != null ? instance : new V1WatchEvent());
+    instance = instance != null ? instance : new V1WatchEvent();
     if (instance != null) {
-          this.withObject(instance.getObject());
-          this.withType(instance.getType());
-        }
+        this.withObject(instance.getObject());
+        this.withType(instance.getType());
+    }
   }
   
   public Object getObject() {
@@ -54,24 +56,41 @@ public class V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends BaseFlu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1WatchEventFluent that = (V1WatchEventFluent) o;
-    if (!java.util.Objects.equals(_object, that._object)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(_object, that._object))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(_object,  type,  super.hashCode());
+    return Objects.hash(_object, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (_object != null) { sb.append("_object:"); sb.append(_object + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(_object == null)) {
+        sb.append("_object:");
+        sb.append(_object);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

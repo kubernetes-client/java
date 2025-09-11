@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V2MetricValueStatusBuilder extends V2MetricValueStatusFluent<V2MetricValueStatusBuilder> implements VisitableBuilder<V2MetricValueStatus,V2MetricValueStatusBuilder>{
   public V2MetricValueStatusBuilder() {
     this(new V2MetricValueStatus());

@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GroupVersionForDiscoveryFluent<A extends V1GroupVersionForDiscoveryFluent<A>> extends BaseFluent<A>{
+public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<A>> extends BaseFluent<A>{
   public V1GroupVersionForDiscoveryFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1GroupVersionForDiscoveryFluent<A extends V1GroupVersionForDiscove
   private String version;
   
   protected void copyInstance(V1GroupVersionForDiscovery instance) {
-    instance = (instance != null ? instance : new V1GroupVersionForDiscovery());
+    instance = instance != null ? instance : new V1GroupVersionForDiscovery();
     if (instance != null) {
-          this.withGroupVersion(instance.getGroupVersion());
-          this.withVersion(instance.getVersion());
-        }
+        this.withGroupVersion(instance.getGroupVersion());
+        this.withVersion(instance.getVersion());
+    }
   }
   
   public String getGroupVersion() {
@@ -54,24 +56,41 @@ public class V1GroupVersionForDiscoveryFluent<A extends V1GroupVersionForDiscove
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GroupVersionForDiscoveryFluent that = (V1GroupVersionForDiscoveryFluent) o;
-    if (!java.util.Objects.equals(groupVersion, that.groupVersion)) return false;
-    if (!java.util.Objects.equals(version, that.version)) return false;
+    if (!(Objects.equals(groupVersion, that.groupVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(version, that.version))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(groupVersion,  version,  super.hashCode());
+    return Objects.hash(groupVersion, version);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (groupVersion != null) { sb.append("groupVersion:"); sb.append(groupVersion + ","); }
-    if (version != null) { sb.append("version:"); sb.append(version); }
+    if (!(groupVersion == null)) {
+        sb.append("groupVersion:");
+        sb.append(groupVersion);
+        sb.append(",");
+    }
+    if (!(version == null)) {
+        sb.append("version:");
+        sb.append(version);
+    }
     sb.append("}");
     return sb.toString();
   }

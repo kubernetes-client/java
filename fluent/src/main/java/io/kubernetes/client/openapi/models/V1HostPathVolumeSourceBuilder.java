@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluent<V1HostPathVolumeSourceBuilder> implements VisitableBuilder<V1HostPathVolumeSource,V1HostPathVolumeSourceBuilder>{
   public V1HostPathVolumeSourceBuilder() {
     this(new V1HostPathVolumeSource());

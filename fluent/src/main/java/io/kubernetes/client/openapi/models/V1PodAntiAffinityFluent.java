@@ -1,22 +1,24 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> extends BaseFluent<A>{
+public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<A>> extends BaseFluent<A>{
   public V1PodAntiAffinityFluent() {
   }
   
@@ -27,15 +29,17 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
   private ArrayList<V1PodAffinityTermBuilder> requiredDuringSchedulingIgnoredDuringExecution;
   
   protected void copyInstance(V1PodAntiAffinity instance) {
-    instance = (instance != null ? instance : new V1PodAntiAffinity());
+    instance = instance != null ? instance : new V1PodAntiAffinity();
     if (instance != null) {
-          this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-          this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-        }
+        this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
+        this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
+    }
   }
   
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1WeightedPodAffinityTerm item) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
     if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
         _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -44,11 +48,13 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
         _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
         preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1WeightedPodAffinityTerm item) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
     if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
         _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -57,41 +63,71 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
         _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
         preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
-    for (V1WeightedPodAffinityTerm item : items) {V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);_visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);} return (A)this;
+  public A addToPreferredDuringSchedulingIgnoredDuringExecution(V1WeightedPodAffinityTerm... items) {
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
+    for (V1WeightedPodAffinityTerm item : items) {
+        V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1WeightedPodAffinityTerm> items) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1WeightedPodAffinityTermBuilder>();}
-    for (V1WeightedPodAffinityTerm item : items) {V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);_visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);} return (A)this;
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
+    for (V1WeightedPodAffinityTerm item : items) {
+        V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) return (A)this;
-    for (V1WeightedPodAffinityTerm item : items) {V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);_visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder); this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);} return (A)this;
+  public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(V1WeightedPodAffinityTerm... items) {
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
+    }
+    for (V1WeightedPodAffinityTerm item : items) {
+        V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1WeightedPodAffinityTerm> items) {
-    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) return (A)this;
-    for (V1WeightedPodAffinityTerm item : items) {V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);_visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder); this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);} return (A)this;
+    if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
+    }
+    for (V1WeightedPodAffinityTerm item : items) {
+        V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
+        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
-    if (preferredDuringSchedulingIgnoredDuringExecution == null) return (A) this;
-    final Iterator<V1WeightedPodAffinityTermBuilder> each = preferredDuringSchedulingIgnoredDuringExecution.iterator();
-    final List visitables = _visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
-    while (each.hasNext()) {
-      V1WeightedPodAffinityTermBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (preferredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1WeightedPodAffinityTermBuilder> each = preferredDuringSchedulingIgnoredDuringExecution.iterator();
+    List visitables = _visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
+    while (each.hasNext()) {
+        V1WeightedPodAffinityTermBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1WeightedPodAffinityTerm> buildPreferredDuringSchedulingIgnoredDuringExecution() {
@@ -143,7 +179,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
     return (A) this;
   }
   
-  public A withPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... preferredDuringSchedulingIgnoredDuringExecution) {
+  public A withPreferredDuringSchedulingIgnoredDuringExecution(V1WeightedPodAffinityTerm... preferredDuringSchedulingIgnoredDuringExecution) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution != null) {
         this.preferredDuringSchedulingIgnoredDuringExecution.clear();
         _visitables.remove("preferredDuringSchedulingIgnoredDuringExecution");
@@ -157,7 +193,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
   }
   
   public boolean hasPreferredDuringSchedulingIgnoredDuringExecution() {
-    return this.preferredDuringSchedulingIgnoredDuringExecution != null && !this.preferredDuringSchedulingIgnoredDuringExecution.isEmpty();
+    return this.preferredDuringSchedulingIgnoredDuringExecution != null && !(this.preferredDuringSchedulingIgnoredDuringExecution.isEmpty());
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecution() {
@@ -173,32 +209,45 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editPreferredDuringSchedulingIgnoredDuringExecution(int index) {
-    if (preferredDuringSchedulingIgnoredDuringExecution.size() <= index) throw new RuntimeException("Can't edit preferredDuringSchedulingIgnoredDuringExecution. Index exceeds size.");
-    return setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, buildPreferredDuringSchedulingIgnoredDuringExecution(index));
+    if (index <= preferredDuringSchedulingIgnoredDuringExecution.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "preferredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildPreferredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editFirstPreferredDuringSchedulingIgnoredDuringExecution() {
-    if (preferredDuringSchedulingIgnoredDuringExecution.size() == 0) throw new RuntimeException("Can't edit first preferredDuringSchedulingIgnoredDuringExecution. The list is empty.");
-    return setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(0, buildPreferredDuringSchedulingIgnoredDuringExecution(0));
+    if (preferredDuringSchedulingIgnoredDuringExecution.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "preferredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(0, this.buildPreferredDuringSchedulingIgnoredDuringExecution(0));
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editLastPreferredDuringSchedulingIgnoredDuringExecution() {
     int index = preferredDuringSchedulingIgnoredDuringExecution.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last preferredDuringSchedulingIgnoredDuringExecution. The list is empty.");
-    return setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, buildPreferredDuringSchedulingIgnoredDuringExecution(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "preferredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildPreferredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<preferredDuringSchedulingIgnoredDuringExecution.size();i++) { 
-    if (predicate.test(preferredDuringSchedulingIgnoredDuringExecution.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching preferredDuringSchedulingIgnoredDuringExecution. No match found.");
-    return setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, buildPreferredDuringSchedulingIgnoredDuringExecution(index));
+    for (int i = 0;i < preferredDuringSchedulingIgnoredDuringExecution.size();i++) {
+      if (predicate.test(preferredDuringSchedulingIgnoredDuringExecution.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "preferredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildPreferredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public A addToRequiredDuringSchedulingIgnoredDuringExecution(int index,V1PodAffinityTerm item) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
     if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
         _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -207,11 +256,13 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
         _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
         requiredDuringSchedulingIgnoredDuringExecution.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequiredDuringSchedulingIgnoredDuringExecution(int index,V1PodAffinityTerm item) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
     if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
         _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -220,41 +271,71 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
         _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
         requiredDuringSchedulingIgnoredDuringExecution.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... items) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
-    for (V1PodAffinityTerm item : items) {V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);_visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);} return (A)this;
+  public A addToRequiredDuringSchedulingIgnoredDuringExecution(V1PodAffinityTerm... items) {
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
+    for (V1PodAffinityTerm item : items) {
+        V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRequiredDuringSchedulingIgnoredDuringExecution(Collection<V1PodAffinityTerm> items) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList<V1PodAffinityTermBuilder>();}
-    for (V1PodAffinityTerm item : items) {V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);_visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);} return (A)this;
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+    }
+    for (V1PodAffinityTerm item : items) {
+        V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... items) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) return (A)this;
-    for (V1PodAffinityTerm item : items) {V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);_visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder); this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);} return (A)this;
+  public A removeFromRequiredDuringSchedulingIgnoredDuringExecution(V1PodAffinityTerm... items) {
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
+    }
+    for (V1PodAffinityTerm item : items) {
+        V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequiredDuringSchedulingIgnoredDuringExecution(Collection<V1PodAffinityTerm> items) {
-    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) return (A)this;
-    for (V1PodAffinityTerm item : items) {V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);_visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder); this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);} return (A)this;
+    if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
+    }
+    for (V1PodAffinityTerm item : items) {
+        V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
+        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate) {
-    if (requiredDuringSchedulingIgnoredDuringExecution == null) return (A) this;
-    final Iterator<V1PodAffinityTermBuilder> each = requiredDuringSchedulingIgnoredDuringExecution.iterator();
-    final List visitables = _visitables.get("requiredDuringSchedulingIgnoredDuringExecution");
-    while (each.hasNext()) {
-      V1PodAffinityTermBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (requiredDuringSchedulingIgnoredDuringExecution == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PodAffinityTermBuilder> each = requiredDuringSchedulingIgnoredDuringExecution.iterator();
+    List visitables = _visitables.get("requiredDuringSchedulingIgnoredDuringExecution");
+    while (each.hasNext()) {
+        V1PodAffinityTermBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PodAffinityTerm> buildRequiredDuringSchedulingIgnoredDuringExecution() {
@@ -306,7 +387,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
     return (A) this;
   }
   
-  public A withRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... requiredDuringSchedulingIgnoredDuringExecution) {
+  public A withRequiredDuringSchedulingIgnoredDuringExecution(V1PodAffinityTerm... requiredDuringSchedulingIgnoredDuringExecution) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution != null) {
         this.requiredDuringSchedulingIgnoredDuringExecution.clear();
         _visitables.remove("requiredDuringSchedulingIgnoredDuringExecution");
@@ -320,7 +401,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
   }
   
   public boolean hasRequiredDuringSchedulingIgnoredDuringExecution() {
-    return this.requiredDuringSchedulingIgnoredDuringExecution != null && !this.requiredDuringSchedulingIgnoredDuringExecution.isEmpty();
+    return this.requiredDuringSchedulingIgnoredDuringExecution != null && !(this.requiredDuringSchedulingIgnoredDuringExecution.isEmpty());
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> addNewRequiredDuringSchedulingIgnoredDuringExecution() {
@@ -336,49 +417,77 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editRequiredDuringSchedulingIgnoredDuringExecution(int index) {
-    if (requiredDuringSchedulingIgnoredDuringExecution.size() <= index) throw new RuntimeException("Can't edit requiredDuringSchedulingIgnoredDuringExecution. Index exceeds size.");
-    return setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, buildRequiredDuringSchedulingIgnoredDuringExecution(index));
+    if (index <= requiredDuringSchedulingIgnoredDuringExecution.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "requiredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildRequiredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editFirstRequiredDuringSchedulingIgnoredDuringExecution() {
-    if (requiredDuringSchedulingIgnoredDuringExecution.size() == 0) throw new RuntimeException("Can't edit first requiredDuringSchedulingIgnoredDuringExecution. The list is empty.");
-    return setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(0, buildRequiredDuringSchedulingIgnoredDuringExecution(0));
+    if (requiredDuringSchedulingIgnoredDuringExecution.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "requiredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(0, this.buildRequiredDuringSchedulingIgnoredDuringExecution(0));
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editLastRequiredDuringSchedulingIgnoredDuringExecution() {
     int index = requiredDuringSchedulingIgnoredDuringExecution.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last requiredDuringSchedulingIgnoredDuringExecution. The list is empty.");
-    return setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, buildRequiredDuringSchedulingIgnoredDuringExecution(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "requiredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildRequiredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editMatchingRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<requiredDuringSchedulingIgnoredDuringExecution.size();i++) { 
-    if (predicate.test(requiredDuringSchedulingIgnoredDuringExecution.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching requiredDuringSchedulingIgnoredDuringExecution. No match found.");
-    return setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, buildRequiredDuringSchedulingIgnoredDuringExecution(index));
+    for (int i = 0;i < requiredDuringSchedulingIgnoredDuringExecution.size();i++) {
+      if (predicate.test(requiredDuringSchedulingIgnoredDuringExecution.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "requiredDuringSchedulingIgnoredDuringExecution"));
+    }
+    return this.setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(index, this.buildRequiredDuringSchedulingIgnoredDuringExecution(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodAntiAffinityFluent that = (V1PodAntiAffinityFluent) o;
-    if (!java.util.Objects.equals(preferredDuringSchedulingIgnoredDuringExecution, that.preferredDuringSchedulingIgnoredDuringExecution)) return false;
-    if (!java.util.Objects.equals(requiredDuringSchedulingIgnoredDuringExecution, that.requiredDuringSchedulingIgnoredDuringExecution)) return false;
+    if (!(Objects.equals(preferredDuringSchedulingIgnoredDuringExecution, that.preferredDuringSchedulingIgnoredDuringExecution))) {
+      return false;
+    }
+    if (!(Objects.equals(requiredDuringSchedulingIgnoredDuringExecution, that.requiredDuringSchedulingIgnoredDuringExecution))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(preferredDuringSchedulingIgnoredDuringExecution,  requiredDuringSchedulingIgnoredDuringExecution,  super.hashCode());
+    return Objects.hash(preferredDuringSchedulingIgnoredDuringExecution, requiredDuringSchedulingIgnoredDuringExecution);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (preferredDuringSchedulingIgnoredDuringExecution != null && !preferredDuringSchedulingIgnoredDuringExecution.isEmpty()) { sb.append("preferredDuringSchedulingIgnoredDuringExecution:"); sb.append(preferredDuringSchedulingIgnoredDuringExecution + ","); }
-    if (requiredDuringSchedulingIgnoredDuringExecution != null && !requiredDuringSchedulingIgnoredDuringExecution.isEmpty()) { sb.append("requiredDuringSchedulingIgnoredDuringExecution:"); sb.append(requiredDuringSchedulingIgnoredDuringExecution); }
+    if (!(preferredDuringSchedulingIgnoredDuringExecution == null) && !(preferredDuringSchedulingIgnoredDuringExecution.isEmpty())) {
+        sb.append("preferredDuringSchedulingIgnoredDuringExecution:");
+        sb.append(preferredDuringSchedulingIgnoredDuringExecution);
+        sb.append(",");
+    }
+    if (!(requiredDuringSchedulingIgnoredDuringExecution == null) && !(requiredDuringSchedulingIgnoredDuringExecution.isEmpty())) {
+        sb.append("requiredDuringSchedulingIgnoredDuringExecution:");
+        sb.append(requiredDuringSchedulingIgnoredDuringExecution);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +500,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1PodAntiAffinityFluent.this.setToPreferredDuringSchedulingIgnoredDuringExecution(index,builder.build());
+      return (N) V1PodAntiAffinityFluent.this.setToPreferredDuringSchedulingIgnoredDuringExecution(index, builder.build());
     }
     
     public N endPreferredDuringSchedulingIgnoredDuringExecution() {
@@ -409,7 +518,7 @@ public class V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1PodAntiAffinityFluent.this.setToRequiredDuringSchedulingIgnoredDuringExecution(index,builder.build());
+      return (N) V1PodAntiAffinityFluent.this.setToRequiredDuringSchedulingIgnoredDuringExecution(index, builder.build());
     }
     
     public N endRequiredDuringSchedulingIgnoredDuringExecution() {

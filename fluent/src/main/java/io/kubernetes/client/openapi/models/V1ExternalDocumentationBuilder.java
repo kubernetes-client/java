@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluent<V1ExternalDocumentationBuilder> implements VisitableBuilder<V1ExternalDocumentation,V1ExternalDocumentationBuilder>{
   public V1ExternalDocumentationBuilder() {
     this(new V1ExternalDocumentation());

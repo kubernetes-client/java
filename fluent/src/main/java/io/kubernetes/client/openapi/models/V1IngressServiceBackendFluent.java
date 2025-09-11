@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressServiceBackendFluent<A extends V1IngressServiceBackendFluent<A>> extends BaseFluent<A>{
+public class V1IngressServiceBackendFluent<A extends io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent<A>> extends BaseFluent<A>{
   public V1IngressServiceBackendFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1IngressServiceBackendFluent<A extends V1IngressServiceBackendFlue
   private V1ServiceBackendPortBuilder port;
   
   protected void copyInstance(V1IngressServiceBackend instance) {
-    instance = (instance != null ? instance : new V1IngressServiceBackend());
+    instance = instance != null ? instance : new V1IngressServiceBackend();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withPort(instance.getPort());
-        }
+        this.withName(instance.getName());
+        this.withPort(instance.getPort());
+    }
   }
   
   public String getName() {
@@ -70,36 +73,53 @@ public class V1IngressServiceBackendFluent<A extends V1IngressServiceBackendFlue
   }
   
   public PortNested<A> editPort() {
-    return withNewPortLike(java.util.Optional.ofNullable(buildPort()).orElse(null));
+    return this.withNewPortLike(Optional.ofNullable(this.buildPort()).orElse(null));
   }
   
   public PortNested<A> editOrNewPort() {
-    return withNewPortLike(java.util.Optional.ofNullable(buildPort()).orElse(new V1ServiceBackendPortBuilder().build()));
+    return this.withNewPortLike(Optional.ofNullable(this.buildPort()).orElse(new V1ServiceBackendPortBuilder().build()));
   }
   
   public PortNested<A> editOrNewPortLike(V1ServiceBackendPort item) {
-    return withNewPortLike(java.util.Optional.ofNullable(buildPort()).orElse(item));
+    return this.withNewPortLike(Optional.ofNullable(this.buildPort()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressServiceBackendFluent that = (V1IngressServiceBackendFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(port, that.port)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  port,  super.hashCode());
+    return Objects.hash(name, port);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (port != null) { sb.append("port:"); sb.append(port); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+    }
     sb.append("}");
     return sb.toString();
   }

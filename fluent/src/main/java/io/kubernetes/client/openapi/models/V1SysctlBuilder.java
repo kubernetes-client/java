@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SysctlBuilder extends V1SysctlFluent<V1SysctlBuilder> implements VisitableBuilder<V1Sysctl,V1SysctlBuilder>{
   public V1SysctlBuilder() {
     this(new V1Sysctl());

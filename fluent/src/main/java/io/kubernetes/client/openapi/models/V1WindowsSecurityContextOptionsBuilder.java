@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityContextOptionsFluent<V1WindowsSecurityContextOptionsBuilder> implements VisitableBuilder<V1WindowsSecurityContextOptions,V1WindowsSecurityContextOptionsBuilder>{
   public V1WindowsSecurityContextOptionsBuilder() {
     this(new V1WindowsSecurityContextOptions());

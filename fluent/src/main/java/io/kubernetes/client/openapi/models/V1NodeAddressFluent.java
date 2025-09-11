@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends BaseFluent<A>{
+public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V1NodeAddressFluent<A>> extends BaseFluent<A>{
   public V1NodeAddressFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends BaseF
   private String type;
   
   protected void copyInstance(V1NodeAddress instance) {
-    instance = (instance != null ? instance : new V1NodeAddress());
+    instance = instance != null ? instance : new V1NodeAddress();
     if (instance != null) {
-          this.withAddress(instance.getAddress());
-          this.withType(instance.getType());
-        }
+        this.withAddress(instance.getAddress());
+        this.withType(instance.getType());
+    }
   }
   
   public String getAddress() {
@@ -54,24 +56,41 @@ public class V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeAddressFluent that = (V1NodeAddressFluent) o;
-    if (!java.util.Objects.equals(address, that.address)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(address, that.address))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(address,  type,  super.hashCode());
+    return Objects.hash(address, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (address != null) { sb.append("address:"); sb.append(address + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(address == null)) {
+        sb.append("address:");
+        sb.append(address);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

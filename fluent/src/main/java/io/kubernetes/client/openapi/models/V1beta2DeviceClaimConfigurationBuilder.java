@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2DeviceClaimConfigurationBuilder extends V1beta2DeviceClaimConfigurationFluent<V1beta2DeviceClaimConfigurationBuilder> implements VisitableBuilder<V1beta2DeviceClaimConfiguration,V1beta2DeviceClaimConfigurationBuilder>{
   public V1beta2DeviceClaimConfigurationBuilder() {
     this(new V1beta2DeviceClaimConfiguration());

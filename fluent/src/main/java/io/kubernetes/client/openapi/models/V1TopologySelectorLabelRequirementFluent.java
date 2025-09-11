@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TopologySelectorLabelRequirementFluent<A extends V1TopologySelectorLabelRequirementFluent<A>> extends BaseFluent<A>{
+public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementFluent<A>> extends BaseFluent<A>{
   public V1TopologySelectorLabelRequirementFluent() {
   }
   
@@ -24,11 +26,11 @@ public class V1TopologySelectorLabelRequirementFluent<A extends V1TopologySelect
   private List<String> values;
   
   protected void copyInstance(V1TopologySelectorLabelRequirement instance) {
-    instance = (instance != null ? instance : new V1TopologySelectorLabelRequirement());
+    instance = instance != null ? instance : new V1TopologySelectorLabelRequirement();
     if (instance != null) {
-          this.withKey(instance.getKey());
-          this.withValues(instance.getValues());
-        }
+        this.withKey(instance.getKey());
+        this.withValues(instance.getValues());
+    }
   }
   
   public String getKey() {
@@ -45,34 +47,59 @@ public class V1TopologySelectorLabelRequirementFluent<A extends V1TopologySelect
   }
   
   public A addToValues(int index,String item) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
     this.values.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToValues(int index,String item) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    this.values.set(index, item); return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    this.values.set(index, item);
+    return (A) this;
   }
   
-  public A addToValues(java.lang.String... items) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    for (String item : items) {this.values.add(item);} return (A)this;
+  public A addToValues(String... items) {
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (String item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToValues(Collection<String> items) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    for (String item : items) {this.values.add(item);} return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (String item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromValues(java.lang.String... items) {
-    if (this.values == null) return (A)this;
-    for (String item : items) { this.values.remove(item);} return (A)this;
+  public A removeFromValues(String... items) {
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromValues(Collection<String> items) {
-    if (this.values == null) return (A)this;
-    for (String item : items) { this.values.remove(item);} return (A)this;
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getValues() {
@@ -121,7 +148,7 @@ public class V1TopologySelectorLabelRequirementFluent<A extends V1TopologySelect
     return (A) this;
   }
   
-  public A withValues(java.lang.String... values) {
+  public A withValues(String... values) {
     if (this.values != null) {
         this.values.clear();
         _visitables.remove("values");
@@ -135,28 +162,45 @@ public class V1TopologySelectorLabelRequirementFluent<A extends V1TopologySelect
   }
   
   public boolean hasValues() {
-    return this.values != null && !this.values.isEmpty();
+    return this.values != null && !(this.values.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TopologySelectorLabelRequirementFluent that = (V1TopologySelectorLabelRequirementFluent) o;
-    if (!java.util.Objects.equals(key, that.key)) return false;
-    if (!java.util.Objects.equals(values, that.values)) return false;
+    if (!(Objects.equals(key, that.key))) {
+      return false;
+    }
+    if (!(Objects.equals(values, that.values))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(key,  values,  super.hashCode());
+    return Objects.hash(key, values);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (key != null) { sb.append("key:"); sb.append(key + ","); }
-    if (values != null && !values.isEmpty()) { sb.append("values:"); sb.append(values); }
+    if (!(key == null)) {
+        sb.append("key:");
+        sb.append(key);
+        sb.append(",");
+    }
+    if (!(values == null) && !(values.isEmpty())) {
+        sb.append("values:");
+        sb.append(values);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>> extends BaseFluent<A>{
+public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<A>> extends BaseFluent<A>{
   public V1ResourceAttributesFluent() {
   }
   
@@ -28,18 +31,18 @@ public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>>
   private String version;
   
   protected void copyInstance(V1ResourceAttributes instance) {
-    instance = (instance != null ? instance : new V1ResourceAttributes());
+    instance = instance != null ? instance : new V1ResourceAttributes();
     if (instance != null) {
-          this.withFieldSelector(instance.getFieldSelector());
-          this.withGroup(instance.getGroup());
-          this.withLabelSelector(instance.getLabelSelector());
-          this.withName(instance.getName());
-          this.withNamespace(instance.getNamespace());
-          this.withResource(instance.getResource());
-          this.withSubresource(instance.getSubresource());
-          this.withVerb(instance.getVerb());
-          this.withVersion(instance.getVersion());
-        }
+        this.withFieldSelector(instance.getFieldSelector());
+        this.withGroup(instance.getGroup());
+        this.withLabelSelector(instance.getLabelSelector());
+        this.withName(instance.getName());
+        this.withNamespace(instance.getNamespace());
+        this.withResource(instance.getResource());
+        this.withSubresource(instance.getSubresource());
+        this.withVerb(instance.getVerb());
+        this.withVersion(instance.getVersion());
+    }
   }
   
   public V1FieldSelectorAttributes buildFieldSelector() {
@@ -71,15 +74,15 @@ public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>>
   }
   
   public FieldSelectorNested<A> editFieldSelector() {
-    return withNewFieldSelectorLike(java.util.Optional.ofNullable(buildFieldSelector()).orElse(null));
+    return this.withNewFieldSelectorLike(Optional.ofNullable(this.buildFieldSelector()).orElse(null));
   }
   
   public FieldSelectorNested<A> editOrNewFieldSelector() {
-    return withNewFieldSelectorLike(java.util.Optional.ofNullable(buildFieldSelector()).orElse(new V1FieldSelectorAttributesBuilder().build()));
+    return this.withNewFieldSelectorLike(Optional.ofNullable(this.buildFieldSelector()).orElse(new V1FieldSelectorAttributesBuilder().build()));
   }
   
   public FieldSelectorNested<A> editOrNewFieldSelectorLike(V1FieldSelectorAttributes item) {
-    return withNewFieldSelectorLike(java.util.Optional.ofNullable(buildFieldSelector()).orElse(item));
+    return this.withNewFieldSelectorLike(Optional.ofNullable(this.buildFieldSelector()).orElse(item));
   }
   
   public String getGroup() {
@@ -124,15 +127,15 @@ public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>>
   }
   
   public LabelSelectorNested<A> editLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(null));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(null));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(new V1LabelSelectorAttributesBuilder().build()));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(new V1LabelSelectorAttributesBuilder().build()));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelectorAttributes item) {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(item));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(item));
   }
   
   public String getName() {
@@ -214,38 +217,97 @@ public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ResourceAttributesFluent that = (V1ResourceAttributesFluent) o;
-    if (!java.util.Objects.equals(fieldSelector, that.fieldSelector)) return false;
-    if (!java.util.Objects.equals(group, that.group)) return false;
-    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
-    if (!java.util.Objects.equals(resource, that.resource)) return false;
-    if (!java.util.Objects.equals(subresource, that.subresource)) return false;
-    if (!java.util.Objects.equals(verb, that.verb)) return false;
-    if (!java.util.Objects.equals(version, that.version)) return false;
+    if (!(Objects.equals(fieldSelector, that.fieldSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(group, that.group))) {
+      return false;
+    }
+    if (!(Objects.equals(labelSelector, that.labelSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(namespace, that.namespace))) {
+      return false;
+    }
+    if (!(Objects.equals(resource, that.resource))) {
+      return false;
+    }
+    if (!(Objects.equals(subresource, that.subresource))) {
+      return false;
+    }
+    if (!(Objects.equals(verb, that.verb))) {
+      return false;
+    }
+    if (!(Objects.equals(version, that.version))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fieldSelector,  group,  labelSelector,  name,  namespace,  resource,  subresource,  verb,  version,  super.hashCode());
+    return Objects.hash(fieldSelector, group, labelSelector, name, namespace, resource, subresource, verb, version);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fieldSelector != null) { sb.append("fieldSelector:"); sb.append(fieldSelector + ","); }
-    if (group != null) { sb.append("group:"); sb.append(group + ","); }
-    if (labelSelector != null) { sb.append("labelSelector:"); sb.append(labelSelector + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
-    if (resource != null) { sb.append("resource:"); sb.append(resource + ","); }
-    if (subresource != null) { sb.append("subresource:"); sb.append(subresource + ","); }
-    if (verb != null) { sb.append("verb:"); sb.append(verb + ","); }
-    if (version != null) { sb.append("version:"); sb.append(version); }
+    if (!(fieldSelector == null)) {
+        sb.append("fieldSelector:");
+        sb.append(fieldSelector);
+        sb.append(",");
+    }
+    if (!(group == null)) {
+        sb.append("group:");
+        sb.append(group);
+        sb.append(",");
+    }
+    if (!(labelSelector == null)) {
+        sb.append("labelSelector:");
+        sb.append(labelSelector);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(namespace == null)) {
+        sb.append("namespace:");
+        sb.append(namespace);
+        sb.append(",");
+    }
+    if (!(resource == null)) {
+        sb.append("resource:");
+        sb.append(resource);
+        sb.append(",");
+    }
+    if (!(subresource == null)) {
+        sb.append("subresource:");
+        sb.append(subresource);
+        sb.append(",");
+    }
+    if (!(verb == null)) {
+        sb.append("verb:");
+        sb.append(verb);
+        sb.append(",");
+    }
+    if (!(version == null)) {
+        sb.append("version:");
+        sb.append(version);
+    }
     sb.append("}");
     return sb.toString();
   }
