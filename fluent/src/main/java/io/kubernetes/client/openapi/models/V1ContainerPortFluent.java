@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerPortFluent<A extends V1ContainerPortFluent<A>> extends BaseFluent<A>{
+public class V1ContainerPortFluent<A extends io.kubernetes.client.openapi.models.V1ContainerPortFluent<A>> extends BaseFluent<A>{
   public V1ContainerPortFluent() {
   }
   
@@ -24,14 +26,14 @@ public class V1ContainerPortFluent<A extends V1ContainerPortFluent<A>> extends B
   private String protocol;
   
   protected void copyInstance(V1ContainerPort instance) {
-    instance = (instance != null ? instance : new V1ContainerPort());
+    instance = instance != null ? instance : new V1ContainerPort();
     if (instance != null) {
-          this.withContainerPort(instance.getContainerPort());
-          this.withHostIP(instance.getHostIP());
-          this.withHostPort(instance.getHostPort());
-          this.withName(instance.getName());
-          this.withProtocol(instance.getProtocol());
-        }
+        this.withContainerPort(instance.getContainerPort());
+        this.withHostIP(instance.getHostIP());
+        this.withHostPort(instance.getHostPort());
+        this.withName(instance.getName());
+        this.withProtocol(instance.getProtocol());
+    }
   }
   
   public Integer getContainerPort() {
@@ -100,30 +102,65 @@ public class V1ContainerPortFluent<A extends V1ContainerPortFluent<A>> extends B
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerPortFluent that = (V1ContainerPortFluent) o;
-    if (!java.util.Objects.equals(containerPort, that.containerPort)) return false;
-    if (!java.util.Objects.equals(hostIP, that.hostIP)) return false;
-    if (!java.util.Objects.equals(hostPort, that.hostPort)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+    if (!(Objects.equals(containerPort, that.containerPort))) {
+      return false;
+    }
+    if (!(Objects.equals(hostIP, that.hostIP))) {
+      return false;
+    }
+    if (!(Objects.equals(hostPort, that.hostPort))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(protocol, that.protocol))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(containerPort,  hostIP,  hostPort,  name,  protocol,  super.hashCode());
+    return Objects.hash(containerPort, hostIP, hostPort, name, protocol);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (containerPort != null) { sb.append("containerPort:"); sb.append(containerPort + ","); }
-    if (hostIP != null) { sb.append("hostIP:"); sb.append(hostIP + ","); }
-    if (hostPort != null) { sb.append("hostPort:"); sb.append(hostPort + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (protocol != null) { sb.append("protocol:"); sb.append(protocol); }
+    if (!(containerPort == null)) {
+        sb.append("containerPort:");
+        sb.append(containerPort);
+        sb.append(",");
+    }
+    if (!(hostIP == null)) {
+        sb.append("hostIP:");
+        sb.append(hostIP);
+        sb.append(",");
+    }
+    if (!(hostPort == null)) {
+        sb.append("hostPort:");
+        sb.append(hostPort);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(protocol == null)) {
+        sb.append("protocol:");
+        sb.append(protocol);
+    }
     sb.append("}");
     return sb.toString();
   }

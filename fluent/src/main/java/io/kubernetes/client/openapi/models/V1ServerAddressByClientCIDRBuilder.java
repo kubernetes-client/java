@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ServerAddressByClientCIDRBuilder extends V1ServerAddressByClientCIDRFluent<V1ServerAddressByClientCIDRBuilder> implements VisitableBuilder<V1ServerAddressByClientCIDR,V1ServerAddressByClientCIDRBuilder>{
   public V1ServerAddressByClientCIDRBuilder() {
     this(new V1ServerAddressByClientCIDR());

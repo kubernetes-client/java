@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GitRepoVolumeSourceFluent<A extends V1GitRepoVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1GitRepoVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1GitRepoVolumeSourceFluent() {
   }
   
@@ -21,12 +23,12 @@ public class V1GitRepoVolumeSourceFluent<A extends V1GitRepoVolumeSourceFluent<A
   private String revision;
   
   protected void copyInstance(V1GitRepoVolumeSource instance) {
-    instance = (instance != null ? instance : new V1GitRepoVolumeSource());
+    instance = instance != null ? instance : new V1GitRepoVolumeSource();
     if (instance != null) {
-          this.withDirectory(instance.getDirectory());
-          this.withRepository(instance.getRepository());
-          this.withRevision(instance.getRevision());
-        }
+        this.withDirectory(instance.getDirectory());
+        this.withRepository(instance.getRepository());
+        this.withRevision(instance.getRevision());
+    }
   }
   
   public String getDirectory() {
@@ -69,26 +71,49 @@ public class V1GitRepoVolumeSourceFluent<A extends V1GitRepoVolumeSourceFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GitRepoVolumeSourceFluent that = (V1GitRepoVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(directory, that.directory)) return false;
-    if (!java.util.Objects.equals(repository, that.repository)) return false;
-    if (!java.util.Objects.equals(revision, that.revision)) return false;
+    if (!(Objects.equals(directory, that.directory))) {
+      return false;
+    }
+    if (!(Objects.equals(repository, that.repository))) {
+      return false;
+    }
+    if (!(Objects.equals(revision, that.revision))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(directory,  repository,  revision,  super.hashCode());
+    return Objects.hash(directory, repository, revision);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (directory != null) { sb.append("directory:"); sb.append(directory + ","); }
-    if (repository != null) { sb.append("repository:"); sb.append(repository + ","); }
-    if (revision != null) { sb.append("revision:"); sb.append(revision); }
+    if (!(directory == null)) {
+        sb.append("directory:");
+        sb.append(directory);
+        sb.append(",");
+    }
+    if (!(repository == null)) {
+        sb.append("repository:");
+        sb.append(repository);
+        sb.append(",");
+    }
+    if (!(revision == null)) {
+        sb.append("revision:");
+        sb.append(revision);
+    }
     sb.append("}");
     return sb.toString();
   }

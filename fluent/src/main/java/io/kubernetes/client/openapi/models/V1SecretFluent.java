@@ -1,10 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 import java.util.Map;
@@ -13,7 +16,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
+public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1SecretFluent<A>> extends BaseFluent<A>{
   public V1SecretFluent() {
   }
   
@@ -29,16 +32,16 @@ public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
   private String type;
   
   protected void copyInstance(V1Secret instance) {
-    instance = (instance != null ? instance : new V1Secret());
+    instance = instance != null ? instance : new V1Secret();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withData(instance.getData());
-          this.withImmutable(instance.getImmutable());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withStringData(instance.getStringData());
-          this.withType(instance.getType());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withData(instance.getData());
+        this.withImmutable(instance.getImmutable());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withStringData(instance.getStringData());
+        this.withType(instance.getType());
+    }
   }
   
   public String getApiVersion() {
@@ -55,23 +58,47 @@ public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
   }
   
   public A addToData(String key,byte[] value) {
-    if(this.data == null && key != null && value != null) { this.data = new LinkedHashMap(); }
-    if(key != null && value != null) {this.data.put(key, value);} return (A)this;
+    if (this.data == null && key != null && value != null) {
+      this.data = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.data.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToData(Map<String,byte[]> map) {
-    if(this.data == null && map != null) { this.data = new LinkedHashMap(); }
-    if(map != null) { this.data.putAll(map);} return (A)this;
+    if (this.data == null && map != null) {
+      this.data = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.data.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromData(String key) {
-    if(this.data == null) { return (A) this; }
-    if(key != null && this.data != null) {this.data.remove(key);} return (A)this;
+    if (this.data == null) {
+      return (A) this;
+    }
+    if (key != null && this.data != null) {
+      this.data.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromData(Map<String,byte[]> map) {
-    if(this.data == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.data != null){this.data.remove(key);}}} return (A)this;
+    if (this.data == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.data != null) {
+          this.data.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,byte[]> getData() {
@@ -146,35 +173,59 @@ public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToStringData(String key,String value) {
-    if(this.stringData == null && key != null && value != null) { this.stringData = new LinkedHashMap(); }
-    if(key != null && value != null) {this.stringData.put(key, value);} return (A)this;
+    if (this.stringData == null && key != null && value != null) {
+      this.stringData = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.stringData.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToStringData(Map<String,String> map) {
-    if(this.stringData == null && map != null) { this.stringData = new LinkedHashMap(); }
-    if(map != null) { this.stringData.putAll(map);} return (A)this;
+    if (this.stringData == null && map != null) {
+      this.stringData = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.stringData.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromStringData(String key) {
-    if(this.stringData == null) { return (A) this; }
-    if(key != null && this.stringData != null) {this.stringData.remove(key);} return (A)this;
+    if (this.stringData == null) {
+      return (A) this;
+    }
+    if (key != null && this.stringData != null) {
+      this.stringData.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromStringData(Map<String,String> map) {
-    if(this.stringData == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.stringData != null){this.stringData.remove(key);}}} return (A)this;
+    if (this.stringData == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.stringData != null) {
+          this.stringData.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getStringData() {
@@ -208,34 +259,81 @@ public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SecretFluent that = (V1SecretFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(data, that.data)) return false;
-    if (!java.util.Objects.equals(immutable, that.immutable)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(stringData, that.stringData)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(data, that.data))) {
+      return false;
+    }
+    if (!(Objects.equals(immutable, that.immutable))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(stringData, that.stringData))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  data,  immutable,  kind,  metadata,  stringData,  type,  super.hashCode());
+    return Objects.hash(apiVersion, data, immutable, kind, metadata, stringData, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (data != null && !data.isEmpty()) { sb.append("data:"); sb.append(data + ","); }
-    if (immutable != null) { sb.append("immutable:"); sb.append(immutable + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (stringData != null && !stringData.isEmpty()) { sb.append("stringData:"); sb.append(stringData + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(data == null) && !(data.isEmpty())) {
+        sb.append("data:");
+        sb.append(data);
+        sb.append(",");
+    }
+    if (!(immutable == null)) {
+        sb.append("immutable:");
+        sb.append(immutable);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(stringData == null) && !(stringData.isEmpty())) {
+        sb.append("stringData:");
+        sb.append(stringData);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

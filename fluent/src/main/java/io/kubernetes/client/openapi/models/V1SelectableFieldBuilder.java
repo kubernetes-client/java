@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SelectableFieldBuilder extends V1SelectableFieldFluent<V1SelectableFieldBuilder> implements VisitableBuilder<V1SelectableField,V1SelectableFieldBuilder>{
   public V1SelectableFieldBuilder() {
     this(new V1SelectableField());

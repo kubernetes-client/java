@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeSelectorBuilder extends V1NodeSelectorFluent<V1NodeSelectorBuilder> implements VisitableBuilder<V1NodeSelector,V1NodeSelectorBuilder>{
   public V1NodeSelectorBuilder() {
     this(new V1NodeSelector());

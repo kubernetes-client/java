@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import io.kubernetes.client.custom.IntOrString;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpecFluent<A>> extends BaseFluent<A>{
+public class V1PodDisruptionBudgetSpecFluent<A extends io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<A>> extends BaseFluent<A>{
   public V1PodDisruptionBudgetSpecFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpec
   private String unhealthyPodEvictionPolicy;
   
   protected void copyInstance(V1PodDisruptionBudgetSpec instance) {
-    instance = (instance != null ? instance : new V1PodDisruptionBudgetSpec());
+    instance = instance != null ? instance : new V1PodDisruptionBudgetSpec();
     if (instance != null) {
-          this.withMaxUnavailable(instance.getMaxUnavailable());
-          this.withMinAvailable(instance.getMinAvailable());
-          this.withSelector(instance.getSelector());
-          this.withUnhealthyPodEvictionPolicy(instance.getUnhealthyPodEvictionPolicy());
-        }
+        this.withMaxUnavailable(instance.getMaxUnavailable());
+        this.withMinAvailable(instance.getMinAvailable());
+        this.withSelector(instance.getSelector());
+        this.withUnhealthyPodEvictionPolicy(instance.getUnhealthyPodEvictionPolicy());
+    }
   }
   
   public IntOrString getMaxUnavailable() {
@@ -47,11 +50,11 @@ public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpec
   }
   
   public A withNewMaxUnavailable(int value) {
-    return (A)withMaxUnavailable(new IntOrString(value));
+    return (A) this.withMaxUnavailable(new IntOrString(value));
   }
   
   public A withNewMaxUnavailable(String value) {
-    return (A)withMaxUnavailable(new IntOrString(value));
+    return (A) this.withMaxUnavailable(new IntOrString(value));
   }
   
   public IntOrString getMinAvailable() {
@@ -68,11 +71,11 @@ public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpec
   }
   
   public A withNewMinAvailable(int value) {
-    return (A)withMinAvailable(new IntOrString(value));
+    return (A) this.withMinAvailable(new IntOrString(value));
   }
   
   public A withNewMinAvailable(String value) {
-    return (A)withMinAvailable(new IntOrString(value));
+    return (A) this.withMinAvailable(new IntOrString(value));
   }
   
   public V1LabelSelector buildSelector() {
@@ -104,15 +107,15 @@ public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpec
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public String getUnhealthyPodEvictionPolicy() {
@@ -129,28 +132,57 @@ public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpec
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodDisruptionBudgetSpecFluent that = (V1PodDisruptionBudgetSpecFluent) o;
-    if (!java.util.Objects.equals(maxUnavailable, that.maxUnavailable)) return false;
-    if (!java.util.Objects.equals(minAvailable, that.minAvailable)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(unhealthyPodEvictionPolicy, that.unhealthyPodEvictionPolicy)) return false;
+    if (!(Objects.equals(maxUnavailable, that.maxUnavailable))) {
+      return false;
+    }
+    if (!(Objects.equals(minAvailable, that.minAvailable))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(unhealthyPodEvictionPolicy, that.unhealthyPodEvictionPolicy))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(maxUnavailable,  minAvailable,  selector,  unhealthyPodEvictionPolicy,  super.hashCode());
+    return Objects.hash(maxUnavailable, minAvailable, selector, unhealthyPodEvictionPolicy);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (maxUnavailable != null) { sb.append("maxUnavailable:"); sb.append(maxUnavailable + ","); }
-    if (minAvailable != null) { sb.append("minAvailable:"); sb.append(minAvailable + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (unhealthyPodEvictionPolicy != null) { sb.append("unhealthyPodEvictionPolicy:"); sb.append(unhealthyPodEvictionPolicy); }
+    if (!(maxUnavailable == null)) {
+        sb.append("maxUnavailable:");
+        sb.append(maxUnavailable);
+        sb.append(",");
+    }
+    if (!(minAvailable == null)) {
+        sb.append("minAvailable:");
+        sb.append(minAvailable);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(unhealthyPodEvictionPolicy == null)) {
+        sb.append("unhealthyPodEvictionPolicy:");
+        sb.append(unhealthyPodEvictionPolicy);
+    }
     sb.append("}");
     return sb.toString();
   }

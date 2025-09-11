@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IPAddressSpecFluent<A extends V1IPAddressSpecFluent<A>> extends BaseFluent<A>{
+public class V1IPAddressSpecFluent<A extends io.kubernetes.client.openapi.models.V1IPAddressSpecFluent<A>> extends BaseFluent<A>{
   public V1IPAddressSpecFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1IPAddressSpecFluent<A extends V1IPAddressSpecFluent<A>> extends B
   private V1ParentReferenceBuilder parentRef;
   
   protected void copyInstance(V1IPAddressSpec instance) {
-    instance = (instance != null ? instance : new V1IPAddressSpec());
+    instance = instance != null ? instance : new V1IPAddressSpec();
     if (instance != null) {
-          this.withParentRef(instance.getParentRef());
-        }
+      this.withParentRef(instance.getParentRef());
+    }
   }
   
   public V1ParentReference buildParentRef() {
@@ -55,34 +58,45 @@ public class V1IPAddressSpecFluent<A extends V1IPAddressSpecFluent<A>> extends B
   }
   
   public ParentRefNested<A> editParentRef() {
-    return withNewParentRefLike(java.util.Optional.ofNullable(buildParentRef()).orElse(null));
+    return this.withNewParentRefLike(Optional.ofNullable(this.buildParentRef()).orElse(null));
   }
   
   public ParentRefNested<A> editOrNewParentRef() {
-    return withNewParentRefLike(java.util.Optional.ofNullable(buildParentRef()).orElse(new V1ParentReferenceBuilder().build()));
+    return this.withNewParentRefLike(Optional.ofNullable(this.buildParentRef()).orElse(new V1ParentReferenceBuilder().build()));
   }
   
   public ParentRefNested<A> editOrNewParentRefLike(V1ParentReference item) {
-    return withNewParentRefLike(java.util.Optional.ofNullable(buildParentRef()).orElse(item));
+    return this.withNewParentRefLike(Optional.ofNullable(this.buildParentRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IPAddressSpecFluent that = (V1IPAddressSpecFluent) o;
-    if (!java.util.Objects.equals(parentRef, that.parentRef)) return false;
+    if (!(Objects.equals(parentRef, that.parentRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(parentRef,  super.hashCode());
+    return Objects.hash(parentRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (parentRef != null) { sb.append("parentRef:"); sb.append(parentRef); }
+    if (!(parentRef == null)) {
+        sb.append("parentRef:");
+        sb.append(parentRef);
+    }
     sb.append("}");
     return sb.toString();
   }

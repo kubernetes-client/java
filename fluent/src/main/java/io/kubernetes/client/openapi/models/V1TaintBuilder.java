@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TaintBuilder extends V1TaintFluent<V1TaintBuilder> implements VisitableBuilder<V1Taint,V1TaintBuilder>{
   public V1TaintBuilder() {
     this(new V1Taint());

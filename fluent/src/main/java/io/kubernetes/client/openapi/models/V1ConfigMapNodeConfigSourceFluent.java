@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ConfigMapNodeConfigSourceFluent<A extends V1ConfigMapNodeConfigSourceFluent<A>> extends BaseFluent<A>{
+public class V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<A>> extends BaseFluent<A>{
   public V1ConfigMapNodeConfigSourceFluent() {
   }
   
@@ -23,14 +25,14 @@ public class V1ConfigMapNodeConfigSourceFluent<A extends V1ConfigMapNodeConfigSo
   private String uid;
   
   protected void copyInstance(V1ConfigMapNodeConfigSource instance) {
-    instance = (instance != null ? instance : new V1ConfigMapNodeConfigSource());
+    instance = instance != null ? instance : new V1ConfigMapNodeConfigSource();
     if (instance != null) {
-          this.withKubeletConfigKey(instance.getKubeletConfigKey());
-          this.withName(instance.getName());
-          this.withNamespace(instance.getNamespace());
-          this.withResourceVersion(instance.getResourceVersion());
-          this.withUid(instance.getUid());
-        }
+        this.withKubeletConfigKey(instance.getKubeletConfigKey());
+        this.withName(instance.getName());
+        this.withNamespace(instance.getNamespace());
+        this.withResourceVersion(instance.getResourceVersion());
+        this.withUid(instance.getUid());
+    }
   }
   
   public String getKubeletConfigKey() {
@@ -99,30 +101,65 @@ public class V1ConfigMapNodeConfigSourceFluent<A extends V1ConfigMapNodeConfigSo
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ConfigMapNodeConfigSourceFluent that = (V1ConfigMapNodeConfigSourceFluent) o;
-    if (!java.util.Objects.equals(kubeletConfigKey, that.kubeletConfigKey)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
-    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    if (!(Objects.equals(kubeletConfigKey, that.kubeletConfigKey))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(namespace, that.namespace))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceVersion, that.resourceVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(kubeletConfigKey,  name,  namespace,  resourceVersion,  uid,  super.hashCode());
+    return Objects.hash(kubeletConfigKey, name, namespace, resourceVersion, uid);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (kubeletConfigKey != null) { sb.append("kubeletConfigKey:"); sb.append(kubeletConfigKey + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
-    if (resourceVersion != null) { sb.append("resourceVersion:"); sb.append(resourceVersion + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (!(kubeletConfigKey == null)) {
+        sb.append("kubeletConfigKey:");
+        sb.append(kubeletConfigKey);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(namespace == null)) {
+        sb.append("namespace:");
+        sb.append(namespace);
+        sb.append(",");
+    }
+    if (!(resourceVersion == null)) {
+        sb.append("resourceVersion:");
+        sb.append(resourceVersion);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+    }
     sb.append("}");
     return sb.toString();
   }

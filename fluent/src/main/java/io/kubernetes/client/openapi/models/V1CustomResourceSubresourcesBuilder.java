@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubresourcesFluent<V1CustomResourceSubresourcesBuilder> implements VisitableBuilder<V1CustomResourceSubresources,V1CustomResourceSubresourcesBuilder>{
   public V1CustomResourceSubresourcesBuilder() {
     this(new V1CustomResourceSubresources());

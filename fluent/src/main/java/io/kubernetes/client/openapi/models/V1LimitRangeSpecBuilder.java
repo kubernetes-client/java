@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1LimitRangeSpecBuilder extends V1LimitRangeSpecFluent<V1LimitRangeSpecBuilder> implements VisitableBuilder<V1LimitRangeSpec,V1LimitRangeSpecBuilder>{
   public V1LimitRangeSpecBuilder() {
     this(new V1LimitRangeSpec());

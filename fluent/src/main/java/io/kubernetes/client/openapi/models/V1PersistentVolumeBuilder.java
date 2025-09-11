@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PersistentVolumeBuilder extends V1PersistentVolumeFluent<V1PersistentVolumeBuilder> implements VisitableBuilder<V1PersistentVolume,V1PersistentVolumeBuilder>{
   public V1PersistentVolumeBuilder() {
     this(new V1PersistentVolume());

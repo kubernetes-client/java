@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PhotonPersistentDiskVolumeSourceBuilder extends V1PhotonPersistentDiskVolumeSourceFluent<V1PhotonPersistentDiskVolumeSourceBuilder> implements VisitableBuilder<V1PhotonPersistentDiskVolumeSource,V1PhotonPersistentDiskVolumeSourceBuilder>{
   public V1PhotonPersistentDiskVolumeSourceBuilder() {
     this(new V1PhotonPersistentDiskVolumeSource());

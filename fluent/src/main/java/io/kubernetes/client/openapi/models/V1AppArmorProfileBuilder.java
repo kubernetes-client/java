@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1AppArmorProfileBuilder extends V1AppArmorProfileFluent<V1AppArmorProfileBuilder> implements VisitableBuilder<V1AppArmorProfile,V1AppArmorProfileBuilder>{
   public V1AppArmorProfileBuilder() {
     this(new V1AppArmorProfile());

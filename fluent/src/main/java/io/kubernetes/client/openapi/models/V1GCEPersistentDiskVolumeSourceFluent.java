@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -11,7 +13,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GCEPersistentDiskVolumeSourceFluent<A extends V1GCEPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1GCEPersistentDiskVolumeSourceFluent() {
   }
   
@@ -24,13 +26,13 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends V1GCEPersistentDisk
   private Boolean readOnly;
   
   protected void copyInstance(V1GCEPersistentDiskVolumeSource instance) {
-    instance = (instance != null ? instance : new V1GCEPersistentDiskVolumeSource());
+    instance = instance != null ? instance : new V1GCEPersistentDiskVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withPartition(instance.getPartition());
-          this.withPdName(instance.getPdName());
-          this.withReadOnly(instance.getReadOnly());
-        }
+        this.withFsType(instance.getFsType());
+        this.withPartition(instance.getPartition());
+        this.withPdName(instance.getPdName());
+        this.withReadOnly(instance.getReadOnly());
+    }
   }
   
   public String getFsType() {
@@ -86,28 +88,57 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends V1GCEPersistentDisk
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GCEPersistentDiskVolumeSourceFluent that = (V1GCEPersistentDiskVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(partition, that.partition)) return false;
-    if (!java.util.Objects.equals(pdName, that.pdName)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(partition, that.partition))) {
+      return false;
+    }
+    if (!(Objects.equals(pdName, that.pdName))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  partition,  pdName,  readOnly,  super.hashCode());
+    return Objects.hash(fsType, partition, pdName, readOnly);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (partition != null) { sb.append("partition:"); sb.append(partition + ","); }
-    if (pdName != null) { sb.append("pdName:"); sb.append(pdName + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(partition == null)) {
+        sb.append("partition:");
+        sb.append(partition);
+        sb.append(",");
+    }
+    if (!(pdName == null)) {
+        sb.append("pdName:");
+        sb.append(pdName);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+    }
     sb.append("}");
     return sb.toString();
   }

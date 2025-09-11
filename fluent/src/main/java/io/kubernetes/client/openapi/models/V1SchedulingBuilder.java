@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SchedulingBuilder extends V1SchedulingFluent<V1SchedulingBuilder> implements VisitableBuilder<V1Scheduling,V1SchedulingBuilder>{
   public V1SchedulingBuilder() {
     this(new V1Scheduling());

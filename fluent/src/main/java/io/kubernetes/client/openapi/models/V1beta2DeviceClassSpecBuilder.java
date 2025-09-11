@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2DeviceClassSpecBuilder extends V1beta2DeviceClassSpecFluent<V1beta2DeviceClassSpecBuilder> implements VisitableBuilder<V1beta2DeviceClassSpec,V1beta2DeviceClassSpecBuilder>{
   public V1beta2DeviceClassSpecBuilder() {
     this(new V1beta2DeviceClassSpec());
@@ -24,6 +25,7 @@ public class V1beta2DeviceClassSpecBuilder extends V1beta2DeviceClassSpecFluent<
   public V1beta2DeviceClassSpec build() {
     V1beta2DeviceClassSpec buildable = new V1beta2DeviceClassSpec();
     buildable.setConfig(fluent.buildConfig());
+    buildable.setExtendedResourceName(fluent.getExtendedResourceName());
     buildable.setSelectors(fluent.buildSelectors());
     return buildable;
   }

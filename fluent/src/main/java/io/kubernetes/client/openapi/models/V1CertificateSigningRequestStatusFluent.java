@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import java.lang.Byte;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSigningRequestStatusFluent<A>> extends BaseFluent<A>{
+public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent<A>> extends BaseFluent<A>{
   public V1CertificateSigningRequestStatusFluent() {
   }
   
@@ -28,11 +30,11 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   private ArrayList<V1CertificateSigningRequestConditionBuilder> conditions;
   
   protected void copyInstance(V1CertificateSigningRequestStatus instance) {
-    instance = (instance != null ? instance : new V1CertificateSigningRequestStatus());
+    instance = instance != null ? instance : new V1CertificateSigningRequestStatus();
     if (instance != null) {
-          this.withCertificate(instance.getCertificate());
-          this.withConditions(instance.getConditions());
-        }
+        this.withCertificate(instance.getCertificate());
+        this.withConditions(instance.getConditions());
+    }
   }
   
   public A withCertificate(byte... certificate) {
@@ -49,12 +51,12 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   }
   
   public byte[] getCertificate() {
-    int size = certificate != null ? certificate.size() : 0;;
-    byte[] result = new byte[size];;
+    int size = certificate != null ? certificate.size() : 0;
+    byte[] result = new byte[size];
     if (size == 0) {
       return result;
     }
-    int index = 0;;
+    int index = 0;
     for (byte item : certificate) {
       result[index++] = item;
     }
@@ -62,42 +64,69 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   }
   
   public A addToCertificate(int index,Byte item) {
-    if (this.certificate == null) {this.certificate =  new ArrayList<Byte>();}
+    if (this.certificate == null) {
+      this.certificate = new ArrayList();
+    }
     this.certificate.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToCertificate(int index,Byte item) {
-    if (this.certificate == null) {this.certificate =  new ArrayList<Byte>();}
-    this.certificate.set(index, item); return (A)this;
+    if (this.certificate == null) {
+      this.certificate = new ArrayList();
+    }
+    this.certificate.set(index, item);
+    return (A) this;
   }
   
-  public A addToCertificate(java.lang.Byte... items) {
-    if (this.certificate == null) {this.certificate =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.certificate.add(item);} return (A)this;
+  public A addToCertificate(Byte... items) {
+    if (this.certificate == null) {
+      this.certificate = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.certificate.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToCertificate(Collection<Byte> items) {
-    if (this.certificate == null) {this.certificate =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.certificate.add(item);} return (A)this;
+    if (this.certificate == null) {
+      this.certificate = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.certificate.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromCertificate(java.lang.Byte... items) {
-    if (this.certificate == null) return (A)this;
-    for (Byte item : items) { this.certificate.remove(item);} return (A)this;
+  public A removeFromCertificate(Byte... items) {
+    if (this.certificate == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.certificate.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromCertificate(Collection<Byte> items) {
-    if (this.certificate == null) return (A)this;
-    for (Byte item : items) { this.certificate.remove(item);} return (A)this;
+    if (this.certificate == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.certificate.remove(item);
+    }
+    return (A) this;
   }
   
   public boolean hasCertificate() {
-    return this.certificate != null && !this.certificate.isEmpty();
+    return this.certificate != null && !(this.certificate.isEmpty());
   }
   
   public A addToConditions(int index,V1CertificateSigningRequestCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -106,11 +135,13 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1CertificateSigningRequestCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -119,41 +150,71 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
-    for (V1CertificateSigningRequestCondition item : items) {V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1CertificateSigningRequestCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1CertificateSigningRequestCondition item : items) {
+        V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1CertificateSigningRequestCondition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1CertificateSigningRequestConditionBuilder>();}
-    for (V1CertificateSigningRequestCondition item : items) {V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1CertificateSigningRequestCondition item : items) {
+        V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1CertificateSigningRequestCondition item : items) {V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1CertificateSigningRequestCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1CertificateSigningRequestCondition item : items) {
+        V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1CertificateSigningRequestCondition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1CertificateSigningRequestCondition item : items) {V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1CertificateSigningRequestCondition item : items) {
+        V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1CertificateSigningRequestConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1CertificateSigningRequestConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1CertificateSigningRequestConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1CertificateSigningRequestConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1CertificateSigningRequestConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1CertificateSigningRequestCondition> buildConditions() {
@@ -205,7 +266,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... conditions) {
+  public A withConditions(V1CertificateSigningRequestCondition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -219,7 +280,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -235,49 +296,77 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1CertificateSigningRequestConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CertificateSigningRequestStatusFluent that = (V1CertificateSigningRequestStatusFluent) o;
-    if (!java.util.Objects.equals(certificate, that.certificate)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+    if (!(Objects.equals(certificate, that.certificate))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(certificate,  conditions,  super.hashCode());
+    return Objects.hash(certificate, conditions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (certificate != null && !certificate.isEmpty()) { sb.append("certificate:"); sb.append(certificate + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions); }
+    if (!(certificate == null) && !(certificate.isEmpty())) {
+        sb.append("certificate:");
+        sb.append(certificate);
+        sb.append(",");
+    }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -290,7 +379,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSign
     int index;
     
     public N and() {
-      return (N) V1CertificateSigningRequestStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1CertificateSigningRequestStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1MutatingAdmissionPolicyBindingFluent<A extends V1alpha1MutatingAdmissionPolicyBindingFluent<A>> extends BaseFluent<A>{
+public class V1alpha1MutatingAdmissionPolicyBindingFluent<A extends io.kubernetes.client.openapi.models.V1alpha1MutatingAdmissionPolicyBindingFluent<A>> extends BaseFluent<A>{
   public V1alpha1MutatingAdmissionPolicyBindingFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1alpha1MutatingAdmissionPolicyBindingFluent<A extends V1alpha1Muta
   private V1alpha1MutatingAdmissionPolicyBindingSpecBuilder spec;
   
   protected void copyInstance(V1alpha1MutatingAdmissionPolicyBinding instance) {
-    instance = (instance != null ? instance : new V1alpha1MutatingAdmissionPolicyBinding());
+    instance = instance != null ? instance : new V1alpha1MutatingAdmissionPolicyBinding();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withSpec(instance.getSpec());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withSpec(instance.getSpec());
+    }
   }
   
   public String getApiVersion() {
@@ -87,15 +90,15 @@ public class V1alpha1MutatingAdmissionPolicyBindingFluent<A extends V1alpha1Muta
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1alpha1MutatingAdmissionPolicyBindingSpec buildSpec() {
@@ -127,40 +130,69 @@ public class V1alpha1MutatingAdmissionPolicyBindingFluent<A extends V1alpha1Muta
   }
   
   public SpecNested<A> editSpec() {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(null));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(null));
   }
   
   public SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(new V1alpha1MutatingAdmissionPolicyBindingSpecBuilder().build()));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(new V1alpha1MutatingAdmissionPolicyBindingSpecBuilder().build()));
   }
   
   public SpecNested<A> editOrNewSpecLike(V1alpha1MutatingAdmissionPolicyBindingSpec item) {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(item));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1MutatingAdmissionPolicyBindingFluent that = (V1alpha1MutatingAdmissionPolicyBindingFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(spec, that.spec)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(spec, that.spec))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  spec,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, spec);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (spec != null) { sb.append("spec:"); sb.append(spec); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(spec == null)) {
+        sb.append("spec:");
+        sb.append(spec);
+    }
     sb.append("}");
     return sb.toString();
   }
