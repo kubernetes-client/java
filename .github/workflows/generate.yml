@@ -112,5 +112,5 @@ jobs:
         with:
           source_branch: ${{ env.BRANCH }}
           destination_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
