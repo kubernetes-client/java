@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ExpressionWarningBuilder extends V1ExpressionWarningFluent<V1ExpressionWarningBuilder> implements VisitableBuilder<V1ExpressionWarning,V1ExpressionWarningBuilder>{
   public V1ExpressionWarningBuilder() {
     this(new V1ExpressionWarning());

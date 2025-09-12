@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ConfigMapKeySelectorFluent<A extends V1ConfigMapKeySelectorFluent<A>> extends BaseFluent<A>{
+public class V1ConfigMapKeySelectorFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<A>> extends BaseFluent<A>{
   public V1ConfigMapKeySelectorFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1ConfigMapKeySelectorFluent<A extends V1ConfigMapKeySelectorFluent
   private Boolean optional;
   
   protected void copyInstance(V1ConfigMapKeySelector instance) {
-    instance = (instance != null ? instance : new V1ConfigMapKeySelector());
+    instance = instance != null ? instance : new V1ConfigMapKeySelector();
     if (instance != null) {
-          this.withKey(instance.getKey());
-          this.withName(instance.getName());
-          this.withOptional(instance.getOptional());
-        }
+        this.withKey(instance.getKey());
+        this.withName(instance.getName());
+        this.withOptional(instance.getOptional());
+    }
   }
   
   public String getKey() {
@@ -70,26 +72,49 @@ public class V1ConfigMapKeySelectorFluent<A extends V1ConfigMapKeySelectorFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ConfigMapKeySelectorFluent that = (V1ConfigMapKeySelectorFluent) o;
-    if (!java.util.Objects.equals(key, that.key)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(optional, that.optional)) return false;
+    if (!(Objects.equals(key, that.key))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(optional, that.optional))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(key,  name,  optional,  super.hashCode());
+    return Objects.hash(key, name, optional);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (key != null) { sb.append("key:"); sb.append(key + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (optional != null) { sb.append("optional:"); sb.append(optional); }
+    if (!(key == null)) {
+        sb.append("key:");
+        sb.append(key);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(optional == null)) {
+        sb.append("optional:");
+        sb.append(optional);
+    }
     sb.append("}");
     return sb.toString();
   }

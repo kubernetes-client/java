@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateStatefulSetStrategyFluent<V1RollingUpdateStatefulSetStrategyBuilder> implements VisitableBuilder<V1RollingUpdateStatefulSetStrategy,V1RollingUpdateStatefulSetStrategyBuilder>{
   public V1RollingUpdateStatefulSetStrategyBuilder() {
     this(new V1RollingUpdateStatefulSetStrategy());

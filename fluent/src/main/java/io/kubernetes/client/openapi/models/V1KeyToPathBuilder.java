@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1KeyToPathBuilder extends V1KeyToPathFluent<V1KeyToPathBuilder> implements VisitableBuilder<V1KeyToPath,V1KeyToPathBuilder>{
   public V1KeyToPathBuilder() {
     this(new V1KeyToPath());

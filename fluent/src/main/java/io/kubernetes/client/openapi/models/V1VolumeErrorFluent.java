@@ -1,9 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeErrorFluent<A extends V1VolumeErrorFluent<A>> extends BaseFluent<A>{
+public class V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.models.V1VolumeErrorFluent<A>> extends BaseFluent<A>{
   public V1VolumeErrorFluent() {
   }
   
@@ -23,12 +25,12 @@ public class V1VolumeErrorFluent<A extends V1VolumeErrorFluent<A>> extends BaseF
   private OffsetDateTime time;
   
   protected void copyInstance(V1VolumeError instance) {
-    instance = (instance != null ? instance : new V1VolumeError());
+    instance = instance != null ? instance : new V1VolumeError();
     if (instance != null) {
-          this.withErrorCode(instance.getErrorCode());
-          this.withMessage(instance.getMessage());
-          this.withTime(instance.getTime());
-        }
+        this.withErrorCode(instance.getErrorCode());
+        this.withMessage(instance.getMessage());
+        this.withTime(instance.getTime());
+    }
   }
   
   public Integer getErrorCode() {
@@ -71,26 +73,49 @@ public class V1VolumeErrorFluent<A extends V1VolumeErrorFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeErrorFluent that = (V1VolumeErrorFluent) o;
-    if (!java.util.Objects.equals(errorCode, that.errorCode)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(time, that.time)) return false;
+    if (!(Objects.equals(errorCode, that.errorCode))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(time, that.time))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(errorCode,  message,  time,  super.hashCode());
+    return Objects.hash(errorCode, message, time);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (errorCode != null) { sb.append("errorCode:"); sb.append(errorCode + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (time != null) { sb.append("time:"); sb.append(time); }
+    if (!(errorCode == null)) {
+        sb.append("errorCode:");
+        sb.append(errorCode);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(time == null)) {
+        sb.append("time:");
+        sb.append(time);
+    }
     sb.append("}");
     return sb.toString();
   }

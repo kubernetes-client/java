@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1MutationFluent<A extends V1alpha1MutationFluent<A>> extends BaseFluent<A>{
+public class V1alpha1MutationFluent<A extends io.kubernetes.client.openapi.models.V1alpha1MutationFluent<A>> extends BaseFluent<A>{
   public V1alpha1MutationFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1alpha1MutationFluent<A extends V1alpha1MutationFluent<A>> extends
   private String patchType;
   
   protected void copyInstance(V1alpha1Mutation instance) {
-    instance = (instance != null ? instance : new V1alpha1Mutation());
+    instance = instance != null ? instance : new V1alpha1Mutation();
     if (instance != null) {
-          this.withApplyConfiguration(instance.getApplyConfiguration());
-          this.withJsonPatch(instance.getJsonPatch());
-          this.withPatchType(instance.getPatchType());
-        }
+        this.withApplyConfiguration(instance.getApplyConfiguration());
+        this.withJsonPatch(instance.getJsonPatch());
+        this.withPatchType(instance.getPatchType());
+    }
   }
   
   public V1alpha1ApplyConfiguration buildApplyConfiguration() {
@@ -59,15 +62,15 @@ public class V1alpha1MutationFluent<A extends V1alpha1MutationFluent<A>> extends
   }
   
   public ApplyConfigurationNested<A> editApplyConfiguration() {
-    return withNewApplyConfigurationLike(java.util.Optional.ofNullable(buildApplyConfiguration()).orElse(null));
+    return this.withNewApplyConfigurationLike(Optional.ofNullable(this.buildApplyConfiguration()).orElse(null));
   }
   
   public ApplyConfigurationNested<A> editOrNewApplyConfiguration() {
-    return withNewApplyConfigurationLike(java.util.Optional.ofNullable(buildApplyConfiguration()).orElse(new V1alpha1ApplyConfigurationBuilder().build()));
+    return this.withNewApplyConfigurationLike(Optional.ofNullable(this.buildApplyConfiguration()).orElse(new V1alpha1ApplyConfigurationBuilder().build()));
   }
   
   public ApplyConfigurationNested<A> editOrNewApplyConfigurationLike(V1alpha1ApplyConfiguration item) {
-    return withNewApplyConfigurationLike(java.util.Optional.ofNullable(buildApplyConfiguration()).orElse(item));
+    return this.withNewApplyConfigurationLike(Optional.ofNullable(this.buildApplyConfiguration()).orElse(item));
   }
   
   public V1alpha1JSONPatch buildJsonPatch() {
@@ -99,15 +102,15 @@ public class V1alpha1MutationFluent<A extends V1alpha1MutationFluent<A>> extends
   }
   
   public JsonPatchNested<A> editJsonPatch() {
-    return withNewJsonPatchLike(java.util.Optional.ofNullable(buildJsonPatch()).orElse(null));
+    return this.withNewJsonPatchLike(Optional.ofNullable(this.buildJsonPatch()).orElse(null));
   }
   
   public JsonPatchNested<A> editOrNewJsonPatch() {
-    return withNewJsonPatchLike(java.util.Optional.ofNullable(buildJsonPatch()).orElse(new V1alpha1JSONPatchBuilder().build()));
+    return this.withNewJsonPatchLike(Optional.ofNullable(this.buildJsonPatch()).orElse(new V1alpha1JSONPatchBuilder().build()));
   }
   
   public JsonPatchNested<A> editOrNewJsonPatchLike(V1alpha1JSONPatch item) {
-    return withNewJsonPatchLike(java.util.Optional.ofNullable(buildJsonPatch()).orElse(item));
+    return this.withNewJsonPatchLike(Optional.ofNullable(this.buildJsonPatch()).orElse(item));
   }
   
   public String getPatchType() {
@@ -124,26 +127,49 @@ public class V1alpha1MutationFluent<A extends V1alpha1MutationFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1MutationFluent that = (V1alpha1MutationFluent) o;
-    if (!java.util.Objects.equals(applyConfiguration, that.applyConfiguration)) return false;
-    if (!java.util.Objects.equals(jsonPatch, that.jsonPatch)) return false;
-    if (!java.util.Objects.equals(patchType, that.patchType)) return false;
+    if (!(Objects.equals(applyConfiguration, that.applyConfiguration))) {
+      return false;
+    }
+    if (!(Objects.equals(jsonPatch, that.jsonPatch))) {
+      return false;
+    }
+    if (!(Objects.equals(patchType, that.patchType))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(applyConfiguration,  jsonPatch,  patchType,  super.hashCode());
+    return Objects.hash(applyConfiguration, jsonPatch, patchType);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (applyConfiguration != null) { sb.append("applyConfiguration:"); sb.append(applyConfiguration + ","); }
-    if (jsonPatch != null) { sb.append("jsonPatch:"); sb.append(jsonPatch + ","); }
-    if (patchType != null) { sb.append("patchType:"); sb.append(patchType); }
+    if (!(applyConfiguration == null)) {
+        sb.append("applyConfiguration:");
+        sb.append(applyConfiguration);
+        sb.append(",");
+    }
+    if (!(jsonPatch == null)) {
+        sb.append("jsonPatch:");
+        sb.append(jsonPatch);
+        sb.append(",");
+    }
+    if (!(patchType == null)) {
+        sb.append("patchType:");
+        sb.append(patchType);
+    }
     sb.append("}");
     return sb.toString();
   }

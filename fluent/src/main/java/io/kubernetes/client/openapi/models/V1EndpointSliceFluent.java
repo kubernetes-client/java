@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends BaseFluent<A>{
+public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models.V1EndpointSliceFluent<A>> extends BaseFluent<A>{
   public V1EndpointSliceFluent() {
   }
   
@@ -31,15 +34,15 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   private ArrayList<DiscoveryV1EndpointPortBuilder> ports;
   
   protected void copyInstance(V1EndpointSlice instance) {
-    instance = (instance != null ? instance : new V1EndpointSlice());
+    instance = instance != null ? instance : new V1EndpointSlice();
     if (instance != null) {
-          this.withAddressType(instance.getAddressType());
-          this.withApiVersion(instance.getApiVersion());
-          this.withEndpoints(instance.getEndpoints());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withPorts(instance.getPorts());
-        }
+        this.withAddressType(instance.getAddressType());
+        this.withApiVersion(instance.getApiVersion());
+        this.withEndpoints(instance.getEndpoints());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withPorts(instance.getPorts());
+    }
   }
   
   public String getAddressType() {
@@ -69,7 +72,9 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public A addToEndpoints(int index,V1Endpoint item) {
-    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
+    if (this.endpoints == null) {
+      this.endpoints = new ArrayList();
+    }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
     if (index < 0 || index >= endpoints.size()) {
         _visitables.get("endpoints").add(builder);
@@ -78,11 +83,13 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
         _visitables.get("endpoints").add(builder);
         endpoints.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToEndpoints(int index,V1Endpoint item) {
-    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
+    if (this.endpoints == null) {
+      this.endpoints = new ArrayList();
+    }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
     if (index < 0 || index >= endpoints.size()) {
         _visitables.get("endpoints").add(builder);
@@ -91,41 +98,71 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
         _visitables.get("endpoints").add(builder);
         endpoints.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items) {
-    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
-    for (V1Endpoint item : items) {V1EndpointBuilder builder = new V1EndpointBuilder(item);_visitables.get("endpoints").add(builder);this.endpoints.add(builder);} return (A)this;
+  public A addToEndpoints(V1Endpoint... items) {
+    if (this.endpoints == null) {
+      this.endpoints = new ArrayList();
+    }
+    for (V1Endpoint item : items) {
+        V1EndpointBuilder builder = new V1EndpointBuilder(item);
+        _visitables.get("endpoints").add(builder);
+        this.endpoints.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToEndpoints(Collection<V1Endpoint> items) {
-    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
-    for (V1Endpoint item : items) {V1EndpointBuilder builder = new V1EndpointBuilder(item);_visitables.get("endpoints").add(builder);this.endpoints.add(builder);} return (A)this;
+    if (this.endpoints == null) {
+      this.endpoints = new ArrayList();
+    }
+    for (V1Endpoint item : items) {
+        V1EndpointBuilder builder = new V1EndpointBuilder(item);
+        _visitables.get("endpoints").add(builder);
+        this.endpoints.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items) {
-    if (this.endpoints == null) return (A)this;
-    for (V1Endpoint item : items) {V1EndpointBuilder builder = new V1EndpointBuilder(item);_visitables.get("endpoints").remove(builder); this.endpoints.remove(builder);} return (A)this;
+  public A removeFromEndpoints(V1Endpoint... items) {
+    if (this.endpoints == null) {
+      return (A) this;
+    }
+    for (V1Endpoint item : items) {
+        V1EndpointBuilder builder = new V1EndpointBuilder(item);
+        _visitables.get("endpoints").remove(builder);
+        this.endpoints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromEndpoints(Collection<V1Endpoint> items) {
-    if (this.endpoints == null) return (A)this;
-    for (V1Endpoint item : items) {V1EndpointBuilder builder = new V1EndpointBuilder(item);_visitables.get("endpoints").remove(builder); this.endpoints.remove(builder);} return (A)this;
+    if (this.endpoints == null) {
+      return (A) this;
+    }
+    for (V1Endpoint item : items) {
+        V1EndpointBuilder builder = new V1EndpointBuilder(item);
+        _visitables.get("endpoints").remove(builder);
+        this.endpoints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromEndpoints(Predicate<V1EndpointBuilder> predicate) {
-    if (endpoints == null) return (A) this;
-    final Iterator<V1EndpointBuilder> each = endpoints.iterator();
-    final List visitables = _visitables.get("endpoints");
-    while (each.hasNext()) {
-      V1EndpointBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (endpoints == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1EndpointBuilder> each = endpoints.iterator();
+    List visitables = _visitables.get("endpoints");
+    while (each.hasNext()) {
+        V1EndpointBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Endpoint> buildEndpoints() {
@@ -177,7 +214,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
     return (A) this;
   }
   
-  public A withEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... endpoints) {
+  public A withEndpoints(V1Endpoint... endpoints) {
     if (this.endpoints != null) {
         this.endpoints.clear();
         _visitables.remove("endpoints");
@@ -191,7 +228,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public boolean hasEndpoints() {
-    return this.endpoints != null && !this.endpoints.isEmpty();
+    return this.endpoints != null && !(this.endpoints.isEmpty());
   }
   
   public EndpointsNested<A> addNewEndpoint() {
@@ -207,28 +244,39 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public EndpointsNested<A> editEndpoint(int index) {
-    if (endpoints.size() <= index) throw new RuntimeException("Can't edit endpoints. Index exceeds size.");
-    return setNewEndpointLike(index, buildEndpoint(index));
+    if (index <= endpoints.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "endpoints"));
+    }
+    return this.setNewEndpointLike(index, this.buildEndpoint(index));
   }
   
   public EndpointsNested<A> editFirstEndpoint() {
-    if (endpoints.size() == 0) throw new RuntimeException("Can't edit first endpoints. The list is empty.");
-    return setNewEndpointLike(0, buildEndpoint(0));
+    if (endpoints.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "endpoints"));
+    }
+    return this.setNewEndpointLike(0, this.buildEndpoint(0));
   }
   
   public EndpointsNested<A> editLastEndpoint() {
     int index = endpoints.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last endpoints. The list is empty.");
-    return setNewEndpointLike(index, buildEndpoint(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "endpoints"));
+    }
+    return this.setNewEndpointLike(index, this.buildEndpoint(index));
   }
   
   public EndpointsNested<A> editMatchingEndpoint(Predicate<V1EndpointBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<endpoints.size();i++) { 
-    if (predicate.test(endpoints.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching endpoints. No match found.");
-    return setNewEndpointLike(index, buildEndpoint(index));
+    for (int i = 0;i < endpoints.size();i++) {
+      if (predicate.test(endpoints.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "endpoints"));
+    }
+    return this.setNewEndpointLike(index, this.buildEndpoint(index));
   }
   
   public String getKind() {
@@ -273,19 +321,21 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToPorts(int index,DiscoveryV1EndpointPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -294,11 +344,13 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
         _visitables.get("ports").add(builder);
         ports.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPorts(int index,DiscoveryV1EndpointPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -307,41 +359,71 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
         _visitables.get("ports").add(builder);
         ports.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... items) {
-    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
-    for (DiscoveryV1EndpointPort item : items) {DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+  public A addToPorts(DiscoveryV1EndpointPort... items) {
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (DiscoveryV1EndpointPort item : items) {
+        DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToPorts(Collection<DiscoveryV1EndpointPort> items) {
-    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
-    for (DiscoveryV1EndpointPort item : items) {DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (DiscoveryV1EndpointPort item : items) {
+        DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... items) {
-    if (this.ports == null) return (A)this;
-    for (DiscoveryV1EndpointPort item : items) {DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+  public A removeFromPorts(DiscoveryV1EndpointPort... items) {
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (DiscoveryV1EndpointPort item : items) {
+        DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPorts(Collection<DiscoveryV1EndpointPort> items) {
-    if (this.ports == null) return (A)this;
-    for (DiscoveryV1EndpointPort item : items) {DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (DiscoveryV1EndpointPort item : items) {
+        DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromPorts(Predicate<DiscoveryV1EndpointPortBuilder> predicate) {
-    if (ports == null) return (A) this;
-    final Iterator<DiscoveryV1EndpointPortBuilder> each = ports.iterator();
-    final List visitables = _visitables.get("ports");
-    while (each.hasNext()) {
-      DiscoveryV1EndpointPortBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (ports == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<DiscoveryV1EndpointPortBuilder> each = ports.iterator();
+    List visitables = _visitables.get("ports");
+    while (each.hasNext()) {
+        DiscoveryV1EndpointPortBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<DiscoveryV1EndpointPort> buildPorts() {
@@ -393,7 +475,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
     return (A) this;
   }
   
-  public A withPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... ports) {
+  public A withPorts(DiscoveryV1EndpointPort... ports) {
     if (this.ports != null) {
         this.ports.clear();
         _visitables.remove("ports");
@@ -407,7 +489,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public boolean hasPorts() {
-    return this.ports != null && !this.ports.isEmpty();
+    return this.ports != null && !(this.ports.isEmpty());
   }
   
   public PortsNested<A> addNewPort() {
@@ -423,57 +505,109 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
   }
   
   public PortsNested<A> editPort(int index) {
-    if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
-    return setNewPortLike(index, buildPort(index));
+    if (index <= ports.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
-    return setNewPortLike(0, buildPort(0));
+    if (ports.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(0, this.buildPort(0));
   }
   
   public PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
-    return setNewPortLike(index, buildPort(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editMatchingPort(Predicate<DiscoveryV1EndpointPortBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<ports.size();i++) { 
-    if (predicate.test(ports.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching ports. No match found.");
-    return setNewPortLike(index, buildPort(index));
+    for (int i = 0;i < ports.size();i++) {
+      if (predicate.test(ports.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointSliceFluent that = (V1EndpointSliceFluent) o;
-    if (!java.util.Objects.equals(addressType, that.addressType)) return false;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(endpoints, that.endpoints)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(ports, that.ports)) return false;
+    if (!(Objects.equals(addressType, that.addressType))) {
+      return false;
+    }
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(endpoints, that.endpoints))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(ports, that.ports))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addressType,  apiVersion,  endpoints,  kind,  metadata,  ports,  super.hashCode());
+    return Objects.hash(addressType, apiVersion, endpoints, kind, metadata, ports);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (addressType != null) { sb.append("addressType:"); sb.append(addressType + ","); }
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (endpoints != null && !endpoints.isEmpty()) { sb.append("endpoints:"); sb.append(endpoints + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports); }
+    if (!(addressType == null)) {
+        sb.append("addressType:");
+        sb.append(addressType);
+        sb.append(",");
+    }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(endpoints == null) && !(endpoints.isEmpty())) {
+        sb.append("endpoints:");
+        sb.append(endpoints);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(ports == null) && !(ports.isEmpty())) {
+        sb.append("ports:");
+        sb.append(ports);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -486,7 +620,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1EndpointSliceFluent.this.setToEndpoints(index,builder.build());
+      return (N) V1EndpointSliceFluent.this.setToEndpoints(index, builder.build());
     }
     
     public N endEndpoint() {
@@ -520,7 +654,7 @@ public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1EndpointSliceFluent.this.setToPorts(index,builder.build());
+      return (N) V1EndpointSliceFluent.this.setToPorts(index, builder.build());
     }
     
     public N endPort() {

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluent<V1HTTPIngressPathBuilder> implements VisitableBuilder<V1HTTPIngressPath,V1HTTPIngressPathBuilder>{
   public V1HTTPIngressPathBuilder() {
     this(new V1HTTPIngressPath());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PersistentVolumeClaimTemplateBuilder extends V1PersistentVolumeClaimTemplateFluent<V1PersistentVolumeClaimTemplateBuilder> implements VisitableBuilder<V1PersistentVolumeClaimTemplate,V1PersistentVolumeClaimTemplateBuilder>{
   public V1PersistentVolumeClaimTemplateBuilder() {
     this(new V1PersistentVolumeClaimTemplate());

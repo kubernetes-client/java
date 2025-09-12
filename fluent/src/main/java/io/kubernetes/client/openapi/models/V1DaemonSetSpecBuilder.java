@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluent<V1DaemonSetSpecBuilder> implements VisitableBuilder<V1DaemonSetSpec,V1DaemonSetSpecBuilder>{
   public V1DaemonSetSpecBuilder() {
     this(new V1DaemonSetSpec());

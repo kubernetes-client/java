@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ConfigMapNodeConfigSourceBuilder extends V1ConfigMapNodeConfigSourceFluent<V1ConfigMapNodeConfigSourceBuilder> implements VisitableBuilder<V1ConfigMapNodeConfigSource,V1ConfigMapNodeConfigSourceBuilder>{
   public V1ConfigMapNodeConfigSourceBuilder() {
     this(new V1ConfigMapNodeConfigSource());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1MigrationConditionBuilder extends V1alpha1MigrationConditionFluent<V1alpha1MigrationConditionBuilder> implements VisitableBuilder<V1alpha1MigrationCondition,V1alpha1MigrationConditionBuilder>{
   public V1alpha1MigrationConditionBuilder() {
     this(new V1alpha1MigrationCondition());

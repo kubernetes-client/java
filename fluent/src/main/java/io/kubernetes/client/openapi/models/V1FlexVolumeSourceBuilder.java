@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1FlexVolumeSourceBuilder extends V1FlexVolumeSourceFluent<V1FlexVolumeSourceBuilder> implements VisitableBuilder<V1FlexVolumeSource,V1FlexVolumeSourceBuilder>{
   public V1FlexVolumeSourceBuilder() {
     this(new V1FlexVolumeSource());

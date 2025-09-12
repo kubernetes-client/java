@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import io.kubernetes.client.custom.Quantity;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -19,7 +22,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeClaimStatusFluent<A>> extends BaseFluent<A>{
+public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent<A>> extends BaseFluent<A>{
   public V1PersistentVolumeClaimStatusFluent() {
   }
   
@@ -36,48 +39,73 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   private String phase;
   
   protected void copyInstance(V1PersistentVolumeClaimStatus instance) {
-    instance = (instance != null ? instance : new V1PersistentVolumeClaimStatus());
+    instance = instance != null ? instance : new V1PersistentVolumeClaimStatus();
     if (instance != null) {
-          this.withAccessModes(instance.getAccessModes());
-          this.withAllocatedResourceStatuses(instance.getAllocatedResourceStatuses());
-          this.withAllocatedResources(instance.getAllocatedResources());
-          this.withCapacity(instance.getCapacity());
-          this.withConditions(instance.getConditions());
-          this.withCurrentVolumeAttributesClassName(instance.getCurrentVolumeAttributesClassName());
-          this.withModifyVolumeStatus(instance.getModifyVolumeStatus());
-          this.withPhase(instance.getPhase());
-        }
+        this.withAccessModes(instance.getAccessModes());
+        this.withAllocatedResourceStatuses(instance.getAllocatedResourceStatuses());
+        this.withAllocatedResources(instance.getAllocatedResources());
+        this.withCapacity(instance.getCapacity());
+        this.withConditions(instance.getConditions());
+        this.withCurrentVolumeAttributesClassName(instance.getCurrentVolumeAttributesClassName());
+        this.withModifyVolumeStatus(instance.getModifyVolumeStatus());
+        this.withPhase(instance.getPhase());
+    }
   }
   
   public A addToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
     this.accessModes.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    this.accessModes.set(index, item); return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    this.accessModes.set(index, item);
+    return (A) this;
   }
   
-  public A addToAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+  public A addToAccessModes(String... items) {
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAccessModes(Collection<String> items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+  public A removeFromAccessModes(String... items) {
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAccessModes(Collection<String> items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAccessModes() {
@@ -126,7 +154,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     return (A) this;
   }
   
-  public A withAccessModes(java.lang.String... accessModes) {
+  public A withAccessModes(String... accessModes) {
     if (this.accessModes != null) {
         this.accessModes.clear();
         _visitables.remove("accessModes");
@@ -140,27 +168,51 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public boolean hasAccessModes() {
-    return this.accessModes != null && !this.accessModes.isEmpty();
+    return this.accessModes != null && !(this.accessModes.isEmpty());
   }
   
   public A addToAllocatedResourceStatuses(String key,String value) {
-    if(this.allocatedResourceStatuses == null && key != null && value != null) { this.allocatedResourceStatuses = new LinkedHashMap(); }
-    if(key != null && value != null) {this.allocatedResourceStatuses.put(key, value);} return (A)this;
+    if (this.allocatedResourceStatuses == null && key != null && value != null) {
+      this.allocatedResourceStatuses = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.allocatedResourceStatuses.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToAllocatedResourceStatuses(Map<String,String> map) {
-    if(this.allocatedResourceStatuses == null && map != null) { this.allocatedResourceStatuses = new LinkedHashMap(); }
-    if(map != null) { this.allocatedResourceStatuses.putAll(map);} return (A)this;
+    if (this.allocatedResourceStatuses == null && map != null) {
+      this.allocatedResourceStatuses = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.allocatedResourceStatuses.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResourceStatuses(String key) {
-    if(this.allocatedResourceStatuses == null) { return (A) this; }
-    if(key != null && this.allocatedResourceStatuses != null) {this.allocatedResourceStatuses.remove(key);} return (A)this;
+    if (this.allocatedResourceStatuses == null) {
+      return (A) this;
+    }
+    if (key != null && this.allocatedResourceStatuses != null) {
+      this.allocatedResourceStatuses.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResourceStatuses(Map<String,String> map) {
-    if(this.allocatedResourceStatuses == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.allocatedResourceStatuses != null){this.allocatedResourceStatuses.remove(key);}}} return (A)this;
+    if (this.allocatedResourceStatuses == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.allocatedResourceStatuses != null) {
+          this.allocatedResourceStatuses.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getAllocatedResourceStatuses() {
@@ -181,23 +233,47 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public A addToAllocatedResources(String key,Quantity value) {
-    if(this.allocatedResources == null && key != null && value != null) { this.allocatedResources = new LinkedHashMap(); }
-    if(key != null && value != null) {this.allocatedResources.put(key, value);} return (A)this;
+    if (this.allocatedResources == null && key != null && value != null) {
+      this.allocatedResources = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.allocatedResources.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToAllocatedResources(Map<String,Quantity> map) {
-    if(this.allocatedResources == null && map != null) { this.allocatedResources = new LinkedHashMap(); }
-    if(map != null) { this.allocatedResources.putAll(map);} return (A)this;
+    if (this.allocatedResources == null && map != null) {
+      this.allocatedResources = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.allocatedResources.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResources(String key) {
-    if(this.allocatedResources == null) { return (A) this; }
-    if(key != null && this.allocatedResources != null) {this.allocatedResources.remove(key);} return (A)this;
+    if (this.allocatedResources == null) {
+      return (A) this;
+    }
+    if (key != null && this.allocatedResources != null) {
+      this.allocatedResources.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResources(Map<String,Quantity> map) {
-    if(this.allocatedResources == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.allocatedResources != null){this.allocatedResources.remove(key);}}} return (A)this;
+    if (this.allocatedResources == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.allocatedResources != null) {
+          this.allocatedResources.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getAllocatedResources() {
@@ -218,23 +294,47 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public A addToCapacity(String key,Quantity value) {
-    if(this.capacity == null && key != null && value != null) { this.capacity = new LinkedHashMap(); }
-    if(key != null && value != null) {this.capacity.put(key, value);} return (A)this;
+    if (this.capacity == null && key != null && value != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.capacity.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null && map != null) { this.capacity = new LinkedHashMap(); }
-    if(map != null) { this.capacity.putAll(map);} return (A)this;
+    if (this.capacity == null && map != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.capacity.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(String key) {
-    if(this.capacity == null) { return (A) this; }
-    if(key != null && this.capacity != null) {this.capacity.remove(key);} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (key != null && this.capacity != null) {
+      this.capacity.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.capacity != null){this.capacity.remove(key);}}} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.capacity != null) {
+          this.capacity.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getCapacity() {
@@ -255,7 +355,9 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public A addToConditions(int index,V1PersistentVolumeClaimCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -264,11 +366,13 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1PersistentVolumeClaimCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -277,41 +381,71 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
-    for (V1PersistentVolumeClaimCondition item : items) {V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1PersistentVolumeClaimCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1PersistentVolumeClaimCondition item : items) {
+        V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1PersistentVolumeClaimCondition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
-    for (V1PersistentVolumeClaimCondition item : items) {V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1PersistentVolumeClaimCondition item : items) {
+        V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1PersistentVolumeClaimCondition item : items) {V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1PersistentVolumeClaimCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1PersistentVolumeClaimCondition item : items) {
+        V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1PersistentVolumeClaimCondition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1PersistentVolumeClaimCondition item : items) {V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1PersistentVolumeClaimCondition item : items) {
+        V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1PersistentVolumeClaimConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1PersistentVolumeClaimConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PersistentVolumeClaimConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1PersistentVolumeClaimConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PersistentVolumeClaimCondition> buildConditions() {
@@ -363,7 +497,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... conditions) {
+  public A withConditions(V1PersistentVolumeClaimCondition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -377,7 +511,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -393,28 +527,39 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public String getCurrentVolumeAttributesClassName() {
@@ -459,15 +604,15 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public ModifyVolumeStatusNested<A> editModifyVolumeStatus() {
-    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(null));
+    return this.withNewModifyVolumeStatusLike(Optional.ofNullable(this.buildModifyVolumeStatus()).orElse(null));
   }
   
   public ModifyVolumeStatusNested<A> editOrNewModifyVolumeStatus() {
-    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(new V1ModifyVolumeStatusBuilder().build()));
+    return this.withNewModifyVolumeStatusLike(Optional.ofNullable(this.buildModifyVolumeStatus()).orElse(new V1ModifyVolumeStatusBuilder().build()));
   }
   
   public ModifyVolumeStatusNested<A> editOrNewModifyVolumeStatusLike(V1ModifyVolumeStatus item) {
-    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(item));
+    return this.withNewModifyVolumeStatusLike(Optional.ofNullable(this.buildModifyVolumeStatus()).orElse(item));
   }
   
   public String getPhase() {
@@ -484,36 +629,89 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PersistentVolumeClaimStatusFluent that = (V1PersistentVolumeClaimStatusFluent) o;
-    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
-    if (!java.util.Objects.equals(allocatedResourceStatuses, that.allocatedResourceStatuses)) return false;
-    if (!java.util.Objects.equals(allocatedResources, that.allocatedResources)) return false;
-    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(currentVolumeAttributesClassName, that.currentVolumeAttributesClassName)) return false;
-    if (!java.util.Objects.equals(modifyVolumeStatus, that.modifyVolumeStatus)) return false;
-    if (!java.util.Objects.equals(phase, that.phase)) return false;
+    if (!(Objects.equals(accessModes, that.accessModes))) {
+      return false;
+    }
+    if (!(Objects.equals(allocatedResourceStatuses, that.allocatedResourceStatuses))) {
+      return false;
+    }
+    if (!(Objects.equals(allocatedResources, that.allocatedResources))) {
+      return false;
+    }
+    if (!(Objects.equals(capacity, that.capacity))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(currentVolumeAttributesClassName, that.currentVolumeAttributesClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(modifyVolumeStatus, that.modifyVolumeStatus))) {
+      return false;
+    }
+    if (!(Objects.equals(phase, that.phase))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  allocatedResourceStatuses,  allocatedResources,  capacity,  conditions,  currentVolumeAttributesClassName,  modifyVolumeStatus,  phase,  super.hashCode());
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, modifyVolumeStatus, phase);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (accessModes != null && !accessModes.isEmpty()) { sb.append("accessModes:"); sb.append(accessModes + ","); }
-    if (allocatedResourceStatuses != null && !allocatedResourceStatuses.isEmpty()) { sb.append("allocatedResourceStatuses:"); sb.append(allocatedResourceStatuses + ","); }
-    if (allocatedResources != null && !allocatedResources.isEmpty()) { sb.append("allocatedResources:"); sb.append(allocatedResources + ","); }
-    if (capacity != null && !capacity.isEmpty()) { sb.append("capacity:"); sb.append(capacity + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (currentVolumeAttributesClassName != null) { sb.append("currentVolumeAttributesClassName:"); sb.append(currentVolumeAttributesClassName + ","); }
-    if (modifyVolumeStatus != null) { sb.append("modifyVolumeStatus:"); sb.append(modifyVolumeStatus + ","); }
-    if (phase != null) { sb.append("phase:"); sb.append(phase); }
+    if (!(accessModes == null) && !(accessModes.isEmpty())) {
+        sb.append("accessModes:");
+        sb.append(accessModes);
+        sb.append(",");
+    }
+    if (!(allocatedResourceStatuses == null) && !(allocatedResourceStatuses.isEmpty())) {
+        sb.append("allocatedResourceStatuses:");
+        sb.append(allocatedResourceStatuses);
+        sb.append(",");
+    }
+    if (!(allocatedResources == null) && !(allocatedResources.isEmpty())) {
+        sb.append("allocatedResources:");
+        sb.append(allocatedResources);
+        sb.append(",");
+    }
+    if (!(capacity == null) && !(capacity.isEmpty())) {
+        sb.append("capacity:");
+        sb.append(capacity);
+        sb.append(",");
+    }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(currentVolumeAttributesClassName == null)) {
+        sb.append("currentVolumeAttributesClassName:");
+        sb.append(currentVolumeAttributesClassName);
+        sb.append(",");
+    }
+    if (!(modifyVolumeStatus == null)) {
+        sb.append("modifyVolumeStatus:");
+        sb.append(modifyVolumeStatus);
+        sb.append(",");
+    }
+    if (!(phase == null)) {
+        sb.append("phase:");
+        sb.append(phase);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -526,7 +724,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     int index;
     
     public N and() {
-      return (N) V1PersistentVolumeClaimStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1PersistentVolumeClaimStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {

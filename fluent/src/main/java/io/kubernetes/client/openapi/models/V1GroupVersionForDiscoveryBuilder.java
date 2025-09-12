@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1GroupVersionForDiscoveryBuilder extends V1GroupVersionForDiscoveryFluent<V1GroupVersionForDiscoveryBuilder> implements VisitableBuilder<V1GroupVersionForDiscovery,V1GroupVersionForDiscoveryBuilder>{
   public V1GroupVersionForDiscoveryBuilder() {
     this(new V1GroupVersionForDiscovery());

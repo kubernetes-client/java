@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeRuntimeHandlerBuilder extends V1NodeRuntimeHandlerFluent<V1NodeRuntimeHandlerBuilder> implements VisitableBuilder<V1NodeRuntimeHandler,V1NodeRuntimeHandlerBuilder>{
   public V1NodeRuntimeHandlerBuilder() {
     this(new V1NodeRuntimeHandler());

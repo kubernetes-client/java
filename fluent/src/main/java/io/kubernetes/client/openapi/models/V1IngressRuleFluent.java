@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressRuleFluent<A extends V1IngressRuleFluent<A>> extends BaseFluent<A>{
+public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V1IngressRuleFluent<A>> extends BaseFluent<A>{
   public V1IngressRuleFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1IngressRuleFluent<A extends V1IngressRuleFluent<A>> extends BaseF
   private V1HTTPIngressRuleValueBuilder http;
   
   protected void copyInstance(V1IngressRule instance) {
-    instance = (instance != null ? instance : new V1IngressRule());
+    instance = instance != null ? instance : new V1IngressRule();
     if (instance != null) {
-          this.withHost(instance.getHost());
-          this.withHttp(instance.getHttp());
-        }
+        this.withHost(instance.getHost());
+        this.withHttp(instance.getHttp());
+    }
   }
   
   public String getHost() {
@@ -70,36 +73,53 @@ public class V1IngressRuleFluent<A extends V1IngressRuleFluent<A>> extends BaseF
   }
   
   public HttpNested<A> editHttp() {
-    return withNewHttpLike(java.util.Optional.ofNullable(buildHttp()).orElse(null));
+    return this.withNewHttpLike(Optional.ofNullable(this.buildHttp()).orElse(null));
   }
   
   public HttpNested<A> editOrNewHttp() {
-    return withNewHttpLike(java.util.Optional.ofNullable(buildHttp()).orElse(new V1HTTPIngressRuleValueBuilder().build()));
+    return this.withNewHttpLike(Optional.ofNullable(this.buildHttp()).orElse(new V1HTTPIngressRuleValueBuilder().build()));
   }
   
   public HttpNested<A> editOrNewHttpLike(V1HTTPIngressRuleValue item) {
-    return withNewHttpLike(java.util.Optional.ofNullable(buildHttp()).orElse(item));
+    return this.withNewHttpLike(Optional.ofNullable(this.buildHttp()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressRuleFluent that = (V1IngressRuleFluent) o;
-    if (!java.util.Objects.equals(host, that.host)) return false;
-    if (!java.util.Objects.equals(http, that.http)) return false;
+    if (!(Objects.equals(host, that.host))) {
+      return false;
+    }
+    if (!(Objects.equals(http, that.http))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(host,  http,  super.hashCode());
+    return Objects.hash(host, http);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (host != null) { sb.append("host:"); sb.append(host + ","); }
-    if (http != null) { sb.append("http:"); sb.append(http); }
+    if (!(host == null)) {
+        sb.append("host:");
+        sb.append(host);
+        sb.append(",");
+    }
+    if (!(http == null)) {
+        sb.append("http:");
+        sb.append(http);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1MatchConditionBuilder extends V1beta1MatchConditionFluent<V1beta1MatchConditionBuilder> implements VisitableBuilder<V1beta1MatchCondition,V1beta1MatchConditionBuilder>{
   public V1beta1MatchConditionBuilder() {
     this(new V1beta1MatchCondition());
