@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluent<V1RBDVolumeSourceBuilder> implements VisitableBuilder<V1RBDVolumeSource,V1RBDVolumeSourceBuilder>{
   public V1RBDVolumeSourceBuilder() {
     this(new V1RBDVolumeSource());

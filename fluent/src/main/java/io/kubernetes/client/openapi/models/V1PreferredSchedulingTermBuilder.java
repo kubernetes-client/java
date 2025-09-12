@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PreferredSchedulingTermBuilder extends V1PreferredSchedulingTermFluent<V1PreferredSchedulingTermBuilder> implements VisitableBuilder<V1PreferredSchedulingTerm,V1PreferredSchedulingTermBuilder>{
   public V1PreferredSchedulingTermBuilder() {
     this(new V1PreferredSchedulingTerm());

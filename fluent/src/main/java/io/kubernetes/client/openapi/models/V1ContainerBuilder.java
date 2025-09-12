@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ContainerBuilder extends V1ContainerFluent<V1ContainerBuilder> implements VisitableBuilder<V1Container,V1ContainerBuilder>{
   public V1ContainerBuilder() {
     this(new V1Container());
@@ -37,6 +38,7 @@ public class V1ContainerBuilder extends V1ContainerFluent<V1ContainerBuilder> im
     buildable.setResizePolicy(fluent.buildResizePolicy());
     buildable.setResources(fluent.buildResources());
     buildable.setRestartPolicy(fluent.getRestartPolicy());
+    buildable.setRestartPolicyRules(fluent.buildRestartPolicyRules());
     buildable.setSecurityContext(fluent.buildSecurityContext());
     buildable.setStartupProbe(fluent.buildStartupProbe());
     buildable.setStdin(fluent.getStdin());

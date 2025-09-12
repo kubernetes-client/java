@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1DeviceAllocationResultBuilder extends V1beta1DeviceAllocationResultFluent<V1beta1DeviceAllocationResultBuilder> implements VisitableBuilder<V1beta1DeviceAllocationResult,V1beta1DeviceAllocationResultBuilder>{
   public V1beta1DeviceAllocationResultBuilder() {
     this(new V1beta1DeviceAllocationResult());

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeRuntimeHandlerFluent<A extends V1NodeRuntimeHandlerFluent<A>> extends BaseFluent<A>{
+public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.models.V1NodeRuntimeHandlerFluent<A>> extends BaseFluent<A>{
   public V1NodeRuntimeHandlerFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1NodeRuntimeHandlerFluent<A extends V1NodeRuntimeHandlerFluent<A>>
   private String name;
   
   protected void copyInstance(V1NodeRuntimeHandler instance) {
-    instance = (instance != null ? instance : new V1NodeRuntimeHandler());
+    instance = instance != null ? instance : new V1NodeRuntimeHandler();
     if (instance != null) {
-          this.withFeatures(instance.getFeatures());
-          this.withName(instance.getName());
-        }
+        this.withFeatures(instance.getFeatures());
+        this.withName(instance.getName());
+    }
   }
   
   public V1NodeRuntimeHandlerFeatures buildFeatures() {
@@ -57,15 +60,15 @@ public class V1NodeRuntimeHandlerFluent<A extends V1NodeRuntimeHandlerFluent<A>>
   }
   
   public FeaturesNested<A> editFeatures() {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(null));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(null));
   }
   
   public FeaturesNested<A> editOrNewFeatures() {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(new V1NodeRuntimeHandlerFeaturesBuilder().build()));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(new V1NodeRuntimeHandlerFeaturesBuilder().build()));
   }
   
   public FeaturesNested<A> editOrNewFeaturesLike(V1NodeRuntimeHandlerFeatures item) {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(item));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(item));
   }
   
   public String getName() {
@@ -82,24 +85,41 @@ public class V1NodeRuntimeHandlerFluent<A extends V1NodeRuntimeHandlerFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeRuntimeHandlerFluent that = (V1NodeRuntimeHandlerFluent) o;
-    if (!java.util.Objects.equals(features, that.features)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(features, that.features))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(features,  name,  super.hashCode());
+    return Objects.hash(features, name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (features != null) { sb.append("features:"); sb.append(features + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(features == null)) {
+        sb.append("features:");
+        sb.append(features);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

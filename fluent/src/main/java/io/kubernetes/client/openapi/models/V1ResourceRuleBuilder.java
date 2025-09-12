@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ResourceRuleBuilder extends V1ResourceRuleFluent<V1ResourceRuleBuilder> implements VisitableBuilder<V1ResourceRule,V1ResourceRuleBuilder>{
   public V1ResourceRuleBuilder() {
     this(new V1ResourceRule());

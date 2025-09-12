@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1MutatingWebhookConfigurationListBuilder extends V1MutatingWebhookConfigurationListFluent<V1MutatingWebhookConfigurationListBuilder> implements VisitableBuilder<V1MutatingWebhookConfigurationList,V1MutatingWebhookConfigurationListBuilder>{
   public V1MutatingWebhookConfigurationListBuilder() {
     this(new V1MutatingWebhookConfigurationList());

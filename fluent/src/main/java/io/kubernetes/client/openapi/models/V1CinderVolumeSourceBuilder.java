@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CinderVolumeSourceBuilder extends V1CinderVolumeSourceFluent<V1CinderVolumeSourceBuilder> implements VisitableBuilder<V1CinderVolumeSource,V1CinderVolumeSourceBuilder>{
   public V1CinderVolumeSourceBuilder() {
     this(new V1CinderVolumeSource());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1OpaqueDeviceConfigurationBuilder extends V1beta1OpaqueDeviceConfigurationFluent<V1beta1OpaqueDeviceConfigurationBuilder> implements VisitableBuilder<V1beta1OpaqueDeviceConfiguration,V1beta1OpaqueDeviceConfigurationBuilder>{
   public V1beta1OpaqueDeviceConfigurationBuilder() {
     this(new V1beta1OpaqueDeviceConfiguration());

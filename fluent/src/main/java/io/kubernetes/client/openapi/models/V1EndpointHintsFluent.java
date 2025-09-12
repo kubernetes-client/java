@@ -1,22 +1,24 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends BaseFluent<A>{
+public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models.V1EndpointHintsFluent<A>> extends BaseFluent<A>{
   public V1EndpointHintsFluent() {
   }
   
@@ -27,15 +29,17 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
   private ArrayList<V1ForZoneBuilder> forZones;
   
   protected void copyInstance(V1EndpointHints instance) {
-    instance = (instance != null ? instance : new V1EndpointHints());
+    instance = instance != null ? instance : new V1EndpointHints();
     if (instance != null) {
-          this.withForNodes(instance.getForNodes());
-          this.withForZones(instance.getForZones());
-        }
+        this.withForNodes(instance.getForNodes());
+        this.withForZones(instance.getForZones());
+    }
   }
   
   public A addToForNodes(int index,V1ForNode item) {
-    if (this.forNodes == null) {this.forNodes = new ArrayList<V1ForNodeBuilder>();}
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList();
+    }
     V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
     if (index < 0 || index >= forNodes.size()) {
         _visitables.get("forNodes").add(builder);
@@ -44,11 +48,13 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
         _visitables.get("forNodes").add(builder);
         forNodes.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToForNodes(int index,V1ForNode item) {
-    if (this.forNodes == null) {this.forNodes = new ArrayList<V1ForNodeBuilder>();}
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList();
+    }
     V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
     if (index < 0 || index >= forNodes.size()) {
         _visitables.get("forNodes").add(builder);
@@ -57,41 +63,71 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
         _visitables.get("forNodes").add(builder);
         forNodes.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToForNodes(io.kubernetes.client.openapi.models.V1ForNode... items) {
-    if (this.forNodes == null) {this.forNodes = new ArrayList<V1ForNodeBuilder>();}
-    for (V1ForNode item : items) {V1ForNodeBuilder builder = new V1ForNodeBuilder(item);_visitables.get("forNodes").add(builder);this.forNodes.add(builder);} return (A)this;
+  public A addToForNodes(V1ForNode... items) {
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList();
+    }
+    for (V1ForNode item : items) {
+        V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
+        _visitables.get("forNodes").add(builder);
+        this.forNodes.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToForNodes(Collection<V1ForNode> items) {
-    if (this.forNodes == null) {this.forNodes = new ArrayList<V1ForNodeBuilder>();}
-    for (V1ForNode item : items) {V1ForNodeBuilder builder = new V1ForNodeBuilder(item);_visitables.get("forNodes").add(builder);this.forNodes.add(builder);} return (A)this;
+    if (this.forNodes == null) {
+      this.forNodes = new ArrayList();
+    }
+    for (V1ForNode item : items) {
+        V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
+        _visitables.get("forNodes").add(builder);
+        this.forNodes.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromForNodes(io.kubernetes.client.openapi.models.V1ForNode... items) {
-    if (this.forNodes == null) return (A)this;
-    for (V1ForNode item : items) {V1ForNodeBuilder builder = new V1ForNodeBuilder(item);_visitables.get("forNodes").remove(builder); this.forNodes.remove(builder);} return (A)this;
+  public A removeFromForNodes(V1ForNode... items) {
+    if (this.forNodes == null) {
+      return (A) this;
+    }
+    for (V1ForNode item : items) {
+        V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
+        _visitables.get("forNodes").remove(builder);
+        this.forNodes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromForNodes(Collection<V1ForNode> items) {
-    if (this.forNodes == null) return (A)this;
-    for (V1ForNode item : items) {V1ForNodeBuilder builder = new V1ForNodeBuilder(item);_visitables.get("forNodes").remove(builder); this.forNodes.remove(builder);} return (A)this;
+    if (this.forNodes == null) {
+      return (A) this;
+    }
+    for (V1ForNode item : items) {
+        V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
+        _visitables.get("forNodes").remove(builder);
+        this.forNodes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromForNodes(Predicate<V1ForNodeBuilder> predicate) {
-    if (forNodes == null) return (A) this;
-    final Iterator<V1ForNodeBuilder> each = forNodes.iterator();
-    final List visitables = _visitables.get("forNodes");
-    while (each.hasNext()) {
-      V1ForNodeBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (forNodes == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ForNodeBuilder> each = forNodes.iterator();
+    List visitables = _visitables.get("forNodes");
+    while (each.hasNext()) {
+        V1ForNodeBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ForNode> buildForNodes() {
@@ -143,7 +179,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
     return (A) this;
   }
   
-  public A withForNodes(io.kubernetes.client.openapi.models.V1ForNode... forNodes) {
+  public A withForNodes(V1ForNode... forNodes) {
     if (this.forNodes != null) {
         this.forNodes.clear();
         _visitables.remove("forNodes");
@@ -157,7 +193,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
   }
   
   public boolean hasForNodes() {
-    return this.forNodes != null && !this.forNodes.isEmpty();
+    return this.forNodes != null && !(this.forNodes.isEmpty());
   }
   
   public ForNodesNested<A> addNewForNode() {
@@ -173,32 +209,45 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
   }
   
   public ForNodesNested<A> editForNode(int index) {
-    if (forNodes.size() <= index) throw new RuntimeException("Can't edit forNodes. Index exceeds size.");
-    return setNewForNodeLike(index, buildForNode(index));
+    if (index <= forNodes.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "forNodes"));
+    }
+    return this.setNewForNodeLike(index, this.buildForNode(index));
   }
   
   public ForNodesNested<A> editFirstForNode() {
-    if (forNodes.size() == 0) throw new RuntimeException("Can't edit first forNodes. The list is empty.");
-    return setNewForNodeLike(0, buildForNode(0));
+    if (forNodes.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "forNodes"));
+    }
+    return this.setNewForNodeLike(0, this.buildForNode(0));
   }
   
   public ForNodesNested<A> editLastForNode() {
     int index = forNodes.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last forNodes. The list is empty.");
-    return setNewForNodeLike(index, buildForNode(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "forNodes"));
+    }
+    return this.setNewForNodeLike(index, this.buildForNode(index));
   }
   
   public ForNodesNested<A> editMatchingForNode(Predicate<V1ForNodeBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<forNodes.size();i++) { 
-    if (predicate.test(forNodes.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching forNodes. No match found.");
-    return setNewForNodeLike(index, buildForNode(index));
+    for (int i = 0;i < forNodes.size();i++) {
+      if (predicate.test(forNodes.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "forNodes"));
+    }
+    return this.setNewForNodeLike(index, this.buildForNode(index));
   }
   
   public A addToForZones(int index,V1ForZone item) {
-    if (this.forZones == null) {this.forZones = new ArrayList<V1ForZoneBuilder>();}
+    if (this.forZones == null) {
+      this.forZones = new ArrayList();
+    }
     V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
     if (index < 0 || index >= forZones.size()) {
         _visitables.get("forZones").add(builder);
@@ -207,11 +256,13 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
         _visitables.get("forZones").add(builder);
         forZones.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToForZones(int index,V1ForZone item) {
-    if (this.forZones == null) {this.forZones = new ArrayList<V1ForZoneBuilder>();}
+    if (this.forZones == null) {
+      this.forZones = new ArrayList();
+    }
     V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
     if (index < 0 || index >= forZones.size()) {
         _visitables.get("forZones").add(builder);
@@ -220,41 +271,71 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
         _visitables.get("forZones").add(builder);
         forZones.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToForZones(io.kubernetes.client.openapi.models.V1ForZone... items) {
-    if (this.forZones == null) {this.forZones = new ArrayList<V1ForZoneBuilder>();}
-    for (V1ForZone item : items) {V1ForZoneBuilder builder = new V1ForZoneBuilder(item);_visitables.get("forZones").add(builder);this.forZones.add(builder);} return (A)this;
+  public A addToForZones(V1ForZone... items) {
+    if (this.forZones == null) {
+      this.forZones = new ArrayList();
+    }
+    for (V1ForZone item : items) {
+        V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
+        _visitables.get("forZones").add(builder);
+        this.forZones.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToForZones(Collection<V1ForZone> items) {
-    if (this.forZones == null) {this.forZones = new ArrayList<V1ForZoneBuilder>();}
-    for (V1ForZone item : items) {V1ForZoneBuilder builder = new V1ForZoneBuilder(item);_visitables.get("forZones").add(builder);this.forZones.add(builder);} return (A)this;
+    if (this.forZones == null) {
+      this.forZones = new ArrayList();
+    }
+    for (V1ForZone item : items) {
+        V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
+        _visitables.get("forZones").add(builder);
+        this.forZones.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromForZones(io.kubernetes.client.openapi.models.V1ForZone... items) {
-    if (this.forZones == null) return (A)this;
-    for (V1ForZone item : items) {V1ForZoneBuilder builder = new V1ForZoneBuilder(item);_visitables.get("forZones").remove(builder); this.forZones.remove(builder);} return (A)this;
+  public A removeFromForZones(V1ForZone... items) {
+    if (this.forZones == null) {
+      return (A) this;
+    }
+    for (V1ForZone item : items) {
+        V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
+        _visitables.get("forZones").remove(builder);
+        this.forZones.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromForZones(Collection<V1ForZone> items) {
-    if (this.forZones == null) return (A)this;
-    for (V1ForZone item : items) {V1ForZoneBuilder builder = new V1ForZoneBuilder(item);_visitables.get("forZones").remove(builder); this.forZones.remove(builder);} return (A)this;
+    if (this.forZones == null) {
+      return (A) this;
+    }
+    for (V1ForZone item : items) {
+        V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
+        _visitables.get("forZones").remove(builder);
+        this.forZones.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromForZones(Predicate<V1ForZoneBuilder> predicate) {
-    if (forZones == null) return (A) this;
-    final Iterator<V1ForZoneBuilder> each = forZones.iterator();
-    final List visitables = _visitables.get("forZones");
-    while (each.hasNext()) {
-      V1ForZoneBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (forZones == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ForZoneBuilder> each = forZones.iterator();
+    List visitables = _visitables.get("forZones");
+    while (each.hasNext()) {
+        V1ForZoneBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ForZone> buildForZones() {
@@ -306,7 +387,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
     return (A) this;
   }
   
-  public A withForZones(io.kubernetes.client.openapi.models.V1ForZone... forZones) {
+  public A withForZones(V1ForZone... forZones) {
     if (this.forZones != null) {
         this.forZones.clear();
         _visitables.remove("forZones");
@@ -320,7 +401,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
   }
   
   public boolean hasForZones() {
-    return this.forZones != null && !this.forZones.isEmpty();
+    return this.forZones != null && !(this.forZones.isEmpty());
   }
   
   public ForZonesNested<A> addNewForZone() {
@@ -336,49 +417,77 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
   }
   
   public ForZonesNested<A> editForZone(int index) {
-    if (forZones.size() <= index) throw new RuntimeException("Can't edit forZones. Index exceeds size.");
-    return setNewForZoneLike(index, buildForZone(index));
+    if (index <= forZones.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "forZones"));
+    }
+    return this.setNewForZoneLike(index, this.buildForZone(index));
   }
   
   public ForZonesNested<A> editFirstForZone() {
-    if (forZones.size() == 0) throw new RuntimeException("Can't edit first forZones. The list is empty.");
-    return setNewForZoneLike(0, buildForZone(0));
+    if (forZones.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "forZones"));
+    }
+    return this.setNewForZoneLike(0, this.buildForZone(0));
   }
   
   public ForZonesNested<A> editLastForZone() {
     int index = forZones.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last forZones. The list is empty.");
-    return setNewForZoneLike(index, buildForZone(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "forZones"));
+    }
+    return this.setNewForZoneLike(index, this.buildForZone(index));
   }
   
   public ForZonesNested<A> editMatchingForZone(Predicate<V1ForZoneBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<forZones.size();i++) { 
-    if (predicate.test(forZones.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching forZones. No match found.");
-    return setNewForZoneLike(index, buildForZone(index));
+    for (int i = 0;i < forZones.size();i++) {
+      if (predicate.test(forZones.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "forZones"));
+    }
+    return this.setNewForZoneLike(index, this.buildForZone(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointHintsFluent that = (V1EndpointHintsFluent) o;
-    if (!java.util.Objects.equals(forNodes, that.forNodes)) return false;
-    if (!java.util.Objects.equals(forZones, that.forZones)) return false;
+    if (!(Objects.equals(forNodes, that.forNodes))) {
+      return false;
+    }
+    if (!(Objects.equals(forZones, that.forZones))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(forNodes,  forZones,  super.hashCode());
+    return Objects.hash(forNodes, forZones);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (forNodes != null && !forNodes.isEmpty()) { sb.append("forNodes:"); sb.append(forNodes + ","); }
-    if (forZones != null && !forZones.isEmpty()) { sb.append("forZones:"); sb.append(forZones); }
+    if (!(forNodes == null) && !(forNodes.isEmpty())) {
+        sb.append("forNodes:");
+        sb.append(forNodes);
+        sb.append(",");
+    }
+    if (!(forZones == null) && !(forZones.isEmpty())) {
+        sb.append("forZones:");
+        sb.append(forZones);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +500,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1EndpointHintsFluent.this.setToForNodes(index,builder.build());
+      return (N) V1EndpointHintsFluent.this.setToForNodes(index, builder.build());
     }
     
     public N endForNode() {
@@ -409,7 +518,7 @@ public class V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1EndpointHintsFluent.this.setToForZones(index,builder.build());
+      return (N) V1EndpointHintsFluent.this.setToForZones(index, builder.build());
     }
     
     public N endForZone() {

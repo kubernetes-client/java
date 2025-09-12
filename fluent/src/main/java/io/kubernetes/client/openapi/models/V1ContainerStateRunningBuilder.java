@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ContainerStateRunningBuilder extends V1ContainerStateRunningFluent<V1ContainerStateRunningBuilder> implements VisitableBuilder<V1ContainerStateRunning,V1ContainerStateRunningBuilder>{
   public V1ContainerStateRunningBuilder() {
     this(new V1ContainerStateRunning());

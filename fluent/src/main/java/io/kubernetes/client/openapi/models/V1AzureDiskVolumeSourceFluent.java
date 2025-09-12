@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1AzureDiskVolumeSourceFluent<A extends V1AzureDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1AzureDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1AzureDiskVolumeSourceFluent() {
   }
   
@@ -25,15 +27,15 @@ public class V1AzureDiskVolumeSourceFluent<A extends V1AzureDiskVolumeSourceFlue
   private Boolean readOnly;
   
   protected void copyInstance(V1AzureDiskVolumeSource instance) {
-    instance = (instance != null ? instance : new V1AzureDiskVolumeSource());
+    instance = instance != null ? instance : new V1AzureDiskVolumeSource();
     if (instance != null) {
-          this.withCachingMode(instance.getCachingMode());
-          this.withDiskName(instance.getDiskName());
-          this.withDiskURI(instance.getDiskURI());
-          this.withFsType(instance.getFsType());
-          this.withKind(instance.getKind());
-          this.withReadOnly(instance.getReadOnly());
-        }
+        this.withCachingMode(instance.getCachingMode());
+        this.withDiskName(instance.getDiskName());
+        this.withDiskURI(instance.getDiskURI());
+        this.withFsType(instance.getFsType());
+        this.withKind(instance.getKind());
+        this.withReadOnly(instance.getReadOnly());
+    }
   }
   
   public String getCachingMode() {
@@ -115,32 +117,73 @@ public class V1AzureDiskVolumeSourceFluent<A extends V1AzureDiskVolumeSourceFlue
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1AzureDiskVolumeSourceFluent that = (V1AzureDiskVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(cachingMode, that.cachingMode)) return false;
-    if (!java.util.Objects.equals(diskName, that.diskName)) return false;
-    if (!java.util.Objects.equals(diskURI, that.diskURI)) return false;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+    if (!(Objects.equals(cachingMode, that.cachingMode))) {
+      return false;
+    }
+    if (!(Objects.equals(diskName, that.diskName))) {
+      return false;
+    }
+    if (!(Objects.equals(diskURI, that.diskURI))) {
+      return false;
+    }
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(cachingMode,  diskName,  diskURI,  fsType,  kind,  readOnly,  super.hashCode());
+    return Objects.hash(cachingMode, diskName, diskURI, fsType, kind, readOnly);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (cachingMode != null) { sb.append("cachingMode:"); sb.append(cachingMode + ","); }
-    if (diskName != null) { sb.append("diskName:"); sb.append(diskName + ","); }
-    if (diskURI != null) { sb.append("diskURI:"); sb.append(diskURI + ","); }
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly); }
+    if (!(cachingMode == null)) {
+        sb.append("cachingMode:");
+        sb.append(cachingMode);
+        sb.append(",");
+    }
+    if (!(diskName == null)) {
+        sb.append("diskName:");
+        sb.append(diskName);
+        sb.append(",");
+    }
+    if (!(diskURI == null)) {
+        sb.append("diskURI:");
+        sb.append(diskURI);
+        sb.append(",");
+    }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+    }
     sb.append("}");
     return sb.toString();
   }

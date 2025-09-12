@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -11,7 +13,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1DeviceAttributeFluent<A extends V1beta1DeviceAttributeFluent<A>> extends BaseFluent<A>{
+public class V1beta1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceAttributeFluent<A>> extends BaseFluent<A>{
   public V1beta1DeviceAttributeFluent() {
   }
   
@@ -24,13 +26,13 @@ public class V1beta1DeviceAttributeFluent<A extends V1beta1DeviceAttributeFluent
   private String version;
   
   protected void copyInstance(V1beta1DeviceAttribute instance) {
-    instance = (instance != null ? instance : new V1beta1DeviceAttribute());
+    instance = instance != null ? instance : new V1beta1DeviceAttribute();
     if (instance != null) {
-          this.withBool(instance.getBool());
-          this.withInt(instance.getInt());
-          this.withString(instance.getString());
-          this.withVersion(instance.getVersion());
-        }
+        this.withBool(instance.getBool());
+        this.withInt(instance.getInt());
+        this.withString(instance.getString());
+        this.withVersion(instance.getVersion());
+    }
   }
   
   public Boolean getBool() {
@@ -86,28 +88,57 @@ public class V1beta1DeviceAttributeFluent<A extends V1beta1DeviceAttributeFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1DeviceAttributeFluent that = (V1beta1DeviceAttributeFluent) o;
-    if (!java.util.Objects.equals(bool, that.bool)) return false;
-    if (!java.util.Objects.equals(_int, that._int)) return false;
-    if (!java.util.Objects.equals(string, that.string)) return false;
-    if (!java.util.Objects.equals(version, that.version)) return false;
+    if (!(Objects.equals(bool, that.bool))) {
+      return false;
+    }
+    if (!(Objects.equals(_int, that._int))) {
+      return false;
+    }
+    if (!(Objects.equals(string, that.string))) {
+      return false;
+    }
+    if (!(Objects.equals(version, that.version))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(bool,  _int,  string,  version,  super.hashCode());
+    return Objects.hash(bool, _int, string, version);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (bool != null) { sb.append("bool:"); sb.append(bool + ","); }
-    if (_int != null) { sb.append("_int:"); sb.append(_int + ","); }
-    if (string != null) { sb.append("string:"); sb.append(string + ","); }
-    if (version != null) { sb.append("version:"); sb.append(version); }
+    if (!(bool == null)) {
+        sb.append("bool:");
+        sb.append(bool);
+        sb.append(",");
+    }
+    if (!(_int == null)) {
+        sb.append("_int:");
+        sb.append(_int);
+        sb.append(",");
+    }
+    if (!(string == null)) {
+        sb.append("string:");
+        sb.append(string);
+        sb.append(",");
+    }
+    if (!(version == null)) {
+        sb.append("version:");
+        sb.append(version);
+    }
     sb.append("}");
     return sb.toString();
   }

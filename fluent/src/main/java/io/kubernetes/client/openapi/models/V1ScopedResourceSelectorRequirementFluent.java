@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourceSelectorRequirementFluent<A>> extends BaseFluent<A>{
+public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<A>> extends BaseFluent<A>{
   public V1ScopedResourceSelectorRequirementFluent() {
   }
   
@@ -25,12 +27,12 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourc
   private List<String> values;
   
   protected void copyInstance(V1ScopedResourceSelectorRequirement instance) {
-    instance = (instance != null ? instance : new V1ScopedResourceSelectorRequirement());
+    instance = instance != null ? instance : new V1ScopedResourceSelectorRequirement();
     if (instance != null) {
-          this.withOperator(instance.getOperator());
-          this.withScopeName(instance.getScopeName());
-          this.withValues(instance.getValues());
-        }
+        this.withOperator(instance.getOperator());
+        this.withScopeName(instance.getScopeName());
+        this.withValues(instance.getValues());
+    }
   }
   
   public String getOperator() {
@@ -60,34 +62,59 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourc
   }
   
   public A addToValues(int index,String item) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
     this.values.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToValues(int index,String item) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    this.values.set(index, item); return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    this.values.set(index, item);
+    return (A) this;
   }
   
-  public A addToValues(java.lang.String... items) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    for (String item : items) {this.values.add(item);} return (A)this;
+  public A addToValues(String... items) {
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (String item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToValues(Collection<String> items) {
-    if (this.values == null) {this.values = new ArrayList<String>();}
-    for (String item : items) {this.values.add(item);} return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (String item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromValues(java.lang.String... items) {
-    if (this.values == null) return (A)this;
-    for (String item : items) { this.values.remove(item);} return (A)this;
+  public A removeFromValues(String... items) {
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromValues(Collection<String> items) {
-    if (this.values == null) return (A)this;
-    for (String item : items) { this.values.remove(item);} return (A)this;
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getValues() {
@@ -136,7 +163,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourc
     return (A) this;
   }
   
-  public A withValues(java.lang.String... values) {
+  public A withValues(String... values) {
     if (this.values != null) {
         this.values.clear();
         _visitables.remove("values");
@@ -150,30 +177,53 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourc
   }
   
   public boolean hasValues() {
-    return this.values != null && !this.values.isEmpty();
+    return this.values != null && !(this.values.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ScopedResourceSelectorRequirementFluent that = (V1ScopedResourceSelectorRequirementFluent) o;
-    if (!java.util.Objects.equals(operator, that.operator)) return false;
-    if (!java.util.Objects.equals(scopeName, that.scopeName)) return false;
-    if (!java.util.Objects.equals(values, that.values)) return false;
+    if (!(Objects.equals(operator, that.operator))) {
+      return false;
+    }
+    if (!(Objects.equals(scopeName, that.scopeName))) {
+      return false;
+    }
+    if (!(Objects.equals(values, that.values))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(operator,  scopeName,  values,  super.hashCode());
+    return Objects.hash(operator, scopeName, values);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (operator != null) { sb.append("operator:"); sb.append(operator + ","); }
-    if (scopeName != null) { sb.append("scopeName:"); sb.append(scopeName + ","); }
-    if (values != null && !values.isEmpty()) { sb.append("values:"); sb.append(values); }
+    if (!(operator == null)) {
+        sb.append("operator:");
+        sb.append(operator);
+        sb.append(",");
+    }
+    if (!(scopeName == null)) {
+        sb.append("scopeName:");
+        sb.append(scopeName);
+        sb.append(",");
+    }
+    if (!(values == null) && !(values.isEmpty())) {
+        sb.append("values:");
+        sb.append(values);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,13 +1,15 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends BaseFluent<A>{
+public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.V1TypeCheckingFluent<A>> extends BaseFluent<A>{
   public V1TypeCheckingFluent() {
   }
   
@@ -26,14 +28,16 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
   private ArrayList<V1ExpressionWarningBuilder> expressionWarnings;
   
   protected void copyInstance(V1TypeChecking instance) {
-    instance = (instance != null ? instance : new V1TypeChecking());
+    instance = instance != null ? instance : new V1TypeChecking();
     if (instance != null) {
-          this.withExpressionWarnings(instance.getExpressionWarnings());
-        }
+      this.withExpressionWarnings(instance.getExpressionWarnings());
+    }
   }
   
   public A addToExpressionWarnings(int index,V1ExpressionWarning item) {
-    if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
+    if (this.expressionWarnings == null) {
+      this.expressionWarnings = new ArrayList();
+    }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
     if (index < 0 || index >= expressionWarnings.size()) {
         _visitables.get("expressionWarnings").add(builder);
@@ -42,11 +46,13 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
         _visitables.get("expressionWarnings").add(builder);
         expressionWarnings.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToExpressionWarnings(int index,V1ExpressionWarning item) {
-    if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
+    if (this.expressionWarnings == null) {
+      this.expressionWarnings = new ArrayList();
+    }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
     if (index < 0 || index >= expressionWarnings.size()) {
         _visitables.get("expressionWarnings").add(builder);
@@ -55,41 +61,71 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
         _visitables.get("expressionWarnings").add(builder);
         expressionWarnings.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToExpressionWarnings(io.kubernetes.client.openapi.models.V1ExpressionWarning... items) {
-    if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
-    for (V1ExpressionWarning item : items) {V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);_visitables.get("expressionWarnings").add(builder);this.expressionWarnings.add(builder);} return (A)this;
+  public A addToExpressionWarnings(V1ExpressionWarning... items) {
+    if (this.expressionWarnings == null) {
+      this.expressionWarnings = new ArrayList();
+    }
+    for (V1ExpressionWarning item : items) {
+        V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
+        _visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToExpressionWarnings(Collection<V1ExpressionWarning> items) {
-    if (this.expressionWarnings == null) {this.expressionWarnings = new ArrayList<V1ExpressionWarningBuilder>();}
-    for (V1ExpressionWarning item : items) {V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);_visitables.get("expressionWarnings").add(builder);this.expressionWarnings.add(builder);} return (A)this;
+    if (this.expressionWarnings == null) {
+      this.expressionWarnings = new ArrayList();
+    }
+    for (V1ExpressionWarning item : items) {
+        V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
+        _visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromExpressionWarnings(io.kubernetes.client.openapi.models.V1ExpressionWarning... items) {
-    if (this.expressionWarnings == null) return (A)this;
-    for (V1ExpressionWarning item : items) {V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);_visitables.get("expressionWarnings").remove(builder); this.expressionWarnings.remove(builder);} return (A)this;
+  public A removeFromExpressionWarnings(V1ExpressionWarning... items) {
+    if (this.expressionWarnings == null) {
+      return (A) this;
+    }
+    for (V1ExpressionWarning item : items) {
+        V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
+        _visitables.get("expressionWarnings").remove(builder);
+        this.expressionWarnings.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromExpressionWarnings(Collection<V1ExpressionWarning> items) {
-    if (this.expressionWarnings == null) return (A)this;
-    for (V1ExpressionWarning item : items) {V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);_visitables.get("expressionWarnings").remove(builder); this.expressionWarnings.remove(builder);} return (A)this;
+    if (this.expressionWarnings == null) {
+      return (A) this;
+    }
+    for (V1ExpressionWarning item : items) {
+        V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
+        _visitables.get("expressionWarnings").remove(builder);
+        this.expressionWarnings.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromExpressionWarnings(Predicate<V1ExpressionWarningBuilder> predicate) {
-    if (expressionWarnings == null) return (A) this;
-    final Iterator<V1ExpressionWarningBuilder> each = expressionWarnings.iterator();
-    final List visitables = _visitables.get("expressionWarnings");
-    while (each.hasNext()) {
-      V1ExpressionWarningBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (expressionWarnings == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ExpressionWarningBuilder> each = expressionWarnings.iterator();
+    List visitables = _visitables.get("expressionWarnings");
+    while (each.hasNext()) {
+        V1ExpressionWarningBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ExpressionWarning> buildExpressionWarnings() {
@@ -141,7 +177,7 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withExpressionWarnings(io.kubernetes.client.openapi.models.V1ExpressionWarning... expressionWarnings) {
+  public A withExpressionWarnings(V1ExpressionWarning... expressionWarnings) {
     if (this.expressionWarnings != null) {
         this.expressionWarnings.clear();
         _visitables.remove("expressionWarnings");
@@ -155,7 +191,7 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
   }
   
   public boolean hasExpressionWarnings() {
-    return this.expressionWarnings != null && !this.expressionWarnings.isEmpty();
+    return this.expressionWarnings != null && !(this.expressionWarnings.isEmpty());
   }
   
   public ExpressionWarningsNested<A> addNewExpressionWarning() {
@@ -171,47 +207,69 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
   }
   
   public ExpressionWarningsNested<A> editExpressionWarning(int index) {
-    if (expressionWarnings.size() <= index) throw new RuntimeException("Can't edit expressionWarnings. Index exceeds size.");
-    return setNewExpressionWarningLike(index, buildExpressionWarning(index));
+    if (index <= expressionWarnings.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "expressionWarnings"));
+    }
+    return this.setNewExpressionWarningLike(index, this.buildExpressionWarning(index));
   }
   
   public ExpressionWarningsNested<A> editFirstExpressionWarning() {
-    if (expressionWarnings.size() == 0) throw new RuntimeException("Can't edit first expressionWarnings. The list is empty.");
-    return setNewExpressionWarningLike(0, buildExpressionWarning(0));
+    if (expressionWarnings.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "expressionWarnings"));
+    }
+    return this.setNewExpressionWarningLike(0, this.buildExpressionWarning(0));
   }
   
   public ExpressionWarningsNested<A> editLastExpressionWarning() {
     int index = expressionWarnings.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last expressionWarnings. The list is empty.");
-    return setNewExpressionWarningLike(index, buildExpressionWarning(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "expressionWarnings"));
+    }
+    return this.setNewExpressionWarningLike(index, this.buildExpressionWarning(index));
   }
   
   public ExpressionWarningsNested<A> editMatchingExpressionWarning(Predicate<V1ExpressionWarningBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<expressionWarnings.size();i++) { 
-    if (predicate.test(expressionWarnings.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching expressionWarnings. No match found.");
-    return setNewExpressionWarningLike(index, buildExpressionWarning(index));
+    for (int i = 0;i < expressionWarnings.size();i++) {
+      if (predicate.test(expressionWarnings.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "expressionWarnings"));
+    }
+    return this.setNewExpressionWarningLike(index, this.buildExpressionWarning(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TypeCheckingFluent that = (V1TypeCheckingFluent) o;
-    if (!java.util.Objects.equals(expressionWarnings, that.expressionWarnings)) return false;
+    if (!(Objects.equals(expressionWarnings, that.expressionWarnings))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expressionWarnings,  super.hashCode());
+    return Objects.hash(expressionWarnings);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expressionWarnings != null && !expressionWarnings.isEmpty()) { sb.append("expressionWarnings:"); sb.append(expressionWarnings); }
+    if (!(expressionWarnings == null) && !(expressionWarnings.isEmpty())) {
+        sb.append("expressionWarnings:");
+        sb.append(expressionWarnings);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -224,7 +282,7 @@ public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends Bas
     int index;
     
     public N and() {
-      return (N) V1TypeCheckingFluent.this.setToExpressionWarnings(index,builder.build());
+      return (N) V1TypeCheckingFluent.this.setToExpressionWarnings(index, builder.build());
     }
     
     public N endExpressionWarning() {

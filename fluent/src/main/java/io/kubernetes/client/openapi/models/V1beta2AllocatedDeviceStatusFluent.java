@@ -1,22 +1,25 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDeviceStatusFluent<A>> extends BaseFluent<A>{
+public class V1beta2AllocatedDeviceStatusFluent<A extends io.kubernetes.client.openapi.models.V1beta2AllocatedDeviceStatusFluent<A>> extends BaseFluent<A>{
   public V1beta2AllocatedDeviceStatusFluent() {
   }
   
@@ -29,21 +32,25 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
   private String driver;
   private V1beta2NetworkDeviceDataBuilder networkData;
   private String pool;
+  private String shareID;
   
   protected void copyInstance(V1beta2AllocatedDeviceStatus instance) {
-    instance = (instance != null ? instance : new V1beta2AllocatedDeviceStatus());
+    instance = instance != null ? instance : new V1beta2AllocatedDeviceStatus();
     if (instance != null) {
-          this.withConditions(instance.getConditions());
-          this.withData(instance.getData());
-          this.withDevice(instance.getDevice());
-          this.withDriver(instance.getDriver());
-          this.withNetworkData(instance.getNetworkData());
-          this.withPool(instance.getPool());
-        }
+        this.withConditions(instance.getConditions());
+        this.withData(instance.getData());
+        this.withDevice(instance.getDevice());
+        this.withDriver(instance.getDriver());
+        this.withNetworkData(instance.getNetworkData());
+        this.withPool(instance.getPool());
+        this.withShareID(instance.getShareID());
+    }
   }
   
   public A addToConditions(int index,V1Condition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -52,11 +59,13 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1Condition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -65,41 +74,71 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
-    for (V1Condition item : items) {V1ConditionBuilder builder = new V1ConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1Condition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1Condition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
-    for (V1Condition item : items) {V1ConditionBuilder builder = new V1ConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1Condition item : items) {V1ConditionBuilder builder = new V1ConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1Condition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1Condition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1Condition item : items) {V1ConditionBuilder builder = new V1ConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1ConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1ConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1ConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Condition> buildConditions() {
@@ -151,7 +190,7 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1Condition... conditions) {
+  public A withConditions(V1Condition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -165,7 +204,7 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -181,28 +220,39 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public Object getData() {
@@ -273,15 +323,15 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
   }
   
   public NetworkDataNested<A> editNetworkData() {
-    return withNewNetworkDataLike(java.util.Optional.ofNullable(buildNetworkData()).orElse(null));
+    return this.withNewNetworkDataLike(Optional.ofNullable(this.buildNetworkData()).orElse(null));
   }
   
   public NetworkDataNested<A> editOrNewNetworkData() {
-    return withNewNetworkDataLike(java.util.Optional.ofNullable(buildNetworkData()).orElse(new V1beta2NetworkDeviceDataBuilder().build()));
+    return this.withNewNetworkDataLike(Optional.ofNullable(this.buildNetworkData()).orElse(new V1beta2NetworkDeviceDataBuilder().build()));
   }
   
   public NetworkDataNested<A> editOrNewNetworkDataLike(V1beta2NetworkDeviceData item) {
-    return withNewNetworkDataLike(java.util.Optional.ofNullable(buildNetworkData()).orElse(item));
+    return this.withNewNetworkDataLike(Optional.ofNullable(this.buildNetworkData()).orElse(item));
   }
   
   public String getPool() {
@@ -297,33 +347,95 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
     return this.pool != null;
   }
   
+  public String getShareID() {
+    return this.shareID;
+  }
+  
+  public A withShareID(String shareID) {
+    this.shareID = shareID;
+    return (A) this;
+  }
+  
+  public boolean hasShareID() {
+    return this.shareID != null;
+  }
+  
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2AllocatedDeviceStatusFluent that = (V1beta2AllocatedDeviceStatusFluent) o;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(data, that.data)) return false;
-    if (!java.util.Objects.equals(device, that.device)) return false;
-    if (!java.util.Objects.equals(driver, that.driver)) return false;
-    if (!java.util.Objects.equals(networkData, that.networkData)) return false;
-    if (!java.util.Objects.equals(pool, that.pool)) return false;
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(data, that.data))) {
+      return false;
+    }
+    if (!(Objects.equals(device, that.device))) {
+      return false;
+    }
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(networkData, that.networkData))) {
+      return false;
+    }
+    if (!(Objects.equals(pool, that.pool))) {
+      return false;
+    }
+    if (!(Objects.equals(shareID, that.shareID))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(conditions,  data,  device,  driver,  networkData,  pool,  super.hashCode());
+    return Objects.hash(conditions, data, device, driver, networkData, pool, shareID);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (data != null) { sb.append("data:"); sb.append(data + ","); }
-    if (device != null) { sb.append("device:"); sb.append(device + ","); }
-    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
-    if (networkData != null) { sb.append("networkData:"); sb.append(networkData + ","); }
-    if (pool != null) { sb.append("pool:"); sb.append(pool); }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(data == null)) {
+        sb.append("data:");
+        sb.append(data);
+        sb.append(",");
+    }
+    if (!(device == null)) {
+        sb.append("device:");
+        sb.append(device);
+        sb.append(",");
+    }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(networkData == null)) {
+        sb.append("networkData:");
+        sb.append(networkData);
+        sb.append(",");
+    }
+    if (!(pool == null)) {
+        sb.append("pool:");
+        sb.append(pool);
+        sb.append(",");
+    }
+    if (!(shareID == null)) {
+        sb.append("shareID:");
+        sb.append(shareID);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -336,7 +448,7 @@ public class V1beta2AllocatedDeviceStatusFluent<A extends V1beta2AllocatedDevice
     int index;
     
     public N and() {
-      return (N) V1beta2AllocatedDeviceStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1beta2AllocatedDeviceStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ServiceAccountTokenProjectionBuilder extends V1ServiceAccountTokenProjectionFluent<V1ServiceAccountTokenProjectionBuilder> implements VisitableBuilder<V1ServiceAccountTokenProjection,V1ServiceAccountTokenProjectionBuilder>{
   public V1ServiceAccountTokenProjectionBuilder() {
     this(new V1ServiceAccountTokenProjection());

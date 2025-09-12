@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1ValidatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
+public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
   public V1ValidatingAdmissionPolicyBindingSpecFluent() {
   }
   
@@ -27,13 +30,13 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
   private List<String> validationActions;
   
   protected void copyInstance(V1ValidatingAdmissionPolicyBindingSpec instance) {
-    instance = (instance != null ? instance : new V1ValidatingAdmissionPolicyBindingSpec());
+    instance = instance != null ? instance : new V1ValidatingAdmissionPolicyBindingSpec();
     if (instance != null) {
-          this.withMatchResources(instance.getMatchResources());
-          this.withParamRef(instance.getParamRef());
-          this.withPolicyName(instance.getPolicyName());
-          this.withValidationActions(instance.getValidationActions());
-        }
+        this.withMatchResources(instance.getMatchResources());
+        this.withParamRef(instance.getParamRef());
+        this.withPolicyName(instance.getPolicyName());
+        this.withValidationActions(instance.getValidationActions());
+    }
   }
   
   public V1MatchResources buildMatchResources() {
@@ -65,15 +68,15 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
   }
   
   public MatchResourcesNested<A> editMatchResources() {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(null));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(null));
   }
   
   public MatchResourcesNested<A> editOrNewMatchResources() {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(new V1MatchResourcesBuilder().build()));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(new V1MatchResourcesBuilder().build()));
   }
   
   public MatchResourcesNested<A> editOrNewMatchResourcesLike(V1MatchResources item) {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(item));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(item));
   }
   
   public V1ParamRef buildParamRef() {
@@ -105,15 +108,15 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
   }
   
   public ParamRefNested<A> editParamRef() {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(null));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(null));
   }
   
   public ParamRefNested<A> editOrNewParamRef() {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(new V1ParamRefBuilder().build()));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(new V1ParamRefBuilder().build()));
   }
   
   public ParamRefNested<A> editOrNewParamRefLike(V1ParamRef item) {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(item));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(item));
   }
   
   public String getPolicyName() {
@@ -130,34 +133,59 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
   }
   
   public A addToValidationActions(int index,String item) {
-    if (this.validationActions == null) {this.validationActions = new ArrayList<String>();}
+    if (this.validationActions == null) {
+      this.validationActions = new ArrayList();
+    }
     this.validationActions.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToValidationActions(int index,String item) {
-    if (this.validationActions == null) {this.validationActions = new ArrayList<String>();}
-    this.validationActions.set(index, item); return (A)this;
+    if (this.validationActions == null) {
+      this.validationActions = new ArrayList();
+    }
+    this.validationActions.set(index, item);
+    return (A) this;
   }
   
-  public A addToValidationActions(java.lang.String... items) {
-    if (this.validationActions == null) {this.validationActions = new ArrayList<String>();}
-    for (String item : items) {this.validationActions.add(item);} return (A)this;
+  public A addToValidationActions(String... items) {
+    if (this.validationActions == null) {
+      this.validationActions = new ArrayList();
+    }
+    for (String item : items) {
+      this.validationActions.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToValidationActions(Collection<String> items) {
-    if (this.validationActions == null) {this.validationActions = new ArrayList<String>();}
-    for (String item : items) {this.validationActions.add(item);} return (A)this;
+    if (this.validationActions == null) {
+      this.validationActions = new ArrayList();
+    }
+    for (String item : items) {
+      this.validationActions.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromValidationActions(java.lang.String... items) {
-    if (this.validationActions == null) return (A)this;
-    for (String item : items) { this.validationActions.remove(item);} return (A)this;
+  public A removeFromValidationActions(String... items) {
+    if (this.validationActions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.validationActions.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromValidationActions(Collection<String> items) {
-    if (this.validationActions == null) return (A)this;
-    for (String item : items) { this.validationActions.remove(item);} return (A)this;
+    if (this.validationActions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.validationActions.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getValidationActions() {
@@ -206,7 +234,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
     return (A) this;
   }
   
-  public A withValidationActions(java.lang.String... validationActions) {
+  public A withValidationActions(String... validationActions) {
     if (this.validationActions != null) {
         this.validationActions.clear();
         _visitables.remove("validationActions");
@@ -220,32 +248,61 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1Validating
   }
   
   public boolean hasValidationActions() {
-    return this.validationActions != null && !this.validationActions.isEmpty();
+    return this.validationActions != null && !(this.validationActions.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ValidatingAdmissionPolicyBindingSpecFluent that = (V1ValidatingAdmissionPolicyBindingSpecFluent) o;
-    if (!java.util.Objects.equals(matchResources, that.matchResources)) return false;
-    if (!java.util.Objects.equals(paramRef, that.paramRef)) return false;
-    if (!java.util.Objects.equals(policyName, that.policyName)) return false;
-    if (!java.util.Objects.equals(validationActions, that.validationActions)) return false;
+    if (!(Objects.equals(matchResources, that.matchResources))) {
+      return false;
+    }
+    if (!(Objects.equals(paramRef, that.paramRef))) {
+      return false;
+    }
+    if (!(Objects.equals(policyName, that.policyName))) {
+      return false;
+    }
+    if (!(Objects.equals(validationActions, that.validationActions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(matchResources,  paramRef,  policyName,  validationActions,  super.hashCode());
+    return Objects.hash(matchResources, paramRef, policyName, validationActions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (matchResources != null) { sb.append("matchResources:"); sb.append(matchResources + ","); }
-    if (paramRef != null) { sb.append("paramRef:"); sb.append(paramRef + ","); }
-    if (policyName != null) { sb.append("policyName:"); sb.append(policyName + ","); }
-    if (validationActions != null && !validationActions.isEmpty()) { sb.append("validationActions:"); sb.append(validationActions); }
+    if (!(matchResources == null)) {
+        sb.append("matchResources:");
+        sb.append(matchResources);
+        sb.append(",");
+    }
+    if (!(paramRef == null)) {
+        sb.append("paramRef:");
+        sb.append(paramRef);
+        sb.append(",");
+    }
+    if (!(policyName == null)) {
+        sb.append("policyName:");
+        sb.append(policyName);
+        sb.append(",");
+    }
+    if (!(validationActions == null) && !(validationActions.isEmpty())) {
+        sb.append("validationActions:");
+        sb.append(validationActions);
+    }
     sb.append("}");
     return sb.toString();
   }

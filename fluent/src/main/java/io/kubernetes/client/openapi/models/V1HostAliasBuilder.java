@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HostAliasBuilder extends V1HostAliasFluent<V1HostAliasBuilder> implements VisitableBuilder<V1HostAlias,V1HostAliasBuilder>{
   public V1HostAliasBuilder() {
     this(new V1HostAlias());

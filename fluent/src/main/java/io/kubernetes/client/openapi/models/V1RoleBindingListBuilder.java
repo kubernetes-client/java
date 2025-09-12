@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RoleBindingListBuilder extends V1RoleBindingListFluent<V1RoleBindingListBuilder> implements VisitableBuilder<V1RoleBindingList,V1RoleBindingListBuilder>{
   public V1RoleBindingListBuilder() {
     this(new V1RoleBindingList());

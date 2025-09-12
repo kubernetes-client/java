@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VsphereVirtualDiskVolumeSourceFluent<A extends V1VsphereVirtualDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1VsphereVirtualDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1VsphereVirtualDiskVolumeSourceFluent() {
   }
   
@@ -22,13 +24,13 @@ public class V1VsphereVirtualDiskVolumeSourceFluent<A extends V1VsphereVirtualDi
   private String volumePath;
   
   protected void copyInstance(V1VsphereVirtualDiskVolumeSource instance) {
-    instance = (instance != null ? instance : new V1VsphereVirtualDiskVolumeSource());
+    instance = instance != null ? instance : new V1VsphereVirtualDiskVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withStoragePolicyID(instance.getStoragePolicyID());
-          this.withStoragePolicyName(instance.getStoragePolicyName());
-          this.withVolumePath(instance.getVolumePath());
-        }
+        this.withFsType(instance.getFsType());
+        this.withStoragePolicyID(instance.getStoragePolicyID());
+        this.withStoragePolicyName(instance.getStoragePolicyName());
+        this.withVolumePath(instance.getVolumePath());
+    }
   }
   
   public String getFsType() {
@@ -84,28 +86,57 @@ public class V1VsphereVirtualDiskVolumeSourceFluent<A extends V1VsphereVirtualDi
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VsphereVirtualDiskVolumeSourceFluent that = (V1VsphereVirtualDiskVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(storagePolicyID, that.storagePolicyID)) return false;
-    if (!java.util.Objects.equals(storagePolicyName, that.storagePolicyName)) return false;
-    if (!java.util.Objects.equals(volumePath, that.volumePath)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(storagePolicyID, that.storagePolicyID))) {
+      return false;
+    }
+    if (!(Objects.equals(storagePolicyName, that.storagePolicyName))) {
+      return false;
+    }
+    if (!(Objects.equals(volumePath, that.volumePath))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  storagePolicyID,  storagePolicyName,  volumePath,  super.hashCode());
+    return Objects.hash(fsType, storagePolicyID, storagePolicyName, volumePath);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (storagePolicyID != null) { sb.append("storagePolicyID:"); sb.append(storagePolicyID + ","); }
-    if (storagePolicyName != null) { sb.append("storagePolicyName:"); sb.append(storagePolicyName + ","); }
-    if (volumePath != null) { sb.append("volumePath:"); sb.append(volumePath); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(storagePolicyID == null)) {
+        sb.append("storagePolicyID:");
+        sb.append(storagePolicyID);
+        sb.append(",");
+    }
+    if (!(storagePolicyName == null)) {
+        sb.append("storagePolicyName:");
+        sb.append(storagePolicyName);
+        sb.append(",");
+    }
+    if (!(volumePath == null)) {
+        sb.append("volumePath:");
+        sb.append(volumePath);
+    }
     sb.append("}");
     return sb.toString();
   }

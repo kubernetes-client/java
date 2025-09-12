@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent<A>> extends BaseFluent<A>{
+public class V1TokenRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1TokenRequestStatusFluent<A>> extends BaseFluent<A>{
   public V1TokenRequestStatusFluent() {
   }
   
@@ -21,11 +23,11 @@ public class V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent<A>>
   private String token;
   
   protected void copyInstance(V1TokenRequestStatus instance) {
-    instance = (instance != null ? instance : new V1TokenRequestStatus());
+    instance = instance != null ? instance : new V1TokenRequestStatus();
     if (instance != null) {
-          this.withExpirationTimestamp(instance.getExpirationTimestamp());
-          this.withToken(instance.getToken());
-        }
+        this.withExpirationTimestamp(instance.getExpirationTimestamp());
+        this.withToken(instance.getToken());
+    }
   }
   
   public OffsetDateTime getExpirationTimestamp() {
@@ -55,24 +57,41 @@ public class V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TokenRequestStatusFluent that = (V1TokenRequestStatusFluent) o;
-    if (!java.util.Objects.equals(expirationTimestamp, that.expirationTimestamp)) return false;
-    if (!java.util.Objects.equals(token, that.token)) return false;
+    if (!(Objects.equals(expirationTimestamp, that.expirationTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(token, that.token))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expirationTimestamp,  token,  super.hashCode());
+    return Objects.hash(expirationTimestamp, token);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expirationTimestamp != null) { sb.append("expirationTimestamp:"); sb.append(expirationTimestamp + ","); }
-    if (token != null) { sb.append("token:"); sb.append(token); }
+    if (!(expirationTimestamp == null)) {
+        sb.append("expirationTimestamp:");
+        sb.append(expirationTimestamp);
+        sb.append(",");
+    }
+    if (!(token == null)) {
+        sb.append("token:");
+        sb.append(token);
+    }
     sb.append("}");
     return sb.toString();
   }

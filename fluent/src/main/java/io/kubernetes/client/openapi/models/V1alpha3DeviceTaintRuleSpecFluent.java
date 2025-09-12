@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha3DeviceTaintRuleSpecFluent<A extends V1alpha3DeviceTaintRuleSpecFluent<A>> extends BaseFluent<A>{
+public class V1alpha3DeviceTaintRuleSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha3DeviceTaintRuleSpecFluent<A>> extends BaseFluent<A>{
   public V1alpha3DeviceTaintRuleSpecFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1alpha3DeviceTaintRuleSpecFluent<A extends V1alpha3DeviceTaintRule
   private V1alpha3DeviceTaintBuilder taint;
   
   protected void copyInstance(V1alpha3DeviceTaintRuleSpec instance) {
-    instance = (instance != null ? instance : new V1alpha3DeviceTaintRuleSpec());
+    instance = instance != null ? instance : new V1alpha3DeviceTaintRuleSpec();
     if (instance != null) {
-          this.withDeviceSelector(instance.getDeviceSelector());
-          this.withTaint(instance.getTaint());
-        }
+        this.withDeviceSelector(instance.getDeviceSelector());
+        this.withTaint(instance.getTaint());
+    }
   }
   
   public V1alpha3DeviceTaintSelector buildDeviceSelector() {
@@ -57,15 +60,15 @@ public class V1alpha3DeviceTaintRuleSpecFluent<A extends V1alpha3DeviceTaintRule
   }
   
   public DeviceSelectorNested<A> editDeviceSelector() {
-    return withNewDeviceSelectorLike(java.util.Optional.ofNullable(buildDeviceSelector()).orElse(null));
+    return this.withNewDeviceSelectorLike(Optional.ofNullable(this.buildDeviceSelector()).orElse(null));
   }
   
   public DeviceSelectorNested<A> editOrNewDeviceSelector() {
-    return withNewDeviceSelectorLike(java.util.Optional.ofNullable(buildDeviceSelector()).orElse(new V1alpha3DeviceTaintSelectorBuilder().build()));
+    return this.withNewDeviceSelectorLike(Optional.ofNullable(this.buildDeviceSelector()).orElse(new V1alpha3DeviceTaintSelectorBuilder().build()));
   }
   
   public DeviceSelectorNested<A> editOrNewDeviceSelectorLike(V1alpha3DeviceTaintSelector item) {
-    return withNewDeviceSelectorLike(java.util.Optional.ofNullable(buildDeviceSelector()).orElse(item));
+    return this.withNewDeviceSelectorLike(Optional.ofNullable(this.buildDeviceSelector()).orElse(item));
   }
   
   public V1alpha3DeviceTaint buildTaint() {
@@ -97,36 +100,53 @@ public class V1alpha3DeviceTaintRuleSpecFluent<A extends V1alpha3DeviceTaintRule
   }
   
   public TaintNested<A> editTaint() {
-    return withNewTaintLike(java.util.Optional.ofNullable(buildTaint()).orElse(null));
+    return this.withNewTaintLike(Optional.ofNullable(this.buildTaint()).orElse(null));
   }
   
   public TaintNested<A> editOrNewTaint() {
-    return withNewTaintLike(java.util.Optional.ofNullable(buildTaint()).orElse(new V1alpha3DeviceTaintBuilder().build()));
+    return this.withNewTaintLike(Optional.ofNullable(this.buildTaint()).orElse(new V1alpha3DeviceTaintBuilder().build()));
   }
   
   public TaintNested<A> editOrNewTaintLike(V1alpha3DeviceTaint item) {
-    return withNewTaintLike(java.util.Optional.ofNullable(buildTaint()).orElse(item));
+    return this.withNewTaintLike(Optional.ofNullable(this.buildTaint()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha3DeviceTaintRuleSpecFluent that = (V1alpha3DeviceTaintRuleSpecFluent) o;
-    if (!java.util.Objects.equals(deviceSelector, that.deviceSelector)) return false;
-    if (!java.util.Objects.equals(taint, that.taint)) return false;
+    if (!(Objects.equals(deviceSelector, that.deviceSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(taint, that.taint))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(deviceSelector,  taint,  super.hashCode());
+    return Objects.hash(deviceSelector, taint);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (deviceSelector != null) { sb.append("deviceSelector:"); sb.append(deviceSelector + ","); }
-    if (taint != null) { sb.append("taint:"); sb.append(taint); }
+    if (!(deviceSelector == null)) {
+        sb.append("deviceSelector:");
+        sb.append(deviceSelector);
+        sb.append(",");
+    }
+    if (!(taint == null)) {
+        sb.append("taint:");
+        sb.append(taint);
+    }
     sb.append("}");
     return sb.toString();
   }

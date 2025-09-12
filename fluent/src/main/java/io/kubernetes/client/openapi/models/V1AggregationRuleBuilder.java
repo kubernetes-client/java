@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1AggregationRuleBuilder extends V1AggregationRuleFluent<V1AggregationRuleBuilder> implements VisitableBuilder<V1AggregationRule,V1AggregationRuleBuilder>{
   public V1AggregationRuleBuilder() {
     this(new V1AggregationRule());

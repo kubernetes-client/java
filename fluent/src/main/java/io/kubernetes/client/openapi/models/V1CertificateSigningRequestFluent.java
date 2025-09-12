@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CertificateSigningRequestFluent<A extends V1CertificateSigningRequestFluent<A>> extends BaseFluent<A>{
+public class V1CertificateSigningRequestFluent<A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestFluent<A>> extends BaseFluent<A>{
   public V1CertificateSigningRequestFluent() {
   }
   
@@ -24,14 +27,14 @@ public class V1CertificateSigningRequestFluent<A extends V1CertificateSigningReq
   private V1CertificateSigningRequestStatusBuilder status;
   
   protected void copyInstance(V1CertificateSigningRequest instance) {
-    instance = (instance != null ? instance : new V1CertificateSigningRequest());
+    instance = instance != null ? instance : new V1CertificateSigningRequest();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withSpec(instance.getSpec());
-          this.withStatus(instance.getStatus());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withSpec(instance.getSpec());
+        this.withStatus(instance.getStatus());
+    }
   }
   
   public String getApiVersion() {
@@ -89,15 +92,15 @@ public class V1CertificateSigningRequestFluent<A extends V1CertificateSigningReq
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1CertificateSigningRequestSpec buildSpec() {
@@ -129,15 +132,15 @@ public class V1CertificateSigningRequestFluent<A extends V1CertificateSigningReq
   }
   
   public SpecNested<A> editSpec() {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(null));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(null));
   }
   
   public SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(new V1CertificateSigningRequestSpecBuilder().build()));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(new V1CertificateSigningRequestSpecBuilder().build()));
   }
   
   public SpecNested<A> editOrNewSpecLike(V1CertificateSigningRequestSpec item) {
-    return withNewSpecLike(java.util.Optional.ofNullable(buildSpec()).orElse(item));
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(item));
   }
   
   public V1CertificateSigningRequestStatus buildStatus() {
@@ -169,42 +172,77 @@ public class V1CertificateSigningRequestFluent<A extends V1CertificateSigningReq
   }
   
   public StatusNested<A> editStatus() {
-    return withNewStatusLike(java.util.Optional.ofNullable(buildStatus()).orElse(null));
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
   }
   
   public StatusNested<A> editOrNewStatus() {
-    return withNewStatusLike(java.util.Optional.ofNullable(buildStatus()).orElse(new V1CertificateSigningRequestStatusBuilder().build()));
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(new V1CertificateSigningRequestStatusBuilder().build()));
   }
   
   public StatusNested<A> editOrNewStatusLike(V1CertificateSigningRequestStatus item) {
-    return withNewStatusLike(java.util.Optional.ofNullable(buildStatus()).orElse(item));
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CertificateSigningRequestFluent that = (V1CertificateSigningRequestFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(spec, that.spec)) return false;
-    if (!java.util.Objects.equals(status, that.status)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(spec, that.spec))) {
+      return false;
+    }
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  spec,  status,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, spec, status);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (spec != null) { sb.append("spec:"); sb.append(spec + ","); }
-    if (status != null) { sb.append("status:"); sb.append(status); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(spec == null)) {
+        sb.append("spec:");
+        sb.append(spec);
+        sb.append(",");
+    }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+    }
     sb.append("}");
     return sb.toString();
   }
