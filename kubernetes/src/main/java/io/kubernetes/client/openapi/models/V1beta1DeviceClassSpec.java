@@ -54,12 +54,17 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.
  */
 @ApiModel(description = "DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1DeviceClassSpec {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
   @jakarta.annotation.Nullable
   private List<V1beta1DeviceClassConfiguration> config = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXTENDED_RESOURCE_NAME = "extendedResourceName";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_RESOURCE_NAME)
+  @jakarta.annotation.Nullable
+  private String extendedResourceName;
 
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
@@ -94,6 +99,26 @@ public class V1beta1DeviceClassSpec {
 
   public void setConfig(@jakarta.annotation.Nullable List<V1beta1DeviceClassConfiguration> config) {
     this.config = config;
+  }
+
+
+  public V1beta1DeviceClassSpec extendedResourceName(@jakarta.annotation.Nullable String extendedResourceName) {
+    this.extendedResourceName = extendedResourceName;
+    return this;
+  }
+
+  /**
+   * ExtendedResourceName is the extended resource name for the devices of this class. The devices of this class can be used to satisfy a pod&#39;s extended resource requests. It has the same format as the name of a pod&#39;s extended resource. It should be unique among all the device classes in a cluster. If two device classes have the same name, then the class created later is picked to satisfy a pod&#39;s extended resource requests. If two classes are created at the same time, then the name of the class lexicographically sorted first is picked.  This is an alpha field.
+   * @return extendedResourceName
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ExtendedResourceName is the extended resource name for the devices of this class. The devices of this class can be used to satisfy a pod's extended resource requests. It has the same format as the name of a pod's extended resource. It should be unique among all the device classes in a cluster. If two device classes have the same name, then the class created later is picked to satisfy a pod's extended resource requests. If two classes are created at the same time, then the name of the class lexicographically sorted first is picked.  This is an alpha field.")
+  public String getExtendedResourceName() {
+    return extendedResourceName;
+  }
+
+  public void setExtendedResourceName(@jakarta.annotation.Nullable String extendedResourceName) {
+    this.extendedResourceName = extendedResourceName;
   }
 
 
@@ -136,12 +161,13 @@ public class V1beta1DeviceClassSpec {
     }
     V1beta1DeviceClassSpec v1beta1DeviceClassSpec = (V1beta1DeviceClassSpec) o;
     return Objects.equals(this.config, v1beta1DeviceClassSpec.config) &&
+        Objects.equals(this.extendedResourceName, v1beta1DeviceClassSpec.extendedResourceName) &&
         Objects.equals(this.selectors, v1beta1DeviceClassSpec.selectors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, selectors);
+    return Objects.hash(config, extendedResourceName, selectors);
   }
 
   @Override
@@ -149,6 +175,7 @@ public class V1beta1DeviceClassSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceClassSpec {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    extendedResourceName: ").append(toIndentedString(extendedResourceName)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -173,6 +200,7 @@ public class V1beta1DeviceClassSpec {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("config");
+    openapiFields.add("extendedResourceName");
     openapiFields.add("selectors");
 
     // a set of required properties/fields (JSON key names)
@@ -213,6 +241,9 @@ public class V1beta1DeviceClassSpec {
             V1beta1DeviceClassConfiguration.validateJsonElement(jsonArrayconfig.get(i));
           };
         }
+      }
+      if ((jsonObj.get("extendedResourceName") != null && !jsonObj.get("extendedResourceName").isJsonNull()) && !jsonObj.get("extendedResourceName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extendedResourceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extendedResourceName").toString()));
       }
       if (jsonObj.get("selectors") != null && !jsonObj.get("selectors").isJsonNull()) {
         JsonArray jsonArrayselectors = jsonObj.getAsJsonArray("selectors");

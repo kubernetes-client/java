@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1BindingFluent<A extends V1BindingFluent<A>> extends BaseFluent<A>{
+public class V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1BindingFluent<A>> extends BaseFluent<A>{
   public V1BindingFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1BindingFluent<A extends V1BindingFluent<A>> extends BaseFluent<A>
   private V1ObjectReferenceBuilder target;
   
   protected void copyInstance(V1Binding instance) {
-    instance = (instance != null ? instance : new V1Binding());
+    instance = instance != null ? instance : new V1Binding();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withTarget(instance.getTarget());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withTarget(instance.getTarget());
+    }
   }
   
   public String getApiVersion() {
@@ -87,15 +90,15 @@ public class V1BindingFluent<A extends V1BindingFluent<A>> extends BaseFluent<A>
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1ObjectReference buildTarget() {
@@ -127,40 +130,69 @@ public class V1BindingFluent<A extends V1BindingFluent<A>> extends BaseFluent<A>
   }
   
   public TargetNested<A> editTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(null));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(null));
   }
   
   public TargetNested<A> editOrNewTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public TargetNested<A> editOrNewTargetLike(V1ObjectReference item) {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(item));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1BindingFluent that = (V1BindingFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(target, that.target)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(target, that.target))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  target,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, target);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (target != null) { sb.append("target:"); sb.append(target); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(target == null)) {
+        sb.append("target:");
+        sb.append(target);
+    }
     sb.append("}");
     return sb.toString();
   }

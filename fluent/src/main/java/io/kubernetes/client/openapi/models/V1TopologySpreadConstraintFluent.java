@@ -1,5 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -15,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstraintFluent<A>> extends BaseFluent<A>{
+public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent<A>> extends BaseFluent<A>{
   public V1TopologySpreadConstraintFluent() {
   }
   
@@ -32,17 +35,17 @@ public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstrai
   private String whenUnsatisfiable;
   
   protected void copyInstance(V1TopologySpreadConstraint instance) {
-    instance = (instance != null ? instance : new V1TopologySpreadConstraint());
+    instance = instance != null ? instance : new V1TopologySpreadConstraint();
     if (instance != null) {
-          this.withLabelSelector(instance.getLabelSelector());
-          this.withMatchLabelKeys(instance.getMatchLabelKeys());
-          this.withMaxSkew(instance.getMaxSkew());
-          this.withMinDomains(instance.getMinDomains());
-          this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
-          this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
-          this.withTopologyKey(instance.getTopologyKey());
-          this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
-        }
+        this.withLabelSelector(instance.getLabelSelector());
+        this.withMatchLabelKeys(instance.getMatchLabelKeys());
+        this.withMaxSkew(instance.getMaxSkew());
+        this.withMinDomains(instance.getMinDomains());
+        this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
+        this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
+        this.withTopologyKey(instance.getTopologyKey());
+        this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
+    }
   }
   
   public V1LabelSelector buildLabelSelector() {
@@ -74,46 +77,71 @@ public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstrai
   }
   
   public LabelSelectorNested<A> editLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(null));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(null));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(item));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(item));
   }
   
   public A addToMatchLabelKeys(int index,String item) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
     this.matchLabelKeys.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMatchLabelKeys(int index,String item) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    this.matchLabelKeys.set(index, item); return (A)this;
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    this.matchLabelKeys.set(index, item);
+    return (A) this;
   }
   
-  public A addToMatchLabelKeys(java.lang.String... items) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.matchLabelKeys.add(item);} return (A)this;
+  public A addToMatchLabelKeys(String... items) {
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.matchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMatchLabelKeys(Collection<String> items) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.matchLabelKeys.add(item);} return (A)this;
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.matchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMatchLabelKeys(java.lang.String... items) {
-    if (this.matchLabelKeys == null) return (A)this;
-    for (String item : items) { this.matchLabelKeys.remove(item);} return (A)this;
+  public A removeFromMatchLabelKeys(String... items) {
+    if (this.matchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.matchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMatchLabelKeys(Collection<String> items) {
-    if (this.matchLabelKeys == null) return (A)this;
-    for (String item : items) { this.matchLabelKeys.remove(item);} return (A)this;
+    if (this.matchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.matchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMatchLabelKeys() {
@@ -162,7 +190,7 @@ public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstrai
     return (A) this;
   }
   
-  public A withMatchLabelKeys(java.lang.String... matchLabelKeys) {
+  public A withMatchLabelKeys(String... matchLabelKeys) {
     if (this.matchLabelKeys != null) {
         this.matchLabelKeys.clear();
         _visitables.remove("matchLabelKeys");
@@ -176,7 +204,7 @@ public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstrai
   }
   
   public boolean hasMatchLabelKeys() {
-    return this.matchLabelKeys != null && !this.matchLabelKeys.isEmpty();
+    return this.matchLabelKeys != null && !(this.matchLabelKeys.isEmpty());
   }
   
   public Integer getMaxSkew() {
@@ -258,36 +286,89 @@ public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstrai
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TopologySpreadConstraintFluent that = (V1TopologySpreadConstraintFluent) o;
-    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
-    if (!java.util.Objects.equals(matchLabelKeys, that.matchLabelKeys)) return false;
-    if (!java.util.Objects.equals(maxSkew, that.maxSkew)) return false;
-    if (!java.util.Objects.equals(minDomains, that.minDomains)) return false;
-    if (!java.util.Objects.equals(nodeAffinityPolicy, that.nodeAffinityPolicy)) return false;
-    if (!java.util.Objects.equals(nodeTaintsPolicy, that.nodeTaintsPolicy)) return false;
-    if (!java.util.Objects.equals(topologyKey, that.topologyKey)) return false;
-    if (!java.util.Objects.equals(whenUnsatisfiable, that.whenUnsatisfiable)) return false;
+    if (!(Objects.equals(labelSelector, that.labelSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(matchLabelKeys, that.matchLabelKeys))) {
+      return false;
+    }
+    if (!(Objects.equals(maxSkew, that.maxSkew))) {
+      return false;
+    }
+    if (!(Objects.equals(minDomains, that.minDomains))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeAffinityPolicy, that.nodeAffinityPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeTaintsPolicy, that.nodeTaintsPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(topologyKey, that.topologyKey))) {
+      return false;
+    }
+    if (!(Objects.equals(whenUnsatisfiable, that.whenUnsatisfiable))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(labelSelector,  matchLabelKeys,  maxSkew,  minDomains,  nodeAffinityPolicy,  nodeTaintsPolicy,  topologyKey,  whenUnsatisfiable,  super.hashCode());
+    return Objects.hash(labelSelector, matchLabelKeys, maxSkew, minDomains, nodeAffinityPolicy, nodeTaintsPolicy, topologyKey, whenUnsatisfiable);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (labelSelector != null) { sb.append("labelSelector:"); sb.append(labelSelector + ","); }
-    if (matchLabelKeys != null && !matchLabelKeys.isEmpty()) { sb.append("matchLabelKeys:"); sb.append(matchLabelKeys + ","); }
-    if (maxSkew != null) { sb.append("maxSkew:"); sb.append(maxSkew + ","); }
-    if (minDomains != null) { sb.append("minDomains:"); sb.append(minDomains + ","); }
-    if (nodeAffinityPolicy != null) { sb.append("nodeAffinityPolicy:"); sb.append(nodeAffinityPolicy + ","); }
-    if (nodeTaintsPolicy != null) { sb.append("nodeTaintsPolicy:"); sb.append(nodeTaintsPolicy + ","); }
-    if (topologyKey != null) { sb.append("topologyKey:"); sb.append(topologyKey + ","); }
-    if (whenUnsatisfiable != null) { sb.append("whenUnsatisfiable:"); sb.append(whenUnsatisfiable); }
+    if (!(labelSelector == null)) {
+        sb.append("labelSelector:");
+        sb.append(labelSelector);
+        sb.append(",");
+    }
+    if (!(matchLabelKeys == null) && !(matchLabelKeys.isEmpty())) {
+        sb.append("matchLabelKeys:");
+        sb.append(matchLabelKeys);
+        sb.append(",");
+    }
+    if (!(maxSkew == null)) {
+        sb.append("maxSkew:");
+        sb.append(maxSkew);
+        sb.append(",");
+    }
+    if (!(minDomains == null)) {
+        sb.append("minDomains:");
+        sb.append(minDomains);
+        sb.append(",");
+    }
+    if (!(nodeAffinityPolicy == null)) {
+        sb.append("nodeAffinityPolicy:");
+        sb.append(nodeAffinityPolicy);
+        sb.append(",");
+    }
+    if (!(nodeTaintsPolicy == null)) {
+        sb.append("nodeTaintsPolicy:");
+        sb.append(nodeTaintsPolicy);
+        sb.append(",");
+    }
+    if (!(topologyKey == null)) {
+        sb.append("topologyKey:");
+        sb.append(topologyKey);
+        sb.append(",");
+    }
+    if (!(whenUnsatisfiable == null)) {
+        sb.append("whenUnsatisfiable:");
+        sb.append(whenUnsatisfiable);
+    }
     sb.append("}");
     return sb.toString();
   }

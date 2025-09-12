@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EndpointHintsBuilder extends V1EndpointHintsFluent<V1EndpointHintsBuilder> implements VisitableBuilder<V1EndpointHints,V1EndpointHintsBuilder>{
   public V1EndpointHintsBuilder() {
     this(new V1EndpointHints());

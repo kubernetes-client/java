@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -19,7 +22,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends BaseFluent<A>{
+public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.V1StorageClassFluent<A>> extends BaseFluent<A>{
   public V1StorageClassFluent() {
   }
   
@@ -38,19 +41,19 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   private String volumeBindingMode;
   
   protected void copyInstance(V1StorageClass instance) {
-    instance = (instance != null ? instance : new V1StorageClass());
+    instance = instance != null ? instance : new V1StorageClass();
     if (instance != null) {
-          this.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
-          this.withAllowedTopologies(instance.getAllowedTopologies());
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withMountOptions(instance.getMountOptions());
-          this.withParameters(instance.getParameters());
-          this.withProvisioner(instance.getProvisioner());
-          this.withReclaimPolicy(instance.getReclaimPolicy());
-          this.withVolumeBindingMode(instance.getVolumeBindingMode());
-        }
+        this.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
+        this.withAllowedTopologies(instance.getAllowedTopologies());
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withMountOptions(instance.getMountOptions());
+        this.withParameters(instance.getParameters());
+        this.withProvisioner(instance.getProvisioner());
+        this.withReclaimPolicy(instance.getReclaimPolicy());
+        this.withVolumeBindingMode(instance.getVolumeBindingMode());
+    }
   }
   
   public Boolean getAllowVolumeExpansion() {
@@ -67,7 +70,9 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public A addToAllowedTopologies(int index,V1TopologySelectorTerm item) {
-    if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
     V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
     if (index < 0 || index >= allowedTopologies.size()) {
         _visitables.get("allowedTopologies").add(builder);
@@ -76,11 +81,13 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
         _visitables.get("allowedTopologies").add(builder);
         allowedTopologies.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAllowedTopologies(int index,V1TopologySelectorTerm item) {
-    if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
     V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
     if (index < 0 || index >= allowedTopologies.size()) {
         _visitables.get("allowedTopologies").add(builder);
@@ -89,41 +96,71 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
         _visitables.get("allowedTopologies").add(builder);
         allowedTopologies.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAllowedTopologies(io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items) {
-    if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
-    for (V1TopologySelectorTerm item : items) {V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);_visitables.get("allowedTopologies").add(builder);this.allowedTopologies.add(builder);} return (A)this;
+  public A addToAllowedTopologies(V1TopologySelectorTerm... items) {
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").add(builder);
+        this.allowedTopologies.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
-    if (this.allowedTopologies == null) {this.allowedTopologies = new ArrayList<V1TopologySelectorTermBuilder>();}
-    for (V1TopologySelectorTerm item : items) {V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);_visitables.get("allowedTopologies").add(builder);this.allowedTopologies.add(builder);} return (A)this;
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").add(builder);
+        this.allowedTopologies.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAllowedTopologies(io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items) {
-    if (this.allowedTopologies == null) return (A)this;
-    for (V1TopologySelectorTerm item : items) {V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);_visitables.get("allowedTopologies").remove(builder); this.allowedTopologies.remove(builder);} return (A)this;
+  public A removeFromAllowedTopologies(V1TopologySelectorTerm... items) {
+    if (this.allowedTopologies == null) {
+      return (A) this;
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").remove(builder);
+        this.allowedTopologies.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
-    if (this.allowedTopologies == null) return (A)this;
-    for (V1TopologySelectorTerm item : items) {V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);_visitables.get("allowedTopologies").remove(builder); this.allowedTopologies.remove(builder);} return (A)this;
+    if (this.allowedTopologies == null) {
+      return (A) this;
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").remove(builder);
+        this.allowedTopologies.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAllowedTopologies(Predicate<V1TopologySelectorTermBuilder> predicate) {
-    if (allowedTopologies == null) return (A) this;
-    final Iterator<V1TopologySelectorTermBuilder> each = allowedTopologies.iterator();
-    final List visitables = _visitables.get("allowedTopologies");
-    while (each.hasNext()) {
-      V1TopologySelectorTermBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (allowedTopologies == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1TopologySelectorTermBuilder> each = allowedTopologies.iterator();
+    List visitables = _visitables.get("allowedTopologies");
+    while (each.hasNext()) {
+        V1TopologySelectorTermBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1TopologySelectorTerm> buildAllowedTopologies() {
@@ -175,7 +212,7 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withAllowedTopologies(io.kubernetes.client.openapi.models.V1TopologySelectorTerm... allowedTopologies) {
+  public A withAllowedTopologies(V1TopologySelectorTerm... allowedTopologies) {
     if (this.allowedTopologies != null) {
         this.allowedTopologies.clear();
         _visitables.remove("allowedTopologies");
@@ -189,7 +226,7 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public boolean hasAllowedTopologies() {
-    return this.allowedTopologies != null && !this.allowedTopologies.isEmpty();
+    return this.allowedTopologies != null && !(this.allowedTopologies.isEmpty());
   }
   
   public AllowedTopologiesNested<A> addNewAllowedTopology() {
@@ -205,28 +242,39 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public AllowedTopologiesNested<A> editAllowedTopology(int index) {
-    if (allowedTopologies.size() <= index) throw new RuntimeException("Can't edit allowedTopologies. Index exceeds size.");
-    return setNewAllowedTopologyLike(index, buildAllowedTopology(index));
+    if (index <= allowedTopologies.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "allowedTopologies"));
+    }
+    return this.setNewAllowedTopologyLike(index, this.buildAllowedTopology(index));
   }
   
   public AllowedTopologiesNested<A> editFirstAllowedTopology() {
-    if (allowedTopologies.size() == 0) throw new RuntimeException("Can't edit first allowedTopologies. The list is empty.");
-    return setNewAllowedTopologyLike(0, buildAllowedTopology(0));
+    if (allowedTopologies.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "allowedTopologies"));
+    }
+    return this.setNewAllowedTopologyLike(0, this.buildAllowedTopology(0));
   }
   
   public AllowedTopologiesNested<A> editLastAllowedTopology() {
     int index = allowedTopologies.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last allowedTopologies. The list is empty.");
-    return setNewAllowedTopologyLike(index, buildAllowedTopology(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "allowedTopologies"));
+    }
+    return this.setNewAllowedTopologyLike(index, this.buildAllowedTopology(index));
   }
   
   public AllowedTopologiesNested<A> editMatchingAllowedTopology(Predicate<V1TopologySelectorTermBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<allowedTopologies.size();i++) { 
-    if (predicate.test(allowedTopologies.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching allowedTopologies. No match found.");
-    return setNewAllowedTopologyLike(index, buildAllowedTopology(index));
+    for (int i = 0;i < allowedTopologies.size();i++) {
+      if (predicate.test(allowedTopologies.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "allowedTopologies"));
+    }
+    return this.setNewAllowedTopologyLike(index, this.buildAllowedTopology(index));
   }
   
   public String getApiVersion() {
@@ -284,46 +332,71 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
     this.mountOptions.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    this.mountOptions.set(index, item); return (A)this;
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    this.mountOptions.set(index, item);
+    return (A) this;
   }
   
-  public A addToMountOptions(java.lang.String... items) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    for (String item : items) {this.mountOptions.add(item);} return (A)this;
+  public A addToMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    for (String item : items) {
+      this.mountOptions.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    for (String item : items) {this.mountOptions.add(item);} return (A)this;
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    for (String item : items) {
+      this.mountOptions.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMountOptions(java.lang.String... items) {
-    if (this.mountOptions == null) return (A)this;
-    for (String item : items) { this.mountOptions.remove(item);} return (A)this;
+  public A removeFromMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) return (A)this;
-    for (String item : items) { this.mountOptions.remove(item);} return (A)this;
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMountOptions() {
@@ -372,7 +445,7 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withMountOptions(java.lang.String... mountOptions) {
+  public A withMountOptions(String... mountOptions) {
     if (this.mountOptions != null) {
         this.mountOptions.clear();
         _visitables.remove("mountOptions");
@@ -386,27 +459,51 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public boolean hasMountOptions() {
-    return this.mountOptions != null && !this.mountOptions.isEmpty();
+    return this.mountOptions != null && !(this.mountOptions.isEmpty());
   }
   
   public A addToParameters(String key,String value) {
-    if(this.parameters == null && key != null && value != null) { this.parameters = new LinkedHashMap(); }
-    if(key != null && value != null) {this.parameters.put(key, value);} return (A)this;
+    if (this.parameters == null && key != null && value != null) {
+      this.parameters = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.parameters.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToParameters(Map<String,String> map) {
-    if(this.parameters == null && map != null) { this.parameters = new LinkedHashMap(); }
-    if(map != null) { this.parameters.putAll(map);} return (A)this;
+    if (this.parameters == null && map != null) {
+      this.parameters = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.parameters.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromParameters(String key) {
-    if(this.parameters == null) { return (A) this; }
-    if(key != null && this.parameters != null) {this.parameters.remove(key);} return (A)this;
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (key != null && this.parameters != null) {
+      this.parameters.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromParameters(Map<String,String> map) {
-    if(this.parameters == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.parameters != null){this.parameters.remove(key);}}} return (A)this;
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.parameters != null) {
+          this.parameters.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getParameters() {
@@ -466,40 +563,105 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StorageClassFluent that = (V1StorageClassFluent) o;
-    if (!java.util.Objects.equals(allowVolumeExpansion, that.allowVolumeExpansion)) return false;
-    if (!java.util.Objects.equals(allowedTopologies, that.allowedTopologies)) return false;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(mountOptions, that.mountOptions)) return false;
-    if (!java.util.Objects.equals(parameters, that.parameters)) return false;
-    if (!java.util.Objects.equals(provisioner, that.provisioner)) return false;
-    if (!java.util.Objects.equals(reclaimPolicy, that.reclaimPolicy)) return false;
-    if (!java.util.Objects.equals(volumeBindingMode, that.volumeBindingMode)) return false;
+    if (!(Objects.equals(allowVolumeExpansion, that.allowVolumeExpansion))) {
+      return false;
+    }
+    if (!(Objects.equals(allowedTopologies, that.allowedTopologies))) {
+      return false;
+    }
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(mountOptions, that.mountOptions))) {
+      return false;
+    }
+    if (!(Objects.equals(parameters, that.parameters))) {
+      return false;
+    }
+    if (!(Objects.equals(provisioner, that.provisioner))) {
+      return false;
+    }
+    if (!(Objects.equals(reclaimPolicy, that.reclaimPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeBindingMode, that.volumeBindingMode))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allowVolumeExpansion,  allowedTopologies,  apiVersion,  kind,  metadata,  mountOptions,  parameters,  provisioner,  reclaimPolicy,  volumeBindingMode,  super.hashCode());
+    return Objects.hash(allowVolumeExpansion, allowedTopologies, apiVersion, kind, metadata, mountOptions, parameters, provisioner, reclaimPolicy, volumeBindingMode);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allowVolumeExpansion != null) { sb.append("allowVolumeExpansion:"); sb.append(allowVolumeExpansion + ","); }
-    if (allowedTopologies != null && !allowedTopologies.isEmpty()) { sb.append("allowedTopologies:"); sb.append(allowedTopologies + ","); }
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (mountOptions != null && !mountOptions.isEmpty()) { sb.append("mountOptions:"); sb.append(mountOptions + ","); }
-    if (parameters != null && !parameters.isEmpty()) { sb.append("parameters:"); sb.append(parameters + ","); }
-    if (provisioner != null) { sb.append("provisioner:"); sb.append(provisioner + ","); }
-    if (reclaimPolicy != null) { sb.append("reclaimPolicy:"); sb.append(reclaimPolicy + ","); }
-    if (volumeBindingMode != null) { sb.append("volumeBindingMode:"); sb.append(volumeBindingMode); }
+    if (!(allowVolumeExpansion == null)) {
+        sb.append("allowVolumeExpansion:");
+        sb.append(allowVolumeExpansion);
+        sb.append(",");
+    }
+    if (!(allowedTopologies == null) && !(allowedTopologies.isEmpty())) {
+        sb.append("allowedTopologies:");
+        sb.append(allowedTopologies);
+        sb.append(",");
+    }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(mountOptions == null) && !(mountOptions.isEmpty())) {
+        sb.append("mountOptions:");
+        sb.append(mountOptions);
+        sb.append(",");
+    }
+    if (!(parameters == null) && !(parameters.isEmpty())) {
+        sb.append("parameters:");
+        sb.append(parameters);
+        sb.append(",");
+    }
+    if (!(provisioner == null)) {
+        sb.append("provisioner:");
+        sb.append(provisioner);
+        sb.append(",");
+    }
+    if (!(reclaimPolicy == null)) {
+        sb.append("reclaimPolicy:");
+        sb.append(reclaimPolicy);
+        sb.append(",");
+    }
+    if (!(volumeBindingMode == null)) {
+        sb.append("volumeBindingMode:");
+        sb.append(volumeBindingMode);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -516,7 +678,7 @@ public class V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Bas
     int index;
     
     public N and() {
-      return (N) V1StorageClassFluent.this.setToAllowedTopologies(index,builder.build());
+      return (N) V1StorageClassFluent.this.setToAllowedTopologies(index, builder.build());
     }
     
     public N endAllowedTopology() {

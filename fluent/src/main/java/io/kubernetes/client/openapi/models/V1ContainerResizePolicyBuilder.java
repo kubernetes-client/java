@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ContainerResizePolicyBuilder extends V1ContainerResizePolicyFluent<V1ContainerResizePolicyBuilder> implements VisitableBuilder<V1ContainerResizePolicy,V1ContainerResizePolicyBuilder>{
   public V1ContainerResizePolicyBuilder() {
     this(new V1ContainerResizePolicy());

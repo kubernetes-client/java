@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,16 +8,18 @@ import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
+public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
   public V1SubjectAccessReviewSpecFluent() {
   }
   
@@ -31,35 +34,59 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   private String user;
   
   protected void copyInstance(V1SubjectAccessReviewSpec instance) {
-    instance = (instance != null ? instance : new V1SubjectAccessReviewSpec());
+    instance = instance != null ? instance : new V1SubjectAccessReviewSpec();
     if (instance != null) {
-          this.withExtra(instance.getExtra());
-          this.withGroups(instance.getGroups());
-          this.withNonResourceAttributes(instance.getNonResourceAttributes());
-          this.withResourceAttributes(instance.getResourceAttributes());
-          this.withUid(instance.getUid());
-          this.withUser(instance.getUser());
-        }
+        this.withExtra(instance.getExtra());
+        this.withGroups(instance.getGroups());
+        this.withNonResourceAttributes(instance.getNonResourceAttributes());
+        this.withResourceAttributes(instance.getResourceAttributes());
+        this.withUid(instance.getUid());
+        this.withUser(instance.getUser());
+    }
   }
   
   public A addToExtra(String key,List<String> value) {
-    if(this.extra == null && key != null && value != null) { this.extra = new LinkedHashMap(); }
-    if(key != null && value != null) {this.extra.put(key, value);} return (A)this;
+    if (this.extra == null && key != null && value != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.extra.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToExtra(Map<String,List<String>> map) {
-    if(this.extra == null && map != null) { this.extra = new LinkedHashMap(); }
-    if(map != null) { this.extra.putAll(map);} return (A)this;
+    if (this.extra == null && map != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.extra.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(String key) {
-    if(this.extra == null) { return (A) this; }
-    if(key != null && this.extra != null) {this.extra.remove(key);} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (key != null && this.extra != null) {
+      this.extra.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(Map<String,List<String>> map) {
-    if(this.extra == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.extra != null){this.extra.remove(key);}}} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.extra != null) {
+          this.extra.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,List<String>> getExtra() {
@@ -80,34 +107,59 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   }
   
   public A addToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
     this.groups.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    this.groups.set(index, item); return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    this.groups.set(index, item);
+    return (A) this;
   }
   
-  public A addToGroups(java.lang.String... items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+  public A addToGroups(String... items) {
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToGroups(Collection<String> items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromGroups(java.lang.String... items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+  public A removeFromGroups(String... items) {
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromGroups(Collection<String> items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getGroups() {
@@ -156,7 +208,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
     return (A) this;
   }
   
-  public A withGroups(java.lang.String... groups) {
+  public A withGroups(String... groups) {
     if (this.groups != null) {
         this.groups.clear();
         _visitables.remove("groups");
@@ -170,7 +222,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   }
   
   public boolean hasGroups() {
-    return this.groups != null && !this.groups.isEmpty();
+    return this.groups != null && !(this.groups.isEmpty());
   }
   
   public V1NonResourceAttributes buildNonResourceAttributes() {
@@ -202,15 +254,15 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   }
   
   public NonResourceAttributesNested<A> editNonResourceAttributes() {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(null));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(null));
   }
   
   public NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(new V1NonResourceAttributesBuilder().build()));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(new V1NonResourceAttributesBuilder().build()));
   }
   
   public NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(item));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(item));
   }
   
   public V1ResourceAttributes buildResourceAttributes() {
@@ -242,15 +294,15 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   }
   
   public ResourceAttributesNested<A> editResourceAttributes() {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(null));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
   }
   
   public ResourceAttributesNested<A> editOrNewResourceAttributes() {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
   }
   
   public ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(item));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(item));
   }
   
   public String getUid() {
@@ -280,32 +332,73 @@ public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpec
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SubjectAccessReviewSpecFluent that = (V1SubjectAccessReviewSpecFluent) o;
-    if (!java.util.Objects.equals(extra, that.extra)) return false;
-    if (!java.util.Objects.equals(groups, that.groups)) return false;
-    if (!java.util.Objects.equals(nonResourceAttributes, that.nonResourceAttributes)) return false;
-    if (!java.util.Objects.equals(resourceAttributes, that.resourceAttributes)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
+    if (!(Objects.equals(extra, that.extra))) {
+      return false;
+    }
+    if (!(Objects.equals(groups, that.groups))) {
+      return false;
+    }
+    if (!(Objects.equals(nonResourceAttributes, that.nonResourceAttributes))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceAttributes, that.resourceAttributes))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(extra,  groups,  nonResourceAttributes,  resourceAttributes,  uid,  user,  super.hashCode());
+    return Objects.hash(extra, groups, nonResourceAttributes, resourceAttributes, uid, user);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (extra != null && !extra.isEmpty()) { sb.append("extra:"); sb.append(extra + ","); }
-    if (groups != null && !groups.isEmpty()) { sb.append("groups:"); sb.append(groups + ","); }
-    if (nonResourceAttributes != null) { sb.append("nonResourceAttributes:"); sb.append(nonResourceAttributes + ","); }
-    if (resourceAttributes != null) { sb.append("resourceAttributes:"); sb.append(resourceAttributes + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user); }
+    if (!(extra == null) && !(extra.isEmpty())) {
+        sb.append("extra:");
+        sb.append(extra);
+        sb.append(",");
+    }
+    if (!(groups == null) && !(groups.isEmpty())) {
+        sb.append("groups:");
+        sb.append(groups);
+        sb.append(",");
+    }
+    if (!(nonResourceAttributes == null)) {
+        sb.append("nonResourceAttributes:");
+        sb.append(nonResourceAttributes);
+        sb.append(",");
+    }
+    if (!(resourceAttributes == null)) {
+        sb.append("resourceAttributes:");
+        sb.append(resourceAttributes);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NetworkPolicyListBuilder extends V1NetworkPolicyListFluent<V1NetworkPolicyListBuilder> implements VisitableBuilder<V1NetworkPolicyList,V1NetworkPolicyListBuilder>{
   public V1NetworkPolicyListBuilder() {
     this(new V1NetworkPolicyList());

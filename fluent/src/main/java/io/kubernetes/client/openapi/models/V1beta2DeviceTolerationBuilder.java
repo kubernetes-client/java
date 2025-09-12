@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2DeviceTolerationBuilder extends V1beta2DeviceTolerationFluent<V1beta2DeviceTolerationBuilder> implements VisitableBuilder<V1beta2DeviceToleration,V1beta2DeviceTolerationBuilder>{
   public V1beta2DeviceTolerationBuilder() {
     this(new V1beta2DeviceToleration());

@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1OpaqueDeviceConfigurationFluent<A extends V1beta1OpaqueDeviceConfigurationFluent<A>> extends BaseFluent<A>{
+public class V1beta1OpaqueDeviceConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1beta1OpaqueDeviceConfigurationFluent<A>> extends BaseFluent<A>{
   public V1beta1OpaqueDeviceConfigurationFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1beta1OpaqueDeviceConfigurationFluent<A extends V1beta1OpaqueDevic
   private Object parameters;
   
   protected void copyInstance(V1beta1OpaqueDeviceConfiguration instance) {
-    instance = (instance != null ? instance : new V1beta1OpaqueDeviceConfiguration());
+    instance = instance != null ? instance : new V1beta1OpaqueDeviceConfiguration();
     if (instance != null) {
-          this.withDriver(instance.getDriver());
-          this.withParameters(instance.getParameters());
-        }
+        this.withDriver(instance.getDriver());
+        this.withParameters(instance.getParameters());
+    }
   }
   
   public String getDriver() {
@@ -54,24 +56,41 @@ public class V1beta1OpaqueDeviceConfigurationFluent<A extends V1beta1OpaqueDevic
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1OpaqueDeviceConfigurationFluent that = (V1beta1OpaqueDeviceConfigurationFluent) o;
-    if (!java.util.Objects.equals(driver, that.driver)) return false;
-    if (!java.util.Objects.equals(parameters, that.parameters)) return false;
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(parameters, that.parameters))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(driver,  parameters,  super.hashCode());
+    return Objects.hash(driver, parameters);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
-    if (parameters != null) { sb.append("parameters:"); sb.append(parameters); }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(parameters == null)) {
+        sb.append("parameters:");
+        sb.append(parameters);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluent<V1LocalVolumeSourceBuilder> implements VisitableBuilder<V1LocalVolumeSource,V1LocalVolumeSourceBuilder>{
   public V1LocalVolumeSourceBuilder() {
     this(new V1LocalVolumeSource());

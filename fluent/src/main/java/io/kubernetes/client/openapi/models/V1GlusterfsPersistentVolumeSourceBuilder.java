@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersistentVolumeSourceFluent<V1GlusterfsPersistentVolumeSourceBuilder> implements VisitableBuilder<V1GlusterfsPersistentVolumeSource,V1GlusterfsPersistentVolumeSourceBuilder>{
   public V1GlusterfsPersistentVolumeSourceBuilder() {
     this(new V1GlusterfsPersistentVolumeSource());

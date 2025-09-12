@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2ResourceClaimConsumerReferenceBuilder extends V1beta2ResourceClaimConsumerReferenceFluent<V1beta2ResourceClaimConsumerReferenceBuilder> implements VisitableBuilder<V1beta2ResourceClaimConsumerReference,V1beta2ResourceClaimConsumerReferenceBuilder>{
   public V1beta2ResourceClaimConsumerReferenceBuilder() {
     this(new V1beta2ResourceClaimConsumerReference());

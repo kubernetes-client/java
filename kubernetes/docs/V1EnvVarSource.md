@@ -10,6 +10,7 @@ EnvVarSource represents a source for the value of an EnvVar.
 |------------ | ------------- | ------------- | -------------|
 |**configMapKeyRef** | [**V1ConfigMapKeySelector**](V1ConfigMapKeySelector.md) |  |  [optional] |
 |**fieldRef** | [**V1ObjectFieldSelector**](V1ObjectFieldSelector.md) |  |  [optional] |
+|**fileKeyRef** | [**V1FileKeySelector**](V1FileKeySelector.md) |  |  [optional] |
 |**resourceFieldRef** | [**V1ResourceFieldSelector**](V1ResourceFieldSelector.md) |  |  [optional] |
 |**secretKeyRef** | [**V1SecretKeySelector**](V1SecretKeySelector.md) |  |  [optional] |
 

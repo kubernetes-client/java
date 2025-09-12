@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodDNSConfigOptionBuilder extends V1PodDNSConfigOptionFluent<V1PodDNSConfigOptionBuilder> implements VisitableBuilder<V1PodDNSConfigOption,V1PodDNSConfigOptionBuilder>{
   public V1PodDNSConfigOptionBuilder() {
     this(new V1PodDNSConfigOption());

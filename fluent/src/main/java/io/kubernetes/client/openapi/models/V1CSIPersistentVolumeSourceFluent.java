@@ -1,19 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.lang.Object;
 import java.lang.Boolean;
+import java.util.Optional;
+import java.util.Objects;
+import java.lang.Object;
 import java.util.Map;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1CSIPersistentVolumeSourceFluent() {
   }
   
@@ -32,19 +35,19 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   private String volumeHandle;
   
   protected void copyInstance(V1CSIPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1CSIPersistentVolumeSource());
+    instance = instance != null ? instance : new V1CSIPersistentVolumeSource();
     if (instance != null) {
-          this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
-          this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
-          this.withDriver(instance.getDriver());
-          this.withFsType(instance.getFsType());
-          this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
-          this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-          this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
-          this.withReadOnly(instance.getReadOnly());
-          this.withVolumeAttributes(instance.getVolumeAttributes());
-          this.withVolumeHandle(instance.getVolumeHandle());
-        }
+        this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
+        this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
+        this.withDriver(instance.getDriver());
+        this.withFsType(instance.getFsType());
+        this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
+        this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+        this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
+        this.withReadOnly(instance.getReadOnly());
+        this.withVolumeAttributes(instance.getVolumeAttributes());
+        this.withVolumeHandle(instance.getVolumeHandle());
+    }
   }
   
   public V1SecretReference buildControllerExpandSecretRef() {
@@ -76,15 +79,15 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public ControllerExpandSecretRefNested<A> editControllerExpandSecretRef() {
-    return withNewControllerExpandSecretRefLike(java.util.Optional.ofNullable(buildControllerExpandSecretRef()).orElse(null));
+    return this.withNewControllerExpandSecretRefLike(Optional.ofNullable(this.buildControllerExpandSecretRef()).orElse(null));
   }
   
   public ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRef() {
-    return withNewControllerExpandSecretRefLike(java.util.Optional.ofNullable(buildControllerExpandSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewControllerExpandSecretRefLike(Optional.ofNullable(this.buildControllerExpandSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRefLike(V1SecretReference item) {
-    return withNewControllerExpandSecretRefLike(java.util.Optional.ofNullable(buildControllerExpandSecretRef()).orElse(item));
+    return this.withNewControllerExpandSecretRefLike(Optional.ofNullable(this.buildControllerExpandSecretRef()).orElse(item));
   }
   
   public V1SecretReference buildControllerPublishSecretRef() {
@@ -116,15 +119,15 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public ControllerPublishSecretRefNested<A> editControllerPublishSecretRef() {
-    return withNewControllerPublishSecretRefLike(java.util.Optional.ofNullable(buildControllerPublishSecretRef()).orElse(null));
+    return this.withNewControllerPublishSecretRefLike(Optional.ofNullable(this.buildControllerPublishSecretRef()).orElse(null));
   }
   
   public ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRef() {
-    return withNewControllerPublishSecretRefLike(java.util.Optional.ofNullable(buildControllerPublishSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewControllerPublishSecretRefLike(Optional.ofNullable(this.buildControllerPublishSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRefLike(V1SecretReference item) {
-    return withNewControllerPublishSecretRefLike(java.util.Optional.ofNullable(buildControllerPublishSecretRef()).orElse(item));
+    return this.withNewControllerPublishSecretRefLike(Optional.ofNullable(this.buildControllerPublishSecretRef()).orElse(item));
   }
   
   public String getDriver() {
@@ -182,15 +185,15 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public NodeExpandSecretRefNested<A> editNodeExpandSecretRef() {
-    return withNewNodeExpandSecretRefLike(java.util.Optional.ofNullable(buildNodeExpandSecretRef()).orElse(null));
+    return this.withNewNodeExpandSecretRefLike(Optional.ofNullable(this.buildNodeExpandSecretRef()).orElse(null));
   }
   
   public NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRef() {
-    return withNewNodeExpandSecretRefLike(java.util.Optional.ofNullable(buildNodeExpandSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewNodeExpandSecretRefLike(Optional.ofNullable(this.buildNodeExpandSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRefLike(V1SecretReference item) {
-    return withNewNodeExpandSecretRefLike(java.util.Optional.ofNullable(buildNodeExpandSecretRef()).orElse(item));
+    return this.withNewNodeExpandSecretRefLike(Optional.ofNullable(this.buildNodeExpandSecretRef()).orElse(item));
   }
   
   public V1SecretReference buildNodePublishSecretRef() {
@@ -222,15 +225,15 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public NodePublishSecretRefNested<A> editNodePublishSecretRef() {
-    return withNewNodePublishSecretRefLike(java.util.Optional.ofNullable(buildNodePublishSecretRef()).orElse(null));
+    return this.withNewNodePublishSecretRefLike(Optional.ofNullable(this.buildNodePublishSecretRef()).orElse(null));
   }
   
   public NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef() {
-    return withNewNodePublishSecretRefLike(java.util.Optional.ofNullable(buildNodePublishSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewNodePublishSecretRefLike(Optional.ofNullable(this.buildNodePublishSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(V1SecretReference item) {
-    return withNewNodePublishSecretRefLike(java.util.Optional.ofNullable(buildNodePublishSecretRef()).orElse(item));
+    return this.withNewNodePublishSecretRefLike(Optional.ofNullable(this.buildNodePublishSecretRef()).orElse(item));
   }
   
   public V1SecretReference buildNodeStageSecretRef() {
@@ -262,15 +265,15 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public NodeStageSecretRefNested<A> editNodeStageSecretRef() {
-    return withNewNodeStageSecretRefLike(java.util.Optional.ofNullable(buildNodeStageSecretRef()).orElse(null));
+    return this.withNewNodeStageSecretRefLike(Optional.ofNullable(this.buildNodeStageSecretRef()).orElse(null));
   }
   
   public NodeStageSecretRefNested<A> editOrNewNodeStageSecretRef() {
-    return withNewNodeStageSecretRefLike(java.util.Optional.ofNullable(buildNodeStageSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewNodeStageSecretRefLike(Optional.ofNullable(this.buildNodeStageSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public NodeStageSecretRefNested<A> editOrNewNodeStageSecretRefLike(V1SecretReference item) {
-    return withNewNodeStageSecretRefLike(java.util.Optional.ofNullable(buildNodeStageSecretRef()).orElse(item));
+    return this.withNewNodeStageSecretRefLike(Optional.ofNullable(this.buildNodeStageSecretRef()).orElse(item));
   }
   
   public Boolean getReadOnly() {
@@ -287,23 +290,47 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public A addToVolumeAttributes(String key,String value) {
-    if(this.volumeAttributes == null && key != null && value != null) { this.volumeAttributes = new LinkedHashMap(); }
-    if(key != null && value != null) {this.volumeAttributes.put(key, value);} return (A)this;
+    if (this.volumeAttributes == null && key != null && value != null) {
+      this.volumeAttributes = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.volumeAttributes.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToVolumeAttributes(Map<String,String> map) {
-    if(this.volumeAttributes == null && map != null) { this.volumeAttributes = new LinkedHashMap(); }
-    if(map != null) { this.volumeAttributes.putAll(map);} return (A)this;
+    if (this.volumeAttributes == null && map != null) {
+      this.volumeAttributes = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.volumeAttributes.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromVolumeAttributes(String key) {
-    if(this.volumeAttributes == null) { return (A) this; }
-    if(key != null && this.volumeAttributes != null) {this.volumeAttributes.remove(key);} return (A)this;
+    if (this.volumeAttributes == null) {
+      return (A) this;
+    }
+    if (key != null && this.volumeAttributes != null) {
+      this.volumeAttributes.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromVolumeAttributes(Map<String,String> map) {
-    if(this.volumeAttributes == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.volumeAttributes != null){this.volumeAttributes.remove(key);}}} return (A)this;
+    if (this.volumeAttributes == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.volumeAttributes != null) {
+          this.volumeAttributes.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getVolumeAttributes() {
@@ -337,40 +364,105 @@ public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSo
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CSIPersistentVolumeSourceFluent that = (V1CSIPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(controllerExpandSecretRef, that.controllerExpandSecretRef)) return false;
-    if (!java.util.Objects.equals(controllerPublishSecretRef, that.controllerPublishSecretRef)) return false;
-    if (!java.util.Objects.equals(driver, that.driver)) return false;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(nodeExpandSecretRef, that.nodeExpandSecretRef)) return false;
-    if (!java.util.Objects.equals(nodePublishSecretRef, that.nodePublishSecretRef)) return false;
-    if (!java.util.Objects.equals(nodeStageSecretRef, that.nodeStageSecretRef)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(volumeAttributes, that.volumeAttributes)) return false;
-    if (!java.util.Objects.equals(volumeHandle, that.volumeHandle)) return false;
+    if (!(Objects.equals(controllerExpandSecretRef, that.controllerExpandSecretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(controllerPublishSecretRef, that.controllerPublishSecretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeExpandSecretRef, that.nodeExpandSecretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(nodePublishSecretRef, that.nodePublishSecretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeStageSecretRef, that.nodeStageSecretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeAttributes, that.volumeAttributes))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeHandle, that.volumeHandle))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(controllerExpandSecretRef,  controllerPublishSecretRef,  driver,  fsType,  nodeExpandSecretRef,  nodePublishSecretRef,  nodeStageSecretRef,  readOnly,  volumeAttributes,  volumeHandle,  super.hashCode());
+    return Objects.hash(controllerExpandSecretRef, controllerPublishSecretRef, driver, fsType, nodeExpandSecretRef, nodePublishSecretRef, nodeStageSecretRef, readOnly, volumeAttributes, volumeHandle);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (controllerExpandSecretRef != null) { sb.append("controllerExpandSecretRef:"); sb.append(controllerExpandSecretRef + ","); }
-    if (controllerPublishSecretRef != null) { sb.append("controllerPublishSecretRef:"); sb.append(controllerPublishSecretRef + ","); }
-    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (nodeExpandSecretRef != null) { sb.append("nodeExpandSecretRef:"); sb.append(nodeExpandSecretRef + ","); }
-    if (nodePublishSecretRef != null) { sb.append("nodePublishSecretRef:"); sb.append(nodePublishSecretRef + ","); }
-    if (nodeStageSecretRef != null) { sb.append("nodeStageSecretRef:"); sb.append(nodeStageSecretRef + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (volumeAttributes != null && !volumeAttributes.isEmpty()) { sb.append("volumeAttributes:"); sb.append(volumeAttributes + ","); }
-    if (volumeHandle != null) { sb.append("volumeHandle:"); sb.append(volumeHandle); }
+    if (!(controllerExpandSecretRef == null)) {
+        sb.append("controllerExpandSecretRef:");
+        sb.append(controllerExpandSecretRef);
+        sb.append(",");
+    }
+    if (!(controllerPublishSecretRef == null)) {
+        sb.append("controllerPublishSecretRef:");
+        sb.append(controllerPublishSecretRef);
+        sb.append(",");
+    }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(nodeExpandSecretRef == null)) {
+        sb.append("nodeExpandSecretRef:");
+        sb.append(nodeExpandSecretRef);
+        sb.append(",");
+    }
+    if (!(nodePublishSecretRef == null)) {
+        sb.append("nodePublishSecretRef:");
+        sb.append(nodePublishSecretRef);
+        sb.append(",");
+    }
+    if (!(nodeStageSecretRef == null)) {
+        sb.append("nodeStageSecretRef:");
+        sb.append(nodeStageSecretRef);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(volumeAttributes == null) && !(volumeAttributes.isEmpty())) {
+        sb.append("volumeAttributes:");
+        sb.append(volumeAttributes);
+        sb.append(",");
+    }
+    if (!(volumeHandle == null)) {
+        sb.append("volumeHandle:");
+        sb.append(volumeHandle);
+    }
     sb.append("}");
     return sb.toString();
   }

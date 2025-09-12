@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1BoundObjectReferenceFluent<A extends V1BoundObjectReferenceFluent<A>> extends BaseFluent<A>{
+public class V1BoundObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1BoundObjectReferenceFluent<A>> extends BaseFluent<A>{
   public V1BoundObjectReferenceFluent() {
   }
   
@@ -22,13 +24,13 @@ public class V1BoundObjectReferenceFluent<A extends V1BoundObjectReferenceFluent
   private String uid;
   
   protected void copyInstance(V1BoundObjectReference instance) {
-    instance = (instance != null ? instance : new V1BoundObjectReference());
+    instance = instance != null ? instance : new V1BoundObjectReference();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withName(instance.getName());
-          this.withUid(instance.getUid());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withName(instance.getName());
+        this.withUid(instance.getUid());
+    }
   }
   
   public String getApiVersion() {
@@ -84,28 +86,57 @@ public class V1BoundObjectReferenceFluent<A extends V1BoundObjectReferenceFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1BoundObjectReferenceFluent that = (V1BoundObjectReferenceFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  name,  uid,  super.hashCode());
+    return Objects.hash(apiVersion, kind, name, uid);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,18 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
 import java.lang.Integer;
 import java.time.OffsetDateTime;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluent<A>{
+public class CoreV1EventFluent<A extends io.kubernetes.client.openapi.models.CoreV1EventFluent<A>> extends BaseFluent<A>{
   public CoreV1EventFluent() {
   }
   
@@ -38,26 +41,26 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   private String type;
   
   protected void copyInstance(CoreV1Event instance) {
-    instance = (instance != null ? instance : new CoreV1Event());
+    instance = instance != null ? instance : new CoreV1Event();
     if (instance != null) {
-          this.withAction(instance.getAction());
-          this.withApiVersion(instance.getApiVersion());
-          this.withCount(instance.getCount());
-          this.withEventTime(instance.getEventTime());
-          this.withFirstTimestamp(instance.getFirstTimestamp());
-          this.withInvolvedObject(instance.getInvolvedObject());
-          this.withKind(instance.getKind());
-          this.withLastTimestamp(instance.getLastTimestamp());
-          this.withMessage(instance.getMessage());
-          this.withMetadata(instance.getMetadata());
-          this.withReason(instance.getReason());
-          this.withRelated(instance.getRelated());
-          this.withReportingComponent(instance.getReportingComponent());
-          this.withReportingInstance(instance.getReportingInstance());
-          this.withSeries(instance.getSeries());
-          this.withSource(instance.getSource());
-          this.withType(instance.getType());
-        }
+        this.withAction(instance.getAction());
+        this.withApiVersion(instance.getApiVersion());
+        this.withCount(instance.getCount());
+        this.withEventTime(instance.getEventTime());
+        this.withFirstTimestamp(instance.getFirstTimestamp());
+        this.withInvolvedObject(instance.getInvolvedObject());
+        this.withKind(instance.getKind());
+        this.withLastTimestamp(instance.getLastTimestamp());
+        this.withMessage(instance.getMessage());
+        this.withMetadata(instance.getMetadata());
+        this.withReason(instance.getReason());
+        this.withRelated(instance.getRelated());
+        this.withReportingComponent(instance.getReportingComponent());
+        this.withReportingInstance(instance.getReportingInstance());
+        this.withSeries(instance.getSeries());
+        this.withSource(instance.getSource());
+        this.withType(instance.getType());
+    }
   }
   
   public String getAction() {
@@ -154,15 +157,15 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public InvolvedObjectNested<A> editInvolvedObject() {
-    return withNewInvolvedObjectLike(java.util.Optional.ofNullable(buildInvolvedObject()).orElse(null));
+    return this.withNewInvolvedObjectLike(Optional.ofNullable(this.buildInvolvedObject()).orElse(null));
   }
   
   public InvolvedObjectNested<A> editOrNewInvolvedObject() {
-    return withNewInvolvedObjectLike(java.util.Optional.ofNullable(buildInvolvedObject()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewInvolvedObjectLike(Optional.ofNullable(this.buildInvolvedObject()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public InvolvedObjectNested<A> editOrNewInvolvedObjectLike(V1ObjectReference item) {
-    return withNewInvolvedObjectLike(java.util.Optional.ofNullable(buildInvolvedObject()).orElse(item));
+    return this.withNewInvolvedObjectLike(Optional.ofNullable(this.buildInvolvedObject()).orElse(item));
   }
   
   public String getKind() {
@@ -233,15 +236,15 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public String getReason() {
@@ -286,15 +289,15 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public RelatedNested<A> editRelated() {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(null));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(null));
   }
   
   public RelatedNested<A> editOrNewRelated() {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public RelatedNested<A> editOrNewRelatedLike(V1ObjectReference item) {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(item));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(item));
   }
   
   public String getReportingComponent() {
@@ -352,15 +355,15 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public SeriesNested<A> editSeries() {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(null));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(null));
   }
   
   public SeriesNested<A> editOrNewSeries() {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(new CoreV1EventSeriesBuilder().build()));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(new CoreV1EventSeriesBuilder().build()));
   }
   
   public SeriesNested<A> editOrNewSeriesLike(CoreV1EventSeries item) {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(item));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(item));
   }
   
   public V1EventSource buildSource() {
@@ -392,15 +395,15 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public SourceNested<A> editSource() {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(null));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(null));
   }
   
   public SourceNested<A> editOrNewSource() {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(new V1EventSourceBuilder().build()));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(new V1EventSourceBuilder().build()));
   }
   
   public SourceNested<A> editOrNewSourceLike(V1EventSource item) {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(item));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(item));
   }
   
   public String getType() {
@@ -417,54 +420,161 @@ public class CoreV1EventFluent<A extends CoreV1EventFluent<A>> extends BaseFluen
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     CoreV1EventFluent that = (CoreV1EventFluent) o;
-    if (!java.util.Objects.equals(action, that.action)) return false;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(count, that.count)) return false;
-    if (!java.util.Objects.equals(eventTime, that.eventTime)) return false;
-    if (!java.util.Objects.equals(firstTimestamp, that.firstTimestamp)) return false;
-    if (!java.util.Objects.equals(involvedObject, that.involvedObject)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(lastTimestamp, that.lastTimestamp)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(related, that.related)) return false;
-    if (!java.util.Objects.equals(reportingComponent, that.reportingComponent)) return false;
-    if (!java.util.Objects.equals(reportingInstance, that.reportingInstance)) return false;
-    if (!java.util.Objects.equals(series, that.series)) return false;
-    if (!java.util.Objects.equals(source, that.source)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(action, that.action))) {
+      return false;
+    }
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(count, that.count))) {
+      return false;
+    }
+    if (!(Objects.equals(eventTime, that.eventTime))) {
+      return false;
+    }
+    if (!(Objects.equals(firstTimestamp, that.firstTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(involvedObject, that.involvedObject))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(lastTimestamp, that.lastTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(related, that.related))) {
+      return false;
+    }
+    if (!(Objects.equals(reportingComponent, that.reportingComponent))) {
+      return false;
+    }
+    if (!(Objects.equals(reportingInstance, that.reportingInstance))) {
+      return false;
+    }
+    if (!(Objects.equals(series, that.series))) {
+      return false;
+    }
+    if (!(Objects.equals(source, that.source))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(action,  apiVersion,  count,  eventTime,  firstTimestamp,  involvedObject,  kind,  lastTimestamp,  message,  metadata,  reason,  related,  reportingComponent,  reportingInstance,  series,  source,  type,  super.hashCode());
+    return Objects.hash(action, apiVersion, count, eventTime, firstTimestamp, involvedObject, kind, lastTimestamp, message, metadata, reason, related, reportingComponent, reportingInstance, series, source, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (action != null) { sb.append("action:"); sb.append(action + ","); }
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (count != null) { sb.append("count:"); sb.append(count + ","); }
-    if (eventTime != null) { sb.append("eventTime:"); sb.append(eventTime + ","); }
-    if (firstTimestamp != null) { sb.append("firstTimestamp:"); sb.append(firstTimestamp + ","); }
-    if (involvedObject != null) { sb.append("involvedObject:"); sb.append(involvedObject + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (lastTimestamp != null) { sb.append("lastTimestamp:"); sb.append(lastTimestamp + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (related != null) { sb.append("related:"); sb.append(related + ","); }
-    if (reportingComponent != null) { sb.append("reportingComponent:"); sb.append(reportingComponent + ","); }
-    if (reportingInstance != null) { sb.append("reportingInstance:"); sb.append(reportingInstance + ","); }
-    if (series != null) { sb.append("series:"); sb.append(series + ","); }
-    if (source != null) { sb.append("source:"); sb.append(source + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(action == null)) {
+        sb.append("action:");
+        sb.append(action);
+        sb.append(",");
+    }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(count == null)) {
+        sb.append("count:");
+        sb.append(count);
+        sb.append(",");
+    }
+    if (!(eventTime == null)) {
+        sb.append("eventTime:");
+        sb.append(eventTime);
+        sb.append(",");
+    }
+    if (!(firstTimestamp == null)) {
+        sb.append("firstTimestamp:");
+        sb.append(firstTimestamp);
+        sb.append(",");
+    }
+    if (!(involvedObject == null)) {
+        sb.append("involvedObject:");
+        sb.append(involvedObject);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(lastTimestamp == null)) {
+        sb.append("lastTimestamp:");
+        sb.append(lastTimestamp);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(related == null)) {
+        sb.append("related:");
+        sb.append(related);
+        sb.append(",");
+    }
+    if (!(reportingComponent == null)) {
+        sb.append("reportingComponent:");
+        sb.append(reportingComponent);
+        sb.append(",");
+    }
+    if (!(reportingInstance == null)) {
+        sb.append("reportingInstance:");
+        sb.append(reportingInstance);
+        sb.append(",");
+    }
+    if (!(series == null)) {
+        sb.append("series:");
+        sb.append(series);
+        sb.append(",");
+    }
+    if (!(source == null)) {
+        sb.append("source:");
+        sb.append(source);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

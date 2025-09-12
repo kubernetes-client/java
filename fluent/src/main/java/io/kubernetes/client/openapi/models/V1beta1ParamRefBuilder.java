@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1ParamRefBuilder extends V1beta1ParamRefFluent<V1beta1ParamRefBuilder> implements VisitableBuilder<V1beta1ParamRef,V1beta1ParamRefBuilder>{
   public V1beta1ParamRefBuilder() {
     this(new V1beta1ParamRef());

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SessionAffinityConfigFluent<A extends V1SessionAffinityConfigFluent<A>> extends BaseFluent<A>{
+public class V1SessionAffinityConfigFluent<A extends io.kubernetes.client.openapi.models.V1SessionAffinityConfigFluent<A>> extends BaseFluent<A>{
   public V1SessionAffinityConfigFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1SessionAffinityConfigFluent<A extends V1SessionAffinityConfigFlue
   private V1ClientIPConfigBuilder clientIP;
   
   protected void copyInstance(V1SessionAffinityConfig instance) {
-    instance = (instance != null ? instance : new V1SessionAffinityConfig());
+    instance = instance != null ? instance : new V1SessionAffinityConfig();
     if (instance != null) {
-          this.withClientIP(instance.getClientIP());
-        }
+      this.withClientIP(instance.getClientIP());
+    }
   }
   
   public V1ClientIPConfig buildClientIP() {
@@ -55,34 +58,45 @@ public class V1SessionAffinityConfigFluent<A extends V1SessionAffinityConfigFlue
   }
   
   public ClientIPNested<A> editClientIP() {
-    return withNewClientIPLike(java.util.Optional.ofNullable(buildClientIP()).orElse(null));
+    return this.withNewClientIPLike(Optional.ofNullable(this.buildClientIP()).orElse(null));
   }
   
   public ClientIPNested<A> editOrNewClientIP() {
-    return withNewClientIPLike(java.util.Optional.ofNullable(buildClientIP()).orElse(new V1ClientIPConfigBuilder().build()));
+    return this.withNewClientIPLike(Optional.ofNullable(this.buildClientIP()).orElse(new V1ClientIPConfigBuilder().build()));
   }
   
   public ClientIPNested<A> editOrNewClientIPLike(V1ClientIPConfig item) {
-    return withNewClientIPLike(java.util.Optional.ofNullable(buildClientIP()).orElse(item));
+    return this.withNewClientIPLike(Optional.ofNullable(this.buildClientIP()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SessionAffinityConfigFluent that = (V1SessionAffinityConfigFluent) o;
-    if (!java.util.Objects.equals(clientIP, that.clientIP)) return false;
+    if (!(Objects.equals(clientIP, that.clientIP))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(clientIP,  super.hashCode());
+    return Objects.hash(clientIP);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (clientIP != null) { sb.append("clientIP:"); sb.append(clientIP); }
+    if (!(clientIP == null)) {
+        sb.append("clientIP:");
+        sb.append(clientIP);
+    }
     sb.append("}");
     return sb.toString();
   }

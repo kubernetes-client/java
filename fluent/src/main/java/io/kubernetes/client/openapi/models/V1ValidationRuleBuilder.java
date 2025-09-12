@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ValidationRuleBuilder extends V1ValidationRuleFluent<V1ValidationRuleBuilder> implements VisitableBuilder<V1ValidationRule,V1ValidationRuleBuilder>{
   public V1ValidationRuleBuilder() {
     this(new V1ValidationRule());

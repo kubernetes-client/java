@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> extends BaseFluent<A>{
+public class V1IngressStatusFluent<A extends io.kubernetes.client.openapi.models.V1IngressStatusFluent<A>> extends BaseFluent<A>{
   public V1IngressStatusFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> extends B
   private V1IngressLoadBalancerStatusBuilder loadBalancer;
   
   protected void copyInstance(V1IngressStatus instance) {
-    instance = (instance != null ? instance : new V1IngressStatus());
+    instance = instance != null ? instance : new V1IngressStatus();
     if (instance != null) {
-          this.withLoadBalancer(instance.getLoadBalancer());
-        }
+      this.withLoadBalancer(instance.getLoadBalancer());
+    }
   }
   
   public V1IngressLoadBalancerStatus buildLoadBalancer() {
@@ -55,34 +58,45 @@ public class V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> extends B
   }
   
   public LoadBalancerNested<A> editLoadBalancer() {
-    return withNewLoadBalancerLike(java.util.Optional.ofNullable(buildLoadBalancer()).orElse(null));
+    return this.withNewLoadBalancerLike(Optional.ofNullable(this.buildLoadBalancer()).orElse(null));
   }
   
   public LoadBalancerNested<A> editOrNewLoadBalancer() {
-    return withNewLoadBalancerLike(java.util.Optional.ofNullable(buildLoadBalancer()).orElse(new V1IngressLoadBalancerStatusBuilder().build()));
+    return this.withNewLoadBalancerLike(Optional.ofNullable(this.buildLoadBalancer()).orElse(new V1IngressLoadBalancerStatusBuilder().build()));
   }
   
   public LoadBalancerNested<A> editOrNewLoadBalancerLike(V1IngressLoadBalancerStatus item) {
-    return withNewLoadBalancerLike(java.util.Optional.ofNullable(buildLoadBalancer()).orElse(item));
+    return this.withNewLoadBalancerLike(Optional.ofNullable(this.buildLoadBalancer()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressStatusFluent that = (V1IngressStatusFluent) o;
-    if (!java.util.Objects.equals(loadBalancer, that.loadBalancer)) return false;
+    if (!(Objects.equals(loadBalancer, that.loadBalancer))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(loadBalancer,  super.hashCode());
+    return Objects.hash(loadBalancer);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (loadBalancer != null) { sb.append("loadBalancer:"); sb.append(loadBalancer); }
+    if (!(loadBalancer == null)) {
+        sb.append("loadBalancer:");
+        sb.append(loadBalancer);
+    }
     sb.append("}");
     return sb.toString();
   }

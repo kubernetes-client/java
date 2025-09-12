@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1WebhookConversionBuilder extends V1WebhookConversionFluent<V1WebhookConversionBuilder> implements VisitableBuilder<V1WebhookConversion,V1WebhookConversionBuilder>{
   public V1WebhookConversionBuilder() {
     this(new V1WebhookConversion());

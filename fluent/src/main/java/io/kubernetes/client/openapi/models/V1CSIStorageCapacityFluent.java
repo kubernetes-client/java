@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>> extends BaseFluent<A>{
+public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<A>> extends BaseFluent<A>{
   public V1CSIStorageCapacityFluent() {
   }
   
@@ -27,16 +30,16 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   private String storageClassName;
   
   protected void copyInstance(V1CSIStorageCapacity instance) {
-    instance = (instance != null ? instance : new V1CSIStorageCapacity());
+    instance = instance != null ? instance : new V1CSIStorageCapacity();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withCapacity(instance.getCapacity());
-          this.withKind(instance.getKind());
-          this.withMaximumVolumeSize(instance.getMaximumVolumeSize());
-          this.withMetadata(instance.getMetadata());
-          this.withNodeTopology(instance.getNodeTopology());
-          this.withStorageClassName(instance.getStorageClassName());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withCapacity(instance.getCapacity());
+        this.withKind(instance.getKind());
+        this.withMaximumVolumeSize(instance.getMaximumVolumeSize());
+        this.withMetadata(instance.getMetadata());
+        this.withNodeTopology(instance.getNodeTopology());
+        this.withStorageClassName(instance.getStorageClassName());
+    }
   }
   
   public String getApiVersion() {
@@ -66,7 +69,7 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   }
   
   public A withNewCapacity(String value) {
-    return (A)withCapacity(new Quantity(value));
+    return (A) this.withCapacity(new Quantity(value));
   }
   
   public String getKind() {
@@ -96,7 +99,7 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   }
   
   public A withNewMaximumVolumeSize(String value) {
-    return (A)withMaximumVolumeSize(new Quantity(value));
+    return (A) this.withMaximumVolumeSize(new Quantity(value));
   }
   
   public V1ObjectMeta buildMetadata() {
@@ -128,15 +131,15 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1LabelSelector buildNodeTopology() {
@@ -168,15 +171,15 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   }
   
   public NodeTopologyNested<A> editNodeTopology() {
-    return withNewNodeTopologyLike(java.util.Optional.ofNullable(buildNodeTopology()).orElse(null));
+    return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(null));
   }
   
   public NodeTopologyNested<A> editOrNewNodeTopology() {
-    return withNewNodeTopologyLike(java.util.Optional.ofNullable(buildNodeTopology()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public NodeTopologyNested<A> editOrNewNodeTopologyLike(V1LabelSelector item) {
-    return withNewNodeTopologyLike(java.util.Optional.ofNullable(buildNodeTopology()).orElse(item));
+    return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(item));
   }
   
   public String getStorageClassName() {
@@ -193,34 +196,81 @@ public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CSIStorageCapacityFluent that = (V1CSIStorageCapacityFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(maximumVolumeSize, that.maximumVolumeSize)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(nodeTopology, that.nodeTopology)) return false;
-    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(capacity, that.capacity))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(maximumVolumeSize, that.maximumVolumeSize))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeTopology, that.nodeTopology))) {
+      return false;
+    }
+    if (!(Objects.equals(storageClassName, that.storageClassName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  capacity,  kind,  maximumVolumeSize,  metadata,  nodeTopology,  storageClassName,  super.hashCode());
+    return Objects.hash(apiVersion, capacity, kind, maximumVolumeSize, metadata, nodeTopology, storageClassName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (capacity != null) { sb.append("capacity:"); sb.append(capacity + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (maximumVolumeSize != null) { sb.append("maximumVolumeSize:"); sb.append(maximumVolumeSize + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (nodeTopology != null) { sb.append("nodeTopology:"); sb.append(nodeTopology + ","); }
-    if (storageClassName != null) { sb.append("storageClassName:"); sb.append(storageClassName); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(capacity == null)) {
+        sb.append("capacity:");
+        sb.append(capacity);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(maximumVolumeSize == null)) {
+        sb.append("maximumVolumeSize:");
+        sb.append(maximumVolumeSize);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(nodeTopology == null)) {
+        sb.append("nodeTopology:");
+        sb.append(nodeTopology);
+        sb.append(",");
+    }
+    if (!(storageClassName == null)) {
+        sb.append("storageClassName:");
+        sb.append(storageClassName);
+    }
     sb.append("}");
     return sb.toString();
   }

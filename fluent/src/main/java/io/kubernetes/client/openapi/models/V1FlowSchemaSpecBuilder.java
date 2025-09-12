@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1FlowSchemaSpecBuilder extends V1FlowSchemaSpecFluent<V1FlowSchemaSpecBuilder> implements VisitableBuilder<V1FlowSchemaSpec,V1FlowSchemaSpecBuilder>{
   public V1FlowSchemaSpecBuilder() {
     this(new V1FlowSchemaSpec());

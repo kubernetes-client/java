@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PriorityClassListBuilder extends V1PriorityClassListFluent<V1PriorityClassListBuilder> implements VisitableBuilder<V1PriorityClassList,V1PriorityClassListBuilder>{
   public V1PriorityClassListBuilder() {
     this(new V1PriorityClassList());

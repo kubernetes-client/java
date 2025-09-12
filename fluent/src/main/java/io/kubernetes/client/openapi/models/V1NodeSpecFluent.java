@@ -1,23 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
-import java.util.Collection;
-import java.lang.Object;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
+import java.util.Objects;
+import java.util.Collection;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<A>{
+public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1NodeSpecFluent<A>> extends BaseFluent<A>{
   public V1NodeSpecFluent() {
   }
   
@@ -33,16 +36,16 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   private Boolean unschedulable;
   
   protected void copyInstance(V1NodeSpec instance) {
-    instance = (instance != null ? instance : new V1NodeSpec());
+    instance = instance != null ? instance : new V1NodeSpec();
     if (instance != null) {
-          this.withConfigSource(instance.getConfigSource());
-          this.withExternalID(instance.getExternalID());
-          this.withPodCIDR(instance.getPodCIDR());
-          this.withPodCIDRs(instance.getPodCIDRs());
-          this.withProviderID(instance.getProviderID());
-          this.withTaints(instance.getTaints());
-          this.withUnschedulable(instance.getUnschedulable());
-        }
+        this.withConfigSource(instance.getConfigSource());
+        this.withExternalID(instance.getExternalID());
+        this.withPodCIDR(instance.getPodCIDR());
+        this.withPodCIDRs(instance.getPodCIDRs());
+        this.withProviderID(instance.getProviderID());
+        this.withTaints(instance.getTaints());
+        this.withUnschedulable(instance.getUnschedulable());
+    }
   }
   
   public V1NodeConfigSource buildConfigSource() {
@@ -74,15 +77,15 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public ConfigSourceNested<A> editConfigSource() {
-    return withNewConfigSourceLike(java.util.Optional.ofNullable(buildConfigSource()).orElse(null));
+    return this.withNewConfigSourceLike(Optional.ofNullable(this.buildConfigSource()).orElse(null));
   }
   
   public ConfigSourceNested<A> editOrNewConfigSource() {
-    return withNewConfigSourceLike(java.util.Optional.ofNullable(buildConfigSource()).orElse(new V1NodeConfigSourceBuilder().build()));
+    return this.withNewConfigSourceLike(Optional.ofNullable(this.buildConfigSource()).orElse(new V1NodeConfigSourceBuilder().build()));
   }
   
   public ConfigSourceNested<A> editOrNewConfigSourceLike(V1NodeConfigSource item) {
-    return withNewConfigSourceLike(java.util.Optional.ofNullable(buildConfigSource()).orElse(item));
+    return this.withNewConfigSourceLike(Optional.ofNullable(this.buildConfigSource()).orElse(item));
   }
   
   public String getExternalID() {
@@ -112,34 +115,59 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public A addToPodCIDRs(int index,String item) {
-    if (this.podCIDRs == null) {this.podCIDRs = new ArrayList<String>();}
+    if (this.podCIDRs == null) {
+      this.podCIDRs = new ArrayList();
+    }
     this.podCIDRs.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPodCIDRs(int index,String item) {
-    if (this.podCIDRs == null) {this.podCIDRs = new ArrayList<String>();}
-    this.podCIDRs.set(index, item); return (A)this;
+    if (this.podCIDRs == null) {
+      this.podCIDRs = new ArrayList();
+    }
+    this.podCIDRs.set(index, item);
+    return (A) this;
   }
   
-  public A addToPodCIDRs(java.lang.String... items) {
-    if (this.podCIDRs == null) {this.podCIDRs = new ArrayList<String>();}
-    for (String item : items) {this.podCIDRs.add(item);} return (A)this;
+  public A addToPodCIDRs(String... items) {
+    if (this.podCIDRs == null) {
+      this.podCIDRs = new ArrayList();
+    }
+    for (String item : items) {
+      this.podCIDRs.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToPodCIDRs(Collection<String> items) {
-    if (this.podCIDRs == null) {this.podCIDRs = new ArrayList<String>();}
-    for (String item : items) {this.podCIDRs.add(item);} return (A)this;
+    if (this.podCIDRs == null) {
+      this.podCIDRs = new ArrayList();
+    }
+    for (String item : items) {
+      this.podCIDRs.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromPodCIDRs(java.lang.String... items) {
-    if (this.podCIDRs == null) return (A)this;
-    for (String item : items) { this.podCIDRs.remove(item);} return (A)this;
+  public A removeFromPodCIDRs(String... items) {
+    if (this.podCIDRs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.podCIDRs.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPodCIDRs(Collection<String> items) {
-    if (this.podCIDRs == null) return (A)this;
-    for (String item : items) { this.podCIDRs.remove(item);} return (A)this;
+    if (this.podCIDRs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.podCIDRs.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getPodCIDRs() {
@@ -188,7 +216,7 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withPodCIDRs(java.lang.String... podCIDRs) {
+  public A withPodCIDRs(String... podCIDRs) {
     if (this.podCIDRs != null) {
         this.podCIDRs.clear();
         _visitables.remove("podCIDRs");
@@ -202,7 +230,7 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public boolean hasPodCIDRs() {
-    return this.podCIDRs != null && !this.podCIDRs.isEmpty();
+    return this.podCIDRs != null && !(this.podCIDRs.isEmpty());
   }
   
   public String getProviderID() {
@@ -219,7 +247,9 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public A addToTaints(int index,V1Taint item) {
-    if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
     V1TaintBuilder builder = new V1TaintBuilder(item);
     if (index < 0 || index >= taints.size()) {
         _visitables.get("taints").add(builder);
@@ -228,11 +258,13 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
         _visitables.get("taints").add(builder);
         taints.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTaints(int index,V1Taint item) {
-    if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
     V1TaintBuilder builder = new V1TaintBuilder(item);
     if (index < 0 || index >= taints.size()) {
         _visitables.get("taints").add(builder);
@@ -241,41 +273,71 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
         _visitables.get("taints").add(builder);
         taints.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToTaints(io.kubernetes.client.openapi.models.V1Taint... items) {
-    if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
-    for (V1Taint item : items) {V1TaintBuilder builder = new V1TaintBuilder(item);_visitables.get("taints").add(builder);this.taints.add(builder);} return (A)this;
+  public A addToTaints(V1Taint... items) {
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    for (V1Taint item : items) {
+        V1TaintBuilder builder = new V1TaintBuilder(item);
+        _visitables.get("taints").add(builder);
+        this.taints.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToTaints(Collection<V1Taint> items) {
-    if (this.taints == null) {this.taints = new ArrayList<V1TaintBuilder>();}
-    for (V1Taint item : items) {V1TaintBuilder builder = new V1TaintBuilder(item);_visitables.get("taints").add(builder);this.taints.add(builder);} return (A)this;
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    for (V1Taint item : items) {
+        V1TaintBuilder builder = new V1TaintBuilder(item);
+        _visitables.get("taints").add(builder);
+        this.taints.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromTaints(io.kubernetes.client.openapi.models.V1Taint... items) {
-    if (this.taints == null) return (A)this;
-    for (V1Taint item : items) {V1TaintBuilder builder = new V1TaintBuilder(item);_visitables.get("taints").remove(builder); this.taints.remove(builder);} return (A)this;
+  public A removeFromTaints(V1Taint... items) {
+    if (this.taints == null) {
+      return (A) this;
+    }
+    for (V1Taint item : items) {
+        V1TaintBuilder builder = new V1TaintBuilder(item);
+        _visitables.get("taints").remove(builder);
+        this.taints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTaints(Collection<V1Taint> items) {
-    if (this.taints == null) return (A)this;
-    for (V1Taint item : items) {V1TaintBuilder builder = new V1TaintBuilder(item);_visitables.get("taints").remove(builder); this.taints.remove(builder);} return (A)this;
+    if (this.taints == null) {
+      return (A) this;
+    }
+    for (V1Taint item : items) {
+        V1TaintBuilder builder = new V1TaintBuilder(item);
+        _visitables.get("taints").remove(builder);
+        this.taints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromTaints(Predicate<V1TaintBuilder> predicate) {
-    if (taints == null) return (A) this;
-    final Iterator<V1TaintBuilder> each = taints.iterator();
-    final List visitables = _visitables.get("taints");
-    while (each.hasNext()) {
-      V1TaintBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (taints == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1TaintBuilder> each = taints.iterator();
+    List visitables = _visitables.get("taints");
+    while (each.hasNext()) {
+        V1TaintBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Taint> buildTaints() {
@@ -327,7 +389,7 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withTaints(io.kubernetes.client.openapi.models.V1Taint... taints) {
+  public A withTaints(V1Taint... taints) {
     if (this.taints != null) {
         this.taints.clear();
         _visitables.remove("taints");
@@ -341,7 +403,7 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public boolean hasTaints() {
-    return this.taints != null && !this.taints.isEmpty();
+    return this.taints != null && !(this.taints.isEmpty());
   }
   
   public TaintsNested<A> addNewTaint() {
@@ -357,28 +419,39 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public TaintsNested<A> editTaint(int index) {
-    if (taints.size() <= index) throw new RuntimeException("Can't edit taints. Index exceeds size.");
-    return setNewTaintLike(index, buildTaint(index));
+    if (index <= taints.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "taints"));
+    }
+    return this.setNewTaintLike(index, this.buildTaint(index));
   }
   
   public TaintsNested<A> editFirstTaint() {
-    if (taints.size() == 0) throw new RuntimeException("Can't edit first taints. The list is empty.");
-    return setNewTaintLike(0, buildTaint(0));
+    if (taints.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "taints"));
+    }
+    return this.setNewTaintLike(0, this.buildTaint(0));
   }
   
   public TaintsNested<A> editLastTaint() {
     int index = taints.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last taints. The list is empty.");
-    return setNewTaintLike(index, buildTaint(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "taints"));
+    }
+    return this.setNewTaintLike(index, this.buildTaint(index));
   }
   
   public TaintsNested<A> editMatchingTaint(Predicate<V1TaintBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<taints.size();i++) { 
-    if (predicate.test(taints.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching taints. No match found.");
-    return setNewTaintLike(index, buildTaint(index));
+    for (int i = 0;i < taints.size();i++) {
+      if (predicate.test(taints.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "taints"));
+    }
+    return this.setNewTaintLike(index, this.buildTaint(index));
   }
   
   public Boolean getUnschedulable() {
@@ -395,34 +468,81 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeSpecFluent that = (V1NodeSpecFluent) o;
-    if (!java.util.Objects.equals(configSource, that.configSource)) return false;
-    if (!java.util.Objects.equals(externalID, that.externalID)) return false;
-    if (!java.util.Objects.equals(podCIDR, that.podCIDR)) return false;
-    if (!java.util.Objects.equals(podCIDRs, that.podCIDRs)) return false;
-    if (!java.util.Objects.equals(providerID, that.providerID)) return false;
-    if (!java.util.Objects.equals(taints, that.taints)) return false;
-    if (!java.util.Objects.equals(unschedulable, that.unschedulable)) return false;
+    if (!(Objects.equals(configSource, that.configSource))) {
+      return false;
+    }
+    if (!(Objects.equals(externalID, that.externalID))) {
+      return false;
+    }
+    if (!(Objects.equals(podCIDR, that.podCIDR))) {
+      return false;
+    }
+    if (!(Objects.equals(podCIDRs, that.podCIDRs))) {
+      return false;
+    }
+    if (!(Objects.equals(providerID, that.providerID))) {
+      return false;
+    }
+    if (!(Objects.equals(taints, that.taints))) {
+      return false;
+    }
+    if (!(Objects.equals(unschedulable, that.unschedulable))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(configSource,  externalID,  podCIDR,  podCIDRs,  providerID,  taints,  unschedulable,  super.hashCode());
+    return Objects.hash(configSource, externalID, podCIDR, podCIDRs, providerID, taints, unschedulable);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (configSource != null) { sb.append("configSource:"); sb.append(configSource + ","); }
-    if (externalID != null) { sb.append("externalID:"); sb.append(externalID + ","); }
-    if (podCIDR != null) { sb.append("podCIDR:"); sb.append(podCIDR + ","); }
-    if (podCIDRs != null && !podCIDRs.isEmpty()) { sb.append("podCIDRs:"); sb.append(podCIDRs + ","); }
-    if (providerID != null) { sb.append("providerID:"); sb.append(providerID + ","); }
-    if (taints != null && !taints.isEmpty()) { sb.append("taints:"); sb.append(taints + ","); }
-    if (unschedulable != null) { sb.append("unschedulable:"); sb.append(unschedulable); }
+    if (!(configSource == null)) {
+        sb.append("configSource:");
+        sb.append(configSource);
+        sb.append(",");
+    }
+    if (!(externalID == null)) {
+        sb.append("externalID:");
+        sb.append(externalID);
+        sb.append(",");
+    }
+    if (!(podCIDR == null)) {
+        sb.append("podCIDR:");
+        sb.append(podCIDR);
+        sb.append(",");
+    }
+    if (!(podCIDRs == null) && !(podCIDRs.isEmpty())) {
+        sb.append("podCIDRs:");
+        sb.append(podCIDRs);
+        sb.append(",");
+    }
+    if (!(providerID == null)) {
+        sb.append("providerID:");
+        sb.append(providerID);
+        sb.append(",");
+    }
+    if (!(taints == null) && !(taints.isEmpty())) {
+        sb.append("taints:");
+        sb.append(taints);
+        sb.append(",");
+    }
+    if (!(unschedulable == null)) {
+        sb.append("unschedulable:");
+        sb.append(unschedulable);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -455,7 +575,7 @@ public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<
     int index;
     
     public N and() {
-      return (N) V1NodeSpecFluent.this.setToTaints(index,builder.build());
+      return (N) V1NodeSpecFluent.this.setToTaints(index, builder.build());
     }
     
     public N endTaint() {

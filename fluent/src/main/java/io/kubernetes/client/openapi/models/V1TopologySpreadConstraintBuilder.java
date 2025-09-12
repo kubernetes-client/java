@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TopologySpreadConstraintBuilder extends V1TopologySpreadConstraintFluent<V1TopologySpreadConstraintBuilder> implements VisitableBuilder<V1TopologySpreadConstraint,V1TopologySpreadConstraintBuilder>{
   public V1TopologySpreadConstraintBuilder() {
     this(new V1TopologySpreadConstraint());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V2ContainerResourceMetricSourceBuilder extends V2ContainerResourceMetricSourceFluent<V2ContainerResourceMetricSourceBuilder> implements VisitableBuilder<V2ContainerResourceMetricSource,V2ContainerResourceMetricSourceBuilder>{
   public V2ContainerResourceMetricSourceBuilder() {
     this(new V2ContainerResourceMetricSource());

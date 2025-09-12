@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ResourceHealthBuilder extends V1ResourceHealthFluent<V1ResourceHealthBuilder> implements VisitableBuilder<V1ResourceHealth,V1ResourceHealthBuilder>{
   public V1ResourceHealthBuilder() {
     this(new V1ResourceHealth());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodIPBuilder extends V1PodIPFluent<V1PodIPBuilder> implements VisitableBuilder<V1PodIP,V1PodIPBuilder>{
   public V1PodIPBuilder() {
     this(new V1PodIP());

@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class AbstractOpenApiSchemaFluent<A extends AbstractOpenApiSchemaFluent<A>> extends BaseFluent<A>{
+public class AbstractOpenApiSchemaFluent<A extends io.kubernetes.client.openapi.models.AbstractOpenApiSchemaFluent<A>> extends BaseFluent<A>{
   public AbstractOpenApiSchemaFluent() {
   }
   
@@ -22,8 +24,8 @@ public class AbstractOpenApiSchemaFluent<A extends AbstractOpenApiSchemaFluent<A
   
   protected void copyInstance(AbstractOpenApiSchema instance) {
     if (instance != null) {
-          this.withSchemaType(instance.getSchemaType());
-        }
+      this.withSchemaType(instance.getSchemaType());
+    }
   }
   
   public Boolean getIsNullable() {
@@ -53,24 +55,41 @@ public class AbstractOpenApiSchemaFluent<A extends AbstractOpenApiSchemaFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     AbstractOpenApiSchemaFluent that = (AbstractOpenApiSchemaFluent) o;
-    if (!java.util.Objects.equals(isNullable, that.isNullable)) return false;
-    if (!java.util.Objects.equals(schemaType, that.schemaType)) return false;
+    if (!(Objects.equals(isNullable, that.isNullable))) {
+      return false;
+    }
+    if (!(Objects.equals(schemaType, that.schemaType))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(isNullable,  schemaType,  super.hashCode());
+    return Objects.hash(isNullable, schemaType);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (isNullable != null) { sb.append("isNullable:"); sb.append(isNullable + ","); }
-    if (schemaType != null) { sb.append("schemaType:"); sb.append(schemaType); }
+    if (!(isNullable == null)) {
+        sb.append("isNullable:");
+        sb.append(isNullable);
+        sb.append(",");
+    }
+    if (!(schemaType == null)) {
+        sb.append("schemaType:");
+        sb.append(schemaType);
+    }
     sb.append("}");
     return sb.toString();
   }

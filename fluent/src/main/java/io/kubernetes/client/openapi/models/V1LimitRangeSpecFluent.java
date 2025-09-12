@@ -1,13 +1,15 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends BaseFluent<A>{
+public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.models.V1LimitRangeSpecFluent<A>> extends BaseFluent<A>{
   public V1LimitRangeSpecFluent() {
   }
   
@@ -26,14 +28,16 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
   private ArrayList<V1LimitRangeItemBuilder> limits;
   
   protected void copyInstance(V1LimitRangeSpec instance) {
-    instance = (instance != null ? instance : new V1LimitRangeSpec());
+    instance = instance != null ? instance : new V1LimitRangeSpec();
     if (instance != null) {
-          this.withLimits(instance.getLimits());
-        }
+      this.withLimits(instance.getLimits());
+    }
   }
   
   public A addToLimits(int index,V1LimitRangeItem item) {
-    if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
+    if (this.limits == null) {
+      this.limits = new ArrayList();
+    }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
     if (index < 0 || index >= limits.size()) {
         _visitables.get("limits").add(builder);
@@ -42,11 +46,13 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
         _visitables.get("limits").add(builder);
         limits.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToLimits(int index,V1LimitRangeItem item) {
-    if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
+    if (this.limits == null) {
+      this.limits = new ArrayList();
+    }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
     if (index < 0 || index >= limits.size()) {
         _visitables.get("limits").add(builder);
@@ -55,41 +61,71 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
         _visitables.get("limits").add(builder);
         limits.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToLimits(io.kubernetes.client.openapi.models.V1LimitRangeItem... items) {
-    if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
-    for (V1LimitRangeItem item : items) {V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);_visitables.get("limits").add(builder);this.limits.add(builder);} return (A)this;
+  public A addToLimits(V1LimitRangeItem... items) {
+    if (this.limits == null) {
+      this.limits = new ArrayList();
+    }
+    for (V1LimitRangeItem item : items) {
+        V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
+        _visitables.get("limits").add(builder);
+        this.limits.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToLimits(Collection<V1LimitRangeItem> items) {
-    if (this.limits == null) {this.limits = new ArrayList<V1LimitRangeItemBuilder>();}
-    for (V1LimitRangeItem item : items) {V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);_visitables.get("limits").add(builder);this.limits.add(builder);} return (A)this;
+    if (this.limits == null) {
+      this.limits = new ArrayList();
+    }
+    for (V1LimitRangeItem item : items) {
+        V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
+        _visitables.get("limits").add(builder);
+        this.limits.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromLimits(io.kubernetes.client.openapi.models.V1LimitRangeItem... items) {
-    if (this.limits == null) return (A)this;
-    for (V1LimitRangeItem item : items) {V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);_visitables.get("limits").remove(builder); this.limits.remove(builder);} return (A)this;
+  public A removeFromLimits(V1LimitRangeItem... items) {
+    if (this.limits == null) {
+      return (A) this;
+    }
+    for (V1LimitRangeItem item : items) {
+        V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
+        _visitables.get("limits").remove(builder);
+        this.limits.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromLimits(Collection<V1LimitRangeItem> items) {
-    if (this.limits == null) return (A)this;
-    for (V1LimitRangeItem item : items) {V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);_visitables.get("limits").remove(builder); this.limits.remove(builder);} return (A)this;
+    if (this.limits == null) {
+      return (A) this;
+    }
+    for (V1LimitRangeItem item : items) {
+        V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
+        _visitables.get("limits").remove(builder);
+        this.limits.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromLimits(Predicate<V1LimitRangeItemBuilder> predicate) {
-    if (limits == null) return (A) this;
-    final Iterator<V1LimitRangeItemBuilder> each = limits.iterator();
-    final List visitables = _visitables.get("limits");
-    while (each.hasNext()) {
-      V1LimitRangeItemBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (limits == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1LimitRangeItemBuilder> each = limits.iterator();
+    List visitables = _visitables.get("limits");
+    while (each.hasNext()) {
+        V1LimitRangeItemBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1LimitRangeItem> buildLimits() {
@@ -141,7 +177,7 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
     return (A) this;
   }
   
-  public A withLimits(io.kubernetes.client.openapi.models.V1LimitRangeItem... limits) {
+  public A withLimits(V1LimitRangeItem... limits) {
     if (this.limits != null) {
         this.limits.clear();
         _visitables.remove("limits");
@@ -155,7 +191,7 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
   }
   
   public boolean hasLimits() {
-    return this.limits != null && !this.limits.isEmpty();
+    return this.limits != null && !(this.limits.isEmpty());
   }
   
   public LimitsNested<A> addNewLimit() {
@@ -171,47 +207,69 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
   }
   
   public LimitsNested<A> editLimit(int index) {
-    if (limits.size() <= index) throw new RuntimeException("Can't edit limits. Index exceeds size.");
-    return setNewLimitLike(index, buildLimit(index));
+    if (index <= limits.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "limits"));
+    }
+    return this.setNewLimitLike(index, this.buildLimit(index));
   }
   
   public LimitsNested<A> editFirstLimit() {
-    if (limits.size() == 0) throw new RuntimeException("Can't edit first limits. The list is empty.");
-    return setNewLimitLike(0, buildLimit(0));
+    if (limits.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "limits"));
+    }
+    return this.setNewLimitLike(0, this.buildLimit(0));
   }
   
   public LimitsNested<A> editLastLimit() {
     int index = limits.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last limits. The list is empty.");
-    return setNewLimitLike(index, buildLimit(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "limits"));
+    }
+    return this.setNewLimitLike(index, this.buildLimit(index));
   }
   
   public LimitsNested<A> editMatchingLimit(Predicate<V1LimitRangeItemBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<limits.size();i++) { 
-    if (predicate.test(limits.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching limits. No match found.");
-    return setNewLimitLike(index, buildLimit(index));
+    for (int i = 0;i < limits.size();i++) {
+      if (predicate.test(limits.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "limits"));
+    }
+    return this.setNewLimitLike(index, this.buildLimit(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LimitRangeSpecFluent that = (V1LimitRangeSpecFluent) o;
-    if (!java.util.Objects.equals(limits, that.limits)) return false;
+    if (!(Objects.equals(limits, that.limits))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(limits,  super.hashCode());
+    return Objects.hash(limits);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (limits != null && !limits.isEmpty()) { sb.append("limits:"); sb.append(limits); }
+    if (!(limits == null) && !(limits.isEmpty())) {
+        sb.append("limits:");
+        sb.append(limits);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -224,7 +282,7 @@ public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends
     int index;
     
     public N and() {
-      return (N) V1LimitRangeSpecFluent.this.setToLimits(index,builder.build());
+      return (N) V1LimitRangeSpecFluent.this.setToLimits(index, builder.build());
     }
     
     public N endLimit() {

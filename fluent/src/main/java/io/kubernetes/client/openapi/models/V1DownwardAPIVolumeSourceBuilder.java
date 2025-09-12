@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DownwardAPIVolumeSourceBuilder extends V1DownwardAPIVolumeSourceFluent<V1DownwardAPIVolumeSourceBuilder> implements VisitableBuilder<V1DownwardAPIVolumeSource,V1DownwardAPIVolumeSourceBuilder>{
   public V1DownwardAPIVolumeSourceBuilder() {
     this(new V1DownwardAPIVolumeSource());

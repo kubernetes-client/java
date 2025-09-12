@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ProbeBuilder extends V1ProbeFluent<V1ProbeBuilder> implements VisitableBuilder<V1Probe,V1ProbeBuilder>{
   public V1ProbeBuilder() {
     this(new V1Probe());

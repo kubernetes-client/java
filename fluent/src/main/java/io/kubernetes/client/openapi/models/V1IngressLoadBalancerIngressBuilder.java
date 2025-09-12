@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1IngressLoadBalancerIngressBuilder extends V1IngressLoadBalancerIngressFluent<V1IngressLoadBalancerIngressBuilder> implements VisitableBuilder<V1IngressLoadBalancerIngress,V1IngressLoadBalancerIngressBuilder>{
   public V1IngressLoadBalancerIngressBuilder() {
     this(new V1IngressLoadBalancerIngress());

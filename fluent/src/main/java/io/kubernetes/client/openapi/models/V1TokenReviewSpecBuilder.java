@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TokenReviewSpecBuilder extends V1TokenReviewSpecFluent<V1TokenReviewSpecBuilder> implements VisitableBuilder<V1TokenReviewSpec,V1TokenReviewSpecBuilder>{
   public V1TokenReviewSpecBuilder() {
     this(new V1TokenReviewSpec());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class EventsV1EventBuilder extends EventsV1EventFluent<EventsV1EventBuilder> implements VisitableBuilder<EventsV1Event,EventsV1EventBuilder>{
   public EventsV1EventBuilder() {
     this(new EventsV1Event());

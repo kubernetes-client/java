@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EndpointSliceBuilder extends V1EndpointSliceFluent<V1EndpointSliceBuilder> implements VisitableBuilder<V1EndpointSlice,V1EndpointSliceBuilder>{
   public V1EndpointSliceBuilder() {
     this(new V1EndpointSlice());

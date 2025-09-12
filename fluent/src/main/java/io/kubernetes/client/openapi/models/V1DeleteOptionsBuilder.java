@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluent<V1DeleteOptionsBuilder> implements VisitableBuilder<V1DeleteOptions,V1DeleteOptionsBuilder>{
   public V1DeleteOptionsBuilder() {
     this(new V1DeleteOptions());

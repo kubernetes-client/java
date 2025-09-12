@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CSIDriverBuilder extends V1CSIDriverFluent<V1CSIDriverBuilder> implements VisitableBuilder<V1CSIDriver,V1CSIDriverBuilder>{
   public V1CSIDriverBuilder() {
     this(new V1CSIDriver());

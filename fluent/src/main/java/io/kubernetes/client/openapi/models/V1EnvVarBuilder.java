@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EnvVarBuilder extends V1EnvVarFluent<V1EnvVarBuilder> implements VisitableBuilder<V1EnvVar,V1EnvVarBuilder>{
   public V1EnvVarBuilder() {
     this(new V1EnvVar());

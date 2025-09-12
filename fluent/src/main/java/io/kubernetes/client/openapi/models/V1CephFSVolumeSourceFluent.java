@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -15,7 +18,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1CephFSVolumeSourceFluent() {
   }
   
@@ -30,46 +33,71 @@ public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
   private String user;
   
   protected void copyInstance(V1CephFSVolumeSource instance) {
-    instance = (instance != null ? instance : new V1CephFSVolumeSource());
+    instance = instance != null ? instance : new V1CephFSVolumeSource();
     if (instance != null) {
-          this.withMonitors(instance.getMonitors());
-          this.withPath(instance.getPath());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretFile(instance.getSecretFile());
-          this.withSecretRef(instance.getSecretRef());
-          this.withUser(instance.getUser());
-        }
+        this.withMonitors(instance.getMonitors());
+        this.withPath(instance.getPath());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretFile(instance.getSecretFile());
+        this.withSecretRef(instance.getSecretRef());
+        this.withUser(instance.getUser());
+    }
   }
   
   public A addToMonitors(int index,String item) {
-    if (this.monitors == null) {this.monitors = new ArrayList<String>();}
+    if (this.monitors == null) {
+      this.monitors = new ArrayList();
+    }
     this.monitors.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMonitors(int index,String item) {
-    if (this.monitors == null) {this.monitors = new ArrayList<String>();}
-    this.monitors.set(index, item); return (A)this;
+    if (this.monitors == null) {
+      this.monitors = new ArrayList();
+    }
+    this.monitors.set(index, item);
+    return (A) this;
   }
   
-  public A addToMonitors(java.lang.String... items) {
-    if (this.monitors == null) {this.monitors = new ArrayList<String>();}
-    for (String item : items) {this.monitors.add(item);} return (A)this;
+  public A addToMonitors(String... items) {
+    if (this.monitors == null) {
+      this.monitors = new ArrayList();
+    }
+    for (String item : items) {
+      this.monitors.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMonitors(Collection<String> items) {
-    if (this.monitors == null) {this.monitors = new ArrayList<String>();}
-    for (String item : items) {this.monitors.add(item);} return (A)this;
+    if (this.monitors == null) {
+      this.monitors = new ArrayList();
+    }
+    for (String item : items) {
+      this.monitors.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMonitors(java.lang.String... items) {
-    if (this.monitors == null) return (A)this;
-    for (String item : items) { this.monitors.remove(item);} return (A)this;
+  public A removeFromMonitors(String... items) {
+    if (this.monitors == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.monitors.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMonitors(Collection<String> items) {
-    if (this.monitors == null) return (A)this;
-    for (String item : items) { this.monitors.remove(item);} return (A)this;
+    if (this.monitors == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.monitors.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMonitors() {
@@ -118,7 +146,7 @@ public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
     return (A) this;
   }
   
-  public A withMonitors(java.lang.String... monitors) {
+  public A withMonitors(String... monitors) {
     if (this.monitors != null) {
         this.monitors.clear();
         _visitables.remove("monitors");
@@ -132,7 +160,7 @@ public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
   }
   
   public boolean hasMonitors() {
-    return this.monitors != null && !this.monitors.isEmpty();
+    return this.monitors != null && !(this.monitors.isEmpty());
   }
   
   public String getPath() {
@@ -203,15 +231,15 @@ public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1LocalObjectReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1LocalObjectReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public String getUser() {
@@ -228,32 +256,73 @@ public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CephFSVolumeSourceFluent that = (V1CephFSVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(monitors, that.monitors)) return false;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretFile, that.secretFile)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
+    if (!(Objects.equals(monitors, that.monitors))) {
+      return false;
+    }
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretFile, that.secretFile))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(monitors,  path,  readOnly,  secretFile,  secretRef,  user,  super.hashCode());
+    return Objects.hash(monitors, path, readOnly, secretFile, secretRef, user);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (monitors != null && !monitors.isEmpty()) { sb.append("monitors:"); sb.append(monitors + ","); }
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretFile != null) { sb.append("secretFile:"); sb.append(secretFile + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user); }
+    if (!(monitors == null) && !(monitors.isEmpty())) {
+        sb.append("monitors:");
+        sb.append(monitors);
+        sb.append(",");
+    }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretFile == null)) {
+        sb.append("secretFile:");
+        sb.append(secretFile);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+    }
     sb.append("}");
     return sb.toString();
   }

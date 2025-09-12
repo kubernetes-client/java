@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeConfigStatusBuilder extends V1NodeConfigStatusFluent<V1NodeConfigStatusBuilder> implements VisitableBuilder<V1NodeConfigStatus,V1NodeConfigStatusBuilder>{
   public V1NodeConfigStatusBuilder() {
     this(new V1NodeConfigStatus());

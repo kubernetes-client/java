@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2ResourceMetricStatusFluent<A extends V2ResourceMetricStatusFluent<A>> extends BaseFluent<A>{
+public class V2ResourceMetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<A>> extends BaseFluent<A>{
   public V2ResourceMetricStatusFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V2ResourceMetricStatusFluent<A extends V2ResourceMetricStatusFluent
   private String name;
   
   protected void copyInstance(V2ResourceMetricStatus instance) {
-    instance = (instance != null ? instance : new V2ResourceMetricStatus());
+    instance = instance != null ? instance : new V2ResourceMetricStatus();
     if (instance != null) {
-          this.withCurrent(instance.getCurrent());
-          this.withName(instance.getName());
-        }
+        this.withCurrent(instance.getCurrent());
+        this.withName(instance.getName());
+    }
   }
   
   public V2MetricValueStatus buildCurrent() {
@@ -57,15 +60,15 @@ public class V2ResourceMetricStatusFluent<A extends V2ResourceMetricStatusFluent
   }
   
   public CurrentNested<A> editCurrent() {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(null));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(null));
   }
   
   public CurrentNested<A> editOrNewCurrent() {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(new V2MetricValueStatusBuilder().build()));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(new V2MetricValueStatusBuilder().build()));
   }
   
   public CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
-    return withNewCurrentLike(java.util.Optional.ofNullable(buildCurrent()).orElse(item));
+    return this.withNewCurrentLike(Optional.ofNullable(this.buildCurrent()).orElse(item));
   }
   
   public String getName() {
@@ -82,24 +85,41 @@ public class V2ResourceMetricStatusFluent<A extends V2ResourceMetricStatusFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2ResourceMetricStatusFluent that = (V2ResourceMetricStatusFluent) o;
-    if (!java.util.Objects.equals(current, that.current)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(current, that.current))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(current,  name,  super.hashCode());
+    return Objects.hash(current, name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (current != null) { sb.append("current:"); sb.append(current + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(current == null)) {
+        sb.append("current:");
+        sb.append(current);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2HorizontalPodAutoscalerBehaviorFluent<A extends V2HorizontalPodAutoscalerBehaviorFluent<A>> extends BaseFluent<A>{
+public class V2HorizontalPodAutoscalerBehaviorFluent<A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent<A>> extends BaseFluent<A>{
   public V2HorizontalPodAutoscalerBehaviorFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V2HorizontalPodAutoscalerBehaviorFluent<A extends V2HorizontalPodAu
   private V2HPAScalingRulesBuilder scaleUp;
   
   protected void copyInstance(V2HorizontalPodAutoscalerBehavior instance) {
-    instance = (instance != null ? instance : new V2HorizontalPodAutoscalerBehavior());
+    instance = instance != null ? instance : new V2HorizontalPodAutoscalerBehavior();
     if (instance != null) {
-          this.withScaleDown(instance.getScaleDown());
-          this.withScaleUp(instance.getScaleUp());
-        }
+        this.withScaleDown(instance.getScaleDown());
+        this.withScaleUp(instance.getScaleUp());
+    }
   }
   
   public V2HPAScalingRules buildScaleDown() {
@@ -57,15 +60,15 @@ public class V2HorizontalPodAutoscalerBehaviorFluent<A extends V2HorizontalPodAu
   }
   
   public ScaleDownNested<A> editScaleDown() {
-    return withNewScaleDownLike(java.util.Optional.ofNullable(buildScaleDown()).orElse(null));
+    return this.withNewScaleDownLike(Optional.ofNullable(this.buildScaleDown()).orElse(null));
   }
   
   public ScaleDownNested<A> editOrNewScaleDown() {
-    return withNewScaleDownLike(java.util.Optional.ofNullable(buildScaleDown()).orElse(new V2HPAScalingRulesBuilder().build()));
+    return this.withNewScaleDownLike(Optional.ofNullable(this.buildScaleDown()).orElse(new V2HPAScalingRulesBuilder().build()));
   }
   
   public ScaleDownNested<A> editOrNewScaleDownLike(V2HPAScalingRules item) {
-    return withNewScaleDownLike(java.util.Optional.ofNullable(buildScaleDown()).orElse(item));
+    return this.withNewScaleDownLike(Optional.ofNullable(this.buildScaleDown()).orElse(item));
   }
   
   public V2HPAScalingRules buildScaleUp() {
@@ -97,36 +100,53 @@ public class V2HorizontalPodAutoscalerBehaviorFluent<A extends V2HorizontalPodAu
   }
   
   public ScaleUpNested<A> editScaleUp() {
-    return withNewScaleUpLike(java.util.Optional.ofNullable(buildScaleUp()).orElse(null));
+    return this.withNewScaleUpLike(Optional.ofNullable(this.buildScaleUp()).orElse(null));
   }
   
   public ScaleUpNested<A> editOrNewScaleUp() {
-    return withNewScaleUpLike(java.util.Optional.ofNullable(buildScaleUp()).orElse(new V2HPAScalingRulesBuilder().build()));
+    return this.withNewScaleUpLike(Optional.ofNullable(this.buildScaleUp()).orElse(new V2HPAScalingRulesBuilder().build()));
   }
   
   public ScaleUpNested<A> editOrNewScaleUpLike(V2HPAScalingRules item) {
-    return withNewScaleUpLike(java.util.Optional.ofNullable(buildScaleUp()).orElse(item));
+    return this.withNewScaleUpLike(Optional.ofNullable(this.buildScaleUp()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2HorizontalPodAutoscalerBehaviorFluent that = (V2HorizontalPodAutoscalerBehaviorFluent) o;
-    if (!java.util.Objects.equals(scaleDown, that.scaleDown)) return false;
-    if (!java.util.Objects.equals(scaleUp, that.scaleUp)) return false;
+    if (!(Objects.equals(scaleDown, that.scaleDown))) {
+      return false;
+    }
+    if (!(Objects.equals(scaleUp, that.scaleUp))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(scaleDown,  scaleUp,  super.hashCode());
+    return Objects.hash(scaleDown, scaleUp);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (scaleDown != null) { sb.append("scaleDown:"); sb.append(scaleDown + ","); }
-    if (scaleUp != null) { sb.append("scaleUp:"); sb.append(scaleUp); }
+    if (!(scaleDown == null)) {
+        sb.append("scaleDown:");
+        sb.append(scaleDown);
+        sb.append(",");
+    }
+    if (!(scaleUp == null)) {
+        sb.append("scaleUp:");
+        sb.append(scaleUp);
+    }
     sb.append("}");
     return sb.toString();
   }

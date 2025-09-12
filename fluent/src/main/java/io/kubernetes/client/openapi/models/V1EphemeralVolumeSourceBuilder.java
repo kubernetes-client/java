@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EphemeralVolumeSourceBuilder extends V1EphemeralVolumeSourceFluent<V1EphemeralVolumeSourceBuilder> implements VisitableBuilder<V1EphemeralVolumeSource,V1EphemeralVolumeSourceBuilder>{
   public V1EphemeralVolumeSourceBuilder() {
     this(new V1EphemeralVolumeSource());

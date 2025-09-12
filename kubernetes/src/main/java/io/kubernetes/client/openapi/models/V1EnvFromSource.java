@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * EnvFromSource represents the source of a set of ConfigMaps or Secrets
  */
 @ApiModel(description = "EnvFromSource represents the source of a set of ConfigMaps or Secrets")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EnvFromSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_REF = "configMapRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_REF)
@@ -98,11 +98,11 @@ public class V1EnvFromSource {
   }
 
   /**
-   * Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.
+   * Optional text to prepend to the name of each environment variable. May consist of any printable ASCII characters except &#39;&#x3D;&#39;.
    * @return prefix
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.")
+  @ApiModelProperty(value = "Optional text to prepend to the name of each environment variable. May consist of any printable ASCII characters except '='.")
   public String getPrefix() {
     return prefix;
   }

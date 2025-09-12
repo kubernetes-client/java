@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * SeccompProfile defines a pod/container&#39;s seccomp profile settings. Only one profile source may be set.
  */
 @ApiModel(description = "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1SeccompProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
   @SerializedName(SERIALIZED_NAME_LOCALHOST_PROFILE)

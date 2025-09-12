@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeConditionBuilder extends V1NodeConditionFluent<V1NodeConditionBuilder> implements VisitableBuilder<V1NodeCondition,V1NodeConditionBuilder>{
   public V1NodeConditionBuilder() {
     this(new V1NodeCondition());

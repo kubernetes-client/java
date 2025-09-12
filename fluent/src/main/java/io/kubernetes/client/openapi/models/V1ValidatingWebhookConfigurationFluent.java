@@ -1,22 +1,25 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhookConfigurationFluent<A>> extends BaseFluent<A>{
+public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent<A>> extends BaseFluent<A>{
   public V1ValidatingWebhookConfigurationFluent() {
   }
   
@@ -29,13 +32,13 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
   private ArrayList<V1ValidatingWebhookBuilder> webhooks;
   
   protected void copyInstance(V1ValidatingWebhookConfiguration instance) {
-    instance = (instance != null ? instance : new V1ValidatingWebhookConfiguration());
+    instance = instance != null ? instance : new V1ValidatingWebhookConfiguration();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withWebhooks(instance.getWebhooks());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withWebhooks(instance.getWebhooks());
+    }
   }
   
   public String getApiVersion() {
@@ -93,19 +96,21 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToWebhooks(int index,V1ValidatingWebhook item) {
-    if (this.webhooks == null) {this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();}
+    if (this.webhooks == null) {
+      this.webhooks = new ArrayList();
+    }
     V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     if (index < 0 || index >= webhooks.size()) {
         _visitables.get("webhooks").add(builder);
@@ -114,11 +119,13 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
         _visitables.get("webhooks").add(builder);
         webhooks.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToWebhooks(int index,V1ValidatingWebhook item) {
-    if (this.webhooks == null) {this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();}
+    if (this.webhooks == null) {
+      this.webhooks = new ArrayList();
+    }
     V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     if (index < 0 || index >= webhooks.size()) {
         _visitables.get("webhooks").add(builder);
@@ -127,41 +134,71 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
         _visitables.get("webhooks").add(builder);
         webhooks.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items) {
-    if (this.webhooks == null) {this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();}
-    for (V1ValidatingWebhook item : items) {V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);_visitables.get("webhooks").add(builder);this.webhooks.add(builder);} return (A)this;
+  public A addToWebhooks(V1ValidatingWebhook... items) {
+    if (this.webhooks == null) {
+      this.webhooks = new ArrayList();
+    }
+    for (V1ValidatingWebhook item : items) {
+        V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
+        _visitables.get("webhooks").add(builder);
+        this.webhooks.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToWebhooks(Collection<V1ValidatingWebhook> items) {
-    if (this.webhooks == null) {this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();}
-    for (V1ValidatingWebhook item : items) {V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);_visitables.get("webhooks").add(builder);this.webhooks.add(builder);} return (A)this;
+    if (this.webhooks == null) {
+      this.webhooks = new ArrayList();
+    }
+    for (V1ValidatingWebhook item : items) {
+        V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
+        _visitables.get("webhooks").add(builder);
+        this.webhooks.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items) {
-    if (this.webhooks == null) return (A)this;
-    for (V1ValidatingWebhook item : items) {V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);_visitables.get("webhooks").remove(builder); this.webhooks.remove(builder);} return (A)this;
+  public A removeFromWebhooks(V1ValidatingWebhook... items) {
+    if (this.webhooks == null) {
+      return (A) this;
+    }
+    for (V1ValidatingWebhook item : items) {
+        V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
+        _visitables.get("webhooks").remove(builder);
+        this.webhooks.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromWebhooks(Collection<V1ValidatingWebhook> items) {
-    if (this.webhooks == null) return (A)this;
-    for (V1ValidatingWebhook item : items) {V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);_visitables.get("webhooks").remove(builder); this.webhooks.remove(builder);} return (A)this;
+    if (this.webhooks == null) {
+      return (A) this;
+    }
+    for (V1ValidatingWebhook item : items) {
+        V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
+        _visitables.get("webhooks").remove(builder);
+        this.webhooks.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromWebhooks(Predicate<V1ValidatingWebhookBuilder> predicate) {
-    if (webhooks == null) return (A) this;
-    final Iterator<V1ValidatingWebhookBuilder> each = webhooks.iterator();
-    final List visitables = _visitables.get("webhooks");
-    while (each.hasNext()) {
-      V1ValidatingWebhookBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (webhooks == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ValidatingWebhookBuilder> each = webhooks.iterator();
+    List visitables = _visitables.get("webhooks");
+    while (each.hasNext()) {
+        V1ValidatingWebhookBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ValidatingWebhook> buildWebhooks() {
@@ -213,7 +250,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
     return (A) this;
   }
   
-  public A withWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... webhooks) {
+  public A withWebhooks(V1ValidatingWebhook... webhooks) {
     if (this.webhooks != null) {
         this.webhooks.clear();
         _visitables.remove("webhooks");
@@ -227,7 +264,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
   }
   
   public boolean hasWebhooks() {
-    return this.webhooks != null && !this.webhooks.isEmpty();
+    return this.webhooks != null && !(this.webhooks.isEmpty());
   }
   
   public WebhooksNested<A> addNewWebhook() {
@@ -243,53 +280,93 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
   }
   
   public WebhooksNested<A> editWebhook(int index) {
-    if (webhooks.size() <= index) throw new RuntimeException("Can't edit webhooks. Index exceeds size.");
-    return setNewWebhookLike(index, buildWebhook(index));
+    if (index <= webhooks.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "webhooks"));
+    }
+    return this.setNewWebhookLike(index, this.buildWebhook(index));
   }
   
   public WebhooksNested<A> editFirstWebhook() {
-    if (webhooks.size() == 0) throw new RuntimeException("Can't edit first webhooks. The list is empty.");
-    return setNewWebhookLike(0, buildWebhook(0));
+    if (webhooks.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "webhooks"));
+    }
+    return this.setNewWebhookLike(0, this.buildWebhook(0));
   }
   
   public WebhooksNested<A> editLastWebhook() {
     int index = webhooks.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last webhooks. The list is empty.");
-    return setNewWebhookLike(index, buildWebhook(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "webhooks"));
+    }
+    return this.setNewWebhookLike(index, this.buildWebhook(index));
   }
   
   public WebhooksNested<A> editMatchingWebhook(Predicate<V1ValidatingWebhookBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<webhooks.size();i++) { 
-    if (predicate.test(webhooks.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching webhooks. No match found.");
-    return setNewWebhookLike(index, buildWebhook(index));
+    for (int i = 0;i < webhooks.size();i++) {
+      if (predicate.test(webhooks.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "webhooks"));
+    }
+    return this.setNewWebhookLike(index, this.buildWebhook(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ValidatingWebhookConfigurationFluent that = (V1ValidatingWebhookConfigurationFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(webhooks, that.webhooks)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(webhooks, that.webhooks))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  webhooks,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, webhooks);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (webhooks != null && !webhooks.isEmpty()) { sb.append("webhooks:"); sb.append(webhooks); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(webhooks == null) && !(webhooks.isEmpty())) {
+        sb.append("webhooks:");
+        sb.append(webhooks);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -318,7 +395,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhoo
     int index;
     
     public N and() {
-      return (N) V1ValidatingWebhookConfigurationFluent.this.setToWebhooks(index,builder.build());
+      return (N) V1ValidatingWebhookConfigurationFluent.this.setToWebhooks(index, builder.build());
     }
     
     public N endWebhook() {

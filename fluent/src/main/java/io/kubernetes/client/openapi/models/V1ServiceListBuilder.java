@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ServiceListBuilder extends V1ServiceListFluent<V1ServiceListBuilder> implements VisitableBuilder<V1ServiceList,V1ServiceListBuilder>{
   public V1ServiceListBuilder() {
     this(new V1ServiceList());

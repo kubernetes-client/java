@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluent<V1NonResourceAttributesBuilder> implements VisitableBuilder<V1NonResourceAttributes,V1NonResourceAttributesBuilder>{
   public V1NonResourceAttributesBuilder() {
     this(new V1NonResourceAttributes());

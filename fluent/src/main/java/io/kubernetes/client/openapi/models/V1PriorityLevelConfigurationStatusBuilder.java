@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PriorityLevelConfigurationStatusBuilder extends V1PriorityLevelConfigurationStatusFluent<V1PriorityLevelConfigurationStatusBuilder> implements VisitableBuilder<V1PriorityLevelConfigurationStatus,V1PriorityLevelConfigurationStatusBuilder>{
   public V1PriorityLevelConfigurationStatusBuilder() {
     this(new V1PriorityLevelConfigurationStatus());

@@ -1,19 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
 import java.util.ArrayList;
 import java.lang.String;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.List;
 import java.lang.Boolean;
-import java.lang.Long;
-import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.function.Predicate;
+import java.util.List;
+import java.util.Optional;
+import java.lang.Long;
+import java.util.Objects;
+import java.util.Collection;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
+import java.lang.RuntimeException;
 import java.util.Iterator;
 import io.kubernetes.client.custom.Quantity;
 import java.lang.Integer;
@@ -22,7 +25,7 @@ import java.lang.Integer;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>{
+public class V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V1PodSpecFluent<A>> extends BaseFluent<A>{
   public V1PodSpecFluent() {
   }
   
@@ -43,6 +46,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   private Boolean hostPID;
   private Boolean hostUsers;
   private String hostname;
+  private String hostnameOverride;
   private ArrayList<V1LocalObjectReferenceBuilder> imagePullSecrets;
   private ArrayList<V1ContainerBuilder> initContainers;
   private String nodeName;
@@ -71,49 +75,50 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   private ArrayList<V1VolumeBuilder> volumes;
   
   protected void copyInstance(V1PodSpec instance) {
-    instance = (instance != null ? instance : new V1PodSpec());
+    instance = instance != null ? instance : new V1PodSpec();
     if (instance != null) {
-          this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
-          this.withAffinity(instance.getAffinity());
-          this.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
-          this.withContainers(instance.getContainers());
-          this.withDnsConfig(instance.getDnsConfig());
-          this.withDnsPolicy(instance.getDnsPolicy());
-          this.withEnableServiceLinks(instance.getEnableServiceLinks());
-          this.withEphemeralContainers(instance.getEphemeralContainers());
-          this.withHostAliases(instance.getHostAliases());
-          this.withHostIPC(instance.getHostIPC());
-          this.withHostNetwork(instance.getHostNetwork());
-          this.withHostPID(instance.getHostPID());
-          this.withHostUsers(instance.getHostUsers());
-          this.withHostname(instance.getHostname());
-          this.withImagePullSecrets(instance.getImagePullSecrets());
-          this.withInitContainers(instance.getInitContainers());
-          this.withNodeName(instance.getNodeName());
-          this.withNodeSelector(instance.getNodeSelector());
-          this.withOs(instance.getOs());
-          this.withOverhead(instance.getOverhead());
-          this.withPreemptionPolicy(instance.getPreemptionPolicy());
-          this.withPriority(instance.getPriority());
-          this.withPriorityClassName(instance.getPriorityClassName());
-          this.withReadinessGates(instance.getReadinessGates());
-          this.withResourceClaims(instance.getResourceClaims());
-          this.withResources(instance.getResources());
-          this.withRestartPolicy(instance.getRestartPolicy());
-          this.withRuntimeClassName(instance.getRuntimeClassName());
-          this.withSchedulerName(instance.getSchedulerName());
-          this.withSchedulingGates(instance.getSchedulingGates());
-          this.withSecurityContext(instance.getSecurityContext());
-          this.withServiceAccount(instance.getServiceAccount());
-          this.withServiceAccountName(instance.getServiceAccountName());
-          this.withSetHostnameAsFQDN(instance.getSetHostnameAsFQDN());
-          this.withShareProcessNamespace(instance.getShareProcessNamespace());
-          this.withSubdomain(instance.getSubdomain());
-          this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
-          this.withTolerations(instance.getTolerations());
-          this.withTopologySpreadConstraints(instance.getTopologySpreadConstraints());
-          this.withVolumes(instance.getVolumes());
-        }
+        this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
+        this.withAffinity(instance.getAffinity());
+        this.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
+        this.withContainers(instance.getContainers());
+        this.withDnsConfig(instance.getDnsConfig());
+        this.withDnsPolicy(instance.getDnsPolicy());
+        this.withEnableServiceLinks(instance.getEnableServiceLinks());
+        this.withEphemeralContainers(instance.getEphemeralContainers());
+        this.withHostAliases(instance.getHostAliases());
+        this.withHostIPC(instance.getHostIPC());
+        this.withHostNetwork(instance.getHostNetwork());
+        this.withHostPID(instance.getHostPID());
+        this.withHostUsers(instance.getHostUsers());
+        this.withHostname(instance.getHostname());
+        this.withHostnameOverride(instance.getHostnameOverride());
+        this.withImagePullSecrets(instance.getImagePullSecrets());
+        this.withInitContainers(instance.getInitContainers());
+        this.withNodeName(instance.getNodeName());
+        this.withNodeSelector(instance.getNodeSelector());
+        this.withOs(instance.getOs());
+        this.withOverhead(instance.getOverhead());
+        this.withPreemptionPolicy(instance.getPreemptionPolicy());
+        this.withPriority(instance.getPriority());
+        this.withPriorityClassName(instance.getPriorityClassName());
+        this.withReadinessGates(instance.getReadinessGates());
+        this.withResourceClaims(instance.getResourceClaims());
+        this.withResources(instance.getResources());
+        this.withRestartPolicy(instance.getRestartPolicy());
+        this.withRuntimeClassName(instance.getRuntimeClassName());
+        this.withSchedulerName(instance.getSchedulerName());
+        this.withSchedulingGates(instance.getSchedulingGates());
+        this.withSecurityContext(instance.getSecurityContext());
+        this.withServiceAccount(instance.getServiceAccount());
+        this.withServiceAccountName(instance.getServiceAccountName());
+        this.withSetHostnameAsFQDN(instance.getSetHostnameAsFQDN());
+        this.withShareProcessNamespace(instance.getShareProcessNamespace());
+        this.withSubdomain(instance.getSubdomain());
+        this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
+        this.withTolerations(instance.getTolerations());
+        this.withTopologySpreadConstraints(instance.getTopologySpreadConstraints());
+        this.withVolumes(instance.getVolumes());
+    }
   }
   
   public Long getActiveDeadlineSeconds() {
@@ -158,15 +163,15 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public AffinityNested<A> editAffinity() {
-    return withNewAffinityLike(java.util.Optional.ofNullable(buildAffinity()).orElse(null));
+    return this.withNewAffinityLike(Optional.ofNullable(this.buildAffinity()).orElse(null));
   }
   
   public AffinityNested<A> editOrNewAffinity() {
-    return withNewAffinityLike(java.util.Optional.ofNullable(buildAffinity()).orElse(new V1AffinityBuilder().build()));
+    return this.withNewAffinityLike(Optional.ofNullable(this.buildAffinity()).orElse(new V1AffinityBuilder().build()));
   }
   
   public AffinityNested<A> editOrNewAffinityLike(V1Affinity item) {
-    return withNewAffinityLike(java.util.Optional.ofNullable(buildAffinity()).orElse(item));
+    return this.withNewAffinityLike(Optional.ofNullable(this.buildAffinity()).orElse(item));
   }
   
   public Boolean getAutomountServiceAccountToken() {
@@ -183,7 +188,9 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToContainers(int index,V1Container item) {
-    if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
+    if (this.containers == null) {
+      this.containers = new ArrayList();
+    }
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
     if (index < 0 || index >= containers.size()) {
         _visitables.get("containers").add(builder);
@@ -192,11 +199,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("containers").add(builder);
         containers.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToContainers(int index,V1Container item) {
-    if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
+    if (this.containers == null) {
+      this.containers = new ArrayList();
+    }
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
     if (index < 0 || index >= containers.size()) {
         _visitables.get("containers").add(builder);
@@ -205,41 +214,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("containers").add(builder);
         containers.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToContainers(io.kubernetes.client.openapi.models.V1Container... items) {
-    if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("containers").add(builder);this.containers.add(builder);} return (A)this;
+  public A addToContainers(V1Container... items) {
+    if (this.containers == null) {
+      this.containers = new ArrayList();
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("containers").add(builder);
+        this.containers.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToContainers(Collection<V1Container> items) {
-    if (this.containers == null) {this.containers = new ArrayList<V1ContainerBuilder>();}
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("containers").add(builder);this.containers.add(builder);} return (A)this;
+    if (this.containers == null) {
+      this.containers = new ArrayList();
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("containers").add(builder);
+        this.containers.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromContainers(io.kubernetes.client.openapi.models.V1Container... items) {
-    if (this.containers == null) return (A)this;
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("containers").remove(builder); this.containers.remove(builder);} return (A)this;
+  public A removeFromContainers(V1Container... items) {
+    if (this.containers == null) {
+      return (A) this;
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("containers").remove(builder);
+        this.containers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromContainers(Collection<V1Container> items) {
-    if (this.containers == null) return (A)this;
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("containers").remove(builder); this.containers.remove(builder);} return (A)this;
+    if (this.containers == null) {
+      return (A) this;
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("containers").remove(builder);
+        this.containers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromContainers(Predicate<V1ContainerBuilder> predicate) {
-    if (containers == null) return (A) this;
-    final Iterator<V1ContainerBuilder> each = containers.iterator();
-    final List visitables = _visitables.get("containers");
-    while (each.hasNext()) {
-      V1ContainerBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (containers == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ContainerBuilder> each = containers.iterator();
+    List visitables = _visitables.get("containers");
+    while (each.hasNext()) {
+        V1ContainerBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Container> buildContainers() {
@@ -291,7 +330,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withContainers(io.kubernetes.client.openapi.models.V1Container... containers) {
+  public A withContainers(V1Container... containers) {
     if (this.containers != null) {
         this.containers.clear();
         _visitables.remove("containers");
@@ -305,7 +344,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasContainers() {
-    return this.containers != null && !this.containers.isEmpty();
+    return this.containers != null && !(this.containers.isEmpty());
   }
   
   public ContainersNested<A> addNewContainer() {
@@ -321,28 +360,39 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public ContainersNested<A> editContainer(int index) {
-    if (containers.size() <= index) throw new RuntimeException("Can't edit containers. Index exceeds size.");
-    return setNewContainerLike(index, buildContainer(index));
+    if (index <= containers.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "containers"));
+    }
+    return this.setNewContainerLike(index, this.buildContainer(index));
   }
   
   public ContainersNested<A> editFirstContainer() {
-    if (containers.size() == 0) throw new RuntimeException("Can't edit first containers. The list is empty.");
-    return setNewContainerLike(0, buildContainer(0));
+    if (containers.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "containers"));
+    }
+    return this.setNewContainerLike(0, this.buildContainer(0));
   }
   
   public ContainersNested<A> editLastContainer() {
     int index = containers.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last containers. The list is empty.");
-    return setNewContainerLike(index, buildContainer(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "containers"));
+    }
+    return this.setNewContainerLike(index, this.buildContainer(index));
   }
   
   public ContainersNested<A> editMatchingContainer(Predicate<V1ContainerBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<containers.size();i++) { 
-    if (predicate.test(containers.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching containers. No match found.");
-    return setNewContainerLike(index, buildContainer(index));
+    for (int i = 0;i < containers.size();i++) {
+      if (predicate.test(containers.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "containers"));
+    }
+    return this.setNewContainerLike(index, this.buildContainer(index));
   }
   
   public V1PodDNSConfig buildDnsConfig() {
@@ -374,15 +424,15 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public DnsConfigNested<A> editDnsConfig() {
-    return withNewDnsConfigLike(java.util.Optional.ofNullable(buildDnsConfig()).orElse(null));
+    return this.withNewDnsConfigLike(Optional.ofNullable(this.buildDnsConfig()).orElse(null));
   }
   
   public DnsConfigNested<A> editOrNewDnsConfig() {
-    return withNewDnsConfigLike(java.util.Optional.ofNullable(buildDnsConfig()).orElse(new V1PodDNSConfigBuilder().build()));
+    return this.withNewDnsConfigLike(Optional.ofNullable(this.buildDnsConfig()).orElse(new V1PodDNSConfigBuilder().build()));
   }
   
   public DnsConfigNested<A> editOrNewDnsConfigLike(V1PodDNSConfig item) {
-    return withNewDnsConfigLike(java.util.Optional.ofNullable(buildDnsConfig()).orElse(item));
+    return this.withNewDnsConfigLike(Optional.ofNullable(this.buildDnsConfig()).orElse(item));
   }
   
   public String getDnsPolicy() {
@@ -412,7 +462,9 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToEphemeralContainers(int index,V1EphemeralContainer item) {
-    if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
+    if (this.ephemeralContainers == null) {
+      this.ephemeralContainers = new ArrayList();
+    }
     V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
     if (index < 0 || index >= ephemeralContainers.size()) {
         _visitables.get("ephemeralContainers").add(builder);
@@ -421,11 +473,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("ephemeralContainers").add(builder);
         ephemeralContainers.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToEphemeralContainers(int index,V1EphemeralContainer item) {
-    if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
+    if (this.ephemeralContainers == null) {
+      this.ephemeralContainers = new ArrayList();
+    }
     V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
     if (index < 0 || index >= ephemeralContainers.size()) {
         _visitables.get("ephemeralContainers").add(builder);
@@ -434,41 +488,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("ephemeralContainers").add(builder);
         ephemeralContainers.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToEphemeralContainers(io.kubernetes.client.openapi.models.V1EphemeralContainer... items) {
-    if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
-    for (V1EphemeralContainer item : items) {V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);_visitables.get("ephemeralContainers").add(builder);this.ephemeralContainers.add(builder);} return (A)this;
+  public A addToEphemeralContainers(V1EphemeralContainer... items) {
+    if (this.ephemeralContainers == null) {
+      this.ephemeralContainers = new ArrayList();
+    }
+    for (V1EphemeralContainer item : items) {
+        V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
+        _visitables.get("ephemeralContainers").add(builder);
+        this.ephemeralContainers.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToEphemeralContainers(Collection<V1EphemeralContainer> items) {
-    if (this.ephemeralContainers == null) {this.ephemeralContainers = new ArrayList<V1EphemeralContainerBuilder>();}
-    for (V1EphemeralContainer item : items) {V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);_visitables.get("ephemeralContainers").add(builder);this.ephemeralContainers.add(builder);} return (A)this;
+    if (this.ephemeralContainers == null) {
+      this.ephemeralContainers = new ArrayList();
+    }
+    for (V1EphemeralContainer item : items) {
+        V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
+        _visitables.get("ephemeralContainers").add(builder);
+        this.ephemeralContainers.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromEphemeralContainers(io.kubernetes.client.openapi.models.V1EphemeralContainer... items) {
-    if (this.ephemeralContainers == null) return (A)this;
-    for (V1EphemeralContainer item : items) {V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);_visitables.get("ephemeralContainers").remove(builder); this.ephemeralContainers.remove(builder);} return (A)this;
+  public A removeFromEphemeralContainers(V1EphemeralContainer... items) {
+    if (this.ephemeralContainers == null) {
+      return (A) this;
+    }
+    for (V1EphemeralContainer item : items) {
+        V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
+        _visitables.get("ephemeralContainers").remove(builder);
+        this.ephemeralContainers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromEphemeralContainers(Collection<V1EphemeralContainer> items) {
-    if (this.ephemeralContainers == null) return (A)this;
-    for (V1EphemeralContainer item : items) {V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);_visitables.get("ephemeralContainers").remove(builder); this.ephemeralContainers.remove(builder);} return (A)this;
+    if (this.ephemeralContainers == null) {
+      return (A) this;
+    }
+    for (V1EphemeralContainer item : items) {
+        V1EphemeralContainerBuilder builder = new V1EphemeralContainerBuilder(item);
+        _visitables.get("ephemeralContainers").remove(builder);
+        this.ephemeralContainers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromEphemeralContainers(Predicate<V1EphemeralContainerBuilder> predicate) {
-    if (ephemeralContainers == null) return (A) this;
-    final Iterator<V1EphemeralContainerBuilder> each = ephemeralContainers.iterator();
-    final List visitables = _visitables.get("ephemeralContainers");
-    while (each.hasNext()) {
-      V1EphemeralContainerBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (ephemeralContainers == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1EphemeralContainerBuilder> each = ephemeralContainers.iterator();
+    List visitables = _visitables.get("ephemeralContainers");
+    while (each.hasNext()) {
+        V1EphemeralContainerBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1EphemeralContainer> buildEphemeralContainers() {
@@ -520,7 +604,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withEphemeralContainers(io.kubernetes.client.openapi.models.V1EphemeralContainer... ephemeralContainers) {
+  public A withEphemeralContainers(V1EphemeralContainer... ephemeralContainers) {
     if (this.ephemeralContainers != null) {
         this.ephemeralContainers.clear();
         _visitables.remove("ephemeralContainers");
@@ -534,7 +618,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasEphemeralContainers() {
-    return this.ephemeralContainers != null && !this.ephemeralContainers.isEmpty();
+    return this.ephemeralContainers != null && !(this.ephemeralContainers.isEmpty());
   }
   
   public EphemeralContainersNested<A> addNewEphemeralContainer() {
@@ -550,32 +634,45 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public EphemeralContainersNested<A> editEphemeralContainer(int index) {
-    if (ephemeralContainers.size() <= index) throw new RuntimeException("Can't edit ephemeralContainers. Index exceeds size.");
-    return setNewEphemeralContainerLike(index, buildEphemeralContainer(index));
+    if (index <= ephemeralContainers.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "ephemeralContainers"));
+    }
+    return this.setNewEphemeralContainerLike(index, this.buildEphemeralContainer(index));
   }
   
   public EphemeralContainersNested<A> editFirstEphemeralContainer() {
-    if (ephemeralContainers.size() == 0) throw new RuntimeException("Can't edit first ephemeralContainers. The list is empty.");
-    return setNewEphemeralContainerLike(0, buildEphemeralContainer(0));
+    if (ephemeralContainers.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "ephemeralContainers"));
+    }
+    return this.setNewEphemeralContainerLike(0, this.buildEphemeralContainer(0));
   }
   
   public EphemeralContainersNested<A> editLastEphemeralContainer() {
     int index = ephemeralContainers.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last ephemeralContainers. The list is empty.");
-    return setNewEphemeralContainerLike(index, buildEphemeralContainer(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "ephemeralContainers"));
+    }
+    return this.setNewEphemeralContainerLike(index, this.buildEphemeralContainer(index));
   }
   
   public EphemeralContainersNested<A> editMatchingEphemeralContainer(Predicate<V1EphemeralContainerBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<ephemeralContainers.size();i++) { 
-    if (predicate.test(ephemeralContainers.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching ephemeralContainers. No match found.");
-    return setNewEphemeralContainerLike(index, buildEphemeralContainer(index));
+    for (int i = 0;i < ephemeralContainers.size();i++) {
+      if (predicate.test(ephemeralContainers.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "ephemeralContainers"));
+    }
+    return this.setNewEphemeralContainerLike(index, this.buildEphemeralContainer(index));
   }
   
   public A addToHostAliases(int index,V1HostAlias item) {
-    if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
+    if (this.hostAliases == null) {
+      this.hostAliases = new ArrayList();
+    }
     V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
     if (index < 0 || index >= hostAliases.size()) {
         _visitables.get("hostAliases").add(builder);
@@ -584,11 +681,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("hostAliases").add(builder);
         hostAliases.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToHostAliases(int index,V1HostAlias item) {
-    if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
+    if (this.hostAliases == null) {
+      this.hostAliases = new ArrayList();
+    }
     V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
     if (index < 0 || index >= hostAliases.size()) {
         _visitables.get("hostAliases").add(builder);
@@ -597,41 +696,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("hostAliases").add(builder);
         hostAliases.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToHostAliases(io.kubernetes.client.openapi.models.V1HostAlias... items) {
-    if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
-    for (V1HostAlias item : items) {V1HostAliasBuilder builder = new V1HostAliasBuilder(item);_visitables.get("hostAliases").add(builder);this.hostAliases.add(builder);} return (A)this;
+  public A addToHostAliases(V1HostAlias... items) {
+    if (this.hostAliases == null) {
+      this.hostAliases = new ArrayList();
+    }
+    for (V1HostAlias item : items) {
+        V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
+        _visitables.get("hostAliases").add(builder);
+        this.hostAliases.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToHostAliases(Collection<V1HostAlias> items) {
-    if (this.hostAliases == null) {this.hostAliases = new ArrayList<V1HostAliasBuilder>();}
-    for (V1HostAlias item : items) {V1HostAliasBuilder builder = new V1HostAliasBuilder(item);_visitables.get("hostAliases").add(builder);this.hostAliases.add(builder);} return (A)this;
+    if (this.hostAliases == null) {
+      this.hostAliases = new ArrayList();
+    }
+    for (V1HostAlias item : items) {
+        V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
+        _visitables.get("hostAliases").add(builder);
+        this.hostAliases.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromHostAliases(io.kubernetes.client.openapi.models.V1HostAlias... items) {
-    if (this.hostAliases == null) return (A)this;
-    for (V1HostAlias item : items) {V1HostAliasBuilder builder = new V1HostAliasBuilder(item);_visitables.get("hostAliases").remove(builder); this.hostAliases.remove(builder);} return (A)this;
+  public A removeFromHostAliases(V1HostAlias... items) {
+    if (this.hostAliases == null) {
+      return (A) this;
+    }
+    for (V1HostAlias item : items) {
+        V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
+        _visitables.get("hostAliases").remove(builder);
+        this.hostAliases.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromHostAliases(Collection<V1HostAlias> items) {
-    if (this.hostAliases == null) return (A)this;
-    for (V1HostAlias item : items) {V1HostAliasBuilder builder = new V1HostAliasBuilder(item);_visitables.get("hostAliases").remove(builder); this.hostAliases.remove(builder);} return (A)this;
+    if (this.hostAliases == null) {
+      return (A) this;
+    }
+    for (V1HostAlias item : items) {
+        V1HostAliasBuilder builder = new V1HostAliasBuilder(item);
+        _visitables.get("hostAliases").remove(builder);
+        this.hostAliases.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromHostAliases(Predicate<V1HostAliasBuilder> predicate) {
-    if (hostAliases == null) return (A) this;
-    final Iterator<V1HostAliasBuilder> each = hostAliases.iterator();
-    final List visitables = _visitables.get("hostAliases");
-    while (each.hasNext()) {
-      V1HostAliasBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (hostAliases == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1HostAliasBuilder> each = hostAliases.iterator();
+    List visitables = _visitables.get("hostAliases");
+    while (each.hasNext()) {
+        V1HostAliasBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1HostAlias> buildHostAliases() {
@@ -683,7 +812,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withHostAliases(io.kubernetes.client.openapi.models.V1HostAlias... hostAliases) {
+  public A withHostAliases(V1HostAlias... hostAliases) {
     if (this.hostAliases != null) {
         this.hostAliases.clear();
         _visitables.remove("hostAliases");
@@ -697,7 +826,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasHostAliases() {
-    return this.hostAliases != null && !this.hostAliases.isEmpty();
+    return this.hostAliases != null && !(this.hostAliases.isEmpty());
   }
   
   public HostAliasesNested<A> addNewHostAlias() {
@@ -713,28 +842,39 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public HostAliasesNested<A> editHostAlias(int index) {
-    if (hostAliases.size() <= index) throw new RuntimeException("Can't edit hostAliases. Index exceeds size.");
-    return setNewHostAliasLike(index, buildHostAlias(index));
+    if (index <= hostAliases.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "hostAliases"));
+    }
+    return this.setNewHostAliasLike(index, this.buildHostAlias(index));
   }
   
   public HostAliasesNested<A> editFirstHostAlias() {
-    if (hostAliases.size() == 0) throw new RuntimeException("Can't edit first hostAliases. The list is empty.");
-    return setNewHostAliasLike(0, buildHostAlias(0));
+    if (hostAliases.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "hostAliases"));
+    }
+    return this.setNewHostAliasLike(0, this.buildHostAlias(0));
   }
   
   public HostAliasesNested<A> editLastHostAlias() {
     int index = hostAliases.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last hostAliases. The list is empty.");
-    return setNewHostAliasLike(index, buildHostAlias(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "hostAliases"));
+    }
+    return this.setNewHostAliasLike(index, this.buildHostAlias(index));
   }
   
   public HostAliasesNested<A> editMatchingHostAlias(Predicate<V1HostAliasBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<hostAliases.size();i++) { 
-    if (predicate.test(hostAliases.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching hostAliases. No match found.");
-    return setNewHostAliasLike(index, buildHostAlias(index));
+    for (int i = 0;i < hostAliases.size();i++) {
+      if (predicate.test(hostAliases.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "hostAliases"));
+    }
+    return this.setNewHostAliasLike(index, this.buildHostAlias(index));
   }
   
   public Boolean getHostIPC() {
@@ -802,8 +942,23 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return this.hostname != null;
   }
   
+  public String getHostnameOverride() {
+    return this.hostnameOverride;
+  }
+  
+  public A withHostnameOverride(String hostnameOverride) {
+    this.hostnameOverride = hostnameOverride;
+    return (A) this;
+  }
+  
+  public boolean hasHostnameOverride() {
+    return this.hostnameOverride != null;
+  }
+  
   public A addToImagePullSecrets(int index,V1LocalObjectReference item) {
-    if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
+    if (this.imagePullSecrets == null) {
+      this.imagePullSecrets = new ArrayList();
+    }
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
     if (index < 0 || index >= imagePullSecrets.size()) {
         _visitables.get("imagePullSecrets").add(builder);
@@ -812,11 +967,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("imagePullSecrets").add(builder);
         imagePullSecrets.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToImagePullSecrets(int index,V1LocalObjectReference item) {
-    if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
+    if (this.imagePullSecrets == null) {
+      this.imagePullSecrets = new ArrayList();
+    }
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
     if (index < 0 || index >= imagePullSecrets.size()) {
         _visitables.get("imagePullSecrets").add(builder);
@@ -825,41 +982,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("imagePullSecrets").add(builder);
         imagePullSecrets.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... items) {
-    if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
-    for (V1LocalObjectReference item : items) {V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);_visitables.get("imagePullSecrets").add(builder);this.imagePullSecrets.add(builder);} return (A)this;
+  public A addToImagePullSecrets(V1LocalObjectReference... items) {
+    if (this.imagePullSecrets == null) {
+      this.imagePullSecrets = new ArrayList();
+    }
+    for (V1LocalObjectReference item : items) {
+        V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
+        _visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToImagePullSecrets(Collection<V1LocalObjectReference> items) {
-    if (this.imagePullSecrets == null) {this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();}
-    for (V1LocalObjectReference item : items) {V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);_visitables.get("imagePullSecrets").add(builder);this.imagePullSecrets.add(builder);} return (A)this;
+    if (this.imagePullSecrets == null) {
+      this.imagePullSecrets = new ArrayList();
+    }
+    for (V1LocalObjectReference item : items) {
+        V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
+        _visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... items) {
-    if (this.imagePullSecrets == null) return (A)this;
-    for (V1LocalObjectReference item : items) {V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);_visitables.get("imagePullSecrets").remove(builder); this.imagePullSecrets.remove(builder);} return (A)this;
+  public A removeFromImagePullSecrets(V1LocalObjectReference... items) {
+    if (this.imagePullSecrets == null) {
+      return (A) this;
+    }
+    for (V1LocalObjectReference item : items) {
+        V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
+        _visitables.get("imagePullSecrets").remove(builder);
+        this.imagePullSecrets.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromImagePullSecrets(Collection<V1LocalObjectReference> items) {
-    if (this.imagePullSecrets == null) return (A)this;
-    for (V1LocalObjectReference item : items) {V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);_visitables.get("imagePullSecrets").remove(builder); this.imagePullSecrets.remove(builder);} return (A)this;
+    if (this.imagePullSecrets == null) {
+      return (A) this;
+    }
+    for (V1LocalObjectReference item : items) {
+        V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
+        _visitables.get("imagePullSecrets").remove(builder);
+        this.imagePullSecrets.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromImagePullSecrets(Predicate<V1LocalObjectReferenceBuilder> predicate) {
-    if (imagePullSecrets == null) return (A) this;
-    final Iterator<V1LocalObjectReferenceBuilder> each = imagePullSecrets.iterator();
-    final List visitables = _visitables.get("imagePullSecrets");
-    while (each.hasNext()) {
-      V1LocalObjectReferenceBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (imagePullSecrets == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1LocalObjectReferenceBuilder> each = imagePullSecrets.iterator();
+    List visitables = _visitables.get("imagePullSecrets");
+    while (each.hasNext()) {
+        V1LocalObjectReferenceBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1LocalObjectReference> buildImagePullSecrets() {
@@ -911,7 +1098,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... imagePullSecrets) {
+  public A withImagePullSecrets(V1LocalObjectReference... imagePullSecrets) {
     if (this.imagePullSecrets != null) {
         this.imagePullSecrets.clear();
         _visitables.remove("imagePullSecrets");
@@ -925,7 +1112,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasImagePullSecrets() {
-    return this.imagePullSecrets != null && !this.imagePullSecrets.isEmpty();
+    return this.imagePullSecrets != null && !(this.imagePullSecrets.isEmpty());
   }
   
   public ImagePullSecretsNested<A> addNewImagePullSecret() {
@@ -941,32 +1128,45 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public ImagePullSecretsNested<A> editImagePullSecret(int index) {
-    if (imagePullSecrets.size() <= index) throw new RuntimeException("Can't edit imagePullSecrets. Index exceeds size.");
-    return setNewImagePullSecretLike(index, buildImagePullSecret(index));
+    if (index <= imagePullSecrets.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "imagePullSecrets"));
+    }
+    return this.setNewImagePullSecretLike(index, this.buildImagePullSecret(index));
   }
   
   public ImagePullSecretsNested<A> editFirstImagePullSecret() {
-    if (imagePullSecrets.size() == 0) throw new RuntimeException("Can't edit first imagePullSecrets. The list is empty.");
-    return setNewImagePullSecretLike(0, buildImagePullSecret(0));
+    if (imagePullSecrets.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "imagePullSecrets"));
+    }
+    return this.setNewImagePullSecretLike(0, this.buildImagePullSecret(0));
   }
   
   public ImagePullSecretsNested<A> editLastImagePullSecret() {
     int index = imagePullSecrets.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last imagePullSecrets. The list is empty.");
-    return setNewImagePullSecretLike(index, buildImagePullSecret(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "imagePullSecrets"));
+    }
+    return this.setNewImagePullSecretLike(index, this.buildImagePullSecret(index));
   }
   
   public ImagePullSecretsNested<A> editMatchingImagePullSecret(Predicate<V1LocalObjectReferenceBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<imagePullSecrets.size();i++) { 
-    if (predicate.test(imagePullSecrets.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching imagePullSecrets. No match found.");
-    return setNewImagePullSecretLike(index, buildImagePullSecret(index));
+    for (int i = 0;i < imagePullSecrets.size();i++) {
+      if (predicate.test(imagePullSecrets.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "imagePullSecrets"));
+    }
+    return this.setNewImagePullSecretLike(index, this.buildImagePullSecret(index));
   }
   
   public A addToInitContainers(int index,V1Container item) {
-    if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
+    if (this.initContainers == null) {
+      this.initContainers = new ArrayList();
+    }
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
     if (index < 0 || index >= initContainers.size()) {
         _visitables.get("initContainers").add(builder);
@@ -975,11 +1175,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("initContainers").add(builder);
         initContainers.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToInitContainers(int index,V1Container item) {
-    if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
+    if (this.initContainers == null) {
+      this.initContainers = new ArrayList();
+    }
     V1ContainerBuilder builder = new V1ContainerBuilder(item);
     if (index < 0 || index >= initContainers.size()) {
         _visitables.get("initContainers").add(builder);
@@ -988,41 +1190,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("initContainers").add(builder);
         initContainers.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToInitContainers(io.kubernetes.client.openapi.models.V1Container... items) {
-    if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("initContainers").add(builder);this.initContainers.add(builder);} return (A)this;
+  public A addToInitContainers(V1Container... items) {
+    if (this.initContainers == null) {
+      this.initContainers = new ArrayList();
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("initContainers").add(builder);
+        this.initContainers.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToInitContainers(Collection<V1Container> items) {
-    if (this.initContainers == null) {this.initContainers = new ArrayList<V1ContainerBuilder>();}
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("initContainers").add(builder);this.initContainers.add(builder);} return (A)this;
+    if (this.initContainers == null) {
+      this.initContainers = new ArrayList();
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("initContainers").add(builder);
+        this.initContainers.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromInitContainers(io.kubernetes.client.openapi.models.V1Container... items) {
-    if (this.initContainers == null) return (A)this;
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("initContainers").remove(builder); this.initContainers.remove(builder);} return (A)this;
+  public A removeFromInitContainers(V1Container... items) {
+    if (this.initContainers == null) {
+      return (A) this;
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("initContainers").remove(builder);
+        this.initContainers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromInitContainers(Collection<V1Container> items) {
-    if (this.initContainers == null) return (A)this;
-    for (V1Container item : items) {V1ContainerBuilder builder = new V1ContainerBuilder(item);_visitables.get("initContainers").remove(builder); this.initContainers.remove(builder);} return (A)this;
+    if (this.initContainers == null) {
+      return (A) this;
+    }
+    for (V1Container item : items) {
+        V1ContainerBuilder builder = new V1ContainerBuilder(item);
+        _visitables.get("initContainers").remove(builder);
+        this.initContainers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromInitContainers(Predicate<V1ContainerBuilder> predicate) {
-    if (initContainers == null) return (A) this;
-    final Iterator<V1ContainerBuilder> each = initContainers.iterator();
-    final List visitables = _visitables.get("initContainers");
-    while (each.hasNext()) {
-      V1ContainerBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (initContainers == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ContainerBuilder> each = initContainers.iterator();
+    List visitables = _visitables.get("initContainers");
+    while (each.hasNext()) {
+        V1ContainerBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Container> buildInitContainers() {
@@ -1074,7 +1306,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withInitContainers(io.kubernetes.client.openapi.models.V1Container... initContainers) {
+  public A withInitContainers(V1Container... initContainers) {
     if (this.initContainers != null) {
         this.initContainers.clear();
         _visitables.remove("initContainers");
@@ -1088,7 +1320,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasInitContainers() {
-    return this.initContainers != null && !this.initContainers.isEmpty();
+    return this.initContainers != null && !(this.initContainers.isEmpty());
   }
   
   public InitContainersNested<A> addNewInitContainer() {
@@ -1104,28 +1336,39 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public InitContainersNested<A> editInitContainer(int index) {
-    if (initContainers.size() <= index) throw new RuntimeException("Can't edit initContainers. Index exceeds size.");
-    return setNewInitContainerLike(index, buildInitContainer(index));
+    if (index <= initContainers.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "initContainers"));
+    }
+    return this.setNewInitContainerLike(index, this.buildInitContainer(index));
   }
   
   public InitContainersNested<A> editFirstInitContainer() {
-    if (initContainers.size() == 0) throw new RuntimeException("Can't edit first initContainers. The list is empty.");
-    return setNewInitContainerLike(0, buildInitContainer(0));
+    if (initContainers.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "initContainers"));
+    }
+    return this.setNewInitContainerLike(0, this.buildInitContainer(0));
   }
   
   public InitContainersNested<A> editLastInitContainer() {
     int index = initContainers.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last initContainers. The list is empty.");
-    return setNewInitContainerLike(index, buildInitContainer(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "initContainers"));
+    }
+    return this.setNewInitContainerLike(index, this.buildInitContainer(index));
   }
   
   public InitContainersNested<A> editMatchingInitContainer(Predicate<V1ContainerBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<initContainers.size();i++) { 
-    if (predicate.test(initContainers.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching initContainers. No match found.");
-    return setNewInitContainerLike(index, buildInitContainer(index));
+    for (int i = 0;i < initContainers.size();i++) {
+      if (predicate.test(initContainers.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "initContainers"));
+    }
+    return this.setNewInitContainerLike(index, this.buildInitContainer(index));
   }
   
   public String getNodeName() {
@@ -1142,23 +1385,47 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToNodeSelector(String key,String value) {
-    if(this.nodeSelector == null && key != null && value != null) { this.nodeSelector = new LinkedHashMap(); }
-    if(key != null && value != null) {this.nodeSelector.put(key, value);} return (A)this;
+    if (this.nodeSelector == null && key != null && value != null) {
+      this.nodeSelector = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.nodeSelector.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToNodeSelector(Map<String,String> map) {
-    if(this.nodeSelector == null && map != null) { this.nodeSelector = new LinkedHashMap(); }
-    if(map != null) { this.nodeSelector.putAll(map);} return (A)this;
+    if (this.nodeSelector == null && map != null) {
+      this.nodeSelector = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.nodeSelector.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromNodeSelector(String key) {
-    if(this.nodeSelector == null) { return (A) this; }
-    if(key != null && this.nodeSelector != null) {this.nodeSelector.remove(key);} return (A)this;
+    if (this.nodeSelector == null) {
+      return (A) this;
+    }
+    if (key != null && this.nodeSelector != null) {
+      this.nodeSelector.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromNodeSelector(Map<String,String> map) {
-    if(this.nodeSelector == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.nodeSelector != null){this.nodeSelector.remove(key);}}} return (A)this;
+    if (this.nodeSelector == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.nodeSelector != null) {
+          this.nodeSelector.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getNodeSelector() {
@@ -1207,35 +1474,59 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public OsNested<A> editOs() {
-    return withNewOsLike(java.util.Optional.ofNullable(buildOs()).orElse(null));
+    return this.withNewOsLike(Optional.ofNullable(this.buildOs()).orElse(null));
   }
   
   public OsNested<A> editOrNewOs() {
-    return withNewOsLike(java.util.Optional.ofNullable(buildOs()).orElse(new V1PodOSBuilder().build()));
+    return this.withNewOsLike(Optional.ofNullable(this.buildOs()).orElse(new V1PodOSBuilder().build()));
   }
   
   public OsNested<A> editOrNewOsLike(V1PodOS item) {
-    return withNewOsLike(java.util.Optional.ofNullable(buildOs()).orElse(item));
+    return this.withNewOsLike(Optional.ofNullable(this.buildOs()).orElse(item));
   }
   
   public A addToOverhead(String key,Quantity value) {
-    if(this.overhead == null && key != null && value != null) { this.overhead = new LinkedHashMap(); }
-    if(key != null && value != null) {this.overhead.put(key, value);} return (A)this;
+    if (this.overhead == null && key != null && value != null) {
+      this.overhead = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.overhead.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToOverhead(Map<String,Quantity> map) {
-    if(this.overhead == null && map != null) { this.overhead = new LinkedHashMap(); }
-    if(map != null) { this.overhead.putAll(map);} return (A)this;
+    if (this.overhead == null && map != null) {
+      this.overhead = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.overhead.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromOverhead(String key) {
-    if(this.overhead == null) { return (A) this; }
-    if(key != null && this.overhead != null) {this.overhead.remove(key);} return (A)this;
+    if (this.overhead == null) {
+      return (A) this;
+    }
+    if (key != null && this.overhead != null) {
+      this.overhead.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromOverhead(Map<String,Quantity> map) {
-    if(this.overhead == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.overhead != null){this.overhead.remove(key);}}} return (A)this;
+    if (this.overhead == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.overhead != null) {
+          this.overhead.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getOverhead() {
@@ -1295,7 +1586,9 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToReadinessGates(int index,V1PodReadinessGate item) {
-    if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
+    if (this.readinessGates == null) {
+      this.readinessGates = new ArrayList();
+    }
     V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
     if (index < 0 || index >= readinessGates.size()) {
         _visitables.get("readinessGates").add(builder);
@@ -1304,11 +1597,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("readinessGates").add(builder);
         readinessGates.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToReadinessGates(int index,V1PodReadinessGate item) {
-    if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
+    if (this.readinessGates == null) {
+      this.readinessGates = new ArrayList();
+    }
     V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
     if (index < 0 || index >= readinessGates.size()) {
         _visitables.get("readinessGates").add(builder);
@@ -1317,41 +1612,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("readinessGates").add(builder);
         readinessGates.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... items) {
-    if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
-    for (V1PodReadinessGate item : items) {V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);_visitables.get("readinessGates").add(builder);this.readinessGates.add(builder);} return (A)this;
+  public A addToReadinessGates(V1PodReadinessGate... items) {
+    if (this.readinessGates == null) {
+      this.readinessGates = new ArrayList();
+    }
+    for (V1PodReadinessGate item : items) {
+        V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
+        _visitables.get("readinessGates").add(builder);
+        this.readinessGates.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToReadinessGates(Collection<V1PodReadinessGate> items) {
-    if (this.readinessGates == null) {this.readinessGates = new ArrayList<V1PodReadinessGateBuilder>();}
-    for (V1PodReadinessGate item : items) {V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);_visitables.get("readinessGates").add(builder);this.readinessGates.add(builder);} return (A)this;
+    if (this.readinessGates == null) {
+      this.readinessGates = new ArrayList();
+    }
+    for (V1PodReadinessGate item : items) {
+        V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
+        _visitables.get("readinessGates").add(builder);
+        this.readinessGates.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... items) {
-    if (this.readinessGates == null) return (A)this;
-    for (V1PodReadinessGate item : items) {V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);_visitables.get("readinessGates").remove(builder); this.readinessGates.remove(builder);} return (A)this;
+  public A removeFromReadinessGates(V1PodReadinessGate... items) {
+    if (this.readinessGates == null) {
+      return (A) this;
+    }
+    for (V1PodReadinessGate item : items) {
+        V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
+        _visitables.get("readinessGates").remove(builder);
+        this.readinessGates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromReadinessGates(Collection<V1PodReadinessGate> items) {
-    if (this.readinessGates == null) return (A)this;
-    for (V1PodReadinessGate item : items) {V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);_visitables.get("readinessGates").remove(builder); this.readinessGates.remove(builder);} return (A)this;
+    if (this.readinessGates == null) {
+      return (A) this;
+    }
+    for (V1PodReadinessGate item : items) {
+        V1PodReadinessGateBuilder builder = new V1PodReadinessGateBuilder(item);
+        _visitables.get("readinessGates").remove(builder);
+        this.readinessGates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromReadinessGates(Predicate<V1PodReadinessGateBuilder> predicate) {
-    if (readinessGates == null) return (A) this;
-    final Iterator<V1PodReadinessGateBuilder> each = readinessGates.iterator();
-    final List visitables = _visitables.get("readinessGates");
-    while (each.hasNext()) {
-      V1PodReadinessGateBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (readinessGates == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PodReadinessGateBuilder> each = readinessGates.iterator();
+    List visitables = _visitables.get("readinessGates");
+    while (each.hasNext()) {
+        V1PodReadinessGateBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PodReadinessGate> buildReadinessGates() {
@@ -1403,7 +1728,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... readinessGates) {
+  public A withReadinessGates(V1PodReadinessGate... readinessGates) {
     if (this.readinessGates != null) {
         this.readinessGates.clear();
         _visitables.remove("readinessGates");
@@ -1417,7 +1742,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasReadinessGates() {
-    return this.readinessGates != null && !this.readinessGates.isEmpty();
+    return this.readinessGates != null && !(this.readinessGates.isEmpty());
   }
   
   public ReadinessGatesNested<A> addNewReadinessGate() {
@@ -1433,32 +1758,45 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public ReadinessGatesNested<A> editReadinessGate(int index) {
-    if (readinessGates.size() <= index) throw new RuntimeException("Can't edit readinessGates. Index exceeds size.");
-    return setNewReadinessGateLike(index, buildReadinessGate(index));
+    if (index <= readinessGates.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "readinessGates"));
+    }
+    return this.setNewReadinessGateLike(index, this.buildReadinessGate(index));
   }
   
   public ReadinessGatesNested<A> editFirstReadinessGate() {
-    if (readinessGates.size() == 0) throw new RuntimeException("Can't edit first readinessGates. The list is empty.");
-    return setNewReadinessGateLike(0, buildReadinessGate(0));
+    if (readinessGates.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "readinessGates"));
+    }
+    return this.setNewReadinessGateLike(0, this.buildReadinessGate(0));
   }
   
   public ReadinessGatesNested<A> editLastReadinessGate() {
     int index = readinessGates.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last readinessGates. The list is empty.");
-    return setNewReadinessGateLike(index, buildReadinessGate(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "readinessGates"));
+    }
+    return this.setNewReadinessGateLike(index, this.buildReadinessGate(index));
   }
   
   public ReadinessGatesNested<A> editMatchingReadinessGate(Predicate<V1PodReadinessGateBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<readinessGates.size();i++) { 
-    if (predicate.test(readinessGates.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching readinessGates. No match found.");
-    return setNewReadinessGateLike(index, buildReadinessGate(index));
+    for (int i = 0;i < readinessGates.size();i++) {
+      if (predicate.test(readinessGates.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "readinessGates"));
+    }
+    return this.setNewReadinessGateLike(index, this.buildReadinessGate(index));
   }
   
   public A addToResourceClaims(int index,V1PodResourceClaim item) {
-    if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
+    if (this.resourceClaims == null) {
+      this.resourceClaims = new ArrayList();
+    }
     V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
     if (index < 0 || index >= resourceClaims.size()) {
         _visitables.get("resourceClaims").add(builder);
@@ -1467,11 +1805,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("resourceClaims").add(builder);
         resourceClaims.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToResourceClaims(int index,V1PodResourceClaim item) {
-    if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
+    if (this.resourceClaims == null) {
+      this.resourceClaims = new ArrayList();
+    }
     V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
     if (index < 0 || index >= resourceClaims.size()) {
         _visitables.get("resourceClaims").add(builder);
@@ -1480,41 +1820,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("resourceClaims").add(builder);
         resourceClaims.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... items) {
-    if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
-    for (V1PodResourceClaim item : items) {V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);_visitables.get("resourceClaims").add(builder);this.resourceClaims.add(builder);} return (A)this;
+  public A addToResourceClaims(V1PodResourceClaim... items) {
+    if (this.resourceClaims == null) {
+      this.resourceClaims = new ArrayList();
+    }
+    for (V1PodResourceClaim item : items) {
+        V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
+        _visitables.get("resourceClaims").add(builder);
+        this.resourceClaims.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToResourceClaims(Collection<V1PodResourceClaim> items) {
-    if (this.resourceClaims == null) {this.resourceClaims = new ArrayList<V1PodResourceClaimBuilder>();}
-    for (V1PodResourceClaim item : items) {V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);_visitables.get("resourceClaims").add(builder);this.resourceClaims.add(builder);} return (A)this;
+    if (this.resourceClaims == null) {
+      this.resourceClaims = new ArrayList();
+    }
+    for (V1PodResourceClaim item : items) {
+        V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
+        _visitables.get("resourceClaims").add(builder);
+        this.resourceClaims.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... items) {
-    if (this.resourceClaims == null) return (A)this;
-    for (V1PodResourceClaim item : items) {V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);_visitables.get("resourceClaims").remove(builder); this.resourceClaims.remove(builder);} return (A)this;
+  public A removeFromResourceClaims(V1PodResourceClaim... items) {
+    if (this.resourceClaims == null) {
+      return (A) this;
+    }
+    for (V1PodResourceClaim item : items) {
+        V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
+        _visitables.get("resourceClaims").remove(builder);
+        this.resourceClaims.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromResourceClaims(Collection<V1PodResourceClaim> items) {
-    if (this.resourceClaims == null) return (A)this;
-    for (V1PodResourceClaim item : items) {V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);_visitables.get("resourceClaims").remove(builder); this.resourceClaims.remove(builder);} return (A)this;
+    if (this.resourceClaims == null) {
+      return (A) this;
+    }
+    for (V1PodResourceClaim item : items) {
+        V1PodResourceClaimBuilder builder = new V1PodResourceClaimBuilder(item);
+        _visitables.get("resourceClaims").remove(builder);
+        this.resourceClaims.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromResourceClaims(Predicate<V1PodResourceClaimBuilder> predicate) {
-    if (resourceClaims == null) return (A) this;
-    final Iterator<V1PodResourceClaimBuilder> each = resourceClaims.iterator();
-    final List visitables = _visitables.get("resourceClaims");
-    while (each.hasNext()) {
-      V1PodResourceClaimBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (resourceClaims == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PodResourceClaimBuilder> each = resourceClaims.iterator();
+    List visitables = _visitables.get("resourceClaims");
+    while (each.hasNext()) {
+        V1PodResourceClaimBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PodResourceClaim> buildResourceClaims() {
@@ -1566,7 +1936,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... resourceClaims) {
+  public A withResourceClaims(V1PodResourceClaim... resourceClaims) {
     if (this.resourceClaims != null) {
         this.resourceClaims.clear();
         _visitables.remove("resourceClaims");
@@ -1580,7 +1950,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasResourceClaims() {
-    return this.resourceClaims != null && !this.resourceClaims.isEmpty();
+    return this.resourceClaims != null && !(this.resourceClaims.isEmpty());
   }
   
   public ResourceClaimsNested<A> addNewResourceClaim() {
@@ -1596,28 +1966,39 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public ResourceClaimsNested<A> editResourceClaim(int index) {
-    if (resourceClaims.size() <= index) throw new RuntimeException("Can't edit resourceClaims. Index exceeds size.");
-    return setNewResourceClaimLike(index, buildResourceClaim(index));
+    if (index <= resourceClaims.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "resourceClaims"));
+    }
+    return this.setNewResourceClaimLike(index, this.buildResourceClaim(index));
   }
   
   public ResourceClaimsNested<A> editFirstResourceClaim() {
-    if (resourceClaims.size() == 0) throw new RuntimeException("Can't edit first resourceClaims. The list is empty.");
-    return setNewResourceClaimLike(0, buildResourceClaim(0));
+    if (resourceClaims.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "resourceClaims"));
+    }
+    return this.setNewResourceClaimLike(0, this.buildResourceClaim(0));
   }
   
   public ResourceClaimsNested<A> editLastResourceClaim() {
     int index = resourceClaims.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last resourceClaims. The list is empty.");
-    return setNewResourceClaimLike(index, buildResourceClaim(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "resourceClaims"));
+    }
+    return this.setNewResourceClaimLike(index, this.buildResourceClaim(index));
   }
   
   public ResourceClaimsNested<A> editMatchingResourceClaim(Predicate<V1PodResourceClaimBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<resourceClaims.size();i++) { 
-    if (predicate.test(resourceClaims.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching resourceClaims. No match found.");
-    return setNewResourceClaimLike(index, buildResourceClaim(index));
+    for (int i = 0;i < resourceClaims.size();i++) {
+      if (predicate.test(resourceClaims.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "resourceClaims"));
+    }
+    return this.setNewResourceClaimLike(index, this.buildResourceClaim(index));
   }
   
   public V1ResourceRequirements buildResources() {
@@ -1649,15 +2030,15 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public ResourcesNested<A> editResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(null));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(null));
   }
   
   public ResourcesNested<A> editOrNewResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
   }
   
   public ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(item));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(item));
   }
   
   public String getRestartPolicy() {
@@ -1700,7 +2081,9 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToSchedulingGates(int index,V1PodSchedulingGate item) {
-    if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
+    if (this.schedulingGates == null) {
+      this.schedulingGates = new ArrayList();
+    }
     V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
     if (index < 0 || index >= schedulingGates.size()) {
         _visitables.get("schedulingGates").add(builder);
@@ -1709,11 +2092,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("schedulingGates").add(builder);
         schedulingGates.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSchedulingGates(int index,V1PodSchedulingGate item) {
-    if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
+    if (this.schedulingGates == null) {
+      this.schedulingGates = new ArrayList();
+    }
     V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
     if (index < 0 || index >= schedulingGates.size()) {
         _visitables.get("schedulingGates").add(builder);
@@ -1722,41 +2107,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("schedulingGates").add(builder);
         schedulingGates.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... items) {
-    if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
-    for (V1PodSchedulingGate item : items) {V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);_visitables.get("schedulingGates").add(builder);this.schedulingGates.add(builder);} return (A)this;
+  public A addToSchedulingGates(V1PodSchedulingGate... items) {
+    if (this.schedulingGates == null) {
+      this.schedulingGates = new ArrayList();
+    }
+    for (V1PodSchedulingGate item : items) {
+        V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
+        _visitables.get("schedulingGates").add(builder);
+        this.schedulingGates.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSchedulingGates(Collection<V1PodSchedulingGate> items) {
-    if (this.schedulingGates == null) {this.schedulingGates = new ArrayList<V1PodSchedulingGateBuilder>();}
-    for (V1PodSchedulingGate item : items) {V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);_visitables.get("schedulingGates").add(builder);this.schedulingGates.add(builder);} return (A)this;
+    if (this.schedulingGates == null) {
+      this.schedulingGates = new ArrayList();
+    }
+    for (V1PodSchedulingGate item : items) {
+        V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
+        _visitables.get("schedulingGates").add(builder);
+        this.schedulingGates.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... items) {
-    if (this.schedulingGates == null) return (A)this;
-    for (V1PodSchedulingGate item : items) {V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);_visitables.get("schedulingGates").remove(builder); this.schedulingGates.remove(builder);} return (A)this;
+  public A removeFromSchedulingGates(V1PodSchedulingGate... items) {
+    if (this.schedulingGates == null) {
+      return (A) this;
+    }
+    for (V1PodSchedulingGate item : items) {
+        V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
+        _visitables.get("schedulingGates").remove(builder);
+        this.schedulingGates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSchedulingGates(Collection<V1PodSchedulingGate> items) {
-    if (this.schedulingGates == null) return (A)this;
-    for (V1PodSchedulingGate item : items) {V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);_visitables.get("schedulingGates").remove(builder); this.schedulingGates.remove(builder);} return (A)this;
+    if (this.schedulingGates == null) {
+      return (A) this;
+    }
+    for (V1PodSchedulingGate item : items) {
+        V1PodSchedulingGateBuilder builder = new V1PodSchedulingGateBuilder(item);
+        _visitables.get("schedulingGates").remove(builder);
+        this.schedulingGates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSchedulingGates(Predicate<V1PodSchedulingGateBuilder> predicate) {
-    if (schedulingGates == null) return (A) this;
-    final Iterator<V1PodSchedulingGateBuilder> each = schedulingGates.iterator();
-    final List visitables = _visitables.get("schedulingGates");
-    while (each.hasNext()) {
-      V1PodSchedulingGateBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (schedulingGates == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PodSchedulingGateBuilder> each = schedulingGates.iterator();
+    List visitables = _visitables.get("schedulingGates");
+    while (each.hasNext()) {
+        V1PodSchedulingGateBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PodSchedulingGate> buildSchedulingGates() {
@@ -1808,7 +2223,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... schedulingGates) {
+  public A withSchedulingGates(V1PodSchedulingGate... schedulingGates) {
     if (this.schedulingGates != null) {
         this.schedulingGates.clear();
         _visitables.remove("schedulingGates");
@@ -1822,7 +2237,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasSchedulingGates() {
-    return this.schedulingGates != null && !this.schedulingGates.isEmpty();
+    return this.schedulingGates != null && !(this.schedulingGates.isEmpty());
   }
   
   public SchedulingGatesNested<A> addNewSchedulingGate() {
@@ -1838,28 +2253,39 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public SchedulingGatesNested<A> editSchedulingGate(int index) {
-    if (schedulingGates.size() <= index) throw new RuntimeException("Can't edit schedulingGates. Index exceeds size.");
-    return setNewSchedulingGateLike(index, buildSchedulingGate(index));
+    if (index <= schedulingGates.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "schedulingGates"));
+    }
+    return this.setNewSchedulingGateLike(index, this.buildSchedulingGate(index));
   }
   
   public SchedulingGatesNested<A> editFirstSchedulingGate() {
-    if (schedulingGates.size() == 0) throw new RuntimeException("Can't edit first schedulingGates. The list is empty.");
-    return setNewSchedulingGateLike(0, buildSchedulingGate(0));
+    if (schedulingGates.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "schedulingGates"));
+    }
+    return this.setNewSchedulingGateLike(0, this.buildSchedulingGate(0));
   }
   
   public SchedulingGatesNested<A> editLastSchedulingGate() {
     int index = schedulingGates.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last schedulingGates. The list is empty.");
-    return setNewSchedulingGateLike(index, buildSchedulingGate(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "schedulingGates"));
+    }
+    return this.setNewSchedulingGateLike(index, this.buildSchedulingGate(index));
   }
   
   public SchedulingGatesNested<A> editMatchingSchedulingGate(Predicate<V1PodSchedulingGateBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<schedulingGates.size();i++) { 
-    if (predicate.test(schedulingGates.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching schedulingGates. No match found.");
-    return setNewSchedulingGateLike(index, buildSchedulingGate(index));
+    for (int i = 0;i < schedulingGates.size();i++) {
+      if (predicate.test(schedulingGates.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "schedulingGates"));
+    }
+    return this.setNewSchedulingGateLike(index, this.buildSchedulingGate(index));
   }
   
   public V1PodSecurityContext buildSecurityContext() {
@@ -1891,15 +2317,15 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public SecurityContextNested<A> editSecurityContext() {
-    return withNewSecurityContextLike(java.util.Optional.ofNullable(buildSecurityContext()).orElse(null));
+    return this.withNewSecurityContextLike(Optional.ofNullable(this.buildSecurityContext()).orElse(null));
   }
   
   public SecurityContextNested<A> editOrNewSecurityContext() {
-    return withNewSecurityContextLike(java.util.Optional.ofNullable(buildSecurityContext()).orElse(new V1PodSecurityContextBuilder().build()));
+    return this.withNewSecurityContextLike(Optional.ofNullable(this.buildSecurityContext()).orElse(new V1PodSecurityContextBuilder().build()));
   }
   
   public SecurityContextNested<A> editOrNewSecurityContextLike(V1PodSecurityContext item) {
-    return withNewSecurityContextLike(java.util.Optional.ofNullable(buildSecurityContext()).orElse(item));
+    return this.withNewSecurityContextLike(Optional.ofNullable(this.buildSecurityContext()).orElse(item));
   }
   
   public String getServiceAccount() {
@@ -1981,7 +2407,9 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public A addToTolerations(int index,V1Toleration item) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
     if (index < 0 || index >= tolerations.size()) {
         _visitables.get("tolerations").add(builder);
@@ -1990,11 +2418,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("tolerations").add(builder);
         tolerations.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTolerations(int index,V1Toleration item) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
     if (index < 0 || index >= tolerations.size()) {
         _visitables.get("tolerations").add(builder);
@@ -2003,41 +2433,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("tolerations").add(builder);
         tolerations.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToTolerations(io.kubernetes.client.openapi.models.V1Toleration... items) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
-    for (V1Toleration item : items) {V1TolerationBuilder builder = new V1TolerationBuilder(item);_visitables.get("tolerations").add(builder);this.tolerations.add(builder);} return (A)this;
+  public A addToTolerations(V1Toleration... items) {
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
+    for (V1Toleration item : items) {
+        V1TolerationBuilder builder = new V1TolerationBuilder(item);
+        _visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToTolerations(Collection<V1Toleration> items) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
-    for (V1Toleration item : items) {V1TolerationBuilder builder = new V1TolerationBuilder(item);_visitables.get("tolerations").add(builder);this.tolerations.add(builder);} return (A)this;
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
+    for (V1Toleration item : items) {
+        V1TolerationBuilder builder = new V1TolerationBuilder(item);
+        _visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromTolerations(io.kubernetes.client.openapi.models.V1Toleration... items) {
-    if (this.tolerations == null) return (A)this;
-    for (V1Toleration item : items) {V1TolerationBuilder builder = new V1TolerationBuilder(item);_visitables.get("tolerations").remove(builder); this.tolerations.remove(builder);} return (A)this;
+  public A removeFromTolerations(V1Toleration... items) {
+    if (this.tolerations == null) {
+      return (A) this;
+    }
+    for (V1Toleration item : items) {
+        V1TolerationBuilder builder = new V1TolerationBuilder(item);
+        _visitables.get("tolerations").remove(builder);
+        this.tolerations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTolerations(Collection<V1Toleration> items) {
-    if (this.tolerations == null) return (A)this;
-    for (V1Toleration item : items) {V1TolerationBuilder builder = new V1TolerationBuilder(item);_visitables.get("tolerations").remove(builder); this.tolerations.remove(builder);} return (A)this;
+    if (this.tolerations == null) {
+      return (A) this;
+    }
+    for (V1Toleration item : items) {
+        V1TolerationBuilder builder = new V1TolerationBuilder(item);
+        _visitables.get("tolerations").remove(builder);
+        this.tolerations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromTolerations(Predicate<V1TolerationBuilder> predicate) {
-    if (tolerations == null) return (A) this;
-    final Iterator<V1TolerationBuilder> each = tolerations.iterator();
-    final List visitables = _visitables.get("tolerations");
-    while (each.hasNext()) {
-      V1TolerationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (tolerations == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1TolerationBuilder> each = tolerations.iterator();
+    List visitables = _visitables.get("tolerations");
+    while (each.hasNext()) {
+        V1TolerationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Toleration> buildTolerations() {
@@ -2089,7 +2549,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withTolerations(io.kubernetes.client.openapi.models.V1Toleration... tolerations) {
+  public A withTolerations(V1Toleration... tolerations) {
     if (this.tolerations != null) {
         this.tolerations.clear();
         _visitables.remove("tolerations");
@@ -2103,7 +2563,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasTolerations() {
-    return this.tolerations != null && !this.tolerations.isEmpty();
+    return this.tolerations != null && !(this.tolerations.isEmpty());
   }
   
   public TolerationsNested<A> addNewToleration() {
@@ -2119,32 +2579,45 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public TolerationsNested<A> editToleration(int index) {
-    if (tolerations.size() <= index) throw new RuntimeException("Can't edit tolerations. Index exceeds size.");
-    return setNewTolerationLike(index, buildToleration(index));
+    if (index <= tolerations.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public TolerationsNested<A> editFirstToleration() {
-    if (tolerations.size() == 0) throw new RuntimeException("Can't edit first tolerations. The list is empty.");
-    return setNewTolerationLike(0, buildToleration(0));
+    if (tolerations.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "tolerations"));
+    }
+    return this.setNewTolerationLike(0, this.buildToleration(0));
   }
   
   public TolerationsNested<A> editLastToleration() {
     int index = tolerations.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last tolerations. The list is empty.");
-    return setNewTolerationLike(index, buildToleration(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public TolerationsNested<A> editMatchingToleration(Predicate<V1TolerationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<tolerations.size();i++) { 
-    if (predicate.test(tolerations.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching tolerations. No match found.");
-    return setNewTolerationLike(index, buildToleration(index));
+    for (int i = 0;i < tolerations.size();i++) {
+      if (predicate.test(tolerations.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public A addToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item) {
-    if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
+    if (this.topologySpreadConstraints == null) {
+      this.topologySpreadConstraints = new ArrayList();
+    }
     V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
     if (index < 0 || index >= topologySpreadConstraints.size()) {
         _visitables.get("topologySpreadConstraints").add(builder);
@@ -2153,11 +2626,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("topologySpreadConstraints").add(builder);
         topologySpreadConstraints.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item) {
-    if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
+    if (this.topologySpreadConstraints == null) {
+      this.topologySpreadConstraints = new ArrayList();
+    }
     V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
     if (index < 0 || index >= topologySpreadConstraints.size()) {
         _visitables.get("topologySpreadConstraints").add(builder);
@@ -2166,41 +2641,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("topologySpreadConstraints").add(builder);
         topologySpreadConstraints.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToTopologySpreadConstraints(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint... items) {
-    if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
-    for (V1TopologySpreadConstraint item : items) {V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);_visitables.get("topologySpreadConstraints").add(builder);this.topologySpreadConstraints.add(builder);} return (A)this;
+  public A addToTopologySpreadConstraints(V1TopologySpreadConstraint... items) {
+    if (this.topologySpreadConstraints == null) {
+      this.topologySpreadConstraints = new ArrayList();
+    }
+    for (V1TopologySpreadConstraint item : items) {
+        V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
+        _visitables.get("topologySpreadConstraints").add(builder);
+        this.topologySpreadConstraints.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToTopologySpreadConstraints(Collection<V1TopologySpreadConstraint> items) {
-    if (this.topologySpreadConstraints == null) {this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraintBuilder>();}
-    for (V1TopologySpreadConstraint item : items) {V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);_visitables.get("topologySpreadConstraints").add(builder);this.topologySpreadConstraints.add(builder);} return (A)this;
+    if (this.topologySpreadConstraints == null) {
+      this.topologySpreadConstraints = new ArrayList();
+    }
+    for (V1TopologySpreadConstraint item : items) {
+        V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
+        _visitables.get("topologySpreadConstraints").add(builder);
+        this.topologySpreadConstraints.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromTopologySpreadConstraints(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint... items) {
-    if (this.topologySpreadConstraints == null) return (A)this;
-    for (V1TopologySpreadConstraint item : items) {V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);_visitables.get("topologySpreadConstraints").remove(builder); this.topologySpreadConstraints.remove(builder);} return (A)this;
+  public A removeFromTopologySpreadConstraints(V1TopologySpreadConstraint... items) {
+    if (this.topologySpreadConstraints == null) {
+      return (A) this;
+    }
+    for (V1TopologySpreadConstraint item : items) {
+        V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
+        _visitables.get("topologySpreadConstraints").remove(builder);
+        this.topologySpreadConstraints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTopologySpreadConstraints(Collection<V1TopologySpreadConstraint> items) {
-    if (this.topologySpreadConstraints == null) return (A)this;
-    for (V1TopologySpreadConstraint item : items) {V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);_visitables.get("topologySpreadConstraints").remove(builder); this.topologySpreadConstraints.remove(builder);} return (A)this;
+    if (this.topologySpreadConstraints == null) {
+      return (A) this;
+    }
+    for (V1TopologySpreadConstraint item : items) {
+        V1TopologySpreadConstraintBuilder builder = new V1TopologySpreadConstraintBuilder(item);
+        _visitables.get("topologySpreadConstraints").remove(builder);
+        this.topologySpreadConstraints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromTopologySpreadConstraints(Predicate<V1TopologySpreadConstraintBuilder> predicate) {
-    if (topologySpreadConstraints == null) return (A) this;
-    final Iterator<V1TopologySpreadConstraintBuilder> each = topologySpreadConstraints.iterator();
-    final List visitables = _visitables.get("topologySpreadConstraints");
-    while (each.hasNext()) {
-      V1TopologySpreadConstraintBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (topologySpreadConstraints == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1TopologySpreadConstraintBuilder> each = topologySpreadConstraints.iterator();
+    List visitables = _visitables.get("topologySpreadConstraints");
+    while (each.hasNext()) {
+        V1TopologySpreadConstraintBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1TopologySpreadConstraint> buildTopologySpreadConstraints() {
@@ -2252,7 +2757,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withTopologySpreadConstraints(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint... topologySpreadConstraints) {
+  public A withTopologySpreadConstraints(V1TopologySpreadConstraint... topologySpreadConstraints) {
     if (this.topologySpreadConstraints != null) {
         this.topologySpreadConstraints.clear();
         _visitables.remove("topologySpreadConstraints");
@@ -2266,7 +2771,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasTopologySpreadConstraints() {
-    return this.topologySpreadConstraints != null && !this.topologySpreadConstraints.isEmpty();
+    return this.topologySpreadConstraints != null && !(this.topologySpreadConstraints.isEmpty());
   }
   
   public TopologySpreadConstraintsNested<A> addNewTopologySpreadConstraint() {
@@ -2282,32 +2787,45 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public TopologySpreadConstraintsNested<A> editTopologySpreadConstraint(int index) {
-    if (topologySpreadConstraints.size() <= index) throw new RuntimeException("Can't edit topologySpreadConstraints. Index exceeds size.");
-    return setNewTopologySpreadConstraintLike(index, buildTopologySpreadConstraint(index));
+    if (index <= topologySpreadConstraints.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "topologySpreadConstraints"));
+    }
+    return this.setNewTopologySpreadConstraintLike(index, this.buildTopologySpreadConstraint(index));
   }
   
   public TopologySpreadConstraintsNested<A> editFirstTopologySpreadConstraint() {
-    if (topologySpreadConstraints.size() == 0) throw new RuntimeException("Can't edit first topologySpreadConstraints. The list is empty.");
-    return setNewTopologySpreadConstraintLike(0, buildTopologySpreadConstraint(0));
+    if (topologySpreadConstraints.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "topologySpreadConstraints"));
+    }
+    return this.setNewTopologySpreadConstraintLike(0, this.buildTopologySpreadConstraint(0));
   }
   
   public TopologySpreadConstraintsNested<A> editLastTopologySpreadConstraint() {
     int index = topologySpreadConstraints.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last topologySpreadConstraints. The list is empty.");
-    return setNewTopologySpreadConstraintLike(index, buildTopologySpreadConstraint(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "topologySpreadConstraints"));
+    }
+    return this.setNewTopologySpreadConstraintLike(index, this.buildTopologySpreadConstraint(index));
   }
   
   public TopologySpreadConstraintsNested<A> editMatchingTopologySpreadConstraint(Predicate<V1TopologySpreadConstraintBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<topologySpreadConstraints.size();i++) { 
-    if (predicate.test(topologySpreadConstraints.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching topologySpreadConstraints. No match found.");
-    return setNewTopologySpreadConstraintLike(index, buildTopologySpreadConstraint(index));
+    for (int i = 0;i < topologySpreadConstraints.size();i++) {
+      if (predicate.test(topologySpreadConstraints.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "topologySpreadConstraints"));
+    }
+    return this.setNewTopologySpreadConstraintLike(index, this.buildTopologySpreadConstraint(index));
   }
   
   public A addToVolumes(int index,V1Volume item) {
-    if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
+    if (this.volumes == null) {
+      this.volumes = new ArrayList();
+    }
     V1VolumeBuilder builder = new V1VolumeBuilder(item);
     if (index < 0 || index >= volumes.size()) {
         _visitables.get("volumes").add(builder);
@@ -2316,11 +2834,13 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("volumes").add(builder);
         volumes.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVolumes(int index,V1Volume item) {
-    if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
+    if (this.volumes == null) {
+      this.volumes = new ArrayList();
+    }
     V1VolumeBuilder builder = new V1VolumeBuilder(item);
     if (index < 0 || index >= volumes.size()) {
         _visitables.get("volumes").add(builder);
@@ -2329,41 +2849,71 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
         _visitables.get("volumes").add(builder);
         volumes.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVolumes(io.kubernetes.client.openapi.models.V1Volume... items) {
-    if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
-    for (V1Volume item : items) {V1VolumeBuilder builder = new V1VolumeBuilder(item);_visitables.get("volumes").add(builder);this.volumes.add(builder);} return (A)this;
+  public A addToVolumes(V1Volume... items) {
+    if (this.volumes == null) {
+      this.volumes = new ArrayList();
+    }
+    for (V1Volume item : items) {
+        V1VolumeBuilder builder = new V1VolumeBuilder(item);
+        _visitables.get("volumes").add(builder);
+        this.volumes.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVolumes(Collection<V1Volume> items) {
-    if (this.volumes == null) {this.volumes = new ArrayList<V1VolumeBuilder>();}
-    for (V1Volume item : items) {V1VolumeBuilder builder = new V1VolumeBuilder(item);_visitables.get("volumes").add(builder);this.volumes.add(builder);} return (A)this;
+    if (this.volumes == null) {
+      this.volumes = new ArrayList();
+    }
+    for (V1Volume item : items) {
+        V1VolumeBuilder builder = new V1VolumeBuilder(item);
+        _visitables.get("volumes").add(builder);
+        this.volumes.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVolumes(io.kubernetes.client.openapi.models.V1Volume... items) {
-    if (this.volumes == null) return (A)this;
-    for (V1Volume item : items) {V1VolumeBuilder builder = new V1VolumeBuilder(item);_visitables.get("volumes").remove(builder); this.volumes.remove(builder);} return (A)this;
+  public A removeFromVolumes(V1Volume... items) {
+    if (this.volumes == null) {
+      return (A) this;
+    }
+    for (V1Volume item : items) {
+        V1VolumeBuilder builder = new V1VolumeBuilder(item);
+        _visitables.get("volumes").remove(builder);
+        this.volumes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVolumes(Collection<V1Volume> items) {
-    if (this.volumes == null) return (A)this;
-    for (V1Volume item : items) {V1VolumeBuilder builder = new V1VolumeBuilder(item);_visitables.get("volumes").remove(builder); this.volumes.remove(builder);} return (A)this;
+    if (this.volumes == null) {
+      return (A) this;
+    }
+    for (V1Volume item : items) {
+        V1VolumeBuilder builder = new V1VolumeBuilder(item);
+        _visitables.get("volumes").remove(builder);
+        this.volumes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVolumes(Predicate<V1VolumeBuilder> predicate) {
-    if (volumes == null) return (A) this;
-    final Iterator<V1VolumeBuilder> each = volumes.iterator();
-    final List visitables = _visitables.get("volumes");
-    while (each.hasNext()) {
-      V1VolumeBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (volumes == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1VolumeBuilder> each = volumes.iterator();
+    List visitables = _visitables.get("volumes");
+    while (each.hasNext()) {
+        V1VolumeBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Volume> buildVolumes() {
@@ -2415,7 +2965,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     return (A) this;
   }
   
-  public A withVolumes(io.kubernetes.client.openapi.models.V1Volume... volumes) {
+  public A withVolumes(V1Volume... volumes) {
     if (this.volumes != null) {
         this.volumes.clear();
         _visitables.remove("volumes");
@@ -2429,7 +2979,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean hasVolumes() {
-    return this.volumes != null && !this.volumes.isEmpty();
+    return this.volumes != null && !(this.volumes.isEmpty());
   }
   
   public VolumesNested<A> addNewVolume() {
@@ -2445,125 +2995,389 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
   }
   
   public VolumesNested<A> editVolume(int index) {
-    if (volumes.size() <= index) throw new RuntimeException("Can't edit volumes. Index exceeds size.");
-    return setNewVolumeLike(index, buildVolume(index));
+    if (index <= volumes.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "volumes"));
+    }
+    return this.setNewVolumeLike(index, this.buildVolume(index));
   }
   
   public VolumesNested<A> editFirstVolume() {
-    if (volumes.size() == 0) throw new RuntimeException("Can't edit first volumes. The list is empty.");
-    return setNewVolumeLike(0, buildVolume(0));
+    if (volumes.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "volumes"));
+    }
+    return this.setNewVolumeLike(0, this.buildVolume(0));
   }
   
   public VolumesNested<A> editLastVolume() {
     int index = volumes.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last volumes. The list is empty.");
-    return setNewVolumeLike(index, buildVolume(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "volumes"));
+    }
+    return this.setNewVolumeLike(index, this.buildVolume(index));
   }
   
   public VolumesNested<A> editMatchingVolume(Predicate<V1VolumeBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<volumes.size();i++) { 
-    if (predicate.test(volumes.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching volumes. No match found.");
-    return setNewVolumeLike(index, buildVolume(index));
+    for (int i = 0;i < volumes.size();i++) {
+      if (predicate.test(volumes.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "volumes"));
+    }
+    return this.setNewVolumeLike(index, this.buildVolume(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodSpecFluent that = (V1PodSpecFluent) o;
-    if (!java.util.Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds)) return false;
-    if (!java.util.Objects.equals(affinity, that.affinity)) return false;
-    if (!java.util.Objects.equals(automountServiceAccountToken, that.automountServiceAccountToken)) return false;
-    if (!java.util.Objects.equals(containers, that.containers)) return false;
-    if (!java.util.Objects.equals(dnsConfig, that.dnsConfig)) return false;
-    if (!java.util.Objects.equals(dnsPolicy, that.dnsPolicy)) return false;
-    if (!java.util.Objects.equals(enableServiceLinks, that.enableServiceLinks)) return false;
-    if (!java.util.Objects.equals(ephemeralContainers, that.ephemeralContainers)) return false;
-    if (!java.util.Objects.equals(hostAliases, that.hostAliases)) return false;
-    if (!java.util.Objects.equals(hostIPC, that.hostIPC)) return false;
-    if (!java.util.Objects.equals(hostNetwork, that.hostNetwork)) return false;
-    if (!java.util.Objects.equals(hostPID, that.hostPID)) return false;
-    if (!java.util.Objects.equals(hostUsers, that.hostUsers)) return false;
-    if (!java.util.Objects.equals(hostname, that.hostname)) return false;
-    if (!java.util.Objects.equals(imagePullSecrets, that.imagePullSecrets)) return false;
-    if (!java.util.Objects.equals(initContainers, that.initContainers)) return false;
-    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
-    if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
-    if (!java.util.Objects.equals(os, that.os)) return false;
-    if (!java.util.Objects.equals(overhead, that.overhead)) return false;
-    if (!java.util.Objects.equals(preemptionPolicy, that.preemptionPolicy)) return false;
-    if (!java.util.Objects.equals(priority, that.priority)) return false;
-    if (!java.util.Objects.equals(priorityClassName, that.priorityClassName)) return false;
-    if (!java.util.Objects.equals(readinessGates, that.readinessGates)) return false;
-    if (!java.util.Objects.equals(resourceClaims, that.resourceClaims)) return false;
-    if (!java.util.Objects.equals(resources, that.resources)) return false;
-    if (!java.util.Objects.equals(restartPolicy, that.restartPolicy)) return false;
-    if (!java.util.Objects.equals(runtimeClassName, that.runtimeClassName)) return false;
-    if (!java.util.Objects.equals(schedulerName, that.schedulerName)) return false;
-    if (!java.util.Objects.equals(schedulingGates, that.schedulingGates)) return false;
-    if (!java.util.Objects.equals(securityContext, that.securityContext)) return false;
-    if (!java.util.Objects.equals(serviceAccount, that.serviceAccount)) return false;
-    if (!java.util.Objects.equals(serviceAccountName, that.serviceAccountName)) return false;
-    if (!java.util.Objects.equals(setHostnameAsFQDN, that.setHostnameAsFQDN)) return false;
-    if (!java.util.Objects.equals(shareProcessNamespace, that.shareProcessNamespace)) return false;
-    if (!java.util.Objects.equals(subdomain, that.subdomain)) return false;
-    if (!java.util.Objects.equals(terminationGracePeriodSeconds, that.terminationGracePeriodSeconds)) return false;
-    if (!java.util.Objects.equals(tolerations, that.tolerations)) return false;
-    if (!java.util.Objects.equals(topologySpreadConstraints, that.topologySpreadConstraints)) return false;
-    if (!java.util.Objects.equals(volumes, that.volumes)) return false;
+    if (!(Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(affinity, that.affinity))) {
+      return false;
+    }
+    if (!(Objects.equals(automountServiceAccountToken, that.automountServiceAccountToken))) {
+      return false;
+    }
+    if (!(Objects.equals(containers, that.containers))) {
+      return false;
+    }
+    if (!(Objects.equals(dnsConfig, that.dnsConfig))) {
+      return false;
+    }
+    if (!(Objects.equals(dnsPolicy, that.dnsPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(enableServiceLinks, that.enableServiceLinks))) {
+      return false;
+    }
+    if (!(Objects.equals(ephemeralContainers, that.ephemeralContainers))) {
+      return false;
+    }
+    if (!(Objects.equals(hostAliases, that.hostAliases))) {
+      return false;
+    }
+    if (!(Objects.equals(hostIPC, that.hostIPC))) {
+      return false;
+    }
+    if (!(Objects.equals(hostNetwork, that.hostNetwork))) {
+      return false;
+    }
+    if (!(Objects.equals(hostPID, that.hostPID))) {
+      return false;
+    }
+    if (!(Objects.equals(hostUsers, that.hostUsers))) {
+      return false;
+    }
+    if (!(Objects.equals(hostname, that.hostname))) {
+      return false;
+    }
+    if (!(Objects.equals(hostnameOverride, that.hostnameOverride))) {
+      return false;
+    }
+    if (!(Objects.equals(imagePullSecrets, that.imagePullSecrets))) {
+      return false;
+    }
+    if (!(Objects.equals(initContainers, that.initContainers))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeName, that.nodeName))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeSelector, that.nodeSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(os, that.os))) {
+      return false;
+    }
+    if (!(Objects.equals(overhead, that.overhead))) {
+      return false;
+    }
+    if (!(Objects.equals(preemptionPolicy, that.preemptionPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(priority, that.priority))) {
+      return false;
+    }
+    if (!(Objects.equals(priorityClassName, that.priorityClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(readinessGates, that.readinessGates))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceClaims, that.resourceClaims))) {
+      return false;
+    }
+    if (!(Objects.equals(resources, that.resources))) {
+      return false;
+    }
+    if (!(Objects.equals(restartPolicy, that.restartPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(runtimeClassName, that.runtimeClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(schedulerName, that.schedulerName))) {
+      return false;
+    }
+    if (!(Objects.equals(schedulingGates, that.schedulingGates))) {
+      return false;
+    }
+    if (!(Objects.equals(securityContext, that.securityContext))) {
+      return false;
+    }
+    if (!(Objects.equals(serviceAccount, that.serviceAccount))) {
+      return false;
+    }
+    if (!(Objects.equals(serviceAccountName, that.serviceAccountName))) {
+      return false;
+    }
+    if (!(Objects.equals(setHostnameAsFQDN, that.setHostnameAsFQDN))) {
+      return false;
+    }
+    if (!(Objects.equals(shareProcessNamespace, that.shareProcessNamespace))) {
+      return false;
+    }
+    if (!(Objects.equals(subdomain, that.subdomain))) {
+      return false;
+    }
+    if (!(Objects.equals(terminationGracePeriodSeconds, that.terminationGracePeriodSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(tolerations, that.tolerations))) {
+      return false;
+    }
+    if (!(Objects.equals(topologySpreadConstraints, that.topologySpreadConstraints))) {
+      return false;
+    }
+    if (!(Objects.equals(volumes, that.volumes))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(activeDeadlineSeconds,  affinity,  automountServiceAccountToken,  containers,  dnsConfig,  dnsPolicy,  enableServiceLinks,  ephemeralContainers,  hostAliases,  hostIPC,  hostNetwork,  hostPID,  hostUsers,  hostname,  imagePullSecrets,  initContainers,  nodeName,  nodeSelector,  os,  overhead,  preemptionPolicy,  priority,  priorityClassName,  readinessGates,  resourceClaims,  resources,  restartPolicy,  runtimeClassName,  schedulerName,  schedulingGates,  securityContext,  serviceAccount,  serviceAccountName,  setHostnameAsFQDN,  shareProcessNamespace,  subdomain,  terminationGracePeriodSeconds,  tolerations,  topologySpreadConstraints,  volumes,  super.hashCode());
+    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (activeDeadlineSeconds != null) { sb.append("activeDeadlineSeconds:"); sb.append(activeDeadlineSeconds + ","); }
-    if (affinity != null) { sb.append("affinity:"); sb.append(affinity + ","); }
-    if (automountServiceAccountToken != null) { sb.append("automountServiceAccountToken:"); sb.append(automountServiceAccountToken + ","); }
-    if (containers != null && !containers.isEmpty()) { sb.append("containers:"); sb.append(containers + ","); }
-    if (dnsConfig != null) { sb.append("dnsConfig:"); sb.append(dnsConfig + ","); }
-    if (dnsPolicy != null) { sb.append("dnsPolicy:"); sb.append(dnsPolicy + ","); }
-    if (enableServiceLinks != null) { sb.append("enableServiceLinks:"); sb.append(enableServiceLinks + ","); }
-    if (ephemeralContainers != null && !ephemeralContainers.isEmpty()) { sb.append("ephemeralContainers:"); sb.append(ephemeralContainers + ","); }
-    if (hostAliases != null && !hostAliases.isEmpty()) { sb.append("hostAliases:"); sb.append(hostAliases + ","); }
-    if (hostIPC != null) { sb.append("hostIPC:"); sb.append(hostIPC + ","); }
-    if (hostNetwork != null) { sb.append("hostNetwork:"); sb.append(hostNetwork + ","); }
-    if (hostPID != null) { sb.append("hostPID:"); sb.append(hostPID + ","); }
-    if (hostUsers != null) { sb.append("hostUsers:"); sb.append(hostUsers + ","); }
-    if (hostname != null) { sb.append("hostname:"); sb.append(hostname + ","); }
-    if (imagePullSecrets != null && !imagePullSecrets.isEmpty()) { sb.append("imagePullSecrets:"); sb.append(imagePullSecrets + ","); }
-    if (initContainers != null && !initContainers.isEmpty()) { sb.append("initContainers:"); sb.append(initContainers + ","); }
-    if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
-    if (nodeSelector != null && !nodeSelector.isEmpty()) { sb.append("nodeSelector:"); sb.append(nodeSelector + ","); }
-    if (os != null) { sb.append("os:"); sb.append(os + ","); }
-    if (overhead != null && !overhead.isEmpty()) { sb.append("overhead:"); sb.append(overhead + ","); }
-    if (preemptionPolicy != null) { sb.append("preemptionPolicy:"); sb.append(preemptionPolicy + ","); }
-    if (priority != null) { sb.append("priority:"); sb.append(priority + ","); }
-    if (priorityClassName != null) { sb.append("priorityClassName:"); sb.append(priorityClassName + ","); }
-    if (readinessGates != null && !readinessGates.isEmpty()) { sb.append("readinessGates:"); sb.append(readinessGates + ","); }
-    if (resourceClaims != null && !resourceClaims.isEmpty()) { sb.append("resourceClaims:"); sb.append(resourceClaims + ","); }
-    if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
-    if (restartPolicy != null) { sb.append("restartPolicy:"); sb.append(restartPolicy + ","); }
-    if (runtimeClassName != null) { sb.append("runtimeClassName:"); sb.append(runtimeClassName + ","); }
-    if (schedulerName != null) { sb.append("schedulerName:"); sb.append(schedulerName + ","); }
-    if (schedulingGates != null && !schedulingGates.isEmpty()) { sb.append("schedulingGates:"); sb.append(schedulingGates + ","); }
-    if (securityContext != null) { sb.append("securityContext:"); sb.append(securityContext + ","); }
-    if (serviceAccount != null) { sb.append("serviceAccount:"); sb.append(serviceAccount + ","); }
-    if (serviceAccountName != null) { sb.append("serviceAccountName:"); sb.append(serviceAccountName + ","); }
-    if (setHostnameAsFQDN != null) { sb.append("setHostnameAsFQDN:"); sb.append(setHostnameAsFQDN + ","); }
-    if (shareProcessNamespace != null) { sb.append("shareProcessNamespace:"); sb.append(shareProcessNamespace + ","); }
-    if (subdomain != null) { sb.append("subdomain:"); sb.append(subdomain + ","); }
-    if (terminationGracePeriodSeconds != null) { sb.append("terminationGracePeriodSeconds:"); sb.append(terminationGracePeriodSeconds + ","); }
-    if (tolerations != null && !tolerations.isEmpty()) { sb.append("tolerations:"); sb.append(tolerations + ","); }
-    if (topologySpreadConstraints != null && !topologySpreadConstraints.isEmpty()) { sb.append("topologySpreadConstraints:"); sb.append(topologySpreadConstraints + ","); }
-    if (volumes != null && !volumes.isEmpty()) { sb.append("volumes:"); sb.append(volumes); }
+    if (!(activeDeadlineSeconds == null)) {
+        sb.append("activeDeadlineSeconds:");
+        sb.append(activeDeadlineSeconds);
+        sb.append(",");
+    }
+    if (!(affinity == null)) {
+        sb.append("affinity:");
+        sb.append(affinity);
+        sb.append(",");
+    }
+    if (!(automountServiceAccountToken == null)) {
+        sb.append("automountServiceAccountToken:");
+        sb.append(automountServiceAccountToken);
+        sb.append(",");
+    }
+    if (!(containers == null) && !(containers.isEmpty())) {
+        sb.append("containers:");
+        sb.append(containers);
+        sb.append(",");
+    }
+    if (!(dnsConfig == null)) {
+        sb.append("dnsConfig:");
+        sb.append(dnsConfig);
+        sb.append(",");
+    }
+    if (!(dnsPolicy == null)) {
+        sb.append("dnsPolicy:");
+        sb.append(dnsPolicy);
+        sb.append(",");
+    }
+    if (!(enableServiceLinks == null)) {
+        sb.append("enableServiceLinks:");
+        sb.append(enableServiceLinks);
+        sb.append(",");
+    }
+    if (!(ephemeralContainers == null) && !(ephemeralContainers.isEmpty())) {
+        sb.append("ephemeralContainers:");
+        sb.append(ephemeralContainers);
+        sb.append(",");
+    }
+    if (!(hostAliases == null) && !(hostAliases.isEmpty())) {
+        sb.append("hostAliases:");
+        sb.append(hostAliases);
+        sb.append(",");
+    }
+    if (!(hostIPC == null)) {
+        sb.append("hostIPC:");
+        sb.append(hostIPC);
+        sb.append(",");
+    }
+    if (!(hostNetwork == null)) {
+        sb.append("hostNetwork:");
+        sb.append(hostNetwork);
+        sb.append(",");
+    }
+    if (!(hostPID == null)) {
+        sb.append("hostPID:");
+        sb.append(hostPID);
+        sb.append(",");
+    }
+    if (!(hostUsers == null)) {
+        sb.append("hostUsers:");
+        sb.append(hostUsers);
+        sb.append(",");
+    }
+    if (!(hostname == null)) {
+        sb.append("hostname:");
+        sb.append(hostname);
+        sb.append(",");
+    }
+    if (!(hostnameOverride == null)) {
+        sb.append("hostnameOverride:");
+        sb.append(hostnameOverride);
+        sb.append(",");
+    }
+    if (!(imagePullSecrets == null) && !(imagePullSecrets.isEmpty())) {
+        sb.append("imagePullSecrets:");
+        sb.append(imagePullSecrets);
+        sb.append(",");
+    }
+    if (!(initContainers == null) && !(initContainers.isEmpty())) {
+        sb.append("initContainers:");
+        sb.append(initContainers);
+        sb.append(",");
+    }
+    if (!(nodeName == null)) {
+        sb.append("nodeName:");
+        sb.append(nodeName);
+        sb.append(",");
+    }
+    if (!(nodeSelector == null) && !(nodeSelector.isEmpty())) {
+        sb.append("nodeSelector:");
+        sb.append(nodeSelector);
+        sb.append(",");
+    }
+    if (!(os == null)) {
+        sb.append("os:");
+        sb.append(os);
+        sb.append(",");
+    }
+    if (!(overhead == null) && !(overhead.isEmpty())) {
+        sb.append("overhead:");
+        sb.append(overhead);
+        sb.append(",");
+    }
+    if (!(preemptionPolicy == null)) {
+        sb.append("preemptionPolicy:");
+        sb.append(preemptionPolicy);
+        sb.append(",");
+    }
+    if (!(priority == null)) {
+        sb.append("priority:");
+        sb.append(priority);
+        sb.append(",");
+    }
+    if (!(priorityClassName == null)) {
+        sb.append("priorityClassName:");
+        sb.append(priorityClassName);
+        sb.append(",");
+    }
+    if (!(readinessGates == null) && !(readinessGates.isEmpty())) {
+        sb.append("readinessGates:");
+        sb.append(readinessGates);
+        sb.append(",");
+    }
+    if (!(resourceClaims == null) && !(resourceClaims.isEmpty())) {
+        sb.append("resourceClaims:");
+        sb.append(resourceClaims);
+        sb.append(",");
+    }
+    if (!(resources == null)) {
+        sb.append("resources:");
+        sb.append(resources);
+        sb.append(",");
+    }
+    if (!(restartPolicy == null)) {
+        sb.append("restartPolicy:");
+        sb.append(restartPolicy);
+        sb.append(",");
+    }
+    if (!(runtimeClassName == null)) {
+        sb.append("runtimeClassName:");
+        sb.append(runtimeClassName);
+        sb.append(",");
+    }
+    if (!(schedulerName == null)) {
+        sb.append("schedulerName:");
+        sb.append(schedulerName);
+        sb.append(",");
+    }
+    if (!(schedulingGates == null) && !(schedulingGates.isEmpty())) {
+        sb.append("schedulingGates:");
+        sb.append(schedulingGates);
+        sb.append(",");
+    }
+    if (!(securityContext == null)) {
+        sb.append("securityContext:");
+        sb.append(securityContext);
+        sb.append(",");
+    }
+    if (!(serviceAccount == null)) {
+        sb.append("serviceAccount:");
+        sb.append(serviceAccount);
+        sb.append(",");
+    }
+    if (!(serviceAccountName == null)) {
+        sb.append("serviceAccountName:");
+        sb.append(serviceAccountName);
+        sb.append(",");
+    }
+    if (!(setHostnameAsFQDN == null)) {
+        sb.append("setHostnameAsFQDN:");
+        sb.append(setHostnameAsFQDN);
+        sb.append(",");
+    }
+    if (!(shareProcessNamespace == null)) {
+        sb.append("shareProcessNamespace:");
+        sb.append(shareProcessNamespace);
+        sb.append(",");
+    }
+    if (!(subdomain == null)) {
+        sb.append("subdomain:");
+        sb.append(subdomain);
+        sb.append(",");
+    }
+    if (!(terminationGracePeriodSeconds == null)) {
+        sb.append("terminationGracePeriodSeconds:");
+        sb.append(terminationGracePeriodSeconds);
+        sb.append(",");
+    }
+    if (!(tolerations == null) && !(tolerations.isEmpty())) {
+        sb.append("tolerations:");
+        sb.append(tolerations);
+        sb.append(",");
+    }
+    if (!(topologySpreadConstraints == null) && !(topologySpreadConstraints.isEmpty())) {
+        sb.append("topologySpreadConstraints:");
+        sb.append(topologySpreadConstraints);
+        sb.append(",");
+    }
+    if (!(volumes == null) && !(volumes.isEmpty())) {
+        sb.append("volumes:");
+        sb.append(volumes);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -2624,7 +3438,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToContainers(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToContainers(index, builder.build());
     }
     
     public N endContainer() {
@@ -2658,7 +3472,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToEphemeralContainers(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToEphemeralContainers(index, builder.build());
     }
     
     public N endEphemeralContainer() {
@@ -2676,7 +3490,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToHostAliases(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToHostAliases(index, builder.build());
     }
     
     public N endHostAlias() {
@@ -2694,7 +3508,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToImagePullSecrets(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToImagePullSecrets(index, builder.build());
     }
     
     public N endImagePullSecret() {
@@ -2712,7 +3526,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToInitContainers(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToInitContainers(index, builder.build());
     }
     
     public N endInitContainer() {
@@ -2746,7 +3560,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToReadinessGates(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToReadinessGates(index, builder.build());
     }
     
     public N endReadinessGate() {
@@ -2764,7 +3578,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToResourceClaims(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToResourceClaims(index, builder.build());
     }
     
     public N endResourceClaim() {
@@ -2798,7 +3612,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToSchedulingGates(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToSchedulingGates(index, builder.build());
     }
     
     public N endSchedulingGate() {
@@ -2832,7 +3646,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToTolerations(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToTolerations(index, builder.build());
     }
     
     public N endToleration() {
@@ -2850,7 +3664,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToTopologySpreadConstraints(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToTopologySpreadConstraints(index, builder.build());
     }
     
     public N endTopologySpreadConstraint() {
@@ -2868,7 +3682,7 @@ public class V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
     int index;
     
     public N and() {
-      return (N) V1PodSpecFluent.this.setToVolumes(index,builder.build());
+      return (N) V1PodSpecFluent.this.setToVolumes(index, builder.build());
     }
     
     public N endVolume() {

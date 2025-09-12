@@ -1,22 +1,25 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> extends BaseFluent<A>{
+public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.models.V1ComponentStatusFluent<A>> extends BaseFluent<A>{
   public V1ComponentStatusFluent() {
   }
   
@@ -29,13 +32,13 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
   private V1ObjectMetaBuilder metadata;
   
   protected void copyInstance(V1ComponentStatus instance) {
-    instance = (instance != null ? instance : new V1ComponentStatus());
+    instance = instance != null ? instance : new V1ComponentStatus();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withConditions(instance.getConditions());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withConditions(instance.getConditions());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+    }
   }
   
   public String getApiVersion() {
@@ -52,7 +55,9 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
   }
   
   public A addToConditions(int index,V1ComponentCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ComponentConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -61,11 +66,13 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1ComponentCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ComponentConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -74,41 +81,71 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ComponentConditionBuilder>();}
-    for (V1ComponentCondition item : items) {V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1ComponentCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1ComponentCondition item : items) {
+        V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1ComponentCondition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ComponentConditionBuilder>();}
-    for (V1ComponentCondition item : items) {V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1ComponentCondition item : items) {
+        V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1ComponentCondition item : items) {V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1ComponentCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1ComponentCondition item : items) {
+        V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1ComponentCondition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1ComponentCondition item : items) {V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1ComponentCondition item : items) {
+        V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1ComponentConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1ComponentConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1ComponentConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ComponentConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1ComponentConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ComponentCondition> buildConditions() {
@@ -160,7 +197,7 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... conditions) {
+  public A withConditions(V1ComponentCondition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -174,7 +211,7 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -190,28 +227,39 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1ComponentConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public String getKind() {
@@ -256,40 +304,69 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ComponentStatusFluent that = (V1ComponentStatusFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  conditions,  kind,  metadata,  super.hashCode());
+    return Objects.hash(apiVersion, conditions, kind, metadata);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -302,7 +379,7 @@ public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1ComponentStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1ComponentStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {

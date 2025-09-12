@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class FlowcontrolV1SubjectBuilder extends FlowcontrolV1SubjectFluent<FlowcontrolV1SubjectBuilder> implements VisitableBuilder<FlowcontrolV1Subject,FlowcontrolV1SubjectBuilder>{
   public FlowcontrolV1SubjectBuilder() {
     this(new FlowcontrolV1Subject());

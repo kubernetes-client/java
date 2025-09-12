@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ControllerRevisionListBuilder extends V1ControllerRevisionListFluent<V1ControllerRevisionListBuilder> implements VisitableBuilder<V1ControllerRevisionList,V1ControllerRevisionListBuilder>{
   public V1ControllerRevisionListBuilder() {
     this(new V1ControllerRevisionList());

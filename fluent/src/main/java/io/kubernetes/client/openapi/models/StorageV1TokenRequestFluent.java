@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class StorageV1TokenRequestFluent<A extends StorageV1TokenRequestFluent<A>> extends BaseFluent<A>{
+public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<A>> extends BaseFluent<A>{
   public StorageV1TokenRequestFluent() {
   }
   
@@ -21,11 +23,11 @@ public class StorageV1TokenRequestFluent<A extends StorageV1TokenRequestFluent<A
   private Long expirationSeconds;
   
   protected void copyInstance(StorageV1TokenRequest instance) {
-    instance = (instance != null ? instance : new StorageV1TokenRequest());
+    instance = instance != null ? instance : new StorageV1TokenRequest();
     if (instance != null) {
-          this.withAudience(instance.getAudience());
-          this.withExpirationSeconds(instance.getExpirationSeconds());
-        }
+        this.withAudience(instance.getAudience());
+        this.withExpirationSeconds(instance.getExpirationSeconds());
+    }
   }
   
   public String getAudience() {
@@ -55,24 +57,41 @@ public class StorageV1TokenRequestFluent<A extends StorageV1TokenRequestFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     StorageV1TokenRequestFluent that = (StorageV1TokenRequestFluent) o;
-    if (!java.util.Objects.equals(audience, that.audience)) return false;
-    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
+    if (!(Objects.equals(audience, that.audience))) {
+      return false;
+    }
+    if (!(Objects.equals(expirationSeconds, that.expirationSeconds))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(audience,  expirationSeconds,  super.hashCode());
+    return Objects.hash(audience, expirationSeconds);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (audience != null) { sb.append("audience:"); sb.append(audience + ","); }
-    if (expirationSeconds != null) { sb.append("expirationSeconds:"); sb.append(expirationSeconds); }
+    if (!(audience == null)) {
+        sb.append("audience:");
+        sb.append(audience);
+        sb.append(",");
+    }
+    if (!(expirationSeconds == null)) {
+        sb.append("expirationSeconds:");
+        sb.append(expirationSeconds);
+    }
     sb.append("}");
     return sb.toString();
   }

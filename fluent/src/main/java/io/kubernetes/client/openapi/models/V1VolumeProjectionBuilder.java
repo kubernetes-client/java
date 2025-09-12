@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluent<V1VolumeProjectionBuilder> implements VisitableBuilder<V1VolumeProjection,V1VolumeProjectionBuilder>{
   public V1VolumeProjectionBuilder() {
     this(new V1VolumeProjection());
@@ -26,6 +27,7 @@ public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluent<V1Volume
     buildable.setClusterTrustBundle(fluent.buildClusterTrustBundle());
     buildable.setConfigMap(fluent.buildConfigMap());
     buildable.setDownwardAPI(fluent.buildDownwardAPI());
+    buildable.setPodCertificate(fluent.buildPodCertificate());
     buildable.setSecret(fluent.buildSecret());
     buildable.setServiceAccountToken(fluent.buildServiceAccountToken());
     return buildable;

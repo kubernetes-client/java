@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2ResourceClaimSpecFluent<A extends V1beta2ResourceClaimSpecFluent<A>> extends BaseFluent<A>{
+public class V1beta2ResourceClaimSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta2ResourceClaimSpecFluent<A>> extends BaseFluent<A>{
   public V1beta2ResourceClaimSpecFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1beta2ResourceClaimSpecFluent<A extends V1beta2ResourceClaimSpecFl
   private V1beta2DeviceClaimBuilder devices;
   
   protected void copyInstance(V1beta2ResourceClaimSpec instance) {
-    instance = (instance != null ? instance : new V1beta2ResourceClaimSpec());
+    instance = instance != null ? instance : new V1beta2ResourceClaimSpec();
     if (instance != null) {
-          this.withDevices(instance.getDevices());
-        }
+      this.withDevices(instance.getDevices());
+    }
   }
   
   public V1beta2DeviceClaim buildDevices() {
@@ -55,34 +58,45 @@ public class V1beta2ResourceClaimSpecFluent<A extends V1beta2ResourceClaimSpecFl
   }
   
   public DevicesNested<A> editDevices() {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(null));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(null));
   }
   
   public DevicesNested<A> editOrNewDevices() {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(new V1beta2DeviceClaimBuilder().build()));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(new V1beta2DeviceClaimBuilder().build()));
   }
   
   public DevicesNested<A> editOrNewDevicesLike(V1beta2DeviceClaim item) {
-    return withNewDevicesLike(java.util.Optional.ofNullable(buildDevices()).orElse(item));
+    return this.withNewDevicesLike(Optional.ofNullable(this.buildDevices()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2ResourceClaimSpecFluent that = (V1beta2ResourceClaimSpecFluent) o;
-    if (!java.util.Objects.equals(devices, that.devices)) return false;
+    if (!(Objects.equals(devices, that.devices))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(devices,  super.hashCode());
+    return Objects.hash(devices);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (devices != null) { sb.append("devices:"); sb.append(devices); }
+    if (!(devices == null)) {
+        sb.append("devices:");
+        sb.append(devices);
+    }
     sb.append("}");
     return sb.toString();
   }

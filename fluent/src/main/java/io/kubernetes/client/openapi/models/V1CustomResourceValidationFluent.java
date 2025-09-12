@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CustomResourceValidationFluent<A extends V1CustomResourceValidationFluent<A>> extends BaseFluent<A>{
+public class V1CustomResourceValidationFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent<A>> extends BaseFluent<A>{
   public V1CustomResourceValidationFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1CustomResourceValidationFluent<A extends V1CustomResourceValidati
   private V1JSONSchemaPropsBuilder openAPIV3Schema;
   
   protected void copyInstance(V1CustomResourceValidation instance) {
-    instance = (instance != null ? instance : new V1CustomResourceValidation());
+    instance = instance != null ? instance : new V1CustomResourceValidation();
     if (instance != null) {
-          this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-        }
+      this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
+    }
   }
   
   public V1JSONSchemaProps buildOpenAPIV3Schema() {
@@ -55,34 +58,45 @@ public class V1CustomResourceValidationFluent<A extends V1CustomResourceValidati
   }
   
   public OpenAPIV3SchemaNested<A> editOpenAPIV3Schema() {
-    return withNewOpenAPIV3SchemaLike(java.util.Optional.ofNullable(buildOpenAPIV3Schema()).orElse(null));
+    return this.withNewOpenAPIV3SchemaLike(Optional.ofNullable(this.buildOpenAPIV3Schema()).orElse(null));
   }
   
   public OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3Schema() {
-    return withNewOpenAPIV3SchemaLike(java.util.Optional.ofNullable(buildOpenAPIV3Schema()).orElse(new V1JSONSchemaPropsBuilder().build()));
+    return this.withNewOpenAPIV3SchemaLike(Optional.ofNullable(this.buildOpenAPIV3Schema()).orElse(new V1JSONSchemaPropsBuilder().build()));
   }
   
   public OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
-    return withNewOpenAPIV3SchemaLike(java.util.Optional.ofNullable(buildOpenAPIV3Schema()).orElse(item));
+    return this.withNewOpenAPIV3SchemaLike(Optional.ofNullable(this.buildOpenAPIV3Schema()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CustomResourceValidationFluent that = (V1CustomResourceValidationFluent) o;
-    if (!java.util.Objects.equals(openAPIV3Schema, that.openAPIV3Schema)) return false;
+    if (!(Objects.equals(openAPIV3Schema, that.openAPIV3Schema))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(openAPIV3Schema,  super.hashCode());
+    return Objects.hash(openAPIV3Schema);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (openAPIV3Schema != null) { sb.append("openAPIV3Schema:"); sb.append(openAPIV3Schema); }
+    if (!(openAPIV3Schema == null)) {
+        sb.append("openAPIV3Schema:");
+        sb.append(openAPIV3Schema);
+    }
     sb.append("}");
     return sb.toString();
   }

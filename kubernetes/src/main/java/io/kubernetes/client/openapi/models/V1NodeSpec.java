@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * NodeSpec describes the attributes that a node is created with.
  */
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NodeSpec {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
   @SerializedName(SERIALIZED_NAME_CONFIG_SOURCE)

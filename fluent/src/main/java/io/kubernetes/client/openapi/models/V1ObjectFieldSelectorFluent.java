@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ObjectFieldSelectorFluent<A extends V1ObjectFieldSelectorFluent<A>> extends BaseFluent<A>{
+public class V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<A>> extends BaseFluent<A>{
   public V1ObjectFieldSelectorFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1ObjectFieldSelectorFluent<A extends V1ObjectFieldSelectorFluent<A
   private String fieldPath;
   
   protected void copyInstance(V1ObjectFieldSelector instance) {
-    instance = (instance != null ? instance : new V1ObjectFieldSelector());
+    instance = instance != null ? instance : new V1ObjectFieldSelector();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withFieldPath(instance.getFieldPath());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withFieldPath(instance.getFieldPath());
+    }
   }
   
   public String getApiVersion() {
@@ -54,24 +56,41 @@ public class V1ObjectFieldSelectorFluent<A extends V1ObjectFieldSelectorFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ObjectFieldSelectorFluent that = (V1ObjectFieldSelectorFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(fieldPath, that.fieldPath)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(fieldPath, that.fieldPath))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  fieldPath,  super.hashCode());
+    return Objects.hash(apiVersion, fieldPath);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (fieldPath != null) { sb.append("fieldPath:"); sb.append(fieldPath); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(fieldPath == null)) {
+        sb.append("fieldPath:");
+        sb.append(fieldPath);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceAllocationConfigurationFluent<A>> extends BaseFluent<A>{
+public class V1beta1DeviceAllocationConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceAllocationConfigurationFluent<A>> extends BaseFluent<A>{
   public V1beta1DeviceAllocationConfigurationFluent() {
   }
   
@@ -26,12 +29,12 @@ public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceA
   private String source;
   
   protected void copyInstance(V1beta1DeviceAllocationConfiguration instance) {
-    instance = (instance != null ? instance : new V1beta1DeviceAllocationConfiguration());
+    instance = instance != null ? instance : new V1beta1DeviceAllocationConfiguration();
     if (instance != null) {
-          this.withOpaque(instance.getOpaque());
-          this.withRequests(instance.getRequests());
-          this.withSource(instance.getSource());
-        }
+        this.withOpaque(instance.getOpaque());
+        this.withRequests(instance.getRequests());
+        this.withSource(instance.getSource());
+    }
   }
   
   public V1beta1OpaqueDeviceConfiguration buildOpaque() {
@@ -63,46 +66,71 @@ public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceA
   }
   
   public OpaqueNested<A> editOpaque() {
-    return withNewOpaqueLike(java.util.Optional.ofNullable(buildOpaque()).orElse(null));
+    return this.withNewOpaqueLike(Optional.ofNullable(this.buildOpaque()).orElse(null));
   }
   
   public OpaqueNested<A> editOrNewOpaque() {
-    return withNewOpaqueLike(java.util.Optional.ofNullable(buildOpaque()).orElse(new V1beta1OpaqueDeviceConfigurationBuilder().build()));
+    return this.withNewOpaqueLike(Optional.ofNullable(this.buildOpaque()).orElse(new V1beta1OpaqueDeviceConfigurationBuilder().build()));
   }
   
   public OpaqueNested<A> editOrNewOpaqueLike(V1beta1OpaqueDeviceConfiguration item) {
-    return withNewOpaqueLike(java.util.Optional.ofNullable(buildOpaque()).orElse(item));
+    return this.withNewOpaqueLike(Optional.ofNullable(this.buildOpaque()).orElse(item));
   }
   
   public A addToRequests(int index,String item) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
     this.requests.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequests(int index,String item) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    this.requests.set(index, item); return (A)this;
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    this.requests.set(index, item);
+    return (A) this;
   }
   
-  public A addToRequests(java.lang.String... items) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    for (String item : items) {this.requests.add(item);} return (A)this;
+  public A addToRequests(String... items) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToRequests(Collection<String> items) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    for (String item : items) {this.requests.add(item);} return (A)this;
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequests(java.lang.String... items) {
-    if (this.requests == null) return (A)this;
-    for (String item : items) { this.requests.remove(item);} return (A)this;
+  public A removeFromRequests(String... items) {
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequests(Collection<String> items) {
-    if (this.requests == null) return (A)this;
-    for (String item : items) { this.requests.remove(item);} return (A)this;
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getRequests() {
@@ -151,7 +179,7 @@ public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceA
     return (A) this;
   }
   
-  public A withRequests(java.lang.String... requests) {
+  public A withRequests(String... requests) {
     if (this.requests != null) {
         this.requests.clear();
         _visitables.remove("requests");
@@ -165,7 +193,7 @@ public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceA
   }
   
   public boolean hasRequests() {
-    return this.requests != null && !this.requests.isEmpty();
+    return this.requests != null && !(this.requests.isEmpty());
   }
   
   public String getSource() {
@@ -182,26 +210,49 @@ public class V1beta1DeviceAllocationConfigurationFluent<A extends V1beta1DeviceA
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1DeviceAllocationConfigurationFluent that = (V1beta1DeviceAllocationConfigurationFluent) o;
-    if (!java.util.Objects.equals(opaque, that.opaque)) return false;
-    if (!java.util.Objects.equals(requests, that.requests)) return false;
-    if (!java.util.Objects.equals(source, that.source)) return false;
+    if (!(Objects.equals(opaque, that.opaque))) {
+      return false;
+    }
+    if (!(Objects.equals(requests, that.requests))) {
+      return false;
+    }
+    if (!(Objects.equals(source, that.source))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(opaque,  requests,  source,  super.hashCode());
+    return Objects.hash(opaque, requests, source);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (opaque != null) { sb.append("opaque:"); sb.append(opaque + ","); }
-    if (requests != null && !requests.isEmpty()) { sb.append("requests:"); sb.append(requests + ","); }
-    if (source != null) { sb.append("source:"); sb.append(source); }
+    if (!(opaque == null)) {
+        sb.append("opaque:");
+        sb.append(opaque);
+        sb.append(",");
+    }
+    if (!(requests == null) && !(requests.isEmpty())) {
+        sb.append("requests:");
+        sb.append(requests);
+        sb.append(",");
+    }
+    if (!(source == null)) {
+        sb.append("source:");
+        sb.append(source);
+    }
     sb.append("}");
     return sb.toString();
   }

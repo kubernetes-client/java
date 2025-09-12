@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CephFSVolumeSourceBuilder extends V1CephFSVolumeSourceFluent<V1CephFSVolumeSourceBuilder> implements VisitableBuilder<V1CephFSVolumeSource,V1CephFSVolumeSourceBuilder>{
   public V1CephFSVolumeSourceBuilder() {
     this(new V1CephFSVolumeSource());

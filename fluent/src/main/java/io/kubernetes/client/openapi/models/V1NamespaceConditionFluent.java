@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NamespaceConditionFluent<A extends V1NamespaceConditionFluent<A>> extends BaseFluent<A>{
+public class V1NamespaceConditionFluent<A extends io.kubernetes.client.openapi.models.V1NamespaceConditionFluent<A>> extends BaseFluent<A>{
   public V1NamespaceConditionFluent() {
   }
   
@@ -24,14 +26,14 @@ public class V1NamespaceConditionFluent<A extends V1NamespaceConditionFluent<A>>
   private String type;
   
   protected void copyInstance(V1NamespaceCondition instance) {
-    instance = (instance != null ? instance : new V1NamespaceCondition());
+    instance = instance != null ? instance : new V1NamespaceCondition();
     if (instance != null) {
-          this.withLastTransitionTime(instance.getLastTransitionTime());
-          this.withMessage(instance.getMessage());
-          this.withReason(instance.getReason());
-          this.withStatus(instance.getStatus());
-          this.withType(instance.getType());
-        }
+        this.withLastTransitionTime(instance.getLastTransitionTime());
+        this.withMessage(instance.getMessage());
+        this.withReason(instance.getReason());
+        this.withStatus(instance.getStatus());
+        this.withType(instance.getType());
+    }
   }
   
   public OffsetDateTime getLastTransitionTime() {
@@ -100,30 +102,65 @@ public class V1NamespaceConditionFluent<A extends V1NamespaceConditionFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NamespaceConditionFluent that = (V1NamespaceConditionFluent) o;
-    if (!java.util.Objects.equals(lastTransitionTime, that.lastTransitionTime)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(status, that.status)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(lastTransitionTime, that.lastTransitionTime))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(lastTransitionTime,  message,  reason,  status,  type,  super.hashCode());
+    return Objects.hash(lastTransitionTime, message, reason, status, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (lastTransitionTime != null) { sb.append("lastTransitionTime:"); sb.append(lastTransitionTime + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (status != null) { sb.append("status:"); sb.append(status + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(lastTransitionTime == null)) {
+        sb.append("lastTransitionTime:");
+        sb.append(lastTransitionTime);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

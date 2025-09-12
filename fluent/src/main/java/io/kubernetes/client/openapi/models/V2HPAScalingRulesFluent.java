@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -8,8 +8,10 @@ import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> extends BaseFluent<A>{
+public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent<A>> extends BaseFluent<A>{
   public V2HPAScalingRulesFluent() {
   }
   
@@ -31,17 +33,19 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
   private Quantity tolerance;
   
   protected void copyInstance(V2HPAScalingRules instance) {
-    instance = (instance != null ? instance : new V2HPAScalingRules());
+    instance = instance != null ? instance : new V2HPAScalingRules();
     if (instance != null) {
-          this.withPolicies(instance.getPolicies());
-          this.withSelectPolicy(instance.getSelectPolicy());
-          this.withStabilizationWindowSeconds(instance.getStabilizationWindowSeconds());
-          this.withTolerance(instance.getTolerance());
-        }
+        this.withPolicies(instance.getPolicies());
+        this.withSelectPolicy(instance.getSelectPolicy());
+        this.withStabilizationWindowSeconds(instance.getStabilizationWindowSeconds());
+        this.withTolerance(instance.getTolerance());
+    }
   }
   
   public A addToPolicies(int index,V2HPAScalingPolicy item) {
-    if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
+    if (this.policies == null) {
+      this.policies = new ArrayList();
+    }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     if (index < 0 || index >= policies.size()) {
         _visitables.get("policies").add(builder);
@@ -50,11 +54,13 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
         _visitables.get("policies").add(builder);
         policies.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPolicies(int index,V2HPAScalingPolicy item) {
-    if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
+    if (this.policies == null) {
+      this.policies = new ArrayList();
+    }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     if (index < 0 || index >= policies.size()) {
         _visitables.get("policies").add(builder);
@@ -63,41 +69,71 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
         _visitables.get("policies").add(builder);
         policies.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items) {
-    if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
-    for (V2HPAScalingPolicy item : items) {V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);_visitables.get("policies").add(builder);this.policies.add(builder);} return (A)this;
+  public A addToPolicies(V2HPAScalingPolicy... items) {
+    if (this.policies == null) {
+      this.policies = new ArrayList();
+    }
+    for (V2HPAScalingPolicy item : items) {
+        V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
+        _visitables.get("policies").add(builder);
+        this.policies.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToPolicies(Collection<V2HPAScalingPolicy> items) {
-    if (this.policies == null) {this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();}
-    for (V2HPAScalingPolicy item : items) {V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);_visitables.get("policies").add(builder);this.policies.add(builder);} return (A)this;
+    if (this.policies == null) {
+      this.policies = new ArrayList();
+    }
+    for (V2HPAScalingPolicy item : items) {
+        V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
+        _visitables.get("policies").add(builder);
+        this.policies.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items) {
-    if (this.policies == null) return (A)this;
-    for (V2HPAScalingPolicy item : items) {V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);_visitables.get("policies").remove(builder); this.policies.remove(builder);} return (A)this;
+  public A removeFromPolicies(V2HPAScalingPolicy... items) {
+    if (this.policies == null) {
+      return (A) this;
+    }
+    for (V2HPAScalingPolicy item : items) {
+        V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
+        _visitables.get("policies").remove(builder);
+        this.policies.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPolicies(Collection<V2HPAScalingPolicy> items) {
-    if (this.policies == null) return (A)this;
-    for (V2HPAScalingPolicy item : items) {V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);_visitables.get("policies").remove(builder); this.policies.remove(builder);} return (A)this;
+    if (this.policies == null) {
+      return (A) this;
+    }
+    for (V2HPAScalingPolicy item : items) {
+        V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
+        _visitables.get("policies").remove(builder);
+        this.policies.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromPolicies(Predicate<V2HPAScalingPolicyBuilder> predicate) {
-    if (policies == null) return (A) this;
-    final Iterator<V2HPAScalingPolicyBuilder> each = policies.iterator();
-    final List visitables = _visitables.get("policies");
-    while (each.hasNext()) {
-      V2HPAScalingPolicyBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (policies == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V2HPAScalingPolicyBuilder> each = policies.iterator();
+    List visitables = _visitables.get("policies");
+    while (each.hasNext()) {
+        V2HPAScalingPolicyBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V2HPAScalingPolicy> buildPolicies() {
@@ -149,7 +185,7 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
     return (A) this;
   }
   
-  public A withPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... policies) {
+  public A withPolicies(V2HPAScalingPolicy... policies) {
     if (this.policies != null) {
         this.policies.clear();
         _visitables.remove("policies");
@@ -163,7 +199,7 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
   }
   
   public boolean hasPolicies() {
-    return this.policies != null && !this.policies.isEmpty();
+    return this.policies != null && !(this.policies.isEmpty());
   }
   
   public PoliciesNested<A> addNewPolicy() {
@@ -179,28 +215,39 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
   }
   
   public PoliciesNested<A> editPolicy(int index) {
-    if (policies.size() <= index) throw new RuntimeException("Can't edit policies. Index exceeds size.");
-    return setNewPolicyLike(index, buildPolicy(index));
+    if (index <= policies.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "policies"));
+    }
+    return this.setNewPolicyLike(index, this.buildPolicy(index));
   }
   
   public PoliciesNested<A> editFirstPolicy() {
-    if (policies.size() == 0) throw new RuntimeException("Can't edit first policies. The list is empty.");
-    return setNewPolicyLike(0, buildPolicy(0));
+    if (policies.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "policies"));
+    }
+    return this.setNewPolicyLike(0, this.buildPolicy(0));
   }
   
   public PoliciesNested<A> editLastPolicy() {
     int index = policies.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last policies. The list is empty.");
-    return setNewPolicyLike(index, buildPolicy(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "policies"));
+    }
+    return this.setNewPolicyLike(index, this.buildPolicy(index));
   }
   
   public PoliciesNested<A> editMatchingPolicy(Predicate<V2HPAScalingPolicyBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<policies.size();i++) { 
-    if (predicate.test(policies.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching policies. No match found.");
-    return setNewPolicyLike(index, buildPolicy(index));
+    for (int i = 0;i < policies.size();i++) {
+      if (predicate.test(policies.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "policies"));
+    }
+    return this.setNewPolicyLike(index, this.buildPolicy(index));
   }
   
   public String getSelectPolicy() {
@@ -243,32 +290,61 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
   }
   
   public A withNewTolerance(String value) {
-    return (A)withTolerance(new Quantity(value));
+    return (A) this.withTolerance(new Quantity(value));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2HPAScalingRulesFluent that = (V2HPAScalingRulesFluent) o;
-    if (!java.util.Objects.equals(policies, that.policies)) return false;
-    if (!java.util.Objects.equals(selectPolicy, that.selectPolicy)) return false;
-    if (!java.util.Objects.equals(stabilizationWindowSeconds, that.stabilizationWindowSeconds)) return false;
-    if (!java.util.Objects.equals(tolerance, that.tolerance)) return false;
+    if (!(Objects.equals(policies, that.policies))) {
+      return false;
+    }
+    if (!(Objects.equals(selectPolicy, that.selectPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(stabilizationWindowSeconds, that.stabilizationWindowSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(tolerance, that.tolerance))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(policies,  selectPolicy,  stabilizationWindowSeconds,  tolerance,  super.hashCode());
+    return Objects.hash(policies, selectPolicy, stabilizationWindowSeconds, tolerance);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (policies != null && !policies.isEmpty()) { sb.append("policies:"); sb.append(policies + ","); }
-    if (selectPolicy != null) { sb.append("selectPolicy:"); sb.append(selectPolicy + ","); }
-    if (stabilizationWindowSeconds != null) { sb.append("stabilizationWindowSeconds:"); sb.append(stabilizationWindowSeconds + ","); }
-    if (tolerance != null) { sb.append("tolerance:"); sb.append(tolerance); }
+    if (!(policies == null) && !(policies.isEmpty())) {
+        sb.append("policies:");
+        sb.append(policies);
+        sb.append(",");
+    }
+    if (!(selectPolicy == null)) {
+        sb.append("selectPolicy:");
+        sb.append(selectPolicy);
+        sb.append(",");
+    }
+    if (!(stabilizationWindowSeconds == null)) {
+        sb.append("stabilizationWindowSeconds:");
+        sb.append(stabilizationWindowSeconds);
+        sb.append(",");
+    }
+    if (!(tolerance == null)) {
+        sb.append("tolerance:");
+        sb.append(tolerance);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -281,7 +357,7 @@ public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V2HPAScalingRulesFluent.this.setToPolicies(index,builder.build());
+      return (N) V2HPAScalingRulesFluent.this.setToPolicies(index, builder.build());
     }
     
     public N endPolicy() {

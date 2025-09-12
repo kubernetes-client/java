@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseFluent<A>{
+public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V1IngressSpecFluent<A>> extends BaseFluent<A>{
   public V1IngressSpecFluent() {
   }
   
@@ -29,13 +32,13 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   private ArrayList<V1IngressTLSBuilder> tls;
   
   protected void copyInstance(V1IngressSpec instance) {
-    instance = (instance != null ? instance : new V1IngressSpec());
+    instance = instance != null ? instance : new V1IngressSpec();
     if (instance != null) {
-          this.withDefaultBackend(instance.getDefaultBackend());
-          this.withIngressClassName(instance.getIngressClassName());
-          this.withRules(instance.getRules());
-          this.withTls(instance.getTls());
-        }
+        this.withDefaultBackend(instance.getDefaultBackend());
+        this.withIngressClassName(instance.getIngressClassName());
+        this.withRules(instance.getRules());
+        this.withTls(instance.getTls());
+    }
   }
   
   public V1IngressBackend buildDefaultBackend() {
@@ -67,15 +70,15 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public DefaultBackendNested<A> editDefaultBackend() {
-    return withNewDefaultBackendLike(java.util.Optional.ofNullable(buildDefaultBackend()).orElse(null));
+    return this.withNewDefaultBackendLike(Optional.ofNullable(this.buildDefaultBackend()).orElse(null));
   }
   
   public DefaultBackendNested<A> editOrNewDefaultBackend() {
-    return withNewDefaultBackendLike(java.util.Optional.ofNullable(buildDefaultBackend()).orElse(new V1IngressBackendBuilder().build()));
+    return this.withNewDefaultBackendLike(Optional.ofNullable(this.buildDefaultBackend()).orElse(new V1IngressBackendBuilder().build()));
   }
   
   public DefaultBackendNested<A> editOrNewDefaultBackendLike(V1IngressBackend item) {
-    return withNewDefaultBackendLike(java.util.Optional.ofNullable(buildDefaultBackend()).orElse(item));
+    return this.withNewDefaultBackendLike(Optional.ofNullable(this.buildDefaultBackend()).orElse(item));
   }
   
   public String getIngressClassName() {
@@ -92,7 +95,9 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public A addToRules(int index,V1IngressRule item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1IngressRuleBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -101,11 +106,13 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
         _visitables.get("rules").add(builder);
         rules.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRules(int index,V1IngressRule item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1IngressRuleBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -114,41 +121,71 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
         _visitables.get("rules").add(builder);
         rules.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRules(io.kubernetes.client.openapi.models.V1IngressRule... items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1IngressRuleBuilder>();}
-    for (V1IngressRule item : items) {V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+  public A addToRules(V1IngressRule... items) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1IngressRule item : items) {
+        V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRules(Collection<V1IngressRule> items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1IngressRuleBuilder>();}
-    for (V1IngressRule item : items) {V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1IngressRule item : items) {
+        V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRules(io.kubernetes.client.openapi.models.V1IngressRule... items) {
-    if (this.rules == null) return (A)this;
-    for (V1IngressRule item : items) {V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+  public A removeFromRules(V1IngressRule... items) {
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1IngressRule item : items) {
+        V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRules(Collection<V1IngressRule> items) {
-    if (this.rules == null) return (A)this;
-    for (V1IngressRule item : items) {V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1IngressRule item : items) {
+        V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRules(Predicate<V1IngressRuleBuilder> predicate) {
-    if (rules == null) return (A) this;
-    final Iterator<V1IngressRuleBuilder> each = rules.iterator();
-    final List visitables = _visitables.get("rules");
-    while (each.hasNext()) {
-      V1IngressRuleBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (rules == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1IngressRuleBuilder> each = rules.iterator();
+    List visitables = _visitables.get("rules");
+    while (each.hasNext()) {
+        V1IngressRuleBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1IngressRule> buildRules() {
@@ -200,7 +237,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withRules(io.kubernetes.client.openapi.models.V1IngressRule... rules) {
+  public A withRules(V1IngressRule... rules) {
     if (this.rules != null) {
         this.rules.clear();
         _visitables.remove("rules");
@@ -214,7 +251,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public boolean hasRules() {
-    return this.rules != null && !this.rules.isEmpty();
+    return this.rules != null && !(this.rules.isEmpty());
   }
   
   public RulesNested<A> addNewRule() {
@@ -230,32 +267,45 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public RulesNested<A> editRule(int index) {
-    if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index <= rules.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
-    return setNewRuleLike(0, buildRule(0));
+    if (rules.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(0, this.buildRule(0));
   }
   
   public RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editMatchingRule(Predicate<V1IngressRuleBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<rules.size();i++) { 
-    if (predicate.test(rules.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching rules. No match found.");
-    return setNewRuleLike(index, buildRule(index));
+    for (int i = 0;i < rules.size();i++) {
+      if (predicate.test(rules.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public A addToTls(int index,V1IngressTLS item) {
-    if (this.tls == null) {this.tls = new ArrayList<V1IngressTLSBuilder>();}
+    if (this.tls == null) {
+      this.tls = new ArrayList();
+    }
     V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
     if (index < 0 || index >= tls.size()) {
         _visitables.get("tls").add(builder);
@@ -264,11 +314,13 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
         _visitables.get("tls").add(builder);
         tls.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTls(int index,V1IngressTLS item) {
-    if (this.tls == null) {this.tls = new ArrayList<V1IngressTLSBuilder>();}
+    if (this.tls == null) {
+      this.tls = new ArrayList();
+    }
     V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
     if (index < 0 || index >= tls.size()) {
         _visitables.get("tls").add(builder);
@@ -277,41 +329,71 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
         _visitables.get("tls").add(builder);
         tls.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToTls(io.kubernetes.client.openapi.models.V1IngressTLS... items) {
-    if (this.tls == null) {this.tls = new ArrayList<V1IngressTLSBuilder>();}
-    for (V1IngressTLS item : items) {V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);_visitables.get("tls").add(builder);this.tls.add(builder);} return (A)this;
+  public A addToTls(V1IngressTLS... items) {
+    if (this.tls == null) {
+      this.tls = new ArrayList();
+    }
+    for (V1IngressTLS item : items) {
+        V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
+        _visitables.get("tls").add(builder);
+        this.tls.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToTls(Collection<V1IngressTLS> items) {
-    if (this.tls == null) {this.tls = new ArrayList<V1IngressTLSBuilder>();}
-    for (V1IngressTLS item : items) {V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);_visitables.get("tls").add(builder);this.tls.add(builder);} return (A)this;
+    if (this.tls == null) {
+      this.tls = new ArrayList();
+    }
+    for (V1IngressTLS item : items) {
+        V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
+        _visitables.get("tls").add(builder);
+        this.tls.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromTls(io.kubernetes.client.openapi.models.V1IngressTLS... items) {
-    if (this.tls == null) return (A)this;
-    for (V1IngressTLS item : items) {V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);_visitables.get("tls").remove(builder); this.tls.remove(builder);} return (A)this;
+  public A removeFromTls(V1IngressTLS... items) {
+    if (this.tls == null) {
+      return (A) this;
+    }
+    for (V1IngressTLS item : items) {
+        V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
+        _visitables.get("tls").remove(builder);
+        this.tls.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTls(Collection<V1IngressTLS> items) {
-    if (this.tls == null) return (A)this;
-    for (V1IngressTLS item : items) {V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);_visitables.get("tls").remove(builder); this.tls.remove(builder);} return (A)this;
+    if (this.tls == null) {
+      return (A) this;
+    }
+    for (V1IngressTLS item : items) {
+        V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
+        _visitables.get("tls").remove(builder);
+        this.tls.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromTls(Predicate<V1IngressTLSBuilder> predicate) {
-    if (tls == null) return (A) this;
-    final Iterator<V1IngressTLSBuilder> each = tls.iterator();
-    final List visitables = _visitables.get("tls");
-    while (each.hasNext()) {
-      V1IngressTLSBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (tls == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1IngressTLSBuilder> each = tls.iterator();
+    List visitables = _visitables.get("tls");
+    while (each.hasNext()) {
+        V1IngressTLSBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1IngressTLS> buildTls() {
@@ -363,7 +445,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withTls(io.kubernetes.client.openapi.models.V1IngressTLS... tls) {
+  public A withTls(V1IngressTLS... tls) {
     if (this.tls != null) {
         this.tls.clear();
         _visitables.remove("tls");
@@ -377,7 +459,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public boolean hasTls() {
-    return this.tls != null && !this.tls.isEmpty();
+    return this.tls != null && !(this.tls.isEmpty());
   }
   
   public TlsNested<A> addNewTl() {
@@ -393,53 +475,93 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
   }
   
   public TlsNested<A> editTl(int index) {
-    if (tls.size() <= index) throw new RuntimeException("Can't edit tls. Index exceeds size.");
-    return setNewTlLike(index, buildTl(index));
+    if (index <= tls.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "tls"));
+    }
+    return this.setNewTlLike(index, this.buildTl(index));
   }
   
   public TlsNested<A> editFirstTl() {
-    if (tls.size() == 0) throw new RuntimeException("Can't edit first tls. The list is empty.");
-    return setNewTlLike(0, buildTl(0));
+    if (tls.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "tls"));
+    }
+    return this.setNewTlLike(0, this.buildTl(0));
   }
   
   public TlsNested<A> editLastTl() {
     int index = tls.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last tls. The list is empty.");
-    return setNewTlLike(index, buildTl(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "tls"));
+    }
+    return this.setNewTlLike(index, this.buildTl(index));
   }
   
   public TlsNested<A> editMatchingTl(Predicate<V1IngressTLSBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<tls.size();i++) { 
-    if (predicate.test(tls.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching tls. No match found.");
-    return setNewTlLike(index, buildTl(index));
+    for (int i = 0;i < tls.size();i++) {
+      if (predicate.test(tls.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "tls"));
+    }
+    return this.setNewTlLike(index, this.buildTl(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressSpecFluent that = (V1IngressSpecFluent) o;
-    if (!java.util.Objects.equals(defaultBackend, that.defaultBackend)) return false;
-    if (!java.util.Objects.equals(ingressClassName, that.ingressClassName)) return false;
-    if (!java.util.Objects.equals(rules, that.rules)) return false;
-    if (!java.util.Objects.equals(tls, that.tls)) return false;
+    if (!(Objects.equals(defaultBackend, that.defaultBackend))) {
+      return false;
+    }
+    if (!(Objects.equals(ingressClassName, that.ingressClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(rules, that.rules))) {
+      return false;
+    }
+    if (!(Objects.equals(tls, that.tls))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(defaultBackend,  ingressClassName,  rules,  tls,  super.hashCode());
+    return Objects.hash(defaultBackend, ingressClassName, rules, tls);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (defaultBackend != null) { sb.append("defaultBackend:"); sb.append(defaultBackend + ","); }
-    if (ingressClassName != null) { sb.append("ingressClassName:"); sb.append(ingressClassName + ","); }
-    if (rules != null && !rules.isEmpty()) { sb.append("rules:"); sb.append(rules + ","); }
-    if (tls != null && !tls.isEmpty()) { sb.append("tls:"); sb.append(tls); }
+    if (!(defaultBackend == null)) {
+        sb.append("defaultBackend:");
+        sb.append(defaultBackend);
+        sb.append(",");
+    }
+    if (!(ingressClassName == null)) {
+        sb.append("ingressClassName:");
+        sb.append(ingressClassName);
+        sb.append(",");
+    }
+    if (!(rules == null) && !(rules.isEmpty())) {
+        sb.append("rules:");
+        sb.append(rules);
+        sb.append(",");
+    }
+    if (!(tls == null) && !(tls.isEmpty())) {
+        sb.append("tls:");
+        sb.append(tls);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -468,7 +590,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
     int index;
     
     public N and() {
-      return (N) V1IngressSpecFluent.this.setToRules(index,builder.build());
+      return (N) V1IngressSpecFluent.this.setToRules(index, builder.build());
     }
     
     public N endRule() {
@@ -486,7 +608,7 @@ public class V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends BaseF
     int index;
     
     public N and() {
-      return (N) V1IngressSpecFluent.this.setToTls(index,builder.build());
+      return (N) V1IngressSpecFluent.this.setToTls(index, builder.build());
     }
     
     public N endTl() {

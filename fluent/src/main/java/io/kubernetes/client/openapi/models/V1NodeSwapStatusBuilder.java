@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeSwapStatusBuilder extends V1NodeSwapStatusFluent<V1NodeSwapStatusBuilder> implements VisitableBuilder<V1NodeSwapStatus,V1NodeSwapStatusBuilder>{
   public V1NodeSwapStatusBuilder() {
     this(new V1NodeSwapStatus());

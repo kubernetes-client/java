@@ -1,18 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
 import java.lang.Integer;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
+public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1ProbeFluent<A>> extends BaseFluent<A>{
   public V1ProbeFluent() {
   }
   
@@ -31,19 +34,19 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   private Integer timeoutSeconds;
   
   protected void copyInstance(V1Probe instance) {
-    instance = (instance != null ? instance : new V1Probe());
+    instance = instance != null ? instance : new V1Probe();
     if (instance != null) {
-          this.withExec(instance.getExec());
-          this.withFailureThreshold(instance.getFailureThreshold());
-          this.withGrpc(instance.getGrpc());
-          this.withHttpGet(instance.getHttpGet());
-          this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
-          this.withPeriodSeconds(instance.getPeriodSeconds());
-          this.withSuccessThreshold(instance.getSuccessThreshold());
-          this.withTcpSocket(instance.getTcpSocket());
-          this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
-          this.withTimeoutSeconds(instance.getTimeoutSeconds());
-        }
+        this.withExec(instance.getExec());
+        this.withFailureThreshold(instance.getFailureThreshold());
+        this.withGrpc(instance.getGrpc());
+        this.withHttpGet(instance.getHttpGet());
+        this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
+        this.withPeriodSeconds(instance.getPeriodSeconds());
+        this.withSuccessThreshold(instance.getSuccessThreshold());
+        this.withTcpSocket(instance.getTcpSocket());
+        this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
+        this.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
   }
   
   public V1ExecAction buildExec() {
@@ -75,15 +78,15 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   }
   
   public ExecNested<A> editExec() {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(null));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(null));
   }
   
   public ExecNested<A> editOrNewExec() {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(new V1ExecActionBuilder().build()));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(new V1ExecActionBuilder().build()));
   }
   
   public ExecNested<A> editOrNewExecLike(V1ExecAction item) {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(item));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(item));
   }
   
   public Integer getFailureThreshold() {
@@ -128,15 +131,15 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   }
   
   public GrpcNested<A> editGrpc() {
-    return withNewGrpcLike(java.util.Optional.ofNullable(buildGrpc()).orElse(null));
+    return this.withNewGrpcLike(Optional.ofNullable(this.buildGrpc()).orElse(null));
   }
   
   public GrpcNested<A> editOrNewGrpc() {
-    return withNewGrpcLike(java.util.Optional.ofNullable(buildGrpc()).orElse(new V1GRPCActionBuilder().build()));
+    return this.withNewGrpcLike(Optional.ofNullable(this.buildGrpc()).orElse(new V1GRPCActionBuilder().build()));
   }
   
   public GrpcNested<A> editOrNewGrpcLike(V1GRPCAction item) {
-    return withNewGrpcLike(java.util.Optional.ofNullable(buildGrpc()).orElse(item));
+    return this.withNewGrpcLike(Optional.ofNullable(this.buildGrpc()).orElse(item));
   }
   
   public V1HTTPGetAction buildHttpGet() {
@@ -168,15 +171,15 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   }
   
   public HttpGetNested<A> editHttpGet() {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(null));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(null));
   }
   
   public HttpGetNested<A> editOrNewHttpGet() {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(new V1HTTPGetActionBuilder().build()));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(new V1HTTPGetActionBuilder().build()));
   }
   
   public HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(item));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(item));
   }
   
   public Integer getInitialDelaySeconds() {
@@ -247,15 +250,15 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   }
   
   public TcpSocketNested<A> editTcpSocket() {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(null));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(null));
   }
   
   public TcpSocketNested<A> editOrNewTcpSocket() {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(new V1TCPSocketActionBuilder().build()));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(new V1TCPSocketActionBuilder().build()));
   }
   
   public TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(item));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(item));
   }
   
   public Long getTerminationGracePeriodSeconds() {
@@ -285,40 +288,105 @@ public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ProbeFluent that = (V1ProbeFluent) o;
-    if (!java.util.Objects.equals(exec, that.exec)) return false;
-    if (!java.util.Objects.equals(failureThreshold, that.failureThreshold)) return false;
-    if (!java.util.Objects.equals(grpc, that.grpc)) return false;
-    if (!java.util.Objects.equals(httpGet, that.httpGet)) return false;
-    if (!java.util.Objects.equals(initialDelaySeconds, that.initialDelaySeconds)) return false;
-    if (!java.util.Objects.equals(periodSeconds, that.periodSeconds)) return false;
-    if (!java.util.Objects.equals(successThreshold, that.successThreshold)) return false;
-    if (!java.util.Objects.equals(tcpSocket, that.tcpSocket)) return false;
-    if (!java.util.Objects.equals(terminationGracePeriodSeconds, that.terminationGracePeriodSeconds)) return false;
-    if (!java.util.Objects.equals(timeoutSeconds, that.timeoutSeconds)) return false;
+    if (!(Objects.equals(exec, that.exec))) {
+      return false;
+    }
+    if (!(Objects.equals(failureThreshold, that.failureThreshold))) {
+      return false;
+    }
+    if (!(Objects.equals(grpc, that.grpc))) {
+      return false;
+    }
+    if (!(Objects.equals(httpGet, that.httpGet))) {
+      return false;
+    }
+    if (!(Objects.equals(initialDelaySeconds, that.initialDelaySeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(periodSeconds, that.periodSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(successThreshold, that.successThreshold))) {
+      return false;
+    }
+    if (!(Objects.equals(tcpSocket, that.tcpSocket))) {
+      return false;
+    }
+    if (!(Objects.equals(terminationGracePeriodSeconds, that.terminationGracePeriodSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(timeoutSeconds, that.timeoutSeconds))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(exec,  failureThreshold,  grpc,  httpGet,  initialDelaySeconds,  periodSeconds,  successThreshold,  tcpSocket,  terminationGracePeriodSeconds,  timeoutSeconds,  super.hashCode());
+    return Objects.hash(exec, failureThreshold, grpc, httpGet, initialDelaySeconds, periodSeconds, successThreshold, tcpSocket, terminationGracePeriodSeconds, timeoutSeconds);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (exec != null) { sb.append("exec:"); sb.append(exec + ","); }
-    if (failureThreshold != null) { sb.append("failureThreshold:"); sb.append(failureThreshold + ","); }
-    if (grpc != null) { sb.append("grpc:"); sb.append(grpc + ","); }
-    if (httpGet != null) { sb.append("httpGet:"); sb.append(httpGet + ","); }
-    if (initialDelaySeconds != null) { sb.append("initialDelaySeconds:"); sb.append(initialDelaySeconds + ","); }
-    if (periodSeconds != null) { sb.append("periodSeconds:"); sb.append(periodSeconds + ","); }
-    if (successThreshold != null) { sb.append("successThreshold:"); sb.append(successThreshold + ","); }
-    if (tcpSocket != null) { sb.append("tcpSocket:"); sb.append(tcpSocket + ","); }
-    if (terminationGracePeriodSeconds != null) { sb.append("terminationGracePeriodSeconds:"); sb.append(terminationGracePeriodSeconds + ","); }
-    if (timeoutSeconds != null) { sb.append("timeoutSeconds:"); sb.append(timeoutSeconds); }
+    if (!(exec == null)) {
+        sb.append("exec:");
+        sb.append(exec);
+        sb.append(",");
+    }
+    if (!(failureThreshold == null)) {
+        sb.append("failureThreshold:");
+        sb.append(failureThreshold);
+        sb.append(",");
+    }
+    if (!(grpc == null)) {
+        sb.append("grpc:");
+        sb.append(grpc);
+        sb.append(",");
+    }
+    if (!(httpGet == null)) {
+        sb.append("httpGet:");
+        sb.append(httpGet);
+        sb.append(",");
+    }
+    if (!(initialDelaySeconds == null)) {
+        sb.append("initialDelaySeconds:");
+        sb.append(initialDelaySeconds);
+        sb.append(",");
+    }
+    if (!(periodSeconds == null)) {
+        sb.append("periodSeconds:");
+        sb.append(periodSeconds);
+        sb.append(",");
+    }
+    if (!(successThreshold == null)) {
+        sb.append("successThreshold:");
+        sb.append(successThreshold);
+        sb.append(",");
+    }
+    if (!(tcpSocket == null)) {
+        sb.append("tcpSocket:");
+        sb.append(tcpSocket);
+        sb.append(",");
+    }
+    if (!(terminationGracePeriodSeconds == null)) {
+        sb.append("terminationGracePeriodSeconds:");
+        sb.append(terminationGracePeriodSeconds);
+        sb.append(",");
+    }
+    if (!(timeoutSeconds == null)) {
+        sb.append("timeoutSeconds:");
+        sb.append(timeoutSeconds);
+    }
     sb.append("}");
     return sb.toString();
   }

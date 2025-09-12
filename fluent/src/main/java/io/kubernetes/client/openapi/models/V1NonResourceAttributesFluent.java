@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NonResourceAttributesFluent<A extends V1NonResourceAttributesFluent<A>> extends BaseFluent<A>{
+public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openapi.models.V1NonResourceAttributesFluent<A>> extends BaseFluent<A>{
   public V1NonResourceAttributesFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1NonResourceAttributesFluent<A extends V1NonResourceAttributesFlue
   private String verb;
   
   protected void copyInstance(V1NonResourceAttributes instance) {
-    instance = (instance != null ? instance : new V1NonResourceAttributes());
+    instance = instance != null ? instance : new V1NonResourceAttributes();
     if (instance != null) {
-          this.withPath(instance.getPath());
-          this.withVerb(instance.getVerb());
-        }
+        this.withPath(instance.getPath());
+        this.withVerb(instance.getVerb());
+    }
   }
   
   public String getPath() {
@@ -54,24 +56,41 @@ public class V1NonResourceAttributesFluent<A extends V1NonResourceAttributesFlue
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NonResourceAttributesFluent that = (V1NonResourceAttributesFluent) o;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(verb, that.verb)) return false;
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(verb, that.verb))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(path,  verb,  super.hashCode());
+    return Objects.hash(path, verb);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (verb != null) { sb.append("verb:"); sb.append(verb); }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(verb == null)) {
+        sb.append("verb:");
+        sb.append(verb);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1GlusterfsVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
@@ -76,11 +76,11 @@ public class V1GlusterfsVolumeSource {
   }
 
   /**
-   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpoints is the endpoint name that details Glusterfs topology.
    * @return endpoints
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology.")
   public String getEndpoints() {
     return endpoints;
   }

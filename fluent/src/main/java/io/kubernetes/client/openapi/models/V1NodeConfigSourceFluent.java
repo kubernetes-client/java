@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeConfigSourceFluent<A extends V1NodeConfigSourceFluent<A>> extends BaseFluent<A>{
+public class V1NodeConfigSourceFluent<A extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent<A>> extends BaseFluent<A>{
   public V1NodeConfigSourceFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1NodeConfigSourceFluent<A extends V1NodeConfigSourceFluent<A>> ext
   private V1ConfigMapNodeConfigSourceBuilder configMap;
   
   protected void copyInstance(V1NodeConfigSource instance) {
-    instance = (instance != null ? instance : new V1NodeConfigSource());
+    instance = instance != null ? instance : new V1NodeConfigSource();
     if (instance != null) {
-          this.withConfigMap(instance.getConfigMap());
-        }
+      this.withConfigMap(instance.getConfigMap());
+    }
   }
   
   public V1ConfigMapNodeConfigSource buildConfigMap() {
@@ -55,34 +58,45 @@ public class V1NodeConfigSourceFluent<A extends V1NodeConfigSourceFluent<A>> ext
   }
   
   public ConfigMapNested<A> editConfigMap() {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(null));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(null));
   }
   
   public ConfigMapNested<A> editOrNewConfigMap() {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(new V1ConfigMapNodeConfigSourceBuilder().build()));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(new V1ConfigMapNodeConfigSourceBuilder().build()));
   }
   
   public ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(item));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeConfigSourceFluent that = (V1NodeConfigSourceFluent) o;
-    if (!java.util.Objects.equals(configMap, that.configMap)) return false;
+    if (!(Objects.equals(configMap, that.configMap))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(configMap,  super.hashCode());
+    return Objects.hash(configMap);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (configMap != null) { sb.append("configMap:"); sb.append(configMap); }
+    if (!(configMap == null)) {
+        sb.append("configMap:");
+        sb.append(configMap);
+    }
     sb.append("}");
     return sb.toString();
   }

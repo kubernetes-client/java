@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * Represents storage that is managed by an external CSI volume driver
  */
 @ApiModel(description = "Represents storage that is managed by an external CSI volume driver")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF = "controllerExpandSecretRef";
   @SerializedName(SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF)

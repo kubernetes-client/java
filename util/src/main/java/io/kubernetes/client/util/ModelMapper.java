@@ -394,6 +394,7 @@ public class ModelMapper {
     preBuiltApiGroups.put("Scheduling", "scheduling.k8s.io");
     preBuiltApiGroups.put("Settings", "settings.k8s.io");
     preBuiltApiGroups.put("Storage", "storage.k8s.io");
+    preBuiltApiGroups.put("Resource", "resource.k8s.io");
   }
 
   private static void initApiVersionList() {

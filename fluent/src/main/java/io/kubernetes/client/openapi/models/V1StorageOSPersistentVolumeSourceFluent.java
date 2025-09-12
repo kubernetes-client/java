@@ -1,9 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 
@@ -11,7 +14,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StorageOSPersistentVolumeSourceFluent<A extends V1StorageOSPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1StorageOSPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1StorageOSPersistentVolumeSourceFluent() {
   }
   
@@ -25,14 +28,14 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends V1StorageOSPersis
   private String volumeNamespace;
   
   protected void copyInstance(V1StorageOSPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1StorageOSPersistentVolumeSource());
+    instance = instance != null ? instance : new V1StorageOSPersistentVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretRef(instance.getSecretRef());
-          this.withVolumeName(instance.getVolumeName());
-          this.withVolumeNamespace(instance.getVolumeNamespace());
-        }
+        this.withFsType(instance.getFsType());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
+        this.withVolumeName(instance.getVolumeName());
+        this.withVolumeNamespace(instance.getVolumeNamespace());
+    }
   }
   
   public String getFsType() {
@@ -90,15 +93,15 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends V1StorageOSPersis
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1ObjectReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public String getVolumeName() {
@@ -128,30 +131,65 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends V1StorageOSPersis
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StorageOSPersistentVolumeSourceFluent that = (V1StorageOSPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
-    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
-    if (!java.util.Objects.equals(volumeNamespace, that.volumeNamespace)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeName, that.volumeName))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeNamespace, that.volumeNamespace))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  readOnly,  secretRef,  volumeName,  volumeNamespace,  super.hashCode());
+    return Objects.hash(fsType, readOnly, secretRef, volumeName, volumeNamespace);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef + ","); }
-    if (volumeName != null) { sb.append("volumeName:"); sb.append(volumeName + ","); }
-    if (volumeNamespace != null) { sb.append("volumeNamespace:"); sb.append(volumeNamespace); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+        sb.append(",");
+    }
+    if (!(volumeName == null)) {
+        sb.append("volumeName:");
+        sb.append(volumeName);
+        sb.append(",");
+    }
+    if (!(volumeNamespace == null)) {
+        sb.append("volumeNamespace:");
+        sb.append(volumeNamespace);
+    }
     sb.append("}");
     return sb.toString();
   }

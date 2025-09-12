@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ImageVolumeSource represents a image volume resource.
  */
 @ApiModel(description = "ImageVolumeSource represents a image volume resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ImageVolumeSource {
   public static final String SERIALIZED_NAME_PULL_POLICY = "pullPolicy";
   @SerializedName(SERIALIZED_NAME_PULL_POLICY)

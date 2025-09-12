@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1FieldSelectorAttributesBuilder extends V1FieldSelectorAttributesFluent<V1FieldSelectorAttributesBuilder> implements VisitableBuilder<V1FieldSelectorAttributes,V1FieldSelectorAttributesBuilder>{
   public V1FieldSelectorAttributesBuilder() {
     this(new V1FieldSelectorAttributes());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HTTPHeaderBuilder extends V1HTTPHeaderFluent<V1HTTPHeaderBuilder> implements VisitableBuilder<V1HTTPHeader,V1HTTPHeaderBuilder>{
   public V1HTTPHeaderBuilder() {
     this(new V1HTTPHeader());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1StatusCauseBuilder extends V1StatusCauseFluent<V1StatusCauseBuilder> implements VisitableBuilder<V1StatusCause,V1StatusCauseBuilder>{
   public V1StatusCauseBuilder() {
     this(new V1StatusCause());

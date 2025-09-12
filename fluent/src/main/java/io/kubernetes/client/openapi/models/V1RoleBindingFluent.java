@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseFluent<A>{
+public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V1RoleBindingFluent<A>> extends BaseFluent<A>{
   public V1RoleBindingFluent() {
   }
   
@@ -30,14 +33,14 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   private ArrayList<RbacV1SubjectBuilder> subjects;
   
   protected void copyInstance(V1RoleBinding instance) {
-    instance = (instance != null ? instance : new V1RoleBinding());
+    instance = instance != null ? instance : new V1RoleBinding();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withRoleRef(instance.getRoleRef());
-          this.withSubjects(instance.getSubjects());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withRoleRef(instance.getRoleRef());
+        this.withSubjects(instance.getSubjects());
+    }
   }
   
   public String getApiVersion() {
@@ -95,15 +98,15 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1RoleRef buildRoleRef() {
@@ -135,19 +138,21 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   }
   
   public RoleRefNested<A> editRoleRef() {
-    return withNewRoleRefLike(java.util.Optional.ofNullable(buildRoleRef()).orElse(null));
+    return this.withNewRoleRefLike(Optional.ofNullable(this.buildRoleRef()).orElse(null));
   }
   
   public RoleRefNested<A> editOrNewRoleRef() {
-    return withNewRoleRefLike(java.util.Optional.ofNullable(buildRoleRef()).orElse(new V1RoleRefBuilder().build()));
+    return this.withNewRoleRefLike(Optional.ofNullable(this.buildRoleRef()).orElse(new V1RoleRefBuilder().build()));
   }
   
   public RoleRefNested<A> editOrNewRoleRefLike(V1RoleRef item) {
-    return withNewRoleRefLike(java.util.Optional.ofNullable(buildRoleRef()).orElse(item));
+    return this.withNewRoleRefLike(Optional.ofNullable(this.buildRoleRef()).orElse(item));
   }
   
   public A addToSubjects(int index,RbacV1Subject item) {
-    if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
+    if (this.subjects == null) {
+      this.subjects = new ArrayList();
+    }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
     if (index < 0 || index >= subjects.size()) {
         _visitables.get("subjects").add(builder);
@@ -156,11 +161,13 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
         _visitables.get("subjects").add(builder);
         subjects.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSubjects(int index,RbacV1Subject item) {
-    if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
+    if (this.subjects == null) {
+      this.subjects = new ArrayList();
+    }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
     if (index < 0 || index >= subjects.size()) {
         _visitables.get("subjects").add(builder);
@@ -169,41 +176,71 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
         _visitables.get("subjects").add(builder);
         subjects.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSubjects(io.kubernetes.client.openapi.models.RbacV1Subject... items) {
-    if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
-    for (RbacV1Subject item : items) {RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);_visitables.get("subjects").add(builder);this.subjects.add(builder);} return (A)this;
+  public A addToSubjects(RbacV1Subject... items) {
+    if (this.subjects == null) {
+      this.subjects = new ArrayList();
+    }
+    for (RbacV1Subject item : items) {
+        RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
+        _visitables.get("subjects").add(builder);
+        this.subjects.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSubjects(Collection<RbacV1Subject> items) {
-    if (this.subjects == null) {this.subjects = new ArrayList<RbacV1SubjectBuilder>();}
-    for (RbacV1Subject item : items) {RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);_visitables.get("subjects").add(builder);this.subjects.add(builder);} return (A)this;
+    if (this.subjects == null) {
+      this.subjects = new ArrayList();
+    }
+    for (RbacV1Subject item : items) {
+        RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
+        _visitables.get("subjects").add(builder);
+        this.subjects.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSubjects(io.kubernetes.client.openapi.models.RbacV1Subject... items) {
-    if (this.subjects == null) return (A)this;
-    for (RbacV1Subject item : items) {RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);_visitables.get("subjects").remove(builder); this.subjects.remove(builder);} return (A)this;
+  public A removeFromSubjects(RbacV1Subject... items) {
+    if (this.subjects == null) {
+      return (A) this;
+    }
+    for (RbacV1Subject item : items) {
+        RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
+        _visitables.get("subjects").remove(builder);
+        this.subjects.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSubjects(Collection<RbacV1Subject> items) {
-    if (this.subjects == null) return (A)this;
-    for (RbacV1Subject item : items) {RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);_visitables.get("subjects").remove(builder); this.subjects.remove(builder);} return (A)this;
+    if (this.subjects == null) {
+      return (A) this;
+    }
+    for (RbacV1Subject item : items) {
+        RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
+        _visitables.get("subjects").remove(builder);
+        this.subjects.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSubjects(Predicate<RbacV1SubjectBuilder> predicate) {
-    if (subjects == null) return (A) this;
-    final Iterator<RbacV1SubjectBuilder> each = subjects.iterator();
-    final List visitables = _visitables.get("subjects");
-    while (each.hasNext()) {
-      RbacV1SubjectBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (subjects == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<RbacV1SubjectBuilder> each = subjects.iterator();
+    List visitables = _visitables.get("subjects");
+    while (each.hasNext()) {
+        RbacV1SubjectBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<RbacV1Subject> buildSubjects() {
@@ -255,7 +292,7 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withSubjects(io.kubernetes.client.openapi.models.RbacV1Subject... subjects) {
+  public A withSubjects(RbacV1Subject... subjects) {
     if (this.subjects != null) {
         this.subjects.clear();
         _visitables.remove("subjects");
@@ -269,7 +306,7 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   }
   
   public boolean hasSubjects() {
-    return this.subjects != null && !this.subjects.isEmpty();
+    return this.subjects != null && !(this.subjects.isEmpty());
   }
   
   public SubjectsNested<A> addNewSubject() {
@@ -285,55 +322,101 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
   }
   
   public SubjectsNested<A> editSubject(int index) {
-    if (subjects.size() <= index) throw new RuntimeException("Can't edit subjects. Index exceeds size.");
-    return setNewSubjectLike(index, buildSubject(index));
+    if (index <= subjects.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "subjects"));
+    }
+    return this.setNewSubjectLike(index, this.buildSubject(index));
   }
   
   public SubjectsNested<A> editFirstSubject() {
-    if (subjects.size() == 0) throw new RuntimeException("Can't edit first subjects. The list is empty.");
-    return setNewSubjectLike(0, buildSubject(0));
+    if (subjects.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "subjects"));
+    }
+    return this.setNewSubjectLike(0, this.buildSubject(0));
   }
   
   public SubjectsNested<A> editLastSubject() {
     int index = subjects.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last subjects. The list is empty.");
-    return setNewSubjectLike(index, buildSubject(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "subjects"));
+    }
+    return this.setNewSubjectLike(index, this.buildSubject(index));
   }
   
   public SubjectsNested<A> editMatchingSubject(Predicate<RbacV1SubjectBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<subjects.size();i++) { 
-    if (predicate.test(subjects.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching subjects. No match found.");
-    return setNewSubjectLike(index, buildSubject(index));
+    for (int i = 0;i < subjects.size();i++) {
+      if (predicate.test(subjects.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "subjects"));
+    }
+    return this.setNewSubjectLike(index, this.buildSubject(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1RoleBindingFluent that = (V1RoleBindingFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(roleRef, that.roleRef)) return false;
-    if (!java.util.Objects.equals(subjects, that.subjects)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(roleRef, that.roleRef))) {
+      return false;
+    }
+    if (!(Objects.equals(subjects, that.subjects))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  roleRef,  subjects,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, roleRef, subjects);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (roleRef != null) { sb.append("roleRef:"); sb.append(roleRef + ","); }
-    if (subjects != null && !subjects.isEmpty()) { sb.append("subjects:"); sb.append(subjects); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(roleRef == null)) {
+        sb.append("roleRef:");
+        sb.append(roleRef);
+        sb.append(",");
+    }
+    if (!(subjects == null) && !(subjects.isEmpty())) {
+        sb.append("subjects:");
+        sb.append(subjects);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -378,7 +461,7 @@ public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseF
     int index;
     
     public N and() {
-      return (N) V1RoleBindingFluent.this.setToSubjects(index,builder.build());
+      return (N) V1RoleBindingFluent.this.setToSubjects(index, builder.build());
     }
     
     public N endSubject() {

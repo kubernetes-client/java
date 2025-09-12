@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1ClusterTrustBundleListBuilder extends V1alpha1ClusterTrustBundleListFluent<V1alpha1ClusterTrustBundleListBuilder> implements VisitableBuilder<V1alpha1ClusterTrustBundleList,V1alpha1ClusterTrustBundleListBuilder>{
   public V1alpha1ClusterTrustBundleListBuilder() {
     this(new V1alpha1ClusterTrustBundleList());

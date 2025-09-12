@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GroupSubjectFluent<A extends V1GroupSubjectFluent<A>> extends BaseFluent<A>{
+public class V1GroupSubjectFluent<A extends io.kubernetes.client.openapi.models.V1GroupSubjectFluent<A>> extends BaseFluent<A>{
   public V1GroupSubjectFluent() {
   }
   
@@ -19,10 +21,10 @@ public class V1GroupSubjectFluent<A extends V1GroupSubjectFluent<A>> extends Bas
   private String name;
   
   protected void copyInstance(V1GroupSubject instance) {
-    instance = (instance != null ? instance : new V1GroupSubject());
+    instance = instance != null ? instance : new V1GroupSubject();
     if (instance != null) {
-          this.withName(instance.getName());
-        }
+      this.withName(instance.getName());
+    }
   }
   
   public String getName() {
@@ -39,22 +41,33 @@ public class V1GroupSubjectFluent<A extends V1GroupSubjectFluent<A>> extends Bas
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GroupSubjectFluent that = (V1GroupSubjectFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  super.hashCode());
+    return Objects.hash(name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

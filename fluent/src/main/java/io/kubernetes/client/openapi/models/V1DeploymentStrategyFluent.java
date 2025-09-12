@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DeploymentStrategyFluent<A extends V1DeploymentStrategyFluent<A>> extends BaseFluent<A>{
+public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<A>> extends BaseFluent<A>{
   public V1DeploymentStrategyFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1DeploymentStrategyFluent<A extends V1DeploymentStrategyFluent<A>>
   private String type;
   
   protected void copyInstance(V1DeploymentStrategy instance) {
-    instance = (instance != null ? instance : new V1DeploymentStrategy());
+    instance = instance != null ? instance : new V1DeploymentStrategy();
     if (instance != null) {
-          this.withRollingUpdate(instance.getRollingUpdate());
-          this.withType(instance.getType());
-        }
+        this.withRollingUpdate(instance.getRollingUpdate());
+        this.withType(instance.getType());
+    }
   }
   
   public V1RollingUpdateDeployment buildRollingUpdate() {
@@ -57,15 +60,15 @@ public class V1DeploymentStrategyFluent<A extends V1DeploymentStrategyFluent<A>>
   }
   
   public RollingUpdateNested<A> editRollingUpdate() {
-    return withNewRollingUpdateLike(java.util.Optional.ofNullable(buildRollingUpdate()).orElse(null));
+    return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(null));
   }
   
   public RollingUpdateNested<A> editOrNewRollingUpdate() {
-    return withNewRollingUpdateLike(java.util.Optional.ofNullable(buildRollingUpdate()).orElse(new V1RollingUpdateDeploymentBuilder().build()));
+    return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(new V1RollingUpdateDeploymentBuilder().build()));
   }
   
   public RollingUpdateNested<A> editOrNewRollingUpdateLike(V1RollingUpdateDeployment item) {
-    return withNewRollingUpdateLike(java.util.Optional.ofNullable(buildRollingUpdate()).orElse(item));
+    return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(item));
   }
   
   public String getType() {
@@ -82,24 +85,41 @@ public class V1DeploymentStrategyFluent<A extends V1DeploymentStrategyFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DeploymentStrategyFluent that = (V1DeploymentStrategyFluent) o;
-    if (!java.util.Objects.equals(rollingUpdate, that.rollingUpdate)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(rollingUpdate, that.rollingUpdate))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(rollingUpdate,  type,  super.hashCode());
+    return Objects.hash(rollingUpdate, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (rollingUpdate != null) { sb.append("rollingUpdate:"); sb.append(rollingUpdate + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(rollingUpdate == null)) {
+        sb.append("rollingUpdate:");
+        sb.append(rollingUpdate);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

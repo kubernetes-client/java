@@ -1,22 +1,25 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseFluent<A>{
+public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V1IngressListFluent<A>> extends BaseFluent<A>{
   public V1IngressListFluent() {
   }
   
@@ -29,13 +32,13 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
   private V1ListMetaBuilder metadata;
   
   protected void copyInstance(V1IngressList instance) {
-    instance = (instance != null ? instance : new V1IngressList());
+    instance = instance != null ? instance : new V1IngressList();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withItems(instance.getItems());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withItems(instance.getItems());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+    }
   }
   
   public String getApiVersion() {
@@ -52,7 +55,9 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
   }
   
   public A addToItems(int index,V1Ingress item) {
-    if (this.items == null) {this.items = new ArrayList<V1IngressBuilder>();}
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
     V1IngressBuilder builder = new V1IngressBuilder(item);
     if (index < 0 || index >= items.size()) {
         _visitables.get("items").add(builder);
@@ -61,11 +66,13 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
         _visitables.get("items").add(builder);
         items.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToItems(int index,V1Ingress item) {
-    if (this.items == null) {this.items = new ArrayList<V1IngressBuilder>();}
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
     V1IngressBuilder builder = new V1IngressBuilder(item);
     if (index < 0 || index >= items.size()) {
         _visitables.get("items").add(builder);
@@ -74,41 +81,71 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
         _visitables.get("items").add(builder);
         items.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToItems(io.kubernetes.client.openapi.models.V1Ingress... items) {
-    if (this.items == null) {this.items = new ArrayList<V1IngressBuilder>();}
-    for (V1Ingress item : items) {V1IngressBuilder builder = new V1IngressBuilder(item);_visitables.get("items").add(builder);this.items.add(builder);} return (A)this;
+  public A addToItems(V1Ingress... items) {
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    for (V1Ingress item : items) {
+        V1IngressBuilder builder = new V1IngressBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToItems(Collection<V1Ingress> items) {
-    if (this.items == null) {this.items = new ArrayList<V1IngressBuilder>();}
-    for (V1Ingress item : items) {V1IngressBuilder builder = new V1IngressBuilder(item);_visitables.get("items").add(builder);this.items.add(builder);} return (A)this;
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    for (V1Ingress item : items) {
+        V1IngressBuilder builder = new V1IngressBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromItems(io.kubernetes.client.openapi.models.V1Ingress... items) {
-    if (this.items == null) return (A)this;
-    for (V1Ingress item : items) {V1IngressBuilder builder = new V1IngressBuilder(item);_visitables.get("items").remove(builder); this.items.remove(builder);} return (A)this;
+  public A removeFromItems(V1Ingress... items) {
+    if (this.items == null) {
+      return (A) this;
+    }
+    for (V1Ingress item : items) {
+        V1IngressBuilder builder = new V1IngressBuilder(item);
+        _visitables.get("items").remove(builder);
+        this.items.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromItems(Collection<V1Ingress> items) {
-    if (this.items == null) return (A)this;
-    for (V1Ingress item : items) {V1IngressBuilder builder = new V1IngressBuilder(item);_visitables.get("items").remove(builder); this.items.remove(builder);} return (A)this;
+    if (this.items == null) {
+      return (A) this;
+    }
+    for (V1Ingress item : items) {
+        V1IngressBuilder builder = new V1IngressBuilder(item);
+        _visitables.get("items").remove(builder);
+        this.items.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromItems(Predicate<V1IngressBuilder> predicate) {
-    if (items == null) return (A) this;
-    final Iterator<V1IngressBuilder> each = items.iterator();
-    final List visitables = _visitables.get("items");
-    while (each.hasNext()) {
-      V1IngressBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (items == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1IngressBuilder> each = items.iterator();
+    List visitables = _visitables.get("items");
+    while (each.hasNext()) {
+        V1IngressBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Ingress> buildItems() {
@@ -160,7 +197,7 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withItems(io.kubernetes.client.openapi.models.V1Ingress... items) {
+  public A withItems(V1Ingress... items) {
     if (this.items != null) {
         this.items.clear();
         _visitables.remove("items");
@@ -174,7 +211,7 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
   }
   
   public boolean hasItems() {
-    return this.items != null && !this.items.isEmpty();
+    return this.items != null && !(this.items.isEmpty());
   }
   
   public ItemsNested<A> addNewItem() {
@@ -190,28 +227,39 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
   }
   
   public ItemsNested<A> editItem(int index) {
-    if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
-    return setNewItemLike(index, buildItem(index));
+    if (index <= items.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
   }
   
   public ItemsNested<A> editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
-    return setNewItemLike(0, buildItem(0));
+    if (items.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "items"));
+    }
+    return this.setNewItemLike(0, this.buildItem(0));
   }
   
   public ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
-    return setNewItemLike(index, buildItem(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
   }
   
   public ItemsNested<A> editMatchingItem(Predicate<V1IngressBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<items.size();i++) { 
-    if (predicate.test(items.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching items. No match found.");
-    return setNewItemLike(index, buildItem(index));
+    for (int i = 0;i < items.size();i++) {
+      if (predicate.test(items.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
   }
   
   public String getKind() {
@@ -256,40 +304,69 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ListMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ListMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressListFluent that = (V1IngressListFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(items, that.items)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(items, that.items))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  items,  kind,  metadata,  super.hashCode());
+    return Objects.hash(apiVersion, items, kind, metadata);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (items != null && !items.isEmpty()) { sb.append("items:"); sb.append(items + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(items == null) && !(items.isEmpty())) {
+        sb.append("items:");
+        sb.append(items);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -302,7 +379,7 @@ public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseF
     int index;
     
     public N and() {
-      return (N) V1IngressListFluent.this.setToItems(index,builder.build());
+      return (N) V1IngressListFluent.this.setToItems(index, builder.build());
     }
     
     public N endItem() {

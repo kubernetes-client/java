@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PreconditionsBuilder extends V1PreconditionsFluent<V1PreconditionsBuilder> implements VisitableBuilder<V1Preconditions,V1PreconditionsBuilder>{
   public V1PreconditionsBuilder() {
     this(new V1Preconditions());

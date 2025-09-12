@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RoleRefBuilder extends V1RoleRefFluent<V1RoleRefBuilder> implements VisitableBuilder<V1RoleRef,V1RoleRefBuilder>{
   public V1RoleRefBuilder() {
     this(new V1RoleRef());

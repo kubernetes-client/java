@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluent<V1HTTPGetActionBuilder> implements VisitableBuilder<V1HTTPGetAction,V1HTTPGetActionBuilder>{
   public V1HTTPGetActionBuilder() {
     this(new V1HTTPGetAction());

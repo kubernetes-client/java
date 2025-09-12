@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SuccessPolicyRuleFluent<A extends V1SuccessPolicyRuleFluent<A>> extends BaseFluent<A>{
+public class V1SuccessPolicyRuleFluent<A extends io.kubernetes.client.openapi.models.V1SuccessPolicyRuleFluent<A>> extends BaseFluent<A>{
   public V1SuccessPolicyRuleFluent() {
   }
   
@@ -21,11 +23,11 @@ public class V1SuccessPolicyRuleFluent<A extends V1SuccessPolicyRuleFluent<A>> e
   private String succeededIndexes;
   
   protected void copyInstance(V1SuccessPolicyRule instance) {
-    instance = (instance != null ? instance : new V1SuccessPolicyRule());
+    instance = instance != null ? instance : new V1SuccessPolicyRule();
     if (instance != null) {
-          this.withSucceededCount(instance.getSucceededCount());
-          this.withSucceededIndexes(instance.getSucceededIndexes());
-        }
+        this.withSucceededCount(instance.getSucceededCount());
+        this.withSucceededIndexes(instance.getSucceededIndexes());
+    }
   }
   
   public Integer getSucceededCount() {
@@ -55,24 +57,41 @@ public class V1SuccessPolicyRuleFluent<A extends V1SuccessPolicyRuleFluent<A>> e
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SuccessPolicyRuleFluent that = (V1SuccessPolicyRuleFluent) o;
-    if (!java.util.Objects.equals(succeededCount, that.succeededCount)) return false;
-    if (!java.util.Objects.equals(succeededIndexes, that.succeededIndexes)) return false;
+    if (!(Objects.equals(succeededCount, that.succeededCount))) {
+      return false;
+    }
+    if (!(Objects.equals(succeededIndexes, that.succeededIndexes))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(succeededCount,  succeededIndexes,  super.hashCode());
+    return Objects.hash(succeededCount, succeededIndexes);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (succeededCount != null) { sb.append("succeededCount:"); sb.append(succeededCount + ","); }
-    if (succeededIndexes != null) { sb.append("succeededIndexes:"); sb.append(succeededIndexes); }
+    if (!(succeededCount == null)) {
+        sb.append("succeededCount:");
+        sb.append(succeededCount);
+        sb.append(",");
+    }
+    if (!(succeededIndexes == null)) {
+        sb.append("succeededIndexes:");
+        sb.append(succeededIndexes);
+    }
     sb.append("}");
     return sb.toString();
   }

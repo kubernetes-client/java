@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2ResourcePoolFluent<A extends V1beta2ResourcePoolFluent<A>> extends BaseFluent<A>{
+public class V1beta2ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.V1beta2ResourcePoolFluent<A>> extends BaseFluent<A>{
   public V1beta2ResourcePoolFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1beta2ResourcePoolFluent<A extends V1beta2ResourcePoolFluent<A>> e
   private Long resourceSliceCount;
   
   protected void copyInstance(V1beta2ResourcePool instance) {
-    instance = (instance != null ? instance : new V1beta2ResourcePool());
+    instance = instance != null ? instance : new V1beta2ResourcePool();
     if (instance != null) {
-          this.withGeneration(instance.getGeneration());
-          this.withName(instance.getName());
-          this.withResourceSliceCount(instance.getResourceSliceCount());
-        }
+        this.withGeneration(instance.getGeneration());
+        this.withName(instance.getName());
+        this.withResourceSliceCount(instance.getResourceSliceCount());
+    }
   }
   
   public Long getGeneration() {
@@ -70,26 +72,49 @@ public class V1beta2ResourcePoolFluent<A extends V1beta2ResourcePoolFluent<A>> e
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2ResourcePoolFluent that = (V1beta2ResourcePoolFluent) o;
-    if (!java.util.Objects.equals(generation, that.generation)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(resourceSliceCount, that.resourceSliceCount)) return false;
+    if (!(Objects.equals(generation, that.generation))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceSliceCount, that.resourceSliceCount))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(generation,  name,  resourceSliceCount,  super.hashCode());
+    return Objects.hash(generation, name, resourceSliceCount);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (generation != null) { sb.append("generation:"); sb.append(generation + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (resourceSliceCount != null) { sb.append("resourceSliceCount:"); sb.append(resourceSliceCount); }
+    if (!(generation == null)) {
+        sb.append("generation:");
+        sb.append(generation);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(resourceSliceCount == null)) {
+        sb.append("resourceSliceCount:");
+        sb.append(resourceSliceCount);
+    }
     sb.append("}");
     return sb.toString();
   }

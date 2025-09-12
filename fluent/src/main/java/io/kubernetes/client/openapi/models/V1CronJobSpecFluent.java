@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 
@@ -13,7 +16,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends BaseFluent<A>{
+public class V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.models.V1CronJobSpecFluent<A>> extends BaseFluent<A>{
   public V1CronJobSpecFluent() {
   }
   
@@ -30,17 +33,17 @@ public class V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends BaseF
   private String timeZone;
   
   protected void copyInstance(V1CronJobSpec instance) {
-    instance = (instance != null ? instance : new V1CronJobSpec());
+    instance = instance != null ? instance : new V1CronJobSpec();
     if (instance != null) {
-          this.withConcurrencyPolicy(instance.getConcurrencyPolicy());
-          this.withFailedJobsHistoryLimit(instance.getFailedJobsHistoryLimit());
-          this.withJobTemplate(instance.getJobTemplate());
-          this.withSchedule(instance.getSchedule());
-          this.withStartingDeadlineSeconds(instance.getStartingDeadlineSeconds());
-          this.withSuccessfulJobsHistoryLimit(instance.getSuccessfulJobsHistoryLimit());
-          this.withSuspend(instance.getSuspend());
-          this.withTimeZone(instance.getTimeZone());
-        }
+        this.withConcurrencyPolicy(instance.getConcurrencyPolicy());
+        this.withFailedJobsHistoryLimit(instance.getFailedJobsHistoryLimit());
+        this.withJobTemplate(instance.getJobTemplate());
+        this.withSchedule(instance.getSchedule());
+        this.withStartingDeadlineSeconds(instance.getStartingDeadlineSeconds());
+        this.withSuccessfulJobsHistoryLimit(instance.getSuccessfulJobsHistoryLimit());
+        this.withSuspend(instance.getSuspend());
+        this.withTimeZone(instance.getTimeZone());
+    }
   }
   
   public String getConcurrencyPolicy() {
@@ -98,15 +101,15 @@ public class V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends BaseF
   }
   
   public JobTemplateNested<A> editJobTemplate() {
-    return withNewJobTemplateLike(java.util.Optional.ofNullable(buildJobTemplate()).orElse(null));
+    return this.withNewJobTemplateLike(Optional.ofNullable(this.buildJobTemplate()).orElse(null));
   }
   
   public JobTemplateNested<A> editOrNewJobTemplate() {
-    return withNewJobTemplateLike(java.util.Optional.ofNullable(buildJobTemplate()).orElse(new V1JobTemplateSpecBuilder().build()));
+    return this.withNewJobTemplateLike(Optional.ofNullable(this.buildJobTemplate()).orElse(new V1JobTemplateSpecBuilder().build()));
   }
   
   public JobTemplateNested<A> editOrNewJobTemplateLike(V1JobTemplateSpec item) {
-    return withNewJobTemplateLike(java.util.Optional.ofNullable(buildJobTemplate()).orElse(item));
+    return this.withNewJobTemplateLike(Optional.ofNullable(this.buildJobTemplate()).orElse(item));
   }
   
   public String getSchedule() {
@@ -175,36 +178,89 @@ public class V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CronJobSpecFluent that = (V1CronJobSpecFluent) o;
-    if (!java.util.Objects.equals(concurrencyPolicy, that.concurrencyPolicy)) return false;
-    if (!java.util.Objects.equals(failedJobsHistoryLimit, that.failedJobsHistoryLimit)) return false;
-    if (!java.util.Objects.equals(jobTemplate, that.jobTemplate)) return false;
-    if (!java.util.Objects.equals(schedule, that.schedule)) return false;
-    if (!java.util.Objects.equals(startingDeadlineSeconds, that.startingDeadlineSeconds)) return false;
-    if (!java.util.Objects.equals(successfulJobsHistoryLimit, that.successfulJobsHistoryLimit)) return false;
-    if (!java.util.Objects.equals(suspend, that.suspend)) return false;
-    if (!java.util.Objects.equals(timeZone, that.timeZone)) return false;
+    if (!(Objects.equals(concurrencyPolicy, that.concurrencyPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(failedJobsHistoryLimit, that.failedJobsHistoryLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(jobTemplate, that.jobTemplate))) {
+      return false;
+    }
+    if (!(Objects.equals(schedule, that.schedule))) {
+      return false;
+    }
+    if (!(Objects.equals(startingDeadlineSeconds, that.startingDeadlineSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(successfulJobsHistoryLimit, that.successfulJobsHistoryLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(suspend, that.suspend))) {
+      return false;
+    }
+    if (!(Objects.equals(timeZone, that.timeZone))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(concurrencyPolicy,  failedJobsHistoryLimit,  jobTemplate,  schedule,  startingDeadlineSeconds,  successfulJobsHistoryLimit,  suspend,  timeZone,  super.hashCode());
+    return Objects.hash(concurrencyPolicy, failedJobsHistoryLimit, jobTemplate, schedule, startingDeadlineSeconds, successfulJobsHistoryLimit, suspend, timeZone);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (concurrencyPolicy != null) { sb.append("concurrencyPolicy:"); sb.append(concurrencyPolicy + ","); }
-    if (failedJobsHistoryLimit != null) { sb.append("failedJobsHistoryLimit:"); sb.append(failedJobsHistoryLimit + ","); }
-    if (jobTemplate != null) { sb.append("jobTemplate:"); sb.append(jobTemplate + ","); }
-    if (schedule != null) { sb.append("schedule:"); sb.append(schedule + ","); }
-    if (startingDeadlineSeconds != null) { sb.append("startingDeadlineSeconds:"); sb.append(startingDeadlineSeconds + ","); }
-    if (successfulJobsHistoryLimit != null) { sb.append("successfulJobsHistoryLimit:"); sb.append(successfulJobsHistoryLimit + ","); }
-    if (suspend != null) { sb.append("suspend:"); sb.append(suspend + ","); }
-    if (timeZone != null) { sb.append("timeZone:"); sb.append(timeZone); }
+    if (!(concurrencyPolicy == null)) {
+        sb.append("concurrencyPolicy:");
+        sb.append(concurrencyPolicy);
+        sb.append(",");
+    }
+    if (!(failedJobsHistoryLimit == null)) {
+        sb.append("failedJobsHistoryLimit:");
+        sb.append(failedJobsHistoryLimit);
+        sb.append(",");
+    }
+    if (!(jobTemplate == null)) {
+        sb.append("jobTemplate:");
+        sb.append(jobTemplate);
+        sb.append(",");
+    }
+    if (!(schedule == null)) {
+        sb.append("schedule:");
+        sb.append(schedule);
+        sb.append(",");
+    }
+    if (!(startingDeadlineSeconds == null)) {
+        sb.append("startingDeadlineSeconds:");
+        sb.append(startingDeadlineSeconds);
+        sb.append(",");
+    }
+    if (!(successfulJobsHistoryLimit == null)) {
+        sb.append("successfulJobsHistoryLimit:");
+        sb.append(successfulJobsHistoryLimit);
+        sb.append(",");
+    }
+    if (!(suspend == null)) {
+        sb.append("suspend:");
+        sb.append(suspend);
+        sb.append(",");
+    }
+    if (!(timeZone == null)) {
+        sb.append("timeZone:");
+        sb.append(timeZone);
+    }
     sb.append("}");
     return sb.toString();
   }

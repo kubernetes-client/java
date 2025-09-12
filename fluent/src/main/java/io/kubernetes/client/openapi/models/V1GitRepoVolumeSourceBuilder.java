@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1GitRepoVolumeSourceBuilder extends V1GitRepoVolumeSourceFluent<V1GitRepoVolumeSourceBuilder> implements VisitableBuilder<V1GitRepoVolumeSource,V1GitRepoVolumeSourceBuilder>{
   public V1GitRepoVolumeSourceBuilder() {
     this(new V1GitRepoVolumeSource());

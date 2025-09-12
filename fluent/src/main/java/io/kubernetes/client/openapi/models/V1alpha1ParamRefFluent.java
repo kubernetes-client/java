@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1ParamRefFluent<A extends V1alpha1ParamRefFluent<A>> extends BaseFluent<A>{
+public class V1alpha1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1alpha1ParamRefFluent<A>> extends BaseFluent<A>{
   public V1alpha1ParamRefFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1alpha1ParamRefFluent<A extends V1alpha1ParamRefFluent<A>> extends
   private V1LabelSelectorBuilder selector;
   
   protected void copyInstance(V1alpha1ParamRef instance) {
-    instance = (instance != null ? instance : new V1alpha1ParamRef());
+    instance = instance != null ? instance : new V1alpha1ParamRef();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withNamespace(instance.getNamespace());
-          this.withParameterNotFoundAction(instance.getParameterNotFoundAction());
-          this.withSelector(instance.getSelector());
-        }
+        this.withName(instance.getName());
+        this.withNamespace(instance.getNamespace());
+        this.withParameterNotFoundAction(instance.getParameterNotFoundAction());
+        this.withSelector(instance.getSelector());
+    }
   }
   
   public String getName() {
@@ -100,40 +103,69 @@ public class V1alpha1ParamRefFluent<A extends V1alpha1ParamRefFluent<A>> extends
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1ParamRefFluent that = (V1alpha1ParamRefFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
-    if (!java.util.Objects.equals(parameterNotFoundAction, that.parameterNotFoundAction)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(namespace, that.namespace))) {
+      return false;
+    }
+    if (!(Objects.equals(parameterNotFoundAction, that.parameterNotFoundAction))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  namespace,  parameterNotFoundAction,  selector,  super.hashCode());
+    return Objects.hash(name, namespace, parameterNotFoundAction, selector);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
-    if (parameterNotFoundAction != null) { sb.append("parameterNotFoundAction:"); sb.append(parameterNotFoundAction + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(namespace == null)) {
+        sb.append("namespace:");
+        sb.append(namespace);
+        sb.append(",");
+    }
+    if (!(parameterNotFoundAction == null)) {
+        sb.append("parameterNotFoundAction:");
+        sb.append(parameterNotFoundAction);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+    }
     sb.append("}");
     return sb.toString();
   }

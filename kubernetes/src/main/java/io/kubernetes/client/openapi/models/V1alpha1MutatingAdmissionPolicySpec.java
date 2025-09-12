@@ -57,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
  * MutatingAdmissionPolicySpec is the specification of the desired behavior of the admission policy.
  */
 @ApiModel(description = "MutatingAdmissionPolicySpec is the specification of the desired behavior of the admission policy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1MutatingAdmissionPolicySpec {
   public static final String SERIALIZED_NAME_FAILURE_POLICY = "failurePolicy";
   @SerializedName(SERIALIZED_NAME_FAILURE_POLICY)

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFluent<A>> extends BaseFluent<A>{
+public class V1NonResourcePolicyRuleFluent<A extends io.kubernetes.client.openapi.models.V1NonResourcePolicyRuleFluent<A>> extends BaseFluent<A>{
   public V1NonResourcePolicyRuleFluent() {
   }
   
@@ -24,42 +26,67 @@ public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFlue
   private List<String> verbs;
   
   protected void copyInstance(V1NonResourcePolicyRule instance) {
-    instance = (instance != null ? instance : new V1NonResourcePolicyRule());
+    instance = instance != null ? instance : new V1NonResourcePolicyRule();
     if (instance != null) {
-          this.withNonResourceURLs(instance.getNonResourceURLs());
-          this.withVerbs(instance.getVerbs());
-        }
+        this.withNonResourceURLs(instance.getNonResourceURLs());
+        this.withVerbs(instance.getVerbs());
+    }
   }
   
   public A addToNonResourceURLs(int index,String item) {
-    if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
+    if (this.nonResourceURLs == null) {
+      this.nonResourceURLs = new ArrayList();
+    }
     this.nonResourceURLs.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToNonResourceURLs(int index,String item) {
-    if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
-    this.nonResourceURLs.set(index, item); return (A)this;
+    if (this.nonResourceURLs == null) {
+      this.nonResourceURLs = new ArrayList();
+    }
+    this.nonResourceURLs.set(index, item);
+    return (A) this;
   }
   
-  public A addToNonResourceURLs(java.lang.String... items) {
-    if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
-    for (String item : items) {this.nonResourceURLs.add(item);} return (A)this;
+  public A addToNonResourceURLs(String... items) {
+    if (this.nonResourceURLs == null) {
+      this.nonResourceURLs = new ArrayList();
+    }
+    for (String item : items) {
+      this.nonResourceURLs.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToNonResourceURLs(Collection<String> items) {
-    if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
-    for (String item : items) {this.nonResourceURLs.add(item);} return (A)this;
+    if (this.nonResourceURLs == null) {
+      this.nonResourceURLs = new ArrayList();
+    }
+    for (String item : items) {
+      this.nonResourceURLs.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromNonResourceURLs(java.lang.String... items) {
-    if (this.nonResourceURLs == null) return (A)this;
-    for (String item : items) { this.nonResourceURLs.remove(item);} return (A)this;
+  public A removeFromNonResourceURLs(String... items) {
+    if (this.nonResourceURLs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.nonResourceURLs.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromNonResourceURLs(Collection<String> items) {
-    if (this.nonResourceURLs == null) return (A)this;
-    for (String item : items) { this.nonResourceURLs.remove(item);} return (A)this;
+    if (this.nonResourceURLs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.nonResourceURLs.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getNonResourceURLs() {
@@ -108,7 +135,7 @@ public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFlue
     return (A) this;
   }
   
-  public A withNonResourceURLs(java.lang.String... nonResourceURLs) {
+  public A withNonResourceURLs(String... nonResourceURLs) {
     if (this.nonResourceURLs != null) {
         this.nonResourceURLs.clear();
         _visitables.remove("nonResourceURLs");
@@ -122,38 +149,63 @@ public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFlue
   }
   
   public boolean hasNonResourceURLs() {
-    return this.nonResourceURLs != null && !this.nonResourceURLs.isEmpty();
+    return this.nonResourceURLs != null && !(this.nonResourceURLs.isEmpty());
   }
   
   public A addToVerbs(int index,String item) {
-    if (this.verbs == null) {this.verbs = new ArrayList<String>();}
+    if (this.verbs == null) {
+      this.verbs = new ArrayList();
+    }
     this.verbs.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVerbs(int index,String item) {
-    if (this.verbs == null) {this.verbs = new ArrayList<String>();}
-    this.verbs.set(index, item); return (A)this;
+    if (this.verbs == null) {
+      this.verbs = new ArrayList();
+    }
+    this.verbs.set(index, item);
+    return (A) this;
   }
   
-  public A addToVerbs(java.lang.String... items) {
-    if (this.verbs == null) {this.verbs = new ArrayList<String>();}
-    for (String item : items) {this.verbs.add(item);} return (A)this;
+  public A addToVerbs(String... items) {
+    if (this.verbs == null) {
+      this.verbs = new ArrayList();
+    }
+    for (String item : items) {
+      this.verbs.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToVerbs(Collection<String> items) {
-    if (this.verbs == null) {this.verbs = new ArrayList<String>();}
-    for (String item : items) {this.verbs.add(item);} return (A)this;
+    if (this.verbs == null) {
+      this.verbs = new ArrayList();
+    }
+    for (String item : items) {
+      this.verbs.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromVerbs(java.lang.String... items) {
-    if (this.verbs == null) return (A)this;
-    for (String item : items) { this.verbs.remove(item);} return (A)this;
+  public A removeFromVerbs(String... items) {
+    if (this.verbs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.verbs.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVerbs(Collection<String> items) {
-    if (this.verbs == null) return (A)this;
-    for (String item : items) { this.verbs.remove(item);} return (A)this;
+    if (this.verbs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.verbs.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getVerbs() {
@@ -202,7 +254,7 @@ public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFlue
     return (A) this;
   }
   
-  public A withVerbs(java.lang.String... verbs) {
+  public A withVerbs(String... verbs) {
     if (this.verbs != null) {
         this.verbs.clear();
         _visitables.remove("verbs");
@@ -216,28 +268,45 @@ public class V1NonResourcePolicyRuleFluent<A extends V1NonResourcePolicyRuleFlue
   }
   
   public boolean hasVerbs() {
-    return this.verbs != null && !this.verbs.isEmpty();
+    return this.verbs != null && !(this.verbs.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NonResourcePolicyRuleFluent that = (V1NonResourcePolicyRuleFluent) o;
-    if (!java.util.Objects.equals(nonResourceURLs, that.nonResourceURLs)) return false;
-    if (!java.util.Objects.equals(verbs, that.verbs)) return false;
+    if (!(Objects.equals(nonResourceURLs, that.nonResourceURLs))) {
+      return false;
+    }
+    if (!(Objects.equals(verbs, that.verbs))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(nonResourceURLs,  verbs,  super.hashCode());
+    return Objects.hash(nonResourceURLs, verbs);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nonResourceURLs != null && !nonResourceURLs.isEmpty()) { sb.append("nonResourceURLs:"); sb.append(nonResourceURLs + ","); }
-    if (verbs != null && !verbs.isEmpty()) { sb.append("verbs:"); sb.append(verbs); }
+    if (!(nonResourceURLs == null) && !(nonResourceURLs.isEmpty())) {
+        sb.append("nonResourceURLs:");
+        sb.append(nonResourceURLs);
+        sb.append(",");
+    }
+    if (!(verbs == null) && !(verbs.isEmpty())) {
+        sb.append("verbs:");
+        sb.append(verbs);
+    }
     sb.append("}");
     return sb.toString();
   }

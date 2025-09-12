@@ -1,22 +1,24 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent<A>> extends BaseFluent<A>{
+public class V1beta1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceClassSpecFluent<A>> extends BaseFluent<A>{
   public V1beta1DeviceClassSpecFluent() {
   }
   
@@ -24,18 +26,22 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
     this.copyInstance(instance);
   }
   private ArrayList<V1beta1DeviceClassConfigurationBuilder> config;
+  private String extendedResourceName;
   private ArrayList<V1beta1DeviceSelectorBuilder> selectors;
   
   protected void copyInstance(V1beta1DeviceClassSpec instance) {
-    instance = (instance != null ? instance : new V1beta1DeviceClassSpec());
+    instance = instance != null ? instance : new V1beta1DeviceClassSpec();
     if (instance != null) {
-          this.withConfig(instance.getConfig());
-          this.withSelectors(instance.getSelectors());
-        }
+        this.withConfig(instance.getConfig());
+        this.withExtendedResourceName(instance.getExtendedResourceName());
+        this.withSelectors(instance.getSelectors());
+    }
   }
   
   public A addToConfig(int index,V1beta1DeviceClassConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClassConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -44,11 +50,13 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
         _visitables.get("config").add(builder);
         config.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConfig(int index,V1beta1DeviceClassConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClassConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -57,41 +65,71 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
         _visitables.get("config").add(builder);
         config.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConfig(io.kubernetes.client.openapi.models.V1beta1DeviceClassConfiguration... items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClassConfigurationBuilder>();}
-    for (V1beta1DeviceClassConfiguration item : items) {V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+  public A addToConfig(V1beta1DeviceClassConfiguration... items) {
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta1DeviceClassConfiguration item : items) {
+        V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConfig(Collection<V1beta1DeviceClassConfiguration> items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta1DeviceClassConfigurationBuilder>();}
-    for (V1beta1DeviceClassConfiguration item : items) {V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta1DeviceClassConfiguration item : items) {
+        V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConfig(io.kubernetes.client.openapi.models.V1beta1DeviceClassConfiguration... items) {
-    if (this.config == null) return (A)this;
-    for (V1beta1DeviceClassConfiguration item : items) {V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+  public A removeFromConfig(V1beta1DeviceClassConfiguration... items) {
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceClassConfiguration item : items) {
+        V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConfig(Collection<V1beta1DeviceClassConfiguration> items) {
-    if (this.config == null) return (A)this;
-    for (V1beta1DeviceClassConfiguration item : items) {V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceClassConfiguration item : items) {
+        V1beta1DeviceClassConfigurationBuilder builder = new V1beta1DeviceClassConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConfig(Predicate<V1beta1DeviceClassConfigurationBuilder> predicate) {
-    if (config == null) return (A) this;
-    final Iterator<V1beta1DeviceClassConfigurationBuilder> each = config.iterator();
-    final List visitables = _visitables.get("config");
-    while (each.hasNext()) {
-      V1beta1DeviceClassConfigurationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (config == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta1DeviceClassConfigurationBuilder> each = config.iterator();
+    List visitables = _visitables.get("config");
+    while (each.hasNext()) {
+        V1beta1DeviceClassConfigurationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta1DeviceClassConfiguration> buildConfig() {
@@ -143,7 +181,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
     return (A) this;
   }
   
-  public A withConfig(io.kubernetes.client.openapi.models.V1beta1DeviceClassConfiguration... config) {
+  public A withConfig(V1beta1DeviceClassConfiguration... config) {
     if (this.config != null) {
         this.config.clear();
         _visitables.remove("config");
@@ -157,7 +195,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
   }
   
   public boolean hasConfig() {
-    return this.config != null && !this.config.isEmpty();
+    return this.config != null && !(this.config.isEmpty());
   }
   
   public ConfigNested<A> addNewConfig() {
@@ -173,32 +211,58 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
   }
   
   public ConfigNested<A> editConfig(int index) {
-    if (config.size() <= index) throw new RuntimeException("Can't edit config. Index exceeds size.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index <= config.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editFirstConfig() {
-    if (config.size() == 0) throw new RuntimeException("Can't edit first config. The list is empty.");
-    return setNewConfigLike(0, buildConfig(0));
+    if (config.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(0, this.buildConfig(0));
   }
   
   public ConfigNested<A> editLastConfig() {
     int index = config.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last config. The list is empty.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editMatchingConfig(Predicate<V1beta1DeviceClassConfigurationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<config.size();i++) { 
-    if (predicate.test(config.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching config. No match found.");
-    return setNewConfigLike(index, buildConfig(index));
+    for (int i = 0;i < config.size();i++) {
+      if (predicate.test(config.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
+  }
+  
+  public String getExtendedResourceName() {
+    return this.extendedResourceName;
+  }
+  
+  public A withExtendedResourceName(String extendedResourceName) {
+    this.extendedResourceName = extendedResourceName;
+    return (A) this;
+  }
+  
+  public boolean hasExtendedResourceName() {
+    return this.extendedResourceName != null;
   }
   
   public A addToSelectors(int index,V1beta1DeviceSelector item) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta1DeviceSelectorBuilder>();}
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
     V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
     if (index < 0 || index >= selectors.size()) {
         _visitables.get("selectors").add(builder);
@@ -207,11 +271,13 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
         _visitables.get("selectors").add(builder);
         selectors.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSelectors(int index,V1beta1DeviceSelector item) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta1DeviceSelectorBuilder>();}
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
     V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
     if (index < 0 || index >= selectors.size()) {
         _visitables.get("selectors").add(builder);
@@ -220,41 +286,71 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
         _visitables.get("selectors").add(builder);
         selectors.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSelectors(io.kubernetes.client.openapi.models.V1beta1DeviceSelector... items) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta1DeviceSelectorBuilder>();}
-    for (V1beta1DeviceSelector item : items) {V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);_visitables.get("selectors").add(builder);this.selectors.add(builder);} return (A)this;
+  public A addToSelectors(V1beta1DeviceSelector... items) {
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
+    for (V1beta1DeviceSelector item : items) {
+        V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
+        _visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSelectors(Collection<V1beta1DeviceSelector> items) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta1DeviceSelectorBuilder>();}
-    for (V1beta1DeviceSelector item : items) {V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);_visitables.get("selectors").add(builder);this.selectors.add(builder);} return (A)this;
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
+    for (V1beta1DeviceSelector item : items) {
+        V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
+        _visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSelectors(io.kubernetes.client.openapi.models.V1beta1DeviceSelector... items) {
-    if (this.selectors == null) return (A)this;
-    for (V1beta1DeviceSelector item : items) {V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);_visitables.get("selectors").remove(builder); this.selectors.remove(builder);} return (A)this;
+  public A removeFromSelectors(V1beta1DeviceSelector... items) {
+    if (this.selectors == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceSelector item : items) {
+        V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
+        _visitables.get("selectors").remove(builder);
+        this.selectors.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSelectors(Collection<V1beta1DeviceSelector> items) {
-    if (this.selectors == null) return (A)this;
-    for (V1beta1DeviceSelector item : items) {V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);_visitables.get("selectors").remove(builder); this.selectors.remove(builder);} return (A)this;
+    if (this.selectors == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceSelector item : items) {
+        V1beta1DeviceSelectorBuilder builder = new V1beta1DeviceSelectorBuilder(item);
+        _visitables.get("selectors").remove(builder);
+        this.selectors.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSelectors(Predicate<V1beta1DeviceSelectorBuilder> predicate) {
-    if (selectors == null) return (A) this;
-    final Iterator<V1beta1DeviceSelectorBuilder> each = selectors.iterator();
-    final List visitables = _visitables.get("selectors");
-    while (each.hasNext()) {
-      V1beta1DeviceSelectorBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (selectors == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta1DeviceSelectorBuilder> each = selectors.iterator();
+    List visitables = _visitables.get("selectors");
+    while (each.hasNext()) {
+        V1beta1DeviceSelectorBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta1DeviceSelector> buildSelectors() {
@@ -306,7 +402,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
     return (A) this;
   }
   
-  public A withSelectors(io.kubernetes.client.openapi.models.V1beta1DeviceSelector... selectors) {
+  public A withSelectors(V1beta1DeviceSelector... selectors) {
     if (this.selectors != null) {
         this.selectors.clear();
         _visitables.remove("selectors");
@@ -320,7 +416,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
   }
   
   public boolean hasSelectors() {
-    return this.selectors != null && !this.selectors.isEmpty();
+    return this.selectors != null && !(this.selectors.isEmpty());
   }
   
   public SelectorsNested<A> addNewSelector() {
@@ -336,49 +432,85 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
   }
   
   public SelectorsNested<A> editSelector(int index) {
-    if (selectors.size() <= index) throw new RuntimeException("Can't edit selectors. Index exceeds size.");
-    return setNewSelectorLike(index, buildSelector(index));
+    if (index <= selectors.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public SelectorsNested<A> editFirstSelector() {
-    if (selectors.size() == 0) throw new RuntimeException("Can't edit first selectors. The list is empty.");
-    return setNewSelectorLike(0, buildSelector(0));
+    if (selectors.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "selectors"));
+    }
+    return this.setNewSelectorLike(0, this.buildSelector(0));
   }
   
   public SelectorsNested<A> editLastSelector() {
     int index = selectors.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last selectors. The list is empty.");
-    return setNewSelectorLike(index, buildSelector(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public SelectorsNested<A> editMatchingSelector(Predicate<V1beta1DeviceSelectorBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<selectors.size();i++) { 
-    if (predicate.test(selectors.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching selectors. No match found.");
-    return setNewSelectorLike(index, buildSelector(index));
+    for (int i = 0;i < selectors.size();i++) {
+      if (predicate.test(selectors.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1DeviceClassSpecFluent that = (V1beta1DeviceClassSpecFluent) o;
-    if (!java.util.Objects.equals(config, that.config)) return false;
-    if (!java.util.Objects.equals(selectors, that.selectors)) return false;
+    if (!(Objects.equals(config, that.config))) {
+      return false;
+    }
+    if (!(Objects.equals(extendedResourceName, that.extendedResourceName))) {
+      return false;
+    }
+    if (!(Objects.equals(selectors, that.selectors))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(config,  selectors,  super.hashCode());
+    return Objects.hash(config, extendedResourceName, selectors);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (config != null && !config.isEmpty()) { sb.append("config:"); sb.append(config + ","); }
-    if (selectors != null && !selectors.isEmpty()) { sb.append("selectors:"); sb.append(selectors); }
+    if (!(config == null) && !(config.isEmpty())) {
+        sb.append("config:");
+        sb.append(config);
+        sb.append(",");
+    }
+    if (!(extendedResourceName == null)) {
+        sb.append("extendedResourceName:");
+        sb.append(extendedResourceName);
+        sb.append(",");
+    }
+    if (!(selectors == null) && !(selectors.isEmpty())) {
+        sb.append("selectors:");
+        sb.append(selectors);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +523,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
     int index;
     
     public N and() {
-      return (N) V1beta1DeviceClassSpecFluent.this.setToConfig(index,builder.build());
+      return (N) V1beta1DeviceClassSpecFluent.this.setToConfig(index, builder.build());
     }
     
     public N endConfig() {
@@ -409,7 +541,7 @@ public class V1beta1DeviceClassSpecFluent<A extends V1beta1DeviceClassSpecFluent
     int index;
     
     public N and() {
-      return (N) V1beta1DeviceClassSpecFluent.this.setToSelectors(index,builder.build());
+      return (N) V1beta1DeviceClassSpecFluent.this.setToSelectors(index, builder.build());
     }
     
     public N endSelector() {

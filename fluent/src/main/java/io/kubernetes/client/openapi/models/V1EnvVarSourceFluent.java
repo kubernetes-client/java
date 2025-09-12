@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends BaseFluent<A>{
+public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.V1EnvVarSourceFluent<A>> extends BaseFluent<A>{
   public V1EnvVarSourceFluent() {
   }
   
@@ -19,17 +22,19 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
   }
   private V1ConfigMapKeySelectorBuilder configMapKeyRef;
   private V1ObjectFieldSelectorBuilder fieldRef;
+  private V1FileKeySelectorBuilder fileKeyRef;
   private V1ResourceFieldSelectorBuilder resourceFieldRef;
   private V1SecretKeySelectorBuilder secretKeyRef;
   
   protected void copyInstance(V1EnvVarSource instance) {
-    instance = (instance != null ? instance : new V1EnvVarSource());
+    instance = instance != null ? instance : new V1EnvVarSource();
     if (instance != null) {
-          this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
-          this.withFieldRef(instance.getFieldRef());
-          this.withResourceFieldRef(instance.getResourceFieldRef());
-          this.withSecretKeyRef(instance.getSecretKeyRef());
-        }
+        this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
+        this.withFieldRef(instance.getFieldRef());
+        this.withFileKeyRef(instance.getFileKeyRef());
+        this.withResourceFieldRef(instance.getResourceFieldRef());
+        this.withSecretKeyRef(instance.getSecretKeyRef());
+    }
   }
   
   public V1ConfigMapKeySelector buildConfigMapKeyRef() {
@@ -61,15 +66,15 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
   }
   
   public ConfigMapKeyRefNested<A> editConfigMapKeyRef() {
-    return withNewConfigMapKeyRefLike(java.util.Optional.ofNullable(buildConfigMapKeyRef()).orElse(null));
+    return this.withNewConfigMapKeyRefLike(Optional.ofNullable(this.buildConfigMapKeyRef()).orElse(null));
   }
   
   public ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRef() {
-    return withNewConfigMapKeyRefLike(java.util.Optional.ofNullable(buildConfigMapKeyRef()).orElse(new V1ConfigMapKeySelectorBuilder().build()));
+    return this.withNewConfigMapKeyRefLike(Optional.ofNullable(this.buildConfigMapKeyRef()).orElse(new V1ConfigMapKeySelectorBuilder().build()));
   }
   
   public ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
-    return withNewConfigMapKeyRefLike(java.util.Optional.ofNullable(buildConfigMapKeyRef()).orElse(item));
+    return this.withNewConfigMapKeyRefLike(Optional.ofNullable(this.buildConfigMapKeyRef()).orElse(item));
   }
   
   public V1ObjectFieldSelector buildFieldRef() {
@@ -101,15 +106,55 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
   }
   
   public FieldRefNested<A> editFieldRef() {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(null));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(null));
   }
   
   public FieldRefNested<A> editOrNewFieldRef() {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(new V1ObjectFieldSelectorBuilder().build()));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(new V1ObjectFieldSelectorBuilder().build()));
   }
   
   public FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(item));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(item));
+  }
+  
+  public V1FileKeySelector buildFileKeyRef() {
+    return this.fileKeyRef != null ? this.fileKeyRef.build() : null;
+  }
+  
+  public A withFileKeyRef(V1FileKeySelector fileKeyRef) {
+    this._visitables.remove("fileKeyRef");
+    if (fileKeyRef != null) {
+        this.fileKeyRef = new V1FileKeySelectorBuilder(fileKeyRef);
+        this._visitables.get("fileKeyRef").add(this.fileKeyRef);
+    } else {
+        this.fileKeyRef = null;
+        this._visitables.get("fileKeyRef").remove(this.fileKeyRef);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasFileKeyRef() {
+    return this.fileKeyRef != null;
+  }
+  
+  public FileKeyRefNested<A> withNewFileKeyRef() {
+    return new FileKeyRefNested(null);
+  }
+  
+  public FileKeyRefNested<A> withNewFileKeyRefLike(V1FileKeySelector item) {
+    return new FileKeyRefNested(item);
+  }
+  
+  public FileKeyRefNested<A> editFileKeyRef() {
+    return this.withNewFileKeyRefLike(Optional.ofNullable(this.buildFileKeyRef()).orElse(null));
+  }
+  
+  public FileKeyRefNested<A> editOrNewFileKeyRef() {
+    return this.withNewFileKeyRefLike(Optional.ofNullable(this.buildFileKeyRef()).orElse(new V1FileKeySelectorBuilder().build()));
+  }
+  
+  public FileKeyRefNested<A> editOrNewFileKeyRefLike(V1FileKeySelector item) {
+    return this.withNewFileKeyRefLike(Optional.ofNullable(this.buildFileKeyRef()).orElse(item));
   }
   
   public V1ResourceFieldSelector buildResourceFieldRef() {
@@ -141,15 +186,15 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
   }
   
   public ResourceFieldRefNested<A> editResourceFieldRef() {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(null));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(null));
   }
   
   public ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(new V1ResourceFieldSelectorBuilder().build()));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(new V1ResourceFieldSelectorBuilder().build()));
   }
   
   public ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(item));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(item));
   }
   
   public V1SecretKeySelector buildSecretKeyRef() {
@@ -181,40 +226,77 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
   }
   
   public SecretKeyRefNested<A> editSecretKeyRef() {
-    return withNewSecretKeyRefLike(java.util.Optional.ofNullable(buildSecretKeyRef()).orElse(null));
+    return this.withNewSecretKeyRefLike(Optional.ofNullable(this.buildSecretKeyRef()).orElse(null));
   }
   
   public SecretKeyRefNested<A> editOrNewSecretKeyRef() {
-    return withNewSecretKeyRefLike(java.util.Optional.ofNullable(buildSecretKeyRef()).orElse(new V1SecretKeySelectorBuilder().build()));
+    return this.withNewSecretKeyRefLike(Optional.ofNullable(this.buildSecretKeyRef()).orElse(new V1SecretKeySelectorBuilder().build()));
   }
   
   public SecretKeyRefNested<A> editOrNewSecretKeyRefLike(V1SecretKeySelector item) {
-    return withNewSecretKeyRefLike(java.util.Optional.ofNullable(buildSecretKeyRef()).orElse(item));
+    return this.withNewSecretKeyRefLike(Optional.ofNullable(this.buildSecretKeyRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EnvVarSourceFluent that = (V1EnvVarSourceFluent) o;
-    if (!java.util.Objects.equals(configMapKeyRef, that.configMapKeyRef)) return false;
-    if (!java.util.Objects.equals(fieldRef, that.fieldRef)) return false;
-    if (!java.util.Objects.equals(resourceFieldRef, that.resourceFieldRef)) return false;
-    if (!java.util.Objects.equals(secretKeyRef, that.secretKeyRef)) return false;
+    if (!(Objects.equals(configMapKeyRef, that.configMapKeyRef))) {
+      return false;
+    }
+    if (!(Objects.equals(fieldRef, that.fieldRef))) {
+      return false;
+    }
+    if (!(Objects.equals(fileKeyRef, that.fileKeyRef))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceFieldRef, that.resourceFieldRef))) {
+      return false;
+    }
+    if (!(Objects.equals(secretKeyRef, that.secretKeyRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(configMapKeyRef,  fieldRef,  resourceFieldRef,  secretKeyRef,  super.hashCode());
+    return Objects.hash(configMapKeyRef, fieldRef, fileKeyRef, resourceFieldRef, secretKeyRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (configMapKeyRef != null) { sb.append("configMapKeyRef:"); sb.append(configMapKeyRef + ","); }
-    if (fieldRef != null) { sb.append("fieldRef:"); sb.append(fieldRef + ","); }
-    if (resourceFieldRef != null) { sb.append("resourceFieldRef:"); sb.append(resourceFieldRef + ","); }
-    if (secretKeyRef != null) { sb.append("secretKeyRef:"); sb.append(secretKeyRef); }
+    if (!(configMapKeyRef == null)) {
+        sb.append("configMapKeyRef:");
+        sb.append(configMapKeyRef);
+        sb.append(",");
+    }
+    if (!(fieldRef == null)) {
+        sb.append("fieldRef:");
+        sb.append(fieldRef);
+        sb.append(",");
+    }
+    if (!(fileKeyRef == null)) {
+        sb.append("fileKeyRef:");
+        sb.append(fileKeyRef);
+        sb.append(",");
+    }
+    if (!(resourceFieldRef == null)) {
+        sb.append("resourceFieldRef:");
+        sb.append(resourceFieldRef);
+        sb.append(",");
+    }
+    if (!(secretKeyRef == null)) {
+        sb.append("secretKeyRef:");
+        sb.append(secretKeyRef);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -245,6 +327,22 @@ public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Bas
     }
     
     public N endFieldRef() {
+      return and();
+    }
+    
+  
+  }
+  public class FileKeyRefNested<N> extends V1FileKeySelectorFluent<FileKeyRefNested<N>> implements Nested<N>{
+    FileKeyRefNested(V1FileKeySelector item) {
+      this.builder = new V1FileKeySelectorBuilder(this, item);
+    }
+    V1FileKeySelectorBuilder builder;
+    
+    public N and() {
+      return (N) V1EnvVarSourceFluent.this.withFileKeyRef(builder.build());
+    }
+    
+    public N endFileKeyRef() {
       return and();
     }
     

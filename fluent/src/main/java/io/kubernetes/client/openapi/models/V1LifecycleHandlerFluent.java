@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> extends BaseFluent<A>{
+public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<A>> extends BaseFluent<A>{
   public V1LifecycleHandlerFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   private V1TCPSocketActionBuilder tcpSocket;
   
   protected void copyInstance(V1LifecycleHandler instance) {
-    instance = (instance != null ? instance : new V1LifecycleHandler());
+    instance = instance != null ? instance : new V1LifecycleHandler();
     if (instance != null) {
-          this.withExec(instance.getExec());
-          this.withHttpGet(instance.getHttpGet());
-          this.withSleep(instance.getSleep());
-          this.withTcpSocket(instance.getTcpSocket());
-        }
+        this.withExec(instance.getExec());
+        this.withHttpGet(instance.getHttpGet());
+        this.withSleep(instance.getSleep());
+        this.withTcpSocket(instance.getTcpSocket());
+    }
   }
   
   public V1ExecAction buildExec() {
@@ -61,15 +64,15 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   }
   
   public ExecNested<A> editExec() {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(null));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(null));
   }
   
   public ExecNested<A> editOrNewExec() {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(new V1ExecActionBuilder().build()));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(new V1ExecActionBuilder().build()));
   }
   
   public ExecNested<A> editOrNewExecLike(V1ExecAction item) {
-    return withNewExecLike(java.util.Optional.ofNullable(buildExec()).orElse(item));
+    return this.withNewExecLike(Optional.ofNullable(this.buildExec()).orElse(item));
   }
   
   public V1HTTPGetAction buildHttpGet() {
@@ -101,15 +104,15 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   }
   
   public HttpGetNested<A> editHttpGet() {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(null));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(null));
   }
   
   public HttpGetNested<A> editOrNewHttpGet() {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(new V1HTTPGetActionBuilder().build()));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(new V1HTTPGetActionBuilder().build()));
   }
   
   public HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
-    return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(item));
+    return this.withNewHttpGetLike(Optional.ofNullable(this.buildHttpGet()).orElse(item));
   }
   
   public V1SleepAction buildSleep() {
@@ -141,15 +144,15 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   }
   
   public SleepNested<A> editSleep() {
-    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(null));
+    return this.withNewSleepLike(Optional.ofNullable(this.buildSleep()).orElse(null));
   }
   
   public SleepNested<A> editOrNewSleep() {
-    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(new V1SleepActionBuilder().build()));
+    return this.withNewSleepLike(Optional.ofNullable(this.buildSleep()).orElse(new V1SleepActionBuilder().build()));
   }
   
   public SleepNested<A> editOrNewSleepLike(V1SleepAction item) {
-    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(item));
+    return this.withNewSleepLike(Optional.ofNullable(this.buildSleep()).orElse(item));
   }
   
   public V1TCPSocketAction buildTcpSocket() {
@@ -181,40 +184,69 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   }
   
   public TcpSocketNested<A> editTcpSocket() {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(null));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(null));
   }
   
   public TcpSocketNested<A> editOrNewTcpSocket() {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(new V1TCPSocketActionBuilder().build()));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(new V1TCPSocketActionBuilder().build()));
   }
   
   public TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
-    return withNewTcpSocketLike(java.util.Optional.ofNullable(buildTcpSocket()).orElse(item));
+    return this.withNewTcpSocketLike(Optional.ofNullable(this.buildTcpSocket()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LifecycleHandlerFluent that = (V1LifecycleHandlerFluent) o;
-    if (!java.util.Objects.equals(exec, that.exec)) return false;
-    if (!java.util.Objects.equals(httpGet, that.httpGet)) return false;
-    if (!java.util.Objects.equals(sleep, that.sleep)) return false;
-    if (!java.util.Objects.equals(tcpSocket, that.tcpSocket)) return false;
+    if (!(Objects.equals(exec, that.exec))) {
+      return false;
+    }
+    if (!(Objects.equals(httpGet, that.httpGet))) {
+      return false;
+    }
+    if (!(Objects.equals(sleep, that.sleep))) {
+      return false;
+    }
+    if (!(Objects.equals(tcpSocket, that.tcpSocket))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(exec,  httpGet,  sleep,  tcpSocket,  super.hashCode());
+    return Objects.hash(exec, httpGet, sleep, tcpSocket);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (exec != null) { sb.append("exec:"); sb.append(exec + ","); }
-    if (httpGet != null) { sb.append("httpGet:"); sb.append(httpGet + ","); }
-    if (sleep != null) { sb.append("sleep:"); sb.append(sleep + ","); }
-    if (tcpSocket != null) { sb.append("tcpSocket:"); sb.append(tcpSocket); }
+    if (!(exec == null)) {
+        sb.append("exec:");
+        sb.append(exec);
+        sb.append(",");
+    }
+    if (!(httpGet == null)) {
+        sb.append("httpGet:");
+        sb.append(httpGet);
+        sb.append(",");
+    }
+    if (!(sleep == null)) {
+        sb.append("sleep:");
+        sb.append(sleep);
+        sb.append(",");
+    }
+    if (!(tcpSocket == null)) {
+        sb.append("tcpSocket:");
+        sb.append(tcpSocket);
+    }
     sb.append("}");
     return sb.toString();
   }

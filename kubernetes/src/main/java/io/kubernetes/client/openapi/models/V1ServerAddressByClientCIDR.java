@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
  */
 @ApiModel(description = "ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ServerAddressByClientCIDR {
   public static final String SERIALIZED_NAME_CLIENT_C_I_D_R = "clientCIDR";
   @SerializedName(SERIALIZED_NAME_CLIENT_C_I_D_R)

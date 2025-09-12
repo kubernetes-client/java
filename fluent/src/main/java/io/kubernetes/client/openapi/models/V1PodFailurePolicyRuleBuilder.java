@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodFailurePolicyRuleBuilder extends V1PodFailurePolicyRuleFluent<V1PodFailurePolicyRuleBuilder> implements VisitableBuilder<V1PodFailurePolicyRule,V1PodFailurePolicyRuleBuilder>{
   public V1PodFailurePolicyRuleBuilder() {
     this(new V1PodFailurePolicyRule());

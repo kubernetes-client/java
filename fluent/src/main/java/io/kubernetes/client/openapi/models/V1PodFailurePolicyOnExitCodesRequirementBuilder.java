@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodFailurePolicyOnExitCodesRequirementBuilder extends V1PodFailurePolicyOnExitCodesRequirementFluent<V1PodFailurePolicyOnExitCodesRequirementBuilder> implements VisitableBuilder<V1PodFailurePolicyOnExitCodesRequirement,V1PodFailurePolicyOnExitCodesRequirementBuilder>{
   public V1PodFailurePolicyOnExitCodesRequirementBuilder() {
     this(new V1PodFailurePolicyOnExitCodesRequirement());

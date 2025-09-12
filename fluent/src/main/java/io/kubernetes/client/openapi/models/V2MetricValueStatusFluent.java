@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
 import java.lang.Object;
 import java.lang.String;
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2MetricValueStatusFluent<A extends V2MetricValueStatusFluent<A>> extends BaseFluent<A>{
+public class V2MetricValueStatusFluent<A extends io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<A>> extends BaseFluent<A>{
   public V2MetricValueStatusFluent() {
   }
   
@@ -23,12 +25,12 @@ public class V2MetricValueStatusFluent<A extends V2MetricValueStatusFluent<A>> e
   private Quantity value;
   
   protected void copyInstance(V2MetricValueStatus instance) {
-    instance = (instance != null ? instance : new V2MetricValueStatus());
+    instance = instance != null ? instance : new V2MetricValueStatus();
     if (instance != null) {
-          this.withAverageUtilization(instance.getAverageUtilization());
-          this.withAverageValue(instance.getAverageValue());
-          this.withValue(instance.getValue());
-        }
+        this.withAverageUtilization(instance.getAverageUtilization());
+        this.withAverageValue(instance.getAverageValue());
+        this.withValue(instance.getValue());
+    }
   }
   
   public Integer getAverageUtilization() {
@@ -58,7 +60,7 @@ public class V2MetricValueStatusFluent<A extends V2MetricValueStatusFluent<A>> e
   }
   
   public A withNewAverageValue(String value) {
-    return (A)withAverageValue(new Quantity(value));
+    return (A) this.withAverageValue(new Quantity(value));
   }
   
   public Quantity getValue() {
@@ -75,30 +77,53 @@ public class V2MetricValueStatusFluent<A extends V2MetricValueStatusFluent<A>> e
   }
   
   public A withNewValue(String value) {
-    return (A)withValue(new Quantity(value));
+    return (A) this.withValue(new Quantity(value));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2MetricValueStatusFluent that = (V2MetricValueStatusFluent) o;
-    if (!java.util.Objects.equals(averageUtilization, that.averageUtilization)) return false;
-    if (!java.util.Objects.equals(averageValue, that.averageValue)) return false;
-    if (!java.util.Objects.equals(value, that.value)) return false;
+    if (!(Objects.equals(averageUtilization, that.averageUtilization))) {
+      return false;
+    }
+    if (!(Objects.equals(averageValue, that.averageValue))) {
+      return false;
+    }
+    if (!(Objects.equals(value, that.value))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(averageUtilization,  averageValue,  value,  super.hashCode());
+    return Objects.hash(averageUtilization, averageValue, value);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (averageUtilization != null) { sb.append("averageUtilization:"); sb.append(averageUtilization + ","); }
-    if (averageValue != null) { sb.append("averageValue:"); sb.append(averageValue + ","); }
-    if (value != null) { sb.append("value:"); sb.append(value); }
+    if (!(averageUtilization == null)) {
+        sb.append("averageUtilization:");
+        sb.append(averageUtilization);
+        sb.append(",");
+    }
+    if (!(averageValue == null)) {
+        sb.append("averageValue:");
+        sb.append(averageValue);
+        sb.append(",");
+    }
+    if (!(value == null)) {
+        sb.append("value:");
+        sb.append(value);
+    }
     sb.append("}");
     return sb.toString();
   }

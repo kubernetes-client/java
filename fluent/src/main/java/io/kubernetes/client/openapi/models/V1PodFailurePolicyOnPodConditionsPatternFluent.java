@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends V1PodFailurePolicyOnPodConditionsPatternFluent<A>> extends BaseFluent<A>{
+public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPatternFluent<A>> extends BaseFluent<A>{
   public V1PodFailurePolicyOnPodConditionsPatternFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends V1PodFailu
   private String type;
   
   protected void copyInstance(V1PodFailurePolicyOnPodConditionsPattern instance) {
-    instance = (instance != null ? instance : new V1PodFailurePolicyOnPodConditionsPattern());
+    instance = instance != null ? instance : new V1PodFailurePolicyOnPodConditionsPattern();
     if (instance != null) {
-          this.withStatus(instance.getStatus());
-          this.withType(instance.getType());
-        }
+        this.withStatus(instance.getStatus());
+        this.withType(instance.getType());
+    }
   }
   
   public String getStatus() {
@@ -54,24 +56,41 @@ public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends V1PodFailu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodFailurePolicyOnPodConditionsPatternFluent that = (V1PodFailurePolicyOnPodConditionsPatternFluent) o;
-    if (!java.util.Objects.equals(status, that.status)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(status,  type,  super.hashCode());
+    return Objects.hash(status, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (status != null) { sb.append("status:"); sb.append(status + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

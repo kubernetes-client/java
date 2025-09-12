@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1StorageVersionMigrationSpecFluent<A extends V1alpha1StorageVersionMigrationSpecFluent<A>> extends BaseFluent<A>{
+public class V1alpha1StorageVersionMigrationSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha1StorageVersionMigrationSpecFluent<A>> extends BaseFluent<A>{
   public V1alpha1StorageVersionMigrationSpecFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1alpha1StorageVersionMigrationSpecFluent<A extends V1alpha1Storage
   private V1alpha1GroupVersionResourceBuilder resource;
   
   protected void copyInstance(V1alpha1StorageVersionMigrationSpec instance) {
-    instance = (instance != null ? instance : new V1alpha1StorageVersionMigrationSpec());
+    instance = instance != null ? instance : new V1alpha1StorageVersionMigrationSpec();
     if (instance != null) {
-          this.withContinueToken(instance.getContinueToken());
-          this.withResource(instance.getResource());
-        }
+        this.withContinueToken(instance.getContinueToken());
+        this.withResource(instance.getResource());
+    }
   }
   
   public String getContinueToken() {
@@ -70,36 +73,53 @@ public class V1alpha1StorageVersionMigrationSpecFluent<A extends V1alpha1Storage
   }
   
   public ResourceNested<A> editResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(null));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(null));
   }
   
   public ResourceNested<A> editOrNewResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(new V1alpha1GroupVersionResourceBuilder().build()));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(new V1alpha1GroupVersionResourceBuilder().build()));
   }
   
   public ResourceNested<A> editOrNewResourceLike(V1alpha1GroupVersionResource item) {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(item));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1StorageVersionMigrationSpecFluent that = (V1alpha1StorageVersionMigrationSpecFluent) o;
-    if (!java.util.Objects.equals(continueToken, that.continueToken)) return false;
-    if (!java.util.Objects.equals(resource, that.resource)) return false;
+    if (!(Objects.equals(continueToken, that.continueToken))) {
+      return false;
+    }
+    if (!(Objects.equals(resource, that.resource))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(continueToken,  resource,  super.hashCode());
+    return Objects.hash(continueToken, resource);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (continueToken != null) { sb.append("continueToken:"); sb.append(continueToken + ","); }
-    if (resource != null) { sb.append("resource:"); sb.append(resource); }
+    if (!(continueToken == null)) {
+        sb.append("continueToken:");
+        sb.append(continueToken);
+        sb.append(",");
+    }
+    if (!(resource == null)) {
+        sb.append("resource:");
+        sb.append(resource);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2CounterSetBuilder extends V1beta2CounterSetFluent<V1beta2CounterSetBuilder> implements VisitableBuilder<V1beta2CounterSet,V1beta2CounterSetBuilder>{
   public V1beta2CounterSetBuilder() {
     this(new V1beta2CounterSet());

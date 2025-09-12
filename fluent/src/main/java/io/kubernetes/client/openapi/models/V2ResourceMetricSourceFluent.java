@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2ResourceMetricSourceFluent<A extends V2ResourceMetricSourceFluent<A>> extends BaseFluent<A>{
+public class V2ResourceMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent<A>> extends BaseFluent<A>{
   public V2ResourceMetricSourceFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V2ResourceMetricSourceFluent<A extends V2ResourceMetricSourceFluent
   private V2MetricTargetBuilder target;
   
   protected void copyInstance(V2ResourceMetricSource instance) {
-    instance = (instance != null ? instance : new V2ResourceMetricSource());
+    instance = instance != null ? instance : new V2ResourceMetricSource();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withTarget(instance.getTarget());
-        }
+        this.withName(instance.getName());
+        this.withTarget(instance.getTarget());
+    }
   }
   
   public String getName() {
@@ -70,36 +73,53 @@ public class V2ResourceMetricSourceFluent<A extends V2ResourceMetricSourceFluent
   }
   
   public TargetNested<A> editTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(null));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(null));
   }
   
   public TargetNested<A> editOrNewTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(new V2MetricTargetBuilder().build()));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(new V2MetricTargetBuilder().build()));
   }
   
   public TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(item));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2ResourceMetricSourceFluent that = (V2ResourceMetricSourceFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(target, that.target)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(target, that.target))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  target,  super.hashCode());
+    return Objects.hash(name, target);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (target != null) { sb.append("target:"); sb.append(target); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(target == null)) {
+        sb.append("target:");
+        sb.append(target);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -23,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1beta2DeviceAllocationResult;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,8 +53,13 @@ import io.kubernetes.client.openapi.JSON;
  * AllocationResult contains attributes of an allocated resource.
  */
 @ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta2AllocationResult {
+  public static final String SERIALIZED_NAME_ALLOCATION_TIMESTAMP = "allocationTimestamp";
+  @SerializedName(SERIALIZED_NAME_ALLOCATION_TIMESTAMP)
+  @jakarta.annotation.Nullable
+  private OffsetDateTime allocationTimestamp;
+
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
   @jakarta.annotation.Nullable
@@ -66,6 +72,26 @@ public class V1beta2AllocationResult {
 
   public V1beta2AllocationResult() {
   }
+
+  public V1beta2AllocationResult allocationTimestamp(@jakarta.annotation.Nullable OffsetDateTime allocationTimestamp) {
+    this.allocationTimestamp = allocationTimestamp;
+    return this;
+  }
+
+  /**
+   * AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.
+   * @return allocationTimestamp
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.")
+  public OffsetDateTime getAllocationTimestamp() {
+    return allocationTimestamp;
+  }
+
+  public void setAllocationTimestamp(@jakarta.annotation.Nullable OffsetDateTime allocationTimestamp) {
+    this.allocationTimestamp = allocationTimestamp;
+  }
+
 
   public V1beta2AllocationResult devices(@jakarta.annotation.Nullable V1beta2DeviceAllocationResult devices) {
     this.devices = devices;
@@ -117,19 +143,21 @@ public class V1beta2AllocationResult {
       return false;
     }
     V1beta2AllocationResult v1beta2AllocationResult = (V1beta2AllocationResult) o;
-    return Objects.equals(this.devices, v1beta2AllocationResult.devices) &&
+    return Objects.equals(this.allocationTimestamp, v1beta2AllocationResult.allocationTimestamp) &&
+        Objects.equals(this.devices, v1beta2AllocationResult.devices) &&
         Objects.equals(this.nodeSelector, v1beta2AllocationResult.nodeSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(devices, nodeSelector);
+    return Objects.hash(allocationTimestamp, devices, nodeSelector);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2AllocationResult {\n");
+    sb.append("    allocationTimestamp: ").append(toIndentedString(allocationTimestamp)).append("\n");
     sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("}");
@@ -154,6 +182,7 @@ public class V1beta2AllocationResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("allocationTimestamp");
     openapiFields.add("devices");
     openapiFields.add("nodeSelector");
 

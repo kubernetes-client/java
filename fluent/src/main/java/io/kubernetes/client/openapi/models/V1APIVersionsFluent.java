@@ -1,13 +1,15 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseFluent<A>{
+public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V1APIVersionsFluent<A>> extends BaseFluent<A>{
   public V1APIVersionsFluent() {
   }
   
@@ -29,13 +31,13 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   private List<String> versions;
   
   protected void copyInstance(V1APIVersions instance) {
-    instance = (instance != null ? instance : new V1APIVersions());
+    instance = instance != null ? instance : new V1APIVersions();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-          this.withVersions(instance.getVersions());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+        this.withVersions(instance.getVersions());
+    }
   }
   
   public String getApiVersion() {
@@ -65,7 +67,9 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   }
   
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
         _visitables.get("serverAddressByClientCIDRs").add(builder);
@@ -74,11 +78,13 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
         _visitables.get("serverAddressByClientCIDRs").add(builder);
         serverAddressByClientCIDRs.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
         _visitables.get("serverAddressByClientCIDRs").add(builder);
@@ -87,41 +93,71 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
         _visitables.get("serverAddressByClientCIDRs").add(builder);
         serverAddressByClientCIDRs.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").add(builder);this.serverAddressByClientCIDRs.add(builder);} return (A)this;
+  public A addToServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").add(builder);this.serverAddressByClientCIDRs.add(builder);} return (A)this;
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
-    if (this.serverAddressByClientCIDRs == null) return (A)this;
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").remove(builder); this.serverAddressByClientCIDRs.remove(builder);} return (A)this;
+  public A removeFromServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
+    if (this.serverAddressByClientCIDRs == null) {
+      return (A) this;
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").remove(builder);
+        this.serverAddressByClientCIDRs.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
-    if (this.serverAddressByClientCIDRs == null) return (A)this;
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").remove(builder); this.serverAddressByClientCIDRs.remove(builder);} return (A)this;
+    if (this.serverAddressByClientCIDRs == null) {
+      return (A) this;
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").remove(builder);
+        this.serverAddressByClientCIDRs.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromServerAddressByClientCIDRs(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
-    if (serverAddressByClientCIDRs == null) return (A) this;
-    final Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
-    final List visitables = _visitables.get("serverAddressByClientCIDRs");
-    while (each.hasNext()) {
-      V1ServerAddressByClientCIDRBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (serverAddressByClientCIDRs == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
+    List visitables = _visitables.get("serverAddressByClientCIDRs");
+    while (each.hasNext()) {
+        V1ServerAddressByClientCIDRBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
@@ -173,7 +209,7 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... serverAddressByClientCIDRs) {
+  public A withServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... serverAddressByClientCIDRs) {
     if (this.serverAddressByClientCIDRs != null) {
         this.serverAddressByClientCIDRs.clear();
         _visitables.remove("serverAddressByClientCIDRs");
@@ -187,7 +223,7 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   }
   
   public boolean hasServerAddressByClientCIDRs() {
-    return this.serverAddressByClientCIDRs != null && !this.serverAddressByClientCIDRs.isEmpty();
+    return this.serverAddressByClientCIDRs != null && !(this.serverAddressByClientCIDRs.isEmpty());
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
@@ -203,59 +239,95 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   }
   
   public ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(int index) {
-    if (serverAddressByClientCIDRs.size() <= index) throw new RuntimeException("Can't edit serverAddressByClientCIDRs. Index exceeds size.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    if (index <= serverAddressByClientCIDRs.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR() {
-    if (serverAddressByClientCIDRs.size() == 0) throw new RuntimeException("Can't edit first serverAddressByClientCIDRs. The list is empty.");
-    return setNewServerAddressByClientCIDRLike(0, buildServerAddressByClientCIDR(0));
+    if (serverAddressByClientCIDRs.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(0, this.buildServerAddressByClientCIDR(0));
   }
   
   public ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR() {
     int index = serverAddressByClientCIDRs.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last serverAddressByClientCIDRs. The list is empty.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<serverAddressByClientCIDRs.size();i++) { 
-    if (predicate.test(serverAddressByClientCIDRs.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching serverAddressByClientCIDRs. No match found.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    for (int i = 0;i < serverAddressByClientCIDRs.size();i++) {
+      if (predicate.test(serverAddressByClientCIDRs.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public A addToVersions(int index,String item) {
-    if (this.versions == null) {this.versions = new ArrayList<String>();}
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
     this.versions.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVersions(int index,String item) {
-    if (this.versions == null) {this.versions = new ArrayList<String>();}
-    this.versions.set(index, item); return (A)this;
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
+    this.versions.set(index, item);
+    return (A) this;
   }
   
-  public A addToVersions(java.lang.String... items) {
-    if (this.versions == null) {this.versions = new ArrayList<String>();}
-    for (String item : items) {this.versions.add(item);} return (A)this;
+  public A addToVersions(String... items) {
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
+    for (String item : items) {
+      this.versions.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToVersions(Collection<String> items) {
-    if (this.versions == null) {this.versions = new ArrayList<String>();}
-    for (String item : items) {this.versions.add(item);} return (A)this;
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
+    for (String item : items) {
+      this.versions.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromVersions(java.lang.String... items) {
-    if (this.versions == null) return (A)this;
-    for (String item : items) { this.versions.remove(item);} return (A)this;
+  public A removeFromVersions(String... items) {
+    if (this.versions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.versions.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVersions(Collection<String> items) {
-    if (this.versions == null) return (A)this;
-    for (String item : items) { this.versions.remove(item);} return (A)this;
+    if (this.versions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.versions.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getVersions() {
@@ -304,7 +376,7 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
     return (A) this;
   }
   
-  public A withVersions(java.lang.String... versions) {
+  public A withVersions(String... versions) {
     if (this.versions != null) {
         this.versions.clear();
         _visitables.remove("versions");
@@ -318,32 +390,61 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
   }
   
   public boolean hasVersions() {
-    return this.versions != null && !this.versions.isEmpty();
+    return this.versions != null && !(this.versions.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1APIVersionsFluent that = (V1APIVersionsFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(serverAddressByClientCIDRs, that.serverAddressByClientCIDRs)) return false;
-    if (!java.util.Objects.equals(versions, that.versions)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(serverAddressByClientCIDRs, that.serverAddressByClientCIDRs))) {
+      return false;
+    }
+    if (!(Objects.equals(versions, that.versions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  serverAddressByClientCIDRs,  versions,  super.hashCode());
+    return Objects.hash(apiVersion, kind, serverAddressByClientCIDRs, versions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (serverAddressByClientCIDRs != null && !serverAddressByClientCIDRs.isEmpty()) { sb.append("serverAddressByClientCIDRs:"); sb.append(serverAddressByClientCIDRs + ","); }
-    if (versions != null && !versions.isEmpty()) { sb.append("versions:"); sb.append(versions); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(serverAddressByClientCIDRs == null) && !(serverAddressByClientCIDRs.isEmpty())) {
+        sb.append("serverAddressByClientCIDRs:");
+        sb.append(serverAddressByClientCIDRs);
+        sb.append(",");
+    }
+    if (!(versions == null) && !(versions.isEmpty())) {
+        sb.append("versions:");
+        sb.append(versions);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -356,7 +457,7 @@ public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseF
     int index;
     
     public N and() {
-      return (N) V1APIVersionsFluent.this.setToServerAddressByClientCIDRs(index,builder.build());
+      return (N) V1APIVersionsFluent.this.setToServerAddressByClientCIDRs(index, builder.build());
     }
     
     public N endServerAddressByClientCIDR() {

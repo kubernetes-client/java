@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluent<V1APIServiceSpecBuilder> implements VisitableBuilder<V1APIServiceSpec,V1APIServiceSpecBuilder>{
   public V1APIServiceSpecBuilder() {
     this(new V1APIServiceSpec());

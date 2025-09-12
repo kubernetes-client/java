@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CrossVersionObjectReferenceBuilder extends V1CrossVersionObjectReferenceFluent<V1CrossVersionObjectReferenceBuilder> implements VisitableBuilder<V1CrossVersionObjectReference,V1CrossVersionObjectReferenceBuilder>{
   public V1CrossVersionObjectReferenceBuilder() {
     this(new V1CrossVersionObjectReference());

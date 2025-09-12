@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeClaimConditionFluent<V1PersistentVolumeClaimConditionBuilder> implements VisitableBuilder<V1PersistentVolumeClaimCondition,V1PersistentVolumeClaimConditionBuilder>{
   public V1PersistentVolumeClaimConditionBuilder() {
     this(new V1PersistentVolumeClaimCondition());

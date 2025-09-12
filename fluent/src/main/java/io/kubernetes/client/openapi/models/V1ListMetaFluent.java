@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends BaseFluent<A>{
+public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1ListMetaFluent<A>> extends BaseFluent<A>{
   public V1ListMetaFluent() {
   }
   
@@ -23,13 +25,13 @@ public class V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends BaseFluent<
   private String selfLink;
   
   protected void copyInstance(V1ListMeta instance) {
-    instance = (instance != null ? instance : new V1ListMeta());
+    instance = instance != null ? instance : new V1ListMeta();
     if (instance != null) {
-          this.withContinue(instance.getContinue());
-          this.withRemainingItemCount(instance.getRemainingItemCount());
-          this.withResourceVersion(instance.getResourceVersion());
-          this.withSelfLink(instance.getSelfLink());
-        }
+        this.withContinue(instance.getContinue());
+        this.withRemainingItemCount(instance.getRemainingItemCount());
+        this.withResourceVersion(instance.getResourceVersion());
+        this.withSelfLink(instance.getSelfLink());
+    }
   }
   
   public String getContinue() {
@@ -85,28 +87,57 @@ public class V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends BaseFluent<
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ListMetaFluent that = (V1ListMetaFluent) o;
-    if (!java.util.Objects.equals(_continue, that._continue)) return false;
-    if (!java.util.Objects.equals(remainingItemCount, that.remainingItemCount)) return false;
-    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
-    if (!java.util.Objects.equals(selfLink, that.selfLink)) return false;
+    if (!(Objects.equals(_continue, that._continue))) {
+      return false;
+    }
+    if (!(Objects.equals(remainingItemCount, that.remainingItemCount))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceVersion, that.resourceVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(selfLink, that.selfLink))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(_continue,  remainingItemCount,  resourceVersion,  selfLink,  super.hashCode());
+    return Objects.hash(_continue, remainingItemCount, resourceVersion, selfLink);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (_continue != null) { sb.append("_continue:"); sb.append(_continue + ","); }
-    if (remainingItemCount != null) { sb.append("remainingItemCount:"); sb.append(remainingItemCount + ","); }
-    if (resourceVersion != null) { sb.append("resourceVersion:"); sb.append(resourceVersion + ","); }
-    if (selfLink != null) { sb.append("selfLink:"); sb.append(selfLink); }
+    if (!(_continue == null)) {
+        sb.append("_continue:");
+        sb.append(_continue);
+        sb.append(",");
+    }
+    if (!(remainingItemCount == null)) {
+        sb.append("remainingItemCount:");
+        sb.append(remainingItemCount);
+        sb.append(",");
+    }
+    if (!(resourceVersion == null)) {
+        sb.append("resourceVersion:");
+        sb.append(resourceVersion);
+        sb.append(",");
+    }
+    if (!(selfLink == null)) {
+        sb.append("selfLink:");
+        sb.append(selfLink);
+    }
     sb.append("}");
     return sb.toString();
   }

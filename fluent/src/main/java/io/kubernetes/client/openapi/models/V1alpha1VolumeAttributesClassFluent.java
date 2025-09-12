@@ -1,10 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.util.Map;
 
@@ -12,7 +15,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1VolumeAttributesClassFluent<A extends V1alpha1VolumeAttributesClassFluent<A>> extends BaseFluent<A>{
+public class V1alpha1VolumeAttributesClassFluent<A extends io.kubernetes.client.openapi.models.V1alpha1VolumeAttributesClassFluent<A>> extends BaseFluent<A>{
   public V1alpha1VolumeAttributesClassFluent() {
   }
   
@@ -26,14 +29,14 @@ public class V1alpha1VolumeAttributesClassFluent<A extends V1alpha1VolumeAttribu
   private Map<String,String> parameters;
   
   protected void copyInstance(V1alpha1VolumeAttributesClass instance) {
-    instance = (instance != null ? instance : new V1alpha1VolumeAttributesClass());
+    instance = instance != null ? instance : new V1alpha1VolumeAttributesClass();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withDriverName(instance.getDriverName());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withParameters(instance.getParameters());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withDriverName(instance.getDriverName());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withParameters(instance.getParameters());
+    }
   }
   
   public String getApiVersion() {
@@ -104,35 +107,59 @@ public class V1alpha1VolumeAttributesClassFluent<A extends V1alpha1VolumeAttribu
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToParameters(String key,String value) {
-    if(this.parameters == null && key != null && value != null) { this.parameters = new LinkedHashMap(); }
-    if(key != null && value != null) {this.parameters.put(key, value);} return (A)this;
+    if (this.parameters == null && key != null && value != null) {
+      this.parameters = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.parameters.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToParameters(Map<String,String> map) {
-    if(this.parameters == null && map != null) { this.parameters = new LinkedHashMap(); }
-    if(map != null) { this.parameters.putAll(map);} return (A)this;
+    if (this.parameters == null && map != null) {
+      this.parameters = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.parameters.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromParameters(String key) {
-    if(this.parameters == null) { return (A) this; }
-    if(key != null && this.parameters != null) {this.parameters.remove(key);} return (A)this;
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (key != null && this.parameters != null) {
+      this.parameters.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromParameters(Map<String,String> map) {
-    if(this.parameters == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.parameters != null){this.parameters.remove(key);}}} return (A)this;
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.parameters != null) {
+          this.parameters.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getParameters() {
@@ -153,30 +180,65 @@ public class V1alpha1VolumeAttributesClassFluent<A extends V1alpha1VolumeAttribu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1VolumeAttributesClassFluent that = (V1alpha1VolumeAttributesClassFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(driverName, that.driverName)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(parameters, that.parameters)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(driverName, that.driverName))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(parameters, that.parameters))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  driverName,  kind,  metadata,  parameters,  super.hashCode());
+    return Objects.hash(apiVersion, driverName, kind, metadata, parameters);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (driverName != null) { sb.append("driverName:"); sb.append(driverName + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (parameters != null && !parameters.isEmpty()) { sb.append("parameters:"); sb.append(parameters); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(driverName == null)) {
+        sb.append("driverName:");
+        sb.append(driverName);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(parameters == null) && !(parameters.isEmpty())) {
+        sb.append("parameters:");
+        sb.append(parameters);
+    }
     sb.append("}");
     return sb.toString();
   }

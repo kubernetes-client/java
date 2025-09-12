@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1beta2CapacityRequestPolicy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -51,8 +52,13 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceCapacity describes a quantity associated with a device.
  */
 @ApiModel(description = "DeviceCapacity describes a quantity associated with a device.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta2DeviceCapacity {
+  public static final String SERIALIZED_NAME_REQUEST_POLICY = "requestPolicy";
+  @SerializedName(SERIALIZED_NAME_REQUEST_POLICY)
+  @jakarta.annotation.Nullable
+  private V1beta2CapacityRequestPolicy requestPolicy;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @jakarta.annotation.Nonnull
@@ -60,6 +66,26 @@ public class V1beta2DeviceCapacity {
 
   public V1beta2DeviceCapacity() {
   }
+
+  public V1beta2DeviceCapacity requestPolicy(@jakarta.annotation.Nullable V1beta2CapacityRequestPolicy requestPolicy) {
+    this.requestPolicy = requestPolicy;
+    return this;
+  }
+
+  /**
+   * Get requestPolicy
+   * @return requestPolicy
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1beta2CapacityRequestPolicy getRequestPolicy() {
+    return requestPolicy;
+  }
+
+  public void setRequestPolicy(@jakarta.annotation.Nullable V1beta2CapacityRequestPolicy requestPolicy) {
+    this.requestPolicy = requestPolicy;
+  }
+
 
   public V1beta2DeviceCapacity value(@jakarta.annotation.Nonnull Quantity value) {
     this.value = value;
@@ -91,18 +117,20 @@ public class V1beta2DeviceCapacity {
       return false;
     }
     V1beta2DeviceCapacity v1beta2DeviceCapacity = (V1beta2DeviceCapacity) o;
-    return Objects.equals(this.value, v1beta2DeviceCapacity.value);
+    return Objects.equals(this.requestPolicy, v1beta2DeviceCapacity.requestPolicy) &&
+        Objects.equals(this.value, v1beta2DeviceCapacity.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(requestPolicy, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2DeviceCapacity {\n");
+    sb.append("    requestPolicy: ").append(toIndentedString(requestPolicy)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -126,6 +154,7 @@ public class V1beta2DeviceCapacity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("requestPolicy");
     openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
@@ -161,6 +190,10 @@ public class V1beta2DeviceCapacity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `requestPolicy`
+      if (jsonObj.get("requestPolicy") != null && !jsonObj.get("requestPolicy").isJsonNull()) {
+        V1beta2CapacityRequestPolicy.validateJsonElement(jsonObj.get("requestPolicy"));
+      }
       if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent<A>> extends BaseFluent<A>{
+public class V1VolumeNodeAffinityFluent<A extends io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<A>> extends BaseFluent<A>{
   public V1VolumeNodeAffinityFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent<A>>
   private V1NodeSelectorBuilder required;
   
   protected void copyInstance(V1VolumeNodeAffinity instance) {
-    instance = (instance != null ? instance : new V1VolumeNodeAffinity());
+    instance = instance != null ? instance : new V1VolumeNodeAffinity();
     if (instance != null) {
-          this.withRequired(instance.getRequired());
-        }
+      this.withRequired(instance.getRequired());
+    }
   }
   
   public V1NodeSelector buildRequired() {
@@ -55,34 +58,45 @@ public class V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent<A>>
   }
   
   public RequiredNested<A> editRequired() {
-    return withNewRequiredLike(java.util.Optional.ofNullable(buildRequired()).orElse(null));
+    return this.withNewRequiredLike(Optional.ofNullable(this.buildRequired()).orElse(null));
   }
   
   public RequiredNested<A> editOrNewRequired() {
-    return withNewRequiredLike(java.util.Optional.ofNullable(buildRequired()).orElse(new V1NodeSelectorBuilder().build()));
+    return this.withNewRequiredLike(Optional.ofNullable(this.buildRequired()).orElse(new V1NodeSelectorBuilder().build()));
   }
   
   public RequiredNested<A> editOrNewRequiredLike(V1NodeSelector item) {
-    return withNewRequiredLike(java.util.Optional.ofNullable(buildRequired()).orElse(item));
+    return this.withNewRequiredLike(Optional.ofNullable(this.buildRequired()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeNodeAffinityFluent that = (V1VolumeNodeAffinityFluent) o;
-    if (!java.util.Objects.equals(required, that.required)) return false;
+    if (!(Objects.equals(required, that.required))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(required,  super.hashCode());
+    return Objects.hash(required);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (required != null) { sb.append("required:"); sb.append(required); }
+    if (!(required == null)) {
+        sb.append("required:");
+        sb.append(required);
+    }
     sb.append("}");
     return sb.toString();
   }

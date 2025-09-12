@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends BaseFluent<A>{
+public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.V1RuntimeClassFluent<A>> extends BaseFluent<A>{
   public V1RuntimeClassFluent() {
   }
   
@@ -25,15 +28,15 @@ public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends Bas
   private V1SchedulingBuilder scheduling;
   
   protected void copyInstance(V1RuntimeClass instance) {
-    instance = (instance != null ? instance : new V1RuntimeClass());
+    instance = instance != null ? instance : new V1RuntimeClass();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withHandler(instance.getHandler());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withOverhead(instance.getOverhead());
-          this.withScheduling(instance.getScheduling());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withHandler(instance.getHandler());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withOverhead(instance.getOverhead());
+        this.withScheduling(instance.getScheduling());
+    }
   }
   
   public String getApiVersion() {
@@ -104,15 +107,15 @@ public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends Bas
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public V1Overhead buildOverhead() {
@@ -144,15 +147,15 @@ public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends Bas
   }
   
   public OverheadNested<A> editOverhead() {
-    return withNewOverheadLike(java.util.Optional.ofNullable(buildOverhead()).orElse(null));
+    return this.withNewOverheadLike(Optional.ofNullable(this.buildOverhead()).orElse(null));
   }
   
   public OverheadNested<A> editOrNewOverhead() {
-    return withNewOverheadLike(java.util.Optional.ofNullable(buildOverhead()).orElse(new V1OverheadBuilder().build()));
+    return this.withNewOverheadLike(Optional.ofNullable(this.buildOverhead()).orElse(new V1OverheadBuilder().build()));
   }
   
   public OverheadNested<A> editOrNewOverheadLike(V1Overhead item) {
-    return withNewOverheadLike(java.util.Optional.ofNullable(buildOverhead()).orElse(item));
+    return this.withNewOverheadLike(Optional.ofNullable(this.buildOverhead()).orElse(item));
   }
   
   public V1Scheduling buildScheduling() {
@@ -184,44 +187,85 @@ public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends Bas
   }
   
   public SchedulingNested<A> editScheduling() {
-    return withNewSchedulingLike(java.util.Optional.ofNullable(buildScheduling()).orElse(null));
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(null));
   }
   
   public SchedulingNested<A> editOrNewScheduling() {
-    return withNewSchedulingLike(java.util.Optional.ofNullable(buildScheduling()).orElse(new V1SchedulingBuilder().build()));
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(new V1SchedulingBuilder().build()));
   }
   
   public SchedulingNested<A> editOrNewSchedulingLike(V1Scheduling item) {
-    return withNewSchedulingLike(java.util.Optional.ofNullable(buildScheduling()).orElse(item));
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1RuntimeClassFluent that = (V1RuntimeClassFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(handler, that.handler)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(overhead, that.overhead)) return false;
-    if (!java.util.Objects.equals(scheduling, that.scheduling)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(handler, that.handler))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(overhead, that.overhead))) {
+      return false;
+    }
+    if (!(Objects.equals(scheduling, that.scheduling))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  handler,  kind,  metadata,  overhead,  scheduling,  super.hashCode());
+    return Objects.hash(apiVersion, handler, kind, metadata, overhead, scheduling);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (handler != null) { sb.append("handler:"); sb.append(handler + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (overhead != null) { sb.append("overhead:"); sb.append(overhead + ","); }
-    if (scheduling != null) { sb.append("scheduling:"); sb.append(scheduling); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(handler == null)) {
+        sb.append("handler:");
+        sb.append(handler);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(overhead == null)) {
+        sb.append("overhead:");
+        sb.append(overhead);
+        sb.append(",");
+    }
+    if (!(scheduling == null)) {
+        sb.append("scheduling:");
+        sb.append(scheduling);
+    }
     sb.append("}");
     return sb.toString();
   }

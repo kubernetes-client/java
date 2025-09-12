@@ -1,21 +1,23 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.lang.String;
+import java.util.LinkedHashMap;
+import java.util.function.Predicate;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
-import java.lang.String;
 import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<A>{
+public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1UserInfoFluent<A>> extends BaseFluent<A>{
   public V1UserInfoFluent() {
   }
   
@@ -28,33 +30,57 @@ public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<
   private String username;
   
   protected void copyInstance(V1UserInfo instance) {
-    instance = (instance != null ? instance : new V1UserInfo());
+    instance = instance != null ? instance : new V1UserInfo();
     if (instance != null) {
-          this.withExtra(instance.getExtra());
-          this.withGroups(instance.getGroups());
-          this.withUid(instance.getUid());
-          this.withUsername(instance.getUsername());
-        }
+        this.withExtra(instance.getExtra());
+        this.withGroups(instance.getGroups());
+        this.withUid(instance.getUid());
+        this.withUsername(instance.getUsername());
+    }
   }
   
   public A addToExtra(String key,List<String> value) {
-    if(this.extra == null && key != null && value != null) { this.extra = new LinkedHashMap(); }
-    if(key != null && value != null) {this.extra.put(key, value);} return (A)this;
+    if (this.extra == null && key != null && value != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.extra.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToExtra(Map<String,List<String>> map) {
-    if(this.extra == null && map != null) { this.extra = new LinkedHashMap(); }
-    if(map != null) { this.extra.putAll(map);} return (A)this;
+    if (this.extra == null && map != null) {
+      this.extra = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.extra.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(String key) {
-    if(this.extra == null) { return (A) this; }
-    if(key != null && this.extra != null) {this.extra.remove(key);} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (key != null && this.extra != null) {
+      this.extra.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromExtra(Map<String,List<String>> map) {
-    if(this.extra == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.extra != null){this.extra.remove(key);}}} return (A)this;
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.extra != null) {
+          this.extra.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,List<String>> getExtra() {
@@ -75,34 +101,59 @@ public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<
   }
   
   public A addToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
     this.groups.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToGroups(int index,String item) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    this.groups.set(index, item); return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    this.groups.set(index, item);
+    return (A) this;
   }
   
-  public A addToGroups(java.lang.String... items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+  public A addToGroups(String... items) {
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToGroups(Collection<String> items) {
-    if (this.groups == null) {this.groups = new ArrayList<String>();}
-    for (String item : items) {this.groups.add(item);} return (A)this;
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    for (String item : items) {
+      this.groups.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromGroups(java.lang.String... items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+  public A removeFromGroups(String... items) {
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromGroups(Collection<String> items) {
-    if (this.groups == null) return (A)this;
-    for (String item : items) { this.groups.remove(item);} return (A)this;
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getGroups() {
@@ -151,7 +202,7 @@ public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withGroups(java.lang.String... groups) {
+  public A withGroups(String... groups) {
     if (this.groups != null) {
         this.groups.clear();
         _visitables.remove("groups");
@@ -165,7 +216,7 @@ public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<
   }
   
   public boolean hasGroups() {
-    return this.groups != null && !this.groups.isEmpty();
+    return this.groups != null && !(this.groups.isEmpty());
   }
   
   public String getUid() {
@@ -195,28 +246,57 @@ public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1UserInfoFluent that = (V1UserInfoFluent) o;
-    if (!java.util.Objects.equals(extra, that.extra)) return false;
-    if (!java.util.Objects.equals(groups, that.groups)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
-    if (!java.util.Objects.equals(username, that.username)) return false;
+    if (!(Objects.equals(extra, that.extra))) {
+      return false;
+    }
+    if (!(Objects.equals(groups, that.groups))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
+    if (!(Objects.equals(username, that.username))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(extra,  groups,  uid,  username,  super.hashCode());
+    return Objects.hash(extra, groups, uid, username);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (extra != null && !extra.isEmpty()) { sb.append("extra:"); sb.append(extra + ","); }
-    if (groups != null && !groups.isEmpty()) { sb.append("groups:"); sb.append(groups + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid + ","); }
-    if (username != null) { sb.append("username:"); sb.append(username); }
+    if (!(extra == null) && !(extra.isEmpty())) {
+        sb.append("extra:");
+        sb.append(extra);
+        sb.append(",");
+    }
+    if (!(groups == null) && !(groups.isEmpty())) {
+        sb.append("groups:");
+        sb.append(groups);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+        sb.append(",");
+    }
+    if (!(username == null)) {
+        sb.append("username:");
+        sb.append(username);
+    }
     sb.append("}");
     return sb.toString();
   }

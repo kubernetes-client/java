@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EnvVarSourceBuilder extends V1EnvVarSourceFluent<V1EnvVarSourceBuilder> implements VisitableBuilder<V1EnvVarSource,V1EnvVarSourceBuilder>{
   public V1EnvVarSourceBuilder() {
     this(new V1EnvVarSource());
@@ -25,6 +26,7 @@ public class V1EnvVarSourceBuilder extends V1EnvVarSourceFluent<V1EnvVarSourceBu
     V1EnvVarSource buildable = new V1EnvVarSource();
     buildable.setConfigMapKeyRef(fluent.buildConfigMapKeyRef());
     buildable.setFieldRef(fluent.buildFieldRef());
+    buildable.setFileKeyRef(fluent.buildFileKeyRef());
     buildable.setResourceFieldRef(fluent.buildResourceFieldRef());
     buildable.setSecretKeyRef(fluent.buildSecretKeyRef());
     return buildable;

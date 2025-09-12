@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -8,6 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -16,7 +19,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<A>{
+public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1EndpointFluent<A>> extends BaseFluent<A>{
   public V1EndpointFluent() {
   }
   
@@ -33,48 +36,73 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   private String zone;
   
   protected void copyInstance(V1Endpoint instance) {
-    instance = (instance != null ? instance : new V1Endpoint());
+    instance = instance != null ? instance : new V1Endpoint();
     if (instance != null) {
-          this.withAddresses(instance.getAddresses());
-          this.withConditions(instance.getConditions());
-          this.withDeprecatedTopology(instance.getDeprecatedTopology());
-          this.withHints(instance.getHints());
-          this.withHostname(instance.getHostname());
-          this.withNodeName(instance.getNodeName());
-          this.withTargetRef(instance.getTargetRef());
-          this.withZone(instance.getZone());
-        }
+        this.withAddresses(instance.getAddresses());
+        this.withConditions(instance.getConditions());
+        this.withDeprecatedTopology(instance.getDeprecatedTopology());
+        this.withHints(instance.getHints());
+        this.withHostname(instance.getHostname());
+        this.withNodeName(instance.getNodeName());
+        this.withTargetRef(instance.getTargetRef());
+        this.withZone(instance.getZone());
+    }
   }
   
   public A addToAddresses(int index,String item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<String>();}
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
     this.addresses.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAddresses(int index,String item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<String>();}
-    this.addresses.set(index, item); return (A)this;
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    this.addresses.set(index, item);
+    return (A) this;
   }
   
-  public A addToAddresses(java.lang.String... items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<String>();}
-    for (String item : items) {this.addresses.add(item);} return (A)this;
+  public A addToAddresses(String... items) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (String item : items) {
+      this.addresses.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAddresses(Collection<String> items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<String>();}
-    for (String item : items) {this.addresses.add(item);} return (A)this;
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (String item : items) {
+      this.addresses.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAddresses(java.lang.String... items) {
-    if (this.addresses == null) return (A)this;
-    for (String item : items) { this.addresses.remove(item);} return (A)this;
+  public A removeFromAddresses(String... items) {
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.addresses.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAddresses(Collection<String> items) {
-    if (this.addresses == null) return (A)this;
-    for (String item : items) { this.addresses.remove(item);} return (A)this;
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.addresses.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAddresses() {
@@ -123,7 +151,7 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withAddresses(java.lang.String... addresses) {
+  public A withAddresses(String... addresses) {
     if (this.addresses != null) {
         this.addresses.clear();
         _visitables.remove("addresses");
@@ -137,7 +165,7 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   }
   
   public boolean hasAddresses() {
-    return this.addresses != null && !this.addresses.isEmpty();
+    return this.addresses != null && !(this.addresses.isEmpty());
   }
   
   public V1EndpointConditions buildConditions() {
@@ -169,35 +197,59 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   }
   
   public ConditionsNested<A> editConditions() {
-    return withNewConditionsLike(java.util.Optional.ofNullable(buildConditions()).orElse(null));
+    return this.withNewConditionsLike(Optional.ofNullable(this.buildConditions()).orElse(null));
   }
   
   public ConditionsNested<A> editOrNewConditions() {
-    return withNewConditionsLike(java.util.Optional.ofNullable(buildConditions()).orElse(new V1EndpointConditionsBuilder().build()));
+    return this.withNewConditionsLike(Optional.ofNullable(this.buildConditions()).orElse(new V1EndpointConditionsBuilder().build()));
   }
   
   public ConditionsNested<A> editOrNewConditionsLike(V1EndpointConditions item) {
-    return withNewConditionsLike(java.util.Optional.ofNullable(buildConditions()).orElse(item));
+    return this.withNewConditionsLike(Optional.ofNullable(this.buildConditions()).orElse(item));
   }
   
   public A addToDeprecatedTopology(String key,String value) {
-    if(this.deprecatedTopology == null && key != null && value != null) { this.deprecatedTopology = new LinkedHashMap(); }
-    if(key != null && value != null) {this.deprecatedTopology.put(key, value);} return (A)this;
+    if (this.deprecatedTopology == null && key != null && value != null) {
+      this.deprecatedTopology = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.deprecatedTopology.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToDeprecatedTopology(Map<String,String> map) {
-    if(this.deprecatedTopology == null && map != null) { this.deprecatedTopology = new LinkedHashMap(); }
-    if(map != null) { this.deprecatedTopology.putAll(map);} return (A)this;
+    if (this.deprecatedTopology == null && map != null) {
+      this.deprecatedTopology = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.deprecatedTopology.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromDeprecatedTopology(String key) {
-    if(this.deprecatedTopology == null) { return (A) this; }
-    if(key != null && this.deprecatedTopology != null) {this.deprecatedTopology.remove(key);} return (A)this;
+    if (this.deprecatedTopology == null) {
+      return (A) this;
+    }
+    if (key != null && this.deprecatedTopology != null) {
+      this.deprecatedTopology.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromDeprecatedTopology(Map<String,String> map) {
-    if(this.deprecatedTopology == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.deprecatedTopology != null){this.deprecatedTopology.remove(key);}}} return (A)this;
+    if (this.deprecatedTopology == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.deprecatedTopology != null) {
+          this.deprecatedTopology.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getDeprecatedTopology() {
@@ -246,15 +298,15 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   }
   
   public HintsNested<A> editHints() {
-    return withNewHintsLike(java.util.Optional.ofNullable(buildHints()).orElse(null));
+    return this.withNewHintsLike(Optional.ofNullable(this.buildHints()).orElse(null));
   }
   
   public HintsNested<A> editOrNewHints() {
-    return withNewHintsLike(java.util.Optional.ofNullable(buildHints()).orElse(new V1EndpointHintsBuilder().build()));
+    return this.withNewHintsLike(Optional.ofNullable(this.buildHints()).orElse(new V1EndpointHintsBuilder().build()));
   }
   
   public HintsNested<A> editOrNewHintsLike(V1EndpointHints item) {
-    return withNewHintsLike(java.util.Optional.ofNullable(buildHints()).orElse(item));
+    return this.withNewHintsLike(Optional.ofNullable(this.buildHints()).orElse(item));
   }
   
   public String getHostname() {
@@ -312,15 +364,15 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   }
   
   public TargetRefNested<A> editTargetRef() {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(null));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(null));
   }
   
   public TargetRefNested<A> editOrNewTargetRef() {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(item));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(item));
   }
   
   public String getZone() {
@@ -337,36 +389,89 @@ public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointFluent that = (V1EndpointFluent) o;
-    if (!java.util.Objects.equals(addresses, that.addresses)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(deprecatedTopology, that.deprecatedTopology)) return false;
-    if (!java.util.Objects.equals(hints, that.hints)) return false;
-    if (!java.util.Objects.equals(hostname, that.hostname)) return false;
-    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
-    if (!java.util.Objects.equals(targetRef, that.targetRef)) return false;
-    if (!java.util.Objects.equals(zone, that.zone)) return false;
+    if (!(Objects.equals(addresses, that.addresses))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(deprecatedTopology, that.deprecatedTopology))) {
+      return false;
+    }
+    if (!(Objects.equals(hints, that.hints))) {
+      return false;
+    }
+    if (!(Objects.equals(hostname, that.hostname))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeName, that.nodeName))) {
+      return false;
+    }
+    if (!(Objects.equals(targetRef, that.targetRef))) {
+      return false;
+    }
+    if (!(Objects.equals(zone, that.zone))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addresses,  conditions,  deprecatedTopology,  hints,  hostname,  nodeName,  targetRef,  zone,  super.hashCode());
+    return Objects.hash(addresses, conditions, deprecatedTopology, hints, hostname, nodeName, targetRef, zone);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (addresses != null && !addresses.isEmpty()) { sb.append("addresses:"); sb.append(addresses + ","); }
-    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (deprecatedTopology != null && !deprecatedTopology.isEmpty()) { sb.append("deprecatedTopology:"); sb.append(deprecatedTopology + ","); }
-    if (hints != null) { sb.append("hints:"); sb.append(hints + ","); }
-    if (hostname != null) { sb.append("hostname:"); sb.append(hostname + ","); }
-    if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
-    if (targetRef != null) { sb.append("targetRef:"); sb.append(targetRef + ","); }
-    if (zone != null) { sb.append("zone:"); sb.append(zone); }
+    if (!(addresses == null) && !(addresses.isEmpty())) {
+        sb.append("addresses:");
+        sb.append(addresses);
+        sb.append(",");
+    }
+    if (!(conditions == null)) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(deprecatedTopology == null) && !(deprecatedTopology.isEmpty())) {
+        sb.append("deprecatedTopology:");
+        sb.append(deprecatedTopology);
+        sb.append(",");
+    }
+    if (!(hints == null)) {
+        sb.append("hints:");
+        sb.append(hints);
+        sb.append(",");
+    }
+    if (!(hostname == null)) {
+        sb.append("hostname:");
+        sb.append(hostname);
+        sb.append(",");
+    }
+    if (!(nodeName == null)) {
+        sb.append("nodeName:");
+        sb.append(nodeName);
+        sb.append(",");
+    }
+    if (!(targetRef == null)) {
+        sb.append("targetRef:");
+        sb.append(targetRef);
+        sb.append(",");
+    }
+    if (!(zone == null)) {
+        sb.append("zone:");
+        sb.append(zone);
+    }
     sb.append("}");
     return sb.toString();
   }

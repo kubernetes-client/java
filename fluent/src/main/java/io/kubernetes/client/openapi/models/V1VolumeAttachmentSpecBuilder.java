@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeAttachmentSpecBuilder extends V1VolumeAttachmentSpecFluent<V1VolumeAttachmentSpecBuilder> implements VisitableBuilder<V1VolumeAttachmentSpec,V1VolumeAttachmentSpecBuilder>{
   public V1VolumeAttachmentSpecBuilder() {
     this(new V1VolumeAttachmentSpec());

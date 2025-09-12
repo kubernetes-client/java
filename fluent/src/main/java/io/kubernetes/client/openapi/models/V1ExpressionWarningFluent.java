@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ExpressionWarningFluent<A extends V1ExpressionWarningFluent<A>> extends BaseFluent<A>{
+public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.models.V1ExpressionWarningFluent<A>> extends BaseFluent<A>{
   public V1ExpressionWarningFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1ExpressionWarningFluent<A extends V1ExpressionWarningFluent<A>> e
   private String warning;
   
   protected void copyInstance(V1ExpressionWarning instance) {
-    instance = (instance != null ? instance : new V1ExpressionWarning());
+    instance = instance != null ? instance : new V1ExpressionWarning();
     if (instance != null) {
-          this.withFieldRef(instance.getFieldRef());
-          this.withWarning(instance.getWarning());
-        }
+        this.withFieldRef(instance.getFieldRef());
+        this.withWarning(instance.getWarning());
+    }
   }
   
   public String getFieldRef() {
@@ -54,24 +56,41 @@ public class V1ExpressionWarningFluent<A extends V1ExpressionWarningFluent<A>> e
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ExpressionWarningFluent that = (V1ExpressionWarningFluent) o;
-    if (!java.util.Objects.equals(fieldRef, that.fieldRef)) return false;
-    if (!java.util.Objects.equals(warning, that.warning)) return false;
+    if (!(Objects.equals(fieldRef, that.fieldRef))) {
+      return false;
+    }
+    if (!(Objects.equals(warning, that.warning))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fieldRef,  warning,  super.hashCode());
+    return Objects.hash(fieldRef, warning);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fieldRef != null) { sb.append("fieldRef:"); sb.append(fieldRef + ","); }
-    if (warning != null) { sb.append("warning:"); sb.append(warning); }
+    if (!(fieldRef == null)) {
+        sb.append("fieldRef:");
+        sb.append(fieldRef);
+        sb.append(",");
+    }
+    if (!(warning == null)) {
+        sb.append("warning:");
+        sb.append(warning);
+    }
     sb.append("}");
     return sb.toString();
   }

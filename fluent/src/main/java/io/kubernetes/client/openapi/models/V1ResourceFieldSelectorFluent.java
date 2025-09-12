@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
 import java.lang.Object;
 import java.lang.String;
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ResourceFieldSelectorFluent<A extends V1ResourceFieldSelectorFluent<A>> extends BaseFluent<A>{
+public class V1ResourceFieldSelectorFluent<A extends io.kubernetes.client.openapi.models.V1ResourceFieldSelectorFluent<A>> extends BaseFluent<A>{
   public V1ResourceFieldSelectorFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1ResourceFieldSelectorFluent<A extends V1ResourceFieldSelectorFlue
   private String resource;
   
   protected void copyInstance(V1ResourceFieldSelector instance) {
-    instance = (instance != null ? instance : new V1ResourceFieldSelector());
+    instance = instance != null ? instance : new V1ResourceFieldSelector();
     if (instance != null) {
-          this.withContainerName(instance.getContainerName());
-          this.withDivisor(instance.getDivisor());
-          this.withResource(instance.getResource());
-        }
+        this.withContainerName(instance.getContainerName());
+        this.withDivisor(instance.getDivisor());
+        this.withResource(instance.getResource());
+    }
   }
   
   public String getContainerName() {
@@ -57,7 +59,7 @@ public class V1ResourceFieldSelectorFluent<A extends V1ResourceFieldSelectorFlue
   }
   
   public A withNewDivisor(String value) {
-    return (A)withDivisor(new Quantity(value));
+    return (A) this.withDivisor(new Quantity(value));
   }
   
   public String getResource() {
@@ -74,26 +76,49 @@ public class V1ResourceFieldSelectorFluent<A extends V1ResourceFieldSelectorFlue
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ResourceFieldSelectorFluent that = (V1ResourceFieldSelectorFluent) o;
-    if (!java.util.Objects.equals(containerName, that.containerName)) return false;
-    if (!java.util.Objects.equals(divisor, that.divisor)) return false;
-    if (!java.util.Objects.equals(resource, that.resource)) return false;
+    if (!(Objects.equals(containerName, that.containerName))) {
+      return false;
+    }
+    if (!(Objects.equals(divisor, that.divisor))) {
+      return false;
+    }
+    if (!(Objects.equals(resource, that.resource))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(containerName,  divisor,  resource,  super.hashCode());
+    return Objects.hash(containerName, divisor, resource);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (containerName != null) { sb.append("containerName:"); sb.append(containerName + ","); }
-    if (divisor != null) { sb.append("divisor:"); sb.append(divisor + ","); }
-    if (resource != null) { sb.append("resource:"); sb.append(resource); }
+    if (!(containerName == null)) {
+        sb.append("containerName:");
+        sb.append(containerName);
+        sb.append(",");
+    }
+    if (!(divisor == null)) {
+        sb.append("divisor:");
+        sb.append(divisor);
+        sb.append(",");
+    }
+    if (!(resource == null)) {
+        sb.append("resource:");
+        sb.append(resource);
+    }
     sb.append("}");
     return sb.toString();
   }

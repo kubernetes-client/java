@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1LabelSelectorAttributesBuilder extends V1LabelSelectorAttributesFluent<V1LabelSelectorAttributesBuilder> implements VisitableBuilder<V1LabelSelectorAttributes,V1LabelSelectorAttributesBuilder>{
   public V1LabelSelectorAttributesBuilder() {
     this(new V1LabelSelectorAttributes());

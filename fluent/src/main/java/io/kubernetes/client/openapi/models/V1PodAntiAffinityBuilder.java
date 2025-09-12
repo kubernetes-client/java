@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluent<V1PodAntiAffinityBuilder> implements VisitableBuilder<V1PodAntiAffinity,V1PodAntiAffinityBuilder>{
   public V1PodAntiAffinityBuilder() {
     this(new V1PodAntiAffinity());

@@ -1,10 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -12,7 +14,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1HorizontalPodAutoscalerStatusFluent<A extends V1HorizontalPodAutoscalerStatusFluent<A>> extends BaseFluent<A>{
+public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<A>> extends BaseFluent<A>{
   public V1HorizontalPodAutoscalerStatusFluent() {
   }
   
@@ -26,14 +28,14 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends V1HorizontalPodAuto
   private Long observedGeneration;
   
   protected void copyInstance(V1HorizontalPodAutoscalerStatus instance) {
-    instance = (instance != null ? instance : new V1HorizontalPodAutoscalerStatus());
+    instance = instance != null ? instance : new V1HorizontalPodAutoscalerStatus();
     if (instance != null) {
-          this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-          this.withCurrentReplicas(instance.getCurrentReplicas());
-          this.withDesiredReplicas(instance.getDesiredReplicas());
-          this.withLastScaleTime(instance.getLastScaleTime());
-          this.withObservedGeneration(instance.getObservedGeneration());
-        }
+        this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
+        this.withCurrentReplicas(instance.getCurrentReplicas());
+        this.withDesiredReplicas(instance.getDesiredReplicas());
+        this.withLastScaleTime(instance.getLastScaleTime());
+        this.withObservedGeneration(instance.getObservedGeneration());
+    }
   }
   
   public Integer getCurrentCPUUtilizationPercentage() {
@@ -102,30 +104,65 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends V1HorizontalPodAuto
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1HorizontalPodAutoscalerStatusFluent that = (V1HorizontalPodAutoscalerStatusFluent) o;
-    if (!java.util.Objects.equals(currentCPUUtilizationPercentage, that.currentCPUUtilizationPercentage)) return false;
-    if (!java.util.Objects.equals(currentReplicas, that.currentReplicas)) return false;
-    if (!java.util.Objects.equals(desiredReplicas, that.desiredReplicas)) return false;
-    if (!java.util.Objects.equals(lastScaleTime, that.lastScaleTime)) return false;
-    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+    if (!(Objects.equals(currentCPUUtilizationPercentage, that.currentCPUUtilizationPercentage))) {
+      return false;
+    }
+    if (!(Objects.equals(currentReplicas, that.currentReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(desiredReplicas, that.desiredReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(lastScaleTime, that.lastScaleTime))) {
+      return false;
+    }
+    if (!(Objects.equals(observedGeneration, that.observedGeneration))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(currentCPUUtilizationPercentage,  currentReplicas,  desiredReplicas,  lastScaleTime,  observedGeneration,  super.hashCode());
+    return Objects.hash(currentCPUUtilizationPercentage, currentReplicas, desiredReplicas, lastScaleTime, observedGeneration);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (currentCPUUtilizationPercentage != null) { sb.append("currentCPUUtilizationPercentage:"); sb.append(currentCPUUtilizationPercentage + ","); }
-    if (currentReplicas != null) { sb.append("currentReplicas:"); sb.append(currentReplicas + ","); }
-    if (desiredReplicas != null) { sb.append("desiredReplicas:"); sb.append(desiredReplicas + ","); }
-    if (lastScaleTime != null) { sb.append("lastScaleTime:"); sb.append(lastScaleTime + ","); }
-    if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration); }
+    if (!(currentCPUUtilizationPercentage == null)) {
+        sb.append("currentCPUUtilizationPercentage:");
+        sb.append(currentCPUUtilizationPercentage);
+        sb.append(",");
+    }
+    if (!(currentReplicas == null)) {
+        sb.append("currentReplicas:");
+        sb.append(currentReplicas);
+        sb.append(",");
+    }
+    if (!(desiredReplicas == null)) {
+        sb.append("desiredReplicas:");
+        sb.append(desiredReplicas);
+        sb.append(",");
+    }
+    if (!(lastScaleTime == null)) {
+        sb.append("lastScaleTime:");
+        sb.append(lastScaleTime);
+        sb.append(",");
+    }
+    if (!(observedGeneration == null)) {
+        sb.append("observedGeneration:");
+        sb.append(observedGeneration);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NetworkPolicyPeerBuilder extends V1NetworkPolicyPeerFluent<V1NetworkPolicyPeerBuilder> implements VisitableBuilder<V1NetworkPolicyPeer,V1NetworkPolicyPeerBuilder>{
   public V1NetworkPolicyPeerBuilder() {
     this(new V1NetworkPolicyPeer());

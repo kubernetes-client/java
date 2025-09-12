@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1StatefulSetBuilder extends V1StatefulSetFluent<V1StatefulSetBuilder> implements VisitableBuilder<V1StatefulSet,V1StatefulSetBuilder>{
   public V1StatefulSetBuilder() {
     this(new V1StatefulSet());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResourceSelectorRequirementFluent<V1ScopedResourceSelectorRequirementBuilder> implements VisitableBuilder<V1ScopedResourceSelectorRequirement,V1ScopedResourceSelectorRequirementBuilder>{
   public V1ScopedResourceSelectorRequirementBuilder() {
     this(new V1ScopedResourceSelectorRequirement());

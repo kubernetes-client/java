@@ -1,9 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 
@@ -11,7 +14,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ScaleIOPersistentVolumeSourceFluent<A extends V1ScaleIOPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1ScaleIOPersistentVolumeSourceFluent() {
   }
   
@@ -30,19 +33,19 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends V1ScaleIOPersistent
   private String volumeName;
   
   protected void copyInstance(V1ScaleIOPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1ScaleIOPersistentVolumeSource());
+    instance = instance != null ? instance : new V1ScaleIOPersistentVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withGateway(instance.getGateway());
-          this.withProtectionDomain(instance.getProtectionDomain());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretRef(instance.getSecretRef());
-          this.withSslEnabled(instance.getSslEnabled());
-          this.withStorageMode(instance.getStorageMode());
-          this.withStoragePool(instance.getStoragePool());
-          this.withSystem(instance.getSystem());
-          this.withVolumeName(instance.getVolumeName());
-        }
+        this.withFsType(instance.getFsType());
+        this.withGateway(instance.getGateway());
+        this.withProtectionDomain(instance.getProtectionDomain());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
+        this.withSslEnabled(instance.getSslEnabled());
+        this.withStorageMode(instance.getStorageMode());
+        this.withStoragePool(instance.getStoragePool());
+        this.withSystem(instance.getSystem());
+        this.withVolumeName(instance.getVolumeName());
+    }
   }
   
   public String getFsType() {
@@ -126,15 +129,15 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends V1ScaleIOPersistent
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public Boolean getSslEnabled() {
@@ -203,40 +206,105 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends V1ScaleIOPersistent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ScaleIOPersistentVolumeSourceFluent that = (V1ScaleIOPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(gateway, that.gateway)) return false;
-    if (!java.util.Objects.equals(protectionDomain, that.protectionDomain)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
-    if (!java.util.Objects.equals(sslEnabled, that.sslEnabled)) return false;
-    if (!java.util.Objects.equals(storageMode, that.storageMode)) return false;
-    if (!java.util.Objects.equals(storagePool, that.storagePool)) return false;
-    if (!java.util.Objects.equals(system, that.system)) return false;
-    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(gateway, that.gateway))) {
+      return false;
+    }
+    if (!(Objects.equals(protectionDomain, that.protectionDomain))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(sslEnabled, that.sslEnabled))) {
+      return false;
+    }
+    if (!(Objects.equals(storageMode, that.storageMode))) {
+      return false;
+    }
+    if (!(Objects.equals(storagePool, that.storagePool))) {
+      return false;
+    }
+    if (!(Objects.equals(system, that.system))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeName, that.volumeName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  gateway,  protectionDomain,  readOnly,  secretRef,  sslEnabled,  storageMode,  storagePool,  system,  volumeName,  super.hashCode());
+    return Objects.hash(fsType, gateway, protectionDomain, readOnly, secretRef, sslEnabled, storageMode, storagePool, system, volumeName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (gateway != null) { sb.append("gateway:"); sb.append(gateway + ","); }
-    if (protectionDomain != null) { sb.append("protectionDomain:"); sb.append(protectionDomain + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef + ","); }
-    if (sslEnabled != null) { sb.append("sslEnabled:"); sb.append(sslEnabled + ","); }
-    if (storageMode != null) { sb.append("storageMode:"); sb.append(storageMode + ","); }
-    if (storagePool != null) { sb.append("storagePool:"); sb.append(storagePool + ","); }
-    if (system != null) { sb.append("system:"); sb.append(system + ","); }
-    if (volumeName != null) { sb.append("volumeName:"); sb.append(volumeName); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(gateway == null)) {
+        sb.append("gateway:");
+        sb.append(gateway);
+        sb.append(",");
+    }
+    if (!(protectionDomain == null)) {
+        sb.append("protectionDomain:");
+        sb.append(protectionDomain);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+        sb.append(",");
+    }
+    if (!(sslEnabled == null)) {
+        sb.append("sslEnabled:");
+        sb.append(sslEnabled);
+        sb.append(",");
+    }
+    if (!(storageMode == null)) {
+        sb.append("storageMode:");
+        sb.append(storageMode);
+        sb.append(",");
+    }
+    if (!(storagePool == null)) {
+        sb.append("storagePool:");
+        sb.append(storagePool);
+        sb.append(",");
+    }
+    if (!(system == null)) {
+        sb.append("system:");
+        sb.append(system);
+        sb.append(",");
+    }
+    if (!(volumeName == null)) {
+        sb.append("volumeName:");
+        sb.append(volumeName);
+    }
     sb.append("}");
     return sb.toString();
   }

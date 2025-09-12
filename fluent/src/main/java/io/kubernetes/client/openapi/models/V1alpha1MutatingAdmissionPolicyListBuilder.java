@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1MutatingAdmissionPolicyListBuilder extends V1alpha1MutatingAdmissionPolicyListFluent<V1alpha1MutatingAdmissionPolicyListBuilder> implements VisitableBuilder<V1alpha1MutatingAdmissionPolicyList,V1alpha1MutatingAdmissionPolicyListBuilder>{
   public V1alpha1MutatingAdmissionPolicyListBuilder() {
     this(new V1alpha1MutatingAdmissionPolicyList());

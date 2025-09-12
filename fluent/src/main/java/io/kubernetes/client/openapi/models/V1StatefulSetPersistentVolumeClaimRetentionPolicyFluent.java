@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>> extends BaseFluent<A>{
+public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>> extends BaseFluent<A>{
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends V
   private String whenScaled;
   
   protected void copyInstance(V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
-    instance = (instance != null ? instance : new V1StatefulSetPersistentVolumeClaimRetentionPolicy());
+    instance = instance != null ? instance : new V1StatefulSetPersistentVolumeClaimRetentionPolicy();
     if (instance != null) {
-          this.withWhenDeleted(instance.getWhenDeleted());
-          this.withWhenScaled(instance.getWhenScaled());
-        }
+        this.withWhenDeleted(instance.getWhenDeleted());
+        this.withWhenScaled(instance.getWhenScaled());
+    }
   }
   
   public String getWhenDeleted() {
@@ -54,24 +56,41 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends V
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent that = (V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent) o;
-    if (!java.util.Objects.equals(whenDeleted, that.whenDeleted)) return false;
-    if (!java.util.Objects.equals(whenScaled, that.whenScaled)) return false;
+    if (!(Objects.equals(whenDeleted, that.whenDeleted))) {
+      return false;
+    }
+    if (!(Objects.equals(whenScaled, that.whenScaled))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(whenDeleted,  whenScaled,  super.hashCode());
+    return Objects.hash(whenDeleted, whenScaled);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (whenDeleted != null) { sb.append("whenDeleted:"); sb.append(whenDeleted + ","); }
-    if (whenScaled != null) { sb.append("whenScaled:"); sb.append(whenScaled); }
+    if (!(whenDeleted == null)) {
+        sb.append("whenDeleted:");
+        sb.append(whenDeleted);
+        sb.append(",");
+    }
+    if (!(whenScaled == null)) {
+        sb.append("whenScaled:");
+        sb.append(whenScaled);
+    }
     sb.append("}");
     return sb.toString();
   }

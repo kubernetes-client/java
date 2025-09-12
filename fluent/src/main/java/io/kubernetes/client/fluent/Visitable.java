@@ -31,15 +31,15 @@ public interface Visitable<T>{
         });
   }
   
-  default T accept(io.kubernetes.client.fluent.Visitor... visitors) {
+  default T accept(Visitor... visitors) {
     return accept(Collections.emptyList(), visitors);
   }
   
-  default T accept(List<Entry<String,Object>> path,io.kubernetes.client.fluent.Visitor... visitors) {
+  default T accept(List<Entry<String,Object>> path,Visitor... visitors) {
     return accept(path, "", visitors);
   }
   
-  default T accept(List<Entry<String,Object>> path,String currentKey,io.kubernetes.client.fluent.Visitor... visitors) {
+  default T accept(List<Entry<String,Object>> path,String currentKey,Visitor... visitors) {
     List<Visitor> sortedVisitor = new ArrayList<>();
         for (Visitor visitor : visitors) {
           visitor = VisitorListener.wrap(visitor);

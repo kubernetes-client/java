@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodTemplateBuilder extends V1PodTemplateFluent<V1PodTemplateBuilder> implements VisitableBuilder<V1PodTemplate,V1PodTemplateBuilder>{
   public V1PodTemplateBuilder() {
     this(new V1PodTemplate());

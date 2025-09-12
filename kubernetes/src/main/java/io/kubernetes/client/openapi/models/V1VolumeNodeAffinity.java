@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
  */
 @ApiModel(description = "VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1VolumeNodeAffinity {
   public static final String SERIALIZED_NAME_REQUIRED = "required";
   @SerializedName(SERIALIZED_NAME_REQUIRED)

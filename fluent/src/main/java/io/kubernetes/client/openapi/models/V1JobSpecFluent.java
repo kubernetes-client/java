@@ -1,19 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Boolean;
+import java.util.Optional;
 import java.lang.Integer;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>{
+public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1JobSpecFluent<A>> extends BaseFluent<A>{
   public V1JobSpecFluent() {
   }
   
@@ -38,25 +41,25 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   private Integer ttlSecondsAfterFinished;
   
   protected void copyInstance(V1JobSpec instance) {
-    instance = (instance != null ? instance : new V1JobSpec());
+    instance = instance != null ? instance : new V1JobSpec();
     if (instance != null) {
-          this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
-          this.withBackoffLimit(instance.getBackoffLimit());
-          this.withBackoffLimitPerIndex(instance.getBackoffLimitPerIndex());
-          this.withCompletionMode(instance.getCompletionMode());
-          this.withCompletions(instance.getCompletions());
-          this.withManagedBy(instance.getManagedBy());
-          this.withManualSelector(instance.getManualSelector());
-          this.withMaxFailedIndexes(instance.getMaxFailedIndexes());
-          this.withParallelism(instance.getParallelism());
-          this.withPodFailurePolicy(instance.getPodFailurePolicy());
-          this.withPodReplacementPolicy(instance.getPodReplacementPolicy());
-          this.withSelector(instance.getSelector());
-          this.withSuccessPolicy(instance.getSuccessPolicy());
-          this.withSuspend(instance.getSuspend());
-          this.withTemplate(instance.getTemplate());
-          this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
-        }
+        this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
+        this.withBackoffLimit(instance.getBackoffLimit());
+        this.withBackoffLimitPerIndex(instance.getBackoffLimitPerIndex());
+        this.withCompletionMode(instance.getCompletionMode());
+        this.withCompletions(instance.getCompletions());
+        this.withManagedBy(instance.getManagedBy());
+        this.withManualSelector(instance.getManualSelector());
+        this.withMaxFailedIndexes(instance.getMaxFailedIndexes());
+        this.withParallelism(instance.getParallelism());
+        this.withPodFailurePolicy(instance.getPodFailurePolicy());
+        this.withPodReplacementPolicy(instance.getPodReplacementPolicy());
+        this.withSelector(instance.getSelector());
+        this.withSuccessPolicy(instance.getSuccessPolicy());
+        this.withSuspend(instance.getSuspend());
+        this.withTemplate(instance.getTemplate());
+        this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
+    }
   }
   
   public Long getActiveDeadlineSeconds() {
@@ -205,15 +208,15 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public PodFailurePolicyNested<A> editPodFailurePolicy() {
-    return withNewPodFailurePolicyLike(java.util.Optional.ofNullable(buildPodFailurePolicy()).orElse(null));
+    return this.withNewPodFailurePolicyLike(Optional.ofNullable(this.buildPodFailurePolicy()).orElse(null));
   }
   
   public PodFailurePolicyNested<A> editOrNewPodFailurePolicy() {
-    return withNewPodFailurePolicyLike(java.util.Optional.ofNullable(buildPodFailurePolicy()).orElse(new V1PodFailurePolicyBuilder().build()));
+    return this.withNewPodFailurePolicyLike(Optional.ofNullable(this.buildPodFailurePolicy()).orElse(new V1PodFailurePolicyBuilder().build()));
   }
   
   public PodFailurePolicyNested<A> editOrNewPodFailurePolicyLike(V1PodFailurePolicy item) {
-    return withNewPodFailurePolicyLike(java.util.Optional.ofNullable(buildPodFailurePolicy()).orElse(item));
+    return this.withNewPodFailurePolicyLike(Optional.ofNullable(this.buildPodFailurePolicy()).orElse(item));
   }
   
   public String getPodReplacementPolicy() {
@@ -258,15 +261,15 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public V1SuccessPolicy buildSuccessPolicy() {
@@ -298,15 +301,15 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public SuccessPolicyNested<A> editSuccessPolicy() {
-    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(null));
+    return this.withNewSuccessPolicyLike(Optional.ofNullable(this.buildSuccessPolicy()).orElse(null));
   }
   
   public SuccessPolicyNested<A> editOrNewSuccessPolicy() {
-    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(new V1SuccessPolicyBuilder().build()));
+    return this.withNewSuccessPolicyLike(Optional.ofNullable(this.buildSuccessPolicy()).orElse(new V1SuccessPolicyBuilder().build()));
   }
   
   public SuccessPolicyNested<A> editOrNewSuccessPolicyLike(V1SuccessPolicy item) {
-    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(item));
+    return this.withNewSuccessPolicyLike(Optional.ofNullable(this.buildSuccessPolicy()).orElse(item));
   }
   
   public Boolean getSuspend() {
@@ -351,15 +354,15 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public TemplateNested<A> editTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(null));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
   }
   
   public TemplateNested<A> editOrNewTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
   }
   
   public TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(item));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(item));
   }
   
   public Integer getTtlSecondsAfterFinished() {
@@ -376,52 +379,153 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1JobSpecFluent that = (V1JobSpecFluent) o;
-    if (!java.util.Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds)) return false;
-    if (!java.util.Objects.equals(backoffLimit, that.backoffLimit)) return false;
-    if (!java.util.Objects.equals(backoffLimitPerIndex, that.backoffLimitPerIndex)) return false;
-    if (!java.util.Objects.equals(completionMode, that.completionMode)) return false;
-    if (!java.util.Objects.equals(completions, that.completions)) return false;
-    if (!java.util.Objects.equals(managedBy, that.managedBy)) return false;
-    if (!java.util.Objects.equals(manualSelector, that.manualSelector)) return false;
-    if (!java.util.Objects.equals(maxFailedIndexes, that.maxFailedIndexes)) return false;
-    if (!java.util.Objects.equals(parallelism, that.parallelism)) return false;
-    if (!java.util.Objects.equals(podFailurePolicy, that.podFailurePolicy)) return false;
-    if (!java.util.Objects.equals(podReplacementPolicy, that.podReplacementPolicy)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(successPolicy, that.successPolicy)) return false;
-    if (!java.util.Objects.equals(suspend, that.suspend)) return false;
-    if (!java.util.Objects.equals(template, that.template)) return false;
-    if (!java.util.Objects.equals(ttlSecondsAfterFinished, that.ttlSecondsAfterFinished)) return false;
+    if (!(Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(backoffLimit, that.backoffLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(backoffLimitPerIndex, that.backoffLimitPerIndex))) {
+      return false;
+    }
+    if (!(Objects.equals(completionMode, that.completionMode))) {
+      return false;
+    }
+    if (!(Objects.equals(completions, that.completions))) {
+      return false;
+    }
+    if (!(Objects.equals(managedBy, that.managedBy))) {
+      return false;
+    }
+    if (!(Objects.equals(manualSelector, that.manualSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(maxFailedIndexes, that.maxFailedIndexes))) {
+      return false;
+    }
+    if (!(Objects.equals(parallelism, that.parallelism))) {
+      return false;
+    }
+    if (!(Objects.equals(podFailurePolicy, that.podFailurePolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(podReplacementPolicy, that.podReplacementPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(successPolicy, that.successPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(suspend, that.suspend))) {
+      return false;
+    }
+    if (!(Objects.equals(template, that.template))) {
+      return false;
+    }
+    if (!(Objects.equals(ttlSecondsAfterFinished, that.ttlSecondsAfterFinished))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(activeDeadlineSeconds,  backoffLimit,  backoffLimitPerIndex,  completionMode,  completions,  managedBy,  manualSelector,  maxFailedIndexes,  parallelism,  podFailurePolicy,  podReplacementPolicy,  selector,  successPolicy,  suspend,  template,  ttlSecondsAfterFinished,  super.hashCode());
+    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (activeDeadlineSeconds != null) { sb.append("activeDeadlineSeconds:"); sb.append(activeDeadlineSeconds + ","); }
-    if (backoffLimit != null) { sb.append("backoffLimit:"); sb.append(backoffLimit + ","); }
-    if (backoffLimitPerIndex != null) { sb.append("backoffLimitPerIndex:"); sb.append(backoffLimitPerIndex + ","); }
-    if (completionMode != null) { sb.append("completionMode:"); sb.append(completionMode + ","); }
-    if (completions != null) { sb.append("completions:"); sb.append(completions + ","); }
-    if (managedBy != null) { sb.append("managedBy:"); sb.append(managedBy + ","); }
-    if (manualSelector != null) { sb.append("manualSelector:"); sb.append(manualSelector + ","); }
-    if (maxFailedIndexes != null) { sb.append("maxFailedIndexes:"); sb.append(maxFailedIndexes + ","); }
-    if (parallelism != null) { sb.append("parallelism:"); sb.append(parallelism + ","); }
-    if (podFailurePolicy != null) { sb.append("podFailurePolicy:"); sb.append(podFailurePolicy + ","); }
-    if (podReplacementPolicy != null) { sb.append("podReplacementPolicy:"); sb.append(podReplacementPolicy + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (successPolicy != null) { sb.append("successPolicy:"); sb.append(successPolicy + ","); }
-    if (suspend != null) { sb.append("suspend:"); sb.append(suspend + ","); }
-    if (template != null) { sb.append("template:"); sb.append(template + ","); }
-    if (ttlSecondsAfterFinished != null) { sb.append("ttlSecondsAfterFinished:"); sb.append(ttlSecondsAfterFinished); }
+    if (!(activeDeadlineSeconds == null)) {
+        sb.append("activeDeadlineSeconds:");
+        sb.append(activeDeadlineSeconds);
+        sb.append(",");
+    }
+    if (!(backoffLimit == null)) {
+        sb.append("backoffLimit:");
+        sb.append(backoffLimit);
+        sb.append(",");
+    }
+    if (!(backoffLimitPerIndex == null)) {
+        sb.append("backoffLimitPerIndex:");
+        sb.append(backoffLimitPerIndex);
+        sb.append(",");
+    }
+    if (!(completionMode == null)) {
+        sb.append("completionMode:");
+        sb.append(completionMode);
+        sb.append(",");
+    }
+    if (!(completions == null)) {
+        sb.append("completions:");
+        sb.append(completions);
+        sb.append(",");
+    }
+    if (!(managedBy == null)) {
+        sb.append("managedBy:");
+        sb.append(managedBy);
+        sb.append(",");
+    }
+    if (!(manualSelector == null)) {
+        sb.append("manualSelector:");
+        sb.append(manualSelector);
+        sb.append(",");
+    }
+    if (!(maxFailedIndexes == null)) {
+        sb.append("maxFailedIndexes:");
+        sb.append(maxFailedIndexes);
+        sb.append(",");
+    }
+    if (!(parallelism == null)) {
+        sb.append("parallelism:");
+        sb.append(parallelism);
+        sb.append(",");
+    }
+    if (!(podFailurePolicy == null)) {
+        sb.append("podFailurePolicy:");
+        sb.append(podFailurePolicy);
+        sb.append(",");
+    }
+    if (!(podReplacementPolicy == null)) {
+        sb.append("podReplacementPolicy:");
+        sb.append(podReplacementPolicy);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(successPolicy == null)) {
+        sb.append("successPolicy:");
+        sb.append(successPolicy);
+        sb.append(",");
+    }
+    if (!(suspend == null)) {
+        sb.append("suspend:");
+        sb.append(suspend);
+        sb.append(",");
+    }
+    if (!(template == null)) {
+        sb.append("template:");
+        sb.append(template);
+        sb.append(",");
+    }
+    if (!(ttlSecondsAfterFinished == null)) {
+        sb.append("ttlSecondsAfterFinished:");
+        sb.append(ttlSecondsAfterFinished);
+    }
     sb.append("}");
     return sb.toString();
   }

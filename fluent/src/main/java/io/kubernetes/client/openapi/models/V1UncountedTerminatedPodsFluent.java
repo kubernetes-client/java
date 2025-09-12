@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPodsFluent<A>> extends BaseFluent<A>{
+public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<A>> extends BaseFluent<A>{
   public V1UncountedTerminatedPodsFluent() {
   }
   
@@ -24,42 +26,67 @@ public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPods
   private List<String> succeeded;
   
   protected void copyInstance(V1UncountedTerminatedPods instance) {
-    instance = (instance != null ? instance : new V1UncountedTerminatedPods());
+    instance = instance != null ? instance : new V1UncountedTerminatedPods();
     if (instance != null) {
-          this.withFailed(instance.getFailed());
-          this.withSucceeded(instance.getSucceeded());
-        }
+        this.withFailed(instance.getFailed());
+        this.withSucceeded(instance.getSucceeded());
+    }
   }
   
   public A addToFailed(int index,String item) {
-    if (this.failed == null) {this.failed = new ArrayList<String>();}
+    if (this.failed == null) {
+      this.failed = new ArrayList();
+    }
     this.failed.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToFailed(int index,String item) {
-    if (this.failed == null) {this.failed = new ArrayList<String>();}
-    this.failed.set(index, item); return (A)this;
+    if (this.failed == null) {
+      this.failed = new ArrayList();
+    }
+    this.failed.set(index, item);
+    return (A) this;
   }
   
-  public A addToFailed(java.lang.String... items) {
-    if (this.failed == null) {this.failed = new ArrayList<String>();}
-    for (String item : items) {this.failed.add(item);} return (A)this;
+  public A addToFailed(String... items) {
+    if (this.failed == null) {
+      this.failed = new ArrayList();
+    }
+    for (String item : items) {
+      this.failed.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToFailed(Collection<String> items) {
-    if (this.failed == null) {this.failed = new ArrayList<String>();}
-    for (String item : items) {this.failed.add(item);} return (A)this;
+    if (this.failed == null) {
+      this.failed = new ArrayList();
+    }
+    for (String item : items) {
+      this.failed.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromFailed(java.lang.String... items) {
-    if (this.failed == null) return (A)this;
-    for (String item : items) { this.failed.remove(item);} return (A)this;
+  public A removeFromFailed(String... items) {
+    if (this.failed == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.failed.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromFailed(Collection<String> items) {
-    if (this.failed == null) return (A)this;
-    for (String item : items) { this.failed.remove(item);} return (A)this;
+    if (this.failed == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.failed.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getFailed() {
@@ -108,7 +135,7 @@ public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPods
     return (A) this;
   }
   
-  public A withFailed(java.lang.String... failed) {
+  public A withFailed(String... failed) {
     if (this.failed != null) {
         this.failed.clear();
         _visitables.remove("failed");
@@ -122,38 +149,63 @@ public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPods
   }
   
   public boolean hasFailed() {
-    return this.failed != null && !this.failed.isEmpty();
+    return this.failed != null && !(this.failed.isEmpty());
   }
   
   public A addToSucceeded(int index,String item) {
-    if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
+    if (this.succeeded == null) {
+      this.succeeded = new ArrayList();
+    }
     this.succeeded.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSucceeded(int index,String item) {
-    if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
-    this.succeeded.set(index, item); return (A)this;
+    if (this.succeeded == null) {
+      this.succeeded = new ArrayList();
+    }
+    this.succeeded.set(index, item);
+    return (A) this;
   }
   
-  public A addToSucceeded(java.lang.String... items) {
-    if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
-    for (String item : items) {this.succeeded.add(item);} return (A)this;
+  public A addToSucceeded(String... items) {
+    if (this.succeeded == null) {
+      this.succeeded = new ArrayList();
+    }
+    for (String item : items) {
+      this.succeeded.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToSucceeded(Collection<String> items) {
-    if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
-    for (String item : items) {this.succeeded.add(item);} return (A)this;
+    if (this.succeeded == null) {
+      this.succeeded = new ArrayList();
+    }
+    for (String item : items) {
+      this.succeeded.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromSucceeded(java.lang.String... items) {
-    if (this.succeeded == null) return (A)this;
-    for (String item : items) { this.succeeded.remove(item);} return (A)this;
+  public A removeFromSucceeded(String... items) {
+    if (this.succeeded == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.succeeded.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSucceeded(Collection<String> items) {
-    if (this.succeeded == null) return (A)this;
-    for (String item : items) { this.succeeded.remove(item);} return (A)this;
+    if (this.succeeded == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.succeeded.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getSucceeded() {
@@ -202,7 +254,7 @@ public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPods
     return (A) this;
   }
   
-  public A withSucceeded(java.lang.String... succeeded) {
+  public A withSucceeded(String... succeeded) {
     if (this.succeeded != null) {
         this.succeeded.clear();
         _visitables.remove("succeeded");
@@ -216,28 +268,45 @@ public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPods
   }
   
   public boolean hasSucceeded() {
-    return this.succeeded != null && !this.succeeded.isEmpty();
+    return this.succeeded != null && !(this.succeeded.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1UncountedTerminatedPodsFluent that = (V1UncountedTerminatedPodsFluent) o;
-    if (!java.util.Objects.equals(failed, that.failed)) return false;
-    if (!java.util.Objects.equals(succeeded, that.succeeded)) return false;
+    if (!(Objects.equals(failed, that.failed))) {
+      return false;
+    }
+    if (!(Objects.equals(succeeded, that.succeeded))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(failed,  succeeded,  super.hashCode());
+    return Objects.hash(failed, succeeded);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (failed != null && !failed.isEmpty()) { sb.append("failed:"); sb.append(failed + ","); }
-    if (succeeded != null && !succeeded.isEmpty()) { sb.append("succeeded:"); sb.append(succeeded); }
+    if (!(failed == null) && !(failed.isEmpty())) {
+        sb.append("failed:");
+        sb.append(failed);
+        sb.append(",");
+    }
+    if (!(succeeded == null) && !(succeeded.isEmpty())) {
+        sb.append("succeeded:");
+        sb.append(succeeded);
+    }
     sb.append("}");
     return sb.toString();
   }

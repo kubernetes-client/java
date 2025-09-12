@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha3CELDeviceSelectorFluent<A extends V1alpha3CELDeviceSelectorFluent<A>> extends BaseFluent<A>{
+public class V1alpha3CELDeviceSelectorFluent<A extends io.kubernetes.client.openapi.models.V1alpha3CELDeviceSelectorFluent<A>> extends BaseFluent<A>{
   public V1alpha3CELDeviceSelectorFluent() {
   }
   
@@ -19,10 +21,10 @@ public class V1alpha3CELDeviceSelectorFluent<A extends V1alpha3CELDeviceSelector
   private String expression;
   
   protected void copyInstance(V1alpha3CELDeviceSelector instance) {
-    instance = (instance != null ? instance : new V1alpha3CELDeviceSelector());
+    instance = instance != null ? instance : new V1alpha3CELDeviceSelector();
     if (instance != null) {
-          this.withExpression(instance.getExpression());
-        }
+      this.withExpression(instance.getExpression());
+    }
   }
   
   public String getExpression() {
@@ -39,22 +41,33 @@ public class V1alpha3CELDeviceSelectorFluent<A extends V1alpha3CELDeviceSelector
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha3CELDeviceSelectorFluent that = (V1alpha3CELDeviceSelectorFluent) o;
-    if (!java.util.Objects.equals(expression, that.expression)) return false;
+    if (!(Objects.equals(expression, that.expression))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expression,  super.hashCode());
+    return Objects.hash(expression);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expression != null) { sb.append("expression:"); sb.append(expression); }
+    if (!(expression == null)) {
+        sb.append("expression:");
+        sb.append(expression);
+    }
     sb.append("}");
     return sb.toString();
   }

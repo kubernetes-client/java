@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -15,7 +18,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> extends BaseFluent<A>{
+public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent<A>> extends BaseFluent<A>{
   public V1TokenReviewStatusFluent() {
   }
   
@@ -28,44 +31,69 @@ public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> e
   private V1UserInfoBuilder user;
   
   protected void copyInstance(V1TokenReviewStatus instance) {
-    instance = (instance != null ? instance : new V1TokenReviewStatus());
+    instance = instance != null ? instance : new V1TokenReviewStatus();
     if (instance != null) {
-          this.withAudiences(instance.getAudiences());
-          this.withAuthenticated(instance.getAuthenticated());
-          this.withError(instance.getError());
-          this.withUser(instance.getUser());
-        }
+        this.withAudiences(instance.getAudiences());
+        this.withAuthenticated(instance.getAuthenticated());
+        this.withError(instance.getError());
+        this.withUser(instance.getUser());
+    }
   }
   
   public A addToAudiences(int index,String item) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
     this.audiences.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAudiences(int index,String item) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    this.audiences.set(index, item); return (A)this;
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    this.audiences.set(index, item);
+    return (A) this;
   }
   
-  public A addToAudiences(java.lang.String... items) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    for (String item : items) {this.audiences.add(item);} return (A)this;
+  public A addToAudiences(String... items) {
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    for (String item : items) {
+      this.audiences.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAudiences(Collection<String> items) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    for (String item : items) {this.audiences.add(item);} return (A)this;
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    for (String item : items) {
+      this.audiences.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAudiences(java.lang.String... items) {
-    if (this.audiences == null) return (A)this;
-    for (String item : items) { this.audiences.remove(item);} return (A)this;
+  public A removeFromAudiences(String... items) {
+    if (this.audiences == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.audiences.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAudiences(Collection<String> items) {
-    if (this.audiences == null) return (A)this;
-    for (String item : items) { this.audiences.remove(item);} return (A)this;
+    if (this.audiences == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.audiences.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAudiences() {
@@ -114,7 +142,7 @@ public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> e
     return (A) this;
   }
   
-  public A withAudiences(java.lang.String... audiences) {
+  public A withAudiences(String... audiences) {
     if (this.audiences != null) {
         this.audiences.clear();
         _visitables.remove("audiences");
@@ -128,7 +156,7 @@ public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> e
   }
   
   public boolean hasAudiences() {
-    return this.audiences != null && !this.audiences.isEmpty();
+    return this.audiences != null && !(this.audiences.isEmpty());
   }
   
   public Boolean getAuthenticated() {
@@ -186,40 +214,69 @@ public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> e
   }
   
   public UserNested<A> editUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(null));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(null));
   }
   
   public UserNested<A> editOrNewUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(new V1UserInfoBuilder().build()));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(new V1UserInfoBuilder().build()));
   }
   
   public UserNested<A> editOrNewUserLike(V1UserInfo item) {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(item));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TokenReviewStatusFluent that = (V1TokenReviewStatusFluent) o;
-    if (!java.util.Objects.equals(audiences, that.audiences)) return false;
-    if (!java.util.Objects.equals(authenticated, that.authenticated)) return false;
-    if (!java.util.Objects.equals(error, that.error)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
+    if (!(Objects.equals(audiences, that.audiences))) {
+      return false;
+    }
+    if (!(Objects.equals(authenticated, that.authenticated))) {
+      return false;
+    }
+    if (!(Objects.equals(error, that.error))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(audiences,  authenticated,  error,  user,  super.hashCode());
+    return Objects.hash(audiences, authenticated, error, user);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (audiences != null && !audiences.isEmpty()) { sb.append("audiences:"); sb.append(audiences + ","); }
-    if (authenticated != null) { sb.append("authenticated:"); sb.append(authenticated + ","); }
-    if (error != null) { sb.append("error:"); sb.append(error + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user); }
+    if (!(audiences == null) && !(audiences.isEmpty())) {
+        sb.append("audiences:");
+        sb.append(audiences);
+        sb.append(",");
+    }
+    if (!(authenticated == null)) {
+        sb.append("authenticated:");
+        sb.append(authenticated);
+        sb.append(",");
+    }
+    if (!(error == null)) {
+        sb.append("error:");
+        sb.append(error);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+    }
     sb.append("}");
     return sb.toString();
   }

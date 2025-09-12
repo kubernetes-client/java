@@ -52,8 +52,13 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceConstraint must have exactly one field set besides Requests.
  */
 @ApiModel(description = "DeviceConstraint must have exactly one field set besides Requests.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta2DeviceConstraint {
+  public static final String SERIALIZED_NAME_DISTINCT_ATTRIBUTE = "distinctAttribute";
+  @SerializedName(SERIALIZED_NAME_DISTINCT_ATTRIBUTE)
+  @jakarta.annotation.Nullable
+  private String distinctAttribute;
+
   public static final String SERIALIZED_NAME_MATCH_ATTRIBUTE = "matchAttribute";
   @SerializedName(SERIALIZED_NAME_MATCH_ATTRIBUTE)
   @jakarta.annotation.Nullable
@@ -66,6 +71,26 @@ public class V1beta2DeviceConstraint {
 
   public V1beta2DeviceConstraint() {
   }
+
+  public V1beta2DeviceConstraint distinctAttribute(@jakarta.annotation.Nullable String distinctAttribute) {
+    this.distinctAttribute = distinctAttribute;
+    return this;
+  }
+
+  /**
+   * DistinctAttribute requires that all devices in question have this attribute and that its type and value are unique across those devices.  This acts as the inverse of MatchAttribute.  This constraint is used to avoid allocating multiple requests to the same device by ensuring attribute-level differentiation.  This is useful for scenarios where resource requests must be fulfilled by separate physical devices. For example, a container requests two network interfaces that must be allocated from two different physical NICs.
+   * @return distinctAttribute
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "DistinctAttribute requires that all devices in question have this attribute and that its type and value are unique across those devices.  This acts as the inverse of MatchAttribute.  This constraint is used to avoid allocating multiple requests to the same device by ensuring attribute-level differentiation.  This is useful for scenarios where resource requests must be fulfilled by separate physical devices. For example, a container requests two network interfaces that must be allocated from two different physical NICs.")
+  public String getDistinctAttribute() {
+    return distinctAttribute;
+  }
+
+  public void setDistinctAttribute(@jakarta.annotation.Nullable String distinctAttribute) {
+    this.distinctAttribute = distinctAttribute;
+  }
+
 
   public V1beta2DeviceConstraint matchAttribute(@jakarta.annotation.Nullable String matchAttribute) {
     this.matchAttribute = matchAttribute;
@@ -125,19 +150,21 @@ public class V1beta2DeviceConstraint {
       return false;
     }
     V1beta2DeviceConstraint v1beta2DeviceConstraint = (V1beta2DeviceConstraint) o;
-    return Objects.equals(this.matchAttribute, v1beta2DeviceConstraint.matchAttribute) &&
+    return Objects.equals(this.distinctAttribute, v1beta2DeviceConstraint.distinctAttribute) &&
+        Objects.equals(this.matchAttribute, v1beta2DeviceConstraint.matchAttribute) &&
         Objects.equals(this.requests, v1beta2DeviceConstraint.requests);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchAttribute, requests);
+    return Objects.hash(distinctAttribute, matchAttribute, requests);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2DeviceConstraint {\n");
+    sb.append("    distinctAttribute: ").append(toIndentedString(distinctAttribute)).append("\n");
     sb.append("    matchAttribute: ").append(toIndentedString(matchAttribute)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("}");
@@ -162,6 +189,7 @@ public class V1beta2DeviceConstraint {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("distinctAttribute");
     openapiFields.add("matchAttribute");
     openapiFields.add("requests");
 
@@ -190,6 +218,9 @@ public class V1beta2DeviceConstraint {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("distinctAttribute") != null && !jsonObj.get("distinctAttribute").isJsonNull()) && !jsonObj.get("distinctAttribute").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `distinctAttribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("distinctAttribute").toString()));
+      }
       if ((jsonObj.get("matchAttribute") != null && !jsonObj.get("matchAttribute").isJsonNull()) && !jsonObj.get("matchAttribute").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `matchAttribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matchAttribute").toString()));
       }

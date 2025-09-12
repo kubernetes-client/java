@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RuleWithOperationsBuilder extends V1RuleWithOperationsFluent<V1RuleWithOperationsBuilder> implements VisitableBuilder<V1RuleWithOperations,V1RuleWithOperationsBuilder>{
   public V1RuleWithOperationsBuilder() {
     this(new V1RuleWithOperations());
