@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +18,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> extends BaseFluent<A>{
+public class V1beta2DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceClaimFluent<A>> extends BaseFluent<A>{
   public V1beta2DeviceClaimFluent() {
   }
   
@@ -28,16 +30,18 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   private ArrayList<V1beta2DeviceRequestBuilder> requests;
   
   protected void copyInstance(V1beta2DeviceClaim instance) {
-    instance = (instance != null ? instance : new V1beta2DeviceClaim());
+    instance = instance != null ? instance : new V1beta2DeviceClaim();
     if (instance != null) {
-          this.withConfig(instance.getConfig());
-          this.withConstraints(instance.getConstraints());
-          this.withRequests(instance.getRequests());
-        }
+        this.withConfig(instance.getConfig());
+        this.withConstraints(instance.getConstraints());
+        this.withRequests(instance.getRequests());
+    }
   }
   
   public A addToConfig(int index,V1beta2DeviceClaimConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceClaimConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -46,11 +50,13 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("config").add(builder);
         config.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConfig(int index,V1beta2DeviceClaimConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceClaimConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -59,41 +65,71 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("config").add(builder);
         config.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConfig(io.kubernetes.client.openapi.models.V1beta2DeviceClaimConfiguration... items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceClaimConfigurationBuilder>();}
-    for (V1beta2DeviceClaimConfiguration item : items) {V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+  public A addToConfig(V1beta2DeviceClaimConfiguration... items) {
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta2DeviceClaimConfiguration item : items) {
+        V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConfig(Collection<V1beta2DeviceClaimConfiguration> items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceClaimConfigurationBuilder>();}
-    for (V1beta2DeviceClaimConfiguration item : items) {V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta2DeviceClaimConfiguration item : items) {
+        V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConfig(io.kubernetes.client.openapi.models.V1beta2DeviceClaimConfiguration... items) {
-    if (this.config == null) return (A)this;
-    for (V1beta2DeviceClaimConfiguration item : items) {V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+  public A removeFromConfig(V1beta2DeviceClaimConfiguration... items) {
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceClaimConfiguration item : items) {
+        V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConfig(Collection<V1beta2DeviceClaimConfiguration> items) {
-    if (this.config == null) return (A)this;
-    for (V1beta2DeviceClaimConfiguration item : items) {V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceClaimConfiguration item : items) {
+        V1beta2DeviceClaimConfigurationBuilder builder = new V1beta2DeviceClaimConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConfig(Predicate<V1beta2DeviceClaimConfigurationBuilder> predicate) {
-    if (config == null) return (A) this;
-    final Iterator<V1beta2DeviceClaimConfigurationBuilder> each = config.iterator();
-    final List visitables = _visitables.get("config");
-    while (each.hasNext()) {
-      V1beta2DeviceClaimConfigurationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (config == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceClaimConfigurationBuilder> each = config.iterator();
+    List visitables = _visitables.get("config");
+    while (each.hasNext()) {
+        V1beta2DeviceClaimConfigurationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceClaimConfiguration> buildConfig() {
@@ -145,7 +181,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     return (A) this;
   }
   
-  public A withConfig(io.kubernetes.client.openapi.models.V1beta2DeviceClaimConfiguration... config) {
+  public A withConfig(V1beta2DeviceClaimConfiguration... config) {
     if (this.config != null) {
         this.config.clear();
         _visitables.remove("config");
@@ -159,7 +195,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public boolean hasConfig() {
-    return this.config != null && !this.config.isEmpty();
+    return this.config != null && !(this.config.isEmpty());
   }
   
   public ConfigNested<A> addNewConfig() {
@@ -175,32 +211,45 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public ConfigNested<A> editConfig(int index) {
-    if (config.size() <= index) throw new RuntimeException("Can't edit config. Index exceeds size.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index <= config.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editFirstConfig() {
-    if (config.size() == 0) throw new RuntimeException("Can't edit first config. The list is empty.");
-    return setNewConfigLike(0, buildConfig(0));
+    if (config.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(0, this.buildConfig(0));
   }
   
   public ConfigNested<A> editLastConfig() {
     int index = config.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last config. The list is empty.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editMatchingConfig(Predicate<V1beta2DeviceClaimConfigurationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<config.size();i++) { 
-    if (predicate.test(config.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching config. No match found.");
-    return setNewConfigLike(index, buildConfig(index));
+    for (int i = 0;i < config.size();i++) {
+      if (predicate.test(config.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public A addToConstraints(int index,V1beta2DeviceConstraint item) {
-    if (this.constraints == null) {this.constraints = new ArrayList<V1beta2DeviceConstraintBuilder>();}
+    if (this.constraints == null) {
+      this.constraints = new ArrayList();
+    }
     V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
     if (index < 0 || index >= constraints.size()) {
         _visitables.get("constraints").add(builder);
@@ -209,11 +258,13 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("constraints").add(builder);
         constraints.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConstraints(int index,V1beta2DeviceConstraint item) {
-    if (this.constraints == null) {this.constraints = new ArrayList<V1beta2DeviceConstraintBuilder>();}
+    if (this.constraints == null) {
+      this.constraints = new ArrayList();
+    }
     V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
     if (index < 0 || index >= constraints.size()) {
         _visitables.get("constraints").add(builder);
@@ -222,41 +273,71 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("constraints").add(builder);
         constraints.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConstraints(io.kubernetes.client.openapi.models.V1beta2DeviceConstraint... items) {
-    if (this.constraints == null) {this.constraints = new ArrayList<V1beta2DeviceConstraintBuilder>();}
-    for (V1beta2DeviceConstraint item : items) {V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);_visitables.get("constraints").add(builder);this.constraints.add(builder);} return (A)this;
+  public A addToConstraints(V1beta2DeviceConstraint... items) {
+    if (this.constraints == null) {
+      this.constraints = new ArrayList();
+    }
+    for (V1beta2DeviceConstraint item : items) {
+        V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
+        _visitables.get("constraints").add(builder);
+        this.constraints.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConstraints(Collection<V1beta2DeviceConstraint> items) {
-    if (this.constraints == null) {this.constraints = new ArrayList<V1beta2DeviceConstraintBuilder>();}
-    for (V1beta2DeviceConstraint item : items) {V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);_visitables.get("constraints").add(builder);this.constraints.add(builder);} return (A)this;
+    if (this.constraints == null) {
+      this.constraints = new ArrayList();
+    }
+    for (V1beta2DeviceConstraint item : items) {
+        V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
+        _visitables.get("constraints").add(builder);
+        this.constraints.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConstraints(io.kubernetes.client.openapi.models.V1beta2DeviceConstraint... items) {
-    if (this.constraints == null) return (A)this;
-    for (V1beta2DeviceConstraint item : items) {V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);_visitables.get("constraints").remove(builder); this.constraints.remove(builder);} return (A)this;
+  public A removeFromConstraints(V1beta2DeviceConstraint... items) {
+    if (this.constraints == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceConstraint item : items) {
+        V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
+        _visitables.get("constraints").remove(builder);
+        this.constraints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConstraints(Collection<V1beta2DeviceConstraint> items) {
-    if (this.constraints == null) return (A)this;
-    for (V1beta2DeviceConstraint item : items) {V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);_visitables.get("constraints").remove(builder); this.constraints.remove(builder);} return (A)this;
+    if (this.constraints == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceConstraint item : items) {
+        V1beta2DeviceConstraintBuilder builder = new V1beta2DeviceConstraintBuilder(item);
+        _visitables.get("constraints").remove(builder);
+        this.constraints.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConstraints(Predicate<V1beta2DeviceConstraintBuilder> predicate) {
-    if (constraints == null) return (A) this;
-    final Iterator<V1beta2DeviceConstraintBuilder> each = constraints.iterator();
-    final List visitables = _visitables.get("constraints");
-    while (each.hasNext()) {
-      V1beta2DeviceConstraintBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (constraints == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceConstraintBuilder> each = constraints.iterator();
+    List visitables = _visitables.get("constraints");
+    while (each.hasNext()) {
+        V1beta2DeviceConstraintBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceConstraint> buildConstraints() {
@@ -308,7 +389,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     return (A) this;
   }
   
-  public A withConstraints(io.kubernetes.client.openapi.models.V1beta2DeviceConstraint... constraints) {
+  public A withConstraints(V1beta2DeviceConstraint... constraints) {
     if (this.constraints != null) {
         this.constraints.clear();
         _visitables.remove("constraints");
@@ -322,7 +403,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public boolean hasConstraints() {
-    return this.constraints != null && !this.constraints.isEmpty();
+    return this.constraints != null && !(this.constraints.isEmpty());
   }
   
   public ConstraintsNested<A> addNewConstraint() {
@@ -338,32 +419,45 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public ConstraintsNested<A> editConstraint(int index) {
-    if (constraints.size() <= index) throw new RuntimeException("Can't edit constraints. Index exceeds size.");
-    return setNewConstraintLike(index, buildConstraint(index));
+    if (index <= constraints.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "constraints"));
+    }
+    return this.setNewConstraintLike(index, this.buildConstraint(index));
   }
   
   public ConstraintsNested<A> editFirstConstraint() {
-    if (constraints.size() == 0) throw new RuntimeException("Can't edit first constraints. The list is empty.");
-    return setNewConstraintLike(0, buildConstraint(0));
+    if (constraints.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "constraints"));
+    }
+    return this.setNewConstraintLike(0, this.buildConstraint(0));
   }
   
   public ConstraintsNested<A> editLastConstraint() {
     int index = constraints.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last constraints. The list is empty.");
-    return setNewConstraintLike(index, buildConstraint(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "constraints"));
+    }
+    return this.setNewConstraintLike(index, this.buildConstraint(index));
   }
   
   public ConstraintsNested<A> editMatchingConstraint(Predicate<V1beta2DeviceConstraintBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<constraints.size();i++) { 
-    if (predicate.test(constraints.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching constraints. No match found.");
-    return setNewConstraintLike(index, buildConstraint(index));
+    for (int i = 0;i < constraints.size();i++) {
+      if (predicate.test(constraints.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "constraints"));
+    }
+    return this.setNewConstraintLike(index, this.buildConstraint(index));
   }
   
   public A addToRequests(int index,V1beta2DeviceRequest item) {
-    if (this.requests == null) {this.requests = new ArrayList<V1beta2DeviceRequestBuilder>();}
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
     V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
     if (index < 0 || index >= requests.size()) {
         _visitables.get("requests").add(builder);
@@ -372,11 +466,13 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("requests").add(builder);
         requests.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequests(int index,V1beta2DeviceRequest item) {
-    if (this.requests == null) {this.requests = new ArrayList<V1beta2DeviceRequestBuilder>();}
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
     V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
     if (index < 0 || index >= requests.size()) {
         _visitables.get("requests").add(builder);
@@ -385,41 +481,71 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
         _visitables.get("requests").add(builder);
         requests.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRequests(io.kubernetes.client.openapi.models.V1beta2DeviceRequest... items) {
-    if (this.requests == null) {this.requests = new ArrayList<V1beta2DeviceRequestBuilder>();}
-    for (V1beta2DeviceRequest item : items) {V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);_visitables.get("requests").add(builder);this.requests.add(builder);} return (A)this;
+  public A addToRequests(V1beta2DeviceRequest... items) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (V1beta2DeviceRequest item : items) {
+        V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
+        _visitables.get("requests").add(builder);
+        this.requests.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRequests(Collection<V1beta2DeviceRequest> items) {
-    if (this.requests == null) {this.requests = new ArrayList<V1beta2DeviceRequestBuilder>();}
-    for (V1beta2DeviceRequest item : items) {V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);_visitables.get("requests").add(builder);this.requests.add(builder);} return (A)this;
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (V1beta2DeviceRequest item : items) {
+        V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
+        _visitables.get("requests").add(builder);
+        this.requests.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequests(io.kubernetes.client.openapi.models.V1beta2DeviceRequest... items) {
-    if (this.requests == null) return (A)this;
-    for (V1beta2DeviceRequest item : items) {V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);_visitables.get("requests").remove(builder); this.requests.remove(builder);} return (A)this;
+  public A removeFromRequests(V1beta2DeviceRequest... items) {
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceRequest item : items) {
+        V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
+        _visitables.get("requests").remove(builder);
+        this.requests.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequests(Collection<V1beta2DeviceRequest> items) {
-    if (this.requests == null) return (A)this;
-    for (V1beta2DeviceRequest item : items) {V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);_visitables.get("requests").remove(builder); this.requests.remove(builder);} return (A)this;
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceRequest item : items) {
+        V1beta2DeviceRequestBuilder builder = new V1beta2DeviceRequestBuilder(item);
+        _visitables.get("requests").remove(builder);
+        this.requests.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRequests(Predicate<V1beta2DeviceRequestBuilder> predicate) {
-    if (requests == null) return (A) this;
-    final Iterator<V1beta2DeviceRequestBuilder> each = requests.iterator();
-    final List visitables = _visitables.get("requests");
-    while (each.hasNext()) {
-      V1beta2DeviceRequestBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (requests == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceRequestBuilder> each = requests.iterator();
+    List visitables = _visitables.get("requests");
+    while (each.hasNext()) {
+        V1beta2DeviceRequestBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceRequest> buildRequests() {
@@ -471,7 +597,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     return (A) this;
   }
   
-  public A withRequests(io.kubernetes.client.openapi.models.V1beta2DeviceRequest... requests) {
+  public A withRequests(V1beta2DeviceRequest... requests) {
     if (this.requests != null) {
         this.requests.clear();
         _visitables.remove("requests");
@@ -485,7 +611,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public boolean hasRequests() {
-    return this.requests != null && !this.requests.isEmpty();
+    return this.requests != null && !(this.requests.isEmpty());
   }
   
   public RequestsNested<A> addNewRequest() {
@@ -501,51 +627,85 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
   }
   
   public RequestsNested<A> editRequest(int index) {
-    if (requests.size() <= index) throw new RuntimeException("Can't edit requests. Index exceeds size.");
-    return setNewRequestLike(index, buildRequest(index));
+    if (index <= requests.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "requests"));
+    }
+    return this.setNewRequestLike(index, this.buildRequest(index));
   }
   
   public RequestsNested<A> editFirstRequest() {
-    if (requests.size() == 0) throw new RuntimeException("Can't edit first requests. The list is empty.");
-    return setNewRequestLike(0, buildRequest(0));
+    if (requests.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "requests"));
+    }
+    return this.setNewRequestLike(0, this.buildRequest(0));
   }
   
   public RequestsNested<A> editLastRequest() {
     int index = requests.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last requests. The list is empty.");
-    return setNewRequestLike(index, buildRequest(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "requests"));
+    }
+    return this.setNewRequestLike(index, this.buildRequest(index));
   }
   
   public RequestsNested<A> editMatchingRequest(Predicate<V1beta2DeviceRequestBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<requests.size();i++) { 
-    if (predicate.test(requests.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching requests. No match found.");
-    return setNewRequestLike(index, buildRequest(index));
+    for (int i = 0;i < requests.size();i++) {
+      if (predicate.test(requests.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "requests"));
+    }
+    return this.setNewRequestLike(index, this.buildRequest(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2DeviceClaimFluent that = (V1beta2DeviceClaimFluent) o;
-    if (!java.util.Objects.equals(config, that.config)) return false;
-    if (!java.util.Objects.equals(constraints, that.constraints)) return false;
-    if (!java.util.Objects.equals(requests, that.requests)) return false;
+    if (!(Objects.equals(config, that.config))) {
+      return false;
+    }
+    if (!(Objects.equals(constraints, that.constraints))) {
+      return false;
+    }
+    if (!(Objects.equals(requests, that.requests))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(config,  constraints,  requests,  super.hashCode());
+    return Objects.hash(config, constraints, requests);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (config != null && !config.isEmpty()) { sb.append("config:"); sb.append(config + ","); }
-    if (constraints != null && !constraints.isEmpty()) { sb.append("constraints:"); sb.append(constraints + ","); }
-    if (requests != null && !requests.isEmpty()) { sb.append("requests:"); sb.append(requests); }
+    if (!(config == null) && !(config.isEmpty())) {
+        sb.append("config:");
+        sb.append(config);
+        sb.append(",");
+    }
+    if (!(constraints == null) && !(constraints.isEmpty())) {
+        sb.append("constraints:");
+        sb.append(constraints);
+        sb.append(",");
+    }
+    if (!(requests == null) && !(requests.isEmpty())) {
+        sb.append("requests:");
+        sb.append(requests);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -558,7 +718,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     int index;
     
     public N and() {
-      return (N) V1beta2DeviceClaimFluent.this.setToConfig(index,builder.build());
+      return (N) V1beta2DeviceClaimFluent.this.setToConfig(index, builder.build());
     }
     
     public N endConfig() {
@@ -576,7 +736,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     int index;
     
     public N and() {
-      return (N) V1beta2DeviceClaimFluent.this.setToConstraints(index,builder.build());
+      return (N) V1beta2DeviceClaimFluent.this.setToConstraints(index, builder.build());
     }
     
     public N endConstraint() {
@@ -594,7 +754,7 @@ public class V1beta2DeviceClaimFluent<A extends V1beta2DeviceClaimFluent<A>> ext
     int index;
     
     public N and() {
-      return (N) V1beta2DeviceClaimFluent.this.setToRequests(index,builder.build());
+      return (N) V1beta2DeviceClaimFluent.this.setToRequests(index, builder.build());
     }
     
     public N endRequest() {

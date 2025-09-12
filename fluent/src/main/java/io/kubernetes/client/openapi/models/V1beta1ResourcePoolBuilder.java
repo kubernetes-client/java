@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1ResourcePoolBuilder extends V1beta1ResourcePoolFluent<V1beta1ResourcePoolBuilder> implements VisitableBuilder<V1beta1ResourcePool,V1beta1ResourcePoolBuilder>{
   public V1beta1ResourcePoolBuilder() {
     this(new V1beta1ResourcePool());

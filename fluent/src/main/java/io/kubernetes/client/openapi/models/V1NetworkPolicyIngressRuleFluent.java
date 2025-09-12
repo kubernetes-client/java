@@ -1,22 +1,24 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRuleFluent<A>> extends BaseFluent<A>{
+public class V1NetworkPolicyIngressRuleFluent<A extends io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent<A>> extends BaseFluent<A>{
   public V1NetworkPolicyIngressRuleFluent() {
   }
   
@@ -27,15 +29,17 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
   private ArrayList<V1NetworkPolicyPortBuilder> ports;
   
   protected void copyInstance(V1NetworkPolicyIngressRule instance) {
-    instance = (instance != null ? instance : new V1NetworkPolicyIngressRule());
+    instance = instance != null ? instance : new V1NetworkPolicyIngressRule();
     if (instance != null) {
-          this.withFrom(instance.getFrom());
-          this.withPorts(instance.getPorts());
-        }
+        this.withFrom(instance.getFrom());
+        this.withPorts(instance.getPorts());
+    }
   }
   
   public A addToFrom(int index,V1NetworkPolicyPeer item) {
-    if (this.from == null) {this.from = new ArrayList<V1NetworkPolicyPeerBuilder>();}
+    if (this.from == null) {
+      this.from = new ArrayList();
+    }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
     if (index < 0 || index >= from.size()) {
         _visitables.get("from").add(builder);
@@ -44,11 +48,13 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
         _visitables.get("from").add(builder);
         from.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToFrom(int index,V1NetworkPolicyPeer item) {
-    if (this.from == null) {this.from = new ArrayList<V1NetworkPolicyPeerBuilder>();}
+    if (this.from == null) {
+      this.from = new ArrayList();
+    }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
     if (index < 0 || index >= from.size()) {
         _visitables.get("from").add(builder);
@@ -57,41 +63,71 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
         _visitables.get("from").add(builder);
         from.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToFrom(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer... items) {
-    if (this.from == null) {this.from = new ArrayList<V1NetworkPolicyPeerBuilder>();}
-    for (V1NetworkPolicyPeer item : items) {V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);_visitables.get("from").add(builder);this.from.add(builder);} return (A)this;
+  public A addToFrom(V1NetworkPolicyPeer... items) {
+    if (this.from == null) {
+      this.from = new ArrayList();
+    }
+    for (V1NetworkPolicyPeer item : items) {
+        V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
+        _visitables.get("from").add(builder);
+        this.from.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToFrom(Collection<V1NetworkPolicyPeer> items) {
-    if (this.from == null) {this.from = new ArrayList<V1NetworkPolicyPeerBuilder>();}
-    for (V1NetworkPolicyPeer item : items) {V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);_visitables.get("from").add(builder);this.from.add(builder);} return (A)this;
+    if (this.from == null) {
+      this.from = new ArrayList();
+    }
+    for (V1NetworkPolicyPeer item : items) {
+        V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
+        _visitables.get("from").add(builder);
+        this.from.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromFrom(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer... items) {
-    if (this.from == null) return (A)this;
-    for (V1NetworkPolicyPeer item : items) {V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);_visitables.get("from").remove(builder); this.from.remove(builder);} return (A)this;
+  public A removeFromFrom(V1NetworkPolicyPeer... items) {
+    if (this.from == null) {
+      return (A) this;
+    }
+    for (V1NetworkPolicyPeer item : items) {
+        V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
+        _visitables.get("from").remove(builder);
+        this.from.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromFrom(Collection<V1NetworkPolicyPeer> items) {
-    if (this.from == null) return (A)this;
-    for (V1NetworkPolicyPeer item : items) {V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);_visitables.get("from").remove(builder); this.from.remove(builder);} return (A)this;
+    if (this.from == null) {
+      return (A) this;
+    }
+    for (V1NetworkPolicyPeer item : items) {
+        V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
+        _visitables.get("from").remove(builder);
+        this.from.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromFrom(Predicate<V1NetworkPolicyPeerBuilder> predicate) {
-    if (from == null) return (A) this;
-    final Iterator<V1NetworkPolicyPeerBuilder> each = from.iterator();
-    final List visitables = _visitables.get("from");
-    while (each.hasNext()) {
-      V1NetworkPolicyPeerBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (from == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NetworkPolicyPeerBuilder> each = from.iterator();
+    List visitables = _visitables.get("from");
+    while (each.hasNext()) {
+        V1NetworkPolicyPeerBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NetworkPolicyPeer> buildFrom() {
@@ -143,7 +179,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
     return (A) this;
   }
   
-  public A withFrom(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer... from) {
+  public A withFrom(V1NetworkPolicyPeer... from) {
     if (this.from != null) {
         this.from.clear();
         _visitables.remove("from");
@@ -157,7 +193,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
   }
   
   public boolean hasFrom() {
-    return this.from != null && !this.from.isEmpty();
+    return this.from != null && !(this.from.isEmpty());
   }
   
   public FromNested<A> addNewFrom() {
@@ -173,32 +209,45 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
   }
   
   public FromNested<A> editFrom(int index) {
-    if (from.size() <= index) throw new RuntimeException("Can't edit from. Index exceeds size.");
-    return setNewFromLike(index, buildFrom(index));
+    if (index <= from.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "from"));
+    }
+    return this.setNewFromLike(index, this.buildFrom(index));
   }
   
   public FromNested<A> editFirstFrom() {
-    if (from.size() == 0) throw new RuntimeException("Can't edit first from. The list is empty.");
-    return setNewFromLike(0, buildFrom(0));
+    if (from.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "from"));
+    }
+    return this.setNewFromLike(0, this.buildFrom(0));
   }
   
   public FromNested<A> editLastFrom() {
     int index = from.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last from. The list is empty.");
-    return setNewFromLike(index, buildFrom(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "from"));
+    }
+    return this.setNewFromLike(index, this.buildFrom(index));
   }
   
   public FromNested<A> editMatchingFrom(Predicate<V1NetworkPolicyPeerBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<from.size();i++) { 
-    if (predicate.test(from.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching from. No match found.");
-    return setNewFromLike(index, buildFrom(index));
+    for (int i = 0;i < from.size();i++) {
+      if (predicate.test(from.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "from"));
+    }
+    return this.setNewFromLike(index, this.buildFrom(index));
   }
   
   public A addToPorts(int index,V1NetworkPolicyPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -207,11 +256,13 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
         _visitables.get("ports").add(builder);
         ports.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPorts(int index,V1NetworkPolicyPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -220,41 +271,71 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
         _visitables.get("ports").add(builder);
         ports.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items) {
-    if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
-    for (V1NetworkPolicyPort item : items) {V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+  public A addToPorts(V1NetworkPolicyPort... items) {
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (V1NetworkPolicyPort item : items) {
+        V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToPorts(Collection<V1NetworkPolicyPort> items) {
-    if (this.ports == null) {this.ports = new ArrayList<V1NetworkPolicyPortBuilder>();}
-    for (V1NetworkPolicyPort item : items) {V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (V1NetworkPolicyPort item : items) {
+        V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items) {
-    if (this.ports == null) return (A)this;
-    for (V1NetworkPolicyPort item : items) {V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+  public A removeFromPorts(V1NetworkPolicyPort... items) {
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (V1NetworkPolicyPort item : items) {
+        V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPorts(Collection<V1NetworkPolicyPort> items) {
-    if (this.ports == null) return (A)this;
-    for (V1NetworkPolicyPort item : items) {V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (V1NetworkPolicyPort item : items) {
+        V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromPorts(Predicate<V1NetworkPolicyPortBuilder> predicate) {
-    if (ports == null) return (A) this;
-    final Iterator<V1NetworkPolicyPortBuilder> each = ports.iterator();
-    final List visitables = _visitables.get("ports");
-    while (each.hasNext()) {
-      V1NetworkPolicyPortBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (ports == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NetworkPolicyPortBuilder> each = ports.iterator();
+    List visitables = _visitables.get("ports");
+    while (each.hasNext()) {
+        V1NetworkPolicyPortBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NetworkPolicyPort> buildPorts() {
@@ -306,7 +387,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
     return (A) this;
   }
   
-  public A withPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... ports) {
+  public A withPorts(V1NetworkPolicyPort... ports) {
     if (this.ports != null) {
         this.ports.clear();
         _visitables.remove("ports");
@@ -320,7 +401,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
   }
   
   public boolean hasPorts() {
-    return this.ports != null && !this.ports.isEmpty();
+    return this.ports != null && !(this.ports.isEmpty());
   }
   
   public PortsNested<A> addNewPort() {
@@ -336,49 +417,77 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
   }
   
   public PortsNested<A> editPort(int index) {
-    if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
-    return setNewPortLike(index, buildPort(index));
+    if (index <= ports.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
-    return setNewPortLike(0, buildPort(0));
+    if (ports.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(0, this.buildPort(0));
   }
   
   public PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
-    return setNewPortLike(index, buildPort(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editMatchingPort(Predicate<V1NetworkPolicyPortBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<ports.size();i++) { 
-    if (predicate.test(ports.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching ports. No match found.");
-    return setNewPortLike(index, buildPort(index));
+    for (int i = 0;i < ports.size();i++) {
+      if (predicate.test(ports.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NetworkPolicyIngressRuleFluent that = (V1NetworkPolicyIngressRuleFluent) o;
-    if (!java.util.Objects.equals(from, that.from)) return false;
-    if (!java.util.Objects.equals(ports, that.ports)) return false;
+    if (!(Objects.equals(from, that.from))) {
+      return false;
+    }
+    if (!(Objects.equals(ports, that.ports))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(from,  ports,  super.hashCode());
+    return Objects.hash(from, ports);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (from != null && !from.isEmpty()) { sb.append("from:"); sb.append(from + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports); }
+    if (!(from == null) && !(from.isEmpty())) {
+        sb.append("from:");
+        sb.append(from);
+        sb.append(",");
+    }
+    if (!(ports == null) && !(ports.isEmpty())) {
+        sb.append("ports:");
+        sb.append(ports);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +500,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
     int index;
     
     public N and() {
-      return (N) V1NetworkPolicyIngressRuleFluent.this.setToFrom(index,builder.build());
+      return (N) V1NetworkPolicyIngressRuleFluent.this.setToFrom(index, builder.build());
     }
     
     public N endFrom() {
@@ -409,7 +518,7 @@ public class V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRu
     int index;
     
     public N and() {
-      return (N) V1NetworkPolicyIngressRuleFluent.this.setToPorts(index,builder.build());
+      return (N) V1NetworkPolicyIngressRuleFluent.this.setToPorts(index, builder.build());
     }
     
     public N endPort() {

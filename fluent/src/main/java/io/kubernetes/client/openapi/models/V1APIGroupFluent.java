@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<A>{
+public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1APIGroupFluent<A>> extends BaseFluent<A>{
   public V1APIGroupFluent() {
   }
   
@@ -31,15 +34,15 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   private ArrayList<V1GroupVersionForDiscoveryBuilder> versions;
   
   protected void copyInstance(V1APIGroup instance) {
-    instance = (instance != null ? instance : new V1APIGroup());
+    instance = instance != null ? instance : new V1APIGroup();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withName(instance.getName());
-          this.withPreferredVersion(instance.getPreferredVersion());
-          this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-          this.withVersions(instance.getVersions());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withName(instance.getName());
+        this.withPreferredVersion(instance.getPreferredVersion());
+        this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+        this.withVersions(instance.getVersions());
+    }
   }
   
   public String getApiVersion() {
@@ -110,19 +113,21 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   }
   
   public PreferredVersionNested<A> editPreferredVersion() {
-    return withNewPreferredVersionLike(java.util.Optional.ofNullable(buildPreferredVersion()).orElse(null));
+    return this.withNewPreferredVersionLike(Optional.ofNullable(this.buildPreferredVersion()).orElse(null));
   }
   
   public PreferredVersionNested<A> editOrNewPreferredVersion() {
-    return withNewPreferredVersionLike(java.util.Optional.ofNullable(buildPreferredVersion()).orElse(new V1GroupVersionForDiscoveryBuilder().build()));
+    return this.withNewPreferredVersionLike(Optional.ofNullable(this.buildPreferredVersion()).orElse(new V1GroupVersionForDiscoveryBuilder().build()));
   }
   
   public PreferredVersionNested<A> editOrNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
-    return withNewPreferredVersionLike(java.util.Optional.ofNullable(buildPreferredVersion()).orElse(item));
+    return this.withNewPreferredVersionLike(Optional.ofNullable(this.buildPreferredVersion()).orElse(item));
   }
   
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
         _visitables.get("serverAddressByClientCIDRs").add(builder);
@@ -131,11 +136,13 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
         _visitables.get("serverAddressByClientCIDRs").add(builder);
         serverAddressByClientCIDRs.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
         _visitables.get("serverAddressByClientCIDRs").add(builder);
@@ -144,41 +151,71 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
         _visitables.get("serverAddressByClientCIDRs").add(builder);
         serverAddressByClientCIDRs.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").add(builder);this.serverAddressByClientCIDRs.add(builder);} return (A)this;
+  public A addToServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").add(builder);this.serverAddressByClientCIDRs.add(builder);} return (A)this;
+    if (this.serverAddressByClientCIDRs == null) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
-    if (this.serverAddressByClientCIDRs == null) return (A)this;
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").remove(builder); this.serverAddressByClientCIDRs.remove(builder);} return (A)this;
+  public A removeFromServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
+    if (this.serverAddressByClientCIDRs == null) {
+      return (A) this;
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").remove(builder);
+        this.serverAddressByClientCIDRs.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
-    if (this.serverAddressByClientCIDRs == null) return (A)this;
-    for (V1ServerAddressByClientCIDR item : items) {V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").remove(builder); this.serverAddressByClientCIDRs.remove(builder);} return (A)this;
+    if (this.serverAddressByClientCIDRs == null) {
+      return (A) this;
+    }
+    for (V1ServerAddressByClientCIDR item : items) {
+        V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+        _visitables.get("serverAddressByClientCIDRs").remove(builder);
+        this.serverAddressByClientCIDRs.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromServerAddressByClientCIDRs(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
-    if (serverAddressByClientCIDRs == null) return (A) this;
-    final Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
-    final List visitables = _visitables.get("serverAddressByClientCIDRs");
-    while (each.hasNext()) {
-      V1ServerAddressByClientCIDRBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (serverAddressByClientCIDRs == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
+    List visitables = _visitables.get("serverAddressByClientCIDRs");
+    while (each.hasNext()) {
+        V1ServerAddressByClientCIDRBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
@@ -230,7 +267,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... serverAddressByClientCIDRs) {
+  public A withServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... serverAddressByClientCIDRs) {
     if (this.serverAddressByClientCIDRs != null) {
         this.serverAddressByClientCIDRs.clear();
         _visitables.remove("serverAddressByClientCIDRs");
@@ -244,7 +281,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   }
   
   public boolean hasServerAddressByClientCIDRs() {
-    return this.serverAddressByClientCIDRs != null && !this.serverAddressByClientCIDRs.isEmpty();
+    return this.serverAddressByClientCIDRs != null && !(this.serverAddressByClientCIDRs.isEmpty());
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
@@ -260,32 +297,45 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   }
   
   public ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(int index) {
-    if (serverAddressByClientCIDRs.size() <= index) throw new RuntimeException("Can't edit serverAddressByClientCIDRs. Index exceeds size.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    if (index <= serverAddressByClientCIDRs.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR() {
-    if (serverAddressByClientCIDRs.size() == 0) throw new RuntimeException("Can't edit first serverAddressByClientCIDRs. The list is empty.");
-    return setNewServerAddressByClientCIDRLike(0, buildServerAddressByClientCIDR(0));
+    if (serverAddressByClientCIDRs.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(0, this.buildServerAddressByClientCIDR(0));
   }
   
   public ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR() {
     int index = serverAddressByClientCIDRs.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last serverAddressByClientCIDRs. The list is empty.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<serverAddressByClientCIDRs.size();i++) { 
-    if (predicate.test(serverAddressByClientCIDRs.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching serverAddressByClientCIDRs. No match found.");
-    return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
+    for (int i = 0;i < serverAddressByClientCIDRs.size();i++) {
+      if (predicate.test(serverAddressByClientCIDRs.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "serverAddressByClientCIDRs"));
+    }
+    return this.setNewServerAddressByClientCIDRLike(index, this.buildServerAddressByClientCIDR(index));
   }
   
   public A addToVersions(int index,V1GroupVersionForDiscovery item) {
-    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     if (index < 0 || index >= versions.size()) {
         _visitables.get("versions").add(builder);
@@ -294,11 +344,13 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
         _visitables.get("versions").add(builder);
         versions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVersions(int index,V1GroupVersionForDiscovery item) {
-    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     if (index < 0 || index >= versions.size()) {
         _visitables.get("versions").add(builder);
@@ -307,41 +359,71 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
         _visitables.get("versions").add(builder);
         versions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items) {
-    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
-    for (V1GroupVersionForDiscovery item : items) {V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);_visitables.get("versions").add(builder);this.versions.add(builder);} return (A)this;
+  public A addToVersions(V1GroupVersionForDiscovery... items) {
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
+    for (V1GroupVersionForDiscovery item : items) {
+        V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
+        _visitables.get("versions").add(builder);
+        this.versions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVersions(Collection<V1GroupVersionForDiscovery> items) {
-    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
-    for (V1GroupVersionForDiscovery item : items) {V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);_visitables.get("versions").add(builder);this.versions.add(builder);} return (A)this;
+    if (this.versions == null) {
+      this.versions = new ArrayList();
+    }
+    for (V1GroupVersionForDiscovery item : items) {
+        V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
+        _visitables.get("versions").add(builder);
+        this.versions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items) {
-    if (this.versions == null) return (A)this;
-    for (V1GroupVersionForDiscovery item : items) {V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);_visitables.get("versions").remove(builder); this.versions.remove(builder);} return (A)this;
+  public A removeFromVersions(V1GroupVersionForDiscovery... items) {
+    if (this.versions == null) {
+      return (A) this;
+    }
+    for (V1GroupVersionForDiscovery item : items) {
+        V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
+        _visitables.get("versions").remove(builder);
+        this.versions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVersions(Collection<V1GroupVersionForDiscovery> items) {
-    if (this.versions == null) return (A)this;
-    for (V1GroupVersionForDiscovery item : items) {V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);_visitables.get("versions").remove(builder); this.versions.remove(builder);} return (A)this;
+    if (this.versions == null) {
+      return (A) this;
+    }
+    for (V1GroupVersionForDiscovery item : items) {
+        V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
+        _visitables.get("versions").remove(builder);
+        this.versions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVersions(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
-    if (versions == null) return (A) this;
-    final Iterator<V1GroupVersionForDiscoveryBuilder> each = versions.iterator();
-    final List visitables = _visitables.get("versions");
-    while (each.hasNext()) {
-      V1GroupVersionForDiscoveryBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (versions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1GroupVersionForDiscoveryBuilder> each = versions.iterator();
+    List visitables = _visitables.get("versions");
+    while (each.hasNext()) {
+        V1GroupVersionForDiscoveryBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1GroupVersionForDiscovery> buildVersions() {
@@ -393,7 +475,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
     return (A) this;
   }
   
-  public A withVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... versions) {
+  public A withVersions(V1GroupVersionForDiscovery... versions) {
     if (this.versions != null) {
         this.versions.clear();
         _visitables.remove("versions");
@@ -407,7 +489,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   }
   
   public boolean hasVersions() {
-    return this.versions != null && !this.versions.isEmpty();
+    return this.versions != null && !(this.versions.isEmpty());
   }
   
   public VersionsNested<A> addNewVersion() {
@@ -423,57 +505,109 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
   }
   
   public VersionsNested<A> editVersion(int index) {
-    if (versions.size() <= index) throw new RuntimeException("Can't edit versions. Index exceeds size.");
-    return setNewVersionLike(index, buildVersion(index));
+    if (index <= versions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "versions"));
+    }
+    return this.setNewVersionLike(index, this.buildVersion(index));
   }
   
   public VersionsNested<A> editFirstVersion() {
-    if (versions.size() == 0) throw new RuntimeException("Can't edit first versions. The list is empty.");
-    return setNewVersionLike(0, buildVersion(0));
+    if (versions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "versions"));
+    }
+    return this.setNewVersionLike(0, this.buildVersion(0));
   }
   
   public VersionsNested<A> editLastVersion() {
     int index = versions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last versions. The list is empty.");
-    return setNewVersionLike(index, buildVersion(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "versions"));
+    }
+    return this.setNewVersionLike(index, this.buildVersion(index));
   }
   
   public VersionsNested<A> editMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<versions.size();i++) { 
-    if (predicate.test(versions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching versions. No match found.");
-    return setNewVersionLike(index, buildVersion(index));
+    for (int i = 0;i < versions.size();i++) {
+      if (predicate.test(versions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "versions"));
+    }
+    return this.setNewVersionLike(index, this.buildVersion(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1APIGroupFluent that = (V1APIGroupFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(preferredVersion, that.preferredVersion)) return false;
-    if (!java.util.Objects.equals(serverAddressByClientCIDRs, that.serverAddressByClientCIDRs)) return false;
-    if (!java.util.Objects.equals(versions, that.versions)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(preferredVersion, that.preferredVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(serverAddressByClientCIDRs, that.serverAddressByClientCIDRs))) {
+      return false;
+    }
+    if (!(Objects.equals(versions, that.versions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  name,  preferredVersion,  serverAddressByClientCIDRs,  versions,  super.hashCode());
+    return Objects.hash(apiVersion, kind, name, preferredVersion, serverAddressByClientCIDRs, versions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (preferredVersion != null) { sb.append("preferredVersion:"); sb.append(preferredVersion + ","); }
-    if (serverAddressByClientCIDRs != null && !serverAddressByClientCIDRs.isEmpty()) { sb.append("serverAddressByClientCIDRs:"); sb.append(serverAddressByClientCIDRs + ","); }
-    if (versions != null && !versions.isEmpty()) { sb.append("versions:"); sb.append(versions); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(preferredVersion == null)) {
+        sb.append("preferredVersion:");
+        sb.append(preferredVersion);
+        sb.append(",");
+    }
+    if (!(serverAddressByClientCIDRs == null) && !(serverAddressByClientCIDRs.isEmpty())) {
+        sb.append("serverAddressByClientCIDRs:");
+        sb.append(serverAddressByClientCIDRs);
+        sb.append(",");
+    }
+    if (!(versions == null) && !(versions.isEmpty())) {
+        sb.append("versions:");
+        sb.append(versions);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -502,7 +636,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
     int index;
     
     public N and() {
-      return (N) V1APIGroupFluent.this.setToServerAddressByClientCIDRs(index,builder.build());
+      return (N) V1APIGroupFluent.this.setToServerAddressByClientCIDRs(index, builder.build());
     }
     
     public N endServerAddressByClientCIDR() {
@@ -520,7 +654,7 @@ public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<
     int index;
     
     public N and() {
-      return (N) V1APIGroupFluent.this.setToVersions(index,builder.build());
+      return (N) V1APIGroupFluent.this.setToVersions(index, builder.build());
     }
     
     public N endVersion() {

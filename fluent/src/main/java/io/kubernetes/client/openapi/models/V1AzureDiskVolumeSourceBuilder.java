@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluent<V1AzureDiskVolumeSourceBuilder> implements VisitableBuilder<V1AzureDiskVolumeSource,V1AzureDiskVolumeSourceBuilder>{
   public V1AzureDiskVolumeSourceBuilder() {
     this(new V1AzureDiskVolumeSource());

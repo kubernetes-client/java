@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class ApiextensionsV1WebhookClientConfigBuilder extends ApiextensionsV1WebhookClientConfigFluent<ApiextensionsV1WebhookClientConfigBuilder> implements VisitableBuilder<ApiextensionsV1WebhookClientConfig,ApiextensionsV1WebhookClientConfigBuilder>{
   public ApiextensionsV1WebhookClientConfigBuilder() {
     this(new ApiextensionsV1WebhookClientConfig());

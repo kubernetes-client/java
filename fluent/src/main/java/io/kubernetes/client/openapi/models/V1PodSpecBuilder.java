@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implements VisitableBuilder<V1PodSpec,V1PodSpecBuilder>{
   public V1PodSpecBuilder() {
     this(new V1PodSpec());
@@ -37,6 +38,7 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     buildable.setHostPID(fluent.getHostPID());
     buildable.setHostUsers(fluent.getHostUsers());
     buildable.setHostname(fluent.getHostname());
+    buildable.setHostnameOverride(fluent.getHostnameOverride());
     buildable.setImagePullSecrets(fluent.buildImagePullSecrets());
     buildable.setInitContainers(fluent.buildInitContainers());
     buildable.setNodeName(fluent.getNodeName());

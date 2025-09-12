@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CustomResourceConversionFluent<A extends V1CustomResourceConversionFluent<A>> extends BaseFluent<A>{
+public class V1CustomResourceConversionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent<A>> extends BaseFluent<A>{
   public V1CustomResourceConversionFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1CustomResourceConversionFluent<A extends V1CustomResourceConversi
   private V1WebhookConversionBuilder webhook;
   
   protected void copyInstance(V1CustomResourceConversion instance) {
-    instance = (instance != null ? instance : new V1CustomResourceConversion());
+    instance = instance != null ? instance : new V1CustomResourceConversion();
     if (instance != null) {
-          this.withStrategy(instance.getStrategy());
-          this.withWebhook(instance.getWebhook());
-        }
+        this.withStrategy(instance.getStrategy());
+        this.withWebhook(instance.getWebhook());
+    }
   }
   
   public String getStrategy() {
@@ -70,36 +73,53 @@ public class V1CustomResourceConversionFluent<A extends V1CustomResourceConversi
   }
   
   public WebhookNested<A> editWebhook() {
-    return withNewWebhookLike(java.util.Optional.ofNullable(buildWebhook()).orElse(null));
+    return this.withNewWebhookLike(Optional.ofNullable(this.buildWebhook()).orElse(null));
   }
   
   public WebhookNested<A> editOrNewWebhook() {
-    return withNewWebhookLike(java.util.Optional.ofNullable(buildWebhook()).orElse(new V1WebhookConversionBuilder().build()));
+    return this.withNewWebhookLike(Optional.ofNullable(this.buildWebhook()).orElse(new V1WebhookConversionBuilder().build()));
   }
   
   public WebhookNested<A> editOrNewWebhookLike(V1WebhookConversion item) {
-    return withNewWebhookLike(java.util.Optional.ofNullable(buildWebhook()).orElse(item));
+    return this.withNewWebhookLike(Optional.ofNullable(this.buildWebhook()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CustomResourceConversionFluent that = (V1CustomResourceConversionFluent) o;
-    if (!java.util.Objects.equals(strategy, that.strategy)) return false;
-    if (!java.util.Objects.equals(webhook, that.webhook)) return false;
+    if (!(Objects.equals(strategy, that.strategy))) {
+      return false;
+    }
+    if (!(Objects.equals(webhook, that.webhook))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(strategy,  webhook,  super.hashCode());
+    return Objects.hash(strategy, webhook);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (strategy != null) { sb.append("strategy:"); sb.append(strategy + ","); }
-    if (webhook != null) { sb.append("webhook:"); sb.append(webhook); }
+    if (!(strategy == null)) {
+        sb.append("strategy:");
+        sb.append(strategy);
+        sb.append(",");
+    }
+    if (!(webhook == null)) {
+        sb.append("webhook:");
+        sb.append(webhook);
+    }
     sb.append("}");
     return sb.toString();
   }

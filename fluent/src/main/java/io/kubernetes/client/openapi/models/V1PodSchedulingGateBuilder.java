@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodSchedulingGateBuilder extends V1PodSchedulingGateFluent<V1PodSchedulingGateBuilder> implements VisitableBuilder<V1PodSchedulingGate,V1PodSchedulingGateBuilder>{
   public V1PodSchedulingGateBuilder() {
     this(new V1PodSchedulingGate());

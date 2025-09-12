@@ -1,10 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 import java.util.Map;
@@ -13,7 +16,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1FlexPersistentVolumeSourceFluent() {
   }
   
@@ -27,14 +30,14 @@ public class V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolume
   private V1SecretReferenceBuilder secretRef;
   
   protected void copyInstance(V1FlexPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1FlexPersistentVolumeSource());
+    instance = instance != null ? instance : new V1FlexPersistentVolumeSource();
     if (instance != null) {
-          this.withDriver(instance.getDriver());
-          this.withFsType(instance.getFsType());
-          this.withOptions(instance.getOptions());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretRef(instance.getSecretRef());
-        }
+        this.withDriver(instance.getDriver());
+        this.withFsType(instance.getFsType());
+        this.withOptions(instance.getOptions());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
+    }
   }
   
   public String getDriver() {
@@ -64,23 +67,47 @@ public class V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolume
   }
   
   public A addToOptions(String key,String value) {
-    if(this.options == null && key != null && value != null) { this.options = new LinkedHashMap(); }
-    if(key != null && value != null) {this.options.put(key, value);} return (A)this;
+    if (this.options == null && key != null && value != null) {
+      this.options = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.options.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToOptions(Map<String,String> map) {
-    if(this.options == null && map != null) { this.options = new LinkedHashMap(); }
-    if(map != null) { this.options.putAll(map);} return (A)this;
+    if (this.options == null && map != null) {
+      this.options = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.options.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromOptions(String key) {
-    if(this.options == null) { return (A) this; }
-    if(key != null && this.options != null) {this.options.remove(key);} return (A)this;
+    if (this.options == null) {
+      return (A) this;
+    }
+    if (key != null && this.options != null) {
+      this.options.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromOptions(Map<String,String> map) {
-    if(this.options == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.options != null){this.options.remove(key);}}} return (A)this;
+    if (this.options == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.options != null) {
+          this.options.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,String> getOptions() {
@@ -142,42 +169,77 @@ public class V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolume
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1FlexPersistentVolumeSourceFluent that = (V1FlexPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(driver, that.driver)) return false;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(options, that.options)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(options, that.options))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(driver,  fsType,  options,  readOnly,  secretRef,  super.hashCode());
+    return Objects.hash(driver, fsType, options, readOnly, secretRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (options != null && !options.isEmpty()) { sb.append("options:"); sb.append(options + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef); }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(options == null) && !(options.isEmpty())) {
+        sb.append("options:");
+        sb.append(options);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+    }
     sb.append("}");
     return sb.toString();
   }

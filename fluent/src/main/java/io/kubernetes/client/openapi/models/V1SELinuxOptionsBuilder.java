@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluent<V1SELinuxOptionsBuilder> implements VisitableBuilder<V1SELinuxOptions,V1SELinuxOptionsBuilder>{
   public V1SELinuxOptionsBuilder() {
     this(new V1SELinuxOptions());

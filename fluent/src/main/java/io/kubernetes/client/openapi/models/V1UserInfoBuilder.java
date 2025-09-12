@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1UserInfoBuilder extends V1UserInfoFluent<V1UserInfoBuilder> implements VisitableBuilder<V1UserInfo,V1UserInfoBuilder>{
   public V1UserInfoBuilder() {
     this(new V1UserInfo());

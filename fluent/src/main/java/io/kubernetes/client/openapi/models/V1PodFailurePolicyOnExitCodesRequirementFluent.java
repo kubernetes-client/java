@@ -1,20 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.lang.String;
+import java.util.function.Predicate;
+import java.lang.Integer;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
-import java.lang.String;
-import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailurePolicyOnExitCodesRequirementFluent<A>> extends BaseFluent<A>{
+public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyOnExitCodesRequirementFluent<A>> extends BaseFluent<A>{
   public V1PodFailurePolicyOnExitCodesRequirementFluent() {
   }
   
@@ -26,12 +28,12 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailu
   private List<Integer> values;
   
   protected void copyInstance(V1PodFailurePolicyOnExitCodesRequirement instance) {
-    instance = (instance != null ? instance : new V1PodFailurePolicyOnExitCodesRequirement());
+    instance = instance != null ? instance : new V1PodFailurePolicyOnExitCodesRequirement();
     if (instance != null) {
-          this.withContainerName(instance.getContainerName());
-          this.withOperator(instance.getOperator());
-          this.withValues(instance.getValues());
-        }
+        this.withContainerName(instance.getContainerName());
+        this.withOperator(instance.getOperator());
+        this.withValues(instance.getValues());
+    }
   }
   
   public String getContainerName() {
@@ -61,34 +63,59 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailu
   }
   
   public A addToValues(int index,Integer item) {
-    if (this.values == null) {this.values = new ArrayList<Integer>();}
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
     this.values.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToValues(int index,Integer item) {
-    if (this.values == null) {this.values = new ArrayList<Integer>();}
-    this.values.set(index, item); return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    this.values.set(index, item);
+    return (A) this;
   }
   
-  public A addToValues(java.lang.Integer... items) {
-    if (this.values == null) {this.values = new ArrayList<Integer>();}
-    for (Integer item : items) {this.values.add(item);} return (A)this;
+  public A addToValues(Integer... items) {
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (Integer item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToValues(Collection<Integer> items) {
-    if (this.values == null) {this.values = new ArrayList<Integer>();}
-    for (Integer item : items) {this.values.add(item);} return (A)this;
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    for (Integer item : items) {
+      this.values.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromValues(java.lang.Integer... items) {
-    if (this.values == null) return (A)this;
-    for (Integer item : items) { this.values.remove(item);} return (A)this;
+  public A removeFromValues(Integer... items) {
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (Integer item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromValues(Collection<Integer> items) {
-    if (this.values == null) return (A)this;
-    for (Integer item : items) { this.values.remove(item);} return (A)this;
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (Integer item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
   }
   
   public List<Integer> getValues() {
@@ -137,7 +164,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailu
     return (A) this;
   }
   
-  public A withValues(java.lang.Integer... values) {
+  public A withValues(Integer... values) {
     if (this.values != null) {
         this.values.clear();
         _visitables.remove("values");
@@ -151,30 +178,53 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailu
   }
   
   public boolean hasValues() {
-    return this.values != null && !this.values.isEmpty();
+    return this.values != null && !(this.values.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodFailurePolicyOnExitCodesRequirementFluent that = (V1PodFailurePolicyOnExitCodesRequirementFluent) o;
-    if (!java.util.Objects.equals(containerName, that.containerName)) return false;
-    if (!java.util.Objects.equals(operator, that.operator)) return false;
-    if (!java.util.Objects.equals(values, that.values)) return false;
+    if (!(Objects.equals(containerName, that.containerName))) {
+      return false;
+    }
+    if (!(Objects.equals(operator, that.operator))) {
+      return false;
+    }
+    if (!(Objects.equals(values, that.values))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(containerName,  operator,  values,  super.hashCode());
+    return Objects.hash(containerName, operator, values);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (containerName != null) { sb.append("containerName:"); sb.append(containerName + ","); }
-    if (operator != null) { sb.append("operator:"); sb.append(operator + ","); }
-    if (values != null && !values.isEmpty()) { sb.append("values:"); sb.append(values); }
+    if (!(containerName == null)) {
+        sb.append("containerName:");
+        sb.append(containerName);
+        sb.append(",");
+    }
+    if (!(operator == null)) {
+        sb.append("operator:");
+        sb.append(operator);
+        sb.append(",");
+    }
+    if (!(values == null) && !(values.isEmpty())) {
+        sb.append("values:");
+        sb.append(values);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends BaseFluent<A>{
+public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<A>> extends BaseFluent<A>{
   public V1CSINodeDriverFluent() {
   }
   
@@ -27,13 +30,13 @@ public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends B
   private List<String> topologyKeys;
   
   protected void copyInstance(V1CSINodeDriver instance) {
-    instance = (instance != null ? instance : new V1CSINodeDriver());
+    instance = instance != null ? instance : new V1CSINodeDriver();
     if (instance != null) {
-          this.withAllocatable(instance.getAllocatable());
-          this.withName(instance.getName());
-          this.withNodeID(instance.getNodeID());
-          this.withTopologyKeys(instance.getTopologyKeys());
-        }
+        this.withAllocatable(instance.getAllocatable());
+        this.withName(instance.getName());
+        this.withNodeID(instance.getNodeID());
+        this.withTopologyKeys(instance.getTopologyKeys());
+    }
   }
   
   public V1VolumeNodeResources buildAllocatable() {
@@ -65,15 +68,15 @@ public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends B
   }
   
   public AllocatableNested<A> editAllocatable() {
-    return withNewAllocatableLike(java.util.Optional.ofNullable(buildAllocatable()).orElse(null));
+    return this.withNewAllocatableLike(Optional.ofNullable(this.buildAllocatable()).orElse(null));
   }
   
   public AllocatableNested<A> editOrNewAllocatable() {
-    return withNewAllocatableLike(java.util.Optional.ofNullable(buildAllocatable()).orElse(new V1VolumeNodeResourcesBuilder().build()));
+    return this.withNewAllocatableLike(Optional.ofNullable(this.buildAllocatable()).orElse(new V1VolumeNodeResourcesBuilder().build()));
   }
   
   public AllocatableNested<A> editOrNewAllocatableLike(V1VolumeNodeResources item) {
-    return withNewAllocatableLike(java.util.Optional.ofNullable(buildAllocatable()).orElse(item));
+    return this.withNewAllocatableLike(Optional.ofNullable(this.buildAllocatable()).orElse(item));
   }
   
   public String getName() {
@@ -103,34 +106,59 @@ public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends B
   }
   
   public A addToTopologyKeys(int index,String item) {
-    if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
+    if (this.topologyKeys == null) {
+      this.topologyKeys = new ArrayList();
+    }
     this.topologyKeys.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTopologyKeys(int index,String item) {
-    if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
-    this.topologyKeys.set(index, item); return (A)this;
+    if (this.topologyKeys == null) {
+      this.topologyKeys = new ArrayList();
+    }
+    this.topologyKeys.set(index, item);
+    return (A) this;
   }
   
-  public A addToTopologyKeys(java.lang.String... items) {
-    if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
-    for (String item : items) {this.topologyKeys.add(item);} return (A)this;
+  public A addToTopologyKeys(String... items) {
+    if (this.topologyKeys == null) {
+      this.topologyKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.topologyKeys.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToTopologyKeys(Collection<String> items) {
-    if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
-    for (String item : items) {this.topologyKeys.add(item);} return (A)this;
+    if (this.topologyKeys == null) {
+      this.topologyKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.topologyKeys.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromTopologyKeys(java.lang.String... items) {
-    if (this.topologyKeys == null) return (A)this;
-    for (String item : items) { this.topologyKeys.remove(item);} return (A)this;
+  public A removeFromTopologyKeys(String... items) {
+    if (this.topologyKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.topologyKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTopologyKeys(Collection<String> items) {
-    if (this.topologyKeys == null) return (A)this;
-    for (String item : items) { this.topologyKeys.remove(item);} return (A)this;
+    if (this.topologyKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.topologyKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getTopologyKeys() {
@@ -179,7 +207,7 @@ public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends B
     return (A) this;
   }
   
-  public A withTopologyKeys(java.lang.String... topologyKeys) {
+  public A withTopologyKeys(String... topologyKeys) {
     if (this.topologyKeys != null) {
         this.topologyKeys.clear();
         _visitables.remove("topologyKeys");
@@ -193,32 +221,61 @@ public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends B
   }
   
   public boolean hasTopologyKeys() {
-    return this.topologyKeys != null && !this.topologyKeys.isEmpty();
+    return this.topologyKeys != null && !(this.topologyKeys.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CSINodeDriverFluent that = (V1CSINodeDriverFluent) o;
-    if (!java.util.Objects.equals(allocatable, that.allocatable)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(nodeID, that.nodeID)) return false;
-    if (!java.util.Objects.equals(topologyKeys, that.topologyKeys)) return false;
+    if (!(Objects.equals(allocatable, that.allocatable))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeID, that.nodeID))) {
+      return false;
+    }
+    if (!(Objects.equals(topologyKeys, that.topologyKeys))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocatable,  name,  nodeID,  topologyKeys,  super.hashCode());
+    return Objects.hash(allocatable, name, nodeID, topologyKeys);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allocatable != null) { sb.append("allocatable:"); sb.append(allocatable + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (nodeID != null) { sb.append("nodeID:"); sb.append(nodeID + ","); }
-    if (topologyKeys != null && !topologyKeys.isEmpty()) { sb.append("topologyKeys:"); sb.append(topologyKeys); }
+    if (!(allocatable == null)) {
+        sb.append("allocatable:");
+        sb.append(allocatable);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(nodeID == null)) {
+        sb.append("nodeID:");
+        sb.append(nodeID);
+        sb.append(",");
+    }
+    if (!(topologyKeys == null) && !(topologyKeys.isEmpty())) {
+        sb.append("topologyKeys:");
+        sb.append(topologyKeys);
+    }
     sb.append("}");
     return sb.toString();
   }

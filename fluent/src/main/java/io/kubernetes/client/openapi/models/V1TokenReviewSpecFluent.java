@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> extends BaseFluent<A>{
+public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1TokenReviewSpecFluent<A>> extends BaseFluent<A>{
   public V1TokenReviewSpecFluent() {
   }
   
@@ -24,42 +26,67 @@ public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> exten
   private String token;
   
   protected void copyInstance(V1TokenReviewSpec instance) {
-    instance = (instance != null ? instance : new V1TokenReviewSpec());
+    instance = instance != null ? instance : new V1TokenReviewSpec();
     if (instance != null) {
-          this.withAudiences(instance.getAudiences());
-          this.withToken(instance.getToken());
-        }
+        this.withAudiences(instance.getAudiences());
+        this.withToken(instance.getToken());
+    }
   }
   
   public A addToAudiences(int index,String item) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
     this.audiences.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAudiences(int index,String item) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    this.audiences.set(index, item); return (A)this;
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    this.audiences.set(index, item);
+    return (A) this;
   }
   
-  public A addToAudiences(java.lang.String... items) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    for (String item : items) {this.audiences.add(item);} return (A)this;
+  public A addToAudiences(String... items) {
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    for (String item : items) {
+      this.audiences.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAudiences(Collection<String> items) {
-    if (this.audiences == null) {this.audiences = new ArrayList<String>();}
-    for (String item : items) {this.audiences.add(item);} return (A)this;
+    if (this.audiences == null) {
+      this.audiences = new ArrayList();
+    }
+    for (String item : items) {
+      this.audiences.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAudiences(java.lang.String... items) {
-    if (this.audiences == null) return (A)this;
-    for (String item : items) { this.audiences.remove(item);} return (A)this;
+  public A removeFromAudiences(String... items) {
+    if (this.audiences == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.audiences.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAudiences(Collection<String> items) {
-    if (this.audiences == null) return (A)this;
-    for (String item : items) { this.audiences.remove(item);} return (A)this;
+    if (this.audiences == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.audiences.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAudiences() {
@@ -108,7 +135,7 @@ public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> exten
     return (A) this;
   }
   
-  public A withAudiences(java.lang.String... audiences) {
+  public A withAudiences(String... audiences) {
     if (this.audiences != null) {
         this.audiences.clear();
         _visitables.remove("audiences");
@@ -122,7 +149,7 @@ public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> exten
   }
   
   public boolean hasAudiences() {
-    return this.audiences != null && !this.audiences.isEmpty();
+    return this.audiences != null && !(this.audiences.isEmpty());
   }
   
   public String getToken() {
@@ -139,24 +166,41 @@ public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1TokenReviewSpecFluent that = (V1TokenReviewSpecFluent) o;
-    if (!java.util.Objects.equals(audiences, that.audiences)) return false;
-    if (!java.util.Objects.equals(token, that.token)) return false;
+    if (!(Objects.equals(audiences, that.audiences))) {
+      return false;
+    }
+    if (!(Objects.equals(token, that.token))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(audiences,  token,  super.hashCode());
+    return Objects.hash(audiences, token);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (audiences != null && !audiences.isEmpty()) { sb.append("audiences:"); sb.append(audiences + ","); }
-    if (token != null) { sb.append("token:"); sb.append(token); }
+    if (!(audiences == null) && !(audiences.isEmpty())) {
+        sb.append("audiences:");
+        sb.append(audiences);
+        sb.append(",");
+    }
+    if (!(token == null)) {
+        sb.append("token:");
+        sb.append(token);
+    }
     sb.append("}");
     return sb.toString();
   }

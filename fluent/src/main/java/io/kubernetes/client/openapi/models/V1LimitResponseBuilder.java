@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1LimitResponseBuilder extends V1LimitResponseFluent<V1LimitResponseBuilder> implements VisitableBuilder<V1LimitResponse,V1LimitResponseBuilder>{
   public V1LimitResponseBuilder() {
     this(new V1LimitResponse());

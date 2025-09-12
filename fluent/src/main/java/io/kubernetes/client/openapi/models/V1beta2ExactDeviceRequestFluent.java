@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
 import java.lang.Long;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -18,7 +21,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequestFluent<A>> extends BaseFluent<A>{
+public class V1beta2ExactDeviceRequestFluent<A extends io.kubernetes.client.openapi.models.V1beta2ExactDeviceRequestFluent<A>> extends BaseFluent<A>{
   public V1beta2ExactDeviceRequestFluent() {
   }
   
@@ -27,21 +30,23 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   private Boolean adminAccess;
   private String allocationMode;
+  private V1beta2CapacityRequirementsBuilder capacity;
   private Long count;
   private String deviceClassName;
   private ArrayList<V1beta2DeviceSelectorBuilder> selectors;
   private ArrayList<V1beta2DeviceTolerationBuilder> tolerations;
   
   protected void copyInstance(V1beta2ExactDeviceRequest instance) {
-    instance = (instance != null ? instance : new V1beta2ExactDeviceRequest());
+    instance = instance != null ? instance : new V1beta2ExactDeviceRequest();
     if (instance != null) {
-          this.withAdminAccess(instance.getAdminAccess());
-          this.withAllocationMode(instance.getAllocationMode());
-          this.withCount(instance.getCount());
-          this.withDeviceClassName(instance.getDeviceClassName());
-          this.withSelectors(instance.getSelectors());
-          this.withTolerations(instance.getTolerations());
-        }
+        this.withAdminAccess(instance.getAdminAccess());
+        this.withAllocationMode(instance.getAllocationMode());
+        this.withCapacity(instance.getCapacity());
+        this.withCount(instance.getCount());
+        this.withDeviceClassName(instance.getDeviceClassName());
+        this.withSelectors(instance.getSelectors());
+        this.withTolerations(instance.getTolerations());
+    }
   }
   
   public Boolean getAdminAccess() {
@@ -68,6 +73,46 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   
   public boolean hasAllocationMode() {
     return this.allocationMode != null;
+  }
+  
+  public V1beta2CapacityRequirements buildCapacity() {
+    return this.capacity != null ? this.capacity.build() : null;
+  }
+  
+  public A withCapacity(V1beta2CapacityRequirements capacity) {
+    this._visitables.remove("capacity");
+    if (capacity != null) {
+        this.capacity = new V1beta2CapacityRequirementsBuilder(capacity);
+        this._visitables.get("capacity").add(this.capacity);
+    } else {
+        this.capacity = null;
+        this._visitables.get("capacity").remove(this.capacity);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasCapacity() {
+    return this.capacity != null;
+  }
+  
+  public CapacityNested<A> withNewCapacity() {
+    return new CapacityNested(null);
+  }
+  
+  public CapacityNested<A> withNewCapacityLike(V1beta2CapacityRequirements item) {
+    return new CapacityNested(item);
+  }
+  
+  public CapacityNested<A> editCapacity() {
+    return this.withNewCapacityLike(Optional.ofNullable(this.buildCapacity()).orElse(null));
+  }
+  
+  public CapacityNested<A> editOrNewCapacity() {
+    return this.withNewCapacityLike(Optional.ofNullable(this.buildCapacity()).orElse(new V1beta2CapacityRequirementsBuilder().build()));
+  }
+  
+  public CapacityNested<A> editOrNewCapacityLike(V1beta2CapacityRequirements item) {
+    return this.withNewCapacityLike(Optional.ofNullable(this.buildCapacity()).orElse(item));
   }
   
   public Long getCount() {
@@ -97,7 +142,9 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   
   public A addToSelectors(int index,V1beta2DeviceSelector item) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta2DeviceSelectorBuilder>();}
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
     V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
     if (index < 0 || index >= selectors.size()) {
         _visitables.get("selectors").add(builder);
@@ -106,11 +153,13 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
         _visitables.get("selectors").add(builder);
         selectors.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSelectors(int index,V1beta2DeviceSelector item) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta2DeviceSelectorBuilder>();}
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
     V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
     if (index < 0 || index >= selectors.size()) {
         _visitables.get("selectors").add(builder);
@@ -119,41 +168,71 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
         _visitables.get("selectors").add(builder);
         selectors.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSelectors(io.kubernetes.client.openapi.models.V1beta2DeviceSelector... items) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta2DeviceSelectorBuilder>();}
-    for (V1beta2DeviceSelector item : items) {V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);_visitables.get("selectors").add(builder);this.selectors.add(builder);} return (A)this;
+  public A addToSelectors(V1beta2DeviceSelector... items) {
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
+    for (V1beta2DeviceSelector item : items) {
+        V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
+        _visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSelectors(Collection<V1beta2DeviceSelector> items) {
-    if (this.selectors == null) {this.selectors = new ArrayList<V1beta2DeviceSelectorBuilder>();}
-    for (V1beta2DeviceSelector item : items) {V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);_visitables.get("selectors").add(builder);this.selectors.add(builder);} return (A)this;
+    if (this.selectors == null) {
+      this.selectors = new ArrayList();
+    }
+    for (V1beta2DeviceSelector item : items) {
+        V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
+        _visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSelectors(io.kubernetes.client.openapi.models.V1beta2DeviceSelector... items) {
-    if (this.selectors == null) return (A)this;
-    for (V1beta2DeviceSelector item : items) {V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);_visitables.get("selectors").remove(builder); this.selectors.remove(builder);} return (A)this;
+  public A removeFromSelectors(V1beta2DeviceSelector... items) {
+    if (this.selectors == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceSelector item : items) {
+        V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
+        _visitables.get("selectors").remove(builder);
+        this.selectors.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSelectors(Collection<V1beta2DeviceSelector> items) {
-    if (this.selectors == null) return (A)this;
-    for (V1beta2DeviceSelector item : items) {V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);_visitables.get("selectors").remove(builder); this.selectors.remove(builder);} return (A)this;
+    if (this.selectors == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceSelector item : items) {
+        V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
+        _visitables.get("selectors").remove(builder);
+        this.selectors.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSelectors(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
-    if (selectors == null) return (A) this;
-    final Iterator<V1beta2DeviceSelectorBuilder> each = selectors.iterator();
-    final List visitables = _visitables.get("selectors");
-    while (each.hasNext()) {
-      V1beta2DeviceSelectorBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (selectors == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceSelectorBuilder> each = selectors.iterator();
+    List visitables = _visitables.get("selectors");
+    while (each.hasNext()) {
+        V1beta2DeviceSelectorBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceSelector> buildSelectors() {
@@ -205,7 +284,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
     return (A) this;
   }
   
-  public A withSelectors(io.kubernetes.client.openapi.models.V1beta2DeviceSelector... selectors) {
+  public A withSelectors(V1beta2DeviceSelector... selectors) {
     if (this.selectors != null) {
         this.selectors.clear();
         _visitables.remove("selectors");
@@ -219,7 +298,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   
   public boolean hasSelectors() {
-    return this.selectors != null && !this.selectors.isEmpty();
+    return this.selectors != null && !(this.selectors.isEmpty());
   }
   
   public SelectorsNested<A> addNewSelector() {
@@ -235,32 +314,45 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   
   public SelectorsNested<A> editSelector(int index) {
-    if (selectors.size() <= index) throw new RuntimeException("Can't edit selectors. Index exceeds size.");
-    return setNewSelectorLike(index, buildSelector(index));
+    if (index <= selectors.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public SelectorsNested<A> editFirstSelector() {
-    if (selectors.size() == 0) throw new RuntimeException("Can't edit first selectors. The list is empty.");
-    return setNewSelectorLike(0, buildSelector(0));
+    if (selectors.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "selectors"));
+    }
+    return this.setNewSelectorLike(0, this.buildSelector(0));
   }
   
   public SelectorsNested<A> editLastSelector() {
     int index = selectors.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last selectors. The list is empty.");
-    return setNewSelectorLike(index, buildSelector(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public SelectorsNested<A> editMatchingSelector(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<selectors.size();i++) { 
-    if (predicate.test(selectors.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching selectors. No match found.");
-    return setNewSelectorLike(index, buildSelector(index));
+    for (int i = 0;i < selectors.size();i++) {
+      if (predicate.test(selectors.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "selectors"));
+    }
+    return this.setNewSelectorLike(index, this.buildSelector(index));
   }
   
   public A addToTolerations(int index,V1beta2DeviceToleration item) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1beta2DeviceTolerationBuilder>();}
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
     V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
     if (index < 0 || index >= tolerations.size()) {
         _visitables.get("tolerations").add(builder);
@@ -269,11 +361,13 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
         _visitables.get("tolerations").add(builder);
         tolerations.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTolerations(int index,V1beta2DeviceToleration item) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1beta2DeviceTolerationBuilder>();}
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
     V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
     if (index < 0 || index >= tolerations.size()) {
         _visitables.get("tolerations").add(builder);
@@ -282,41 +376,71 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
         _visitables.get("tolerations").add(builder);
         tolerations.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToTolerations(io.kubernetes.client.openapi.models.V1beta2DeviceToleration... items) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1beta2DeviceTolerationBuilder>();}
-    for (V1beta2DeviceToleration item : items) {V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);_visitables.get("tolerations").add(builder);this.tolerations.add(builder);} return (A)this;
+  public A addToTolerations(V1beta2DeviceToleration... items) {
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
+    for (V1beta2DeviceToleration item : items) {
+        V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
+        _visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToTolerations(Collection<V1beta2DeviceToleration> items) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1beta2DeviceTolerationBuilder>();}
-    for (V1beta2DeviceToleration item : items) {V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);_visitables.get("tolerations").add(builder);this.tolerations.add(builder);} return (A)this;
+    if (this.tolerations == null) {
+      this.tolerations = new ArrayList();
+    }
+    for (V1beta2DeviceToleration item : items) {
+        V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
+        _visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromTolerations(io.kubernetes.client.openapi.models.V1beta2DeviceToleration... items) {
-    if (this.tolerations == null) return (A)this;
-    for (V1beta2DeviceToleration item : items) {V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);_visitables.get("tolerations").remove(builder); this.tolerations.remove(builder);} return (A)this;
+  public A removeFromTolerations(V1beta2DeviceToleration... items) {
+    if (this.tolerations == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceToleration item : items) {
+        V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
+        _visitables.get("tolerations").remove(builder);
+        this.tolerations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTolerations(Collection<V1beta2DeviceToleration> items) {
-    if (this.tolerations == null) return (A)this;
-    for (V1beta2DeviceToleration item : items) {V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);_visitables.get("tolerations").remove(builder); this.tolerations.remove(builder);} return (A)this;
+    if (this.tolerations == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceToleration item : items) {
+        V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
+        _visitables.get("tolerations").remove(builder);
+        this.tolerations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromTolerations(Predicate<V1beta2DeviceTolerationBuilder> predicate) {
-    if (tolerations == null) return (A) this;
-    final Iterator<V1beta2DeviceTolerationBuilder> each = tolerations.iterator();
-    final List visitables = _visitables.get("tolerations");
-    while (each.hasNext()) {
-      V1beta2DeviceTolerationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (tolerations == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceTolerationBuilder> each = tolerations.iterator();
+    List visitables = _visitables.get("tolerations");
+    while (each.hasNext()) {
+        V1beta2DeviceTolerationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceToleration> buildTolerations() {
@@ -368,7 +492,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
     return (A) this;
   }
   
-  public A withTolerations(io.kubernetes.client.openapi.models.V1beta2DeviceToleration... tolerations) {
+  public A withTolerations(V1beta2DeviceToleration... tolerations) {
     if (this.tolerations != null) {
         this.tolerations.clear();
         _visitables.remove("tolerations");
@@ -382,7 +506,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   
   public boolean hasTolerations() {
-    return this.tolerations != null && !this.tolerations.isEmpty();
+    return this.tolerations != null && !(this.tolerations.isEmpty());
   }
   
   public TolerationsNested<A> addNewToleration() {
@@ -398,63 +522,139 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
   }
   
   public TolerationsNested<A> editToleration(int index) {
-    if (tolerations.size() <= index) throw new RuntimeException("Can't edit tolerations. Index exceeds size.");
-    return setNewTolerationLike(index, buildToleration(index));
+    if (index <= tolerations.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public TolerationsNested<A> editFirstToleration() {
-    if (tolerations.size() == 0) throw new RuntimeException("Can't edit first tolerations. The list is empty.");
-    return setNewTolerationLike(0, buildToleration(0));
+    if (tolerations.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "tolerations"));
+    }
+    return this.setNewTolerationLike(0, this.buildToleration(0));
   }
   
   public TolerationsNested<A> editLastToleration() {
     int index = tolerations.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last tolerations. The list is empty.");
-    return setNewTolerationLike(index, buildToleration(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public TolerationsNested<A> editMatchingToleration(Predicate<V1beta2DeviceTolerationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<tolerations.size();i++) { 
-    if (predicate.test(tolerations.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching tolerations. No match found.");
-    return setNewTolerationLike(index, buildToleration(index));
+    for (int i = 0;i < tolerations.size();i++) {
+      if (predicate.test(tolerations.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "tolerations"));
+    }
+    return this.setNewTolerationLike(index, this.buildToleration(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2ExactDeviceRequestFluent that = (V1beta2ExactDeviceRequestFluent) o;
-    if (!java.util.Objects.equals(adminAccess, that.adminAccess)) return false;
-    if (!java.util.Objects.equals(allocationMode, that.allocationMode)) return false;
-    if (!java.util.Objects.equals(count, that.count)) return false;
-    if (!java.util.Objects.equals(deviceClassName, that.deviceClassName)) return false;
-    if (!java.util.Objects.equals(selectors, that.selectors)) return false;
-    if (!java.util.Objects.equals(tolerations, that.tolerations)) return false;
+    if (!(Objects.equals(adminAccess, that.adminAccess))) {
+      return false;
+    }
+    if (!(Objects.equals(allocationMode, that.allocationMode))) {
+      return false;
+    }
+    if (!(Objects.equals(capacity, that.capacity))) {
+      return false;
+    }
+    if (!(Objects.equals(count, that.count))) {
+      return false;
+    }
+    if (!(Objects.equals(deviceClassName, that.deviceClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(selectors, that.selectors))) {
+      return false;
+    }
+    if (!(Objects.equals(tolerations, that.tolerations))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(adminAccess,  allocationMode,  count,  deviceClassName,  selectors,  tolerations,  super.hashCode());
+    return Objects.hash(adminAccess, allocationMode, capacity, count, deviceClassName, selectors, tolerations);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (adminAccess != null) { sb.append("adminAccess:"); sb.append(adminAccess + ","); }
-    if (allocationMode != null) { sb.append("allocationMode:"); sb.append(allocationMode + ","); }
-    if (count != null) { sb.append("count:"); sb.append(count + ","); }
-    if (deviceClassName != null) { sb.append("deviceClassName:"); sb.append(deviceClassName + ","); }
-    if (selectors != null && !selectors.isEmpty()) { sb.append("selectors:"); sb.append(selectors + ","); }
-    if (tolerations != null && !tolerations.isEmpty()) { sb.append("tolerations:"); sb.append(tolerations); }
+    if (!(adminAccess == null)) {
+        sb.append("adminAccess:");
+        sb.append(adminAccess);
+        sb.append(",");
+    }
+    if (!(allocationMode == null)) {
+        sb.append("allocationMode:");
+        sb.append(allocationMode);
+        sb.append(",");
+    }
+    if (!(capacity == null)) {
+        sb.append("capacity:");
+        sb.append(capacity);
+        sb.append(",");
+    }
+    if (!(count == null)) {
+        sb.append("count:");
+        sb.append(count);
+        sb.append(",");
+    }
+    if (!(deviceClassName == null)) {
+        sb.append("deviceClassName:");
+        sb.append(deviceClassName);
+        sb.append(",");
+    }
+    if (!(selectors == null) && !(selectors.isEmpty())) {
+        sb.append("selectors:");
+        sb.append(selectors);
+        sb.append(",");
+    }
+    if (!(tolerations == null) && !(tolerations.isEmpty())) {
+        sb.append("tolerations:");
+        sb.append(tolerations);
+    }
     sb.append("}");
     return sb.toString();
   }
   
   public A withAdminAccess() {
     return withAdminAccess(true);
+  }
+  public class CapacityNested<N> extends V1beta2CapacityRequirementsFluent<CapacityNested<N>> implements Nested<N>{
+    CapacityNested(V1beta2CapacityRequirements item) {
+      this.builder = new V1beta2CapacityRequirementsBuilder(this, item);
+    }
+    V1beta2CapacityRequirementsBuilder builder;
+    
+    public N and() {
+      return (N) V1beta2ExactDeviceRequestFluent.this.withCapacity(builder.build());
+    }
+    
+    public N endCapacity() {
+      return and();
+    }
+    
+  
   }
   public class SelectorsNested<N> extends V1beta2DeviceSelectorFluent<SelectorsNested<N>> implements Nested<N>{
     SelectorsNested(int index,V1beta2DeviceSelector item) {
@@ -465,7 +665,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
     int index;
     
     public N and() {
-      return (N) V1beta2ExactDeviceRequestFluent.this.setToSelectors(index,builder.build());
+      return (N) V1beta2ExactDeviceRequestFluent.this.setToSelectors(index, builder.build());
     }
     
     public N endSelector() {
@@ -483,7 +683,7 @@ public class V1beta2ExactDeviceRequestFluent<A extends V1beta2ExactDeviceRequest
     int index;
     
     public N and() {
-      return (N) V1beta2ExactDeviceRequestFluent.this.setToTolerations(index,builder.build());
+      return (N) V1beta2ExactDeviceRequestFluent.this.setToTolerations(index, builder.build());
     }
     
     public N endToleration() {

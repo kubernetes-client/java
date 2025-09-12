@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SelfSubjectAccessReviewSpecFluent<A extends V1SelfSubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
+public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
   public V1SelfSubjectAccessReviewSpecFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends V1SelfSubjectAccessRe
   private V1ResourceAttributesBuilder resourceAttributes;
   
   protected void copyInstance(V1SelfSubjectAccessReviewSpec instance) {
-    instance = (instance != null ? instance : new V1SelfSubjectAccessReviewSpec());
+    instance = instance != null ? instance : new V1SelfSubjectAccessReviewSpec();
     if (instance != null) {
-          this.withNonResourceAttributes(instance.getNonResourceAttributes());
-          this.withResourceAttributes(instance.getResourceAttributes());
-        }
+        this.withNonResourceAttributes(instance.getNonResourceAttributes());
+        this.withResourceAttributes(instance.getResourceAttributes());
+    }
   }
   
   public V1NonResourceAttributes buildNonResourceAttributes() {
@@ -57,15 +60,15 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends V1SelfSubjectAccessRe
   }
   
   public NonResourceAttributesNested<A> editNonResourceAttributes() {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(null));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(null));
   }
   
   public NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(new V1NonResourceAttributesBuilder().build()));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(new V1NonResourceAttributesBuilder().build()));
   }
   
   public NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return withNewNonResourceAttributesLike(java.util.Optional.ofNullable(buildNonResourceAttributes()).orElse(item));
+    return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(item));
   }
   
   public V1ResourceAttributes buildResourceAttributes() {
@@ -97,36 +100,53 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends V1SelfSubjectAccessRe
   }
   
   public ResourceAttributesNested<A> editResourceAttributes() {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(null));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
   }
   
   public ResourceAttributesNested<A> editOrNewResourceAttributes() {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
   }
   
   public ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
-    return withNewResourceAttributesLike(java.util.Optional.ofNullable(buildResourceAttributes()).orElse(item));
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SelfSubjectAccessReviewSpecFluent that = (V1SelfSubjectAccessReviewSpecFluent) o;
-    if (!java.util.Objects.equals(nonResourceAttributes, that.nonResourceAttributes)) return false;
-    if (!java.util.Objects.equals(resourceAttributes, that.resourceAttributes)) return false;
+    if (!(Objects.equals(nonResourceAttributes, that.nonResourceAttributes))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceAttributes, that.resourceAttributes))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(nonResourceAttributes,  resourceAttributes,  super.hashCode());
+    return Objects.hash(nonResourceAttributes, resourceAttributes);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nonResourceAttributes != null) { sb.append("nonResourceAttributes:"); sb.append(nonResourceAttributes + ","); }
-    if (resourceAttributes != null) { sb.append("resourceAttributes:"); sb.append(resourceAttributes); }
+    if (!(nonResourceAttributes == null)) {
+        sb.append("nonResourceAttributes:");
+        sb.append(nonResourceAttributes);
+        sb.append(",");
+    }
+    if (!(resourceAttributes == null)) {
+        sb.append("resourceAttributes:");
+        sb.append(resourceAttributes);
+    }
     sb.append("}");
     return sb.toString();
   }

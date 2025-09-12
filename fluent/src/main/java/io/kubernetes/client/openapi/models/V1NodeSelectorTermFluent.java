@@ -1,13 +1,15 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> extends BaseFluent<A>{
+public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent<A>> extends BaseFluent<A>{
   public V1NodeSelectorTermFluent() {
   }
   
@@ -27,15 +29,17 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
   private ArrayList<V1NodeSelectorRequirementBuilder> matchFields;
   
   protected void copyInstance(V1NodeSelectorTerm instance) {
-    instance = (instance != null ? instance : new V1NodeSelectorTerm());
+    instance = instance != null ? instance : new V1NodeSelectorTerm();
     if (instance != null) {
-          this.withMatchExpressions(instance.getMatchExpressions());
-          this.withMatchFields(instance.getMatchFields());
-        }
+        this.withMatchExpressions(instance.getMatchExpressions());
+        this.withMatchFields(instance.getMatchFields());
+    }
   }
   
   public A addToMatchExpressions(int index,V1NodeSelectorRequirement item) {
-    if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1NodeSelectorRequirementBuilder>();}
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= matchExpressions.size()) {
         _visitables.get("matchExpressions").add(builder);
@@ -44,11 +48,13 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
         _visitables.get("matchExpressions").add(builder);
         matchExpressions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMatchExpressions(int index,V1NodeSelectorRequirement item) {
-    if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1NodeSelectorRequirementBuilder>();}
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= matchExpressions.size()) {
         _visitables.get("matchExpressions").add(builder);
@@ -57,41 +63,71 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
         _visitables.get("matchExpressions").add(builder);
         matchExpressions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToMatchExpressions(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items) {
-    if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1NodeSelectorRequirementBuilder>();}
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchExpressions").add(builder);this.matchExpressions.add(builder);} return (A)this;
+  public A addToMatchExpressions(V1NodeSelectorRequirement... items) {
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToMatchExpressions(Collection<V1NodeSelectorRequirement> items) {
-    if (this.matchExpressions == null) {this.matchExpressions = new ArrayList<V1NodeSelectorRequirementBuilder>();}
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchExpressions").add(builder);this.matchExpressions.add(builder);} return (A)this;
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromMatchExpressions(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items) {
-    if (this.matchExpressions == null) return (A)this;
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchExpressions").remove(builder); this.matchExpressions.remove(builder);} return (A)this;
+  public A removeFromMatchExpressions(V1NodeSelectorRequirement... items) {
+    if (this.matchExpressions == null) {
+      return (A) this;
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").remove(builder);
+        this.matchExpressions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMatchExpressions(Collection<V1NodeSelectorRequirement> items) {
-    if (this.matchExpressions == null) return (A)this;
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchExpressions").remove(builder); this.matchExpressions.remove(builder);} return (A)this;
+    if (this.matchExpressions == null) {
+      return (A) this;
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").remove(builder);
+        this.matchExpressions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromMatchExpressions(Predicate<V1NodeSelectorRequirementBuilder> predicate) {
-    if (matchExpressions == null) return (A) this;
-    final Iterator<V1NodeSelectorRequirementBuilder> each = matchExpressions.iterator();
-    final List visitables = _visitables.get("matchExpressions");
-    while (each.hasNext()) {
-      V1NodeSelectorRequirementBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (matchExpressions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NodeSelectorRequirementBuilder> each = matchExpressions.iterator();
+    List visitables = _visitables.get("matchExpressions");
+    while (each.hasNext()) {
+        V1NodeSelectorRequirementBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NodeSelectorRequirement> buildMatchExpressions() {
@@ -143,7 +179,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
     return (A) this;
   }
   
-  public A withMatchExpressions(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... matchExpressions) {
+  public A withMatchExpressions(V1NodeSelectorRequirement... matchExpressions) {
     if (this.matchExpressions != null) {
         this.matchExpressions.clear();
         _visitables.remove("matchExpressions");
@@ -157,7 +193,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
   }
   
   public boolean hasMatchExpressions() {
-    return this.matchExpressions != null && !this.matchExpressions.isEmpty();
+    return this.matchExpressions != null && !(this.matchExpressions.isEmpty());
   }
   
   public MatchExpressionsNested<A> addNewMatchExpression() {
@@ -173,32 +209,45 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
   }
   
   public MatchExpressionsNested<A> editMatchExpression(int index) {
-    if (matchExpressions.size() <= index) throw new RuntimeException("Can't edit matchExpressions. Index exceeds size.");
-    return setNewMatchExpressionLike(index, buildMatchExpression(index));
+    if (index <= matchExpressions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
   }
   
   public MatchExpressionsNested<A> editFirstMatchExpression() {
-    if (matchExpressions.size() == 0) throw new RuntimeException("Can't edit first matchExpressions. The list is empty.");
-    return setNewMatchExpressionLike(0, buildMatchExpression(0));
+    if (matchExpressions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(0, this.buildMatchExpression(0));
   }
   
   public MatchExpressionsNested<A> editLastMatchExpression() {
     int index = matchExpressions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last matchExpressions. The list is empty.");
-    return setNewMatchExpressionLike(index, buildMatchExpression(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
   }
   
   public MatchExpressionsNested<A> editMatchingMatchExpression(Predicate<V1NodeSelectorRequirementBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<matchExpressions.size();i++) { 
-    if (predicate.test(matchExpressions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching matchExpressions. No match found.");
-    return setNewMatchExpressionLike(index, buildMatchExpression(index));
+    for (int i = 0;i < matchExpressions.size();i++) {
+      if (predicate.test(matchExpressions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
   }
   
   public A addToMatchFields(int index,V1NodeSelectorRequirement item) {
-    if (this.matchFields == null) {this.matchFields = new ArrayList<V1NodeSelectorRequirementBuilder>();}
+    if (this.matchFields == null) {
+      this.matchFields = new ArrayList();
+    }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= matchFields.size()) {
         _visitables.get("matchFields").add(builder);
@@ -207,11 +256,13 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
         _visitables.get("matchFields").add(builder);
         matchFields.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMatchFields(int index,V1NodeSelectorRequirement item) {
-    if (this.matchFields == null) {this.matchFields = new ArrayList<V1NodeSelectorRequirementBuilder>();}
+    if (this.matchFields == null) {
+      this.matchFields = new ArrayList();
+    }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= matchFields.size()) {
         _visitables.get("matchFields").add(builder);
@@ -220,41 +271,71 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
         _visitables.get("matchFields").add(builder);
         matchFields.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items) {
-    if (this.matchFields == null) {this.matchFields = new ArrayList<V1NodeSelectorRequirementBuilder>();}
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchFields").add(builder);this.matchFields.add(builder);} return (A)this;
+  public A addToMatchFields(V1NodeSelectorRequirement... items) {
+    if (this.matchFields == null) {
+      this.matchFields = new ArrayList();
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchFields").add(builder);
+        this.matchFields.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToMatchFields(Collection<V1NodeSelectorRequirement> items) {
-    if (this.matchFields == null) {this.matchFields = new ArrayList<V1NodeSelectorRequirementBuilder>();}
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchFields").add(builder);this.matchFields.add(builder);} return (A)this;
+    if (this.matchFields == null) {
+      this.matchFields = new ArrayList();
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchFields").add(builder);
+        this.matchFields.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items) {
-    if (this.matchFields == null) return (A)this;
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchFields").remove(builder); this.matchFields.remove(builder);} return (A)this;
+  public A removeFromMatchFields(V1NodeSelectorRequirement... items) {
+    if (this.matchFields == null) {
+      return (A) this;
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchFields").remove(builder);
+        this.matchFields.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMatchFields(Collection<V1NodeSelectorRequirement> items) {
-    if (this.matchFields == null) return (A)this;
-    for (V1NodeSelectorRequirement item : items) {V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);_visitables.get("matchFields").remove(builder); this.matchFields.remove(builder);} return (A)this;
+    if (this.matchFields == null) {
+      return (A) this;
+    }
+    for (V1NodeSelectorRequirement item : items) {
+        V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
+        _visitables.get("matchFields").remove(builder);
+        this.matchFields.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromMatchFields(Predicate<V1NodeSelectorRequirementBuilder> predicate) {
-    if (matchFields == null) return (A) this;
-    final Iterator<V1NodeSelectorRequirementBuilder> each = matchFields.iterator();
-    final List visitables = _visitables.get("matchFields");
-    while (each.hasNext()) {
-      V1NodeSelectorRequirementBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (matchFields == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NodeSelectorRequirementBuilder> each = matchFields.iterator();
+    List visitables = _visitables.get("matchFields");
+    while (each.hasNext()) {
+        V1NodeSelectorRequirementBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NodeSelectorRequirement> buildMatchFields() {
@@ -306,7 +387,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
     return (A) this;
   }
   
-  public A withMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... matchFields) {
+  public A withMatchFields(V1NodeSelectorRequirement... matchFields) {
     if (this.matchFields != null) {
         this.matchFields.clear();
         _visitables.remove("matchFields");
@@ -320,7 +401,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
   }
   
   public boolean hasMatchFields() {
-    return this.matchFields != null && !this.matchFields.isEmpty();
+    return this.matchFields != null && !(this.matchFields.isEmpty());
   }
   
   public MatchFieldsNested<A> addNewMatchField() {
@@ -336,49 +417,77 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
   }
   
   public MatchFieldsNested<A> editMatchField(int index) {
-    if (matchFields.size() <= index) throw new RuntimeException("Can't edit matchFields. Index exceeds size.");
-    return setNewMatchFieldLike(index, buildMatchField(index));
+    if (index <= matchFields.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "matchFields"));
+    }
+    return this.setNewMatchFieldLike(index, this.buildMatchField(index));
   }
   
   public MatchFieldsNested<A> editFirstMatchField() {
-    if (matchFields.size() == 0) throw new RuntimeException("Can't edit first matchFields. The list is empty.");
-    return setNewMatchFieldLike(0, buildMatchField(0));
+    if (matchFields.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "matchFields"));
+    }
+    return this.setNewMatchFieldLike(0, this.buildMatchField(0));
   }
   
   public MatchFieldsNested<A> editLastMatchField() {
     int index = matchFields.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last matchFields. The list is empty.");
-    return setNewMatchFieldLike(index, buildMatchField(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "matchFields"));
+    }
+    return this.setNewMatchFieldLike(index, this.buildMatchField(index));
   }
   
   public MatchFieldsNested<A> editMatchingMatchField(Predicate<V1NodeSelectorRequirementBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<matchFields.size();i++) { 
-    if (predicate.test(matchFields.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching matchFields. No match found.");
-    return setNewMatchFieldLike(index, buildMatchField(index));
+    for (int i = 0;i < matchFields.size();i++) {
+      if (predicate.test(matchFields.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "matchFields"));
+    }
+    return this.setNewMatchFieldLike(index, this.buildMatchField(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeSelectorTermFluent that = (V1NodeSelectorTermFluent) o;
-    if (!java.util.Objects.equals(matchExpressions, that.matchExpressions)) return false;
-    if (!java.util.Objects.equals(matchFields, that.matchFields)) return false;
+    if (!(Objects.equals(matchExpressions, that.matchExpressions))) {
+      return false;
+    }
+    if (!(Objects.equals(matchFields, that.matchFields))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(matchExpressions,  matchFields,  super.hashCode());
+    return Objects.hash(matchExpressions, matchFields);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (matchExpressions != null && !matchExpressions.isEmpty()) { sb.append("matchExpressions:"); sb.append(matchExpressions + ","); }
-    if (matchFields != null && !matchFields.isEmpty()) { sb.append("matchFields:"); sb.append(matchFields); }
+    if (!(matchExpressions == null) && !(matchExpressions.isEmpty())) {
+        sb.append("matchExpressions:");
+        sb.append(matchExpressions);
+        sb.append(",");
+    }
+    if (!(matchFields == null) && !(matchFields.isEmpty())) {
+        sb.append("matchFields:");
+        sb.append(matchFields);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +500,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
     int index;
     
     public N and() {
-      return (N) V1NodeSelectorTermFluent.this.setToMatchExpressions(index,builder.build());
+      return (N) V1NodeSelectorTermFluent.this.setToMatchExpressions(index, builder.build());
     }
     
     public N endMatchExpression() {
@@ -409,7 +518,7 @@ public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> ext
     int index;
     
     public N and() {
-      return (N) V1NodeSelectorTermFluent.this.setToMatchFields(index,builder.build());
+      return (N) V1NodeSelectorTermFluent.this.setToMatchFields(index, builder.build());
     }
     
     public N endMatchField() {

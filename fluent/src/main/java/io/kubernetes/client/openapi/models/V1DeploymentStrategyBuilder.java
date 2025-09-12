@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DeploymentStrategyBuilder extends V1DeploymentStrategyFluent<V1DeploymentStrategyBuilder> implements VisitableBuilder<V1DeploymentStrategy,V1DeploymentStrategyBuilder>{
   public V1DeploymentStrategyBuilder() {
     this(new V1DeploymentStrategy());

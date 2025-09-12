@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelConfigurationSpecFluent<A>> extends BaseFluent<A>{
+public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationSpecFluent<A>> extends BaseFluent<A>{
   public V1PriorityLevelConfigurationSpecFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelCon
   private String type;
   
   protected void copyInstance(V1PriorityLevelConfigurationSpec instance) {
-    instance = (instance != null ? instance : new V1PriorityLevelConfigurationSpec());
+    instance = instance != null ? instance : new V1PriorityLevelConfigurationSpec();
     if (instance != null) {
-          this.withExempt(instance.getExempt());
-          this.withLimited(instance.getLimited());
-          this.withType(instance.getType());
-        }
+        this.withExempt(instance.getExempt());
+        this.withLimited(instance.getLimited());
+        this.withType(instance.getType());
+    }
   }
   
   public V1ExemptPriorityLevelConfiguration buildExempt() {
@@ -59,15 +62,15 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelCon
   }
   
   public ExemptNested<A> editExempt() {
-    return withNewExemptLike(java.util.Optional.ofNullable(buildExempt()).orElse(null));
+    return this.withNewExemptLike(Optional.ofNullable(this.buildExempt()).orElse(null));
   }
   
   public ExemptNested<A> editOrNewExempt() {
-    return withNewExemptLike(java.util.Optional.ofNullable(buildExempt()).orElse(new V1ExemptPriorityLevelConfigurationBuilder().build()));
+    return this.withNewExemptLike(Optional.ofNullable(this.buildExempt()).orElse(new V1ExemptPriorityLevelConfigurationBuilder().build()));
   }
   
   public ExemptNested<A> editOrNewExemptLike(V1ExemptPriorityLevelConfiguration item) {
-    return withNewExemptLike(java.util.Optional.ofNullable(buildExempt()).orElse(item));
+    return this.withNewExemptLike(Optional.ofNullable(this.buildExempt()).orElse(item));
   }
   
   public V1LimitedPriorityLevelConfiguration buildLimited() {
@@ -99,15 +102,15 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelCon
   }
   
   public LimitedNested<A> editLimited() {
-    return withNewLimitedLike(java.util.Optional.ofNullable(buildLimited()).orElse(null));
+    return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(null));
   }
   
   public LimitedNested<A> editOrNewLimited() {
-    return withNewLimitedLike(java.util.Optional.ofNullable(buildLimited()).orElse(new V1LimitedPriorityLevelConfigurationBuilder().build()));
+    return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(new V1LimitedPriorityLevelConfigurationBuilder().build()));
   }
   
   public LimitedNested<A> editOrNewLimitedLike(V1LimitedPriorityLevelConfiguration item) {
-    return withNewLimitedLike(java.util.Optional.ofNullable(buildLimited()).orElse(item));
+    return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(item));
   }
   
   public String getType() {
@@ -124,26 +127,49 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelCon
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PriorityLevelConfigurationSpecFluent that = (V1PriorityLevelConfigurationSpecFluent) o;
-    if (!java.util.Objects.equals(exempt, that.exempt)) return false;
-    if (!java.util.Objects.equals(limited, that.limited)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(exempt, that.exempt))) {
+      return false;
+    }
+    if (!(Objects.equals(limited, that.limited))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(exempt,  limited,  type,  super.hashCode());
+    return Objects.hash(exempt, limited, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (exempt != null) { sb.append("exempt:"); sb.append(exempt + ","); }
-    if (limited != null) { sb.append("limited:"); sb.append(limited + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(exempt == null)) {
+        sb.append("exempt:");
+        sb.append(exempt);
+        sb.append(",");
+    }
+    if (!(limited == null)) {
+        sb.append("limited:");
+        sb.append(limited);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

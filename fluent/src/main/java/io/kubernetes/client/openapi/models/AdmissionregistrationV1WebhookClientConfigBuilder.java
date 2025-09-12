@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class AdmissionregistrationV1WebhookClientConfigBuilder extends AdmissionregistrationV1WebhookClientConfigFluent<AdmissionregistrationV1WebhookClientConfigBuilder> implements VisitableBuilder<AdmissionregistrationV1WebhookClientConfig,AdmissionregistrationV1WebhookClientConfigBuilder>{
   public AdmissionregistrationV1WebhookClientConfigBuilder() {
     this(new AdmissionregistrationV1WebhookClientConfig());

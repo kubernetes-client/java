@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.lang.Integer;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends BaseFluent<A>{
+public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<A>> extends BaseFluent<A>{
   public V1DaemonSetSpecFluent() {
   }
   
@@ -25,14 +28,14 @@ public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends B
   private V1DaemonSetUpdateStrategyBuilder updateStrategy;
   
   protected void copyInstance(V1DaemonSetSpec instance) {
-    instance = (instance != null ? instance : new V1DaemonSetSpec());
+    instance = instance != null ? instance : new V1DaemonSetSpec();
     if (instance != null) {
-          this.withMinReadySeconds(instance.getMinReadySeconds());
-          this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-          this.withSelector(instance.getSelector());
-          this.withTemplate(instance.getTemplate());
-          this.withUpdateStrategy(instance.getUpdateStrategy());
-        }
+        this.withMinReadySeconds(instance.getMinReadySeconds());
+        this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+        this.withSelector(instance.getSelector());
+        this.withTemplate(instance.getTemplate());
+        this.withUpdateStrategy(instance.getUpdateStrategy());
+    }
   }
   
   public Integer getMinReadySeconds() {
@@ -90,15 +93,15 @@ public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends B
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public V1PodTemplateSpec buildTemplate() {
@@ -130,15 +133,15 @@ public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends B
   }
   
   public TemplateNested<A> editTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(null));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
   }
   
   public TemplateNested<A> editOrNewTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
   }
   
   public TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(item));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(item));
   }
   
   public V1DaemonSetUpdateStrategy buildUpdateStrategy() {
@@ -170,42 +173,77 @@ public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends B
   }
   
   public UpdateStrategyNested<A> editUpdateStrategy() {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(null));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(null));
   }
   
   public UpdateStrategyNested<A> editOrNewUpdateStrategy() {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(new V1DaemonSetUpdateStrategyBuilder().build()));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(new V1DaemonSetUpdateStrategyBuilder().build()));
   }
   
   public UpdateStrategyNested<A> editOrNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(item));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DaemonSetSpecFluent that = (V1DaemonSetSpecFluent) o;
-    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
-    if (!java.util.Objects.equals(revisionHistoryLimit, that.revisionHistoryLimit)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(template, that.template)) return false;
-    if (!java.util.Objects.equals(updateStrategy, that.updateStrategy)) return false;
+    if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(revisionHistoryLimit, that.revisionHistoryLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(template, that.template))) {
+      return false;
+    }
+    if (!(Objects.equals(updateStrategy, that.updateStrategy))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(minReadySeconds,  revisionHistoryLimit,  selector,  template,  updateStrategy,  super.hashCode());
+    return Objects.hash(minReadySeconds, revisionHistoryLimit, selector, template, updateStrategy);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (minReadySeconds != null) { sb.append("minReadySeconds:"); sb.append(minReadySeconds + ","); }
-    if (revisionHistoryLimit != null) { sb.append("revisionHistoryLimit:"); sb.append(revisionHistoryLimit + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (template != null) { sb.append("template:"); sb.append(template + ","); }
-    if (updateStrategy != null) { sb.append("updateStrategy:"); sb.append(updateStrategy); }
+    if (!(minReadySeconds == null)) {
+        sb.append("minReadySeconds:");
+        sb.append(minReadySeconds);
+        sb.append(",");
+    }
+    if (!(revisionHistoryLimit == null)) {
+        sb.append("revisionHistoryLimit:");
+        sb.append(revisionHistoryLimit);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(template == null)) {
+        sb.append("template:");
+        sb.append(template);
+        sb.append(",");
+    }
+    if (!(updateStrategy == null)) {
+        sb.append("updateStrategy:");
+        sb.append(updateStrategy);
+    }
     sb.append("}");
     return sb.toString();
   }
