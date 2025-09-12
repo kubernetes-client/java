@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.custom.MapUtils;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -250,7 +251,7 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
     }
     V1Secret v1Secret = (V1Secret) o;
     return Objects.equals(this.apiVersion, v1Secret.apiVersion) &&
-        Objects.equals(this.data, v1Secret.data) &&
+        MapUtils.equals(this.data, v1Secret.data) &&
         Objects.equals(this.immutable, v1Secret.immutable) &&
         Objects.equals(this.kind, v1Secret.kind) &&
         Objects.equals(this.metadata, v1Secret.metadata) &&
