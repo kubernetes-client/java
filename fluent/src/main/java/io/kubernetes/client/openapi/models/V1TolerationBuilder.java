@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TolerationBuilder extends V1TolerationFluent<V1TolerationBuilder> implements VisitableBuilder<V1Toleration,V1TolerationBuilder>{
   public V1TolerationBuilder() {
     this(new V1Toleration());

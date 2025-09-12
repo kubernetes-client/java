@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1ServiceCIDRListBuilder extends V1beta1ServiceCIDRListFluent<V1beta1ServiceCIDRListBuilder> implements VisitableBuilder<V1beta1ServiceCIDRList,V1beta1ServiceCIDRListBuilder>{
   public V1beta1ServiceCIDRListBuilder() {
     this(new V1beta1ServiceCIDRList());

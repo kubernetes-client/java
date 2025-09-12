@@ -36,15 +36,31 @@ import java.util.Map;
  * Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.
  */
 @ApiModel(description = "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2Device {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
   private Boolean allNodes;
 
+  public static final String SERIALIZED_NAME_ALLOW_MULTIPLE_ALLOCATIONS = "allowMultipleAllocations";
+  @SerializedName(SERIALIZED_NAME_ALLOW_MULTIPLE_ALLOCATIONS)
+  private Boolean allowMultipleAllocations;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, V1beta2DeviceAttribute> attributes = null;
+
+  public static final String SERIALIZED_NAME_BINDING_CONDITIONS = "bindingConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_CONDITIONS)
+  private List<String> bindingConditions = null;
+
+  public static final String SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS = "bindingFailureConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS)
+  private List<String> bindingFailureConditions = null;
+
+  public static final String SERIALIZED_NAME_BINDS_TO_NODE = "bindsToNode";
+  @SerializedName(SERIALIZED_NAME_BINDS_TO_NODE)
+  private Boolean bindsToNode;
 
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
@@ -94,6 +110,29 @@ public class V1beta2Device {
   }
 
 
+  public V1beta2Device allowMultipleAllocations(Boolean allowMultipleAllocations) {
+
+    this.allowMultipleAllocations = allowMultipleAllocations;
+    return this;
+  }
+
+   /**
+   * AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.  If AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.
+   * @return allowMultipleAllocations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.  If AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.")
+
+  public Boolean getAllowMultipleAllocations() {
+    return allowMultipleAllocations;
+  }
+
+
+  public void setAllowMultipleAllocations(Boolean allowMultipleAllocations) {
+    this.allowMultipleAllocations = allowMultipleAllocations;
+  }
+
+
   public V1beta2Device attributes(Map<String, V1beta2DeviceAttribute> attributes) {
 
     this.attributes = attributes;
@@ -122,6 +161,91 @@ public class V1beta2Device {
 
   public void setAttributes(Map<String, V1beta2DeviceAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public V1beta2Device bindingConditions(List<String> bindingConditions) {
+
+    this.bindingConditions = bindingConditions;
+    return this;
+  }
+
+  public V1beta2Device addBindingConditionsItem(String bindingConditionsItem) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList<>();
+    }
+    this.bindingConditions.add(bindingConditionsItem);
+    return this;
+  }
+
+   /**
+   * BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingConditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+
+  public List<String> getBindingConditions() {
+    return bindingConditions;
+  }
+
+
+  public void setBindingConditions(List<String> bindingConditions) {
+    this.bindingConditions = bindingConditions;
+  }
+
+
+  public V1beta2Device bindingFailureConditions(List<String> bindingFailureConditions) {
+
+    this.bindingFailureConditions = bindingFailureConditions;
+    return this;
+  }
+
+  public V1beta2Device addBindingFailureConditionsItem(String bindingFailureConditionsItem) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList<>();
+    }
+    this.bindingFailureConditions.add(bindingFailureConditionsItem);
+    return this;
+  }
+
+   /**
+   * BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is set to \&quot;True\&quot;, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingFailureConditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is set to \"True\", a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+
+  public List<String> getBindingFailureConditions() {
+    return bindingFailureConditions;
+  }
+
+
+  public void setBindingFailureConditions(List<String> bindingFailureConditions) {
+    this.bindingFailureConditions = bindingFailureConditions;
+  }
+
+
+  public V1beta2Device bindsToNode(Boolean bindsToNode) {
+
+    this.bindsToNode = bindsToNode;
+    return this;
+  }
+
+   /**
+   * BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindsToNode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+
+  public Boolean getBindsToNode() {
+    return bindsToNode;
+  }
+
+
+  public void setBindsToNode(Boolean bindsToNode) {
+    this.bindsToNode = bindsToNode;
   }
 
 
@@ -296,7 +420,11 @@ public class V1beta2Device {
     }
     V1beta2Device v1beta2Device = (V1beta2Device) o;
     return Objects.equals(this.allNodes, v1beta2Device.allNodes) &&
+        Objects.equals(this.allowMultipleAllocations, v1beta2Device.allowMultipleAllocations) &&
         Objects.equals(this.attributes, v1beta2Device.attributes) &&
+        Objects.equals(this.bindingConditions, v1beta2Device.bindingConditions) &&
+        Objects.equals(this.bindingFailureConditions, v1beta2Device.bindingFailureConditions) &&
+        Objects.equals(this.bindsToNode, v1beta2Device.bindsToNode) &&
         Objects.equals(this.capacity, v1beta2Device.capacity) &&
         Objects.equals(this.consumesCounters, v1beta2Device.consumesCounters) &&
         Objects.equals(this.name, v1beta2Device.name) &&
@@ -307,7 +435,7 @@ public class V1beta2Device {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, attributes, capacity, consumesCounters, name, nodeName, nodeSelector, taints);
+    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, name, nodeName, nodeSelector, taints);
   }
 
 
@@ -316,7 +444,11 @@ public class V1beta2Device {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2Device {\n");
     sb.append("    allNodes: ").append(toIndentedString(allNodes)).append("\n");
+    sb.append("    allowMultipleAllocations: ").append(toIndentedString(allowMultipleAllocations)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    bindingConditions: ").append(toIndentedString(bindingConditions)).append("\n");
+    sb.append("    bindingFailureConditions: ").append(toIndentedString(bindingFailureConditions)).append("\n");
+    sb.append("    bindsToNode: ").append(toIndentedString(bindsToNode)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    consumesCounters: ").append(toIndentedString(consumesCounters)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1QuobyteVolumeSourceFluent<A extends V1QuobyteVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1QuobyteVolumeSourceFluent() {
   }
   
@@ -25,15 +27,15 @@ public class V1QuobyteVolumeSourceFluent<A extends V1QuobyteVolumeSourceFluent<A
   private String volume;
   
   protected void copyInstance(V1QuobyteVolumeSource instance) {
-    instance = (instance != null ? instance : new V1QuobyteVolumeSource());
+    instance = instance != null ? instance : new V1QuobyteVolumeSource();
     if (instance != null) {
-          this.withGroup(instance.getGroup());
-          this.withReadOnly(instance.getReadOnly());
-          this.withRegistry(instance.getRegistry());
-          this.withTenant(instance.getTenant());
-          this.withUser(instance.getUser());
-          this.withVolume(instance.getVolume());
-        }
+        this.withGroup(instance.getGroup());
+        this.withReadOnly(instance.getReadOnly());
+        this.withRegistry(instance.getRegistry());
+        this.withTenant(instance.getTenant());
+        this.withUser(instance.getUser());
+        this.withVolume(instance.getVolume());
+    }
   }
   
   public String getGroup() {
@@ -115,32 +117,73 @@ public class V1QuobyteVolumeSourceFluent<A extends V1QuobyteVolumeSourceFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1QuobyteVolumeSourceFluent that = (V1QuobyteVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(group, that.group)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(registry, that.registry)) return false;
-    if (!java.util.Objects.equals(tenant, that.tenant)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
-    if (!java.util.Objects.equals(volume, that.volume)) return false;
+    if (!(Objects.equals(group, that.group))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(registry, that.registry))) {
+      return false;
+    }
+    if (!(Objects.equals(tenant, that.tenant))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
+    if (!(Objects.equals(volume, that.volume))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(group,  readOnly,  registry,  tenant,  user,  volume,  super.hashCode());
+    return Objects.hash(group, readOnly, registry, tenant, user, volume);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (group != null) { sb.append("group:"); sb.append(group + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (registry != null) { sb.append("registry:"); sb.append(registry + ","); }
-    if (tenant != null) { sb.append("tenant:"); sb.append(tenant + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user + ","); }
-    if (volume != null) { sb.append("volume:"); sb.append(volume); }
+    if (!(group == null)) {
+        sb.append("group:");
+        sb.append(group);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(registry == null)) {
+        sb.append("registry:");
+        sb.append(registry);
+        sb.append(",");
+    }
+    if (!(tenant == null)) {
+        sb.append("tenant:");
+        sb.append(tenant);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+        sb.append(",");
+    }
+    if (!(volume == null)) {
+        sb.append("volume:");
+        sb.append(volume);
+    }
     sb.append("}");
     return sb.toString();
   }

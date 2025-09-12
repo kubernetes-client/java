@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1IngressBackendBuilder extends V1IngressBackendFluent<V1IngressBackendBuilder> implements VisitableBuilder<V1IngressBackend,V1IngressBackendBuilder>{
   public V1IngressBackendBuilder() {
     this(new V1IngressBackend());

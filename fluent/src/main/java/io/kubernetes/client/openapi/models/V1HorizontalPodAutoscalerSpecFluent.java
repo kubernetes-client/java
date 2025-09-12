@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1HorizontalPodAutoscalerSpecFluent<A extends V1HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
+public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
   public V1HorizontalPodAutoscalerSpecFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends V1HorizontalPodAutosc
   private Integer targetCPUUtilizationPercentage;
   
   protected void copyInstance(V1HorizontalPodAutoscalerSpec instance) {
-    instance = (instance != null ? instance : new V1HorizontalPodAutoscalerSpec());
+    instance = instance != null ? instance : new V1HorizontalPodAutoscalerSpec();
     if (instance != null) {
-          this.withMaxReplicas(instance.getMaxReplicas());
-          this.withMinReplicas(instance.getMinReplicas());
-          this.withScaleTargetRef(instance.getScaleTargetRef());
-          this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
-        }
+        this.withMaxReplicas(instance.getMaxReplicas());
+        this.withMinReplicas(instance.getMinReplicas());
+        this.withScaleTargetRef(instance.getScaleTargetRef());
+        this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
+    }
   }
   
   public Integer getMaxReplicas() {
@@ -88,15 +91,15 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends V1HorizontalPodAutosc
   }
   
   public ScaleTargetRefNested<A> editScaleTargetRef() {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(null));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(null));
   }
   
   public ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(new V1CrossVersionObjectReferenceBuilder().build()));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(new V1CrossVersionObjectReferenceBuilder().build()));
   }
   
   public ScaleTargetRefNested<A> editOrNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(item));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(item));
   }
   
   public Integer getTargetCPUUtilizationPercentage() {
@@ -113,28 +116,57 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends V1HorizontalPodAutosc
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1HorizontalPodAutoscalerSpecFluent that = (V1HorizontalPodAutoscalerSpecFluent) o;
-    if (!java.util.Objects.equals(maxReplicas, that.maxReplicas)) return false;
-    if (!java.util.Objects.equals(minReplicas, that.minReplicas)) return false;
-    if (!java.util.Objects.equals(scaleTargetRef, that.scaleTargetRef)) return false;
-    if (!java.util.Objects.equals(targetCPUUtilizationPercentage, that.targetCPUUtilizationPercentage)) return false;
+    if (!(Objects.equals(maxReplicas, that.maxReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(minReplicas, that.minReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(scaleTargetRef, that.scaleTargetRef))) {
+      return false;
+    }
+    if (!(Objects.equals(targetCPUUtilizationPercentage, that.targetCPUUtilizationPercentage))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(maxReplicas,  minReplicas,  scaleTargetRef,  targetCPUUtilizationPercentage,  super.hashCode());
+    return Objects.hash(maxReplicas, minReplicas, scaleTargetRef, targetCPUUtilizationPercentage);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (maxReplicas != null) { sb.append("maxReplicas:"); sb.append(maxReplicas + ","); }
-    if (minReplicas != null) { sb.append("minReplicas:"); sb.append(minReplicas + ","); }
-    if (scaleTargetRef != null) { sb.append("scaleTargetRef:"); sb.append(scaleTargetRef + ","); }
-    if (targetCPUUtilizationPercentage != null) { sb.append("targetCPUUtilizationPercentage:"); sb.append(targetCPUUtilizationPercentage); }
+    if (!(maxReplicas == null)) {
+        sb.append("maxReplicas:");
+        sb.append(maxReplicas);
+        sb.append(",");
+    }
+    if (!(minReplicas == null)) {
+        sb.append("minReplicas:");
+        sb.append(minReplicas);
+        sb.append(",");
+    }
+    if (!(scaleTargetRef == null)) {
+        sb.append("scaleTargetRef:");
+        sb.append(scaleTargetRef);
+        sb.append(",");
+    }
+    if (!(targetCPUUtilizationPercentage == null)) {
+        sb.append("targetCPUUtilizationPercentage:");
+        sb.append(targetCPUUtilizationPercentage);
+    }
     sb.append("}");
     return sb.toString();
   }

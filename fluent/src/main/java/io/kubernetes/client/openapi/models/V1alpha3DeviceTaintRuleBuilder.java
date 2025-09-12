@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha3DeviceTaintRuleBuilder extends V1alpha3DeviceTaintRuleFluent<V1alpha3DeviceTaintRuleBuilder> implements VisitableBuilder<V1alpha3DeviceTaintRule,V1alpha3DeviceTaintRuleBuilder>{
   public V1alpha3DeviceTaintRuleBuilder() {
     this(new V1alpha3DeviceTaintRule());

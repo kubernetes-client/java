@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1HostPathVolumeSourceFluent<A extends V1HostPathVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1HostPathVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1HostPathVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1HostPathVolumeSourceFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1HostPathVolumeSourceFluent<A extends V1HostPathVolumeSourceFluent
   private String type;
   
   protected void copyInstance(V1HostPathVolumeSource instance) {
-    instance = (instance != null ? instance : new V1HostPathVolumeSource());
+    instance = instance != null ? instance : new V1HostPathVolumeSource();
     if (instance != null) {
-          this.withPath(instance.getPath());
-          this.withType(instance.getType());
-        }
+        this.withPath(instance.getPath());
+        this.withType(instance.getType());
+    }
   }
   
   public String getPath() {
@@ -54,24 +56,41 @@ public class V1HostPathVolumeSourceFluent<A extends V1HostPathVolumeSourceFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1HostPathVolumeSourceFluent that = (V1HostPathVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(path,  type,  super.hashCode());
+    return Objects.hash(path, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeSelectorTermBuilder extends V1NodeSelectorTermFluent<V1NodeSelectorTermBuilder> implements VisitableBuilder<V1NodeSelectorTerm,V1NodeSelectorTermBuilder>{
   public V1NodeSelectorTermBuilder() {
     this(new V1NodeSelectorTerm());

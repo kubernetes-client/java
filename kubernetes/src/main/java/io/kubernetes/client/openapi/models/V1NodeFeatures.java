@@ -27,7 +27,7 @@ import java.io.IOException;
  * NodeFeatures describes the set of features implemented by the CRI implementation. The features contained in the NodeFeatures should depend only on the cri implementation independent of runtime handlers.
  */
 @ApiModel(description = "NodeFeatures describes the set of features implemented by the CRI implementation. The features contained in the NodeFeatures should depend only on the cri implementation independent of runtime handlers.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1NodeFeatures {
   public static final String SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY = "supplementalGroupsPolicy";
   @SerializedName(SERIALIZED_NAME_SUPPLEMENTAL_GROUPS_POLICY)

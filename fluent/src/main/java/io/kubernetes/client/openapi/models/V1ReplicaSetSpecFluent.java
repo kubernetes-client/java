@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ReplicaSetSpecFluent<A extends V1ReplicaSetSpecFluent<A>> extends BaseFluent<A>{
+public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<A>> extends BaseFluent<A>{
   public V1ReplicaSetSpecFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1ReplicaSetSpecFluent<A extends V1ReplicaSetSpecFluent<A>> extends
   private V1PodTemplateSpecBuilder template;
   
   protected void copyInstance(V1ReplicaSetSpec instance) {
-    instance = (instance != null ? instance : new V1ReplicaSetSpec());
+    instance = instance != null ? instance : new V1ReplicaSetSpec();
     if (instance != null) {
-          this.withMinReadySeconds(instance.getMinReadySeconds());
-          this.withReplicas(instance.getReplicas());
-          this.withSelector(instance.getSelector());
-          this.withTemplate(instance.getTemplate());
-        }
+        this.withMinReadySeconds(instance.getMinReadySeconds());
+        this.withReplicas(instance.getReplicas());
+        this.withSelector(instance.getSelector());
+        this.withTemplate(instance.getTemplate());
+    }
   }
   
   public Integer getMinReadySeconds() {
@@ -88,15 +91,15 @@ public class V1ReplicaSetSpecFluent<A extends V1ReplicaSetSpecFluent<A>> extends
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public V1PodTemplateSpec buildTemplate() {
@@ -128,40 +131,69 @@ public class V1ReplicaSetSpecFluent<A extends V1ReplicaSetSpecFluent<A>> extends
   }
   
   public TemplateNested<A> editTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(null));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
   }
   
   public TemplateNested<A> editOrNewTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
   }
   
   public TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(item));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ReplicaSetSpecFluent that = (V1ReplicaSetSpecFluent) o;
-    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
-    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(template, that.template)) return false;
+    if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(replicas, that.replicas))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(template, that.template))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(minReadySeconds,  replicas,  selector,  template,  super.hashCode());
+    return Objects.hash(minReadySeconds, replicas, selector, template);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (minReadySeconds != null) { sb.append("minReadySeconds:"); sb.append(minReadySeconds + ","); }
-    if (replicas != null) { sb.append("replicas:"); sb.append(replicas + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (template != null) { sb.append("template:"); sb.append(template); }
+    if (!(minReadySeconds == null)) {
+        sb.append("minReadySeconds:");
+        sb.append(minReadySeconds);
+        sb.append(",");
+    }
+    if (!(replicas == null)) {
+        sb.append("replicas:");
+        sb.append(replicas);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(template == null)) {
+        sb.append("template:");
+        sb.append(template);
+    }
     sb.append("}");
     return sb.toString();
   }

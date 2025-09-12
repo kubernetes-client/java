@@ -1,9 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import io.kubernetes.client.custom.IntOrString;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NetworkPolicyPortFluent<A extends V1NetworkPolicyPortFluent<A>> extends BaseFluent<A>{
+public class V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<A>> extends BaseFluent<A>{
   public V1NetworkPolicyPortFluent() {
   }
   
@@ -23,12 +25,12 @@ public class V1NetworkPolicyPortFluent<A extends V1NetworkPolicyPortFluent<A>> e
   private String protocol;
   
   protected void copyInstance(V1NetworkPolicyPort instance) {
-    instance = (instance != null ? instance : new V1NetworkPolicyPort());
+    instance = instance != null ? instance : new V1NetworkPolicyPort();
     if (instance != null) {
-          this.withEndPort(instance.getEndPort());
-          this.withPort(instance.getPort());
-          this.withProtocol(instance.getProtocol());
-        }
+        this.withEndPort(instance.getEndPort());
+        this.withPort(instance.getPort());
+        this.withProtocol(instance.getProtocol());
+    }
   }
   
   public Integer getEndPort() {
@@ -58,11 +60,11 @@ public class V1NetworkPolicyPortFluent<A extends V1NetworkPolicyPortFluent<A>> e
   }
   
   public A withNewPort(int value) {
-    return (A)withPort(new IntOrString(value));
+    return (A) this.withPort(new IntOrString(value));
   }
   
   public A withNewPort(String value) {
-    return (A)withPort(new IntOrString(value));
+    return (A) this.withPort(new IntOrString(value));
   }
   
   public String getProtocol() {
@@ -79,26 +81,49 @@ public class V1NetworkPolicyPortFluent<A extends V1NetworkPolicyPortFluent<A>> e
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NetworkPolicyPortFluent that = (V1NetworkPolicyPortFluent) o;
-    if (!java.util.Objects.equals(endPort, that.endPort)) return false;
-    if (!java.util.Objects.equals(port, that.port)) return false;
-    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+    if (!(Objects.equals(endPort, that.endPort))) {
+      return false;
+    }
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
+    if (!(Objects.equals(protocol, that.protocol))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(endPort,  port,  protocol,  super.hashCode());
+    return Objects.hash(endPort, port, protocol);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (endPort != null) { sb.append("endPort:"); sb.append(endPort + ","); }
-    if (port != null) { sb.append("port:"); sb.append(port + ","); }
-    if (protocol != null) { sb.append("protocol:"); sb.append(protocol); }
+    if (!(endPort == null)) {
+        sb.append("endPort:");
+        sb.append(endPort);
+        sb.append(",");
+    }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+        sb.append(",");
+    }
+    if (!(protocol == null)) {
+        sb.append("protocol:");
+        sb.append(protocol);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,21 +1,23 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.lang.String;
+import java.util.function.Predicate;
+import java.lang.Integer;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
-import java.lang.String;
 import java.lang.Boolean;
-import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1FCVolumeSourceFluent() {
   }
   
@@ -29,14 +31,14 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
   private List<String> wwids;
   
   protected void copyInstance(V1FCVolumeSource instance) {
-    instance = (instance != null ? instance : new V1FCVolumeSource());
+    instance = instance != null ? instance : new V1FCVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withLun(instance.getLun());
-          this.withReadOnly(instance.getReadOnly());
-          this.withTargetWWNs(instance.getTargetWWNs());
-          this.withWwids(instance.getWwids());
-        }
+        this.withFsType(instance.getFsType());
+        this.withLun(instance.getLun());
+        this.withReadOnly(instance.getReadOnly());
+        this.withTargetWWNs(instance.getTargetWWNs());
+        this.withWwids(instance.getWwids());
+    }
   }
   
   public String getFsType() {
@@ -79,34 +81,59 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
   }
   
   public A addToTargetWWNs(int index,String item) {
-    if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
+    if (this.targetWWNs == null) {
+      this.targetWWNs = new ArrayList();
+    }
     this.targetWWNs.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToTargetWWNs(int index,String item) {
-    if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
-    this.targetWWNs.set(index, item); return (A)this;
+    if (this.targetWWNs == null) {
+      this.targetWWNs = new ArrayList();
+    }
+    this.targetWWNs.set(index, item);
+    return (A) this;
   }
   
-  public A addToTargetWWNs(java.lang.String... items) {
-    if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
-    for (String item : items) {this.targetWWNs.add(item);} return (A)this;
+  public A addToTargetWWNs(String... items) {
+    if (this.targetWWNs == null) {
+      this.targetWWNs = new ArrayList();
+    }
+    for (String item : items) {
+      this.targetWWNs.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToTargetWWNs(Collection<String> items) {
-    if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
-    for (String item : items) {this.targetWWNs.add(item);} return (A)this;
+    if (this.targetWWNs == null) {
+      this.targetWWNs = new ArrayList();
+    }
+    for (String item : items) {
+      this.targetWWNs.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromTargetWWNs(java.lang.String... items) {
-    if (this.targetWWNs == null) return (A)this;
-    for (String item : items) { this.targetWWNs.remove(item);} return (A)this;
+  public A removeFromTargetWWNs(String... items) {
+    if (this.targetWWNs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.targetWWNs.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromTargetWWNs(Collection<String> items) {
-    if (this.targetWWNs == null) return (A)this;
-    for (String item : items) { this.targetWWNs.remove(item);} return (A)this;
+    if (this.targetWWNs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.targetWWNs.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getTargetWWNs() {
@@ -155,7 +182,7 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
     return (A) this;
   }
   
-  public A withTargetWWNs(java.lang.String... targetWWNs) {
+  public A withTargetWWNs(String... targetWWNs) {
     if (this.targetWWNs != null) {
         this.targetWWNs.clear();
         _visitables.remove("targetWWNs");
@@ -169,38 +196,63 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
   }
   
   public boolean hasTargetWWNs() {
-    return this.targetWWNs != null && !this.targetWWNs.isEmpty();
+    return this.targetWWNs != null && !(this.targetWWNs.isEmpty());
   }
   
   public A addToWwids(int index,String item) {
-    if (this.wwids == null) {this.wwids = new ArrayList<String>();}
+    if (this.wwids == null) {
+      this.wwids = new ArrayList();
+    }
     this.wwids.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToWwids(int index,String item) {
-    if (this.wwids == null) {this.wwids = new ArrayList<String>();}
-    this.wwids.set(index, item); return (A)this;
+    if (this.wwids == null) {
+      this.wwids = new ArrayList();
+    }
+    this.wwids.set(index, item);
+    return (A) this;
   }
   
-  public A addToWwids(java.lang.String... items) {
-    if (this.wwids == null) {this.wwids = new ArrayList<String>();}
-    for (String item : items) {this.wwids.add(item);} return (A)this;
+  public A addToWwids(String... items) {
+    if (this.wwids == null) {
+      this.wwids = new ArrayList();
+    }
+    for (String item : items) {
+      this.wwids.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToWwids(Collection<String> items) {
-    if (this.wwids == null) {this.wwids = new ArrayList<String>();}
-    for (String item : items) {this.wwids.add(item);} return (A)this;
+    if (this.wwids == null) {
+      this.wwids = new ArrayList();
+    }
+    for (String item : items) {
+      this.wwids.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromWwids(java.lang.String... items) {
-    if (this.wwids == null) return (A)this;
-    for (String item : items) { this.wwids.remove(item);} return (A)this;
+  public A removeFromWwids(String... items) {
+    if (this.wwids == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.wwids.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromWwids(Collection<String> items) {
-    if (this.wwids == null) return (A)this;
-    for (String item : items) { this.wwids.remove(item);} return (A)this;
+    if (this.wwids == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.wwids.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getWwids() {
@@ -249,7 +301,7 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
     return (A) this;
   }
   
-  public A withWwids(java.lang.String... wwids) {
+  public A withWwids(String... wwids) {
     if (this.wwids != null) {
         this.wwids.clear();
         _visitables.remove("wwids");
@@ -263,34 +315,69 @@ public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends
   }
   
   public boolean hasWwids() {
-    return this.wwids != null && !this.wwids.isEmpty();
+    return this.wwids != null && !(this.wwids.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1FCVolumeSourceFluent that = (V1FCVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(lun, that.lun)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(targetWWNs, that.targetWWNs)) return false;
-    if (!java.util.Objects.equals(wwids, that.wwids)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(lun, that.lun))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(targetWWNs, that.targetWWNs))) {
+      return false;
+    }
+    if (!(Objects.equals(wwids, that.wwids))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  lun,  readOnly,  targetWWNs,  wwids,  super.hashCode());
+    return Objects.hash(fsType, lun, readOnly, targetWWNs, wwids);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (lun != null) { sb.append("lun:"); sb.append(lun + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (targetWWNs != null && !targetWWNs.isEmpty()) { sb.append("targetWWNs:"); sb.append(targetWWNs + ","); }
-    if (wwids != null && !wwids.isEmpty()) { sb.append("wwids:"); sb.append(wwids); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(lun == null)) {
+        sb.append("lun:");
+        sb.append(lun);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(targetWWNs == null) && !(targetWWNs.isEmpty())) {
+        sb.append("targetWWNs:");
+        sb.append(targetWWNs);
+        sb.append(",");
+    }
+    if (!(wwids == null) && !(wwids.isEmpty())) {
+        sb.append("wwids:");
+        sb.append(wwids);
+    }
     sb.append("}");
     return sb.toString();
   }

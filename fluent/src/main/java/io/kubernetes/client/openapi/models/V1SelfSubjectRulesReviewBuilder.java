@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SelfSubjectRulesReviewBuilder extends V1SelfSubjectRulesReviewFluent<V1SelfSubjectRulesReviewBuilder> implements VisitableBuilder<V1SelfSubjectRulesReview,V1SelfSubjectRulesReviewBuilder>{
   public V1SelfSubjectRulesReviewBuilder() {
     this(new V1SelfSubjectRulesReview());

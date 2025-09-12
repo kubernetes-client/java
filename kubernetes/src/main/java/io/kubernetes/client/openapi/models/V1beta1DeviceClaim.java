@@ -32,7 +32,7 @@ import java.util.List;
  * DeviceClaim defines how to request devices with a ResourceClaim.
  */
 @ApiModel(description = "DeviceClaim defines how to request devices with a ResourceClaim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceClaim {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)

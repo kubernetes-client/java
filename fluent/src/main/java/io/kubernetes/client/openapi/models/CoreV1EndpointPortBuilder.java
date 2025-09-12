@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluent<CoreV1EndpointPortBuilder> implements VisitableBuilder<CoreV1EndpointPort,CoreV1EndpointPortBuilder>{
   public CoreV1EndpointPortBuilder() {
     this(new CoreV1EndpointPort());

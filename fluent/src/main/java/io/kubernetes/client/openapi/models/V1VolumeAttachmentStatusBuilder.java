@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeAttachmentStatusBuilder extends V1VolumeAttachmentStatusFluent<V1VolumeAttachmentStatusBuilder> implements VisitableBuilder<V1VolumeAttachmentStatus,V1VolumeAttachmentStatusBuilder>{
   public V1VolumeAttachmentStatusBuilder() {
     this(new V1VolumeAttachmentStatus());

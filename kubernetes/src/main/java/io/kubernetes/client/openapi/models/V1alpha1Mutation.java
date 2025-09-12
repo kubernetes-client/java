@@ -29,7 +29,7 @@ import java.io.IOException;
  * Mutation specifies the CEL expression which is used to apply the Mutation.
  */
 @ApiModel(description = "Mutation specifies the CEL expression which is used to apply the Mutation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1alpha1Mutation {
   public static final String SERIALIZED_NAME_APPLY_CONFIGURATION = "applyConfiguration";
   @SerializedName(SERIALIZED_NAME_APPLY_CONFIGURATION)

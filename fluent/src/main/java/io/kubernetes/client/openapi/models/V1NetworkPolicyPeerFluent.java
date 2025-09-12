@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>> extends BaseFluent<A>{
+public class V1NetworkPolicyPeerFluent<A extends io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<A>> extends BaseFluent<A>{
   public V1NetworkPolicyPeerFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>> e
   private V1LabelSelectorBuilder podSelector;
   
   protected void copyInstance(V1NetworkPolicyPeer instance) {
-    instance = (instance != null ? instance : new V1NetworkPolicyPeer());
+    instance = instance != null ? instance : new V1NetworkPolicyPeer();
     if (instance != null) {
-          this.withIpBlock(instance.getIpBlock());
-          this.withNamespaceSelector(instance.getNamespaceSelector());
-          this.withPodSelector(instance.getPodSelector());
-        }
+        this.withIpBlock(instance.getIpBlock());
+        this.withNamespaceSelector(instance.getNamespaceSelector());
+        this.withPodSelector(instance.getPodSelector());
+    }
   }
   
   public V1IPBlock buildIpBlock() {
@@ -59,15 +62,15 @@ public class V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>> e
   }
   
   public IpBlockNested<A> editIpBlock() {
-    return withNewIpBlockLike(java.util.Optional.ofNullable(buildIpBlock()).orElse(null));
+    return this.withNewIpBlockLike(Optional.ofNullable(this.buildIpBlock()).orElse(null));
   }
   
   public IpBlockNested<A> editOrNewIpBlock() {
-    return withNewIpBlockLike(java.util.Optional.ofNullable(buildIpBlock()).orElse(new V1IPBlockBuilder().build()));
+    return this.withNewIpBlockLike(Optional.ofNullable(this.buildIpBlock()).orElse(new V1IPBlockBuilder().build()));
   }
   
   public IpBlockNested<A> editOrNewIpBlockLike(V1IPBlock item) {
-    return withNewIpBlockLike(java.util.Optional.ofNullable(buildIpBlock()).orElse(item));
+    return this.withNewIpBlockLike(Optional.ofNullable(this.buildIpBlock()).orElse(item));
   }
   
   public V1LabelSelector buildNamespaceSelector() {
@@ -99,15 +102,15 @@ public class V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>> e
   }
   
   public NamespaceSelectorNested<A> editNamespaceSelector() {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(null));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(null));
   }
   
   public NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(item));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(item));
   }
   
   public V1LabelSelector buildPodSelector() {
@@ -139,38 +142,61 @@ public class V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>> e
   }
   
   public PodSelectorNested<A> editPodSelector() {
-    return withNewPodSelectorLike(java.util.Optional.ofNullable(buildPodSelector()).orElse(null));
+    return this.withNewPodSelectorLike(Optional.ofNullable(this.buildPodSelector()).orElse(null));
   }
   
   public PodSelectorNested<A> editOrNewPodSelector() {
-    return withNewPodSelectorLike(java.util.Optional.ofNullable(buildPodSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewPodSelectorLike(Optional.ofNullable(this.buildPodSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public PodSelectorNested<A> editOrNewPodSelectorLike(V1LabelSelector item) {
-    return withNewPodSelectorLike(java.util.Optional.ofNullable(buildPodSelector()).orElse(item));
+    return this.withNewPodSelectorLike(Optional.ofNullable(this.buildPodSelector()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NetworkPolicyPeerFluent that = (V1NetworkPolicyPeerFluent) o;
-    if (!java.util.Objects.equals(ipBlock, that.ipBlock)) return false;
-    if (!java.util.Objects.equals(namespaceSelector, that.namespaceSelector)) return false;
-    if (!java.util.Objects.equals(podSelector, that.podSelector)) return false;
+    if (!(Objects.equals(ipBlock, that.ipBlock))) {
+      return false;
+    }
+    if (!(Objects.equals(namespaceSelector, that.namespaceSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(podSelector, that.podSelector))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(ipBlock,  namespaceSelector,  podSelector,  super.hashCode());
+    return Objects.hash(ipBlock, namespaceSelector, podSelector);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (ipBlock != null) { sb.append("ipBlock:"); sb.append(ipBlock + ","); }
-    if (namespaceSelector != null) { sb.append("namespaceSelector:"); sb.append(namespaceSelector + ","); }
-    if (podSelector != null) { sb.append("podSelector:"); sb.append(podSelector); }
+    if (!(ipBlock == null)) {
+        sb.append("ipBlock:");
+        sb.append(ipBlock);
+        sb.append(",");
+    }
+    if (!(namespaceSelector == null)) {
+        sb.append("namespaceSelector:");
+        sb.append(namespaceSelector);
+        sb.append(",");
+    }
+    if (!(podSelector == null)) {
+        sb.append("podSelector:");
+        sb.append(podSelector);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SeccompProfileBuilder extends V1SeccompProfileFluent<V1SeccompProfileBuilder> implements VisitableBuilder<V1SeccompProfile,V1SeccompProfileBuilder>{
   public V1SeccompProfileBuilder() {
     this(new V1SeccompProfile());

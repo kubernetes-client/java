@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SleepActionBuilder extends V1SleepActionFluent<V1SleepActionBuilder> implements VisitableBuilder<V1SleepAction,V1SleepActionBuilder>{
   public V1SleepActionBuilder() {
     this(new V1SleepAction());

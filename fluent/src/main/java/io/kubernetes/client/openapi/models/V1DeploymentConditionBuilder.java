@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluent<V1DeploymentConditionBuilder> implements VisitableBuilder<V1DeploymentCondition,V1DeploymentConditionBuilder>{
   public V1DeploymentConditionBuilder() {
     this(new V1DeploymentCondition());

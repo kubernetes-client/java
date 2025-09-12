@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DaemonSetStatusBuilder extends V1DaemonSetStatusFluent<V1DaemonSetStatusBuilder> implements VisitableBuilder<V1DaemonSetStatus,V1DaemonSetStatusBuilder>{
   public V1DaemonSetStatusBuilder() {
     this(new V1DaemonSetStatus());

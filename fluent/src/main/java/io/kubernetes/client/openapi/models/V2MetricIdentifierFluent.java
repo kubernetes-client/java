@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2MetricIdentifierFluent<A extends V2MetricIdentifierFluent<A>> extends BaseFluent<A>{
+public class V2MetricIdentifierFluent<A extends io.kubernetes.client.openapi.models.V2MetricIdentifierFluent<A>> extends BaseFluent<A>{
   public V2MetricIdentifierFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V2MetricIdentifierFluent<A extends V2MetricIdentifierFluent<A>> ext
   private V1LabelSelectorBuilder selector;
   
   protected void copyInstance(V2MetricIdentifier instance) {
-    instance = (instance != null ? instance : new V2MetricIdentifier());
+    instance = instance != null ? instance : new V2MetricIdentifier();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withSelector(instance.getSelector());
-        }
+        this.withName(instance.getName());
+        this.withSelector(instance.getSelector());
+    }
   }
   
   public String getName() {
@@ -70,36 +73,53 @@ public class V2MetricIdentifierFluent<A extends V2MetricIdentifierFluent<A>> ext
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2MetricIdentifierFluent that = (V2MetricIdentifierFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  selector,  super.hashCode());
+    return Objects.hash(name, selector);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha2LeaseCandidateListBuilder extends V1alpha2LeaseCandidateListFluent<V1alpha2LeaseCandidateListBuilder> implements VisitableBuilder<V1alpha2LeaseCandidateList,V1alpha2LeaseCandidateListBuilder>{
   public V1alpha2LeaseCandidateListBuilder() {
     this(new V1alpha2LeaseCandidateList());

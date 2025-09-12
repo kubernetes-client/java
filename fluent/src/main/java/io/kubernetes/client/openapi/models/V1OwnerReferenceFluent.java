@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1OwnerReferenceFluent<A extends V1OwnerReferenceFluent<A>> extends BaseFluent<A>{
+public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<A>> extends BaseFluent<A>{
   public V1OwnerReferenceFluent() {
   }
   
@@ -25,15 +27,15 @@ public class V1OwnerReferenceFluent<A extends V1OwnerReferenceFluent<A>> extends
   private String uid;
   
   protected void copyInstance(V1OwnerReference instance) {
-    instance = (instance != null ? instance : new V1OwnerReference());
+    instance = instance != null ? instance : new V1OwnerReference();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
-          this.withController(instance.getController());
-          this.withKind(instance.getKind());
-          this.withName(instance.getName());
-          this.withUid(instance.getUid());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
+        this.withController(instance.getController());
+        this.withKind(instance.getKind());
+        this.withName(instance.getName());
+        this.withUid(instance.getUid());
+    }
   }
   
   public String getApiVersion() {
@@ -115,32 +117,73 @@ public class V1OwnerReferenceFluent<A extends V1OwnerReferenceFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1OwnerReferenceFluent that = (V1OwnerReferenceFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(blockOwnerDeletion, that.blockOwnerDeletion)) return false;
-    if (!java.util.Objects.equals(controller, that.controller)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(blockOwnerDeletion, that.blockOwnerDeletion))) {
+      return false;
+    }
+    if (!(Objects.equals(controller, that.controller))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  blockOwnerDeletion,  controller,  kind,  name,  uid,  super.hashCode());
+    return Objects.hash(apiVersion, blockOwnerDeletion, controller, kind, name, uid);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (blockOwnerDeletion != null) { sb.append("blockOwnerDeletion:"); sb.append(blockOwnerDeletion + ","); }
-    if (controller != null) { sb.append("controller:"); sb.append(controller + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(blockOwnerDeletion == null)) {
+        sb.append("blockOwnerDeletion:");
+        sb.append(blockOwnerDeletion);
+        sb.append(",");
+    }
+    if (!(controller == null)) {
+        sb.append("controller:");
+        sb.append(controller);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * EnvVar represents an environment variable present in a Container.
  */
 @ApiModel(description = "EnvVar represents an environment variable present in a Container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1EnvVar {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -50,10 +50,10 @@ public class V1EnvVar {
   }
 
    /**
-   * Name of the environment variable. Must be a C_IDENTIFIER.
+   * Name of the environment variable. May consist of any printable ASCII characters except &#39;&#x3D;&#39;.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the environment variable. Must be a C_IDENTIFIER.")
+  @ApiModelProperty(required = true, value = "Name of the environment variable. May consist of any printable ASCII characters except '='.")
 
   public String getName() {
     return name;

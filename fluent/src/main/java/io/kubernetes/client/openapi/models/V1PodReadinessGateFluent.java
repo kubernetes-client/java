@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> extends BaseFluent<A>{
+public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A>> extends BaseFluent<A>{
   public V1PodReadinessGateFluent() {
   }
   
@@ -19,10 +21,10 @@ public class V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> ext
   private String conditionType;
   
   protected void copyInstance(V1PodReadinessGate instance) {
-    instance = (instance != null ? instance : new V1PodReadinessGate());
+    instance = instance != null ? instance : new V1PodReadinessGate();
     if (instance != null) {
-          this.withConditionType(instance.getConditionType());
-        }
+      this.withConditionType(instance.getConditionType());
+    }
   }
   
   public String getConditionType() {
@@ -39,22 +41,33 @@ public class V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> ext
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodReadinessGateFluent that = (V1PodReadinessGateFluent) o;
-    if (!java.util.Objects.equals(conditionType, that.conditionType)) return false;
+    if (!(Objects.equals(conditionType, that.conditionType))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(conditionType,  super.hashCode());
+    return Objects.hash(conditionType);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (conditionType != null) { sb.append("conditionType:"); sb.append(conditionType); }
+    if (!(conditionType == null)) {
+        sb.append("conditionType:");
+        sb.append(conditionType);
+    }
     sb.append("}");
     return sb.toString();
   }

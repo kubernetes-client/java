@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ServiceBackendPortBuilder extends V1ServiceBackendPortFluent<V1ServiceBackendPortBuilder> implements VisitableBuilder<V1ServiceBackendPort,V1ServiceBackendPortBuilder>{
   public V1ServiceBackendPortBuilder() {
     this(new V1ServiceBackendPort());

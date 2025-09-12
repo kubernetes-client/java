@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> implements VisitableBuilder<V1PodStatus,V1PodStatusBuilder>{
   public V1PodStatusBuilder() {
     this(new V1PodStatus());
@@ -26,6 +27,7 @@ public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> im
     buildable.setConditions(fluent.buildConditions());
     buildable.setContainerStatuses(fluent.buildContainerStatuses());
     buildable.setEphemeralContainerStatuses(fluent.buildEphemeralContainerStatuses());
+    buildable.setExtendedResourceClaimStatus(fluent.buildExtendedResourceClaimStatus());
     buildable.setHostIP(fluent.getHostIP());
     buildable.setHostIPs(fluent.buildHostIPs());
     buildable.setInitContainerStatuses(fluent.buildInitContainerStatuses());

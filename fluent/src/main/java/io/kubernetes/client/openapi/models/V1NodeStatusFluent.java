@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
+import java.lang.RuntimeException;
 import java.util.Iterator;
 import io.kubernetes.client.custom.Quantity;
 
@@ -19,7 +22,7 @@ import io.kubernetes.client.custom.Quantity;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFluent<A>{
+public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeStatusFluent<A>> extends BaseFluent<A>{
   public V1NodeStatusFluent() {
   }
   
@@ -41,26 +44,28 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   private List<String> volumesInUse;
   
   protected void copyInstance(V1NodeStatus instance) {
-    instance = (instance != null ? instance : new V1NodeStatus());
+    instance = instance != null ? instance : new V1NodeStatus();
     if (instance != null) {
-          this.withAddresses(instance.getAddresses());
-          this.withAllocatable(instance.getAllocatable());
-          this.withCapacity(instance.getCapacity());
-          this.withConditions(instance.getConditions());
-          this.withConfig(instance.getConfig());
-          this.withDaemonEndpoints(instance.getDaemonEndpoints());
-          this.withFeatures(instance.getFeatures());
-          this.withImages(instance.getImages());
-          this.withNodeInfo(instance.getNodeInfo());
-          this.withPhase(instance.getPhase());
-          this.withRuntimeHandlers(instance.getRuntimeHandlers());
-          this.withVolumesAttached(instance.getVolumesAttached());
-          this.withVolumesInUse(instance.getVolumesInUse());
-        }
+        this.withAddresses(instance.getAddresses());
+        this.withAllocatable(instance.getAllocatable());
+        this.withCapacity(instance.getCapacity());
+        this.withConditions(instance.getConditions());
+        this.withConfig(instance.getConfig());
+        this.withDaemonEndpoints(instance.getDaemonEndpoints());
+        this.withFeatures(instance.getFeatures());
+        this.withImages(instance.getImages());
+        this.withNodeInfo(instance.getNodeInfo());
+        this.withPhase(instance.getPhase());
+        this.withRuntimeHandlers(instance.getRuntimeHandlers());
+        this.withVolumesAttached(instance.getVolumesAttached());
+        this.withVolumesInUse(instance.getVolumesInUse());
+    }
   }
   
   public A addToAddresses(int index,V1NodeAddress item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
     if (index < 0 || index >= addresses.size()) {
         _visitables.get("addresses").add(builder);
@@ -69,11 +74,13 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("addresses").add(builder);
         addresses.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAddresses(int index,V1NodeAddress item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
     if (index < 0 || index >= addresses.size()) {
         _visitables.get("addresses").add(builder);
@@ -82,41 +89,71 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("addresses").add(builder);
         addresses.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
-    for (V1NodeAddress item : items) {V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);_visitables.get("addresses").add(builder);this.addresses.add(builder);} return (A)this;
+  public A addToAddresses(V1NodeAddress... items) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (V1NodeAddress item : items) {
+        V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
+        _visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAddresses(Collection<V1NodeAddress> items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1NodeAddressBuilder>();}
-    for (V1NodeAddress item : items) {V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);_visitables.get("addresses").add(builder);this.addresses.add(builder);} return (A)this;
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (V1NodeAddress item : items) {
+        V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
+        _visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items) {
-    if (this.addresses == null) return (A)this;
-    for (V1NodeAddress item : items) {V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);_visitables.get("addresses").remove(builder); this.addresses.remove(builder);} return (A)this;
+  public A removeFromAddresses(V1NodeAddress... items) {
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (V1NodeAddress item : items) {
+        V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
+        _visitables.get("addresses").remove(builder);
+        this.addresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAddresses(Collection<V1NodeAddress> items) {
-    if (this.addresses == null) return (A)this;
-    for (V1NodeAddress item : items) {V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);_visitables.get("addresses").remove(builder); this.addresses.remove(builder);} return (A)this;
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (V1NodeAddress item : items) {
+        V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
+        _visitables.get("addresses").remove(builder);
+        this.addresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAddresses(Predicate<V1NodeAddressBuilder> predicate) {
-    if (addresses == null) return (A) this;
-    final Iterator<V1NodeAddressBuilder> each = addresses.iterator();
-    final List visitables = _visitables.get("addresses");
-    while (each.hasNext()) {
-      V1NodeAddressBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (addresses == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NodeAddressBuilder> each = addresses.iterator();
+    List visitables = _visitables.get("addresses");
+    while (each.hasNext()) {
+        V1NodeAddressBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NodeAddress> buildAddresses() {
@@ -168,7 +205,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... addresses) {
+  public A withAddresses(V1NodeAddress... addresses) {
     if (this.addresses != null) {
         this.addresses.clear();
         _visitables.remove("addresses");
@@ -182,7 +219,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasAddresses() {
-    return this.addresses != null && !this.addresses.isEmpty();
+    return this.addresses != null && !(this.addresses.isEmpty());
   }
   
   public AddressesNested<A> addNewAddress() {
@@ -198,48 +235,83 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public AddressesNested<A> editAddress(int index) {
-    if (addresses.size() <= index) throw new RuntimeException("Can't edit addresses. Index exceeds size.");
-    return setNewAddressLike(index, buildAddress(index));
+    if (index <= addresses.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public AddressesNested<A> editFirstAddress() {
-    if (addresses.size() == 0) throw new RuntimeException("Can't edit first addresses. The list is empty.");
-    return setNewAddressLike(0, buildAddress(0));
+    if (addresses.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "addresses"));
+    }
+    return this.setNewAddressLike(0, this.buildAddress(0));
   }
   
   public AddressesNested<A> editLastAddress() {
     int index = addresses.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last addresses. The list is empty.");
-    return setNewAddressLike(index, buildAddress(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public AddressesNested<A> editMatchingAddress(Predicate<V1NodeAddressBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<addresses.size();i++) { 
-    if (predicate.test(addresses.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching addresses. No match found.");
-    return setNewAddressLike(index, buildAddress(index));
+    for (int i = 0;i < addresses.size();i++) {
+      if (predicate.test(addresses.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public A addToAllocatable(String key,Quantity value) {
-    if(this.allocatable == null && key != null && value != null) { this.allocatable = new LinkedHashMap(); }
-    if(key != null && value != null) {this.allocatable.put(key, value);} return (A)this;
+    if (this.allocatable == null && key != null && value != null) {
+      this.allocatable = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.allocatable.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToAllocatable(Map<String,Quantity> map) {
-    if(this.allocatable == null && map != null) { this.allocatable = new LinkedHashMap(); }
-    if(map != null) { this.allocatable.putAll(map);} return (A)this;
+    if (this.allocatable == null && map != null) {
+      this.allocatable = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.allocatable.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatable(String key) {
-    if(this.allocatable == null) { return (A) this; }
-    if(key != null && this.allocatable != null) {this.allocatable.remove(key);} return (A)this;
+    if (this.allocatable == null) {
+      return (A) this;
+    }
+    if (key != null && this.allocatable != null) {
+      this.allocatable.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatable(Map<String,Quantity> map) {
-    if(this.allocatable == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.allocatable != null){this.allocatable.remove(key);}}} return (A)this;
+    if (this.allocatable == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.allocatable != null) {
+          this.allocatable.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getAllocatable() {
@@ -260,23 +332,47 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public A addToCapacity(String key,Quantity value) {
-    if(this.capacity == null && key != null && value != null) { this.capacity = new LinkedHashMap(); }
-    if(key != null && value != null) {this.capacity.put(key, value);} return (A)this;
+    if (this.capacity == null && key != null && value != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.capacity.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null && map != null) { this.capacity = new LinkedHashMap(); }
-    if(map != null) { this.capacity.putAll(map);} return (A)this;
+    if (this.capacity == null && map != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.capacity.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(String key) {
-    if(this.capacity == null) { return (A) this; }
-    if(key != null && this.capacity != null) {this.capacity.remove(key);} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (key != null && this.capacity != null) {
+      this.capacity.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.capacity != null){this.capacity.remove(key);}}} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.capacity != null) {
+          this.capacity.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getCapacity() {
@@ -297,7 +393,9 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public A addToConditions(int index,V1NodeCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -306,11 +404,13 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1NodeCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -319,41 +419,71 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
-    for (V1NodeCondition item : items) {V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1NodeCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1NodeCondition item : items) {
+        V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1NodeCondition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1NodeConditionBuilder>();}
-    for (V1NodeCondition item : items) {V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1NodeCondition item : items) {
+        V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1NodeCondition item : items) {V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1NodeCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1NodeCondition item : items) {
+        V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1NodeCondition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1NodeCondition item : items) {V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1NodeCondition item : items) {
+        V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1NodeConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1NodeConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1NodeConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NodeConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1NodeConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NodeCondition> buildConditions() {
@@ -405,7 +535,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1NodeCondition... conditions) {
+  public A withConditions(V1NodeCondition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -419,7 +549,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -435,28 +565,39 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1NodeConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public V1NodeConfigStatus buildConfig() {
@@ -488,15 +629,15 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public ConfigNested<A> editConfig() {
-    return withNewConfigLike(java.util.Optional.ofNullable(buildConfig()).orElse(null));
+    return this.withNewConfigLike(Optional.ofNullable(this.buildConfig()).orElse(null));
   }
   
   public ConfigNested<A> editOrNewConfig() {
-    return withNewConfigLike(java.util.Optional.ofNullable(buildConfig()).orElse(new V1NodeConfigStatusBuilder().build()));
+    return this.withNewConfigLike(Optional.ofNullable(this.buildConfig()).orElse(new V1NodeConfigStatusBuilder().build()));
   }
   
   public ConfigNested<A> editOrNewConfigLike(V1NodeConfigStatus item) {
-    return withNewConfigLike(java.util.Optional.ofNullable(buildConfig()).orElse(item));
+    return this.withNewConfigLike(Optional.ofNullable(this.buildConfig()).orElse(item));
   }
   
   public V1NodeDaemonEndpoints buildDaemonEndpoints() {
@@ -528,15 +669,15 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public DaemonEndpointsNested<A> editDaemonEndpoints() {
-    return withNewDaemonEndpointsLike(java.util.Optional.ofNullable(buildDaemonEndpoints()).orElse(null));
+    return this.withNewDaemonEndpointsLike(Optional.ofNullable(this.buildDaemonEndpoints()).orElse(null));
   }
   
   public DaemonEndpointsNested<A> editOrNewDaemonEndpoints() {
-    return withNewDaemonEndpointsLike(java.util.Optional.ofNullable(buildDaemonEndpoints()).orElse(new V1NodeDaemonEndpointsBuilder().build()));
+    return this.withNewDaemonEndpointsLike(Optional.ofNullable(this.buildDaemonEndpoints()).orElse(new V1NodeDaemonEndpointsBuilder().build()));
   }
   
   public DaemonEndpointsNested<A> editOrNewDaemonEndpointsLike(V1NodeDaemonEndpoints item) {
-    return withNewDaemonEndpointsLike(java.util.Optional.ofNullable(buildDaemonEndpoints()).orElse(item));
+    return this.withNewDaemonEndpointsLike(Optional.ofNullable(this.buildDaemonEndpoints()).orElse(item));
   }
   
   public V1NodeFeatures buildFeatures() {
@@ -568,19 +709,21 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public FeaturesNested<A> editFeatures() {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(null));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(null));
   }
   
   public FeaturesNested<A> editOrNewFeatures() {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(new V1NodeFeaturesBuilder().build()));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(new V1NodeFeaturesBuilder().build()));
   }
   
   public FeaturesNested<A> editOrNewFeaturesLike(V1NodeFeatures item) {
-    return withNewFeaturesLike(java.util.Optional.ofNullable(buildFeatures()).orElse(item));
+    return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(item));
   }
   
   public A addToImages(int index,V1ContainerImage item) {
-    if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
+    if (this.images == null) {
+      this.images = new ArrayList();
+    }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
     if (index < 0 || index >= images.size()) {
         _visitables.get("images").add(builder);
@@ -589,11 +732,13 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("images").add(builder);
         images.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToImages(int index,V1ContainerImage item) {
-    if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
+    if (this.images == null) {
+      this.images = new ArrayList();
+    }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
     if (index < 0 || index >= images.size()) {
         _visitables.get("images").add(builder);
@@ -602,41 +747,71 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("images").add(builder);
         images.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToImages(io.kubernetes.client.openapi.models.V1ContainerImage... items) {
-    if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
-    for (V1ContainerImage item : items) {V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);_visitables.get("images").add(builder);this.images.add(builder);} return (A)this;
+  public A addToImages(V1ContainerImage... items) {
+    if (this.images == null) {
+      this.images = new ArrayList();
+    }
+    for (V1ContainerImage item : items) {
+        V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
+        _visitables.get("images").add(builder);
+        this.images.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToImages(Collection<V1ContainerImage> items) {
-    if (this.images == null) {this.images = new ArrayList<V1ContainerImageBuilder>();}
-    for (V1ContainerImage item : items) {V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);_visitables.get("images").add(builder);this.images.add(builder);} return (A)this;
+    if (this.images == null) {
+      this.images = new ArrayList();
+    }
+    for (V1ContainerImage item : items) {
+        V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
+        _visitables.get("images").add(builder);
+        this.images.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromImages(io.kubernetes.client.openapi.models.V1ContainerImage... items) {
-    if (this.images == null) return (A)this;
-    for (V1ContainerImage item : items) {V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);_visitables.get("images").remove(builder); this.images.remove(builder);} return (A)this;
+  public A removeFromImages(V1ContainerImage... items) {
+    if (this.images == null) {
+      return (A) this;
+    }
+    for (V1ContainerImage item : items) {
+        V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
+        _visitables.get("images").remove(builder);
+        this.images.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromImages(Collection<V1ContainerImage> items) {
-    if (this.images == null) return (A)this;
-    for (V1ContainerImage item : items) {V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);_visitables.get("images").remove(builder); this.images.remove(builder);} return (A)this;
+    if (this.images == null) {
+      return (A) this;
+    }
+    for (V1ContainerImage item : items) {
+        V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
+        _visitables.get("images").remove(builder);
+        this.images.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromImages(Predicate<V1ContainerImageBuilder> predicate) {
-    if (images == null) return (A) this;
-    final Iterator<V1ContainerImageBuilder> each = images.iterator();
-    final List visitables = _visitables.get("images");
-    while (each.hasNext()) {
-      V1ContainerImageBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (images == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ContainerImageBuilder> each = images.iterator();
+    List visitables = _visitables.get("images");
+    while (each.hasNext()) {
+        V1ContainerImageBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ContainerImage> buildImages() {
@@ -688,7 +863,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withImages(io.kubernetes.client.openapi.models.V1ContainerImage... images) {
+  public A withImages(V1ContainerImage... images) {
     if (this.images != null) {
         this.images.clear();
         _visitables.remove("images");
@@ -702,7 +877,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasImages() {
-    return this.images != null && !this.images.isEmpty();
+    return this.images != null && !(this.images.isEmpty());
   }
   
   public ImagesNested<A> addNewImage() {
@@ -718,28 +893,39 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public ImagesNested<A> editImage(int index) {
-    if (images.size() <= index) throw new RuntimeException("Can't edit images. Index exceeds size.");
-    return setNewImageLike(index, buildImage(index));
+    if (index <= images.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "images"));
+    }
+    return this.setNewImageLike(index, this.buildImage(index));
   }
   
   public ImagesNested<A> editFirstImage() {
-    if (images.size() == 0) throw new RuntimeException("Can't edit first images. The list is empty.");
-    return setNewImageLike(0, buildImage(0));
+    if (images.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "images"));
+    }
+    return this.setNewImageLike(0, this.buildImage(0));
   }
   
   public ImagesNested<A> editLastImage() {
     int index = images.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last images. The list is empty.");
-    return setNewImageLike(index, buildImage(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "images"));
+    }
+    return this.setNewImageLike(index, this.buildImage(index));
   }
   
   public ImagesNested<A> editMatchingImage(Predicate<V1ContainerImageBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<images.size();i++) { 
-    if (predicate.test(images.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching images. No match found.");
-    return setNewImageLike(index, buildImage(index));
+    for (int i = 0;i < images.size();i++) {
+      if (predicate.test(images.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "images"));
+    }
+    return this.setNewImageLike(index, this.buildImage(index));
   }
   
   public V1NodeSystemInfo buildNodeInfo() {
@@ -771,15 +957,15 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public NodeInfoNested<A> editNodeInfo() {
-    return withNewNodeInfoLike(java.util.Optional.ofNullable(buildNodeInfo()).orElse(null));
+    return this.withNewNodeInfoLike(Optional.ofNullable(this.buildNodeInfo()).orElse(null));
   }
   
   public NodeInfoNested<A> editOrNewNodeInfo() {
-    return withNewNodeInfoLike(java.util.Optional.ofNullable(buildNodeInfo()).orElse(new V1NodeSystemInfoBuilder().build()));
+    return this.withNewNodeInfoLike(Optional.ofNullable(this.buildNodeInfo()).orElse(new V1NodeSystemInfoBuilder().build()));
   }
   
   public NodeInfoNested<A> editOrNewNodeInfoLike(V1NodeSystemInfo item) {
-    return withNewNodeInfoLike(java.util.Optional.ofNullable(buildNodeInfo()).orElse(item));
+    return this.withNewNodeInfoLike(Optional.ofNullable(this.buildNodeInfo()).orElse(item));
   }
   
   public String getPhase() {
@@ -796,7 +982,9 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public A addToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
-    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    if (this.runtimeHandlers == null) {
+      this.runtimeHandlers = new ArrayList();
+    }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
     if (index < 0 || index >= runtimeHandlers.size()) {
         _visitables.get("runtimeHandlers").add(builder);
@@ -805,11 +993,13 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("runtimeHandlers").add(builder);
         runtimeHandlers.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
-    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
+    if (this.runtimeHandlers == null) {
+      this.runtimeHandlers = new ArrayList();
+    }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
     if (index < 0 || index >= runtimeHandlers.size()) {
         _visitables.get("runtimeHandlers").add(builder);
@@ -818,41 +1008,71 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("runtimeHandlers").add(builder);
         runtimeHandlers.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... items) {
-    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
-    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").add(builder);this.runtimeHandlers.add(builder);} return (A)this;
+  public A addToRuntimeHandlers(V1NodeRuntimeHandler... items) {
+    if (this.runtimeHandlers == null) {
+      this.runtimeHandlers = new ArrayList();
+    }
+    for (V1NodeRuntimeHandler item : items) {
+        V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+        _visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRuntimeHandlers(Collection<V1NodeRuntimeHandler> items) {
-    if (this.runtimeHandlers == null) {this.runtimeHandlers = new ArrayList<V1NodeRuntimeHandlerBuilder>();}
-    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").add(builder);this.runtimeHandlers.add(builder);} return (A)this;
+    if (this.runtimeHandlers == null) {
+      this.runtimeHandlers = new ArrayList();
+    }
+    for (V1NodeRuntimeHandler item : items) {
+        V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+        _visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... items) {
-    if (this.runtimeHandlers == null) return (A)this;
-    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").remove(builder); this.runtimeHandlers.remove(builder);} return (A)this;
+  public A removeFromRuntimeHandlers(V1NodeRuntimeHandler... items) {
+    if (this.runtimeHandlers == null) {
+      return (A) this;
+    }
+    for (V1NodeRuntimeHandler item : items) {
+        V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+        _visitables.get("runtimeHandlers").remove(builder);
+        this.runtimeHandlers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRuntimeHandlers(Collection<V1NodeRuntimeHandler> items) {
-    if (this.runtimeHandlers == null) return (A)this;
-    for (V1NodeRuntimeHandler item : items) {V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);_visitables.get("runtimeHandlers").remove(builder); this.runtimeHandlers.remove(builder);} return (A)this;
+    if (this.runtimeHandlers == null) {
+      return (A) this;
+    }
+    for (V1NodeRuntimeHandler item : items) {
+        V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
+        _visitables.get("runtimeHandlers").remove(builder);
+        this.runtimeHandlers.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRuntimeHandlers(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
-    if (runtimeHandlers == null) return (A) this;
-    final Iterator<V1NodeRuntimeHandlerBuilder> each = runtimeHandlers.iterator();
-    final List visitables = _visitables.get("runtimeHandlers");
-    while (each.hasNext()) {
-      V1NodeRuntimeHandlerBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (runtimeHandlers == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1NodeRuntimeHandlerBuilder> each = runtimeHandlers.iterator();
+    List visitables = _visitables.get("runtimeHandlers");
+    while (each.hasNext()) {
+        V1NodeRuntimeHandlerBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1NodeRuntimeHandler> buildRuntimeHandlers() {
@@ -904,7 +1124,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withRuntimeHandlers(io.kubernetes.client.openapi.models.V1NodeRuntimeHandler... runtimeHandlers) {
+  public A withRuntimeHandlers(V1NodeRuntimeHandler... runtimeHandlers) {
     if (this.runtimeHandlers != null) {
         this.runtimeHandlers.clear();
         _visitables.remove("runtimeHandlers");
@@ -918,7 +1138,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasRuntimeHandlers() {
-    return this.runtimeHandlers != null && !this.runtimeHandlers.isEmpty();
+    return this.runtimeHandlers != null && !(this.runtimeHandlers.isEmpty());
   }
   
   public RuntimeHandlersNested<A> addNewRuntimeHandler() {
@@ -934,32 +1154,45 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public RuntimeHandlersNested<A> editRuntimeHandler(int index) {
-    if (runtimeHandlers.size() <= index) throw new RuntimeException("Can't edit runtimeHandlers. Index exceeds size.");
-    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+    if (index <= runtimeHandlers.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "runtimeHandlers"));
+    }
+    return this.setNewRuntimeHandlerLike(index, this.buildRuntimeHandler(index));
   }
   
   public RuntimeHandlersNested<A> editFirstRuntimeHandler() {
-    if (runtimeHandlers.size() == 0) throw new RuntimeException("Can't edit first runtimeHandlers. The list is empty.");
-    return setNewRuntimeHandlerLike(0, buildRuntimeHandler(0));
+    if (runtimeHandlers.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "runtimeHandlers"));
+    }
+    return this.setNewRuntimeHandlerLike(0, this.buildRuntimeHandler(0));
   }
   
   public RuntimeHandlersNested<A> editLastRuntimeHandler() {
     int index = runtimeHandlers.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last runtimeHandlers. The list is empty.");
-    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "runtimeHandlers"));
+    }
+    return this.setNewRuntimeHandlerLike(index, this.buildRuntimeHandler(index));
   }
   
   public RuntimeHandlersNested<A> editMatchingRuntimeHandler(Predicate<V1NodeRuntimeHandlerBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<runtimeHandlers.size();i++) { 
-    if (predicate.test(runtimeHandlers.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching runtimeHandlers. No match found.");
-    return setNewRuntimeHandlerLike(index, buildRuntimeHandler(index));
+    for (int i = 0;i < runtimeHandlers.size();i++) {
+      if (predicate.test(runtimeHandlers.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "runtimeHandlers"));
+    }
+    return this.setNewRuntimeHandlerLike(index, this.buildRuntimeHandler(index));
   }
   
   public A addToVolumesAttached(int index,V1AttachedVolume item) {
-    if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
+    if (this.volumesAttached == null) {
+      this.volumesAttached = new ArrayList();
+    }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
     if (index < 0 || index >= volumesAttached.size()) {
         _visitables.get("volumesAttached").add(builder);
@@ -968,11 +1201,13 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("volumesAttached").add(builder);
         volumesAttached.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVolumesAttached(int index,V1AttachedVolume item) {
-    if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
+    if (this.volumesAttached == null) {
+      this.volumesAttached = new ArrayList();
+    }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
     if (index < 0 || index >= volumesAttached.size()) {
         _visitables.get("volumesAttached").add(builder);
@@ -981,41 +1216,71 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
         _visitables.get("volumesAttached").add(builder);
         volumesAttached.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items) {
-    if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
-    for (V1AttachedVolume item : items) {V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);_visitables.get("volumesAttached").add(builder);this.volumesAttached.add(builder);} return (A)this;
+  public A addToVolumesAttached(V1AttachedVolume... items) {
+    if (this.volumesAttached == null) {
+      this.volumesAttached = new ArrayList();
+    }
+    for (V1AttachedVolume item : items) {
+        V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
+        _visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVolumesAttached(Collection<V1AttachedVolume> items) {
-    if (this.volumesAttached == null) {this.volumesAttached = new ArrayList<V1AttachedVolumeBuilder>();}
-    for (V1AttachedVolume item : items) {V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);_visitables.get("volumesAttached").add(builder);this.volumesAttached.add(builder);} return (A)this;
+    if (this.volumesAttached == null) {
+      this.volumesAttached = new ArrayList();
+    }
+    for (V1AttachedVolume item : items) {
+        V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
+        _visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items) {
-    if (this.volumesAttached == null) return (A)this;
-    for (V1AttachedVolume item : items) {V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);_visitables.get("volumesAttached").remove(builder); this.volumesAttached.remove(builder);} return (A)this;
+  public A removeFromVolumesAttached(V1AttachedVolume... items) {
+    if (this.volumesAttached == null) {
+      return (A) this;
+    }
+    for (V1AttachedVolume item : items) {
+        V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
+        _visitables.get("volumesAttached").remove(builder);
+        this.volumesAttached.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVolumesAttached(Collection<V1AttachedVolume> items) {
-    if (this.volumesAttached == null) return (A)this;
-    for (V1AttachedVolume item : items) {V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);_visitables.get("volumesAttached").remove(builder); this.volumesAttached.remove(builder);} return (A)this;
+    if (this.volumesAttached == null) {
+      return (A) this;
+    }
+    for (V1AttachedVolume item : items) {
+        V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
+        _visitables.get("volumesAttached").remove(builder);
+        this.volumesAttached.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate) {
-    if (volumesAttached == null) return (A) this;
-    final Iterator<V1AttachedVolumeBuilder> each = volumesAttached.iterator();
-    final List visitables = _visitables.get("volumesAttached");
-    while (each.hasNext()) {
-      V1AttachedVolumeBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (volumesAttached == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1AttachedVolumeBuilder> each = volumesAttached.iterator();
+    List visitables = _visitables.get("volumesAttached");
+    while (each.hasNext()) {
+        V1AttachedVolumeBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1AttachedVolume> buildVolumesAttached() {
@@ -1067,7 +1332,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... volumesAttached) {
+  public A withVolumesAttached(V1AttachedVolume... volumesAttached) {
     if (this.volumesAttached != null) {
         this.volumesAttached.clear();
         _visitables.remove("volumesAttached");
@@ -1081,7 +1346,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasVolumesAttached() {
-    return this.volumesAttached != null && !this.volumesAttached.isEmpty();
+    return this.volumesAttached != null && !(this.volumesAttached.isEmpty());
   }
   
   public VolumesAttachedNested<A> addNewVolumesAttached() {
@@ -1097,59 +1362,95 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public VolumesAttachedNested<A> editVolumesAttached(int index) {
-    if (volumesAttached.size() <= index) throw new RuntimeException("Can't edit volumesAttached. Index exceeds size.");
-    return setNewVolumesAttachedLike(index, buildVolumesAttached(index));
+    if (index <= volumesAttached.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "volumesAttached"));
+    }
+    return this.setNewVolumesAttachedLike(index, this.buildVolumesAttached(index));
   }
   
   public VolumesAttachedNested<A> editFirstVolumesAttached() {
-    if (volumesAttached.size() == 0) throw new RuntimeException("Can't edit first volumesAttached. The list is empty.");
-    return setNewVolumesAttachedLike(0, buildVolumesAttached(0));
+    if (volumesAttached.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "volumesAttached"));
+    }
+    return this.setNewVolumesAttachedLike(0, this.buildVolumesAttached(0));
   }
   
   public VolumesAttachedNested<A> editLastVolumesAttached() {
     int index = volumesAttached.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last volumesAttached. The list is empty.");
-    return setNewVolumesAttachedLike(index, buildVolumesAttached(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "volumesAttached"));
+    }
+    return this.setNewVolumesAttachedLike(index, this.buildVolumesAttached(index));
   }
   
   public VolumesAttachedNested<A> editMatchingVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<volumesAttached.size();i++) { 
-    if (predicate.test(volumesAttached.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching volumesAttached. No match found.");
-    return setNewVolumesAttachedLike(index, buildVolumesAttached(index));
+    for (int i = 0;i < volumesAttached.size();i++) {
+      if (predicate.test(volumesAttached.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "volumesAttached"));
+    }
+    return this.setNewVolumesAttachedLike(index, this.buildVolumesAttached(index));
   }
   
   public A addToVolumesInUse(int index,String item) {
-    if (this.volumesInUse == null) {this.volumesInUse = new ArrayList<String>();}
+    if (this.volumesInUse == null) {
+      this.volumesInUse = new ArrayList();
+    }
     this.volumesInUse.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVolumesInUse(int index,String item) {
-    if (this.volumesInUse == null) {this.volumesInUse = new ArrayList<String>();}
-    this.volumesInUse.set(index, item); return (A)this;
+    if (this.volumesInUse == null) {
+      this.volumesInUse = new ArrayList();
+    }
+    this.volumesInUse.set(index, item);
+    return (A) this;
   }
   
-  public A addToVolumesInUse(java.lang.String... items) {
-    if (this.volumesInUse == null) {this.volumesInUse = new ArrayList<String>();}
-    for (String item : items) {this.volumesInUse.add(item);} return (A)this;
+  public A addToVolumesInUse(String... items) {
+    if (this.volumesInUse == null) {
+      this.volumesInUse = new ArrayList();
+    }
+    for (String item : items) {
+      this.volumesInUse.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToVolumesInUse(Collection<String> items) {
-    if (this.volumesInUse == null) {this.volumesInUse = new ArrayList<String>();}
-    for (String item : items) {this.volumesInUse.add(item);} return (A)this;
+    if (this.volumesInUse == null) {
+      this.volumesInUse = new ArrayList();
+    }
+    for (String item : items) {
+      this.volumesInUse.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromVolumesInUse(java.lang.String... items) {
-    if (this.volumesInUse == null) return (A)this;
-    for (String item : items) { this.volumesInUse.remove(item);} return (A)this;
+  public A removeFromVolumesInUse(String... items) {
+    if (this.volumesInUse == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.volumesInUse.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVolumesInUse(Collection<String> items) {
-    if (this.volumesInUse == null) return (A)this;
-    for (String item : items) { this.volumesInUse.remove(item);} return (A)this;
+    if (this.volumesInUse == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.volumesInUse.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getVolumesInUse() {
@@ -1198,7 +1499,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withVolumesInUse(java.lang.String... volumesInUse) {
+  public A withVolumesInUse(String... volumesInUse) {
     if (this.volumesInUse != null) {
         this.volumesInUse.clear();
         _visitables.remove("volumesInUse");
@@ -1212,50 +1513,133 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
   }
   
   public boolean hasVolumesInUse() {
-    return this.volumesInUse != null && !this.volumesInUse.isEmpty();
+    return this.volumesInUse != null && !(this.volumesInUse.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeStatusFluent that = (V1NodeStatusFluent) o;
-    if (!java.util.Objects.equals(addresses, that.addresses)) return false;
-    if (!java.util.Objects.equals(allocatable, that.allocatable)) return false;
-    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(config, that.config)) return false;
-    if (!java.util.Objects.equals(daemonEndpoints, that.daemonEndpoints)) return false;
-    if (!java.util.Objects.equals(features, that.features)) return false;
-    if (!java.util.Objects.equals(images, that.images)) return false;
-    if (!java.util.Objects.equals(nodeInfo, that.nodeInfo)) return false;
-    if (!java.util.Objects.equals(phase, that.phase)) return false;
-    if (!java.util.Objects.equals(runtimeHandlers, that.runtimeHandlers)) return false;
-    if (!java.util.Objects.equals(volumesAttached, that.volumesAttached)) return false;
-    if (!java.util.Objects.equals(volumesInUse, that.volumesInUse)) return false;
+    if (!(Objects.equals(addresses, that.addresses))) {
+      return false;
+    }
+    if (!(Objects.equals(allocatable, that.allocatable))) {
+      return false;
+    }
+    if (!(Objects.equals(capacity, that.capacity))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(config, that.config))) {
+      return false;
+    }
+    if (!(Objects.equals(daemonEndpoints, that.daemonEndpoints))) {
+      return false;
+    }
+    if (!(Objects.equals(features, that.features))) {
+      return false;
+    }
+    if (!(Objects.equals(images, that.images))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeInfo, that.nodeInfo))) {
+      return false;
+    }
+    if (!(Objects.equals(phase, that.phase))) {
+      return false;
+    }
+    if (!(Objects.equals(runtimeHandlers, that.runtimeHandlers))) {
+      return false;
+    }
+    if (!(Objects.equals(volumesAttached, that.volumesAttached))) {
+      return false;
+    }
+    if (!(Objects.equals(volumesInUse, that.volumesInUse))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addresses,  allocatable,  capacity,  conditions,  config,  daemonEndpoints,  features,  images,  nodeInfo,  phase,  runtimeHandlers,  volumesAttached,  volumesInUse,  super.hashCode());
+    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, features, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (addresses != null && !addresses.isEmpty()) { sb.append("addresses:"); sb.append(addresses + ","); }
-    if (allocatable != null && !allocatable.isEmpty()) { sb.append("allocatable:"); sb.append(allocatable + ","); }
-    if (capacity != null && !capacity.isEmpty()) { sb.append("capacity:"); sb.append(capacity + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (config != null) { sb.append("config:"); sb.append(config + ","); }
-    if (daemonEndpoints != null) { sb.append("daemonEndpoints:"); sb.append(daemonEndpoints + ","); }
-    if (features != null) { sb.append("features:"); sb.append(features + ","); }
-    if (images != null && !images.isEmpty()) { sb.append("images:"); sb.append(images + ","); }
-    if (nodeInfo != null) { sb.append("nodeInfo:"); sb.append(nodeInfo + ","); }
-    if (phase != null) { sb.append("phase:"); sb.append(phase + ","); }
-    if (runtimeHandlers != null && !runtimeHandlers.isEmpty()) { sb.append("runtimeHandlers:"); sb.append(runtimeHandlers + ","); }
-    if (volumesAttached != null && !volumesAttached.isEmpty()) { sb.append("volumesAttached:"); sb.append(volumesAttached + ","); }
-    if (volumesInUse != null && !volumesInUse.isEmpty()) { sb.append("volumesInUse:"); sb.append(volumesInUse); }
+    if (!(addresses == null) && !(addresses.isEmpty())) {
+        sb.append("addresses:");
+        sb.append(addresses);
+        sb.append(",");
+    }
+    if (!(allocatable == null) && !(allocatable.isEmpty())) {
+        sb.append("allocatable:");
+        sb.append(allocatable);
+        sb.append(",");
+    }
+    if (!(capacity == null) && !(capacity.isEmpty())) {
+        sb.append("capacity:");
+        sb.append(capacity);
+        sb.append(",");
+    }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(config == null)) {
+        sb.append("config:");
+        sb.append(config);
+        sb.append(",");
+    }
+    if (!(daemonEndpoints == null)) {
+        sb.append("daemonEndpoints:");
+        sb.append(daemonEndpoints);
+        sb.append(",");
+    }
+    if (!(features == null)) {
+        sb.append("features:");
+        sb.append(features);
+        sb.append(",");
+    }
+    if (!(images == null) && !(images.isEmpty())) {
+        sb.append("images:");
+        sb.append(images);
+        sb.append(",");
+    }
+    if (!(nodeInfo == null)) {
+        sb.append("nodeInfo:");
+        sb.append(nodeInfo);
+        sb.append(",");
+    }
+    if (!(phase == null)) {
+        sb.append("phase:");
+        sb.append(phase);
+        sb.append(",");
+    }
+    if (!(runtimeHandlers == null) && !(runtimeHandlers.isEmpty())) {
+        sb.append("runtimeHandlers:");
+        sb.append(runtimeHandlers);
+        sb.append(",");
+    }
+    if (!(volumesAttached == null) && !(volumesAttached.isEmpty())) {
+        sb.append("volumesAttached:");
+        sb.append(volumesAttached);
+        sb.append(",");
+    }
+    if (!(volumesInUse == null) && !(volumesInUse.isEmpty())) {
+        sb.append("volumesInUse:");
+        sb.append(volumesInUse);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -1268,7 +1652,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     int index;
     
     public N and() {
-      return (N) V1NodeStatusFluent.this.setToAddresses(index,builder.build());
+      return (N) V1NodeStatusFluent.this.setToAddresses(index, builder.build());
     }
     
     public N endAddress() {
@@ -1286,7 +1670,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     int index;
     
     public N and() {
-      return (N) V1NodeStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1NodeStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {
@@ -1352,7 +1736,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     int index;
     
     public N and() {
-      return (N) V1NodeStatusFluent.this.setToImages(index,builder.build());
+      return (N) V1NodeStatusFluent.this.setToImages(index, builder.build());
     }
     
     public N endImage() {
@@ -1386,7 +1770,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     int index;
     
     public N and() {
-      return (N) V1NodeStatusFluent.this.setToRuntimeHandlers(index,builder.build());
+      return (N) V1NodeStatusFluent.this.setToRuntimeHandlers(index, builder.build());
     }
     
     public N endRuntimeHandler() {
@@ -1404,7 +1788,7 @@ public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFlu
     int index;
     
     public N and() {
-      return (N) V1NodeStatusFluent.this.setToVolumesAttached(index,builder.build());
+      return (N) V1NodeStatusFluent.this.setToVolumesAttached(index, builder.build());
     }
     
     public N endVolumesAttached() {

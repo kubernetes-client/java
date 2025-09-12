@@ -1,13 +1,15 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends BaseFluent<A>{
+public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.V1PodDNSConfigFluent<A>> extends BaseFluent<A>{
   public V1PodDNSConfigFluent() {
   }
   
@@ -28,43 +30,68 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   private List<String> searches;
   
   protected void copyInstance(V1PodDNSConfig instance) {
-    instance = (instance != null ? instance : new V1PodDNSConfig());
+    instance = instance != null ? instance : new V1PodDNSConfig();
     if (instance != null) {
-          this.withNameservers(instance.getNameservers());
-          this.withOptions(instance.getOptions());
-          this.withSearches(instance.getSearches());
-        }
+        this.withNameservers(instance.getNameservers());
+        this.withOptions(instance.getOptions());
+        this.withSearches(instance.getSearches());
+    }
   }
   
   public A addToNameservers(int index,String item) {
-    if (this.nameservers == null) {this.nameservers = new ArrayList<String>();}
+    if (this.nameservers == null) {
+      this.nameservers = new ArrayList();
+    }
     this.nameservers.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToNameservers(int index,String item) {
-    if (this.nameservers == null) {this.nameservers = new ArrayList<String>();}
-    this.nameservers.set(index, item); return (A)this;
+    if (this.nameservers == null) {
+      this.nameservers = new ArrayList();
+    }
+    this.nameservers.set(index, item);
+    return (A) this;
   }
   
-  public A addToNameservers(java.lang.String... items) {
-    if (this.nameservers == null) {this.nameservers = new ArrayList<String>();}
-    for (String item : items) {this.nameservers.add(item);} return (A)this;
+  public A addToNameservers(String... items) {
+    if (this.nameservers == null) {
+      this.nameservers = new ArrayList();
+    }
+    for (String item : items) {
+      this.nameservers.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToNameservers(Collection<String> items) {
-    if (this.nameservers == null) {this.nameservers = new ArrayList<String>();}
-    for (String item : items) {this.nameservers.add(item);} return (A)this;
+    if (this.nameservers == null) {
+      this.nameservers = new ArrayList();
+    }
+    for (String item : items) {
+      this.nameservers.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromNameservers(java.lang.String... items) {
-    if (this.nameservers == null) return (A)this;
-    for (String item : items) { this.nameservers.remove(item);} return (A)this;
+  public A removeFromNameservers(String... items) {
+    if (this.nameservers == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.nameservers.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromNameservers(Collection<String> items) {
-    if (this.nameservers == null) return (A)this;
-    for (String item : items) { this.nameservers.remove(item);} return (A)this;
+    if (this.nameservers == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.nameservers.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getNameservers() {
@@ -113,7 +140,7 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withNameservers(java.lang.String... nameservers) {
+  public A withNameservers(String... nameservers) {
     if (this.nameservers != null) {
         this.nameservers.clear();
         _visitables.remove("nameservers");
@@ -127,11 +154,13 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   }
   
   public boolean hasNameservers() {
-    return this.nameservers != null && !this.nameservers.isEmpty();
+    return this.nameservers != null && !(this.nameservers.isEmpty());
   }
   
   public A addToOptions(int index,V1PodDNSConfigOption item) {
-    if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
+    if (this.options == null) {
+      this.options = new ArrayList();
+    }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
     if (index < 0 || index >= options.size()) {
         _visitables.get("options").add(builder);
@@ -140,11 +169,13 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
         _visitables.get("options").add(builder);
         options.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToOptions(int index,V1PodDNSConfigOption item) {
-    if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
+    if (this.options == null) {
+      this.options = new ArrayList();
+    }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
     if (index < 0 || index >= options.size()) {
         _visitables.get("options").add(builder);
@@ -153,41 +184,71 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
         _visitables.get("options").add(builder);
         options.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... items) {
-    if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
-    for (V1PodDNSConfigOption item : items) {V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);_visitables.get("options").add(builder);this.options.add(builder);} return (A)this;
+  public A addToOptions(V1PodDNSConfigOption... items) {
+    if (this.options == null) {
+      this.options = new ArrayList();
+    }
+    for (V1PodDNSConfigOption item : items) {
+        V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
+        _visitables.get("options").add(builder);
+        this.options.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToOptions(Collection<V1PodDNSConfigOption> items) {
-    if (this.options == null) {this.options = new ArrayList<V1PodDNSConfigOptionBuilder>();}
-    for (V1PodDNSConfigOption item : items) {V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);_visitables.get("options").add(builder);this.options.add(builder);} return (A)this;
+    if (this.options == null) {
+      this.options = new ArrayList();
+    }
+    for (V1PodDNSConfigOption item : items) {
+        V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
+        _visitables.get("options").add(builder);
+        this.options.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... items) {
-    if (this.options == null) return (A)this;
-    for (V1PodDNSConfigOption item : items) {V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);_visitables.get("options").remove(builder); this.options.remove(builder);} return (A)this;
+  public A removeFromOptions(V1PodDNSConfigOption... items) {
+    if (this.options == null) {
+      return (A) this;
+    }
+    for (V1PodDNSConfigOption item : items) {
+        V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
+        _visitables.get("options").remove(builder);
+        this.options.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromOptions(Collection<V1PodDNSConfigOption> items) {
-    if (this.options == null) return (A)this;
-    for (V1PodDNSConfigOption item : items) {V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);_visitables.get("options").remove(builder); this.options.remove(builder);} return (A)this;
+    if (this.options == null) {
+      return (A) this;
+    }
+    for (V1PodDNSConfigOption item : items) {
+        V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
+        _visitables.get("options").remove(builder);
+        this.options.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromOptions(Predicate<V1PodDNSConfigOptionBuilder> predicate) {
-    if (options == null) return (A) this;
-    final Iterator<V1PodDNSConfigOptionBuilder> each = options.iterator();
-    final List visitables = _visitables.get("options");
-    while (each.hasNext()) {
-      V1PodDNSConfigOptionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (options == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PodDNSConfigOptionBuilder> each = options.iterator();
+    List visitables = _visitables.get("options");
+    while (each.hasNext()) {
+        V1PodDNSConfigOptionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PodDNSConfigOption> buildOptions() {
@@ -239,7 +300,7 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... options) {
+  public A withOptions(V1PodDNSConfigOption... options) {
     if (this.options != null) {
         this.options.clear();
         _visitables.remove("options");
@@ -253,7 +314,7 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   }
   
   public boolean hasOptions() {
-    return this.options != null && !this.options.isEmpty();
+    return this.options != null && !(this.options.isEmpty());
   }
   
   public OptionsNested<A> addNewOption() {
@@ -269,59 +330,95 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   }
   
   public OptionsNested<A> editOption(int index) {
-    if (options.size() <= index) throw new RuntimeException("Can't edit options. Index exceeds size.");
-    return setNewOptionLike(index, buildOption(index));
+    if (index <= options.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "options"));
+    }
+    return this.setNewOptionLike(index, this.buildOption(index));
   }
   
   public OptionsNested<A> editFirstOption() {
-    if (options.size() == 0) throw new RuntimeException("Can't edit first options. The list is empty.");
-    return setNewOptionLike(0, buildOption(0));
+    if (options.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "options"));
+    }
+    return this.setNewOptionLike(0, this.buildOption(0));
   }
   
   public OptionsNested<A> editLastOption() {
     int index = options.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last options. The list is empty.");
-    return setNewOptionLike(index, buildOption(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "options"));
+    }
+    return this.setNewOptionLike(index, this.buildOption(index));
   }
   
   public OptionsNested<A> editMatchingOption(Predicate<V1PodDNSConfigOptionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<options.size();i++) { 
-    if (predicate.test(options.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching options. No match found.");
-    return setNewOptionLike(index, buildOption(index));
+    for (int i = 0;i < options.size();i++) {
+      if (predicate.test(options.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "options"));
+    }
+    return this.setNewOptionLike(index, this.buildOption(index));
   }
   
   public A addToSearches(int index,String item) {
-    if (this.searches == null) {this.searches = new ArrayList<String>();}
+    if (this.searches == null) {
+      this.searches = new ArrayList();
+    }
     this.searches.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSearches(int index,String item) {
-    if (this.searches == null) {this.searches = new ArrayList<String>();}
-    this.searches.set(index, item); return (A)this;
+    if (this.searches == null) {
+      this.searches = new ArrayList();
+    }
+    this.searches.set(index, item);
+    return (A) this;
   }
   
-  public A addToSearches(java.lang.String... items) {
-    if (this.searches == null) {this.searches = new ArrayList<String>();}
-    for (String item : items) {this.searches.add(item);} return (A)this;
+  public A addToSearches(String... items) {
+    if (this.searches == null) {
+      this.searches = new ArrayList();
+    }
+    for (String item : items) {
+      this.searches.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToSearches(Collection<String> items) {
-    if (this.searches == null) {this.searches = new ArrayList<String>();}
-    for (String item : items) {this.searches.add(item);} return (A)this;
+    if (this.searches == null) {
+      this.searches = new ArrayList();
+    }
+    for (String item : items) {
+      this.searches.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromSearches(java.lang.String... items) {
-    if (this.searches == null) return (A)this;
-    for (String item : items) { this.searches.remove(item);} return (A)this;
+  public A removeFromSearches(String... items) {
+    if (this.searches == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.searches.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSearches(Collection<String> items) {
-    if (this.searches == null) return (A)this;
-    for (String item : items) { this.searches.remove(item);} return (A)this;
+    if (this.searches == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.searches.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getSearches() {
@@ -370,7 +467,7 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
     return (A) this;
   }
   
-  public A withSearches(java.lang.String... searches) {
+  public A withSearches(String... searches) {
     if (this.searches != null) {
         this.searches.clear();
         _visitables.remove("searches");
@@ -384,30 +481,53 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
   }
   
   public boolean hasSearches() {
-    return this.searches != null && !this.searches.isEmpty();
+    return this.searches != null && !(this.searches.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodDNSConfigFluent that = (V1PodDNSConfigFluent) o;
-    if (!java.util.Objects.equals(nameservers, that.nameservers)) return false;
-    if (!java.util.Objects.equals(options, that.options)) return false;
-    if (!java.util.Objects.equals(searches, that.searches)) return false;
+    if (!(Objects.equals(nameservers, that.nameservers))) {
+      return false;
+    }
+    if (!(Objects.equals(options, that.options))) {
+      return false;
+    }
+    if (!(Objects.equals(searches, that.searches))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(nameservers,  options,  searches,  super.hashCode());
+    return Objects.hash(nameservers, options, searches);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nameservers != null && !nameservers.isEmpty()) { sb.append("nameservers:"); sb.append(nameservers + ","); }
-    if (options != null && !options.isEmpty()) { sb.append("options:"); sb.append(options + ","); }
-    if (searches != null && !searches.isEmpty()) { sb.append("searches:"); sb.append(searches); }
+    if (!(nameservers == null) && !(nameservers.isEmpty())) {
+        sb.append("nameservers:");
+        sb.append(nameservers);
+        sb.append(",");
+    }
+    if (!(options == null) && !(options.isEmpty())) {
+        sb.append("options:");
+        sb.append(options);
+        sb.append(",");
+    }
+    if (!(searches == null) && !(searches.isEmpty())) {
+        sb.append("searches:");
+        sb.append(searches);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -420,7 +540,7 @@ public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Bas
     int index;
     
     public N and() {
-      return (N) V1PodDNSConfigFluent.this.setToOptions(index,builder.build());
+      return (N) V1PodDNSConfigFluent.this.setToOptions(index, builder.build());
     }
     
     public N endOption() {

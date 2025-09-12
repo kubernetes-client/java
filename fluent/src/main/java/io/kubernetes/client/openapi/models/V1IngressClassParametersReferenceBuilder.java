@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1IngressClassParametersReferenceBuilder extends V1IngressClassParametersReferenceFluent<V1IngressClassParametersReferenceBuilder> implements VisitableBuilder<V1IngressClassParametersReference,V1IngressClassParametersReferenceBuilder>{
   public V1IngressClassParametersReferenceBuilder() {
     this(new V1IngressClassParametersReference());

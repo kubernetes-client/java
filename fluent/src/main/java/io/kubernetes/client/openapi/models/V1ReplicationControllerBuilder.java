@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ReplicationControllerBuilder extends V1ReplicationControllerFluent<V1ReplicationControllerBuilder> implements VisitableBuilder<V1ReplicationController,V1ReplicationControllerBuilder>{
   public V1ReplicationControllerBuilder() {
     this(new V1ReplicationController());

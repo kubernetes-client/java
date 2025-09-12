@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.
+ * AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.  The combination of Driver, Pool, Device, and ShareID must match the corresponding key in Status.Allocation.Devices.
  */
-@ApiModel(description = "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@ApiModel(description = "AllocatedDeviceStatus contains the status of an allocated device, if the driver chooses to report it. This may include driver-specific information.  The combination of Driver, Pool, Device, and ShareID must match the corresponding key in Status.Allocation.Devices.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2AllocatedDeviceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -56,6 +56,10 @@ public class V1beta2AllocatedDeviceStatus {
   public static final String SERIALIZED_NAME_POOL = "pool";
   @SerializedName(SERIALIZED_NAME_POOL)
   private String pool;
+
+  public static final String SERIALIZED_NAME_SHARE_I_D = "shareID";
+  @SerializedName(SERIALIZED_NAME_SHARE_I_D)
+  private String shareID;
 
 
   public V1beta2AllocatedDeviceStatus conditions(List<V1Condition> conditions) {
@@ -201,6 +205,29 @@ public class V1beta2AllocatedDeviceStatus {
   }
 
 
+  public V1beta2AllocatedDeviceStatus shareID(String shareID) {
+
+    this.shareID = shareID;
+    return this;
+  }
+
+   /**
+   * ShareID uniquely identifies an individual allocation share of the device.
+   * @return shareID
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ShareID uniquely identifies an individual allocation share of the device.")
+
+  public String getShareID() {
+    return shareID;
+  }
+
+
+  public void setShareID(String shareID) {
+    this.shareID = shareID;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -215,12 +242,13 @@ public class V1beta2AllocatedDeviceStatus {
         Objects.equals(this.device, v1beta2AllocatedDeviceStatus.device) &&
         Objects.equals(this.driver, v1beta2AllocatedDeviceStatus.driver) &&
         Objects.equals(this.networkData, v1beta2AllocatedDeviceStatus.networkData) &&
-        Objects.equals(this.pool, v1beta2AllocatedDeviceStatus.pool);
+        Objects.equals(this.pool, v1beta2AllocatedDeviceStatus.pool) &&
+        Objects.equals(this.shareID, v1beta2AllocatedDeviceStatus.shareID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, data, device, driver, networkData, pool);
+    return Objects.hash(conditions, data, device, driver, networkData, pool, shareID);
   }
 
 
@@ -234,6 +262,7 @@ public class V1beta2AllocatedDeviceStatus {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    networkData: ").append(toIndentedString(networkData)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
+    sb.append("    shareID: ").append(toIndentedString(shareID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

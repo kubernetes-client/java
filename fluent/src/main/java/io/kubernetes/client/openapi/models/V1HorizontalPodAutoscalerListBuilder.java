@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HorizontalPodAutoscalerListBuilder extends V1HorizontalPodAutoscalerListFluent<V1HorizontalPodAutoscalerListBuilder> implements VisitableBuilder<V1HorizontalPodAutoscalerList,V1HorizontalPodAutoscalerListBuilder>{
   public V1HorizontalPodAutoscalerListBuilder() {
     this(new V1HorizontalPodAutoscalerList());

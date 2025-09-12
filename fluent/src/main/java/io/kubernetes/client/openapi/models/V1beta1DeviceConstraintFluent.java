@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,22 +15,37 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1DeviceConstraintFluent<A extends V1beta1DeviceConstraintFluent<A>> extends BaseFluent<A>{
+public class V1beta1DeviceConstraintFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceConstraintFluent<A>> extends BaseFluent<A>{
   public V1beta1DeviceConstraintFluent() {
   }
   
   public V1beta1DeviceConstraintFluent(V1beta1DeviceConstraint instance) {
     this.copyInstance(instance);
   }
+  private String distinctAttribute;
   private String matchAttribute;
   private List<String> requests;
   
   protected void copyInstance(V1beta1DeviceConstraint instance) {
-    instance = (instance != null ? instance : new V1beta1DeviceConstraint());
+    instance = instance != null ? instance : new V1beta1DeviceConstraint();
     if (instance != null) {
-          this.withMatchAttribute(instance.getMatchAttribute());
-          this.withRequests(instance.getRequests());
-        }
+        this.withDistinctAttribute(instance.getDistinctAttribute());
+        this.withMatchAttribute(instance.getMatchAttribute());
+        this.withRequests(instance.getRequests());
+    }
+  }
+  
+  public String getDistinctAttribute() {
+    return this.distinctAttribute;
+  }
+  
+  public A withDistinctAttribute(String distinctAttribute) {
+    this.distinctAttribute = distinctAttribute;
+    return (A) this;
+  }
+  
+  public boolean hasDistinctAttribute() {
+    return this.distinctAttribute != null;
   }
   
   public String getMatchAttribute() {
@@ -45,34 +62,59 @@ public class V1beta1DeviceConstraintFluent<A extends V1beta1DeviceConstraintFlue
   }
   
   public A addToRequests(int index,String item) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
     this.requests.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequests(int index,String item) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    this.requests.set(index, item); return (A)this;
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    this.requests.set(index, item);
+    return (A) this;
   }
   
-  public A addToRequests(java.lang.String... items) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    for (String item : items) {this.requests.add(item);} return (A)this;
+  public A addToRequests(String... items) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToRequests(Collection<String> items) {
-    if (this.requests == null) {this.requests = new ArrayList<String>();}
-    for (String item : items) {this.requests.add(item);} return (A)this;
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequests(java.lang.String... items) {
-    if (this.requests == null) return (A)this;
-    for (String item : items) { this.requests.remove(item);} return (A)this;
+  public A removeFromRequests(String... items) {
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequests(Collection<String> items) {
-    if (this.requests == null) return (A)this;
-    for (String item : items) { this.requests.remove(item);} return (A)this;
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getRequests() {
@@ -121,7 +163,7 @@ public class V1beta1DeviceConstraintFluent<A extends V1beta1DeviceConstraintFlue
     return (A) this;
   }
   
-  public A withRequests(java.lang.String... requests) {
+  public A withRequests(String... requests) {
     if (this.requests != null) {
         this.requests.clear();
         _visitables.remove("requests");
@@ -135,28 +177,53 @@ public class V1beta1DeviceConstraintFluent<A extends V1beta1DeviceConstraintFlue
   }
   
   public boolean hasRequests() {
-    return this.requests != null && !this.requests.isEmpty();
+    return this.requests != null && !(this.requests.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1DeviceConstraintFluent that = (V1beta1DeviceConstraintFluent) o;
-    if (!java.util.Objects.equals(matchAttribute, that.matchAttribute)) return false;
-    if (!java.util.Objects.equals(requests, that.requests)) return false;
+    if (!(Objects.equals(distinctAttribute, that.distinctAttribute))) {
+      return false;
+    }
+    if (!(Objects.equals(matchAttribute, that.matchAttribute))) {
+      return false;
+    }
+    if (!(Objects.equals(requests, that.requests))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(matchAttribute,  requests,  super.hashCode());
+    return Objects.hash(distinctAttribute, matchAttribute, requests);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (matchAttribute != null) { sb.append("matchAttribute:"); sb.append(matchAttribute + ","); }
-    if (requests != null && !requests.isEmpty()) { sb.append("requests:"); sb.append(requests); }
+    if (!(distinctAttribute == null)) {
+        sb.append("distinctAttribute:");
+        sb.append(distinctAttribute);
+        sb.append(",");
+    }
+    if (!(matchAttribute == null)) {
+        sb.append("matchAttribute:");
+        sb.append(matchAttribute);
+        sb.append(",");
+    }
+    if (!(requests == null) && !(requests.isEmpty())) {
+        sb.append("requests:");
+        sb.append(requests);
+    }
     sb.append("}");
     return sb.toString();
   }

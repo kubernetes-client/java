@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ImageVolumeSourceFluent<A extends V1ImageVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ImageVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1ImageVolumeSourceFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1ImageVolumeSourceFluent<A extends V1ImageVolumeSourceFluent<A>> e
   private String reference;
   
   protected void copyInstance(V1ImageVolumeSource instance) {
-    instance = (instance != null ? instance : new V1ImageVolumeSource());
+    instance = instance != null ? instance : new V1ImageVolumeSource();
     if (instance != null) {
-          this.withPullPolicy(instance.getPullPolicy());
-          this.withReference(instance.getReference());
-        }
+        this.withPullPolicy(instance.getPullPolicy());
+        this.withReference(instance.getReference());
+    }
   }
   
   public String getPullPolicy() {
@@ -54,24 +56,41 @@ public class V1ImageVolumeSourceFluent<A extends V1ImageVolumeSourceFluent<A>> e
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ImageVolumeSourceFluent that = (V1ImageVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(pullPolicy, that.pullPolicy)) return false;
-    if (!java.util.Objects.equals(reference, that.reference)) return false;
+    if (!(Objects.equals(pullPolicy, that.pullPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(reference, that.reference))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(pullPolicy,  reference,  super.hashCode());
+    return Objects.hash(pullPolicy, reference);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (pullPolicy != null) { sb.append("pullPolicy:"); sb.append(pullPolicy + ","); }
-    if (reference != null) { sb.append("reference:"); sb.append(reference); }
+    if (!(pullPolicy == null)) {
+        sb.append("pullPolicy:");
+        sb.append(pullPolicy);
+        sb.append(",");
+    }
+    if (!(reference == null)) {
+        sb.append("reference:");
+        sb.append(reference);
+    }
     sb.append("}");
     return sb.toString();
   }

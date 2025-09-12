@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,6 +8,8 @@ import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -14,7 +17,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaimSpecFluent<A>> extends BaseFluent<A>{
+public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<A>> extends BaseFluent<A>{
   public V1PersistentVolumeClaimSpecFluent() {
   }
   
@@ -32,49 +35,74 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   private String volumeName;
   
   protected void copyInstance(V1PersistentVolumeClaimSpec instance) {
-    instance = (instance != null ? instance : new V1PersistentVolumeClaimSpec());
+    instance = instance != null ? instance : new V1PersistentVolumeClaimSpec();
     if (instance != null) {
-          this.withAccessModes(instance.getAccessModes());
-          this.withDataSource(instance.getDataSource());
-          this.withDataSourceRef(instance.getDataSourceRef());
-          this.withResources(instance.getResources());
-          this.withSelector(instance.getSelector());
-          this.withStorageClassName(instance.getStorageClassName());
-          this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
-          this.withVolumeMode(instance.getVolumeMode());
-          this.withVolumeName(instance.getVolumeName());
-        }
+        this.withAccessModes(instance.getAccessModes());
+        this.withDataSource(instance.getDataSource());
+        this.withDataSourceRef(instance.getDataSourceRef());
+        this.withResources(instance.getResources());
+        this.withSelector(instance.getSelector());
+        this.withStorageClassName(instance.getStorageClassName());
+        this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
+        this.withVolumeMode(instance.getVolumeMode());
+        this.withVolumeName(instance.getVolumeName());
+    }
   }
   
   public A addToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
     this.accessModes.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    this.accessModes.set(index, item); return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    this.accessModes.set(index, item);
+    return (A) this;
   }
   
-  public A addToAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+  public A addToAccessModes(String... items) {
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAccessModes(Collection<String> items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+  public A removeFromAccessModes(String... items) {
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAccessModes(Collection<String> items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAccessModes() {
@@ -123,7 +151,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
     return (A) this;
   }
   
-  public A withAccessModes(java.lang.String... accessModes) {
+  public A withAccessModes(String... accessModes) {
     if (this.accessModes != null) {
         this.accessModes.clear();
         _visitables.remove("accessModes");
@@ -137,7 +165,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public boolean hasAccessModes() {
-    return this.accessModes != null && !this.accessModes.isEmpty();
+    return this.accessModes != null && !(this.accessModes.isEmpty());
   }
   
   public V1TypedLocalObjectReference buildDataSource() {
@@ -169,15 +197,15 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public DataSourceNested<A> editDataSource() {
-    return withNewDataSourceLike(java.util.Optional.ofNullable(buildDataSource()).orElse(null));
+    return this.withNewDataSourceLike(Optional.ofNullable(this.buildDataSource()).orElse(null));
   }
   
   public DataSourceNested<A> editOrNewDataSource() {
-    return withNewDataSourceLike(java.util.Optional.ofNullable(buildDataSource()).orElse(new V1TypedLocalObjectReferenceBuilder().build()));
+    return this.withNewDataSourceLike(Optional.ofNullable(this.buildDataSource()).orElse(new V1TypedLocalObjectReferenceBuilder().build()));
   }
   
   public DataSourceNested<A> editOrNewDataSourceLike(V1TypedLocalObjectReference item) {
-    return withNewDataSourceLike(java.util.Optional.ofNullable(buildDataSource()).orElse(item));
+    return this.withNewDataSourceLike(Optional.ofNullable(this.buildDataSource()).orElse(item));
   }
   
   public V1TypedObjectReference buildDataSourceRef() {
@@ -209,15 +237,15 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public DataSourceRefNested<A> editDataSourceRef() {
-    return withNewDataSourceRefLike(java.util.Optional.ofNullable(buildDataSourceRef()).orElse(null));
+    return this.withNewDataSourceRefLike(Optional.ofNullable(this.buildDataSourceRef()).orElse(null));
   }
   
   public DataSourceRefNested<A> editOrNewDataSourceRef() {
-    return withNewDataSourceRefLike(java.util.Optional.ofNullable(buildDataSourceRef()).orElse(new V1TypedObjectReferenceBuilder().build()));
+    return this.withNewDataSourceRefLike(Optional.ofNullable(this.buildDataSourceRef()).orElse(new V1TypedObjectReferenceBuilder().build()));
   }
   
   public DataSourceRefNested<A> editOrNewDataSourceRefLike(V1TypedObjectReference item) {
-    return withNewDataSourceRefLike(java.util.Optional.ofNullable(buildDataSourceRef()).orElse(item));
+    return this.withNewDataSourceRefLike(Optional.ofNullable(this.buildDataSourceRef()).orElse(item));
   }
   
   public V1VolumeResourceRequirements buildResources() {
@@ -249,15 +277,15 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public ResourcesNested<A> editResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(null));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(null));
   }
   
   public ResourcesNested<A> editOrNewResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1VolumeResourceRequirementsBuilder().build()));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(new V1VolumeResourceRequirementsBuilder().build()));
   }
   
   public ResourcesNested<A> editOrNewResourcesLike(V1VolumeResourceRequirements item) {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(item));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(item));
   }
   
   public V1LabelSelector buildSelector() {
@@ -289,15 +317,15 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public String getStorageClassName() {
@@ -353,38 +381,97 @@ public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaim
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PersistentVolumeClaimSpecFluent that = (V1PersistentVolumeClaimSpecFluent) o;
-    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
-    if (!java.util.Objects.equals(dataSource, that.dataSource)) return false;
-    if (!java.util.Objects.equals(dataSourceRef, that.dataSourceRef)) return false;
-    if (!java.util.Objects.equals(resources, that.resources)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
-    if (!java.util.Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName)) return false;
-    if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
-    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
+    if (!(Objects.equals(accessModes, that.accessModes))) {
+      return false;
+    }
+    if (!(Objects.equals(dataSource, that.dataSource))) {
+      return false;
+    }
+    if (!(Objects.equals(dataSourceRef, that.dataSourceRef))) {
+      return false;
+    }
+    if (!(Objects.equals(resources, that.resources))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(storageClassName, that.storageClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeMode, that.volumeMode))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeName, that.volumeName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  dataSource,  dataSourceRef,  resources,  selector,  storageClassName,  volumeAttributesClassName,  volumeMode,  volumeName,  super.hashCode());
+    return Objects.hash(accessModes, dataSource, dataSourceRef, resources, selector, storageClassName, volumeAttributesClassName, volumeMode, volumeName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (accessModes != null && !accessModes.isEmpty()) { sb.append("accessModes:"); sb.append(accessModes + ","); }
-    if (dataSource != null) { sb.append("dataSource:"); sb.append(dataSource + ","); }
-    if (dataSourceRef != null) { sb.append("dataSourceRef:"); sb.append(dataSourceRef + ","); }
-    if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (storageClassName != null) { sb.append("storageClassName:"); sb.append(storageClassName + ","); }
-    if (volumeAttributesClassName != null) { sb.append("volumeAttributesClassName:"); sb.append(volumeAttributesClassName + ","); }
-    if (volumeMode != null) { sb.append("volumeMode:"); sb.append(volumeMode + ","); }
-    if (volumeName != null) { sb.append("volumeName:"); sb.append(volumeName); }
+    if (!(accessModes == null) && !(accessModes.isEmpty())) {
+        sb.append("accessModes:");
+        sb.append(accessModes);
+        sb.append(",");
+    }
+    if (!(dataSource == null)) {
+        sb.append("dataSource:");
+        sb.append(dataSource);
+        sb.append(",");
+    }
+    if (!(dataSourceRef == null)) {
+        sb.append("dataSourceRef:");
+        sb.append(dataSourceRef);
+        sb.append(",");
+    }
+    if (!(resources == null)) {
+        sb.append("resources:");
+        sb.append(resources);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(storageClassName == null)) {
+        sb.append("storageClassName:");
+        sb.append(storageClassName);
+        sb.append(",");
+    }
+    if (!(volumeAttributesClassName == null)) {
+        sb.append("volumeAttributesClassName:");
+        sb.append(volumeAttributesClassName);
+        sb.append(",");
+    }
+    if (!(volumeMode == null)) {
+        sb.append("volumeMode:");
+        sb.append(volumeMode);
+        sb.append(",");
+    }
+    if (!(volumeName == null)) {
+        sb.append("volumeName:");
+        sb.append(volumeName);
+    }
     sb.append("}");
     return sb.toString();
   }

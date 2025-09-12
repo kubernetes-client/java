@@ -1,20 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
-import java.lang.String;
-import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends BaseFluent<A>{
+public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.models.V1ContainerImageFluent<A>> extends BaseFluent<A>{
   public V1ContainerImageFluent() {
   }
   
@@ -25,42 +27,67 @@ public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends
   private Long sizeBytes;
   
   protected void copyInstance(V1ContainerImage instance) {
-    instance = (instance != null ? instance : new V1ContainerImage());
+    instance = instance != null ? instance : new V1ContainerImage();
     if (instance != null) {
-          this.withNames(instance.getNames());
-          this.withSizeBytes(instance.getSizeBytes());
-        }
+        this.withNames(instance.getNames());
+        this.withSizeBytes(instance.getSizeBytes());
+    }
   }
   
   public A addToNames(int index,String item) {
-    if (this.names == null) {this.names = new ArrayList<String>();}
+    if (this.names == null) {
+      this.names = new ArrayList();
+    }
     this.names.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToNames(int index,String item) {
-    if (this.names == null) {this.names = new ArrayList<String>();}
-    this.names.set(index, item); return (A)this;
+    if (this.names == null) {
+      this.names = new ArrayList();
+    }
+    this.names.set(index, item);
+    return (A) this;
   }
   
-  public A addToNames(java.lang.String... items) {
-    if (this.names == null) {this.names = new ArrayList<String>();}
-    for (String item : items) {this.names.add(item);} return (A)this;
+  public A addToNames(String... items) {
+    if (this.names == null) {
+      this.names = new ArrayList();
+    }
+    for (String item : items) {
+      this.names.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToNames(Collection<String> items) {
-    if (this.names == null) {this.names = new ArrayList<String>();}
-    for (String item : items) {this.names.add(item);} return (A)this;
+    if (this.names == null) {
+      this.names = new ArrayList();
+    }
+    for (String item : items) {
+      this.names.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromNames(java.lang.String... items) {
-    if (this.names == null) return (A)this;
-    for (String item : items) { this.names.remove(item);} return (A)this;
+  public A removeFromNames(String... items) {
+    if (this.names == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.names.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromNames(Collection<String> items) {
-    if (this.names == null) return (A)this;
-    for (String item : items) { this.names.remove(item);} return (A)this;
+    if (this.names == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.names.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getNames() {
@@ -109,7 +136,7 @@ public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends
     return (A) this;
   }
   
-  public A withNames(java.lang.String... names) {
+  public A withNames(String... names) {
     if (this.names != null) {
         this.names.clear();
         _visitables.remove("names");
@@ -123,7 +150,7 @@ public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends
   }
   
   public boolean hasNames() {
-    return this.names != null && !this.names.isEmpty();
+    return this.names != null && !(this.names.isEmpty());
   }
   
   public Long getSizeBytes() {
@@ -140,24 +167,41 @@ public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerImageFluent that = (V1ContainerImageFluent) o;
-    if (!java.util.Objects.equals(names, that.names)) return false;
-    if (!java.util.Objects.equals(sizeBytes, that.sizeBytes)) return false;
+    if (!(Objects.equals(names, that.names))) {
+      return false;
+    }
+    if (!(Objects.equals(sizeBytes, that.sizeBytes))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(names,  sizeBytes,  super.hashCode());
+    return Objects.hash(names, sizeBytes);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (names != null && !names.isEmpty()) { sb.append("names:"); sb.append(names + ","); }
-    if (sizeBytes != null) { sb.append("sizeBytes:"); sb.append(sizeBytes); }
+    if (!(names == null) && !(names.isEmpty())) {
+        sb.append("names:");
+        sb.append(names);
+        sb.append(",");
+    }
+    if (!(sizeBytes == null)) {
+        sb.append("sizeBytes:");
+        sb.append(sizeBytes);
+    }
     sb.append("}");
     return sb.toString();
   }

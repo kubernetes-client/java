@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends BaseFluent<A>{
+public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<A>> extends BaseFluent<A>{
   public V1NodeSystemInfoFluent() {
   }
   
@@ -30,20 +33,20 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
   private String systemUUID;
   
   protected void copyInstance(V1NodeSystemInfo instance) {
-    instance = (instance != null ? instance : new V1NodeSystemInfo());
+    instance = instance != null ? instance : new V1NodeSystemInfo();
     if (instance != null) {
-          this.withArchitecture(instance.getArchitecture());
-          this.withBootID(instance.getBootID());
-          this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
-          this.withKernelVersion(instance.getKernelVersion());
-          this.withKubeProxyVersion(instance.getKubeProxyVersion());
-          this.withKubeletVersion(instance.getKubeletVersion());
-          this.withMachineID(instance.getMachineID());
-          this.withOperatingSystem(instance.getOperatingSystem());
-          this.withOsImage(instance.getOsImage());
-          this.withSwap(instance.getSwap());
-          this.withSystemUUID(instance.getSystemUUID());
-        }
+        this.withArchitecture(instance.getArchitecture());
+        this.withBootID(instance.getBootID());
+        this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
+        this.withKernelVersion(instance.getKernelVersion());
+        this.withKubeProxyVersion(instance.getKubeProxyVersion());
+        this.withKubeletVersion(instance.getKubeletVersion());
+        this.withMachineID(instance.getMachineID());
+        this.withOperatingSystem(instance.getOperatingSystem());
+        this.withOsImage(instance.getOsImage());
+        this.withSwap(instance.getSwap());
+        this.withSystemUUID(instance.getSystemUUID());
+    }
   }
   
   public String getArchitecture() {
@@ -192,15 +195,15 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
   }
   
   public SwapNested<A> editSwap() {
-    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(null));
+    return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(null));
   }
   
   public SwapNested<A> editOrNewSwap() {
-    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(new V1NodeSwapStatusBuilder().build()));
+    return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(new V1NodeSwapStatusBuilder().build()));
   }
   
   public SwapNested<A> editOrNewSwapLike(V1NodeSwapStatus item) {
-    return withNewSwapLike(java.util.Optional.ofNullable(buildSwap()).orElse(item));
+    return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(item));
   }
   
   public String getSystemUUID() {
@@ -217,42 +220,113 @@ public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeSystemInfoFluent that = (V1NodeSystemInfoFluent) o;
-    if (!java.util.Objects.equals(architecture, that.architecture)) return false;
-    if (!java.util.Objects.equals(bootID, that.bootID)) return false;
-    if (!java.util.Objects.equals(containerRuntimeVersion, that.containerRuntimeVersion)) return false;
-    if (!java.util.Objects.equals(kernelVersion, that.kernelVersion)) return false;
-    if (!java.util.Objects.equals(kubeProxyVersion, that.kubeProxyVersion)) return false;
-    if (!java.util.Objects.equals(kubeletVersion, that.kubeletVersion)) return false;
-    if (!java.util.Objects.equals(machineID, that.machineID)) return false;
-    if (!java.util.Objects.equals(operatingSystem, that.operatingSystem)) return false;
-    if (!java.util.Objects.equals(osImage, that.osImage)) return false;
-    if (!java.util.Objects.equals(swap, that.swap)) return false;
-    if (!java.util.Objects.equals(systemUUID, that.systemUUID)) return false;
+    if (!(Objects.equals(architecture, that.architecture))) {
+      return false;
+    }
+    if (!(Objects.equals(bootID, that.bootID))) {
+      return false;
+    }
+    if (!(Objects.equals(containerRuntimeVersion, that.containerRuntimeVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kernelVersion, that.kernelVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kubeProxyVersion, that.kubeProxyVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kubeletVersion, that.kubeletVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(machineID, that.machineID))) {
+      return false;
+    }
+    if (!(Objects.equals(operatingSystem, that.operatingSystem))) {
+      return false;
+    }
+    if (!(Objects.equals(osImage, that.osImage))) {
+      return false;
+    }
+    if (!(Objects.equals(swap, that.swap))) {
+      return false;
+    }
+    if (!(Objects.equals(systemUUID, that.systemUUID))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(architecture,  bootID,  containerRuntimeVersion,  kernelVersion,  kubeProxyVersion,  kubeletVersion,  machineID,  operatingSystem,  osImage,  swap,  systemUUID,  super.hashCode());
+    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, swap, systemUUID);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (architecture != null) { sb.append("architecture:"); sb.append(architecture + ","); }
-    if (bootID != null) { sb.append("bootID:"); sb.append(bootID + ","); }
-    if (containerRuntimeVersion != null) { sb.append("containerRuntimeVersion:"); sb.append(containerRuntimeVersion + ","); }
-    if (kernelVersion != null) { sb.append("kernelVersion:"); sb.append(kernelVersion + ","); }
-    if (kubeProxyVersion != null) { sb.append("kubeProxyVersion:"); sb.append(kubeProxyVersion + ","); }
-    if (kubeletVersion != null) { sb.append("kubeletVersion:"); sb.append(kubeletVersion + ","); }
-    if (machineID != null) { sb.append("machineID:"); sb.append(machineID + ","); }
-    if (operatingSystem != null) { sb.append("operatingSystem:"); sb.append(operatingSystem + ","); }
-    if (osImage != null) { sb.append("osImage:"); sb.append(osImage + ","); }
-    if (swap != null) { sb.append("swap:"); sb.append(swap + ","); }
-    if (systemUUID != null) { sb.append("systemUUID:"); sb.append(systemUUID); }
+    if (!(architecture == null)) {
+        sb.append("architecture:");
+        sb.append(architecture);
+        sb.append(",");
+    }
+    if (!(bootID == null)) {
+        sb.append("bootID:");
+        sb.append(bootID);
+        sb.append(",");
+    }
+    if (!(containerRuntimeVersion == null)) {
+        sb.append("containerRuntimeVersion:");
+        sb.append(containerRuntimeVersion);
+        sb.append(",");
+    }
+    if (!(kernelVersion == null)) {
+        sb.append("kernelVersion:");
+        sb.append(kernelVersion);
+        sb.append(",");
+    }
+    if (!(kubeProxyVersion == null)) {
+        sb.append("kubeProxyVersion:");
+        sb.append(kubeProxyVersion);
+        sb.append(",");
+    }
+    if (!(kubeletVersion == null)) {
+        sb.append("kubeletVersion:");
+        sb.append(kubeletVersion);
+        sb.append(",");
+    }
+    if (!(machineID == null)) {
+        sb.append("machineID:");
+        sb.append(machineID);
+        sb.append(",");
+    }
+    if (!(operatingSystem == null)) {
+        sb.append("operatingSystem:");
+        sb.append(operatingSystem);
+        sb.append(",");
+    }
+    if (!(osImage == null)) {
+        sb.append("osImage:");
+        sb.append(osImage);
+        sb.append(",");
+    }
+    if (!(swap == null)) {
+        sb.append("swap:");
+        sb.append(swap);
+        sb.append(",");
+    }
+    if (!(systemUUID == null)) {
+        sb.append("systemUUID:");
+        sb.append(systemUUID);
+    }
     sb.append("}");
     return sb.toString();
   }

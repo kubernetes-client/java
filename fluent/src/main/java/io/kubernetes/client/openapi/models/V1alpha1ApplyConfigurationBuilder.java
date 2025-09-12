@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1ApplyConfigurationBuilder extends V1alpha1ApplyConfigurationFluent<V1alpha1ApplyConfigurationBuilder> implements VisitableBuilder<V1alpha1ApplyConfiguration,V1alpha1ApplyConfigurationBuilder>{
   public V1alpha1ApplyConfigurationBuilder() {
     this(new V1alpha1ApplyConfiguration());

@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeAttachmentSpecFluent<A extends V1VolumeAttachmentSpecFluent<A>> extends BaseFluent<A>{
+public class V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<A>> extends BaseFluent<A>{
   public V1VolumeAttachmentSpecFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1VolumeAttachmentSpecFluent<A extends V1VolumeAttachmentSpecFluent
   private V1VolumeAttachmentSourceBuilder source;
   
   protected void copyInstance(V1VolumeAttachmentSpec instance) {
-    instance = (instance != null ? instance : new V1VolumeAttachmentSpec());
+    instance = instance != null ? instance : new V1VolumeAttachmentSpec();
     if (instance != null) {
-          this.withAttacher(instance.getAttacher());
-          this.withNodeName(instance.getNodeName());
-          this.withSource(instance.getSource());
-        }
+        this.withAttacher(instance.getAttacher());
+        this.withNodeName(instance.getNodeName());
+        this.withSource(instance.getSource());
+    }
   }
   
   public String getAttacher() {
@@ -85,38 +88,61 @@ public class V1VolumeAttachmentSpecFluent<A extends V1VolumeAttachmentSpecFluent
   }
   
   public SourceNested<A> editSource() {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(null));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(null));
   }
   
   public SourceNested<A> editOrNewSource() {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(new V1VolumeAttachmentSourceBuilder().build()));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(new V1VolumeAttachmentSourceBuilder().build()));
   }
   
   public SourceNested<A> editOrNewSourceLike(V1VolumeAttachmentSource item) {
-    return withNewSourceLike(java.util.Optional.ofNullable(buildSource()).orElse(item));
+    return this.withNewSourceLike(Optional.ofNullable(this.buildSource()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeAttachmentSpecFluent that = (V1VolumeAttachmentSpecFluent) o;
-    if (!java.util.Objects.equals(attacher, that.attacher)) return false;
-    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
-    if (!java.util.Objects.equals(source, that.source)) return false;
+    if (!(Objects.equals(attacher, that.attacher))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeName, that.nodeName))) {
+      return false;
+    }
+    if (!(Objects.equals(source, that.source))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(attacher,  nodeName,  source,  super.hashCode());
+    return Objects.hash(attacher, nodeName, source);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (attacher != null) { sb.append("attacher:"); sb.append(attacher + ","); }
-    if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
-    if (source != null) { sb.append("source:"); sb.append(source); }
+    if (!(attacher == null)) {
+        sb.append("attacher:");
+        sb.append(attacher);
+        sb.append(",");
+    }
+    if (!(nodeName == null)) {
+        sb.append("nodeName:");
+        sb.append(nodeName);
+        sb.append(",");
+    }
+    if (!(source == null)) {
+        sb.append("source:");
+        sb.append(source);
+    }
     sb.append("}");
     return sb.toString();
   }

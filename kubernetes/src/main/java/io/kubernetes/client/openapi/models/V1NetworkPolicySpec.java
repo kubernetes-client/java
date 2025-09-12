@@ -32,7 +32,7 @@ import java.util.List;
  * NetworkPolicySpec provides the specification of a NetworkPolicy
  */
 @ApiModel(description = "NetworkPolicySpec provides the specification of a NetworkPolicy")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1NetworkPolicySpec {
   public static final String SERIALIZED_NAME_EGRESS = "egress";
   @SerializedName(SERIALIZED_NAME_EGRESS)
@@ -123,7 +123,8 @@ public class V1NetworkPolicySpec {
    * Get podSelector
    * @return podSelector
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public V1LabelSelector getPodSelector() {
     return podSelector;

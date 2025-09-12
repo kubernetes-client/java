@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1APIGroupBuilder extends V1APIGroupFluent<V1APIGroupBuilder> implements VisitableBuilder<V1APIGroup,V1APIGroupBuilder>{
   public V1APIGroupBuilder() {
     this(new V1APIGroup());

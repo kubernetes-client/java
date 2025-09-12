@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentFluent<V1RollingUpdateDeploymentBuilder> implements VisitableBuilder<V1RollingUpdateDeployment,V1RollingUpdateDeploymentBuilder>{
   public V1RollingUpdateDeploymentBuilder() {
     this(new V1RollingUpdateDeployment());

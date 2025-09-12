@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1AuditAnnotationBuilder extends V1AuditAnnotationFluent<V1AuditAnnotationBuilder> implements VisitableBuilder<V1AuditAnnotation,V1AuditAnnotationBuilder>{
   public V1AuditAnnotationBuilder() {
     this(new V1AuditAnnotation());

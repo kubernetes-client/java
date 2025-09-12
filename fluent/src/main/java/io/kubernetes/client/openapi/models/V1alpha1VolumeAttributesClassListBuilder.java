@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1VolumeAttributesClassListBuilder extends V1alpha1VolumeAttributesClassListFluent<V1alpha1VolumeAttributesClassListBuilder> implements VisitableBuilder<V1alpha1VolumeAttributesClassList,V1alpha1VolumeAttributesClassListBuilder>{
   public V1alpha1VolumeAttributesClassListBuilder() {
     this(new V1alpha1VolumeAttributesClassList());

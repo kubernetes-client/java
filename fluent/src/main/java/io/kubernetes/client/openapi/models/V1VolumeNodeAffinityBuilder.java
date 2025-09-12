@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeNodeAffinityBuilder extends V1VolumeNodeAffinityFluent<V1VolumeNodeAffinityBuilder> implements VisitableBuilder<V1VolumeNodeAffinity,V1VolumeNodeAffinityBuilder>{
   public V1VolumeNodeAffinityBuilder() {
     this(new V1VolumeNodeAffinity());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeErrorBuilder extends V1VolumeErrorFluent<V1VolumeErrorBuilder> implements VisitableBuilder<V1VolumeError,V1VolumeErrorBuilder>{
   public V1VolumeErrorBuilder() {
     this(new V1VolumeError());

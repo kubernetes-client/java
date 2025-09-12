@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DaemonSetConditionBuilder extends V1DaemonSetConditionFluent<V1DaemonSetConditionBuilder> implements VisitableBuilder<V1DaemonSetCondition,V1DaemonSetConditionBuilder>{
   public V1DaemonSetConditionBuilder() {
     this(new V1DaemonSetCondition());

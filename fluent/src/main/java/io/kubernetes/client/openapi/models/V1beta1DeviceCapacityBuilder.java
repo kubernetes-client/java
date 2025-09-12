@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1DeviceCapacityBuilder extends V1beta1DeviceCapacityFluent<V1beta1DeviceCapacityBuilder> implements VisitableBuilder<V1beta1DeviceCapacity,V1beta1DeviceCapacityBuilder>{
   public V1beta1DeviceCapacityBuilder() {
     this(new V1beta1DeviceCapacity());
@@ -23,6 +24,7 @@ public class V1beta1DeviceCapacityBuilder extends V1beta1DeviceCapacityFluent<V1
   
   public V1beta1DeviceCapacity build() {
     V1beta1DeviceCapacity buildable = new V1beta1DeviceCapacity();
+    buildable.setRequestPolicy(fluent.buildRequestPolicy());
     buildable.setValue(fluent.getValue());
     return buildable;
   }

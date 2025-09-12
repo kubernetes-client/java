@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStatusFluent<A>> extends BaseFluent<A>{
+public class V1beta2ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1beta2ResourceClaimStatusFluent<A>> extends BaseFluent<A>{
   public V1beta2ResourceClaimStatusFluent() {
   }
   
@@ -28,12 +31,12 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   private ArrayList<V1beta2ResourceClaimConsumerReferenceBuilder> reservedFor;
   
   protected void copyInstance(V1beta2ResourceClaimStatus instance) {
-    instance = (instance != null ? instance : new V1beta2ResourceClaimStatus());
+    instance = instance != null ? instance : new V1beta2ResourceClaimStatus();
     if (instance != null) {
-          this.withAllocation(instance.getAllocation());
-          this.withDevices(instance.getDevices());
-          this.withReservedFor(instance.getReservedFor());
-        }
+        this.withAllocation(instance.getAllocation());
+        this.withDevices(instance.getDevices());
+        this.withReservedFor(instance.getReservedFor());
+    }
   }
   
   public V1beta2AllocationResult buildAllocation() {
@@ -65,19 +68,21 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   }
   
   public AllocationNested<A> editAllocation() {
-    return withNewAllocationLike(java.util.Optional.ofNullable(buildAllocation()).orElse(null));
+    return this.withNewAllocationLike(Optional.ofNullable(this.buildAllocation()).orElse(null));
   }
   
   public AllocationNested<A> editOrNewAllocation() {
-    return withNewAllocationLike(java.util.Optional.ofNullable(buildAllocation()).orElse(new V1beta2AllocationResultBuilder().build()));
+    return this.withNewAllocationLike(Optional.ofNullable(this.buildAllocation()).orElse(new V1beta2AllocationResultBuilder().build()));
   }
   
   public AllocationNested<A> editOrNewAllocationLike(V1beta2AllocationResult item) {
-    return withNewAllocationLike(java.util.Optional.ofNullable(buildAllocation()).orElse(item));
+    return this.withNewAllocationLike(Optional.ofNullable(this.buildAllocation()).orElse(item));
   }
   
   public A addToDevices(int index,V1beta2AllocatedDeviceStatus item) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta2AllocatedDeviceStatusBuilder>();}
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
     V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
     if (index < 0 || index >= devices.size()) {
         _visitables.get("devices").add(builder);
@@ -86,11 +91,13 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
         _visitables.get("devices").add(builder);
         devices.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToDevices(int index,V1beta2AllocatedDeviceStatus item) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta2AllocatedDeviceStatusBuilder>();}
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
     V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
     if (index < 0 || index >= devices.size()) {
         _visitables.get("devices").add(builder);
@@ -99,41 +106,71 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
         _visitables.get("devices").add(builder);
         devices.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToDevices(io.kubernetes.client.openapi.models.V1beta2AllocatedDeviceStatus... items) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta2AllocatedDeviceStatusBuilder>();}
-    for (V1beta2AllocatedDeviceStatus item : items) {V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+  public A addToDevices(V1beta2AllocatedDeviceStatus... items) {
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
+    for (V1beta2AllocatedDeviceStatus item : items) {
+        V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
+        _visitables.get("devices").add(builder);
+        this.devices.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToDevices(Collection<V1beta2AllocatedDeviceStatus> items) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta2AllocatedDeviceStatusBuilder>();}
-    for (V1beta2AllocatedDeviceStatus item : items) {V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
+    for (V1beta2AllocatedDeviceStatus item : items) {
+        V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
+        _visitables.get("devices").add(builder);
+        this.devices.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromDevices(io.kubernetes.client.openapi.models.V1beta2AllocatedDeviceStatus... items) {
-    if (this.devices == null) return (A)this;
-    for (V1beta2AllocatedDeviceStatus item : items) {V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+  public A removeFromDevices(V1beta2AllocatedDeviceStatus... items) {
+    if (this.devices == null) {
+      return (A) this;
+    }
+    for (V1beta2AllocatedDeviceStatus item : items) {
+        V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
+        _visitables.get("devices").remove(builder);
+        this.devices.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromDevices(Collection<V1beta2AllocatedDeviceStatus> items) {
-    if (this.devices == null) return (A)this;
-    for (V1beta2AllocatedDeviceStatus item : items) {V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+    if (this.devices == null) {
+      return (A) this;
+    }
+    for (V1beta2AllocatedDeviceStatus item : items) {
+        V1beta2AllocatedDeviceStatusBuilder builder = new V1beta2AllocatedDeviceStatusBuilder(item);
+        _visitables.get("devices").remove(builder);
+        this.devices.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromDevices(Predicate<V1beta2AllocatedDeviceStatusBuilder> predicate) {
-    if (devices == null) return (A) this;
-    final Iterator<V1beta2AllocatedDeviceStatusBuilder> each = devices.iterator();
-    final List visitables = _visitables.get("devices");
-    while (each.hasNext()) {
-      V1beta2AllocatedDeviceStatusBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (devices == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2AllocatedDeviceStatusBuilder> each = devices.iterator();
+    List visitables = _visitables.get("devices");
+    while (each.hasNext()) {
+        V1beta2AllocatedDeviceStatusBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2AllocatedDeviceStatus> buildDevices() {
@@ -185,7 +222,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
     return (A) this;
   }
   
-  public A withDevices(io.kubernetes.client.openapi.models.V1beta2AllocatedDeviceStatus... devices) {
+  public A withDevices(V1beta2AllocatedDeviceStatus... devices) {
     if (this.devices != null) {
         this.devices.clear();
         _visitables.remove("devices");
@@ -199,7 +236,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   }
   
   public boolean hasDevices() {
-    return this.devices != null && !this.devices.isEmpty();
+    return this.devices != null && !(this.devices.isEmpty());
   }
   
   public DevicesNested<A> addNewDevice() {
@@ -215,32 +252,45 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   }
   
   public DevicesNested<A> editDevice(int index) {
-    if (devices.size() <= index) throw new RuntimeException("Can't edit devices. Index exceeds size.");
-    return setNewDeviceLike(index, buildDevice(index));
+    if (index <= devices.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public DevicesNested<A> editFirstDevice() {
-    if (devices.size() == 0) throw new RuntimeException("Can't edit first devices. The list is empty.");
-    return setNewDeviceLike(0, buildDevice(0));
+    if (devices.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "devices"));
+    }
+    return this.setNewDeviceLike(0, this.buildDevice(0));
   }
   
   public DevicesNested<A> editLastDevice() {
     int index = devices.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last devices. The list is empty.");
-    return setNewDeviceLike(index, buildDevice(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public DevicesNested<A> editMatchingDevice(Predicate<V1beta2AllocatedDeviceStatusBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<devices.size();i++) { 
-    if (predicate.test(devices.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching devices. No match found.");
-    return setNewDeviceLike(index, buildDevice(index));
+    for (int i = 0;i < devices.size();i++) {
+      if (predicate.test(devices.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public A addToReservedFor(int index,V1beta2ResourceClaimConsumerReference item) {
-    if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1beta2ResourceClaimConsumerReferenceBuilder>();}
+    if (this.reservedFor == null) {
+      this.reservedFor = new ArrayList();
+    }
     V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
     if (index < 0 || index >= reservedFor.size()) {
         _visitables.get("reservedFor").add(builder);
@@ -249,11 +299,13 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
         _visitables.get("reservedFor").add(builder);
         reservedFor.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToReservedFor(int index,V1beta2ResourceClaimConsumerReference item) {
-    if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1beta2ResourceClaimConsumerReferenceBuilder>();}
+    if (this.reservedFor == null) {
+      this.reservedFor = new ArrayList();
+    }
     V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
     if (index < 0 || index >= reservedFor.size()) {
         _visitables.get("reservedFor").add(builder);
@@ -262,41 +314,71 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
         _visitables.get("reservedFor").add(builder);
         reservedFor.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToReservedFor(io.kubernetes.client.openapi.models.V1beta2ResourceClaimConsumerReference... items) {
-    if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1beta2ResourceClaimConsumerReferenceBuilder>();}
-    for (V1beta2ResourceClaimConsumerReference item : items) {V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);_visitables.get("reservedFor").add(builder);this.reservedFor.add(builder);} return (A)this;
+  public A addToReservedFor(V1beta2ResourceClaimConsumerReference... items) {
+    if (this.reservedFor == null) {
+      this.reservedFor = new ArrayList();
+    }
+    for (V1beta2ResourceClaimConsumerReference item : items) {
+        V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
+        _visitables.get("reservedFor").add(builder);
+        this.reservedFor.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToReservedFor(Collection<V1beta2ResourceClaimConsumerReference> items) {
-    if (this.reservedFor == null) {this.reservedFor = new ArrayList<V1beta2ResourceClaimConsumerReferenceBuilder>();}
-    for (V1beta2ResourceClaimConsumerReference item : items) {V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);_visitables.get("reservedFor").add(builder);this.reservedFor.add(builder);} return (A)this;
+    if (this.reservedFor == null) {
+      this.reservedFor = new ArrayList();
+    }
+    for (V1beta2ResourceClaimConsumerReference item : items) {
+        V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
+        _visitables.get("reservedFor").add(builder);
+        this.reservedFor.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromReservedFor(io.kubernetes.client.openapi.models.V1beta2ResourceClaimConsumerReference... items) {
-    if (this.reservedFor == null) return (A)this;
-    for (V1beta2ResourceClaimConsumerReference item : items) {V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);_visitables.get("reservedFor").remove(builder); this.reservedFor.remove(builder);} return (A)this;
+  public A removeFromReservedFor(V1beta2ResourceClaimConsumerReference... items) {
+    if (this.reservedFor == null) {
+      return (A) this;
+    }
+    for (V1beta2ResourceClaimConsumerReference item : items) {
+        V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
+        _visitables.get("reservedFor").remove(builder);
+        this.reservedFor.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromReservedFor(Collection<V1beta2ResourceClaimConsumerReference> items) {
-    if (this.reservedFor == null) return (A)this;
-    for (V1beta2ResourceClaimConsumerReference item : items) {V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);_visitables.get("reservedFor").remove(builder); this.reservedFor.remove(builder);} return (A)this;
+    if (this.reservedFor == null) {
+      return (A) this;
+    }
+    for (V1beta2ResourceClaimConsumerReference item : items) {
+        V1beta2ResourceClaimConsumerReferenceBuilder builder = new V1beta2ResourceClaimConsumerReferenceBuilder(item);
+        _visitables.get("reservedFor").remove(builder);
+        this.reservedFor.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromReservedFor(Predicate<V1beta2ResourceClaimConsumerReferenceBuilder> predicate) {
-    if (reservedFor == null) return (A) this;
-    final Iterator<V1beta2ResourceClaimConsumerReferenceBuilder> each = reservedFor.iterator();
-    final List visitables = _visitables.get("reservedFor");
-    while (each.hasNext()) {
-      V1beta2ResourceClaimConsumerReferenceBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (reservedFor == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2ResourceClaimConsumerReferenceBuilder> each = reservedFor.iterator();
+    List visitables = _visitables.get("reservedFor");
+    while (each.hasNext()) {
+        V1beta2ResourceClaimConsumerReferenceBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2ResourceClaimConsumerReference> buildReservedFor() {
@@ -348,7 +430,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
     return (A) this;
   }
   
-  public A withReservedFor(io.kubernetes.client.openapi.models.V1beta2ResourceClaimConsumerReference... reservedFor) {
+  public A withReservedFor(V1beta2ResourceClaimConsumerReference... reservedFor) {
     if (this.reservedFor != null) {
         this.reservedFor.clear();
         _visitables.remove("reservedFor");
@@ -362,7 +444,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   }
   
   public boolean hasReservedFor() {
-    return this.reservedFor != null && !this.reservedFor.isEmpty();
+    return this.reservedFor != null && !(this.reservedFor.isEmpty());
   }
   
   public ReservedForNested<A> addNewReservedFor() {
@@ -378,51 +460,85 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
   }
   
   public ReservedForNested<A> editReservedFor(int index) {
-    if (reservedFor.size() <= index) throw new RuntimeException("Can't edit reservedFor. Index exceeds size.");
-    return setNewReservedForLike(index, buildReservedFor(index));
+    if (index <= reservedFor.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "reservedFor"));
+    }
+    return this.setNewReservedForLike(index, this.buildReservedFor(index));
   }
   
   public ReservedForNested<A> editFirstReservedFor() {
-    if (reservedFor.size() == 0) throw new RuntimeException("Can't edit first reservedFor. The list is empty.");
-    return setNewReservedForLike(0, buildReservedFor(0));
+    if (reservedFor.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "reservedFor"));
+    }
+    return this.setNewReservedForLike(0, this.buildReservedFor(0));
   }
   
   public ReservedForNested<A> editLastReservedFor() {
     int index = reservedFor.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last reservedFor. The list is empty.");
-    return setNewReservedForLike(index, buildReservedFor(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "reservedFor"));
+    }
+    return this.setNewReservedForLike(index, this.buildReservedFor(index));
   }
   
   public ReservedForNested<A> editMatchingReservedFor(Predicate<V1beta2ResourceClaimConsumerReferenceBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<reservedFor.size();i++) { 
-    if (predicate.test(reservedFor.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching reservedFor. No match found.");
-    return setNewReservedForLike(index, buildReservedFor(index));
+    for (int i = 0;i < reservedFor.size();i++) {
+      if (predicate.test(reservedFor.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "reservedFor"));
+    }
+    return this.setNewReservedForLike(index, this.buildReservedFor(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2ResourceClaimStatusFluent that = (V1beta2ResourceClaimStatusFluent) o;
-    if (!java.util.Objects.equals(allocation, that.allocation)) return false;
-    if (!java.util.Objects.equals(devices, that.devices)) return false;
-    if (!java.util.Objects.equals(reservedFor, that.reservedFor)) return false;
+    if (!(Objects.equals(allocation, that.allocation))) {
+      return false;
+    }
+    if (!(Objects.equals(devices, that.devices))) {
+      return false;
+    }
+    if (!(Objects.equals(reservedFor, that.reservedFor))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocation,  devices,  reservedFor,  super.hashCode());
+    return Objects.hash(allocation, devices, reservedFor);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allocation != null) { sb.append("allocation:"); sb.append(allocation + ","); }
-    if (devices != null && !devices.isEmpty()) { sb.append("devices:"); sb.append(devices + ","); }
-    if (reservedFor != null && !reservedFor.isEmpty()) { sb.append("reservedFor:"); sb.append(reservedFor); }
+    if (!(allocation == null)) {
+        sb.append("allocation:");
+        sb.append(allocation);
+        sb.append(",");
+    }
+    if (!(devices == null) && !(devices.isEmpty())) {
+        sb.append("devices:");
+        sb.append(devices);
+        sb.append(",");
+    }
+    if (!(reservedFor == null) && !(reservedFor.isEmpty())) {
+        sb.append("reservedFor:");
+        sb.append(reservedFor);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -451,7 +567,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
     int index;
     
     public N and() {
-      return (N) V1beta2ResourceClaimStatusFluent.this.setToDevices(index,builder.build());
+      return (N) V1beta2ResourceClaimStatusFluent.this.setToDevices(index, builder.build());
     }
     
     public N endDevice() {
@@ -469,7 +585,7 @@ public class V1beta2ResourceClaimStatusFluent<A extends V1beta2ResourceClaimStat
     int index;
     
     public N and() {
-      return (N) V1beta2ResourceClaimStatusFluent.this.setToReservedFor(index,builder.build());
+      return (N) V1beta2ResourceClaimStatusFluent.this.setToReservedFor(index, builder.build());
     }
     
     public N endReservedFor() {

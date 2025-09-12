@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.lang.Byte;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
+public class ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
   public ApiextensionsV1WebhookClientConfigFluent() {
   }
   
@@ -26,12 +29,12 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1W
   private String url;
   
   protected void copyInstance(ApiextensionsV1WebhookClientConfig instance) {
-    instance = (instance != null ? instance : new ApiextensionsV1WebhookClientConfig());
+    instance = instance != null ? instance : new ApiextensionsV1WebhookClientConfig();
     if (instance != null) {
-          this.withCaBundle(instance.getCaBundle());
-          this.withService(instance.getService());
-          this.withUrl(instance.getUrl());
-        }
+        this.withCaBundle(instance.getCaBundle());
+        this.withService(instance.getService());
+        this.withUrl(instance.getUrl());
+    }
   }
   
   public A withCaBundle(byte... caBundle) {
@@ -48,12 +51,12 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1W
   }
   
   public byte[] getCaBundle() {
-    int size = caBundle != null ? caBundle.size() : 0;;
-    byte[] result = new byte[size];;
+    int size = caBundle != null ? caBundle.size() : 0;
+    byte[] result = new byte[size];
     if (size == 0) {
       return result;
     }
-    int index = 0;;
+    int index = 0;
     for (byte item : caBundle) {
       result[index++] = item;
     }
@@ -61,38 +64,63 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1W
   }
   
   public A addToCaBundle(int index,Byte item) {
-    if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
+    if (this.caBundle == null) {
+      this.caBundle = new ArrayList();
+    }
     this.caBundle.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToCaBundle(int index,Byte item) {
-    if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
-    this.caBundle.set(index, item); return (A)this;
+    if (this.caBundle == null) {
+      this.caBundle = new ArrayList();
+    }
+    this.caBundle.set(index, item);
+    return (A) this;
   }
   
-  public A addToCaBundle(java.lang.Byte... items) {
-    if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.caBundle.add(item);} return (A)this;
+  public A addToCaBundle(Byte... items) {
+    if (this.caBundle == null) {
+      this.caBundle = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.caBundle.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToCaBundle(Collection<Byte> items) {
-    if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
-    for (Byte item : items) {this.caBundle.add(item);} return (A)this;
+    if (this.caBundle == null) {
+      this.caBundle = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.caBundle.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromCaBundle(java.lang.Byte... items) {
-    if (this.caBundle == null) return (A)this;
-    for (Byte item : items) { this.caBundle.remove(item);} return (A)this;
+  public A removeFromCaBundle(Byte... items) {
+    if (this.caBundle == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.caBundle.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromCaBundle(Collection<Byte> items) {
-    if (this.caBundle == null) return (A)this;
-    for (Byte item : items) { this.caBundle.remove(item);} return (A)this;
+    if (this.caBundle == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.caBundle.remove(item);
+    }
+    return (A) this;
   }
   
   public boolean hasCaBundle() {
-    return this.caBundle != null && !this.caBundle.isEmpty();
+    return this.caBundle != null && !(this.caBundle.isEmpty());
   }
   
   public ApiextensionsV1ServiceReference buildService() {
@@ -124,15 +152,15 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1W
   }
   
   public ServiceNested<A> editService() {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(null));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(null));
   }
   
   public ServiceNested<A> editOrNewService() {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(new ApiextensionsV1ServiceReferenceBuilder().build()));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(new ApiextensionsV1ServiceReferenceBuilder().build()));
   }
   
   public ServiceNested<A> editOrNewServiceLike(ApiextensionsV1ServiceReference item) {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(item));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(item));
   }
   
   public String getUrl() {
@@ -149,26 +177,49 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1W
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     ApiextensionsV1WebhookClientConfigFluent that = (ApiextensionsV1WebhookClientConfigFluent) o;
-    if (!java.util.Objects.equals(caBundle, that.caBundle)) return false;
-    if (!java.util.Objects.equals(service, that.service)) return false;
-    if (!java.util.Objects.equals(url, that.url)) return false;
+    if (!(Objects.equals(caBundle, that.caBundle))) {
+      return false;
+    }
+    if (!(Objects.equals(service, that.service))) {
+      return false;
+    }
+    if (!(Objects.equals(url, that.url))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(caBundle,  service,  url,  super.hashCode());
+    return Objects.hash(caBundle, service, url);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (caBundle != null && !caBundle.isEmpty()) { sb.append("caBundle:"); sb.append(caBundle + ","); }
-    if (service != null) { sb.append("service:"); sb.append(service + ","); }
-    if (url != null) { sb.append("url:"); sb.append(url); }
+    if (!(caBundle == null) && !(caBundle.isEmpty())) {
+        sb.append("caBundle:");
+        sb.append(caBundle);
+        sb.append(",");
+    }
+    if (!(service == null)) {
+        sb.append("service:");
+        sb.append(service);
+        sb.append(",");
+    }
+    if (!(url == null)) {
+        sb.append("url:");
+        sb.append(url);
+    }
     sb.append("}");
     return sb.toString();
   }

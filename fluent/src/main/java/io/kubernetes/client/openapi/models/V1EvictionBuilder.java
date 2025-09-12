@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EvictionBuilder extends V1EvictionFluent<V1EvictionBuilder> implements VisitableBuilder<V1Eviction,V1EvictionBuilder>{
   public V1EvictionBuilder() {
     this(new V1Eviction());

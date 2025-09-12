@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluent<V1JobTemplateSpecBuilder> implements VisitableBuilder<V1JobTemplateSpec,V1JobTemplateSpecBuilder>{
   public V1JobTemplateSpecBuilder() {
     this(new V1JobTemplateSpec());

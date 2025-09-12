@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1QuobyteVolumeSourceBuilder extends V1QuobyteVolumeSourceFluent<V1QuobyteVolumeSourceBuilder> implements VisitableBuilder<V1QuobyteVolumeSource,V1QuobyteVolumeSourceBuilder>{
   public V1QuobyteVolumeSourceBuilder() {
     this(new V1QuobyteVolumeSource());

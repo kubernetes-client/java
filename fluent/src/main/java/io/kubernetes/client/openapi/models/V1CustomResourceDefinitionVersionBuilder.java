@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDefinitionVersionFluent<V1CustomResourceDefinitionVersionBuilder> implements VisitableBuilder<V1CustomResourceDefinitionVersion,V1CustomResourceDefinitionVersionBuilder>{
   public V1CustomResourceDefinitionVersionBuilder() {
     this(new V1CustomResourceDefinitionVersion());

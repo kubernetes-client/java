@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodDisruptionBudgetStatusBuilder extends V1PodDisruptionBudgetStatusFluent<V1PodDisruptionBudgetStatusBuilder> implements VisitableBuilder<V1PodDisruptionBudgetStatus,V1PodDisruptionBudgetStatusBuilder>{
   public V1PodDisruptionBudgetStatusBuilder() {
     this(new V1PodDisruptionBudgetStatus());

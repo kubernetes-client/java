@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2HPAScalingPolicyFluent<A extends V2HPAScalingPolicyFluent<A>> extends BaseFluent<A>{
+public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<A>> extends BaseFluent<A>{
   public V2HPAScalingPolicyFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V2HPAScalingPolicyFluent<A extends V2HPAScalingPolicyFluent<A>> ext
   private Integer value;
   
   protected void copyInstance(V2HPAScalingPolicy instance) {
-    instance = (instance != null ? instance : new V2HPAScalingPolicy());
+    instance = instance != null ? instance : new V2HPAScalingPolicy();
     if (instance != null) {
-          this.withPeriodSeconds(instance.getPeriodSeconds());
-          this.withType(instance.getType());
-          this.withValue(instance.getValue());
-        }
+        this.withPeriodSeconds(instance.getPeriodSeconds());
+        this.withType(instance.getType());
+        this.withValue(instance.getValue());
+    }
   }
   
   public Integer getPeriodSeconds() {
@@ -70,26 +72,49 @@ public class V2HPAScalingPolicyFluent<A extends V2HPAScalingPolicyFluent<A>> ext
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2HPAScalingPolicyFluent that = (V2HPAScalingPolicyFluent) o;
-    if (!java.util.Objects.equals(periodSeconds, that.periodSeconds)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
-    if (!java.util.Objects.equals(value, that.value)) return false;
+    if (!(Objects.equals(periodSeconds, that.periodSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
+    if (!(Objects.equals(value, that.value))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(periodSeconds,  type,  value,  super.hashCode());
+    return Objects.hash(periodSeconds, type, value);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (periodSeconds != null) { sb.append("periodSeconds:"); sb.append(periodSeconds + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type + ","); }
-    if (value != null) { sb.append("value:"); sb.append(value); }
+    if (!(periodSeconds == null)) {
+        sb.append("periodSeconds:");
+        sb.append(periodSeconds);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+        sb.append(",");
+    }
+    if (!(value == null)) {
+        sb.append("value:");
+        sb.append(value);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class CoreV1EndpointPortFluent<A extends CoreV1EndpointPortFluent<A>> extends BaseFluent<A>{
+public class CoreV1EndpointPortFluent<A extends io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<A>> extends BaseFluent<A>{
   public CoreV1EndpointPortFluent() {
   }
   
@@ -23,13 +25,13 @@ public class CoreV1EndpointPortFluent<A extends CoreV1EndpointPortFluent<A>> ext
   private String protocol;
   
   protected void copyInstance(CoreV1EndpointPort instance) {
-    instance = (instance != null ? instance : new CoreV1EndpointPort());
+    instance = instance != null ? instance : new CoreV1EndpointPort();
     if (instance != null) {
-          this.withAppProtocol(instance.getAppProtocol());
-          this.withName(instance.getName());
-          this.withPort(instance.getPort());
-          this.withProtocol(instance.getProtocol());
-        }
+        this.withAppProtocol(instance.getAppProtocol());
+        this.withName(instance.getName());
+        this.withPort(instance.getPort());
+        this.withProtocol(instance.getProtocol());
+    }
   }
   
   public String getAppProtocol() {
@@ -85,28 +87,57 @@ public class CoreV1EndpointPortFluent<A extends CoreV1EndpointPortFluent<A>> ext
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     CoreV1EndpointPortFluent that = (CoreV1EndpointPortFluent) o;
-    if (!java.util.Objects.equals(appProtocol, that.appProtocol)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(port, that.port)) return false;
-    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+    if (!(Objects.equals(appProtocol, that.appProtocol))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
+    if (!(Objects.equals(protocol, that.protocol))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(appProtocol,  name,  port,  protocol,  super.hashCode());
+    return Objects.hash(appProtocol, name, port, protocol);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (appProtocol != null) { sb.append("appProtocol:"); sb.append(appProtocol + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (port != null) { sb.append("port:"); sb.append(port + ","); }
-    if (protocol != null) { sb.append("protocol:"); sb.append(protocol); }
+    if (!(appProtocol == null)) {
+        sb.append("appProtocol:");
+        sb.append(appProtocol);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+        sb.append(",");
+    }
+    if (!(protocol == null)) {
+        sb.append("protocol:");
+        sb.append(protocol);
+    }
     sb.append("}");
     return sb.toString();
   }

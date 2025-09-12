@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> extends BaseFluent<A>{
+public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<A>> extends BaseFluent<A>{
   public V1VolumeProjectionFluent() {
   }
   
@@ -20,18 +23,20 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   private V1ClusterTrustBundleProjectionBuilder clusterTrustBundle;
   private V1ConfigMapProjectionBuilder configMap;
   private V1DownwardAPIProjectionBuilder downwardAPI;
+  private V1PodCertificateProjectionBuilder podCertificate;
   private V1SecretProjectionBuilder secret;
   private V1ServiceAccountTokenProjectionBuilder serviceAccountToken;
   
   protected void copyInstance(V1VolumeProjection instance) {
-    instance = (instance != null ? instance : new V1VolumeProjection());
+    instance = instance != null ? instance : new V1VolumeProjection();
     if (instance != null) {
-          this.withClusterTrustBundle(instance.getClusterTrustBundle());
-          this.withConfigMap(instance.getConfigMap());
-          this.withDownwardAPI(instance.getDownwardAPI());
-          this.withSecret(instance.getSecret());
-          this.withServiceAccountToken(instance.getServiceAccountToken());
-        }
+        this.withClusterTrustBundle(instance.getClusterTrustBundle());
+        this.withConfigMap(instance.getConfigMap());
+        this.withDownwardAPI(instance.getDownwardAPI());
+        this.withPodCertificate(instance.getPodCertificate());
+        this.withSecret(instance.getSecret());
+        this.withServiceAccountToken(instance.getServiceAccountToken());
+    }
   }
   
   public V1ClusterTrustBundleProjection buildClusterTrustBundle() {
@@ -63,15 +68,15 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   }
   
   public ClusterTrustBundleNested<A> editClusterTrustBundle() {
-    return withNewClusterTrustBundleLike(java.util.Optional.ofNullable(buildClusterTrustBundle()).orElse(null));
+    return this.withNewClusterTrustBundleLike(Optional.ofNullable(this.buildClusterTrustBundle()).orElse(null));
   }
   
   public ClusterTrustBundleNested<A> editOrNewClusterTrustBundle() {
-    return withNewClusterTrustBundleLike(java.util.Optional.ofNullable(buildClusterTrustBundle()).orElse(new V1ClusterTrustBundleProjectionBuilder().build()));
+    return this.withNewClusterTrustBundleLike(Optional.ofNullable(this.buildClusterTrustBundle()).orElse(new V1ClusterTrustBundleProjectionBuilder().build()));
   }
   
   public ClusterTrustBundleNested<A> editOrNewClusterTrustBundleLike(V1ClusterTrustBundleProjection item) {
-    return withNewClusterTrustBundleLike(java.util.Optional.ofNullable(buildClusterTrustBundle()).orElse(item));
+    return this.withNewClusterTrustBundleLike(Optional.ofNullable(this.buildClusterTrustBundle()).orElse(item));
   }
   
   public V1ConfigMapProjection buildConfigMap() {
@@ -103,15 +108,15 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   }
   
   public ConfigMapNested<A> editConfigMap() {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(null));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(null));
   }
   
   public ConfigMapNested<A> editOrNewConfigMap() {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(new V1ConfigMapProjectionBuilder().build()));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(new V1ConfigMapProjectionBuilder().build()));
   }
   
   public ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapProjection item) {
-    return withNewConfigMapLike(java.util.Optional.ofNullable(buildConfigMap()).orElse(item));
+    return this.withNewConfigMapLike(Optional.ofNullable(this.buildConfigMap()).orElse(item));
   }
   
   public V1DownwardAPIProjection buildDownwardAPI() {
@@ -143,15 +148,55 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   }
   
   public DownwardAPINested<A> editDownwardAPI() {
-    return withNewDownwardAPILike(java.util.Optional.ofNullable(buildDownwardAPI()).orElse(null));
+    return this.withNewDownwardAPILike(Optional.ofNullable(this.buildDownwardAPI()).orElse(null));
   }
   
   public DownwardAPINested<A> editOrNewDownwardAPI() {
-    return withNewDownwardAPILike(java.util.Optional.ofNullable(buildDownwardAPI()).orElse(new V1DownwardAPIProjectionBuilder().build()));
+    return this.withNewDownwardAPILike(Optional.ofNullable(this.buildDownwardAPI()).orElse(new V1DownwardAPIProjectionBuilder().build()));
   }
   
   public DownwardAPINested<A> editOrNewDownwardAPILike(V1DownwardAPIProjection item) {
-    return withNewDownwardAPILike(java.util.Optional.ofNullable(buildDownwardAPI()).orElse(item));
+    return this.withNewDownwardAPILike(Optional.ofNullable(this.buildDownwardAPI()).orElse(item));
+  }
+  
+  public V1PodCertificateProjection buildPodCertificate() {
+    return this.podCertificate != null ? this.podCertificate.build() : null;
+  }
+  
+  public A withPodCertificate(V1PodCertificateProjection podCertificate) {
+    this._visitables.remove("podCertificate");
+    if (podCertificate != null) {
+        this.podCertificate = new V1PodCertificateProjectionBuilder(podCertificate);
+        this._visitables.get("podCertificate").add(this.podCertificate);
+    } else {
+        this.podCertificate = null;
+        this._visitables.get("podCertificate").remove(this.podCertificate);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasPodCertificate() {
+    return this.podCertificate != null;
+  }
+  
+  public PodCertificateNested<A> withNewPodCertificate() {
+    return new PodCertificateNested(null);
+  }
+  
+  public PodCertificateNested<A> withNewPodCertificateLike(V1PodCertificateProjection item) {
+    return new PodCertificateNested(item);
+  }
+  
+  public PodCertificateNested<A> editPodCertificate() {
+    return this.withNewPodCertificateLike(Optional.ofNullable(this.buildPodCertificate()).orElse(null));
+  }
+  
+  public PodCertificateNested<A> editOrNewPodCertificate() {
+    return this.withNewPodCertificateLike(Optional.ofNullable(this.buildPodCertificate()).orElse(new V1PodCertificateProjectionBuilder().build()));
+  }
+  
+  public PodCertificateNested<A> editOrNewPodCertificateLike(V1PodCertificateProjection item) {
+    return this.withNewPodCertificateLike(Optional.ofNullable(this.buildPodCertificate()).orElse(item));
   }
   
   public V1SecretProjection buildSecret() {
@@ -183,15 +228,15 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   }
   
   public SecretNested<A> editSecret() {
-    return withNewSecretLike(java.util.Optional.ofNullable(buildSecret()).orElse(null));
+    return this.withNewSecretLike(Optional.ofNullable(this.buildSecret()).orElse(null));
   }
   
   public SecretNested<A> editOrNewSecret() {
-    return withNewSecretLike(java.util.Optional.ofNullable(buildSecret()).orElse(new V1SecretProjectionBuilder().build()));
+    return this.withNewSecretLike(Optional.ofNullable(this.buildSecret()).orElse(new V1SecretProjectionBuilder().build()));
   }
   
   public SecretNested<A> editOrNewSecretLike(V1SecretProjection item) {
-    return withNewSecretLike(java.util.Optional.ofNullable(buildSecret()).orElse(item));
+    return this.withNewSecretLike(Optional.ofNullable(this.buildSecret()).orElse(item));
   }
   
   public V1ServiceAccountTokenProjection buildServiceAccountToken() {
@@ -223,42 +268,85 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
   }
   
   public ServiceAccountTokenNested<A> editServiceAccountToken() {
-    return withNewServiceAccountTokenLike(java.util.Optional.ofNullable(buildServiceAccountToken()).orElse(null));
+    return this.withNewServiceAccountTokenLike(Optional.ofNullable(this.buildServiceAccountToken()).orElse(null));
   }
   
   public ServiceAccountTokenNested<A> editOrNewServiceAccountToken() {
-    return withNewServiceAccountTokenLike(java.util.Optional.ofNullable(buildServiceAccountToken()).orElse(new V1ServiceAccountTokenProjectionBuilder().build()));
+    return this.withNewServiceAccountTokenLike(Optional.ofNullable(this.buildServiceAccountToken()).orElse(new V1ServiceAccountTokenProjectionBuilder().build()));
   }
   
   public ServiceAccountTokenNested<A> editOrNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
-    return withNewServiceAccountTokenLike(java.util.Optional.ofNullable(buildServiceAccountToken()).orElse(item));
+    return this.withNewServiceAccountTokenLike(Optional.ofNullable(this.buildServiceAccountToken()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeProjectionFluent that = (V1VolumeProjectionFluent) o;
-    if (!java.util.Objects.equals(clusterTrustBundle, that.clusterTrustBundle)) return false;
-    if (!java.util.Objects.equals(configMap, that.configMap)) return false;
-    if (!java.util.Objects.equals(downwardAPI, that.downwardAPI)) return false;
-    if (!java.util.Objects.equals(secret, that.secret)) return false;
-    if (!java.util.Objects.equals(serviceAccountToken, that.serviceAccountToken)) return false;
+    if (!(Objects.equals(clusterTrustBundle, that.clusterTrustBundle))) {
+      return false;
+    }
+    if (!(Objects.equals(configMap, that.configMap))) {
+      return false;
+    }
+    if (!(Objects.equals(downwardAPI, that.downwardAPI))) {
+      return false;
+    }
+    if (!(Objects.equals(podCertificate, that.podCertificate))) {
+      return false;
+    }
+    if (!(Objects.equals(secret, that.secret))) {
+      return false;
+    }
+    if (!(Objects.equals(serviceAccountToken, that.serviceAccountToken))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(clusterTrustBundle,  configMap,  downwardAPI,  secret,  serviceAccountToken,  super.hashCode());
+    return Objects.hash(clusterTrustBundle, configMap, downwardAPI, podCertificate, secret, serviceAccountToken);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (clusterTrustBundle != null) { sb.append("clusterTrustBundle:"); sb.append(clusterTrustBundle + ","); }
-    if (configMap != null) { sb.append("configMap:"); sb.append(configMap + ","); }
-    if (downwardAPI != null) { sb.append("downwardAPI:"); sb.append(downwardAPI + ","); }
-    if (secret != null) { sb.append("secret:"); sb.append(secret + ","); }
-    if (serviceAccountToken != null) { sb.append("serviceAccountToken:"); sb.append(serviceAccountToken); }
+    if (!(clusterTrustBundle == null)) {
+        sb.append("clusterTrustBundle:");
+        sb.append(clusterTrustBundle);
+        sb.append(",");
+    }
+    if (!(configMap == null)) {
+        sb.append("configMap:");
+        sb.append(configMap);
+        sb.append(",");
+    }
+    if (!(downwardAPI == null)) {
+        sb.append("downwardAPI:");
+        sb.append(downwardAPI);
+        sb.append(",");
+    }
+    if (!(podCertificate == null)) {
+        sb.append("podCertificate:");
+        sb.append(podCertificate);
+        sb.append(",");
+    }
+    if (!(secret == null)) {
+        sb.append("secret:");
+        sb.append(secret);
+        sb.append(",");
+    }
+    if (!(serviceAccountToken == null)) {
+        sb.append("serviceAccountToken:");
+        sb.append(serviceAccountToken);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -305,6 +393,22 @@ public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> ext
     }
     
     public N endDownwardAPI() {
+      return and();
+    }
+    
+  
+  }
+  public class PodCertificateNested<N> extends V1PodCertificateProjectionFluent<PodCertificateNested<N>> implements Nested<N>{
+    PodCertificateNested(V1PodCertificateProjection item) {
+      this.builder = new V1PodCertificateProjectionBuilder(this, item);
+    }
+    V1PodCertificateProjectionBuilder builder;
+    
+    public N and() {
+      return (N) V1VolumeProjectionFluent.this.withPodCertificate(builder.build());
+    }
+    
+    public N endPodCertificate() {
       return and();
     }
     

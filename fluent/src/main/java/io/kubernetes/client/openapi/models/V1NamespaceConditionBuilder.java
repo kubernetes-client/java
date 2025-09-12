@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluent<V1NamespaceConditionBuilder> implements VisitableBuilder<V1NamespaceCondition,V1NamespaceConditionBuilder>{
   public V1NamespaceConditionBuilder() {
     this(new V1NamespaceCondition());

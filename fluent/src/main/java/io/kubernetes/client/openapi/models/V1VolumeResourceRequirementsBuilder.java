@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1VolumeResourceRequirementsBuilder extends V1VolumeResourceRequirementsFluent<V1VolumeResourceRequirementsBuilder> implements VisitableBuilder<V1VolumeResourceRequirements,V1VolumeResourceRequirementsBuilder>{
   public V1VolumeResourceRequirementsBuilder() {
     this(new V1VolumeResourceRequirements());

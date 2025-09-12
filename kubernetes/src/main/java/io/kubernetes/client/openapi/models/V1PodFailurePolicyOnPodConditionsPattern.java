@@ -27,7 +27,7 @@ import java.io.IOException;
  * PodFailurePolicyOnPodConditionsPattern describes a pattern for matching an actual pod condition type.
  */
 @ApiModel(description = "PodFailurePolicyOnPodConditionsPattern describes a pattern for matching an actual pod condition type.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1PodFailurePolicyOnPodConditionsPattern {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

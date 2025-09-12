@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
-import io.kubernetes.client.openapi.models.V1ResourceClaim;
+import io.kubernetes.client.openapi.models.CoreV1ResourceClaim;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,11 +33,11 @@ import java.util.Map;
  * ResourceRequirements describes the compute resource requirements.
  */
 @ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1ResourceRequirements {
   public static final String SERIALIZED_NAME_CLAIMS = "claims";
   @SerializedName(SERIALIZED_NAME_CLAIMS)
-  private List<V1ResourceClaim> claims = null;
+  private List<CoreV1ResourceClaim> claims = null;
 
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
@@ -48,13 +48,13 @@ public class V1ResourceRequirements {
   private Map<String, Quantity> requests = null;
 
 
-  public V1ResourceRequirements claims(List<V1ResourceClaim> claims) {
+  public V1ResourceRequirements claims(List<CoreV1ResourceClaim> claims) {
 
     this.claims = claims;
     return this;
   }
 
-  public V1ResourceRequirements addClaimsItem(V1ResourceClaim claimsItem) {
+  public V1ResourceRequirements addClaimsItem(CoreV1ResourceClaim claimsItem) {
     if (this.claims == null) {
       this.claims = new ArrayList<>();
     }
@@ -63,18 +63,18 @@ public class V1ResourceRequirements {
   }
 
    /**
-   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.
+   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This field depends on the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.
    * @return claims
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.")
+  @ApiModelProperty(value = "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This field depends on the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.")
 
-  public List<V1ResourceClaim> getClaims() {
+  public List<CoreV1ResourceClaim> getClaims() {
     return claims;
   }
 
 
-  public void setClaims(List<V1ResourceClaim> claims) {
+  public void setClaims(List<CoreV1ResourceClaim> claims) {
     this.claims = claims;
   }
 

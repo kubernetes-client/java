@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
+public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
   public V1alpha1MutatingAdmissionPolicyBindingSpecFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends V1alpha1
   private String policyName;
   
   protected void copyInstance(V1alpha1MutatingAdmissionPolicyBindingSpec instance) {
-    instance = (instance != null ? instance : new V1alpha1MutatingAdmissionPolicyBindingSpec());
+    instance = instance != null ? instance : new V1alpha1MutatingAdmissionPolicyBindingSpec();
     if (instance != null) {
-          this.withMatchResources(instance.getMatchResources());
-          this.withParamRef(instance.getParamRef());
-          this.withPolicyName(instance.getPolicyName());
-        }
+        this.withMatchResources(instance.getMatchResources());
+        this.withParamRef(instance.getParamRef());
+        this.withPolicyName(instance.getPolicyName());
+    }
   }
   
   public V1alpha1MatchResources buildMatchResources() {
@@ -59,15 +62,15 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends V1alpha1
   }
   
   public MatchResourcesNested<A> editMatchResources() {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(null));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(null));
   }
   
   public MatchResourcesNested<A> editOrNewMatchResources() {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(new V1alpha1MatchResourcesBuilder().build()));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(new V1alpha1MatchResourcesBuilder().build()));
   }
   
   public MatchResourcesNested<A> editOrNewMatchResourcesLike(V1alpha1MatchResources item) {
-    return withNewMatchResourcesLike(java.util.Optional.ofNullable(buildMatchResources()).orElse(item));
+    return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(item));
   }
   
   public V1alpha1ParamRef buildParamRef() {
@@ -99,15 +102,15 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends V1alpha1
   }
   
   public ParamRefNested<A> editParamRef() {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(null));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(null));
   }
   
   public ParamRefNested<A> editOrNewParamRef() {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(new V1alpha1ParamRefBuilder().build()));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(new V1alpha1ParamRefBuilder().build()));
   }
   
   public ParamRefNested<A> editOrNewParamRefLike(V1alpha1ParamRef item) {
-    return withNewParamRefLike(java.util.Optional.ofNullable(buildParamRef()).orElse(item));
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(item));
   }
   
   public String getPolicyName() {
@@ -124,26 +127,49 @@ public class V1alpha1MutatingAdmissionPolicyBindingSpecFluent<A extends V1alpha1
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha1MutatingAdmissionPolicyBindingSpecFluent that = (V1alpha1MutatingAdmissionPolicyBindingSpecFluent) o;
-    if (!java.util.Objects.equals(matchResources, that.matchResources)) return false;
-    if (!java.util.Objects.equals(paramRef, that.paramRef)) return false;
-    if (!java.util.Objects.equals(policyName, that.policyName)) return false;
+    if (!(Objects.equals(matchResources, that.matchResources))) {
+      return false;
+    }
+    if (!(Objects.equals(paramRef, that.paramRef))) {
+      return false;
+    }
+    if (!(Objects.equals(policyName, that.policyName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(matchResources,  paramRef,  policyName,  super.hashCode());
+    return Objects.hash(matchResources, paramRef, policyName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (matchResources != null) { sb.append("matchResources:"); sb.append(matchResources + ","); }
-    if (paramRef != null) { sb.append("paramRef:"); sb.append(paramRef + ","); }
-    if (policyName != null) { sb.append("policyName:"); sb.append(policyName); }
+    if (!(matchResources == null)) {
+        sb.append("matchResources:");
+        sb.append(matchResources);
+        sb.append(",");
+    }
+    if (!(paramRef == null)) {
+        sb.append("paramRef:");
+        sb.append(paramRef);
+        sb.append(",");
+    }
+    if (!(policyName == null)) {
+        sb.append("policyName:");
+        sb.append(policyName);
+    }
     sb.append("}");
     return sb.toString();
   }

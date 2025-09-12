@@ -28,7 +28,7 @@ import java.io.IOException;
  * HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).
  */
 @ApiModel(description = "HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V2HorizontalPodAutoscalerBehavior {
   public static final String SERIALIZED_NAME_SCALE_DOWN = "scaleDown";
   @SerializedName(SERIALIZED_NAME_SCALE_DOWN)

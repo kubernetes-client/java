@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ValidationFluent<A extends V1ValidationFluent<A>> extends BaseFluent<A>{
+public class V1ValidationFluent<A extends io.kubernetes.client.openapi.models.V1ValidationFluent<A>> extends BaseFluent<A>{
   public V1ValidationFluent() {
   }
   
@@ -22,13 +24,13 @@ public class V1ValidationFluent<A extends V1ValidationFluent<A>> extends BaseFlu
   private String reason;
   
   protected void copyInstance(V1Validation instance) {
-    instance = (instance != null ? instance : new V1Validation());
+    instance = instance != null ? instance : new V1Validation();
     if (instance != null) {
-          this.withExpression(instance.getExpression());
-          this.withMessage(instance.getMessage());
-          this.withMessageExpression(instance.getMessageExpression());
-          this.withReason(instance.getReason());
-        }
+        this.withExpression(instance.getExpression());
+        this.withMessage(instance.getMessage());
+        this.withMessageExpression(instance.getMessageExpression());
+        this.withReason(instance.getReason());
+    }
   }
   
   public String getExpression() {
@@ -84,28 +86,57 @@ public class V1ValidationFluent<A extends V1ValidationFluent<A>> extends BaseFlu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ValidationFluent that = (V1ValidationFluent) o;
-    if (!java.util.Objects.equals(expression, that.expression)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(messageExpression, that.messageExpression)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
+    if (!(Objects.equals(expression, that.expression))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(messageExpression, that.messageExpression))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expression,  message,  messageExpression,  reason,  super.hashCode());
+    return Objects.hash(expression, message, messageExpression, reason);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expression != null) { sb.append("expression:"); sb.append(expression + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (messageExpression != null) { sb.append("messageExpression:"); sb.append(messageExpression + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason); }
+    if (!(expression == null)) {
+        sb.append("expression:");
+        sb.append(expression);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(messageExpression == null)) {
+        sb.append("messageExpression:");
+        sb.append(messageExpression);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+    }
     sb.append("}");
     return sb.toString();
   }

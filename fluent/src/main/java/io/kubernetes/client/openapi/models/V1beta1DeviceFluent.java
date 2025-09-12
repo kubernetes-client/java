@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1DeviceFluent<A extends V1beta1DeviceFluent<A>> extends BaseFluent<A>{
+public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceFluent<A>> extends BaseFluent<A>{
   public V1beta1DeviceFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1beta1DeviceFluent<A extends V1beta1DeviceFluent<A>> extends BaseF
   private String name;
   
   protected void copyInstance(V1beta1Device instance) {
-    instance = (instance != null ? instance : new V1beta1Device());
+    instance = instance != null ? instance : new V1beta1Device();
     if (instance != null) {
-          this.withBasic(instance.getBasic());
-          this.withName(instance.getName());
-        }
+        this.withBasic(instance.getBasic());
+        this.withName(instance.getName());
+    }
   }
   
   public V1beta1BasicDevice buildBasic() {
@@ -57,15 +60,15 @@ public class V1beta1DeviceFluent<A extends V1beta1DeviceFluent<A>> extends BaseF
   }
   
   public BasicNested<A> editBasic() {
-    return withNewBasicLike(java.util.Optional.ofNullable(buildBasic()).orElse(null));
+    return this.withNewBasicLike(Optional.ofNullable(this.buildBasic()).orElse(null));
   }
   
   public BasicNested<A> editOrNewBasic() {
-    return withNewBasicLike(java.util.Optional.ofNullable(buildBasic()).orElse(new V1beta1BasicDeviceBuilder().build()));
+    return this.withNewBasicLike(Optional.ofNullable(this.buildBasic()).orElse(new V1beta1BasicDeviceBuilder().build()));
   }
   
   public BasicNested<A> editOrNewBasicLike(V1beta1BasicDevice item) {
-    return withNewBasicLike(java.util.Optional.ofNullable(buildBasic()).orElse(item));
+    return this.withNewBasicLike(Optional.ofNullable(this.buildBasic()).orElse(item));
   }
   
   public String getName() {
@@ -82,24 +85,41 @@ public class V1beta1DeviceFluent<A extends V1beta1DeviceFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1DeviceFluent that = (V1beta1DeviceFluent) o;
-    if (!java.util.Objects.equals(basic, that.basic)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(basic, that.basic))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(basic,  name,  super.hashCode());
+    return Objects.hash(basic, name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (basic != null) { sb.append("basic:"); sb.append(basic + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(basic == null)) {
+        sb.append("basic:");
+        sb.append(basic);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

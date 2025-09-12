@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ReplicaSetStatusBuilder extends V1ReplicaSetStatusFluent<V1ReplicaSetStatusBuilder> implements VisitableBuilder<V1ReplicaSetStatus,V1ReplicaSetStatusBuilder>{
   public V1ReplicaSetStatusBuilder() {
     this(new V1ReplicaSetStatus());

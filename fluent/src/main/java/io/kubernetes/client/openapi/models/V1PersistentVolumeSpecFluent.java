@@ -8,7 +8,10 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import io.kubernetes.client.custom.Quantity;
@@ -17,7 +20,7 @@ import io.kubernetes.client.custom.Quantity;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent<A>> extends BaseFluent<A>{
+public class V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<A>> extends BaseFluent<A>{
   public V1PersistentVolumeSpecFluent() {
   }
   
@@ -57,71 +60,96 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   private V1VsphereVirtualDiskVolumeSourceBuilder vsphereVolume;
   
   protected void copyInstance(V1PersistentVolumeSpec instance) {
-    instance = (instance != null ? instance : new V1PersistentVolumeSpec());
+    instance = instance != null ? instance : new V1PersistentVolumeSpec();
     if (instance != null) {
-          this.withAccessModes(instance.getAccessModes());
-          this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-          this.withAzureDisk(instance.getAzureDisk());
-          this.withAzureFile(instance.getAzureFile());
-          this.withCapacity(instance.getCapacity());
-          this.withCephfs(instance.getCephfs());
-          this.withCinder(instance.getCinder());
-          this.withClaimRef(instance.getClaimRef());
-          this.withCsi(instance.getCsi());
-          this.withFc(instance.getFc());
-          this.withFlexVolume(instance.getFlexVolume());
-          this.withFlocker(instance.getFlocker());
-          this.withGcePersistentDisk(instance.getGcePersistentDisk());
-          this.withGlusterfs(instance.getGlusterfs());
-          this.withHostPath(instance.getHostPath());
-          this.withIscsi(instance.getIscsi());
-          this.withLocal(instance.getLocal());
-          this.withMountOptions(instance.getMountOptions());
-          this.withNfs(instance.getNfs());
-          this.withNodeAffinity(instance.getNodeAffinity());
-          this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
-          this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-          this.withPortworxVolume(instance.getPortworxVolume());
-          this.withQuobyte(instance.getQuobyte());
-          this.withRbd(instance.getRbd());
-          this.withScaleIO(instance.getScaleIO());
-          this.withStorageClassName(instance.getStorageClassName());
-          this.withStorageos(instance.getStorageos());
-          this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
-          this.withVolumeMode(instance.getVolumeMode());
-          this.withVsphereVolume(instance.getVsphereVolume());
-        }
+        this.withAccessModes(instance.getAccessModes());
+        this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+        this.withAzureDisk(instance.getAzureDisk());
+        this.withAzureFile(instance.getAzureFile());
+        this.withCapacity(instance.getCapacity());
+        this.withCephfs(instance.getCephfs());
+        this.withCinder(instance.getCinder());
+        this.withClaimRef(instance.getClaimRef());
+        this.withCsi(instance.getCsi());
+        this.withFc(instance.getFc());
+        this.withFlexVolume(instance.getFlexVolume());
+        this.withFlocker(instance.getFlocker());
+        this.withGcePersistentDisk(instance.getGcePersistentDisk());
+        this.withGlusterfs(instance.getGlusterfs());
+        this.withHostPath(instance.getHostPath());
+        this.withIscsi(instance.getIscsi());
+        this.withLocal(instance.getLocal());
+        this.withMountOptions(instance.getMountOptions());
+        this.withNfs(instance.getNfs());
+        this.withNodeAffinity(instance.getNodeAffinity());
+        this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
+        this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+        this.withPortworxVolume(instance.getPortworxVolume());
+        this.withQuobyte(instance.getQuobyte());
+        this.withRbd(instance.getRbd());
+        this.withScaleIO(instance.getScaleIO());
+        this.withStorageClassName(instance.getStorageClassName());
+        this.withStorageos(instance.getStorageos());
+        this.withVolumeAttributesClassName(instance.getVolumeAttributesClassName());
+        this.withVolumeMode(instance.getVolumeMode());
+        this.withVsphereVolume(instance.getVsphereVolume());
+    }
   }
   
   public A addToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
     this.accessModes.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAccessModes(int index,String item) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    this.accessModes.set(index, item); return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    this.accessModes.set(index, item);
+    return (A) this;
   }
   
-  public A addToAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+  public A addToAccessModes(String... items) {
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToAccessModes(Collection<String> items) {
-    if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
-    for (String item : items) {this.accessModes.add(item);} return (A)this;
+    if (this.accessModes == null) {
+      this.accessModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.accessModes.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromAccessModes(java.lang.String... items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+  public A removeFromAccessModes(String... items) {
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAccessModes(Collection<String> items) {
-    if (this.accessModes == null) return (A)this;
-    for (String item : items) { this.accessModes.remove(item);} return (A)this;
+    if (this.accessModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.accessModes.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getAccessModes() {
@@ -170,7 +198,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
     return (A) this;
   }
   
-  public A withAccessModes(java.lang.String... accessModes) {
+  public A withAccessModes(String... accessModes) {
     if (this.accessModes != null) {
         this.accessModes.clear();
         _visitables.remove("accessModes");
@@ -184,7 +212,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public boolean hasAccessModes() {
-    return this.accessModes != null && !this.accessModes.isEmpty();
+    return this.accessModes != null && !(this.accessModes.isEmpty());
   }
   
   public V1AWSElasticBlockStoreVolumeSource buildAwsElasticBlockStore() {
@@ -216,15 +244,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public AwsElasticBlockStoreNested<A> editAwsElasticBlockStore() {
-    return withNewAwsElasticBlockStoreLike(java.util.Optional.ofNullable(buildAwsElasticBlockStore()).orElse(null));
+    return this.withNewAwsElasticBlockStoreLike(Optional.ofNullable(this.buildAwsElasticBlockStore()).orElse(null));
   }
   
   public AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStore() {
-    return withNewAwsElasticBlockStoreLike(java.util.Optional.ofNullable(buildAwsElasticBlockStore()).orElse(new V1AWSElasticBlockStoreVolumeSourceBuilder().build()));
+    return this.withNewAwsElasticBlockStoreLike(Optional.ofNullable(this.buildAwsElasticBlockStore()).orElse(new V1AWSElasticBlockStoreVolumeSourceBuilder().build()));
   }
   
   public AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
-    return withNewAwsElasticBlockStoreLike(java.util.Optional.ofNullable(buildAwsElasticBlockStore()).orElse(item));
+    return this.withNewAwsElasticBlockStoreLike(Optional.ofNullable(this.buildAwsElasticBlockStore()).orElse(item));
   }
   
   public V1AzureDiskVolumeSource buildAzureDisk() {
@@ -256,15 +284,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public AzureDiskNested<A> editAzureDisk() {
-    return withNewAzureDiskLike(java.util.Optional.ofNullable(buildAzureDisk()).orElse(null));
+    return this.withNewAzureDiskLike(Optional.ofNullable(this.buildAzureDisk()).orElse(null));
   }
   
   public AzureDiskNested<A> editOrNewAzureDisk() {
-    return withNewAzureDiskLike(java.util.Optional.ofNullable(buildAzureDisk()).orElse(new V1AzureDiskVolumeSourceBuilder().build()));
+    return this.withNewAzureDiskLike(Optional.ofNullable(this.buildAzureDisk()).orElse(new V1AzureDiskVolumeSourceBuilder().build()));
   }
   
   public AzureDiskNested<A> editOrNewAzureDiskLike(V1AzureDiskVolumeSource item) {
-    return withNewAzureDiskLike(java.util.Optional.ofNullable(buildAzureDisk()).orElse(item));
+    return this.withNewAzureDiskLike(Optional.ofNullable(this.buildAzureDisk()).orElse(item));
   }
   
   public V1AzureFilePersistentVolumeSource buildAzureFile() {
@@ -296,35 +324,59 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public AzureFileNested<A> editAzureFile() {
-    return withNewAzureFileLike(java.util.Optional.ofNullable(buildAzureFile()).orElse(null));
+    return this.withNewAzureFileLike(Optional.ofNullable(this.buildAzureFile()).orElse(null));
   }
   
   public AzureFileNested<A> editOrNewAzureFile() {
-    return withNewAzureFileLike(java.util.Optional.ofNullable(buildAzureFile()).orElse(new V1AzureFilePersistentVolumeSourceBuilder().build()));
+    return this.withNewAzureFileLike(Optional.ofNullable(this.buildAzureFile()).orElse(new V1AzureFilePersistentVolumeSourceBuilder().build()));
   }
   
   public AzureFileNested<A> editOrNewAzureFileLike(V1AzureFilePersistentVolumeSource item) {
-    return withNewAzureFileLike(java.util.Optional.ofNullable(buildAzureFile()).orElse(item));
+    return this.withNewAzureFileLike(Optional.ofNullable(this.buildAzureFile()).orElse(item));
   }
   
   public A addToCapacity(String key,Quantity value) {
-    if(this.capacity == null && key != null && value != null) { this.capacity = new LinkedHashMap(); }
-    if(key != null && value != null) {this.capacity.put(key, value);} return (A)this;
+    if (this.capacity == null && key != null && value != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.capacity.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null && map != null) { this.capacity = new LinkedHashMap(); }
-    if(map != null) { this.capacity.putAll(map);} return (A)this;
+    if (this.capacity == null && map != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.capacity.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(String key) {
-    if(this.capacity == null) { return (A) this; }
-    if(key != null && this.capacity != null) {this.capacity.remove(key);} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (key != null && this.capacity != null) {
+      this.capacity.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromCapacity(Map<String,Quantity> map) {
-    if(this.capacity == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.capacity != null){this.capacity.remove(key);}}} return (A)this;
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.capacity != null) {
+          this.capacity.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getCapacity() {
@@ -373,15 +425,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public CephfsNested<A> editCephfs() {
-    return withNewCephfsLike(java.util.Optional.ofNullable(buildCephfs()).orElse(null));
+    return this.withNewCephfsLike(Optional.ofNullable(this.buildCephfs()).orElse(null));
   }
   
   public CephfsNested<A> editOrNewCephfs() {
-    return withNewCephfsLike(java.util.Optional.ofNullable(buildCephfs()).orElse(new V1CephFSPersistentVolumeSourceBuilder().build()));
+    return this.withNewCephfsLike(Optional.ofNullable(this.buildCephfs()).orElse(new V1CephFSPersistentVolumeSourceBuilder().build()));
   }
   
   public CephfsNested<A> editOrNewCephfsLike(V1CephFSPersistentVolumeSource item) {
-    return withNewCephfsLike(java.util.Optional.ofNullable(buildCephfs()).orElse(item));
+    return this.withNewCephfsLike(Optional.ofNullable(this.buildCephfs()).orElse(item));
   }
   
   public V1CinderPersistentVolumeSource buildCinder() {
@@ -413,15 +465,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public CinderNested<A> editCinder() {
-    return withNewCinderLike(java.util.Optional.ofNullable(buildCinder()).orElse(null));
+    return this.withNewCinderLike(Optional.ofNullable(this.buildCinder()).orElse(null));
   }
   
   public CinderNested<A> editOrNewCinder() {
-    return withNewCinderLike(java.util.Optional.ofNullable(buildCinder()).orElse(new V1CinderPersistentVolumeSourceBuilder().build()));
+    return this.withNewCinderLike(Optional.ofNullable(this.buildCinder()).orElse(new V1CinderPersistentVolumeSourceBuilder().build()));
   }
   
   public CinderNested<A> editOrNewCinderLike(V1CinderPersistentVolumeSource item) {
-    return withNewCinderLike(java.util.Optional.ofNullable(buildCinder()).orElse(item));
+    return this.withNewCinderLike(Optional.ofNullable(this.buildCinder()).orElse(item));
   }
   
   public V1ObjectReference buildClaimRef() {
@@ -453,15 +505,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public ClaimRefNested<A> editClaimRef() {
-    return withNewClaimRefLike(java.util.Optional.ofNullable(buildClaimRef()).orElse(null));
+    return this.withNewClaimRefLike(Optional.ofNullable(this.buildClaimRef()).orElse(null));
   }
   
   public ClaimRefNested<A> editOrNewClaimRef() {
-    return withNewClaimRefLike(java.util.Optional.ofNullable(buildClaimRef()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewClaimRefLike(Optional.ofNullable(this.buildClaimRef()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public ClaimRefNested<A> editOrNewClaimRefLike(V1ObjectReference item) {
-    return withNewClaimRefLike(java.util.Optional.ofNullable(buildClaimRef()).orElse(item));
+    return this.withNewClaimRefLike(Optional.ofNullable(this.buildClaimRef()).orElse(item));
   }
   
   public V1CSIPersistentVolumeSource buildCsi() {
@@ -493,15 +545,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public CsiNested<A> editCsi() {
-    return withNewCsiLike(java.util.Optional.ofNullable(buildCsi()).orElse(null));
+    return this.withNewCsiLike(Optional.ofNullable(this.buildCsi()).orElse(null));
   }
   
   public CsiNested<A> editOrNewCsi() {
-    return withNewCsiLike(java.util.Optional.ofNullable(buildCsi()).orElse(new V1CSIPersistentVolumeSourceBuilder().build()));
+    return this.withNewCsiLike(Optional.ofNullable(this.buildCsi()).orElse(new V1CSIPersistentVolumeSourceBuilder().build()));
   }
   
   public CsiNested<A> editOrNewCsiLike(V1CSIPersistentVolumeSource item) {
-    return withNewCsiLike(java.util.Optional.ofNullable(buildCsi()).orElse(item));
+    return this.withNewCsiLike(Optional.ofNullable(this.buildCsi()).orElse(item));
   }
   
   public V1FCVolumeSource buildFc() {
@@ -533,15 +585,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public FcNested<A> editFc() {
-    return withNewFcLike(java.util.Optional.ofNullable(buildFc()).orElse(null));
+    return this.withNewFcLike(Optional.ofNullable(this.buildFc()).orElse(null));
   }
   
   public FcNested<A> editOrNewFc() {
-    return withNewFcLike(java.util.Optional.ofNullable(buildFc()).orElse(new V1FCVolumeSourceBuilder().build()));
+    return this.withNewFcLike(Optional.ofNullable(this.buildFc()).orElse(new V1FCVolumeSourceBuilder().build()));
   }
   
   public FcNested<A> editOrNewFcLike(V1FCVolumeSource item) {
-    return withNewFcLike(java.util.Optional.ofNullable(buildFc()).orElse(item));
+    return this.withNewFcLike(Optional.ofNullable(this.buildFc()).orElse(item));
   }
   
   public V1FlexPersistentVolumeSource buildFlexVolume() {
@@ -573,15 +625,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public FlexVolumeNested<A> editFlexVolume() {
-    return withNewFlexVolumeLike(java.util.Optional.ofNullable(buildFlexVolume()).orElse(null));
+    return this.withNewFlexVolumeLike(Optional.ofNullable(this.buildFlexVolume()).orElse(null));
   }
   
   public FlexVolumeNested<A> editOrNewFlexVolume() {
-    return withNewFlexVolumeLike(java.util.Optional.ofNullable(buildFlexVolume()).orElse(new V1FlexPersistentVolumeSourceBuilder().build()));
+    return this.withNewFlexVolumeLike(Optional.ofNullable(this.buildFlexVolume()).orElse(new V1FlexPersistentVolumeSourceBuilder().build()));
   }
   
   public FlexVolumeNested<A> editOrNewFlexVolumeLike(V1FlexPersistentVolumeSource item) {
-    return withNewFlexVolumeLike(java.util.Optional.ofNullable(buildFlexVolume()).orElse(item));
+    return this.withNewFlexVolumeLike(Optional.ofNullable(this.buildFlexVolume()).orElse(item));
   }
   
   public V1FlockerVolumeSource buildFlocker() {
@@ -613,15 +665,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public FlockerNested<A> editFlocker() {
-    return withNewFlockerLike(java.util.Optional.ofNullable(buildFlocker()).orElse(null));
+    return this.withNewFlockerLike(Optional.ofNullable(this.buildFlocker()).orElse(null));
   }
   
   public FlockerNested<A> editOrNewFlocker() {
-    return withNewFlockerLike(java.util.Optional.ofNullable(buildFlocker()).orElse(new V1FlockerVolumeSourceBuilder().build()));
+    return this.withNewFlockerLike(Optional.ofNullable(this.buildFlocker()).orElse(new V1FlockerVolumeSourceBuilder().build()));
   }
   
   public FlockerNested<A> editOrNewFlockerLike(V1FlockerVolumeSource item) {
-    return withNewFlockerLike(java.util.Optional.ofNullable(buildFlocker()).orElse(item));
+    return this.withNewFlockerLike(Optional.ofNullable(this.buildFlocker()).orElse(item));
   }
   
   public V1GCEPersistentDiskVolumeSource buildGcePersistentDisk() {
@@ -653,15 +705,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public GcePersistentDiskNested<A> editGcePersistentDisk() {
-    return withNewGcePersistentDiskLike(java.util.Optional.ofNullable(buildGcePersistentDisk()).orElse(null));
+    return this.withNewGcePersistentDiskLike(Optional.ofNullable(this.buildGcePersistentDisk()).orElse(null));
   }
   
   public GcePersistentDiskNested<A> editOrNewGcePersistentDisk() {
-    return withNewGcePersistentDiskLike(java.util.Optional.ofNullable(buildGcePersistentDisk()).orElse(new V1GCEPersistentDiskVolumeSourceBuilder().build()));
+    return this.withNewGcePersistentDiskLike(Optional.ofNullable(this.buildGcePersistentDisk()).orElse(new V1GCEPersistentDiskVolumeSourceBuilder().build()));
   }
   
   public GcePersistentDiskNested<A> editOrNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
-    return withNewGcePersistentDiskLike(java.util.Optional.ofNullable(buildGcePersistentDisk()).orElse(item));
+    return this.withNewGcePersistentDiskLike(Optional.ofNullable(this.buildGcePersistentDisk()).orElse(item));
   }
   
   public V1GlusterfsPersistentVolumeSource buildGlusterfs() {
@@ -693,15 +745,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public GlusterfsNested<A> editGlusterfs() {
-    return withNewGlusterfsLike(java.util.Optional.ofNullable(buildGlusterfs()).orElse(null));
+    return this.withNewGlusterfsLike(Optional.ofNullable(this.buildGlusterfs()).orElse(null));
   }
   
   public GlusterfsNested<A> editOrNewGlusterfs() {
-    return withNewGlusterfsLike(java.util.Optional.ofNullable(buildGlusterfs()).orElse(new V1GlusterfsPersistentVolumeSourceBuilder().build()));
+    return this.withNewGlusterfsLike(Optional.ofNullable(this.buildGlusterfs()).orElse(new V1GlusterfsPersistentVolumeSourceBuilder().build()));
   }
   
   public GlusterfsNested<A> editOrNewGlusterfsLike(V1GlusterfsPersistentVolumeSource item) {
-    return withNewGlusterfsLike(java.util.Optional.ofNullable(buildGlusterfs()).orElse(item));
+    return this.withNewGlusterfsLike(Optional.ofNullable(this.buildGlusterfs()).orElse(item));
   }
   
   public V1HostPathVolumeSource buildHostPath() {
@@ -733,15 +785,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public HostPathNested<A> editHostPath() {
-    return withNewHostPathLike(java.util.Optional.ofNullable(buildHostPath()).orElse(null));
+    return this.withNewHostPathLike(Optional.ofNullable(this.buildHostPath()).orElse(null));
   }
   
   public HostPathNested<A> editOrNewHostPath() {
-    return withNewHostPathLike(java.util.Optional.ofNullable(buildHostPath()).orElse(new V1HostPathVolumeSourceBuilder().build()));
+    return this.withNewHostPathLike(Optional.ofNullable(this.buildHostPath()).orElse(new V1HostPathVolumeSourceBuilder().build()));
   }
   
   public HostPathNested<A> editOrNewHostPathLike(V1HostPathVolumeSource item) {
-    return withNewHostPathLike(java.util.Optional.ofNullable(buildHostPath()).orElse(item));
+    return this.withNewHostPathLike(Optional.ofNullable(this.buildHostPath()).orElse(item));
   }
   
   public V1ISCSIPersistentVolumeSource buildIscsi() {
@@ -773,15 +825,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public IscsiNested<A> editIscsi() {
-    return withNewIscsiLike(java.util.Optional.ofNullable(buildIscsi()).orElse(null));
+    return this.withNewIscsiLike(Optional.ofNullable(this.buildIscsi()).orElse(null));
   }
   
   public IscsiNested<A> editOrNewIscsi() {
-    return withNewIscsiLike(java.util.Optional.ofNullable(buildIscsi()).orElse(new V1ISCSIPersistentVolumeSourceBuilder().build()));
+    return this.withNewIscsiLike(Optional.ofNullable(this.buildIscsi()).orElse(new V1ISCSIPersistentVolumeSourceBuilder().build()));
   }
   
   public IscsiNested<A> editOrNewIscsiLike(V1ISCSIPersistentVolumeSource item) {
-    return withNewIscsiLike(java.util.Optional.ofNullable(buildIscsi()).orElse(item));
+    return this.withNewIscsiLike(Optional.ofNullable(this.buildIscsi()).orElse(item));
   }
   
   public V1LocalVolumeSource buildLocal() {
@@ -813,46 +865,71 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public LocalNested<A> editLocal() {
-    return withNewLocalLike(java.util.Optional.ofNullable(buildLocal()).orElse(null));
+    return this.withNewLocalLike(Optional.ofNullable(this.buildLocal()).orElse(null));
   }
   
   public LocalNested<A> editOrNewLocal() {
-    return withNewLocalLike(java.util.Optional.ofNullable(buildLocal()).orElse(new V1LocalVolumeSourceBuilder().build()));
+    return this.withNewLocalLike(Optional.ofNullable(this.buildLocal()).orElse(new V1LocalVolumeSourceBuilder().build()));
   }
   
   public LocalNested<A> editOrNewLocalLike(V1LocalVolumeSource item) {
-    return withNewLocalLike(java.util.Optional.ofNullable(buildLocal()).orElse(item));
+    return this.withNewLocalLike(Optional.ofNullable(this.buildLocal()).orElse(item));
   }
   
   public A addToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
     this.mountOptions.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    this.mountOptions.set(index, item); return (A)this;
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    this.mountOptions.set(index, item);
+    return (A) this;
   }
   
-  public A addToMountOptions(java.lang.String... items) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    for (String item : items) {this.mountOptions.add(item);} return (A)this;
+  public A addToMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    for (String item : items) {
+      this.mountOptions.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
-    for (String item : items) {this.mountOptions.add(item);} return (A)this;
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    for (String item : items) {
+      this.mountOptions.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMountOptions(java.lang.String... items) {
-    if (this.mountOptions == null) return (A)this;
-    for (String item : items) { this.mountOptions.remove(item);} return (A)this;
+  public A removeFromMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) return (A)this;
-    for (String item : items) { this.mountOptions.remove(item);} return (A)this;
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMountOptions() {
@@ -901,7 +978,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
     return (A) this;
   }
   
-  public A withMountOptions(java.lang.String... mountOptions) {
+  public A withMountOptions(String... mountOptions) {
     if (this.mountOptions != null) {
         this.mountOptions.clear();
         _visitables.remove("mountOptions");
@@ -915,7 +992,7 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public boolean hasMountOptions() {
-    return this.mountOptions != null && !this.mountOptions.isEmpty();
+    return this.mountOptions != null && !(this.mountOptions.isEmpty());
   }
   
   public V1NFSVolumeSource buildNfs() {
@@ -947,15 +1024,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public NfsNested<A> editNfs() {
-    return withNewNfsLike(java.util.Optional.ofNullable(buildNfs()).orElse(null));
+    return this.withNewNfsLike(Optional.ofNullable(this.buildNfs()).orElse(null));
   }
   
   public NfsNested<A> editOrNewNfs() {
-    return withNewNfsLike(java.util.Optional.ofNullable(buildNfs()).orElse(new V1NFSVolumeSourceBuilder().build()));
+    return this.withNewNfsLike(Optional.ofNullable(this.buildNfs()).orElse(new V1NFSVolumeSourceBuilder().build()));
   }
   
   public NfsNested<A> editOrNewNfsLike(V1NFSVolumeSource item) {
-    return withNewNfsLike(java.util.Optional.ofNullable(buildNfs()).orElse(item));
+    return this.withNewNfsLike(Optional.ofNullable(this.buildNfs()).orElse(item));
   }
   
   public V1VolumeNodeAffinity buildNodeAffinity() {
@@ -987,15 +1064,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public NodeAffinityNested<A> editNodeAffinity() {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(null));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(null));
   }
   
   public NodeAffinityNested<A> editOrNewNodeAffinity() {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(new V1VolumeNodeAffinityBuilder().build()));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(new V1VolumeNodeAffinityBuilder().build()));
   }
   
   public NodeAffinityNested<A> editOrNewNodeAffinityLike(V1VolumeNodeAffinity item) {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(item));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(item));
   }
   
   public String getPersistentVolumeReclaimPolicy() {
@@ -1040,15 +1117,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public PhotonPersistentDiskNested<A> editPhotonPersistentDisk() {
-    return withNewPhotonPersistentDiskLike(java.util.Optional.ofNullable(buildPhotonPersistentDisk()).orElse(null));
+    return this.withNewPhotonPersistentDiskLike(Optional.ofNullable(this.buildPhotonPersistentDisk()).orElse(null));
   }
   
   public PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDisk() {
-    return withNewPhotonPersistentDiskLike(java.util.Optional.ofNullable(buildPhotonPersistentDisk()).orElse(new V1PhotonPersistentDiskVolumeSourceBuilder().build()));
+    return this.withNewPhotonPersistentDiskLike(Optional.ofNullable(this.buildPhotonPersistentDisk()).orElse(new V1PhotonPersistentDiskVolumeSourceBuilder().build()));
   }
   
   public PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
-    return withNewPhotonPersistentDiskLike(java.util.Optional.ofNullable(buildPhotonPersistentDisk()).orElse(item));
+    return this.withNewPhotonPersistentDiskLike(Optional.ofNullable(this.buildPhotonPersistentDisk()).orElse(item));
   }
   
   public V1PortworxVolumeSource buildPortworxVolume() {
@@ -1080,15 +1157,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public PortworxVolumeNested<A> editPortworxVolume() {
-    return withNewPortworxVolumeLike(java.util.Optional.ofNullable(buildPortworxVolume()).orElse(null));
+    return this.withNewPortworxVolumeLike(Optional.ofNullable(this.buildPortworxVolume()).orElse(null));
   }
   
   public PortworxVolumeNested<A> editOrNewPortworxVolume() {
-    return withNewPortworxVolumeLike(java.util.Optional.ofNullable(buildPortworxVolume()).orElse(new V1PortworxVolumeSourceBuilder().build()));
+    return this.withNewPortworxVolumeLike(Optional.ofNullable(this.buildPortworxVolume()).orElse(new V1PortworxVolumeSourceBuilder().build()));
   }
   
   public PortworxVolumeNested<A> editOrNewPortworxVolumeLike(V1PortworxVolumeSource item) {
-    return withNewPortworxVolumeLike(java.util.Optional.ofNullable(buildPortworxVolume()).orElse(item));
+    return this.withNewPortworxVolumeLike(Optional.ofNullable(this.buildPortworxVolume()).orElse(item));
   }
   
   public V1QuobyteVolumeSource buildQuobyte() {
@@ -1120,15 +1197,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public QuobyteNested<A> editQuobyte() {
-    return withNewQuobyteLike(java.util.Optional.ofNullable(buildQuobyte()).orElse(null));
+    return this.withNewQuobyteLike(Optional.ofNullable(this.buildQuobyte()).orElse(null));
   }
   
   public QuobyteNested<A> editOrNewQuobyte() {
-    return withNewQuobyteLike(java.util.Optional.ofNullable(buildQuobyte()).orElse(new V1QuobyteVolumeSourceBuilder().build()));
+    return this.withNewQuobyteLike(Optional.ofNullable(this.buildQuobyte()).orElse(new V1QuobyteVolumeSourceBuilder().build()));
   }
   
   public QuobyteNested<A> editOrNewQuobyteLike(V1QuobyteVolumeSource item) {
-    return withNewQuobyteLike(java.util.Optional.ofNullable(buildQuobyte()).orElse(item));
+    return this.withNewQuobyteLike(Optional.ofNullable(this.buildQuobyte()).orElse(item));
   }
   
   public V1RBDPersistentVolumeSource buildRbd() {
@@ -1160,15 +1237,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public RbdNested<A> editRbd() {
-    return withNewRbdLike(java.util.Optional.ofNullable(buildRbd()).orElse(null));
+    return this.withNewRbdLike(Optional.ofNullable(this.buildRbd()).orElse(null));
   }
   
   public RbdNested<A> editOrNewRbd() {
-    return withNewRbdLike(java.util.Optional.ofNullable(buildRbd()).orElse(new V1RBDPersistentVolumeSourceBuilder().build()));
+    return this.withNewRbdLike(Optional.ofNullable(this.buildRbd()).orElse(new V1RBDPersistentVolumeSourceBuilder().build()));
   }
   
   public RbdNested<A> editOrNewRbdLike(V1RBDPersistentVolumeSource item) {
-    return withNewRbdLike(java.util.Optional.ofNullable(buildRbd()).orElse(item));
+    return this.withNewRbdLike(Optional.ofNullable(this.buildRbd()).orElse(item));
   }
   
   public V1ScaleIOPersistentVolumeSource buildScaleIO() {
@@ -1200,15 +1277,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public ScaleIONested<A> editScaleIO() {
-    return withNewScaleIOLike(java.util.Optional.ofNullable(buildScaleIO()).orElse(null));
+    return this.withNewScaleIOLike(Optional.ofNullable(this.buildScaleIO()).orElse(null));
   }
   
   public ScaleIONested<A> editOrNewScaleIO() {
-    return withNewScaleIOLike(java.util.Optional.ofNullable(buildScaleIO()).orElse(new V1ScaleIOPersistentVolumeSourceBuilder().build()));
+    return this.withNewScaleIOLike(Optional.ofNullable(this.buildScaleIO()).orElse(new V1ScaleIOPersistentVolumeSourceBuilder().build()));
   }
   
   public ScaleIONested<A> editOrNewScaleIOLike(V1ScaleIOPersistentVolumeSource item) {
-    return withNewScaleIOLike(java.util.Optional.ofNullable(buildScaleIO()).orElse(item));
+    return this.withNewScaleIOLike(Optional.ofNullable(this.buildScaleIO()).orElse(item));
   }
   
   public String getStorageClassName() {
@@ -1253,15 +1330,15 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public StorageosNested<A> editStorageos() {
-    return withNewStorageosLike(java.util.Optional.ofNullable(buildStorageos()).orElse(null));
+    return this.withNewStorageosLike(Optional.ofNullable(this.buildStorageos()).orElse(null));
   }
   
   public StorageosNested<A> editOrNewStorageos() {
-    return withNewStorageosLike(java.util.Optional.ofNullable(buildStorageos()).orElse(new V1StorageOSPersistentVolumeSourceBuilder().build()));
+    return this.withNewStorageosLike(Optional.ofNullable(this.buildStorageos()).orElse(new V1StorageOSPersistentVolumeSourceBuilder().build()));
   }
   
   public StorageosNested<A> editOrNewStorageosLike(V1StorageOSPersistentVolumeSource item) {
-    return withNewStorageosLike(java.util.Optional.ofNullable(buildStorageos()).orElse(item));
+    return this.withNewStorageosLike(Optional.ofNullable(this.buildStorageos()).orElse(item));
   }
   
   public String getVolumeAttributesClassName() {
@@ -1319,94 +1396,285 @@ public class V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent
   }
   
   public VsphereVolumeNested<A> editVsphereVolume() {
-    return withNewVsphereVolumeLike(java.util.Optional.ofNullable(buildVsphereVolume()).orElse(null));
+    return this.withNewVsphereVolumeLike(Optional.ofNullable(this.buildVsphereVolume()).orElse(null));
   }
   
   public VsphereVolumeNested<A> editOrNewVsphereVolume() {
-    return withNewVsphereVolumeLike(java.util.Optional.ofNullable(buildVsphereVolume()).orElse(new V1VsphereVirtualDiskVolumeSourceBuilder().build()));
+    return this.withNewVsphereVolumeLike(Optional.ofNullable(this.buildVsphereVolume()).orElse(new V1VsphereVirtualDiskVolumeSourceBuilder().build()));
   }
   
   public VsphereVolumeNested<A> editOrNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
-    return withNewVsphereVolumeLike(java.util.Optional.ofNullable(buildVsphereVolume()).orElse(item));
+    return this.withNewVsphereVolumeLike(Optional.ofNullable(this.buildVsphereVolume()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PersistentVolumeSpecFluent that = (V1PersistentVolumeSpecFluent) o;
-    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
-    if (!java.util.Objects.equals(awsElasticBlockStore, that.awsElasticBlockStore)) return false;
-    if (!java.util.Objects.equals(azureDisk, that.azureDisk)) return false;
-    if (!java.util.Objects.equals(azureFile, that.azureFile)) return false;
-    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
-    if (!java.util.Objects.equals(cephfs, that.cephfs)) return false;
-    if (!java.util.Objects.equals(cinder, that.cinder)) return false;
-    if (!java.util.Objects.equals(claimRef, that.claimRef)) return false;
-    if (!java.util.Objects.equals(csi, that.csi)) return false;
-    if (!java.util.Objects.equals(fc, that.fc)) return false;
-    if (!java.util.Objects.equals(flexVolume, that.flexVolume)) return false;
-    if (!java.util.Objects.equals(flocker, that.flocker)) return false;
-    if (!java.util.Objects.equals(gcePersistentDisk, that.gcePersistentDisk)) return false;
-    if (!java.util.Objects.equals(glusterfs, that.glusterfs)) return false;
-    if (!java.util.Objects.equals(hostPath, that.hostPath)) return false;
-    if (!java.util.Objects.equals(iscsi, that.iscsi)) return false;
-    if (!java.util.Objects.equals(local, that.local)) return false;
-    if (!java.util.Objects.equals(mountOptions, that.mountOptions)) return false;
-    if (!java.util.Objects.equals(nfs, that.nfs)) return false;
-    if (!java.util.Objects.equals(nodeAffinity, that.nodeAffinity)) return false;
-    if (!java.util.Objects.equals(persistentVolumeReclaimPolicy, that.persistentVolumeReclaimPolicy)) return false;
-    if (!java.util.Objects.equals(photonPersistentDisk, that.photonPersistentDisk)) return false;
-    if (!java.util.Objects.equals(portworxVolume, that.portworxVolume)) return false;
-    if (!java.util.Objects.equals(quobyte, that.quobyte)) return false;
-    if (!java.util.Objects.equals(rbd, that.rbd)) return false;
-    if (!java.util.Objects.equals(scaleIO, that.scaleIO)) return false;
-    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
-    if (!java.util.Objects.equals(storageos, that.storageos)) return false;
-    if (!java.util.Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName)) return false;
-    if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
-    if (!java.util.Objects.equals(vsphereVolume, that.vsphereVolume)) return false;
+    if (!(Objects.equals(accessModes, that.accessModes))) {
+      return false;
+    }
+    if (!(Objects.equals(awsElasticBlockStore, that.awsElasticBlockStore))) {
+      return false;
+    }
+    if (!(Objects.equals(azureDisk, that.azureDisk))) {
+      return false;
+    }
+    if (!(Objects.equals(azureFile, that.azureFile))) {
+      return false;
+    }
+    if (!(Objects.equals(capacity, that.capacity))) {
+      return false;
+    }
+    if (!(Objects.equals(cephfs, that.cephfs))) {
+      return false;
+    }
+    if (!(Objects.equals(cinder, that.cinder))) {
+      return false;
+    }
+    if (!(Objects.equals(claimRef, that.claimRef))) {
+      return false;
+    }
+    if (!(Objects.equals(csi, that.csi))) {
+      return false;
+    }
+    if (!(Objects.equals(fc, that.fc))) {
+      return false;
+    }
+    if (!(Objects.equals(flexVolume, that.flexVolume))) {
+      return false;
+    }
+    if (!(Objects.equals(flocker, that.flocker))) {
+      return false;
+    }
+    if (!(Objects.equals(gcePersistentDisk, that.gcePersistentDisk))) {
+      return false;
+    }
+    if (!(Objects.equals(glusterfs, that.glusterfs))) {
+      return false;
+    }
+    if (!(Objects.equals(hostPath, that.hostPath))) {
+      return false;
+    }
+    if (!(Objects.equals(iscsi, that.iscsi))) {
+      return false;
+    }
+    if (!(Objects.equals(local, that.local))) {
+      return false;
+    }
+    if (!(Objects.equals(mountOptions, that.mountOptions))) {
+      return false;
+    }
+    if (!(Objects.equals(nfs, that.nfs))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeAffinity, that.nodeAffinity))) {
+      return false;
+    }
+    if (!(Objects.equals(persistentVolumeReclaimPolicy, that.persistentVolumeReclaimPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(photonPersistentDisk, that.photonPersistentDisk))) {
+      return false;
+    }
+    if (!(Objects.equals(portworxVolume, that.portworxVolume))) {
+      return false;
+    }
+    if (!(Objects.equals(quobyte, that.quobyte))) {
+      return false;
+    }
+    if (!(Objects.equals(rbd, that.rbd))) {
+      return false;
+    }
+    if (!(Objects.equals(scaleIO, that.scaleIO))) {
+      return false;
+    }
+    if (!(Objects.equals(storageClassName, that.storageClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(storageos, that.storageos))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeAttributesClassName, that.volumeAttributesClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeMode, that.volumeMode))) {
+      return false;
+    }
+    if (!(Objects.equals(vsphereVolume, that.vsphereVolume))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  awsElasticBlockStore,  azureDisk,  azureFile,  capacity,  cephfs,  cinder,  claimRef,  csi,  fc,  flexVolume,  flocker,  gcePersistentDisk,  glusterfs,  hostPath,  iscsi,  local,  mountOptions,  nfs,  nodeAffinity,  persistentVolumeReclaimPolicy,  photonPersistentDisk,  portworxVolume,  quobyte,  rbd,  scaleIO,  storageClassName,  storageos,  volumeAttributesClassName,  volumeMode,  vsphereVolume,  super.hashCode());
+    return Objects.hash(accessModes, awsElasticBlockStore, azureDisk, azureFile, capacity, cephfs, cinder, claimRef, csi, fc, flexVolume, flocker, gcePersistentDisk, glusterfs, hostPath, iscsi, local, mountOptions, nfs, nodeAffinity, persistentVolumeReclaimPolicy, photonPersistentDisk, portworxVolume, quobyte, rbd, scaleIO, storageClassName, storageos, volumeAttributesClassName, volumeMode, vsphereVolume);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (accessModes != null && !accessModes.isEmpty()) { sb.append("accessModes:"); sb.append(accessModes + ","); }
-    if (awsElasticBlockStore != null) { sb.append("awsElasticBlockStore:"); sb.append(awsElasticBlockStore + ","); }
-    if (azureDisk != null) { sb.append("azureDisk:"); sb.append(azureDisk + ","); }
-    if (azureFile != null) { sb.append("azureFile:"); sb.append(azureFile + ","); }
-    if (capacity != null && !capacity.isEmpty()) { sb.append("capacity:"); sb.append(capacity + ","); }
-    if (cephfs != null) { sb.append("cephfs:"); sb.append(cephfs + ","); }
-    if (cinder != null) { sb.append("cinder:"); sb.append(cinder + ","); }
-    if (claimRef != null) { sb.append("claimRef:"); sb.append(claimRef + ","); }
-    if (csi != null) { sb.append("csi:"); sb.append(csi + ","); }
-    if (fc != null) { sb.append("fc:"); sb.append(fc + ","); }
-    if (flexVolume != null) { sb.append("flexVolume:"); sb.append(flexVolume + ","); }
-    if (flocker != null) { sb.append("flocker:"); sb.append(flocker + ","); }
-    if (gcePersistentDisk != null) { sb.append("gcePersistentDisk:"); sb.append(gcePersistentDisk + ","); }
-    if (glusterfs != null) { sb.append("glusterfs:"); sb.append(glusterfs + ","); }
-    if (hostPath != null) { sb.append("hostPath:"); sb.append(hostPath + ","); }
-    if (iscsi != null) { sb.append("iscsi:"); sb.append(iscsi + ","); }
-    if (local != null) { sb.append("local:"); sb.append(local + ","); }
-    if (mountOptions != null && !mountOptions.isEmpty()) { sb.append("mountOptions:"); sb.append(mountOptions + ","); }
-    if (nfs != null) { sb.append("nfs:"); sb.append(nfs + ","); }
-    if (nodeAffinity != null) { sb.append("nodeAffinity:"); sb.append(nodeAffinity + ","); }
-    if (persistentVolumeReclaimPolicy != null) { sb.append("persistentVolumeReclaimPolicy:"); sb.append(persistentVolumeReclaimPolicy + ","); }
-    if (photonPersistentDisk != null) { sb.append("photonPersistentDisk:"); sb.append(photonPersistentDisk + ","); }
-    if (portworxVolume != null) { sb.append("portworxVolume:"); sb.append(portworxVolume + ","); }
-    if (quobyte != null) { sb.append("quobyte:"); sb.append(quobyte + ","); }
-    if (rbd != null) { sb.append("rbd:"); sb.append(rbd + ","); }
-    if (scaleIO != null) { sb.append("scaleIO:"); sb.append(scaleIO + ","); }
-    if (storageClassName != null) { sb.append("storageClassName:"); sb.append(storageClassName + ","); }
-    if (storageos != null) { sb.append("storageos:"); sb.append(storageos + ","); }
-    if (volumeAttributesClassName != null) { sb.append("volumeAttributesClassName:"); sb.append(volumeAttributesClassName + ","); }
-    if (volumeMode != null) { sb.append("volumeMode:"); sb.append(volumeMode + ","); }
-    if (vsphereVolume != null) { sb.append("vsphereVolume:"); sb.append(vsphereVolume); }
+    if (!(accessModes == null) && !(accessModes.isEmpty())) {
+        sb.append("accessModes:");
+        sb.append(accessModes);
+        sb.append(",");
+    }
+    if (!(awsElasticBlockStore == null)) {
+        sb.append("awsElasticBlockStore:");
+        sb.append(awsElasticBlockStore);
+        sb.append(",");
+    }
+    if (!(azureDisk == null)) {
+        sb.append("azureDisk:");
+        sb.append(azureDisk);
+        sb.append(",");
+    }
+    if (!(azureFile == null)) {
+        sb.append("azureFile:");
+        sb.append(azureFile);
+        sb.append(",");
+    }
+    if (!(capacity == null) && !(capacity.isEmpty())) {
+        sb.append("capacity:");
+        sb.append(capacity);
+        sb.append(",");
+    }
+    if (!(cephfs == null)) {
+        sb.append("cephfs:");
+        sb.append(cephfs);
+        sb.append(",");
+    }
+    if (!(cinder == null)) {
+        sb.append("cinder:");
+        sb.append(cinder);
+        sb.append(",");
+    }
+    if (!(claimRef == null)) {
+        sb.append("claimRef:");
+        sb.append(claimRef);
+        sb.append(",");
+    }
+    if (!(csi == null)) {
+        sb.append("csi:");
+        sb.append(csi);
+        sb.append(",");
+    }
+    if (!(fc == null)) {
+        sb.append("fc:");
+        sb.append(fc);
+        sb.append(",");
+    }
+    if (!(flexVolume == null)) {
+        sb.append("flexVolume:");
+        sb.append(flexVolume);
+        sb.append(",");
+    }
+    if (!(flocker == null)) {
+        sb.append("flocker:");
+        sb.append(flocker);
+        sb.append(",");
+    }
+    if (!(gcePersistentDisk == null)) {
+        sb.append("gcePersistentDisk:");
+        sb.append(gcePersistentDisk);
+        sb.append(",");
+    }
+    if (!(glusterfs == null)) {
+        sb.append("glusterfs:");
+        sb.append(glusterfs);
+        sb.append(",");
+    }
+    if (!(hostPath == null)) {
+        sb.append("hostPath:");
+        sb.append(hostPath);
+        sb.append(",");
+    }
+    if (!(iscsi == null)) {
+        sb.append("iscsi:");
+        sb.append(iscsi);
+        sb.append(",");
+    }
+    if (!(local == null)) {
+        sb.append("local:");
+        sb.append(local);
+        sb.append(",");
+    }
+    if (!(mountOptions == null) && !(mountOptions.isEmpty())) {
+        sb.append("mountOptions:");
+        sb.append(mountOptions);
+        sb.append(",");
+    }
+    if (!(nfs == null)) {
+        sb.append("nfs:");
+        sb.append(nfs);
+        sb.append(",");
+    }
+    if (!(nodeAffinity == null)) {
+        sb.append("nodeAffinity:");
+        sb.append(nodeAffinity);
+        sb.append(",");
+    }
+    if (!(persistentVolumeReclaimPolicy == null)) {
+        sb.append("persistentVolumeReclaimPolicy:");
+        sb.append(persistentVolumeReclaimPolicy);
+        sb.append(",");
+    }
+    if (!(photonPersistentDisk == null)) {
+        sb.append("photonPersistentDisk:");
+        sb.append(photonPersistentDisk);
+        sb.append(",");
+    }
+    if (!(portworxVolume == null)) {
+        sb.append("portworxVolume:");
+        sb.append(portworxVolume);
+        sb.append(",");
+    }
+    if (!(quobyte == null)) {
+        sb.append("quobyte:");
+        sb.append(quobyte);
+        sb.append(",");
+    }
+    if (!(rbd == null)) {
+        sb.append("rbd:");
+        sb.append(rbd);
+        sb.append(",");
+    }
+    if (!(scaleIO == null)) {
+        sb.append("scaleIO:");
+        sb.append(scaleIO);
+        sb.append(",");
+    }
+    if (!(storageClassName == null)) {
+        sb.append("storageClassName:");
+        sb.append(storageClassName);
+        sb.append(",");
+    }
+    if (!(storageos == null)) {
+        sb.append("storageos:");
+        sb.append(storageos);
+        sb.append(",");
+    }
+    if (!(volumeAttributesClassName == null)) {
+        sb.append("volumeAttributesClassName:");
+        sb.append(volumeAttributesClassName);
+        sb.append(",");
+    }
+    if (!(volumeMode == null)) {
+        sb.append("volumeMode:");
+        sb.append(volumeMode);
+        sb.append(",");
+    }
+    if (!(vsphereVolume == null)) {
+        sb.append("vsphereVolume:");
+        sb.append(vsphereVolume);
+    }
     sb.append("}");
     return sb.toString();
   }

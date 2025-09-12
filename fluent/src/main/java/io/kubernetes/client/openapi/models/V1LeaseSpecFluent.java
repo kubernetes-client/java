@@ -1,9 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluent<A>{
+public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1LeaseSpecFluent<A>> extends BaseFluent<A>{
   public V1LeaseSpecFluent() {
   }
   
@@ -27,16 +29,16 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
   private String strategy;
   
   protected void copyInstance(V1LeaseSpec instance) {
-    instance = (instance != null ? instance : new V1LeaseSpec());
+    instance = instance != null ? instance : new V1LeaseSpec();
     if (instance != null) {
-          this.withAcquireTime(instance.getAcquireTime());
-          this.withHolderIdentity(instance.getHolderIdentity());
-          this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
-          this.withLeaseTransitions(instance.getLeaseTransitions());
-          this.withPreferredHolder(instance.getPreferredHolder());
-          this.withRenewTime(instance.getRenewTime());
-          this.withStrategy(instance.getStrategy());
-        }
+        this.withAcquireTime(instance.getAcquireTime());
+        this.withHolderIdentity(instance.getHolderIdentity());
+        this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
+        this.withLeaseTransitions(instance.getLeaseTransitions());
+        this.withPreferredHolder(instance.getPreferredHolder());
+        this.withRenewTime(instance.getRenewTime());
+        this.withStrategy(instance.getStrategy());
+    }
   }
   
   public OffsetDateTime getAcquireTime() {
@@ -131,34 +133,81 @@ public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluen
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LeaseSpecFluent that = (V1LeaseSpecFluent) o;
-    if (!java.util.Objects.equals(acquireTime, that.acquireTime)) return false;
-    if (!java.util.Objects.equals(holderIdentity, that.holderIdentity)) return false;
-    if (!java.util.Objects.equals(leaseDurationSeconds, that.leaseDurationSeconds)) return false;
-    if (!java.util.Objects.equals(leaseTransitions, that.leaseTransitions)) return false;
-    if (!java.util.Objects.equals(preferredHolder, that.preferredHolder)) return false;
-    if (!java.util.Objects.equals(renewTime, that.renewTime)) return false;
-    if (!java.util.Objects.equals(strategy, that.strategy)) return false;
+    if (!(Objects.equals(acquireTime, that.acquireTime))) {
+      return false;
+    }
+    if (!(Objects.equals(holderIdentity, that.holderIdentity))) {
+      return false;
+    }
+    if (!(Objects.equals(leaseDurationSeconds, that.leaseDurationSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(leaseTransitions, that.leaseTransitions))) {
+      return false;
+    }
+    if (!(Objects.equals(preferredHolder, that.preferredHolder))) {
+      return false;
+    }
+    if (!(Objects.equals(renewTime, that.renewTime))) {
+      return false;
+    }
+    if (!(Objects.equals(strategy, that.strategy))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(acquireTime,  holderIdentity,  leaseDurationSeconds,  leaseTransitions,  preferredHolder,  renewTime,  strategy,  super.hashCode());
+    return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, preferredHolder, renewTime, strategy);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (acquireTime != null) { sb.append("acquireTime:"); sb.append(acquireTime + ","); }
-    if (holderIdentity != null) { sb.append("holderIdentity:"); sb.append(holderIdentity + ","); }
-    if (leaseDurationSeconds != null) { sb.append("leaseDurationSeconds:"); sb.append(leaseDurationSeconds + ","); }
-    if (leaseTransitions != null) { sb.append("leaseTransitions:"); sb.append(leaseTransitions + ","); }
-    if (preferredHolder != null) { sb.append("preferredHolder:"); sb.append(preferredHolder + ","); }
-    if (renewTime != null) { sb.append("renewTime:"); sb.append(renewTime + ","); }
-    if (strategy != null) { sb.append("strategy:"); sb.append(strategy); }
+    if (!(acquireTime == null)) {
+        sb.append("acquireTime:");
+        sb.append(acquireTime);
+        sb.append(",");
+    }
+    if (!(holderIdentity == null)) {
+        sb.append("holderIdentity:");
+        sb.append(holderIdentity);
+        sb.append(",");
+    }
+    if (!(leaseDurationSeconds == null)) {
+        sb.append("leaseDurationSeconds:");
+        sb.append(leaseDurationSeconds);
+        sb.append(",");
+    }
+    if (!(leaseTransitions == null)) {
+        sb.append("leaseTransitions:");
+        sb.append(leaseTransitions);
+        sb.append(",");
+    }
+    if (!(preferredHolder == null)) {
+        sb.append("preferredHolder:");
+        sb.append(preferredHolder);
+        sb.append(",");
+    }
+    if (!(renewTime == null)) {
+        sb.append("renewTime:");
+        sb.append(renewTime);
+        sb.append(",");
+    }
+    if (!(strategy == null)) {
+        sb.append("strategy:");
+        sb.append(strategy);
+    }
     sb.append("}");
     return sb.toString();
   }

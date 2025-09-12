@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1GroupVersionResourceBuilder extends V1alpha1GroupVersionResourceFluent<V1alpha1GroupVersionResourceBuilder> implements VisitableBuilder<V1alpha1GroupVersionResource,V1alpha1GroupVersionResourceBuilder>{
   public V1alpha1GroupVersionResourceBuilder() {
     this(new V1alpha1GroupVersionResource());

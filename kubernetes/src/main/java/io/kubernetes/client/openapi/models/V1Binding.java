@@ -29,7 +29,7 @@ import java.io.IOException;
  * Binding ties one object to another; for example, a pod is bound to a node by a scheduler.
  */
 @ApiModel(description = "Binding ties one object to another; for example, a pod is bound to a node by a scheduler.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1Binding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

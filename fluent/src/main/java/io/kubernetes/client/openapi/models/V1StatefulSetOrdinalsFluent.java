@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StatefulSetOrdinalsFluent<A extends V1StatefulSetOrdinalsFluent<A>> extends BaseFluent<A>{
+public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetOrdinalsFluent<A>> extends BaseFluent<A>{
   public V1StatefulSetOrdinalsFluent() {
   }
   
@@ -20,10 +22,10 @@ public class V1StatefulSetOrdinalsFluent<A extends V1StatefulSetOrdinalsFluent<A
   private Integer start;
   
   protected void copyInstance(V1StatefulSetOrdinals instance) {
-    instance = (instance != null ? instance : new V1StatefulSetOrdinals());
+    instance = instance != null ? instance : new V1StatefulSetOrdinals();
     if (instance != null) {
-          this.withStart(instance.getStart());
-        }
+      this.withStart(instance.getStart());
+    }
   }
   
   public Integer getStart() {
@@ -40,22 +42,33 @@ public class V1StatefulSetOrdinalsFluent<A extends V1StatefulSetOrdinalsFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StatefulSetOrdinalsFluent that = (V1StatefulSetOrdinalsFluent) o;
-    if (!java.util.Objects.equals(start, that.start)) return false;
+    if (!(Objects.equals(start, that.start))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(start,  super.hashCode());
+    return Objects.hash(start);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (start != null) { sb.append("start:"); sb.append(start); }
+    if (!(start == null)) {
+        sb.append("start:");
+        sb.append(start);
+    }
     sb.append("}");
     return sb.toString();
   }

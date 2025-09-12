@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1NFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1NFSVolumeSourceFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> exten
   private String server;
   
   protected void copyInstance(V1NFSVolumeSource instance) {
-    instance = (instance != null ? instance : new V1NFSVolumeSource());
+    instance = instance != null ? instance : new V1NFSVolumeSource();
     if (instance != null) {
-          this.withPath(instance.getPath());
-          this.withReadOnly(instance.getReadOnly());
-          this.withServer(instance.getServer());
-        }
+        this.withPath(instance.getPath());
+        this.withReadOnly(instance.getReadOnly());
+        this.withServer(instance.getServer());
+    }
   }
   
   public String getPath() {
@@ -70,26 +72,49 @@ public class V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NFSVolumeSourceFluent that = (V1NFSVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(server, that.server)) return false;
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(server, that.server))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(path,  readOnly,  server,  super.hashCode());
+    return Objects.hash(path, readOnly, server);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (server != null) { sb.append("server:"); sb.append(server); }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(server == null)) {
+        sb.append("server:");
+        sb.append(server);
+    }
     sb.append("}");
     return sb.toString();
   }

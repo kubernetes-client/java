@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluent<A>{
+public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.VersionInfoFluent<A>> extends BaseFluent<A>{
   public VersionInfoFluent() {
   }
   
@@ -31,22 +33,22 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
   private String platform;
   
   protected void copyInstance(VersionInfo instance) {
-    instance = (instance != null ? instance : new VersionInfo());
+    instance = instance != null ? instance : new VersionInfo();
     if (instance != null) {
-          this.withBuildDate(instance.getBuildDate());
-          this.withCompiler(instance.getCompiler());
-          this.withEmulationMajor(instance.getEmulationMajor());
-          this.withEmulationMinor(instance.getEmulationMinor());
-          this.withGitCommit(instance.getGitCommit());
-          this.withGitTreeState(instance.getGitTreeState());
-          this.withGitVersion(instance.getGitVersion());
-          this.withGoVersion(instance.getGoVersion());
-          this.withMajor(instance.getMajor());
-          this.withMinCompatibilityMajor(instance.getMinCompatibilityMajor());
-          this.withMinCompatibilityMinor(instance.getMinCompatibilityMinor());
-          this.withMinor(instance.getMinor());
-          this.withPlatform(instance.getPlatform());
-        }
+        this.withBuildDate(instance.getBuildDate());
+        this.withCompiler(instance.getCompiler());
+        this.withEmulationMajor(instance.getEmulationMajor());
+        this.withEmulationMinor(instance.getEmulationMinor());
+        this.withGitCommit(instance.getGitCommit());
+        this.withGitTreeState(instance.getGitTreeState());
+        this.withGitVersion(instance.getGitVersion());
+        this.withGoVersion(instance.getGoVersion());
+        this.withMajor(instance.getMajor());
+        this.withMinCompatibilityMajor(instance.getMinCompatibilityMajor());
+        this.withMinCompatibilityMinor(instance.getMinCompatibilityMinor());
+        this.withMinor(instance.getMinor());
+        this.withPlatform(instance.getPlatform());
+    }
   }
   
   public String getBuildDate() {
@@ -219,46 +221,129 @@ public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluen
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     VersionInfoFluent that = (VersionInfoFluent) o;
-    if (!java.util.Objects.equals(buildDate, that.buildDate)) return false;
-    if (!java.util.Objects.equals(compiler, that.compiler)) return false;
-    if (!java.util.Objects.equals(emulationMajor, that.emulationMajor)) return false;
-    if (!java.util.Objects.equals(emulationMinor, that.emulationMinor)) return false;
-    if (!java.util.Objects.equals(gitCommit, that.gitCommit)) return false;
-    if (!java.util.Objects.equals(gitTreeState, that.gitTreeState)) return false;
-    if (!java.util.Objects.equals(gitVersion, that.gitVersion)) return false;
-    if (!java.util.Objects.equals(goVersion, that.goVersion)) return false;
-    if (!java.util.Objects.equals(major, that.major)) return false;
-    if (!java.util.Objects.equals(minCompatibilityMajor, that.minCompatibilityMajor)) return false;
-    if (!java.util.Objects.equals(minCompatibilityMinor, that.minCompatibilityMinor)) return false;
-    if (!java.util.Objects.equals(minor, that.minor)) return false;
-    if (!java.util.Objects.equals(platform, that.platform)) return false;
+    if (!(Objects.equals(buildDate, that.buildDate))) {
+      return false;
+    }
+    if (!(Objects.equals(compiler, that.compiler))) {
+      return false;
+    }
+    if (!(Objects.equals(emulationMajor, that.emulationMajor))) {
+      return false;
+    }
+    if (!(Objects.equals(emulationMinor, that.emulationMinor))) {
+      return false;
+    }
+    if (!(Objects.equals(gitCommit, that.gitCommit))) {
+      return false;
+    }
+    if (!(Objects.equals(gitTreeState, that.gitTreeState))) {
+      return false;
+    }
+    if (!(Objects.equals(gitVersion, that.gitVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(goVersion, that.goVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(major, that.major))) {
+      return false;
+    }
+    if (!(Objects.equals(minCompatibilityMajor, that.minCompatibilityMajor))) {
+      return false;
+    }
+    if (!(Objects.equals(minCompatibilityMinor, that.minCompatibilityMinor))) {
+      return false;
+    }
+    if (!(Objects.equals(minor, that.minor))) {
+      return false;
+    }
+    if (!(Objects.equals(platform, that.platform))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(buildDate,  compiler,  emulationMajor,  emulationMinor,  gitCommit,  gitTreeState,  gitVersion,  goVersion,  major,  minCompatibilityMajor,  minCompatibilityMinor,  minor,  platform,  super.hashCode());
+    return Objects.hash(buildDate, compiler, emulationMajor, emulationMinor, gitCommit, gitTreeState, gitVersion, goVersion, major, minCompatibilityMajor, minCompatibilityMinor, minor, platform);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (buildDate != null) { sb.append("buildDate:"); sb.append(buildDate + ","); }
-    if (compiler != null) { sb.append("compiler:"); sb.append(compiler + ","); }
-    if (emulationMajor != null) { sb.append("emulationMajor:"); sb.append(emulationMajor + ","); }
-    if (emulationMinor != null) { sb.append("emulationMinor:"); sb.append(emulationMinor + ","); }
-    if (gitCommit != null) { sb.append("gitCommit:"); sb.append(gitCommit + ","); }
-    if (gitTreeState != null) { sb.append("gitTreeState:"); sb.append(gitTreeState + ","); }
-    if (gitVersion != null) { sb.append("gitVersion:"); sb.append(gitVersion + ","); }
-    if (goVersion != null) { sb.append("goVersion:"); sb.append(goVersion + ","); }
-    if (major != null) { sb.append("major:"); sb.append(major + ","); }
-    if (minCompatibilityMajor != null) { sb.append("minCompatibilityMajor:"); sb.append(minCompatibilityMajor + ","); }
-    if (minCompatibilityMinor != null) { sb.append("minCompatibilityMinor:"); sb.append(minCompatibilityMinor + ","); }
-    if (minor != null) { sb.append("minor:"); sb.append(minor + ","); }
-    if (platform != null) { sb.append("platform:"); sb.append(platform); }
+    if (!(buildDate == null)) {
+        sb.append("buildDate:");
+        sb.append(buildDate);
+        sb.append(",");
+    }
+    if (!(compiler == null)) {
+        sb.append("compiler:");
+        sb.append(compiler);
+        sb.append(",");
+    }
+    if (!(emulationMajor == null)) {
+        sb.append("emulationMajor:");
+        sb.append(emulationMajor);
+        sb.append(",");
+    }
+    if (!(emulationMinor == null)) {
+        sb.append("emulationMinor:");
+        sb.append(emulationMinor);
+        sb.append(",");
+    }
+    if (!(gitCommit == null)) {
+        sb.append("gitCommit:");
+        sb.append(gitCommit);
+        sb.append(",");
+    }
+    if (!(gitTreeState == null)) {
+        sb.append("gitTreeState:");
+        sb.append(gitTreeState);
+        sb.append(",");
+    }
+    if (!(gitVersion == null)) {
+        sb.append("gitVersion:");
+        sb.append(gitVersion);
+        sb.append(",");
+    }
+    if (!(goVersion == null)) {
+        sb.append("goVersion:");
+        sb.append(goVersion);
+        sb.append(",");
+    }
+    if (!(major == null)) {
+        sb.append("major:");
+        sb.append(major);
+        sb.append(",");
+    }
+    if (!(minCompatibilityMajor == null)) {
+        sb.append("minCompatibilityMajor:");
+        sb.append(minCompatibilityMajor);
+        sb.append(",");
+    }
+    if (!(minCompatibilityMinor == null)) {
+        sb.append("minCompatibilityMinor:");
+        sb.append(minCompatibilityMinor);
+        sb.append(",");
+    }
+    if (!(minor == null)) {
+        sb.append("minor:");
+        sb.append(minor);
+        sb.append(",");
+    }
+    if (!(platform == null)) {
+        sb.append("platform:");
+        sb.append(platform);
+    }
     sb.append("}");
     return sb.toString();
   }

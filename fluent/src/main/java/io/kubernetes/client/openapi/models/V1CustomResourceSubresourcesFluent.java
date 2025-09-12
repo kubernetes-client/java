@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubresourcesFluent<A>> extends BaseFluent<A>{
+public class V1CustomResourceSubresourcesFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<A>> extends BaseFluent<A>{
   public V1CustomResourceSubresourcesFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubres
   private Object status;
   
   protected void copyInstance(V1CustomResourceSubresources instance) {
-    instance = (instance != null ? instance : new V1CustomResourceSubresources());
+    instance = instance != null ? instance : new V1CustomResourceSubresources();
     if (instance != null) {
-          this.withScale(instance.getScale());
-          this.withStatus(instance.getStatus());
-        }
+        this.withScale(instance.getScale());
+        this.withStatus(instance.getStatus());
+    }
   }
   
   public V1CustomResourceSubresourceScale buildScale() {
@@ -57,15 +60,15 @@ public class V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubres
   }
   
   public ScaleNested<A> editScale() {
-    return withNewScaleLike(java.util.Optional.ofNullable(buildScale()).orElse(null));
+    return this.withNewScaleLike(Optional.ofNullable(this.buildScale()).orElse(null));
   }
   
   public ScaleNested<A> editOrNewScale() {
-    return withNewScaleLike(java.util.Optional.ofNullable(buildScale()).orElse(new V1CustomResourceSubresourceScaleBuilder().build()));
+    return this.withNewScaleLike(Optional.ofNullable(this.buildScale()).orElse(new V1CustomResourceSubresourceScaleBuilder().build()));
   }
   
   public ScaleNested<A> editOrNewScaleLike(V1CustomResourceSubresourceScale item) {
-    return withNewScaleLike(java.util.Optional.ofNullable(buildScale()).orElse(item));
+    return this.withNewScaleLike(Optional.ofNullable(this.buildScale()).orElse(item));
   }
   
   public Object getStatus() {
@@ -82,24 +85,41 @@ public class V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubres
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CustomResourceSubresourcesFluent that = (V1CustomResourceSubresourcesFluent) o;
-    if (!java.util.Objects.equals(scale, that.scale)) return false;
-    if (!java.util.Objects.equals(status, that.status)) return false;
+    if (!(Objects.equals(scale, that.scale))) {
+      return false;
+    }
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(scale,  status,  super.hashCode());
+    return Objects.hash(scale, status);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (scale != null) { sb.append("scale:"); sb.append(scale + ","); }
-    if (status != null) { sb.append("status:"); sb.append(status); }
+    if (!(scale == null)) {
+        sb.append("scale:");
+        sb.append(scale);
+        sb.append(",");
+    }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1QueuingConfigurationFluent<A extends V1QueuingConfigurationFluent<A>> extends BaseFluent<A>{
+public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1QueuingConfigurationFluent<A>> extends BaseFluent<A>{
   public V1QueuingConfigurationFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1QueuingConfigurationFluent<A extends V1QueuingConfigurationFluent
   private Integer queues;
   
   protected void copyInstance(V1QueuingConfiguration instance) {
-    instance = (instance != null ? instance : new V1QueuingConfiguration());
+    instance = instance != null ? instance : new V1QueuingConfiguration();
     if (instance != null) {
-          this.withHandSize(instance.getHandSize());
-          this.withQueueLengthLimit(instance.getQueueLengthLimit());
-          this.withQueues(instance.getQueues());
-        }
+        this.withHandSize(instance.getHandSize());
+        this.withQueueLengthLimit(instance.getQueueLengthLimit());
+        this.withQueues(instance.getQueues());
+    }
   }
   
   public Integer getHandSize() {
@@ -70,26 +72,49 @@ public class V1QueuingConfigurationFluent<A extends V1QueuingConfigurationFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1QueuingConfigurationFluent that = (V1QueuingConfigurationFluent) o;
-    if (!java.util.Objects.equals(handSize, that.handSize)) return false;
-    if (!java.util.Objects.equals(queueLengthLimit, that.queueLengthLimit)) return false;
-    if (!java.util.Objects.equals(queues, that.queues)) return false;
+    if (!(Objects.equals(handSize, that.handSize))) {
+      return false;
+    }
+    if (!(Objects.equals(queueLengthLimit, that.queueLengthLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(queues, that.queues))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(handSize,  queueLengthLimit,  queues,  super.hashCode());
+    return Objects.hash(handSize, queueLengthLimit, queues);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (handSize != null) { sb.append("handSize:"); sb.append(handSize + ","); }
-    if (queueLengthLimit != null) { sb.append("queueLengthLimit:"); sb.append(queueLengthLimit + ","); }
-    if (queues != null) { sb.append("queues:"); sb.append(queues); }
+    if (!(handSize == null)) {
+        sb.append("handSize:");
+        sb.append(handSize);
+        sb.append(",");
+    }
+    if (!(queueLengthLimit == null)) {
+        sb.append("queueLengthLimit:");
+        sb.append(queueLengthLimit);
+        sb.append(",");
+    }
+    if (!(queues == null)) {
+        sb.append("queues:");
+        sb.append(queues);
+    }
     sb.append("}");
     return sb.toString();
   }

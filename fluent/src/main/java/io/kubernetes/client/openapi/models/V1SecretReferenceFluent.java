@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SecretReferenceFluent<A extends V1SecretReferenceFluent<A>> extends BaseFluent<A>{
+public class V1SecretReferenceFluent<A extends io.kubernetes.client.openapi.models.V1SecretReferenceFluent<A>> extends BaseFluent<A>{
   public V1SecretReferenceFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1SecretReferenceFluent<A extends V1SecretReferenceFluent<A>> exten
   private String namespace;
   
   protected void copyInstance(V1SecretReference instance) {
-    instance = (instance != null ? instance : new V1SecretReference());
+    instance = instance != null ? instance : new V1SecretReference();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withNamespace(instance.getNamespace());
-        }
+        this.withName(instance.getName());
+        this.withNamespace(instance.getNamespace());
+    }
   }
   
   public String getName() {
@@ -54,24 +56,41 @@ public class V1SecretReferenceFluent<A extends V1SecretReferenceFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SecretReferenceFluent that = (V1SecretReferenceFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(namespace, that.namespace))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  namespace,  super.hashCode());
+    return Objects.hash(name, namespace);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (namespace != null) { sb.append("namespace:"); sb.append(namespace); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(namespace == null)) {
+        sb.append("namespace:");
+        sb.append(namespace);
+    }
     sb.append("}");
     return sb.toString();
   }

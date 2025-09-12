@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointAddressFluent<A extends V1EndpointAddressFluent<A>> extends BaseFluent<A>{
+public class V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.models.V1EndpointAddressFluent<A>> extends BaseFluent<A>{
   public V1EndpointAddressFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1EndpointAddressFluent<A extends V1EndpointAddressFluent<A>> exten
   private V1ObjectReferenceBuilder targetRef;
   
   protected void copyInstance(V1EndpointAddress instance) {
-    instance = (instance != null ? instance : new V1EndpointAddress());
+    instance = instance != null ? instance : new V1EndpointAddress();
     if (instance != null) {
-          this.withHostname(instance.getHostname());
-          this.withIp(instance.getIp());
-          this.withNodeName(instance.getNodeName());
-          this.withTargetRef(instance.getTargetRef());
-        }
+        this.withHostname(instance.getHostname());
+        this.withIp(instance.getIp());
+        this.withNodeName(instance.getNodeName());
+        this.withTargetRef(instance.getTargetRef());
+    }
   }
   
   public String getHostname() {
@@ -100,40 +103,69 @@ public class V1EndpointAddressFluent<A extends V1EndpointAddressFluent<A>> exten
   }
   
   public TargetRefNested<A> editTargetRef() {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(null));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(null));
   }
   
   public TargetRefNested<A> editOrNewTargetRef() {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
-    return withNewTargetRefLike(java.util.Optional.ofNullable(buildTargetRef()).orElse(item));
+    return this.withNewTargetRefLike(Optional.ofNullable(this.buildTargetRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointAddressFluent that = (V1EndpointAddressFluent) o;
-    if (!java.util.Objects.equals(hostname, that.hostname)) return false;
-    if (!java.util.Objects.equals(ip, that.ip)) return false;
-    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
-    if (!java.util.Objects.equals(targetRef, that.targetRef)) return false;
+    if (!(Objects.equals(hostname, that.hostname))) {
+      return false;
+    }
+    if (!(Objects.equals(ip, that.ip))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeName, that.nodeName))) {
+      return false;
+    }
+    if (!(Objects.equals(targetRef, that.targetRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(hostname,  ip,  nodeName,  targetRef,  super.hashCode());
+    return Objects.hash(hostname, ip, nodeName, targetRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (hostname != null) { sb.append("hostname:"); sb.append(hostname + ","); }
-    if (ip != null) { sb.append("ip:"); sb.append(ip + ","); }
-    if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
-    if (targetRef != null) { sb.append("targetRef:"); sb.append(targetRef); }
+    if (!(hostname == null)) {
+        sb.append("hostname:");
+        sb.append(hostname);
+        sb.append(",");
+    }
+    if (!(ip == null)) {
+        sb.append("ip:");
+        sb.append(ip);
+        sb.append(",");
+    }
+    if (!(nodeName == null)) {
+        sb.append("nodeName:");
+        sb.append(nodeName);
+        sb.append(",");
+    }
+    if (!(targetRef == null)) {
+        sb.append("targetRef:");
+        sb.append(targetRef);
+    }
     sb.append("}");
     return sb.toString();
   }

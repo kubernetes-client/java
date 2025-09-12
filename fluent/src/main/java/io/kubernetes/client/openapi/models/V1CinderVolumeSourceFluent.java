@@ -1,9 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 
@@ -11,7 +14,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1CinderVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1CinderVolumeSourceFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent<A>>
   private String volumeID;
   
   protected void copyInstance(V1CinderVolumeSource instance) {
-    instance = (instance != null ? instance : new V1CinderVolumeSource());
+    instance = instance != null ? instance : new V1CinderVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretRef(instance.getSecretRef());
-          this.withVolumeID(instance.getVolumeID());
-        }
+        this.withFsType(instance.getFsType());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
+        this.withVolumeID(instance.getVolumeID());
+    }
   }
   
   public String getFsType() {
@@ -88,15 +91,15 @@ public class V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent<A>>
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1LocalObjectReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1LocalObjectReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public String getVolumeID() {
@@ -113,28 +116,57 @@ public class V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CinderVolumeSourceFluent that = (V1CinderVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
-    if (!java.util.Objects.equals(volumeID, that.volumeID)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeID, that.volumeID))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  readOnly,  secretRef,  volumeID,  super.hashCode());
+    return Objects.hash(fsType, readOnly, secretRef, volumeID);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef + ","); }
-    if (volumeID != null) { sb.append("volumeID:"); sb.append(volumeID); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+        sb.append(",");
+    }
+    if (!(volumeID == null)) {
+        sb.append("volumeID:");
+        sb.append(volumeID);
+    }
     sb.append("}");
     return sb.toString();
   }

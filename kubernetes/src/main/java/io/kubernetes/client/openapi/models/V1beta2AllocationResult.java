@@ -24,13 +24,18 @@ import io.kubernetes.client.openapi.models.V1beta2DeviceAllocationResult;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 
 /**
  * AllocationResult contains attributes of an allocated resource.
  */
 @ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2AllocationResult {
+  public static final String SERIALIZED_NAME_ALLOCATION_TIMESTAMP = "allocationTimestamp";
+  @SerializedName(SERIALIZED_NAME_ALLOCATION_TIMESTAMP)
+  private OffsetDateTime allocationTimestamp;
+
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
   private V1beta2DeviceAllocationResult devices;
@@ -38,6 +43,29 @@ public class V1beta2AllocationResult {
   public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
   private V1NodeSelector nodeSelector;
+
+
+  public V1beta2AllocationResult allocationTimestamp(OffsetDateTime allocationTimestamp) {
+
+    this.allocationTimestamp = allocationTimestamp;
+    return this;
+  }
+
+   /**
+   * AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.
+   * @return allocationTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.")
+
+  public OffsetDateTime getAllocationTimestamp() {
+    return allocationTimestamp;
+  }
+
+
+  public void setAllocationTimestamp(OffsetDateTime allocationTimestamp) {
+    this.allocationTimestamp = allocationTimestamp;
+  }
 
 
   public V1beta2AllocationResult devices(V1beta2DeviceAllocationResult devices) {
@@ -95,13 +123,14 @@ public class V1beta2AllocationResult {
       return false;
     }
     V1beta2AllocationResult v1beta2AllocationResult = (V1beta2AllocationResult) o;
-    return Objects.equals(this.devices, v1beta2AllocationResult.devices) &&
+    return Objects.equals(this.allocationTimestamp, v1beta2AllocationResult.allocationTimestamp) &&
+        Objects.equals(this.devices, v1beta2AllocationResult.devices) &&
         Objects.equals(this.nodeSelector, v1beta2AllocationResult.nodeSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(devices, nodeSelector);
+    return Objects.hash(allocationTimestamp, devices, nodeSelector);
   }
 
 
@@ -109,6 +138,7 @@ public class V1beta2AllocationResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2AllocationResult {\n");
+    sb.append("    allocationTimestamp: ").append(toIndentedString(allocationTimestamp)).append("\n");
     sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("}");

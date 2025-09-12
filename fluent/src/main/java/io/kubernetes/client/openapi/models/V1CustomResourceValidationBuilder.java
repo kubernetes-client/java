@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CustomResourceValidationBuilder extends V1CustomResourceValidationFluent<V1CustomResourceValidationBuilder> implements VisitableBuilder<V1CustomResourceValidation,V1CustomResourceValidationBuilder>{
   public V1CustomResourceValidationBuilder() {
     this(new V1CustomResourceValidation());

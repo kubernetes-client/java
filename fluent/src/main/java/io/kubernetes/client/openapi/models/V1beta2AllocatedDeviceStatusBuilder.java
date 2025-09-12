@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2AllocatedDeviceStatusBuilder extends V1beta2AllocatedDeviceStatusFluent<V1beta2AllocatedDeviceStatusBuilder> implements VisitableBuilder<V1beta2AllocatedDeviceStatus,V1beta2AllocatedDeviceStatusBuilder>{
   public V1beta2AllocatedDeviceStatusBuilder() {
     this(new V1beta2AllocatedDeviceStatus());
@@ -29,6 +30,7 @@ public class V1beta2AllocatedDeviceStatusBuilder extends V1beta2AllocatedDeviceS
     buildable.setDriver(fluent.getDriver());
     buildable.setNetworkData(fluent.buildNetworkData());
     buildable.setPool(fluent.getPool());
+    buildable.setShareID(fluent.getShareID());
     return buildable;
   }
   

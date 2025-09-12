@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1AllocationResultBuilder extends V1beta1AllocationResultFluent<V1beta1AllocationResultBuilder> implements VisitableBuilder<V1beta1AllocationResult,V1beta1AllocationResultBuilder>{
   public V1beta1AllocationResultBuilder() {
     this(new V1beta1AllocationResult());
@@ -23,6 +24,7 @@ public class V1beta1AllocationResultBuilder extends V1beta1AllocationResultFluen
   
   public V1beta1AllocationResult build() {
     V1beta1AllocationResult buildable = new V1beta1AllocationResult();
+    buildable.setAllocationTimestamp(fluent.getAllocationTimestamp());
     buildable.setDevices(fluent.buildDevices());
     buildable.setNodeSelector(fluent.buildNodeSelector());
     return buildable;

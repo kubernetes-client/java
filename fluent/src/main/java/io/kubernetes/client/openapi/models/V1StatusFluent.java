@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
+public class V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1StatusFluent<A>> extends BaseFluent<A>{
   public V1StatusFluent() {
   }
   
@@ -28,17 +31,17 @@ public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
   private String status;
   
   protected void copyInstance(V1Status instance) {
-    instance = (instance != null ? instance : new V1Status());
+    instance = instance != null ? instance : new V1Status();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withCode(instance.getCode());
-          this.withDetails(instance.getDetails());
-          this.withKind(instance.getKind());
-          this.withMessage(instance.getMessage());
-          this.withMetadata(instance.getMetadata());
-          this.withReason(instance.getReason());
-          this.withStatus(instance.getStatus());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withCode(instance.getCode());
+        this.withDetails(instance.getDetails());
+        this.withKind(instance.getKind());
+        this.withMessage(instance.getMessage());
+        this.withMetadata(instance.getMetadata());
+        this.withReason(instance.getReason());
+        this.withStatus(instance.getStatus());
+    }
   }
   
   public String getApiVersion() {
@@ -96,15 +99,15 @@ public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
   }
   
   public DetailsNested<A> editDetails() {
-    return withNewDetailsLike(java.util.Optional.ofNullable(buildDetails()).orElse(null));
+    return this.withNewDetailsLike(Optional.ofNullable(this.buildDetails()).orElse(null));
   }
   
   public DetailsNested<A> editOrNewDetails() {
-    return withNewDetailsLike(java.util.Optional.ofNullable(buildDetails()).orElse(new V1StatusDetailsBuilder().build()));
+    return this.withNewDetailsLike(Optional.ofNullable(this.buildDetails()).orElse(new V1StatusDetailsBuilder().build()));
   }
   
   public DetailsNested<A> editOrNewDetailsLike(V1StatusDetails item) {
-    return withNewDetailsLike(java.util.Optional.ofNullable(buildDetails()).orElse(item));
+    return this.withNewDetailsLike(Optional.ofNullable(this.buildDetails()).orElse(item));
   }
   
   public String getKind() {
@@ -162,15 +165,15 @@ public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ListMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ListMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public String getReason() {
@@ -200,36 +203,89 @@ public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StatusFluent that = (V1StatusFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(code, that.code)) return false;
-    if (!java.util.Objects.equals(details, that.details)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(status, that.status)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(code, that.code))) {
+      return false;
+    }
+    if (!(Objects.equals(details, that.details))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  code,  details,  kind,  message,  metadata,  reason,  status,  super.hashCode());
+    return Objects.hash(apiVersion, code, details, kind, message, metadata, reason, status);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (code != null) { sb.append("code:"); sb.append(code + ","); }
-    if (details != null) { sb.append("details:"); sb.append(details + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (status != null) { sb.append("status:"); sb.append(status); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(code == null)) {
+        sb.append("code:");
+        sb.append(code);
+        sb.append(",");
+    }
+    if (!(details == null)) {
+        sb.append("details:");
+        sb.append(details);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+    }
     sb.append("}");
     return sb.toString();
   }

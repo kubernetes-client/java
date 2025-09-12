@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1StorageVersionMigrationListBuilder extends V1alpha1StorageVersionMigrationListFluent<V1alpha1StorageVersionMigrationListBuilder> implements VisitableBuilder<V1alpha1StorageVersionMigrationList,V1alpha1StorageVersionMigrationListBuilder>{
   public V1alpha1StorageVersionMigrationListBuilder() {
     this(new V1alpha1StorageVersionMigrationList());

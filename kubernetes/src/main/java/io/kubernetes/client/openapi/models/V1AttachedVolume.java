@@ -27,7 +27,7 @@ import java.io.IOException;
  * AttachedVolume describes a volume attached to a node
  */
 @ApiModel(description = "AttachedVolume describes a volume attached to a node")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1AttachedVolume {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)

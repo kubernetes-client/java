@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends BaseFluent<A>{
+public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateFluent<A>> extends BaseFluent<A>{
   public V1ContainerStateFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends
   private V1ContainerStateWaitingBuilder waiting;
   
   protected void copyInstance(V1ContainerState instance) {
-    instance = (instance != null ? instance : new V1ContainerState());
+    instance = instance != null ? instance : new V1ContainerState();
     if (instance != null) {
-          this.withRunning(instance.getRunning());
-          this.withTerminated(instance.getTerminated());
-          this.withWaiting(instance.getWaiting());
-        }
+        this.withRunning(instance.getRunning());
+        this.withTerminated(instance.getTerminated());
+        this.withWaiting(instance.getWaiting());
+    }
   }
   
   public V1ContainerStateRunning buildRunning() {
@@ -59,15 +62,15 @@ public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends
   }
   
   public RunningNested<A> editRunning() {
-    return withNewRunningLike(java.util.Optional.ofNullable(buildRunning()).orElse(null));
+    return this.withNewRunningLike(Optional.ofNullable(this.buildRunning()).orElse(null));
   }
   
   public RunningNested<A> editOrNewRunning() {
-    return withNewRunningLike(java.util.Optional.ofNullable(buildRunning()).orElse(new V1ContainerStateRunningBuilder().build()));
+    return this.withNewRunningLike(Optional.ofNullable(this.buildRunning()).orElse(new V1ContainerStateRunningBuilder().build()));
   }
   
   public RunningNested<A> editOrNewRunningLike(V1ContainerStateRunning item) {
-    return withNewRunningLike(java.util.Optional.ofNullable(buildRunning()).orElse(item));
+    return this.withNewRunningLike(Optional.ofNullable(this.buildRunning()).orElse(item));
   }
   
   public V1ContainerStateTerminated buildTerminated() {
@@ -99,15 +102,15 @@ public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends
   }
   
   public TerminatedNested<A> editTerminated() {
-    return withNewTerminatedLike(java.util.Optional.ofNullable(buildTerminated()).orElse(null));
+    return this.withNewTerminatedLike(Optional.ofNullable(this.buildTerminated()).orElse(null));
   }
   
   public TerminatedNested<A> editOrNewTerminated() {
-    return withNewTerminatedLike(java.util.Optional.ofNullable(buildTerminated()).orElse(new V1ContainerStateTerminatedBuilder().build()));
+    return this.withNewTerminatedLike(Optional.ofNullable(this.buildTerminated()).orElse(new V1ContainerStateTerminatedBuilder().build()));
   }
   
   public TerminatedNested<A> editOrNewTerminatedLike(V1ContainerStateTerminated item) {
-    return withNewTerminatedLike(java.util.Optional.ofNullable(buildTerminated()).orElse(item));
+    return this.withNewTerminatedLike(Optional.ofNullable(this.buildTerminated()).orElse(item));
   }
   
   public V1ContainerStateWaiting buildWaiting() {
@@ -139,38 +142,61 @@ public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends
   }
   
   public WaitingNested<A> editWaiting() {
-    return withNewWaitingLike(java.util.Optional.ofNullable(buildWaiting()).orElse(null));
+    return this.withNewWaitingLike(Optional.ofNullable(this.buildWaiting()).orElse(null));
   }
   
   public WaitingNested<A> editOrNewWaiting() {
-    return withNewWaitingLike(java.util.Optional.ofNullable(buildWaiting()).orElse(new V1ContainerStateWaitingBuilder().build()));
+    return this.withNewWaitingLike(Optional.ofNullable(this.buildWaiting()).orElse(new V1ContainerStateWaitingBuilder().build()));
   }
   
   public WaitingNested<A> editOrNewWaitingLike(V1ContainerStateWaiting item) {
-    return withNewWaitingLike(java.util.Optional.ofNullable(buildWaiting()).orElse(item));
+    return this.withNewWaitingLike(Optional.ofNullable(this.buildWaiting()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerStateFluent that = (V1ContainerStateFluent) o;
-    if (!java.util.Objects.equals(running, that.running)) return false;
-    if (!java.util.Objects.equals(terminated, that.terminated)) return false;
-    if (!java.util.Objects.equals(waiting, that.waiting)) return false;
+    if (!(Objects.equals(running, that.running))) {
+      return false;
+    }
+    if (!(Objects.equals(terminated, that.terminated))) {
+      return false;
+    }
+    if (!(Objects.equals(waiting, that.waiting))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(running,  terminated,  waiting,  super.hashCode());
+    return Objects.hash(running, terminated, waiting);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (running != null) { sb.append("running:"); sb.append(running + ","); }
-    if (terminated != null) { sb.append("terminated:"); sb.append(terminated + ","); }
-    if (waiting != null) { sb.append("waiting:"); sb.append(waiting); }
+    if (!(running == null)) {
+        sb.append("running:");
+        sb.append(running);
+        sb.append(",");
+    }
+    if (!(terminated == null)) {
+        sb.append("terminated:");
+        sb.append(terminated);
+        sb.append(",");
+    }
+    if (!(waiting == null)) {
+        sb.append("waiting:");
+        sb.append(waiting);
+    }
     sb.append("}");
     return sb.toString();
   }

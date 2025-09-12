@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CronJobSpecBuilder extends V1CronJobSpecFluent<V1CronJobSpecBuilder> implements VisitableBuilder<V1CronJobSpec,V1CronJobSpecBuilder>{
   public V1CronJobSpecBuilder() {
     this(new V1CronJobSpec());

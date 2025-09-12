@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ObjectMetaBuilder extends V1ObjectMetaFluent<V1ObjectMetaBuilder> implements VisitableBuilder<V1ObjectMeta,V1ObjectMetaBuilder>{
   public V1ObjectMetaBuilder() {
     this(new V1ObjectMeta());

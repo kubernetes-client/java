@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2ResourceClaimTemplateBuilder extends V1beta2ResourceClaimTemplateFluent<V1beta2ResourceClaimTemplateBuilder> implements VisitableBuilder<V1beta2ResourceClaimTemplate,V1beta2ResourceClaimTemplateBuilder>{
   public V1beta2ResourceClaimTemplateBuilder() {
     this(new V1beta2ResourceClaimTemplate());

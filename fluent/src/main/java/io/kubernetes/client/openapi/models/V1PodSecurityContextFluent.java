@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
 import java.lang.Long;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -18,7 +21,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>> extends BaseFluent<A>{
+public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.models.V1PodSecurityContextFluent<A>> extends BaseFluent<A>{
   public V1PodSecurityContextFluent() {
   }
   
@@ -40,22 +43,22 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   private V1WindowsSecurityContextOptionsBuilder windowsOptions;
   
   protected void copyInstance(V1PodSecurityContext instance) {
-    instance = (instance != null ? instance : new V1PodSecurityContext());
+    instance = instance != null ? instance : new V1PodSecurityContext();
     if (instance != null) {
-          this.withAppArmorProfile(instance.getAppArmorProfile());
-          this.withFsGroup(instance.getFsGroup());
-          this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
-          this.withRunAsGroup(instance.getRunAsGroup());
-          this.withRunAsNonRoot(instance.getRunAsNonRoot());
-          this.withRunAsUser(instance.getRunAsUser());
-          this.withSeLinuxChangePolicy(instance.getSeLinuxChangePolicy());
-          this.withSeLinuxOptions(instance.getSeLinuxOptions());
-          this.withSeccompProfile(instance.getSeccompProfile());
-          this.withSupplementalGroups(instance.getSupplementalGroups());
-          this.withSupplementalGroupsPolicy(instance.getSupplementalGroupsPolicy());
-          this.withSysctls(instance.getSysctls());
-          this.withWindowsOptions(instance.getWindowsOptions());
-        }
+        this.withAppArmorProfile(instance.getAppArmorProfile());
+        this.withFsGroup(instance.getFsGroup());
+        this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
+        this.withRunAsGroup(instance.getRunAsGroup());
+        this.withRunAsNonRoot(instance.getRunAsNonRoot());
+        this.withRunAsUser(instance.getRunAsUser());
+        this.withSeLinuxChangePolicy(instance.getSeLinuxChangePolicy());
+        this.withSeLinuxOptions(instance.getSeLinuxOptions());
+        this.withSeccompProfile(instance.getSeccompProfile());
+        this.withSupplementalGroups(instance.getSupplementalGroups());
+        this.withSupplementalGroupsPolicy(instance.getSupplementalGroupsPolicy());
+        this.withSysctls(instance.getSysctls());
+        this.withWindowsOptions(instance.getWindowsOptions());
+    }
   }
   
   public V1AppArmorProfile buildAppArmorProfile() {
@@ -87,15 +90,15 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public AppArmorProfileNested<A> editAppArmorProfile() {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(null));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(null));
   }
   
   public AppArmorProfileNested<A> editOrNewAppArmorProfile() {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
   }
   
   public AppArmorProfileNested<A> editOrNewAppArmorProfileLike(V1AppArmorProfile item) {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(item));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(item));
   }
   
   public Long getFsGroup() {
@@ -205,15 +208,15 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public SeLinuxOptionsNested<A> editSeLinuxOptions() {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(null));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(null));
   }
   
   public SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(new V1SELinuxOptionsBuilder().build()));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(new V1SELinuxOptionsBuilder().build()));
   }
   
   public SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(item));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(item));
   }
   
   public V1SeccompProfile buildSeccompProfile() {
@@ -245,46 +248,71 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public SeccompProfileNested<A> editSeccompProfile() {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(null));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(null));
   }
   
   public SeccompProfileNested<A> editOrNewSeccompProfile() {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(new V1SeccompProfileBuilder().build()));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(new V1SeccompProfileBuilder().build()));
   }
   
   public SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(item));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(item));
   }
   
   public A addToSupplementalGroups(int index,Long item) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
     this.supplementalGroups.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSupplementalGroups(int index,Long item) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    this.supplementalGroups.set(index, item); return (A)this;
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    this.supplementalGroups.set(index, item);
+    return (A) this;
   }
   
-  public A addToSupplementalGroups(java.lang.Long... items) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    for (Long item : items) {this.supplementalGroups.add(item);} return (A)this;
+  public A addToSupplementalGroups(Long... items) {
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    for (Long item : items) {
+      this.supplementalGroups.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToSupplementalGroups(Collection<Long> items) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    for (Long item : items) {this.supplementalGroups.add(item);} return (A)this;
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    for (Long item : items) {
+      this.supplementalGroups.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromSupplementalGroups(java.lang.Long... items) {
-    if (this.supplementalGroups == null) return (A)this;
-    for (Long item : items) { this.supplementalGroups.remove(item);} return (A)this;
+  public A removeFromSupplementalGroups(Long... items) {
+    if (this.supplementalGroups == null) {
+      return (A) this;
+    }
+    for (Long item : items) {
+      this.supplementalGroups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSupplementalGroups(Collection<Long> items) {
-    if (this.supplementalGroups == null) return (A)this;
-    for (Long item : items) { this.supplementalGroups.remove(item);} return (A)this;
+    if (this.supplementalGroups == null) {
+      return (A) this;
+    }
+    for (Long item : items) {
+      this.supplementalGroups.remove(item);
+    }
+    return (A) this;
   }
   
   public List<Long> getSupplementalGroups() {
@@ -333,7 +361,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     return (A) this;
   }
   
-  public A withSupplementalGroups(java.lang.Long... supplementalGroups) {
+  public A withSupplementalGroups(Long... supplementalGroups) {
     if (this.supplementalGroups != null) {
         this.supplementalGroups.clear();
         _visitables.remove("supplementalGroups");
@@ -347,7 +375,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public boolean hasSupplementalGroups() {
-    return this.supplementalGroups != null && !this.supplementalGroups.isEmpty();
+    return this.supplementalGroups != null && !(this.supplementalGroups.isEmpty());
   }
   
   public String getSupplementalGroupsPolicy() {
@@ -364,7 +392,9 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public A addToSysctls(int index,V1Sysctl item) {
-    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
+    if (this.sysctls == null) {
+      this.sysctls = new ArrayList();
+    }
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
     if (index < 0 || index >= sysctls.size()) {
         _visitables.get("sysctls").add(builder);
@@ -373,11 +403,13 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
         _visitables.get("sysctls").add(builder);
         sysctls.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSysctls(int index,V1Sysctl item) {
-    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
+    if (this.sysctls == null) {
+      this.sysctls = new ArrayList();
+    }
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
     if (index < 0 || index >= sysctls.size()) {
         _visitables.get("sysctls").add(builder);
@@ -386,41 +418,71 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
         _visitables.get("sysctls").add(builder);
         sysctls.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items) {
-    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
-    for (V1Sysctl item : items) {V1SysctlBuilder builder = new V1SysctlBuilder(item);_visitables.get("sysctls").add(builder);this.sysctls.add(builder);} return (A)this;
+  public A addToSysctls(V1Sysctl... items) {
+    if (this.sysctls == null) {
+      this.sysctls = new ArrayList();
+    }
+    for (V1Sysctl item : items) {
+        V1SysctlBuilder builder = new V1SysctlBuilder(item);
+        _visitables.get("sysctls").add(builder);
+        this.sysctls.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSysctls(Collection<V1Sysctl> items) {
-    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
-    for (V1Sysctl item : items) {V1SysctlBuilder builder = new V1SysctlBuilder(item);_visitables.get("sysctls").add(builder);this.sysctls.add(builder);} return (A)this;
+    if (this.sysctls == null) {
+      this.sysctls = new ArrayList();
+    }
+    for (V1Sysctl item : items) {
+        V1SysctlBuilder builder = new V1SysctlBuilder(item);
+        _visitables.get("sysctls").add(builder);
+        this.sysctls.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items) {
-    if (this.sysctls == null) return (A)this;
-    for (V1Sysctl item : items) {V1SysctlBuilder builder = new V1SysctlBuilder(item);_visitables.get("sysctls").remove(builder); this.sysctls.remove(builder);} return (A)this;
+  public A removeFromSysctls(V1Sysctl... items) {
+    if (this.sysctls == null) {
+      return (A) this;
+    }
+    for (V1Sysctl item : items) {
+        V1SysctlBuilder builder = new V1SysctlBuilder(item);
+        _visitables.get("sysctls").remove(builder);
+        this.sysctls.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSysctls(Collection<V1Sysctl> items) {
-    if (this.sysctls == null) return (A)this;
-    for (V1Sysctl item : items) {V1SysctlBuilder builder = new V1SysctlBuilder(item);_visitables.get("sysctls").remove(builder); this.sysctls.remove(builder);} return (A)this;
+    if (this.sysctls == null) {
+      return (A) this;
+    }
+    for (V1Sysctl item : items) {
+        V1SysctlBuilder builder = new V1SysctlBuilder(item);
+        _visitables.get("sysctls").remove(builder);
+        this.sysctls.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSysctls(Predicate<V1SysctlBuilder> predicate) {
-    if (sysctls == null) return (A) this;
-    final Iterator<V1SysctlBuilder> each = sysctls.iterator();
-    final List visitables = _visitables.get("sysctls");
-    while (each.hasNext()) {
-      V1SysctlBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (sysctls == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1SysctlBuilder> each = sysctls.iterator();
+    List visitables = _visitables.get("sysctls");
+    while (each.hasNext()) {
+        V1SysctlBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Sysctl> buildSysctls() {
@@ -472,7 +534,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     return (A) this;
   }
   
-  public A withSysctls(io.kubernetes.client.openapi.models.V1Sysctl... sysctls) {
+  public A withSysctls(V1Sysctl... sysctls) {
     if (this.sysctls != null) {
         this.sysctls.clear();
         _visitables.remove("sysctls");
@@ -486,7 +548,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public boolean hasSysctls() {
-    return this.sysctls != null && !this.sysctls.isEmpty();
+    return this.sysctls != null && !(this.sysctls.isEmpty());
   }
   
   public SysctlsNested<A> addNewSysctl() {
@@ -502,28 +564,39 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public SysctlsNested<A> editSysctl(int index) {
-    if (sysctls.size() <= index) throw new RuntimeException("Can't edit sysctls. Index exceeds size.");
-    return setNewSysctlLike(index, buildSysctl(index));
+    if (index <= sysctls.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "sysctls"));
+    }
+    return this.setNewSysctlLike(index, this.buildSysctl(index));
   }
   
   public SysctlsNested<A> editFirstSysctl() {
-    if (sysctls.size() == 0) throw new RuntimeException("Can't edit first sysctls. The list is empty.");
-    return setNewSysctlLike(0, buildSysctl(0));
+    if (sysctls.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "sysctls"));
+    }
+    return this.setNewSysctlLike(0, this.buildSysctl(0));
   }
   
   public SysctlsNested<A> editLastSysctl() {
     int index = sysctls.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last sysctls. The list is empty.");
-    return setNewSysctlLike(index, buildSysctl(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "sysctls"));
+    }
+    return this.setNewSysctlLike(index, this.buildSysctl(index));
   }
   
   public SysctlsNested<A> editMatchingSysctl(Predicate<V1SysctlBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<sysctls.size();i++) { 
-    if (predicate.test(sysctls.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching sysctls. No match found.");
-    return setNewSysctlLike(index, buildSysctl(index));
+    for (int i = 0;i < sysctls.size();i++) {
+      if (predicate.test(sysctls.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "sysctls"));
+    }
+    return this.setNewSysctlLike(index, this.buildSysctl(index));
   }
   
   public V1WindowsSecurityContextOptions buildWindowsOptions() {
@@ -555,58 +628,141 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public WindowsOptionsNested<A> editWindowsOptions() {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(null));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(null));
   }
   
   public WindowsOptionsNested<A> editOrNewWindowsOptions() {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(new V1WindowsSecurityContextOptionsBuilder().build()));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(new V1WindowsSecurityContextOptionsBuilder().build()));
   }
   
   public WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(item));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodSecurityContextFluent that = (V1PodSecurityContextFluent) o;
-    if (!java.util.Objects.equals(appArmorProfile, that.appArmorProfile)) return false;
-    if (!java.util.Objects.equals(fsGroup, that.fsGroup)) return false;
-    if (!java.util.Objects.equals(fsGroupChangePolicy, that.fsGroupChangePolicy)) return false;
-    if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
-    if (!java.util.Objects.equals(runAsNonRoot, that.runAsNonRoot)) return false;
-    if (!java.util.Objects.equals(runAsUser, that.runAsUser)) return false;
-    if (!java.util.Objects.equals(seLinuxChangePolicy, that.seLinuxChangePolicy)) return false;
-    if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
-    if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
-    if (!java.util.Objects.equals(supplementalGroups, that.supplementalGroups)) return false;
-    if (!java.util.Objects.equals(supplementalGroupsPolicy, that.supplementalGroupsPolicy)) return false;
-    if (!java.util.Objects.equals(sysctls, that.sysctls)) return false;
-    if (!java.util.Objects.equals(windowsOptions, that.windowsOptions)) return false;
+    if (!(Objects.equals(appArmorProfile, that.appArmorProfile))) {
+      return false;
+    }
+    if (!(Objects.equals(fsGroup, that.fsGroup))) {
+      return false;
+    }
+    if (!(Objects.equals(fsGroupChangePolicy, that.fsGroupChangePolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsGroup, that.runAsGroup))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsNonRoot, that.runAsNonRoot))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsUser, that.runAsUser))) {
+      return false;
+    }
+    if (!(Objects.equals(seLinuxChangePolicy, that.seLinuxChangePolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(seLinuxOptions, that.seLinuxOptions))) {
+      return false;
+    }
+    if (!(Objects.equals(seccompProfile, that.seccompProfile))) {
+      return false;
+    }
+    if (!(Objects.equals(supplementalGroups, that.supplementalGroups))) {
+      return false;
+    }
+    if (!(Objects.equals(supplementalGroupsPolicy, that.supplementalGroupsPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(sysctls, that.sysctls))) {
+      return false;
+    }
+    if (!(Objects.equals(windowsOptions, that.windowsOptions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxChangePolicy,  seLinuxOptions,  seccompProfile,  supplementalGroups,  supplementalGroupsPolicy,  sysctls,  windowsOptions,  super.hashCode());
+    return Objects.hash(appArmorProfile, fsGroup, fsGroupChangePolicy, runAsGroup, runAsNonRoot, runAsUser, seLinuxChangePolicy, seLinuxOptions, seccompProfile, supplementalGroups, supplementalGroupsPolicy, sysctls, windowsOptions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (appArmorProfile != null) { sb.append("appArmorProfile:"); sb.append(appArmorProfile + ","); }
-    if (fsGroup != null) { sb.append("fsGroup:"); sb.append(fsGroup + ","); }
-    if (fsGroupChangePolicy != null) { sb.append("fsGroupChangePolicy:"); sb.append(fsGroupChangePolicy + ","); }
-    if (runAsGroup != null) { sb.append("runAsGroup:"); sb.append(runAsGroup + ","); }
-    if (runAsNonRoot != null) { sb.append("runAsNonRoot:"); sb.append(runAsNonRoot + ","); }
-    if (runAsUser != null) { sb.append("runAsUser:"); sb.append(runAsUser + ","); }
-    if (seLinuxChangePolicy != null) { sb.append("seLinuxChangePolicy:"); sb.append(seLinuxChangePolicy + ","); }
-    if (seLinuxOptions != null) { sb.append("seLinuxOptions:"); sb.append(seLinuxOptions + ","); }
-    if (seccompProfile != null) { sb.append("seccompProfile:"); sb.append(seccompProfile + ","); }
-    if (supplementalGroups != null && !supplementalGroups.isEmpty()) { sb.append("supplementalGroups:"); sb.append(supplementalGroups + ","); }
-    if (supplementalGroupsPolicy != null) { sb.append("supplementalGroupsPolicy:"); sb.append(supplementalGroupsPolicy + ","); }
-    if (sysctls != null && !sysctls.isEmpty()) { sb.append("sysctls:"); sb.append(sysctls + ","); }
-    if (windowsOptions != null) { sb.append("windowsOptions:"); sb.append(windowsOptions); }
+    if (!(appArmorProfile == null)) {
+        sb.append("appArmorProfile:");
+        sb.append(appArmorProfile);
+        sb.append(",");
+    }
+    if (!(fsGroup == null)) {
+        sb.append("fsGroup:");
+        sb.append(fsGroup);
+        sb.append(",");
+    }
+    if (!(fsGroupChangePolicy == null)) {
+        sb.append("fsGroupChangePolicy:");
+        sb.append(fsGroupChangePolicy);
+        sb.append(",");
+    }
+    if (!(runAsGroup == null)) {
+        sb.append("runAsGroup:");
+        sb.append(runAsGroup);
+        sb.append(",");
+    }
+    if (!(runAsNonRoot == null)) {
+        sb.append("runAsNonRoot:");
+        sb.append(runAsNonRoot);
+        sb.append(",");
+    }
+    if (!(runAsUser == null)) {
+        sb.append("runAsUser:");
+        sb.append(runAsUser);
+        sb.append(",");
+    }
+    if (!(seLinuxChangePolicy == null)) {
+        sb.append("seLinuxChangePolicy:");
+        sb.append(seLinuxChangePolicy);
+        sb.append(",");
+    }
+    if (!(seLinuxOptions == null)) {
+        sb.append("seLinuxOptions:");
+        sb.append(seLinuxOptions);
+        sb.append(",");
+    }
+    if (!(seccompProfile == null)) {
+        sb.append("seccompProfile:");
+        sb.append(seccompProfile);
+        sb.append(",");
+    }
+    if (!(supplementalGroups == null) && !(supplementalGroups.isEmpty())) {
+        sb.append("supplementalGroups:");
+        sb.append(supplementalGroups);
+        sb.append(",");
+    }
+    if (!(supplementalGroupsPolicy == null)) {
+        sb.append("supplementalGroupsPolicy:");
+        sb.append(supplementalGroupsPolicy);
+        sb.append(",");
+    }
+    if (!(sysctls == null) && !(sysctls.isEmpty())) {
+        sb.append("sysctls:");
+        sb.append(sysctls);
+        sb.append(",");
+    }
+    if (!(windowsOptions == null)) {
+        sb.append("windowsOptions:");
+        sb.append(windowsOptions);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -671,7 +827,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     int index;
     
     public N and() {
-      return (N) V1PodSecurityContextFluent.this.setToSysctls(index,builder.build());
+      return (N) V1PodSecurityContextFluent.this.setToSysctls(index, builder.build());
     }
     
     public N endSysctl() {

@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PortworxVolumeSourceFluent<A extends V1PortworxVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1PortworxVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1PortworxVolumeSourceFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1PortworxVolumeSourceFluent<A extends V1PortworxVolumeSourceFluent
   private String volumeID;
   
   protected void copyInstance(V1PortworxVolumeSource instance) {
-    instance = (instance != null ? instance : new V1PortworxVolumeSource());
+    instance = instance != null ? instance : new V1PortworxVolumeSource();
     if (instance != null) {
-          this.withFsType(instance.getFsType());
-          this.withReadOnly(instance.getReadOnly());
-          this.withVolumeID(instance.getVolumeID());
-        }
+        this.withFsType(instance.getFsType());
+        this.withReadOnly(instance.getReadOnly());
+        this.withVolumeID(instance.getVolumeID());
+    }
   }
   
   public String getFsType() {
@@ -70,26 +72,49 @@ public class V1PortworxVolumeSourceFluent<A extends V1PortworxVolumeSourceFluent
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PortworxVolumeSourceFluent that = (V1PortworxVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(volumeID, that.volumeID)) return false;
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeID, that.volumeID))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  readOnly,  volumeID,  super.hashCode());
+    return Objects.hash(fsType, readOnly, volumeID);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (volumeID != null) { sb.append("volumeID:"); sb.append(volumeID); }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(volumeID == null)) {
+        sb.append("volumeID:");
+        sb.append(volumeID);
+    }
     sb.append("}");
     return sb.toString();
   }

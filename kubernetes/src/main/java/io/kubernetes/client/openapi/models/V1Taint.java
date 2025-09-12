@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * The node this Taint is attached to has the \&quot;effect\&quot; on any pod that does not tolerate the Taint.
  */
 @ApiModel(description = "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1Taint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
@@ -98,11 +98,11 @@ public class V1Taint {
   }
 
    /**
-   * TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.
+   * TimeAdded represents the time at which the taint was added.
    * @return timeAdded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.")
+  @ApiModelProperty(value = "TimeAdded represents the time at which the taint was added.")
 
   public OffsetDateTime getTimeAdded() {
     return timeAdded;

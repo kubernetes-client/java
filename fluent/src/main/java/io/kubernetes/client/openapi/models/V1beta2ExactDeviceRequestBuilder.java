@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2ExactDeviceRequestBuilder extends V1beta2ExactDeviceRequestFluent<V1beta2ExactDeviceRequestBuilder> implements VisitableBuilder<V1beta2ExactDeviceRequest,V1beta2ExactDeviceRequestBuilder>{
   public V1beta2ExactDeviceRequestBuilder() {
     this(new V1beta2ExactDeviceRequest());
@@ -25,6 +26,7 @@ public class V1beta2ExactDeviceRequestBuilder extends V1beta2ExactDeviceRequestF
     V1beta2ExactDeviceRequest buildable = new V1beta2ExactDeviceRequest();
     buildable.setAdminAccess(fluent.getAdminAccess());
     buildable.setAllocationMode(fluent.getAllocationMode());
+    buildable.setCapacity(fluent.buildCapacity());
     buildable.setCount(fluent.getCount());
     buildable.setDeviceClassName(fluent.getDeviceClassName());
     buildable.setSelectors(fluent.buildSelectors());

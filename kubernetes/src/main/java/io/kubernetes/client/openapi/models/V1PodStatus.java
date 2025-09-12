@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ContainerStatus;
 import io.kubernetes.client.openapi.models.V1HostIP;
 import io.kubernetes.client.openapi.models.V1PodCondition;
+import io.kubernetes.client.openapi.models.V1PodExtendedResourceClaimStatus;
 import io.kubernetes.client.openapi.models.V1PodIP;
 import io.kubernetes.client.openapi.models.V1PodResourceClaimStatus;
 import io.swagger.annotations.ApiModel;
@@ -35,7 +36,7 @@ import java.util.List;
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.
  */
 @ApiModel(description = "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -48,6 +49,10 @@ public class V1PodStatus {
   public static final String SERIALIZED_NAME_EPHEMERAL_CONTAINER_STATUSES = "ephemeralContainerStatuses";
   @SerializedName(SERIALIZED_NAME_EPHEMERAL_CONTAINER_STATUSES)
   private List<V1ContainerStatus> ephemeralContainerStatuses = null;
+
+  public static final String SERIALIZED_NAME_EXTENDED_RESOURCE_CLAIM_STATUS = "extendedResourceClaimStatus";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_RESOURCE_CLAIM_STATUS)
+  private V1PodExtendedResourceClaimStatus extendedResourceClaimStatus;
 
   public static final String SERIALIZED_NAME_HOST_I_P = "hostIP";
   @SerializedName(SERIALIZED_NAME_HOST_I_P)
@@ -196,6 +201,29 @@ public class V1PodStatus {
 
   public void setEphemeralContainerStatuses(List<V1ContainerStatus> ephemeralContainerStatuses) {
     this.ephemeralContainerStatuses = ephemeralContainerStatuses;
+  }
+
+
+  public V1PodStatus extendedResourceClaimStatus(V1PodExtendedResourceClaimStatus extendedResourceClaimStatus) {
+
+    this.extendedResourceClaimStatus = extendedResourceClaimStatus;
+    return this;
+  }
+
+   /**
+   * Get extendedResourceClaimStatus
+   * @return extendedResourceClaimStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1PodExtendedResourceClaimStatus getExtendedResourceClaimStatus() {
+    return extendedResourceClaimStatus;
+  }
+
+
+  public void setExtendedResourceClaimStatus(V1PodExtendedResourceClaimStatus extendedResourceClaimStatus) {
+    this.extendedResourceClaimStatus = extendedResourceClaimStatus;
   }
 
 
@@ -565,6 +593,7 @@ public class V1PodStatus {
     return Objects.equals(this.conditions, v1PodStatus.conditions) &&
         Objects.equals(this.containerStatuses, v1PodStatus.containerStatuses) &&
         Objects.equals(this.ephemeralContainerStatuses, v1PodStatus.ephemeralContainerStatuses) &&
+        Objects.equals(this.extendedResourceClaimStatus, v1PodStatus.extendedResourceClaimStatus) &&
         Objects.equals(this.hostIP, v1PodStatus.hostIP) &&
         Objects.equals(this.hostIPs, v1PodStatus.hostIPs) &&
         Objects.equals(this.initContainerStatuses, v1PodStatus.initContainerStatuses) &&
@@ -583,7 +612,7 @@ public class V1PodStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
+    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, extendedResourceClaimStatus, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
   }
 
 
@@ -594,6 +623,7 @@ public class V1PodStatus {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    containerStatuses: ").append(toIndentedString(containerStatuses)).append("\n");
     sb.append("    ephemeralContainerStatuses: ").append(toIndentedString(ephemeralContainerStatuses)).append("\n");
+    sb.append("    extendedResourceClaimStatus: ").append(toIndentedString(extendedResourceClaimStatus)).append("\n");
     sb.append("    hostIP: ").append(toIndentedString(hostIP)).append("\n");
     sb.append("    hostIPs: ").append(toIndentedString(hostIPs)).append("\n");
     sb.append("    initContainerStatuses: ").append(toIndentedString(initContainerStatuses)).append("\n");

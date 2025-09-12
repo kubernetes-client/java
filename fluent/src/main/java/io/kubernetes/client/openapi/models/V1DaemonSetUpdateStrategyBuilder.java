@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyFluent<V1DaemonSetUpdateStrategyBuilder> implements VisitableBuilder<V1DaemonSetUpdateStrategy,V1DaemonSetUpdateStrategyBuilder>{
   public V1DaemonSetUpdateStrategyBuilder() {
     this(new V1DaemonSetUpdateStrategy());

@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDefinitionNamesFluent<A>> extends BaseFluent<A>{
+public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<A>> extends BaseFluent<A>{
   public V1CustomResourceDefinitionNamesFluent() {
   }
   
@@ -28,46 +30,71 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
   private String singular;
   
   protected void copyInstance(V1CustomResourceDefinitionNames instance) {
-    instance = (instance != null ? instance : new V1CustomResourceDefinitionNames());
+    instance = instance != null ? instance : new V1CustomResourceDefinitionNames();
     if (instance != null) {
-          this.withCategories(instance.getCategories());
-          this.withKind(instance.getKind());
-          this.withListKind(instance.getListKind());
-          this.withPlural(instance.getPlural());
-          this.withShortNames(instance.getShortNames());
-          this.withSingular(instance.getSingular());
-        }
+        this.withCategories(instance.getCategories());
+        this.withKind(instance.getKind());
+        this.withListKind(instance.getListKind());
+        this.withPlural(instance.getPlural());
+        this.withShortNames(instance.getShortNames());
+        this.withSingular(instance.getSingular());
+    }
   }
   
   public A addToCategories(int index,String item) {
-    if (this.categories == null) {this.categories = new ArrayList<String>();}
+    if (this.categories == null) {
+      this.categories = new ArrayList();
+    }
     this.categories.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToCategories(int index,String item) {
-    if (this.categories == null) {this.categories = new ArrayList<String>();}
-    this.categories.set(index, item); return (A)this;
+    if (this.categories == null) {
+      this.categories = new ArrayList();
+    }
+    this.categories.set(index, item);
+    return (A) this;
   }
   
-  public A addToCategories(java.lang.String... items) {
-    if (this.categories == null) {this.categories = new ArrayList<String>();}
-    for (String item : items) {this.categories.add(item);} return (A)this;
+  public A addToCategories(String... items) {
+    if (this.categories == null) {
+      this.categories = new ArrayList();
+    }
+    for (String item : items) {
+      this.categories.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToCategories(Collection<String> items) {
-    if (this.categories == null) {this.categories = new ArrayList<String>();}
-    for (String item : items) {this.categories.add(item);} return (A)this;
+    if (this.categories == null) {
+      this.categories = new ArrayList();
+    }
+    for (String item : items) {
+      this.categories.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromCategories(java.lang.String... items) {
-    if (this.categories == null) return (A)this;
-    for (String item : items) { this.categories.remove(item);} return (A)this;
+  public A removeFromCategories(String... items) {
+    if (this.categories == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.categories.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromCategories(Collection<String> items) {
-    if (this.categories == null) return (A)this;
-    for (String item : items) { this.categories.remove(item);} return (A)this;
+    if (this.categories == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.categories.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getCategories() {
@@ -116,7 +143,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
     return (A) this;
   }
   
-  public A withCategories(java.lang.String... categories) {
+  public A withCategories(String... categories) {
     if (this.categories != null) {
         this.categories.clear();
         _visitables.remove("categories");
@@ -130,7 +157,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
   }
   
   public boolean hasCategories() {
-    return this.categories != null && !this.categories.isEmpty();
+    return this.categories != null && !(this.categories.isEmpty());
   }
   
   public String getKind() {
@@ -173,34 +200,59 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
   }
   
   public A addToShortNames(int index,String item) {
-    if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
+    if (this.shortNames == null) {
+      this.shortNames = new ArrayList();
+    }
     this.shortNames.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToShortNames(int index,String item) {
-    if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
-    this.shortNames.set(index, item); return (A)this;
+    if (this.shortNames == null) {
+      this.shortNames = new ArrayList();
+    }
+    this.shortNames.set(index, item);
+    return (A) this;
   }
   
-  public A addToShortNames(java.lang.String... items) {
-    if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
-    for (String item : items) {this.shortNames.add(item);} return (A)this;
+  public A addToShortNames(String... items) {
+    if (this.shortNames == null) {
+      this.shortNames = new ArrayList();
+    }
+    for (String item : items) {
+      this.shortNames.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToShortNames(Collection<String> items) {
-    if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
-    for (String item : items) {this.shortNames.add(item);} return (A)this;
+    if (this.shortNames == null) {
+      this.shortNames = new ArrayList();
+    }
+    for (String item : items) {
+      this.shortNames.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromShortNames(java.lang.String... items) {
-    if (this.shortNames == null) return (A)this;
-    for (String item : items) { this.shortNames.remove(item);} return (A)this;
+  public A removeFromShortNames(String... items) {
+    if (this.shortNames == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.shortNames.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromShortNames(Collection<String> items) {
-    if (this.shortNames == null) return (A)this;
-    for (String item : items) { this.shortNames.remove(item);} return (A)this;
+    if (this.shortNames == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.shortNames.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getShortNames() {
@@ -249,7 +301,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
     return (A) this;
   }
   
-  public A withShortNames(java.lang.String... shortNames) {
+  public A withShortNames(String... shortNames) {
     if (this.shortNames != null) {
         this.shortNames.clear();
         _visitables.remove("shortNames");
@@ -263,7 +315,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
   }
   
   public boolean hasShortNames() {
-    return this.shortNames != null && !this.shortNames.isEmpty();
+    return this.shortNames != null && !(this.shortNames.isEmpty());
   }
   
   public String getSingular() {
@@ -280,32 +332,73 @@ public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDef
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CustomResourceDefinitionNamesFluent that = (V1CustomResourceDefinitionNamesFluent) o;
-    if (!java.util.Objects.equals(categories, that.categories)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(listKind, that.listKind)) return false;
-    if (!java.util.Objects.equals(plural, that.plural)) return false;
-    if (!java.util.Objects.equals(shortNames, that.shortNames)) return false;
-    if (!java.util.Objects.equals(singular, that.singular)) return false;
+    if (!(Objects.equals(categories, that.categories))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(listKind, that.listKind))) {
+      return false;
+    }
+    if (!(Objects.equals(plural, that.plural))) {
+      return false;
+    }
+    if (!(Objects.equals(shortNames, that.shortNames))) {
+      return false;
+    }
+    if (!(Objects.equals(singular, that.singular))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(categories,  kind,  listKind,  plural,  shortNames,  singular,  super.hashCode());
+    return Objects.hash(categories, kind, listKind, plural, shortNames, singular);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (categories != null && !categories.isEmpty()) { sb.append("categories:"); sb.append(categories + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (listKind != null) { sb.append("listKind:"); sb.append(listKind + ","); }
-    if (plural != null) { sb.append("plural:"); sb.append(plural + ","); }
-    if (shortNames != null && !shortNames.isEmpty()) { sb.append("shortNames:"); sb.append(shortNames + ","); }
-    if (singular != null) { sb.append("singular:"); sb.append(singular); }
+    if (!(categories == null) && !(categories.isEmpty())) {
+        sb.append("categories:");
+        sb.append(categories);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(listKind == null)) {
+        sb.append("listKind:");
+        sb.append(listKind);
+        sb.append(",");
+    }
+    if (!(plural == null)) {
+        sb.append("plural:");
+        sb.append(plural);
+        sb.append(",");
+    }
+    if (!(shortNames == null) && !(shortNames.isEmpty())) {
+        sb.append("shortNames:");
+        sb.append(shortNames);
+        sb.append(",");
+    }
+    if (!(singular == null)) {
+        sb.append("singular:");
+        sb.append(singular);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)

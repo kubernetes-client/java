@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<A>{
+public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1AffinityFluent<A>> extends BaseFluent<A>{
   public V1AffinityFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<
   private V1PodAntiAffinityBuilder podAntiAffinity;
   
   protected void copyInstance(V1Affinity instance) {
-    instance = (instance != null ? instance : new V1Affinity());
+    instance = instance != null ? instance : new V1Affinity();
     if (instance != null) {
-          this.withNodeAffinity(instance.getNodeAffinity());
-          this.withPodAffinity(instance.getPodAffinity());
-          this.withPodAntiAffinity(instance.getPodAntiAffinity());
-        }
+        this.withNodeAffinity(instance.getNodeAffinity());
+        this.withPodAffinity(instance.getPodAffinity());
+        this.withPodAntiAffinity(instance.getPodAntiAffinity());
+    }
   }
   
   public V1NodeAffinity buildNodeAffinity() {
@@ -59,15 +62,15 @@ public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<
   }
   
   public NodeAffinityNested<A> editNodeAffinity() {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(null));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(null));
   }
   
   public NodeAffinityNested<A> editOrNewNodeAffinity() {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(new V1NodeAffinityBuilder().build()));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(new V1NodeAffinityBuilder().build()));
   }
   
   public NodeAffinityNested<A> editOrNewNodeAffinityLike(V1NodeAffinity item) {
-    return withNewNodeAffinityLike(java.util.Optional.ofNullable(buildNodeAffinity()).orElse(item));
+    return this.withNewNodeAffinityLike(Optional.ofNullable(this.buildNodeAffinity()).orElse(item));
   }
   
   public V1PodAffinity buildPodAffinity() {
@@ -99,15 +102,15 @@ public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<
   }
   
   public PodAffinityNested<A> editPodAffinity() {
-    return withNewPodAffinityLike(java.util.Optional.ofNullable(buildPodAffinity()).orElse(null));
+    return this.withNewPodAffinityLike(Optional.ofNullable(this.buildPodAffinity()).orElse(null));
   }
   
   public PodAffinityNested<A> editOrNewPodAffinity() {
-    return withNewPodAffinityLike(java.util.Optional.ofNullable(buildPodAffinity()).orElse(new V1PodAffinityBuilder().build()));
+    return this.withNewPodAffinityLike(Optional.ofNullable(this.buildPodAffinity()).orElse(new V1PodAffinityBuilder().build()));
   }
   
   public PodAffinityNested<A> editOrNewPodAffinityLike(V1PodAffinity item) {
-    return withNewPodAffinityLike(java.util.Optional.ofNullable(buildPodAffinity()).orElse(item));
+    return this.withNewPodAffinityLike(Optional.ofNullable(this.buildPodAffinity()).orElse(item));
   }
   
   public V1PodAntiAffinity buildPodAntiAffinity() {
@@ -139,38 +142,61 @@ public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<
   }
   
   public PodAntiAffinityNested<A> editPodAntiAffinity() {
-    return withNewPodAntiAffinityLike(java.util.Optional.ofNullable(buildPodAntiAffinity()).orElse(null));
+    return this.withNewPodAntiAffinityLike(Optional.ofNullable(this.buildPodAntiAffinity()).orElse(null));
   }
   
   public PodAntiAffinityNested<A> editOrNewPodAntiAffinity() {
-    return withNewPodAntiAffinityLike(java.util.Optional.ofNullable(buildPodAntiAffinity()).orElse(new V1PodAntiAffinityBuilder().build()));
+    return this.withNewPodAntiAffinityLike(Optional.ofNullable(this.buildPodAntiAffinity()).orElse(new V1PodAntiAffinityBuilder().build()));
   }
   
   public PodAntiAffinityNested<A> editOrNewPodAntiAffinityLike(V1PodAntiAffinity item) {
-    return withNewPodAntiAffinityLike(java.util.Optional.ofNullable(buildPodAntiAffinity()).orElse(item));
+    return this.withNewPodAntiAffinityLike(Optional.ofNullable(this.buildPodAntiAffinity()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1AffinityFluent that = (V1AffinityFluent) o;
-    if (!java.util.Objects.equals(nodeAffinity, that.nodeAffinity)) return false;
-    if (!java.util.Objects.equals(podAffinity, that.podAffinity)) return false;
-    if (!java.util.Objects.equals(podAntiAffinity, that.podAntiAffinity)) return false;
+    if (!(Objects.equals(nodeAffinity, that.nodeAffinity))) {
+      return false;
+    }
+    if (!(Objects.equals(podAffinity, that.podAffinity))) {
+      return false;
+    }
+    if (!(Objects.equals(podAntiAffinity, that.podAntiAffinity))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(nodeAffinity,  podAffinity,  podAntiAffinity,  super.hashCode());
+    return Objects.hash(nodeAffinity, podAffinity, podAntiAffinity);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nodeAffinity != null) { sb.append("nodeAffinity:"); sb.append(nodeAffinity + ","); }
-    if (podAffinity != null) { sb.append("podAffinity:"); sb.append(podAffinity + ","); }
-    if (podAntiAffinity != null) { sb.append("podAntiAffinity:"); sb.append(podAntiAffinity); }
+    if (!(nodeAffinity == null)) {
+        sb.append("nodeAffinity:");
+        sb.append(nodeAffinity);
+        sb.append(",");
+    }
+    if (!(podAffinity == null)) {
+        sb.append("podAffinity:");
+        sb.append(podAffinity);
+        sb.append(",");
+    }
+    if (!(podAntiAffinity == null)) {
+        sb.append("podAntiAffinity:");
+        sb.append(podAntiAffinity);
+    }
     sb.append("}");
     return sb.toString();
   }

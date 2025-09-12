@@ -27,7 +27,7 @@ import java.io.IOException;
  * EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+.
  */
 @ApiModel(description = "EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class CoreV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)

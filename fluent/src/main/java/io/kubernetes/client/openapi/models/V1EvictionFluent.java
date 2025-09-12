@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EvictionFluent<A extends V1EvictionFluent<A>> extends BaseFluent<A>{
+public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1EvictionFluent<A>> extends BaseFluent<A>{
   public V1EvictionFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1EvictionFluent<A extends V1EvictionFluent<A>> extends BaseFluent<
   private V1ObjectMetaBuilder metadata;
   
   protected void copyInstance(V1Eviction instance) {
-    instance = (instance != null ? instance : new V1Eviction());
+    instance = instance != null ? instance : new V1Eviction();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withDeleteOptions(instance.getDeleteOptions());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withDeleteOptions(instance.getDeleteOptions());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+    }
   }
   
   public String getApiVersion() {
@@ -74,15 +77,15 @@ public class V1EvictionFluent<A extends V1EvictionFluent<A>> extends BaseFluent<
   }
   
   public DeleteOptionsNested<A> editDeleteOptions() {
-    return withNewDeleteOptionsLike(java.util.Optional.ofNullable(buildDeleteOptions()).orElse(null));
+    return this.withNewDeleteOptionsLike(Optional.ofNullable(this.buildDeleteOptions()).orElse(null));
   }
   
   public DeleteOptionsNested<A> editOrNewDeleteOptions() {
-    return withNewDeleteOptionsLike(java.util.Optional.ofNullable(buildDeleteOptions()).orElse(new V1DeleteOptionsBuilder().build()));
+    return this.withNewDeleteOptionsLike(Optional.ofNullable(this.buildDeleteOptions()).orElse(new V1DeleteOptionsBuilder().build()));
   }
   
   public DeleteOptionsNested<A> editOrNewDeleteOptionsLike(V1DeleteOptions item) {
-    return withNewDeleteOptionsLike(java.util.Optional.ofNullable(buildDeleteOptions()).orElse(item));
+    return this.withNewDeleteOptionsLike(Optional.ofNullable(this.buildDeleteOptions()).orElse(item));
   }
   
   public String getKind() {
@@ -127,40 +130,69 @@ public class V1EvictionFluent<A extends V1EvictionFluent<A>> extends BaseFluent<
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EvictionFluent that = (V1EvictionFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(deleteOptions, that.deleteOptions)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(deleteOptions, that.deleteOptions))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  deleteOptions,  kind,  metadata,  super.hashCode());
+    return Objects.hash(apiVersion, deleteOptions, kind, metadata);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (deleteOptions != null) { sb.append("deleteOptions:"); sb.append(deleteOptions + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(deleteOptions == null)) {
+        sb.append("deleteOptions:");
+        sb.append(deleteOptions);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+    }
     sb.append("}");
     return sb.toString();
   }

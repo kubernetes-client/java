@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1ClusterTrustBundleSpecFluent<A extends V1beta1ClusterTrustBundleSpecFluent<A>> extends BaseFluent<A>{
+public class V1beta1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1ClusterTrustBundleSpecFluent<A>> extends BaseFluent<A>{
   public V1beta1ClusterTrustBundleSpecFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1beta1ClusterTrustBundleSpecFluent<A extends V1beta1ClusterTrustBu
   private String trustBundle;
   
   protected void copyInstance(V1beta1ClusterTrustBundleSpec instance) {
-    instance = (instance != null ? instance : new V1beta1ClusterTrustBundleSpec());
+    instance = instance != null ? instance : new V1beta1ClusterTrustBundleSpec();
     if (instance != null) {
-          this.withSignerName(instance.getSignerName());
-          this.withTrustBundle(instance.getTrustBundle());
-        }
+        this.withSignerName(instance.getSignerName());
+        this.withTrustBundle(instance.getTrustBundle());
+    }
   }
   
   public String getSignerName() {
@@ -54,24 +56,41 @@ public class V1beta1ClusterTrustBundleSpecFluent<A extends V1beta1ClusterTrustBu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1ClusterTrustBundleSpecFluent that = (V1beta1ClusterTrustBundleSpecFluent) o;
-    if (!java.util.Objects.equals(signerName, that.signerName)) return false;
-    if (!java.util.Objects.equals(trustBundle, that.trustBundle)) return false;
+    if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
+    if (!(Objects.equals(trustBundle, that.trustBundle))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(signerName,  trustBundle,  super.hashCode());
+    return Objects.hash(signerName, trustBundle);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (signerName != null) { sb.append("signerName:"); sb.append(signerName + ","); }
-    if (trustBundle != null) { sb.append("trustBundle:"); sb.append(trustBundle); }
+    if (!(signerName == null)) {
+        sb.append("signerName:");
+        sb.append(signerName);
+        sb.append(",");
+    }
+    if (!(trustBundle == null)) {
+        sb.append("trustBundle:");
+        sb.append(trustBundle);
+    }
     sb.append("}");
     return sb.toString();
   }

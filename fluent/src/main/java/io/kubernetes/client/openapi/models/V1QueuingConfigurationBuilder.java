@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1QueuingConfigurationBuilder extends V1QueuingConfigurationFluent<V1QueuingConfigurationBuilder> implements VisitableBuilder<V1QueuingConfiguration,V1QueuingConfigurationBuilder>{
   public V1QueuingConfigurationBuilder() {
     this(new V1QueuingConfiguration());

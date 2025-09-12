@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EnvVarFluent<A extends V1EnvVarFluent<A>> extends BaseFluent<A>{
+public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvVarFluent<A>> extends BaseFluent<A>{
   public V1EnvVarFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1EnvVarFluent<A extends V1EnvVarFluent<A>> extends BaseFluent<A>{
   private V1EnvVarSourceBuilder valueFrom;
   
   protected void copyInstance(V1EnvVar instance) {
-    instance = (instance != null ? instance : new V1EnvVar());
+    instance = instance != null ? instance : new V1EnvVar();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withValue(instance.getValue());
-          this.withValueFrom(instance.getValueFrom());
-        }
+        this.withName(instance.getName());
+        this.withValue(instance.getValue());
+        this.withValueFrom(instance.getValueFrom());
+    }
   }
   
   public String getName() {
@@ -85,38 +88,61 @@ public class V1EnvVarFluent<A extends V1EnvVarFluent<A>> extends BaseFluent<A>{
   }
   
   public ValueFromNested<A> editValueFrom() {
-    return withNewValueFromLike(java.util.Optional.ofNullable(buildValueFrom()).orElse(null));
+    return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(null));
   }
   
   public ValueFromNested<A> editOrNewValueFrom() {
-    return withNewValueFromLike(java.util.Optional.ofNullable(buildValueFrom()).orElse(new V1EnvVarSourceBuilder().build()));
+    return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(new V1EnvVarSourceBuilder().build()));
   }
   
   public ValueFromNested<A> editOrNewValueFromLike(V1EnvVarSource item) {
-    return withNewValueFromLike(java.util.Optional.ofNullable(buildValueFrom()).orElse(item));
+    return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EnvVarFluent that = (V1EnvVarFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(value, that.value)) return false;
-    if (!java.util.Objects.equals(valueFrom, that.valueFrom)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(value, that.value))) {
+      return false;
+    }
+    if (!(Objects.equals(valueFrom, that.valueFrom))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  value,  valueFrom,  super.hashCode());
+    return Objects.hash(name, value, valueFrom);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (value != null) { sb.append("value:"); sb.append(value + ","); }
-    if (valueFrom != null) { sb.append("valueFrom:"); sb.append(valueFrom); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(value == null)) {
+        sb.append("value:");
+        sb.append(value);
+        sb.append(",");
+    }
+    if (!(valueFrom == null)) {
+        sb.append("valueFrom:");
+        sb.append(valueFrom);
+    }
     sb.append("}");
     return sb.toString();
   }

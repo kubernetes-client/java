@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodDNSConfigOptionFluent<A extends V1PodDNSConfigOptionFluent<A>> extends BaseFluent<A>{
+public class V1PodDNSConfigOptionFluent<A extends io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<A>> extends BaseFluent<A>{
   public V1PodDNSConfigOptionFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1PodDNSConfigOptionFluent<A extends V1PodDNSConfigOptionFluent<A>>
   private String value;
   
   protected void copyInstance(V1PodDNSConfigOption instance) {
-    instance = (instance != null ? instance : new V1PodDNSConfigOption());
+    instance = instance != null ? instance : new V1PodDNSConfigOption();
     if (instance != null) {
-          this.withName(instance.getName());
-          this.withValue(instance.getValue());
-        }
+        this.withName(instance.getName());
+        this.withValue(instance.getValue());
+    }
   }
   
   public String getName() {
@@ -54,24 +56,41 @@ public class V1PodDNSConfigOptionFluent<A extends V1PodDNSConfigOptionFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodDNSConfigOptionFluent that = (V1PodDNSConfigOptionFluent) o;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(value, that.value)) return false;
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(value, that.value))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(name,  value,  super.hashCode());
+    return Objects.hash(name, value);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (value != null) { sb.append("value:"); sb.append(value); }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(value == null)) {
+        sb.append("value:");
+        sb.append(value);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RuntimeClassListBuilder extends V1RuntimeClassListFluent<V1RuntimeClassListBuilder> implements VisitableBuilder<V1RuntimeClassList,V1RuntimeClassListBuilder>{
   public V1RuntimeClassListBuilder() {
     this(new V1RuntimeClassList());

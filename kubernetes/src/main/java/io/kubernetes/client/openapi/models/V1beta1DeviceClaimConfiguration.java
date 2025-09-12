@@ -30,7 +30,7 @@ import java.util.List;
  * DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.
  */
 @ApiModel(description = "DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceClaimConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)

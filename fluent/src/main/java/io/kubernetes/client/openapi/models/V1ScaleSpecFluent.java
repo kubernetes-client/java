@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ScaleSpecFluent<A extends V1ScaleSpecFluent<A>> extends BaseFluent<A>{
+public class V1ScaleSpecFluent<A extends io.kubernetes.client.openapi.models.V1ScaleSpecFluent<A>> extends BaseFluent<A>{
   public V1ScaleSpecFluent() {
   }
   
@@ -20,10 +22,10 @@ public class V1ScaleSpecFluent<A extends V1ScaleSpecFluent<A>> extends BaseFluen
   private Integer replicas;
   
   protected void copyInstance(V1ScaleSpec instance) {
-    instance = (instance != null ? instance : new V1ScaleSpec());
+    instance = instance != null ? instance : new V1ScaleSpec();
     if (instance != null) {
-          this.withReplicas(instance.getReplicas());
-        }
+      this.withReplicas(instance.getReplicas());
+    }
   }
   
   public Integer getReplicas() {
@@ -40,22 +42,33 @@ public class V1ScaleSpecFluent<A extends V1ScaleSpecFluent<A>> extends BaseFluen
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ScaleSpecFluent that = (V1ScaleSpecFluent) o;
-    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+    if (!(Objects.equals(replicas, that.replicas))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(replicas,  super.hashCode());
+    return Objects.hash(replicas);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (replicas != null) { sb.append("replicas:"); sb.append(replicas); }
+    if (!(replicas == null)) {
+        sb.append("replicas:");
+        sb.append(replicas);
+    }
     sb.append("}");
     return sb.toString();
   }

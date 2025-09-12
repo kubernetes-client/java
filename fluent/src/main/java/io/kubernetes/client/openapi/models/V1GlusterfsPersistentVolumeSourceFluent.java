@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GlusterfsPersistentVolumeSourceFluent<A extends V1GlusterfsPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1GlusterfsPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1GlusterfsPersistentVolumeSourceFluent() {
   }
   
@@ -23,13 +25,13 @@ public class V1GlusterfsPersistentVolumeSourceFluent<A extends V1GlusterfsPersis
   private Boolean readOnly;
   
   protected void copyInstance(V1GlusterfsPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1GlusterfsPersistentVolumeSource());
+    instance = instance != null ? instance : new V1GlusterfsPersistentVolumeSource();
     if (instance != null) {
-          this.withEndpoints(instance.getEndpoints());
-          this.withEndpointsNamespace(instance.getEndpointsNamespace());
-          this.withPath(instance.getPath());
-          this.withReadOnly(instance.getReadOnly());
-        }
+        this.withEndpoints(instance.getEndpoints());
+        this.withEndpointsNamespace(instance.getEndpointsNamespace());
+        this.withPath(instance.getPath());
+        this.withReadOnly(instance.getReadOnly());
+    }
   }
   
   public String getEndpoints() {
@@ -85,28 +87,57 @@ public class V1GlusterfsPersistentVolumeSourceFluent<A extends V1GlusterfsPersis
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GlusterfsPersistentVolumeSourceFluent that = (V1GlusterfsPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(endpoints, that.endpoints)) return false;
-    if (!java.util.Objects.equals(endpointsNamespace, that.endpointsNamespace)) return false;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+    if (!(Objects.equals(endpoints, that.endpoints))) {
+      return false;
+    }
+    if (!(Objects.equals(endpointsNamespace, that.endpointsNamespace))) {
+      return false;
+    }
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(endpoints,  endpointsNamespace,  path,  readOnly,  super.hashCode());
+    return Objects.hash(endpoints, endpointsNamespace, path, readOnly);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (endpoints != null) { sb.append("endpoints:"); sb.append(endpoints + ","); }
-    if (endpointsNamespace != null) { sb.append("endpointsNamespace:"); sb.append(endpointsNamespace + ","); }
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly); }
+    if (!(endpoints == null)) {
+        sb.append("endpoints:");
+        sb.append(endpoints);
+        sb.append(",");
+    }
+    if (!(endpointsNamespace == null)) {
+        sb.append("endpointsNamespace:");
+        sb.append(endpointsNamespace);
+        sb.append(",");
+    }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+    }
     sb.append("}");
     return sb.toString();
   }

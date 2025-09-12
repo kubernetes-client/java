@@ -1,18 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
 import java.lang.Integer;
 import java.time.OffsetDateTime;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseFluent<A>{
+public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.EventsV1EventFluent<A>> extends BaseFluent<A>{
   public EventsV1EventFluent() {
   }
   
@@ -38,26 +41,26 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   private String type;
   
   protected void copyInstance(EventsV1Event instance) {
-    instance = (instance != null ? instance : new EventsV1Event());
+    instance = instance != null ? instance : new EventsV1Event();
     if (instance != null) {
-          this.withAction(instance.getAction());
-          this.withApiVersion(instance.getApiVersion());
-          this.withDeprecatedCount(instance.getDeprecatedCount());
-          this.withDeprecatedFirstTimestamp(instance.getDeprecatedFirstTimestamp());
-          this.withDeprecatedLastTimestamp(instance.getDeprecatedLastTimestamp());
-          this.withDeprecatedSource(instance.getDeprecatedSource());
-          this.withEventTime(instance.getEventTime());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withNote(instance.getNote());
-          this.withReason(instance.getReason());
-          this.withRegarding(instance.getRegarding());
-          this.withRelated(instance.getRelated());
-          this.withReportingController(instance.getReportingController());
-          this.withReportingInstance(instance.getReportingInstance());
-          this.withSeries(instance.getSeries());
-          this.withType(instance.getType());
-        }
+        this.withAction(instance.getAction());
+        this.withApiVersion(instance.getApiVersion());
+        this.withDeprecatedCount(instance.getDeprecatedCount());
+        this.withDeprecatedFirstTimestamp(instance.getDeprecatedFirstTimestamp());
+        this.withDeprecatedLastTimestamp(instance.getDeprecatedLastTimestamp());
+        this.withDeprecatedSource(instance.getDeprecatedSource());
+        this.withEventTime(instance.getEventTime());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withNote(instance.getNote());
+        this.withReason(instance.getReason());
+        this.withRegarding(instance.getRegarding());
+        this.withRelated(instance.getRelated());
+        this.withReportingController(instance.getReportingController());
+        this.withReportingInstance(instance.getReportingInstance());
+        this.withSeries(instance.getSeries());
+        this.withType(instance.getType());
+    }
   }
   
   public String getAction() {
@@ -154,15 +157,15 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public DeprecatedSourceNested<A> editDeprecatedSource() {
-    return withNewDeprecatedSourceLike(java.util.Optional.ofNullable(buildDeprecatedSource()).orElse(null));
+    return this.withNewDeprecatedSourceLike(Optional.ofNullable(this.buildDeprecatedSource()).orElse(null));
   }
   
   public DeprecatedSourceNested<A> editOrNewDeprecatedSource() {
-    return withNewDeprecatedSourceLike(java.util.Optional.ofNullable(buildDeprecatedSource()).orElse(new V1EventSourceBuilder().build()));
+    return this.withNewDeprecatedSourceLike(Optional.ofNullable(this.buildDeprecatedSource()).orElse(new V1EventSourceBuilder().build()));
   }
   
   public DeprecatedSourceNested<A> editOrNewDeprecatedSourceLike(V1EventSource item) {
-    return withNewDeprecatedSourceLike(java.util.Optional.ofNullable(buildDeprecatedSource()).orElse(item));
+    return this.withNewDeprecatedSourceLike(Optional.ofNullable(this.buildDeprecatedSource()).orElse(item));
   }
   
   public OffsetDateTime getEventTime() {
@@ -220,15 +223,15 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public String getNote() {
@@ -286,15 +289,15 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public RegardingNested<A> editRegarding() {
-    return withNewRegardingLike(java.util.Optional.ofNullable(buildRegarding()).orElse(null));
+    return this.withNewRegardingLike(Optional.ofNullable(this.buildRegarding()).orElse(null));
   }
   
   public RegardingNested<A> editOrNewRegarding() {
-    return withNewRegardingLike(java.util.Optional.ofNullable(buildRegarding()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewRegardingLike(Optional.ofNullable(this.buildRegarding()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public RegardingNested<A> editOrNewRegardingLike(V1ObjectReference item) {
-    return withNewRegardingLike(java.util.Optional.ofNullable(buildRegarding()).orElse(item));
+    return this.withNewRegardingLike(Optional.ofNullable(this.buildRegarding()).orElse(item));
   }
   
   public V1ObjectReference buildRelated() {
@@ -326,15 +329,15 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public RelatedNested<A> editRelated() {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(null));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(null));
   }
   
   public RelatedNested<A> editOrNewRelated() {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(new V1ObjectReferenceBuilder().build()));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(new V1ObjectReferenceBuilder().build()));
   }
   
   public RelatedNested<A> editOrNewRelatedLike(V1ObjectReference item) {
-    return withNewRelatedLike(java.util.Optional.ofNullable(buildRelated()).orElse(item));
+    return this.withNewRelatedLike(Optional.ofNullable(this.buildRelated()).orElse(item));
   }
   
   public String getReportingController() {
@@ -392,15 +395,15 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public SeriesNested<A> editSeries() {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(null));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(null));
   }
   
   public SeriesNested<A> editOrNewSeries() {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(new EventsV1EventSeriesBuilder().build()));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(new EventsV1EventSeriesBuilder().build()));
   }
   
   public SeriesNested<A> editOrNewSeriesLike(EventsV1EventSeries item) {
-    return withNewSeriesLike(java.util.Optional.ofNullable(buildSeries()).orElse(item));
+    return this.withNewSeriesLike(Optional.ofNullable(this.buildSeries()).orElse(item));
   }
   
   public String getType() {
@@ -417,54 +420,161 @@ public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseF
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     EventsV1EventFluent that = (EventsV1EventFluent) o;
-    if (!java.util.Objects.equals(action, that.action)) return false;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(deprecatedCount, that.deprecatedCount)) return false;
-    if (!java.util.Objects.equals(deprecatedFirstTimestamp, that.deprecatedFirstTimestamp)) return false;
-    if (!java.util.Objects.equals(deprecatedLastTimestamp, that.deprecatedLastTimestamp)) return false;
-    if (!java.util.Objects.equals(deprecatedSource, that.deprecatedSource)) return false;
-    if (!java.util.Objects.equals(eventTime, that.eventTime)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(note, that.note)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(regarding, that.regarding)) return false;
-    if (!java.util.Objects.equals(related, that.related)) return false;
-    if (!java.util.Objects.equals(reportingController, that.reportingController)) return false;
-    if (!java.util.Objects.equals(reportingInstance, that.reportingInstance)) return false;
-    if (!java.util.Objects.equals(series, that.series)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(action, that.action))) {
+      return false;
+    }
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(deprecatedCount, that.deprecatedCount))) {
+      return false;
+    }
+    if (!(Objects.equals(deprecatedFirstTimestamp, that.deprecatedFirstTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(deprecatedLastTimestamp, that.deprecatedLastTimestamp))) {
+      return false;
+    }
+    if (!(Objects.equals(deprecatedSource, that.deprecatedSource))) {
+      return false;
+    }
+    if (!(Objects.equals(eventTime, that.eventTime))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(note, that.note))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(regarding, that.regarding))) {
+      return false;
+    }
+    if (!(Objects.equals(related, that.related))) {
+      return false;
+    }
+    if (!(Objects.equals(reportingController, that.reportingController))) {
+      return false;
+    }
+    if (!(Objects.equals(reportingInstance, that.reportingInstance))) {
+      return false;
+    }
+    if (!(Objects.equals(series, that.series))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(action,  apiVersion,  deprecatedCount,  deprecatedFirstTimestamp,  deprecatedLastTimestamp,  deprecatedSource,  eventTime,  kind,  metadata,  note,  reason,  regarding,  related,  reportingController,  reportingInstance,  series,  type,  super.hashCode());
+    return Objects.hash(action, apiVersion, deprecatedCount, deprecatedFirstTimestamp, deprecatedLastTimestamp, deprecatedSource, eventTime, kind, metadata, note, reason, regarding, related, reportingController, reportingInstance, series, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (action != null) { sb.append("action:"); sb.append(action + ","); }
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (deprecatedCount != null) { sb.append("deprecatedCount:"); sb.append(deprecatedCount + ","); }
-    if (deprecatedFirstTimestamp != null) { sb.append("deprecatedFirstTimestamp:"); sb.append(deprecatedFirstTimestamp + ","); }
-    if (deprecatedLastTimestamp != null) { sb.append("deprecatedLastTimestamp:"); sb.append(deprecatedLastTimestamp + ","); }
-    if (deprecatedSource != null) { sb.append("deprecatedSource:"); sb.append(deprecatedSource + ","); }
-    if (eventTime != null) { sb.append("eventTime:"); sb.append(eventTime + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (note != null) { sb.append("note:"); sb.append(note + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (regarding != null) { sb.append("regarding:"); sb.append(regarding + ","); }
-    if (related != null) { sb.append("related:"); sb.append(related + ","); }
-    if (reportingController != null) { sb.append("reportingController:"); sb.append(reportingController + ","); }
-    if (reportingInstance != null) { sb.append("reportingInstance:"); sb.append(reportingInstance + ","); }
-    if (series != null) { sb.append("series:"); sb.append(series + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(action == null)) {
+        sb.append("action:");
+        sb.append(action);
+        sb.append(",");
+    }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(deprecatedCount == null)) {
+        sb.append("deprecatedCount:");
+        sb.append(deprecatedCount);
+        sb.append(",");
+    }
+    if (!(deprecatedFirstTimestamp == null)) {
+        sb.append("deprecatedFirstTimestamp:");
+        sb.append(deprecatedFirstTimestamp);
+        sb.append(",");
+    }
+    if (!(deprecatedLastTimestamp == null)) {
+        sb.append("deprecatedLastTimestamp:");
+        sb.append(deprecatedLastTimestamp);
+        sb.append(",");
+    }
+    if (!(deprecatedSource == null)) {
+        sb.append("deprecatedSource:");
+        sb.append(deprecatedSource);
+        sb.append(",");
+    }
+    if (!(eventTime == null)) {
+        sb.append("eventTime:");
+        sb.append(eventTime);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(note == null)) {
+        sb.append("note:");
+        sb.append(note);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(regarding == null)) {
+        sb.append("regarding:");
+        sb.append(regarding);
+        sb.append(",");
+    }
+    if (!(related == null)) {
+        sb.append("related:");
+        sb.append(related);
+        sb.append(",");
+    }
+    if (!(reportingController == null)) {
+        sb.append("reportingController:");
+        sb.append(reportingController);
+        sb.append(",");
+    }
+    if (!(reportingInstance == null)) {
+        sb.append("reportingInstance:");
+        sb.append(reportingInstance);
+        sb.append(",");
+    }
+    if (!(series == null)) {
+        sb.append("series:");
+        sb.append(series);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

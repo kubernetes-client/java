@@ -28,7 +28,7 @@ import java.io.IOException;
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)

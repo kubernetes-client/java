@@ -1,15 +1,18 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.lang.Integer;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -17,7 +20,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
+public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
   public V2HorizontalPodAutoscalerSpecFluent() {
   }
   
@@ -31,14 +34,14 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   private V2CrossVersionObjectReferenceBuilder scaleTargetRef;
   
   protected void copyInstance(V2HorizontalPodAutoscalerSpec instance) {
-    instance = (instance != null ? instance : new V2HorizontalPodAutoscalerSpec());
+    instance = instance != null ? instance : new V2HorizontalPodAutoscalerSpec();
     if (instance != null) {
-          this.withBehavior(instance.getBehavior());
-          this.withMaxReplicas(instance.getMaxReplicas());
-          this.withMetrics(instance.getMetrics());
-          this.withMinReplicas(instance.getMinReplicas());
-          this.withScaleTargetRef(instance.getScaleTargetRef());
-        }
+        this.withBehavior(instance.getBehavior());
+        this.withMaxReplicas(instance.getMaxReplicas());
+        this.withMetrics(instance.getMetrics());
+        this.withMinReplicas(instance.getMinReplicas());
+        this.withScaleTargetRef(instance.getScaleTargetRef());
+    }
   }
   
   public V2HorizontalPodAutoscalerBehavior buildBehavior() {
@@ -70,15 +73,15 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   }
   
   public BehaviorNested<A> editBehavior() {
-    return withNewBehaviorLike(java.util.Optional.ofNullable(buildBehavior()).orElse(null));
+    return this.withNewBehaviorLike(Optional.ofNullable(this.buildBehavior()).orElse(null));
   }
   
   public BehaviorNested<A> editOrNewBehavior() {
-    return withNewBehaviorLike(java.util.Optional.ofNullable(buildBehavior()).orElse(new V2HorizontalPodAutoscalerBehaviorBuilder().build()));
+    return this.withNewBehaviorLike(Optional.ofNullable(this.buildBehavior()).orElse(new V2HorizontalPodAutoscalerBehaviorBuilder().build()));
   }
   
   public BehaviorNested<A> editOrNewBehaviorLike(V2HorizontalPodAutoscalerBehavior item) {
-    return withNewBehaviorLike(java.util.Optional.ofNullable(buildBehavior()).orElse(item));
+    return this.withNewBehaviorLike(Optional.ofNullable(this.buildBehavior()).orElse(item));
   }
   
   public Integer getMaxReplicas() {
@@ -95,7 +98,9 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   }
   
   public A addToMetrics(int index,V2MetricSpec item) {
-    if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
+    if (this.metrics == null) {
+      this.metrics = new ArrayList();
+    }
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
     if (index < 0 || index >= metrics.size()) {
         _visitables.get("metrics").add(builder);
@@ -104,11 +109,13 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
         _visitables.get("metrics").add(builder);
         metrics.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMetrics(int index,V2MetricSpec item) {
-    if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
+    if (this.metrics == null) {
+      this.metrics = new ArrayList();
+    }
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
     if (index < 0 || index >= metrics.size()) {
         _visitables.get("metrics").add(builder);
@@ -117,41 +124,71 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
         _visitables.get("metrics").add(builder);
         metrics.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items) {
-    if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
-    for (V2MetricSpec item : items) {V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);_visitables.get("metrics").add(builder);this.metrics.add(builder);} return (A)this;
+  public A addToMetrics(V2MetricSpec... items) {
+    if (this.metrics == null) {
+      this.metrics = new ArrayList();
+    }
+    for (V2MetricSpec item : items) {
+        V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
+        _visitables.get("metrics").add(builder);
+        this.metrics.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToMetrics(Collection<V2MetricSpec> items) {
-    if (this.metrics == null) {this.metrics = new ArrayList<V2MetricSpecBuilder>();}
-    for (V2MetricSpec item : items) {V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);_visitables.get("metrics").add(builder);this.metrics.add(builder);} return (A)this;
+    if (this.metrics == null) {
+      this.metrics = new ArrayList();
+    }
+    for (V2MetricSpec item : items) {
+        V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
+        _visitables.get("metrics").add(builder);
+        this.metrics.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items) {
-    if (this.metrics == null) return (A)this;
-    for (V2MetricSpec item : items) {V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);_visitables.get("metrics").remove(builder); this.metrics.remove(builder);} return (A)this;
+  public A removeFromMetrics(V2MetricSpec... items) {
+    if (this.metrics == null) {
+      return (A) this;
+    }
+    for (V2MetricSpec item : items) {
+        V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
+        _visitables.get("metrics").remove(builder);
+        this.metrics.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMetrics(Collection<V2MetricSpec> items) {
-    if (this.metrics == null) return (A)this;
-    for (V2MetricSpec item : items) {V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);_visitables.get("metrics").remove(builder); this.metrics.remove(builder);} return (A)this;
+    if (this.metrics == null) {
+      return (A) this;
+    }
+    for (V2MetricSpec item : items) {
+        V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
+        _visitables.get("metrics").remove(builder);
+        this.metrics.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromMetrics(Predicate<V2MetricSpecBuilder> predicate) {
-    if (metrics == null) return (A) this;
-    final Iterator<V2MetricSpecBuilder> each = metrics.iterator();
-    final List visitables = _visitables.get("metrics");
-    while (each.hasNext()) {
-      V2MetricSpecBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (metrics == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V2MetricSpecBuilder> each = metrics.iterator();
+    List visitables = _visitables.get("metrics");
+    while (each.hasNext()) {
+        V2MetricSpecBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V2MetricSpec> buildMetrics() {
@@ -203,7 +240,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
     return (A) this;
   }
   
-  public A withMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... metrics) {
+  public A withMetrics(V2MetricSpec... metrics) {
     if (this.metrics != null) {
         this.metrics.clear();
         _visitables.remove("metrics");
@@ -217,7 +254,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   }
   
   public boolean hasMetrics() {
-    return this.metrics != null && !this.metrics.isEmpty();
+    return this.metrics != null && !(this.metrics.isEmpty());
   }
   
   public MetricsNested<A> addNewMetric() {
@@ -233,28 +270,39 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   }
   
   public MetricsNested<A> editMetric(int index) {
-    if (metrics.size() <= index) throw new RuntimeException("Can't edit metrics. Index exceeds size.");
-    return setNewMetricLike(index, buildMetric(index));
+    if (index <= metrics.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "metrics"));
+    }
+    return this.setNewMetricLike(index, this.buildMetric(index));
   }
   
   public MetricsNested<A> editFirstMetric() {
-    if (metrics.size() == 0) throw new RuntimeException("Can't edit first metrics. The list is empty.");
-    return setNewMetricLike(0, buildMetric(0));
+    if (metrics.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "metrics"));
+    }
+    return this.setNewMetricLike(0, this.buildMetric(0));
   }
   
   public MetricsNested<A> editLastMetric() {
     int index = metrics.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last metrics. The list is empty.");
-    return setNewMetricLike(index, buildMetric(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "metrics"));
+    }
+    return this.setNewMetricLike(index, this.buildMetric(index));
   }
   
   public MetricsNested<A> editMatchingMetric(Predicate<V2MetricSpecBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<metrics.size();i++) { 
-    if (predicate.test(metrics.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching metrics. No match found.");
-    return setNewMetricLike(index, buildMetric(index));
+    for (int i = 0;i < metrics.size();i++) {
+      if (predicate.test(metrics.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "metrics"));
+    }
+    return this.setNewMetricLike(index, this.buildMetric(index));
   }
   
   public Integer getMinReplicas() {
@@ -299,42 +347,77 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
   }
   
   public ScaleTargetRefNested<A> editScaleTargetRef() {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(null));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(null));
   }
   
   public ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(new V2CrossVersionObjectReferenceBuilder().build()));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(new V2CrossVersionObjectReferenceBuilder().build()));
   }
   
   public ScaleTargetRefNested<A> editOrNewScaleTargetRefLike(V2CrossVersionObjectReference item) {
-    return withNewScaleTargetRefLike(java.util.Optional.ofNullable(buildScaleTargetRef()).orElse(item));
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2HorizontalPodAutoscalerSpecFluent that = (V2HorizontalPodAutoscalerSpecFluent) o;
-    if (!java.util.Objects.equals(behavior, that.behavior)) return false;
-    if (!java.util.Objects.equals(maxReplicas, that.maxReplicas)) return false;
-    if (!java.util.Objects.equals(metrics, that.metrics)) return false;
-    if (!java.util.Objects.equals(minReplicas, that.minReplicas)) return false;
-    if (!java.util.Objects.equals(scaleTargetRef, that.scaleTargetRef)) return false;
+    if (!(Objects.equals(behavior, that.behavior))) {
+      return false;
+    }
+    if (!(Objects.equals(maxReplicas, that.maxReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(metrics, that.metrics))) {
+      return false;
+    }
+    if (!(Objects.equals(minReplicas, that.minReplicas))) {
+      return false;
+    }
+    if (!(Objects.equals(scaleTargetRef, that.scaleTargetRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(behavior,  maxReplicas,  metrics,  minReplicas,  scaleTargetRef,  super.hashCode());
+    return Objects.hash(behavior, maxReplicas, metrics, minReplicas, scaleTargetRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (behavior != null) { sb.append("behavior:"); sb.append(behavior + ","); }
-    if (maxReplicas != null) { sb.append("maxReplicas:"); sb.append(maxReplicas + ","); }
-    if (metrics != null && !metrics.isEmpty()) { sb.append("metrics:"); sb.append(metrics + ","); }
-    if (minReplicas != null) { sb.append("minReplicas:"); sb.append(minReplicas + ","); }
-    if (scaleTargetRef != null) { sb.append("scaleTargetRef:"); sb.append(scaleTargetRef); }
+    if (!(behavior == null)) {
+        sb.append("behavior:");
+        sb.append(behavior);
+        sb.append(",");
+    }
+    if (!(maxReplicas == null)) {
+        sb.append("maxReplicas:");
+        sb.append(maxReplicas);
+        sb.append(",");
+    }
+    if (!(metrics == null) && !(metrics.isEmpty())) {
+        sb.append("metrics:");
+        sb.append(metrics);
+        sb.append(",");
+    }
+    if (!(minReplicas == null)) {
+        sb.append("minReplicas:");
+        sb.append(minReplicas);
+        sb.append(",");
+    }
+    if (!(scaleTargetRef == null)) {
+        sb.append("scaleTargetRef:");
+        sb.append(scaleTargetRef);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -363,7 +446,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutosc
     int index;
     
     public N and() {
-      return (N) V2HorizontalPodAutoscalerSpecFluent.this.setToMetrics(index,builder.build());
+      return (N) V2HorizontalPodAutoscalerSpecFluent.this.setToMetrics(index, builder.build());
     }
     
     public N endMetric() {

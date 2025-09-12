@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1APIVersionsBuilder extends V1APIVersionsFluent<V1APIVersionsBuilder> implements VisitableBuilder<V1APIVersions,V1APIVersionsBuilder>{
   public V1APIVersionsBuilder() {
     this(new V1APIVersions());

@@ -1,9 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.Boolean;
 
@@ -11,7 +14,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ClusterTrustBundleProjectionFluent<A extends V1ClusterTrustBundleProjectionFluent<A>> extends BaseFluent<A>{
+public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client.openapi.models.V1ClusterTrustBundleProjectionFluent<A>> extends BaseFluent<A>{
   public V1ClusterTrustBundleProjectionFluent() {
   }
   
@@ -25,14 +28,14 @@ public class V1ClusterTrustBundleProjectionFluent<A extends V1ClusterTrustBundle
   private String signerName;
   
   protected void copyInstance(V1ClusterTrustBundleProjection instance) {
-    instance = (instance != null ? instance : new V1ClusterTrustBundleProjection());
+    instance = instance != null ? instance : new V1ClusterTrustBundleProjection();
     if (instance != null) {
-          this.withLabelSelector(instance.getLabelSelector());
-          this.withName(instance.getName());
-          this.withOptional(instance.getOptional());
-          this.withPath(instance.getPath());
-          this.withSignerName(instance.getSignerName());
-        }
+        this.withLabelSelector(instance.getLabelSelector());
+        this.withName(instance.getName());
+        this.withOptional(instance.getOptional());
+        this.withPath(instance.getPath());
+        this.withSignerName(instance.getSignerName());
+    }
   }
   
   public V1LabelSelector buildLabelSelector() {
@@ -64,15 +67,15 @@ public class V1ClusterTrustBundleProjectionFluent<A extends V1ClusterTrustBundle
   }
   
   public LabelSelectorNested<A> editLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(null));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(null));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(item));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(item));
   }
   
   public String getName() {
@@ -128,30 +131,65 @@ public class V1ClusterTrustBundleProjectionFluent<A extends V1ClusterTrustBundle
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ClusterTrustBundleProjectionFluent that = (V1ClusterTrustBundleProjectionFluent) o;
-    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(optional, that.optional)) return false;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(signerName, that.signerName)) return false;
+    if (!(Objects.equals(labelSelector, that.labelSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(optional, that.optional))) {
+      return false;
+    }
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(labelSelector,  name,  optional,  path,  signerName,  super.hashCode());
+    return Objects.hash(labelSelector, name, optional, path, signerName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (labelSelector != null) { sb.append("labelSelector:"); sb.append(labelSelector + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (optional != null) { sb.append("optional:"); sb.append(optional + ","); }
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (signerName != null) { sb.append("signerName:"); sb.append(signerName); }
+    if (!(labelSelector == null)) {
+        sb.append("labelSelector:");
+        sb.append(labelSelector);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(optional == null)) {
+        sb.append("optional:");
+        sb.append(optional);
+        sb.append(",");
+    }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(signerName == null)) {
+        sb.append("signerName:");
+        sb.append(signerName);
+    }
     sb.append("}");
     return sb.toString();
   }

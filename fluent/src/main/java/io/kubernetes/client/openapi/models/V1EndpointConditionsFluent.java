@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointConditionsFluent<A extends V1EndpointConditionsFluent<A>> extends BaseFluent<A>{
+public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<A>> extends BaseFluent<A>{
   public V1EndpointConditionsFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1EndpointConditionsFluent<A extends V1EndpointConditionsFluent<A>>
   private Boolean terminating;
   
   protected void copyInstance(V1EndpointConditions instance) {
-    instance = (instance != null ? instance : new V1EndpointConditions());
+    instance = instance != null ? instance : new V1EndpointConditions();
     if (instance != null) {
-          this.withReady(instance.getReady());
-          this.withServing(instance.getServing());
-          this.withTerminating(instance.getTerminating());
-        }
+        this.withReady(instance.getReady());
+        this.withServing(instance.getServing());
+        this.withTerminating(instance.getTerminating());
+    }
   }
   
   public Boolean getReady() {
@@ -70,26 +72,49 @@ public class V1EndpointConditionsFluent<A extends V1EndpointConditionsFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointConditionsFluent that = (V1EndpointConditionsFluent) o;
-    if (!java.util.Objects.equals(ready, that.ready)) return false;
-    if (!java.util.Objects.equals(serving, that.serving)) return false;
-    if (!java.util.Objects.equals(terminating, that.terminating)) return false;
+    if (!(Objects.equals(ready, that.ready))) {
+      return false;
+    }
+    if (!(Objects.equals(serving, that.serving))) {
+      return false;
+    }
+    if (!(Objects.equals(terminating, that.terminating))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(ready,  serving,  terminating,  super.hashCode());
+    return Objects.hash(ready, serving, terminating);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (ready != null) { sb.append("ready:"); sb.append(ready + ","); }
-    if (serving != null) { sb.append("serving:"); sb.append(serving + ","); }
-    if (terminating != null) { sb.append("terminating:"); sb.append(terminating); }
+    if (!(ready == null)) {
+        sb.append("ready:");
+        sb.append(ready);
+        sb.append(",");
+    }
+    if (!(serving == null)) {
+        sb.append("serving:");
+        sb.append(serving);
+        sb.append(",");
+    }
+    if (!(terminating == null)) {
+        sb.append("terminating:");
+        sb.append(terminating);
+    }
     sb.append("}");
     return sb.toString();
   }

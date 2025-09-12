@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1alpha1ServerStorageVersionBuilder extends V1alpha1ServerStorageVersionFluent<V1alpha1ServerStorageVersionBuilder> implements VisitableBuilder<V1alpha1ServerStorageVersion,V1alpha1ServerStorageVersionBuilder>{
   public V1alpha1ServerStorageVersionBuilder() {
     this(new V1alpha1ServerStorageVersion());

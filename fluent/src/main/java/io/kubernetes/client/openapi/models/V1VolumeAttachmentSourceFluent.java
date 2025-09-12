@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFluent<A>> extends BaseFluent<A>{
+public class V1VolumeAttachmentSourceFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent<A>> extends BaseFluent<A>{
   public V1VolumeAttachmentSourceFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFl
   private String persistentVolumeName;
   
   protected void copyInstance(V1VolumeAttachmentSource instance) {
-    instance = (instance != null ? instance : new V1VolumeAttachmentSource());
+    instance = instance != null ? instance : new V1VolumeAttachmentSource();
     if (instance != null) {
-          this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
-          this.withPersistentVolumeName(instance.getPersistentVolumeName());
-        }
+        this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
+        this.withPersistentVolumeName(instance.getPersistentVolumeName());
+    }
   }
   
   public V1PersistentVolumeSpec buildInlineVolumeSpec() {
@@ -57,15 +60,15 @@ public class V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFl
   }
   
   public InlineVolumeSpecNested<A> editInlineVolumeSpec() {
-    return withNewInlineVolumeSpecLike(java.util.Optional.ofNullable(buildInlineVolumeSpec()).orElse(null));
+    return this.withNewInlineVolumeSpecLike(Optional.ofNullable(this.buildInlineVolumeSpec()).orElse(null));
   }
   
   public InlineVolumeSpecNested<A> editOrNewInlineVolumeSpec() {
-    return withNewInlineVolumeSpecLike(java.util.Optional.ofNullable(buildInlineVolumeSpec()).orElse(new V1PersistentVolumeSpecBuilder().build()));
+    return this.withNewInlineVolumeSpecLike(Optional.ofNullable(this.buildInlineVolumeSpec()).orElse(new V1PersistentVolumeSpecBuilder().build()));
   }
   
   public InlineVolumeSpecNested<A> editOrNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
-    return withNewInlineVolumeSpecLike(java.util.Optional.ofNullable(buildInlineVolumeSpec()).orElse(item));
+    return this.withNewInlineVolumeSpecLike(Optional.ofNullable(this.buildInlineVolumeSpec()).orElse(item));
   }
   
   public String getPersistentVolumeName() {
@@ -82,24 +85,41 @@ public class V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFl
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1VolumeAttachmentSourceFluent that = (V1VolumeAttachmentSourceFluent) o;
-    if (!java.util.Objects.equals(inlineVolumeSpec, that.inlineVolumeSpec)) return false;
-    if (!java.util.Objects.equals(persistentVolumeName, that.persistentVolumeName)) return false;
+    if (!(Objects.equals(inlineVolumeSpec, that.inlineVolumeSpec))) {
+      return false;
+    }
+    if (!(Objects.equals(persistentVolumeName, that.persistentVolumeName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(inlineVolumeSpec,  persistentVolumeName,  super.hashCode());
+    return Objects.hash(inlineVolumeSpec, persistentVolumeName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (inlineVolumeSpec != null) { sb.append("inlineVolumeSpec:"); sb.append(inlineVolumeSpec + ","); }
-    if (persistentVolumeName != null) { sb.append("persistentVolumeName:"); sb.append(persistentVolumeName); }
+    if (!(inlineVolumeSpec == null)) {
+        sb.append("inlineVolumeSpec:");
+        sb.append(inlineVolumeSpec);
+        sb.append(",");
+    }
+    if (!(persistentVolumeName == null)) {
+        sb.append("persistentVolumeName:");
+        sb.append(persistentVolumeName);
+    }
     sb.append("}");
     return sb.toString();
   }

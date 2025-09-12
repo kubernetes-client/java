@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluent<DiscoveryV1EndpointPortBuilder> implements VisitableBuilder<DiscoveryV1EndpointPort,DiscoveryV1EndpointPortBuilder>{
   public DiscoveryV1EndpointPortBuilder() {
     this(new DiscoveryV1EndpointPort());

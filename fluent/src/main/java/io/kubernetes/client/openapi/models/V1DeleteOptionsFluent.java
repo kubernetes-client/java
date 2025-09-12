@@ -1,5 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends BaseFluent<A>{
+public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<A>> extends BaseFluent<A>{
   public V1DeleteOptionsFluent() {
   }
   
@@ -33,17 +36,17 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   private String propagationPolicy;
   
   protected void copyInstance(V1DeleteOptions instance) {
-    instance = (instance != null ? instance : new V1DeleteOptions());
+    instance = instance != null ? instance : new V1DeleteOptions();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withDryRun(instance.getDryRun());
-          this.withGracePeriodSeconds(instance.getGracePeriodSeconds());
-          this.withIgnoreStoreReadErrorWithClusterBreakingPotential(instance.getIgnoreStoreReadErrorWithClusterBreakingPotential());
-          this.withKind(instance.getKind());
-          this.withOrphanDependents(instance.getOrphanDependents());
-          this.withPreconditions(instance.getPreconditions());
-          this.withPropagationPolicy(instance.getPropagationPolicy());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withDryRun(instance.getDryRun());
+        this.withGracePeriodSeconds(instance.getGracePeriodSeconds());
+        this.withIgnoreStoreReadErrorWithClusterBreakingPotential(instance.getIgnoreStoreReadErrorWithClusterBreakingPotential());
+        this.withKind(instance.getKind());
+        this.withOrphanDependents(instance.getOrphanDependents());
+        this.withPreconditions(instance.getPreconditions());
+        this.withPropagationPolicy(instance.getPropagationPolicy());
+    }
   }
   
   public String getApiVersion() {
@@ -60,34 +63,59 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   }
   
   public A addToDryRun(int index,String item) {
-    if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
+    if (this.dryRun == null) {
+      this.dryRun = new ArrayList();
+    }
     this.dryRun.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToDryRun(int index,String item) {
-    if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
-    this.dryRun.set(index, item); return (A)this;
+    if (this.dryRun == null) {
+      this.dryRun = new ArrayList();
+    }
+    this.dryRun.set(index, item);
+    return (A) this;
   }
   
-  public A addToDryRun(java.lang.String... items) {
-    if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
-    for (String item : items) {this.dryRun.add(item);} return (A)this;
+  public A addToDryRun(String... items) {
+    if (this.dryRun == null) {
+      this.dryRun = new ArrayList();
+    }
+    for (String item : items) {
+      this.dryRun.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToDryRun(Collection<String> items) {
-    if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
-    for (String item : items) {this.dryRun.add(item);} return (A)this;
+    if (this.dryRun == null) {
+      this.dryRun = new ArrayList();
+    }
+    for (String item : items) {
+      this.dryRun.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromDryRun(java.lang.String... items) {
-    if (this.dryRun == null) return (A)this;
-    for (String item : items) { this.dryRun.remove(item);} return (A)this;
+  public A removeFromDryRun(String... items) {
+    if (this.dryRun == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.dryRun.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromDryRun(Collection<String> items) {
-    if (this.dryRun == null) return (A)this;
-    for (String item : items) { this.dryRun.remove(item);} return (A)this;
+    if (this.dryRun == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.dryRun.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getDryRun() {
@@ -136,7 +164,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
     return (A) this;
   }
   
-  public A withDryRun(java.lang.String... dryRun) {
+  public A withDryRun(String... dryRun) {
     if (this.dryRun != null) {
         this.dryRun.clear();
         _visitables.remove("dryRun");
@@ -150,7 +178,7 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   }
   
   public boolean hasDryRun() {
-    return this.dryRun != null && !this.dryRun.isEmpty();
+    return this.dryRun != null && !(this.dryRun.isEmpty());
   }
   
   public Long getGracePeriodSeconds() {
@@ -234,15 +262,15 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   }
   
   public PreconditionsNested<A> editPreconditions() {
-    return withNewPreconditionsLike(java.util.Optional.ofNullable(buildPreconditions()).orElse(null));
+    return this.withNewPreconditionsLike(Optional.ofNullable(this.buildPreconditions()).orElse(null));
   }
   
   public PreconditionsNested<A> editOrNewPreconditions() {
-    return withNewPreconditionsLike(java.util.Optional.ofNullable(buildPreconditions()).orElse(new V1PreconditionsBuilder().build()));
+    return this.withNewPreconditionsLike(Optional.ofNullable(this.buildPreconditions()).orElse(new V1PreconditionsBuilder().build()));
   }
   
   public PreconditionsNested<A> editOrNewPreconditionsLike(V1Preconditions item) {
-    return withNewPreconditionsLike(java.util.Optional.ofNullable(buildPreconditions()).orElse(item));
+    return this.withNewPreconditionsLike(Optional.ofNullable(this.buildPreconditions()).orElse(item));
   }
   
   public String getPropagationPolicy() {
@@ -259,36 +287,89 @@ public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends B
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DeleteOptionsFluent that = (V1DeleteOptionsFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(dryRun, that.dryRun)) return false;
-    if (!java.util.Objects.equals(gracePeriodSeconds, that.gracePeriodSeconds)) return false;
-    if (!java.util.Objects.equals(ignoreStoreReadErrorWithClusterBreakingPotential, that.ignoreStoreReadErrorWithClusterBreakingPotential)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(orphanDependents, that.orphanDependents)) return false;
-    if (!java.util.Objects.equals(preconditions, that.preconditions)) return false;
-    if (!java.util.Objects.equals(propagationPolicy, that.propagationPolicy)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(dryRun, that.dryRun))) {
+      return false;
+    }
+    if (!(Objects.equals(gracePeriodSeconds, that.gracePeriodSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(ignoreStoreReadErrorWithClusterBreakingPotential, that.ignoreStoreReadErrorWithClusterBreakingPotential))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(orphanDependents, that.orphanDependents))) {
+      return false;
+    }
+    if (!(Objects.equals(preconditions, that.preconditions))) {
+      return false;
+    }
+    if (!(Objects.equals(propagationPolicy, that.propagationPolicy))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  dryRun,  gracePeriodSeconds,  ignoreStoreReadErrorWithClusterBreakingPotential,  kind,  orphanDependents,  preconditions,  propagationPolicy,  super.hashCode());
+    return Objects.hash(apiVersion, dryRun, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, kind, orphanDependents, preconditions, propagationPolicy);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (dryRun != null && !dryRun.isEmpty()) { sb.append("dryRun:"); sb.append(dryRun + ","); }
-    if (gracePeriodSeconds != null) { sb.append("gracePeriodSeconds:"); sb.append(gracePeriodSeconds + ","); }
-    if (ignoreStoreReadErrorWithClusterBreakingPotential != null) { sb.append("ignoreStoreReadErrorWithClusterBreakingPotential:"); sb.append(ignoreStoreReadErrorWithClusterBreakingPotential + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (orphanDependents != null) { sb.append("orphanDependents:"); sb.append(orphanDependents + ","); }
-    if (preconditions != null) { sb.append("preconditions:"); sb.append(preconditions + ","); }
-    if (propagationPolicy != null) { sb.append("propagationPolicy:"); sb.append(propagationPolicy); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(dryRun == null) && !(dryRun.isEmpty())) {
+        sb.append("dryRun:");
+        sb.append(dryRun);
+        sb.append(",");
+    }
+    if (!(gracePeriodSeconds == null)) {
+        sb.append("gracePeriodSeconds:");
+        sb.append(gracePeriodSeconds);
+        sb.append(",");
+    }
+    if (!(ignoreStoreReadErrorWithClusterBreakingPotential == null)) {
+        sb.append("ignoreStoreReadErrorWithClusterBreakingPotential:");
+        sb.append(ignoreStoreReadErrorWithClusterBreakingPotential);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(orphanDependents == null)) {
+        sb.append("orphanDependents:");
+        sb.append(orphanDependents);
+        sb.append(",");
+    }
+    if (!(preconditions == null)) {
+        sb.append("preconditions:");
+        sb.append(preconditions);
+        sb.append(",");
+    }
+    if (!(propagationPolicy == null)) {
+        sb.append("propagationPolicy:");
+        sb.append(propagationPolicy);
+    }
     sb.append("}");
     return sb.toString();
   }

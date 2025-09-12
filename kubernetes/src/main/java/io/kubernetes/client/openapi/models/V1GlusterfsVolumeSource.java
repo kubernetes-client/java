@@ -27,7 +27,7 @@ import java.io.IOException;
  * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1GlusterfsVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
@@ -49,10 +49,10 @@ public class V1GlusterfsVolumeSource {
   }
 
    /**
-   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpoints is the endpoint name that details Glusterfs topology.
    * @return endpoints
   **/
-  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology.")
 
   public String getEndpoints() {
     return endpoints;

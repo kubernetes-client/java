@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1GRPCActionFluent<A extends V1GRPCActionFluent<A>> extends BaseFluent<A>{
+public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1GRPCActionFluent<A>> extends BaseFluent<A>{
   public V1GRPCActionFluent() {
   }
   
@@ -21,11 +23,11 @@ public class V1GRPCActionFluent<A extends V1GRPCActionFluent<A>> extends BaseFlu
   private String service;
   
   protected void copyInstance(V1GRPCAction instance) {
-    instance = (instance != null ? instance : new V1GRPCAction());
+    instance = instance != null ? instance : new V1GRPCAction();
     if (instance != null) {
-          this.withPort(instance.getPort());
-          this.withService(instance.getService());
-        }
+        this.withPort(instance.getPort());
+        this.withService(instance.getService());
+    }
   }
   
   public Integer getPort() {
@@ -55,24 +57,41 @@ public class V1GRPCActionFluent<A extends V1GRPCActionFluent<A>> extends BaseFlu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1GRPCActionFluent that = (V1GRPCActionFluent) o;
-    if (!java.util.Objects.equals(port, that.port)) return false;
-    if (!java.util.Objects.equals(service, that.service)) return false;
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
+    if (!(Objects.equals(service, that.service))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(port,  service,  super.hashCode());
+    return Objects.hash(port, service);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (port != null) { sb.append("port:"); sb.append(port + ","); }
-    if (service != null) { sb.append("service:"); sb.append(service); }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+        sb.append(",");
+    }
+    if (!(service == null)) {
+        sb.append("service:");
+        sb.append(service);
+    }
     sb.append("}");
     return sb.toString();
   }

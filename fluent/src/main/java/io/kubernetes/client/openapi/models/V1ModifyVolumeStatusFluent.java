@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ModifyVolumeStatusFluent<A extends V1ModifyVolumeStatusFluent<A>> extends BaseFluent<A>{
+public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1ModifyVolumeStatusFluent<A>> extends BaseFluent<A>{
   public V1ModifyVolumeStatusFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1ModifyVolumeStatusFluent<A extends V1ModifyVolumeStatusFluent<A>>
   private String targetVolumeAttributesClassName;
   
   protected void copyInstance(V1ModifyVolumeStatus instance) {
-    instance = (instance != null ? instance : new V1ModifyVolumeStatus());
+    instance = instance != null ? instance : new V1ModifyVolumeStatus();
     if (instance != null) {
-          this.withStatus(instance.getStatus());
-          this.withTargetVolumeAttributesClassName(instance.getTargetVolumeAttributesClassName());
-        }
+        this.withStatus(instance.getStatus());
+        this.withTargetVolumeAttributesClassName(instance.getTargetVolumeAttributesClassName());
+    }
   }
   
   public String getStatus() {
@@ -54,24 +56,41 @@ public class V1ModifyVolumeStatusFluent<A extends V1ModifyVolumeStatusFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ModifyVolumeStatusFluent that = (V1ModifyVolumeStatusFluent) o;
-    if (!java.util.Objects.equals(status, that.status)) return false;
-    if (!java.util.Objects.equals(targetVolumeAttributesClassName, that.targetVolumeAttributesClassName)) return false;
+    if (!(Objects.equals(status, that.status))) {
+      return false;
+    }
+    if (!(Objects.equals(targetVolumeAttributesClassName, that.targetVolumeAttributesClassName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(status,  targetVolumeAttributesClassName,  super.hashCode());
+    return Objects.hash(status, targetVolumeAttributesClassName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (status != null) { sb.append("status:"); sb.append(status + ","); }
-    if (targetVolumeAttributesClassName != null) { sb.append("targetVolumeAttributesClassName:"); sb.append(targetVolumeAttributesClassName); }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
+        sb.append(",");
+    }
+    if (!(targetVolumeAttributesClassName == null)) {
+        sb.append("targetVolumeAttributesClassName:");
+        sb.append(targetVolumeAttributesClassName);
+    }
     sb.append("}");
     return sb.toString();
   }
