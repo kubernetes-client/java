@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CSINodeBuilder extends V1CSINodeFluent<V1CSINodeBuilder> implements VisitableBuilder<V1CSINode,V1CSINodeBuilder>{
   public V1CSINodeBuilder() {
     this(new V1CSINode());

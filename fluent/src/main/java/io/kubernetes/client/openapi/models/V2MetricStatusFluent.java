@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends BaseFluent<A>{
+public class V2MetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2MetricStatusFluent<A>> extends BaseFluent<A>{
   public V2MetricStatusFluent() {
   }
   
@@ -25,15 +28,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   private String type;
   
   protected void copyInstance(V2MetricStatus instance) {
-    instance = (instance != null ? instance : new V2MetricStatus());
+    instance = instance != null ? instance : new V2MetricStatus();
     if (instance != null) {
-          this.withContainerResource(instance.getContainerResource());
-          this.withExternal(instance.getExternal());
-          this.withObject(instance.getObject());
-          this.withPods(instance.getPods());
-          this.withResource(instance.getResource());
-          this.withType(instance.getType());
-        }
+        this.withContainerResource(instance.getContainerResource());
+        this.withExternal(instance.getExternal());
+        this.withObject(instance.getObject());
+        this.withPods(instance.getPods());
+        this.withResource(instance.getResource());
+        this.withType(instance.getType());
+    }
   }
   
   public V2ContainerResourceMetricStatus buildContainerResource() {
@@ -65,15 +68,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public ContainerResourceNested<A> editContainerResource() {
-    return withNewContainerResourceLike(java.util.Optional.ofNullable(buildContainerResource()).orElse(null));
+    return this.withNewContainerResourceLike(Optional.ofNullable(this.buildContainerResource()).orElse(null));
   }
   
   public ContainerResourceNested<A> editOrNewContainerResource() {
-    return withNewContainerResourceLike(java.util.Optional.ofNullable(buildContainerResource()).orElse(new V2ContainerResourceMetricStatusBuilder().build()));
+    return this.withNewContainerResourceLike(Optional.ofNullable(this.buildContainerResource()).orElse(new V2ContainerResourceMetricStatusBuilder().build()));
   }
   
   public ContainerResourceNested<A> editOrNewContainerResourceLike(V2ContainerResourceMetricStatus item) {
-    return withNewContainerResourceLike(java.util.Optional.ofNullable(buildContainerResource()).orElse(item));
+    return this.withNewContainerResourceLike(Optional.ofNullable(this.buildContainerResource()).orElse(item));
   }
   
   public V2ExternalMetricStatus buildExternal() {
@@ -105,15 +108,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public ExternalNested<A> editExternal() {
-    return withNewExternalLike(java.util.Optional.ofNullable(buildExternal()).orElse(null));
+    return this.withNewExternalLike(Optional.ofNullable(this.buildExternal()).orElse(null));
   }
   
   public ExternalNested<A> editOrNewExternal() {
-    return withNewExternalLike(java.util.Optional.ofNullable(buildExternal()).orElse(new V2ExternalMetricStatusBuilder().build()));
+    return this.withNewExternalLike(Optional.ofNullable(this.buildExternal()).orElse(new V2ExternalMetricStatusBuilder().build()));
   }
   
   public ExternalNested<A> editOrNewExternalLike(V2ExternalMetricStatus item) {
-    return withNewExternalLike(java.util.Optional.ofNullable(buildExternal()).orElse(item));
+    return this.withNewExternalLike(Optional.ofNullable(this.buildExternal()).orElse(item));
   }
   
   public V2ObjectMetricStatus buildObject() {
@@ -145,15 +148,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public ObjectNested<A> editObject() {
-    return withNewObjectLike(java.util.Optional.ofNullable(buildObject()).orElse(null));
+    return this.withNewObjectLike(Optional.ofNullable(this.buildObject()).orElse(null));
   }
   
   public ObjectNested<A> editOrNewObject() {
-    return withNewObjectLike(java.util.Optional.ofNullable(buildObject()).orElse(new V2ObjectMetricStatusBuilder().build()));
+    return this.withNewObjectLike(Optional.ofNullable(this.buildObject()).orElse(new V2ObjectMetricStatusBuilder().build()));
   }
   
   public ObjectNested<A> editOrNewObjectLike(V2ObjectMetricStatus item) {
-    return withNewObjectLike(java.util.Optional.ofNullable(buildObject()).orElse(item));
+    return this.withNewObjectLike(Optional.ofNullable(this.buildObject()).orElse(item));
   }
   
   public V2PodsMetricStatus buildPods() {
@@ -185,15 +188,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public PodsNested<A> editPods() {
-    return withNewPodsLike(java.util.Optional.ofNullable(buildPods()).orElse(null));
+    return this.withNewPodsLike(Optional.ofNullable(this.buildPods()).orElse(null));
   }
   
   public PodsNested<A> editOrNewPods() {
-    return withNewPodsLike(java.util.Optional.ofNullable(buildPods()).orElse(new V2PodsMetricStatusBuilder().build()));
+    return this.withNewPodsLike(Optional.ofNullable(this.buildPods()).orElse(new V2PodsMetricStatusBuilder().build()));
   }
   
   public PodsNested<A> editOrNewPodsLike(V2PodsMetricStatus item) {
-    return withNewPodsLike(java.util.Optional.ofNullable(buildPods()).orElse(item));
+    return this.withNewPodsLike(Optional.ofNullable(this.buildPods()).orElse(item));
   }
   
   public V2ResourceMetricStatus buildResource() {
@@ -225,15 +228,15 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public ResourceNested<A> editResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(null));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(null));
   }
   
   public ResourceNested<A> editOrNewResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(new V2ResourceMetricStatusBuilder().build()));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(new V2ResourceMetricStatusBuilder().build()));
   }
   
   public ResourceNested<A> editOrNewResourceLike(V2ResourceMetricStatus item) {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(item));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(item));
   }
   
   public String getType() {
@@ -250,32 +253,73 @@ public class V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Bas
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2MetricStatusFluent that = (V2MetricStatusFluent) o;
-    if (!java.util.Objects.equals(containerResource, that.containerResource)) return false;
-    if (!java.util.Objects.equals(external, that.external)) return false;
-    if (!java.util.Objects.equals(_object, that._object)) return false;
-    if (!java.util.Objects.equals(pods, that.pods)) return false;
-    if (!java.util.Objects.equals(resource, that.resource)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(containerResource, that.containerResource))) {
+      return false;
+    }
+    if (!(Objects.equals(external, that.external))) {
+      return false;
+    }
+    if (!(Objects.equals(_object, that._object))) {
+      return false;
+    }
+    if (!(Objects.equals(pods, that.pods))) {
+      return false;
+    }
+    if (!(Objects.equals(resource, that.resource))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(containerResource,  external,  _object,  pods,  resource,  type,  super.hashCode());
+    return Objects.hash(containerResource, external, _object, pods, resource, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (containerResource != null) { sb.append("containerResource:"); sb.append(containerResource + ","); }
-    if (external != null) { sb.append("external:"); sb.append(external + ","); }
-    if (_object != null) { sb.append("_object:"); sb.append(_object + ","); }
-    if (pods != null) { sb.append("pods:"); sb.append(pods + ","); }
-    if (resource != null) { sb.append("resource:"); sb.append(resource + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(containerResource == null)) {
+        sb.append("containerResource:");
+        sb.append(containerResource);
+        sb.append(",");
+    }
+    if (!(external == null)) {
+        sb.append("external:");
+        sb.append(external);
+        sb.append(",");
+    }
+    if (!(_object == null)) {
+        sb.append("_object:");
+        sb.append(_object);
+        sb.append(",");
+    }
+    if (!(pods == null)) {
+        sb.append("pods:");
+        sb.append(pods);
+        sb.append(",");
+    }
+    if (!(resource == null)) {
+        sb.append("resource:");
+        sb.append(resource);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

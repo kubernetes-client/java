@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import java.time.OffsetDateTime;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends BaseFluent<A>{
+public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models.V1CronJobStatusFluent<A>> extends BaseFluent<A>{
   public V1CronJobStatusFluent() {
   }
   
@@ -29,16 +31,18 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
   private OffsetDateTime lastSuccessfulTime;
   
   protected void copyInstance(V1CronJobStatus instance) {
-    instance = (instance != null ? instance : new V1CronJobStatus());
+    instance = instance != null ? instance : new V1CronJobStatus();
     if (instance != null) {
-          this.withActive(instance.getActive());
-          this.withLastScheduleTime(instance.getLastScheduleTime());
-          this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
-        }
+        this.withActive(instance.getActive());
+        this.withLastScheduleTime(instance.getLastScheduleTime());
+        this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
+    }
   }
   
   public A addToActive(int index,V1ObjectReference item) {
-    if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
+    if (this.active == null) {
+      this.active = new ArrayList();
+    }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     if (index < 0 || index >= active.size()) {
         _visitables.get("active").add(builder);
@@ -47,11 +51,13 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
         _visitables.get("active").add(builder);
         active.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToActive(int index,V1ObjectReference item) {
-    if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
+    if (this.active == null) {
+      this.active = new ArrayList();
+    }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     if (index < 0 || index >= active.size()) {
         _visitables.get("active").add(builder);
@@ -60,41 +66,71 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
         _visitables.get("active").add(builder);
         active.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToActive(io.kubernetes.client.openapi.models.V1ObjectReference... items) {
-    if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
-    for (V1ObjectReference item : items) {V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);_visitables.get("active").add(builder);this.active.add(builder);} return (A)this;
+  public A addToActive(V1ObjectReference... items) {
+    if (this.active == null) {
+      this.active = new ArrayList();
+    }
+    for (V1ObjectReference item : items) {
+        V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
+        _visitables.get("active").add(builder);
+        this.active.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToActive(Collection<V1ObjectReference> items) {
-    if (this.active == null) {this.active = new ArrayList<V1ObjectReferenceBuilder>();}
-    for (V1ObjectReference item : items) {V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);_visitables.get("active").add(builder);this.active.add(builder);} return (A)this;
+    if (this.active == null) {
+      this.active = new ArrayList();
+    }
+    for (V1ObjectReference item : items) {
+        V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
+        _visitables.get("active").add(builder);
+        this.active.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromActive(io.kubernetes.client.openapi.models.V1ObjectReference... items) {
-    if (this.active == null) return (A)this;
-    for (V1ObjectReference item : items) {V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);_visitables.get("active").remove(builder); this.active.remove(builder);} return (A)this;
+  public A removeFromActive(V1ObjectReference... items) {
+    if (this.active == null) {
+      return (A) this;
+    }
+    for (V1ObjectReference item : items) {
+        V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
+        _visitables.get("active").remove(builder);
+        this.active.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromActive(Collection<V1ObjectReference> items) {
-    if (this.active == null) return (A)this;
-    for (V1ObjectReference item : items) {V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);_visitables.get("active").remove(builder); this.active.remove(builder);} return (A)this;
+    if (this.active == null) {
+      return (A) this;
+    }
+    for (V1ObjectReference item : items) {
+        V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
+        _visitables.get("active").remove(builder);
+        this.active.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromActive(Predicate<V1ObjectReferenceBuilder> predicate) {
-    if (active == null) return (A) this;
-    final Iterator<V1ObjectReferenceBuilder> each = active.iterator();
-    final List visitables = _visitables.get("active");
-    while (each.hasNext()) {
-      V1ObjectReferenceBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (active == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ObjectReferenceBuilder> each = active.iterator();
+    List visitables = _visitables.get("active");
+    while (each.hasNext()) {
+        V1ObjectReferenceBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ObjectReference> buildActive() {
@@ -146,7 +182,7 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
     return (A) this;
   }
   
-  public A withActive(io.kubernetes.client.openapi.models.V1ObjectReference... active) {
+  public A withActive(V1ObjectReference... active) {
     if (this.active != null) {
         this.active.clear();
         _visitables.remove("active");
@@ -160,7 +196,7 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
   }
   
   public boolean hasActive() {
-    return this.active != null && !this.active.isEmpty();
+    return this.active != null && !(this.active.isEmpty());
   }
   
   public ActiveNested<A> addNewActive() {
@@ -176,28 +212,39 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
   }
   
   public ActiveNested<A> editActive(int index) {
-    if (active.size() <= index) throw new RuntimeException("Can't edit active. Index exceeds size.");
-    return setNewActiveLike(index, buildActive(index));
+    if (index <= active.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "active"));
+    }
+    return this.setNewActiveLike(index, this.buildActive(index));
   }
   
   public ActiveNested<A> editFirstActive() {
-    if (active.size() == 0) throw new RuntimeException("Can't edit first active. The list is empty.");
-    return setNewActiveLike(0, buildActive(0));
+    if (active.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "active"));
+    }
+    return this.setNewActiveLike(0, this.buildActive(0));
   }
   
   public ActiveNested<A> editLastActive() {
     int index = active.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last active. The list is empty.");
-    return setNewActiveLike(index, buildActive(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "active"));
+    }
+    return this.setNewActiveLike(index, this.buildActive(index));
   }
   
   public ActiveNested<A> editMatchingActive(Predicate<V1ObjectReferenceBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<active.size();i++) { 
-    if (predicate.test(active.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching active. No match found.");
-    return setNewActiveLike(index, buildActive(index));
+    for (int i = 0;i < active.size();i++) {
+      if (predicate.test(active.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "active"));
+    }
+    return this.setNewActiveLike(index, this.buildActive(index));
   }
   
   public OffsetDateTime getLastScheduleTime() {
@@ -227,26 +274,49 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1CronJobStatusFluent that = (V1CronJobStatusFluent) o;
-    if (!java.util.Objects.equals(active, that.active)) return false;
-    if (!java.util.Objects.equals(lastScheduleTime, that.lastScheduleTime)) return false;
-    if (!java.util.Objects.equals(lastSuccessfulTime, that.lastSuccessfulTime)) return false;
+    if (!(Objects.equals(active, that.active))) {
+      return false;
+    }
+    if (!(Objects.equals(lastScheduleTime, that.lastScheduleTime))) {
+      return false;
+    }
+    if (!(Objects.equals(lastSuccessfulTime, that.lastSuccessfulTime))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(active,  lastScheduleTime,  lastSuccessfulTime,  super.hashCode());
+    return Objects.hash(active, lastScheduleTime, lastSuccessfulTime);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (active != null && !active.isEmpty()) { sb.append("active:"); sb.append(active + ","); }
-    if (lastScheduleTime != null) { sb.append("lastScheduleTime:"); sb.append(lastScheduleTime + ","); }
-    if (lastSuccessfulTime != null) { sb.append("lastSuccessfulTime:"); sb.append(lastSuccessfulTime); }
+    if (!(active == null) && !(active.isEmpty())) {
+        sb.append("active:");
+        sb.append(active);
+        sb.append(",");
+    }
+    if (!(lastScheduleTime == null)) {
+        sb.append("lastScheduleTime:");
+        sb.append(lastScheduleTime);
+        sb.append(",");
+    }
+    if (!(lastSuccessfulTime == null)) {
+        sb.append("lastSuccessfulTime:");
+        sb.append(lastSuccessfulTime);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -259,7 +329,7 @@ public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1CronJobStatusFluent.this.setToActive(index,builder.build());
+      return (N) V1CronJobStatusFluent.this.setToActive(index, builder.build());
     }
     
     public N endActive() {

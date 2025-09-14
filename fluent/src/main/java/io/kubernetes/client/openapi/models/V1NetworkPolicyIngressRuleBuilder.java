@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NetworkPolicyIngressRuleBuilder extends V1NetworkPolicyIngressRuleFluent<V1NetworkPolicyIngressRuleBuilder> implements VisitableBuilder<V1NetworkPolicyIngressRule,V1NetworkPolicyIngressRuleBuilder>{
   public V1NetworkPolicyIngressRuleBuilder() {
     this(new V1NetworkPolicyIngressRule());

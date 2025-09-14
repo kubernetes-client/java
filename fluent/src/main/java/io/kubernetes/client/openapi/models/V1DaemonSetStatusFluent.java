@@ -1,15 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> extends BaseFluent<A>{
+public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<A>> extends BaseFluent<A>{
   public V1DaemonSetStatusFluent() {
   }
   
@@ -37,19 +39,19 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
   private Integer updatedNumberScheduled;
   
   protected void copyInstance(V1DaemonSetStatus instance) {
-    instance = (instance != null ? instance : new V1DaemonSetStatus());
+    instance = instance != null ? instance : new V1DaemonSetStatus();
     if (instance != null) {
-          this.withCollisionCount(instance.getCollisionCount());
-          this.withConditions(instance.getConditions());
-          this.withCurrentNumberScheduled(instance.getCurrentNumberScheduled());
-          this.withDesiredNumberScheduled(instance.getDesiredNumberScheduled());
-          this.withNumberAvailable(instance.getNumberAvailable());
-          this.withNumberMisscheduled(instance.getNumberMisscheduled());
-          this.withNumberReady(instance.getNumberReady());
-          this.withNumberUnavailable(instance.getNumberUnavailable());
-          this.withObservedGeneration(instance.getObservedGeneration());
-          this.withUpdatedNumberScheduled(instance.getUpdatedNumberScheduled());
-        }
+        this.withCollisionCount(instance.getCollisionCount());
+        this.withConditions(instance.getConditions());
+        this.withCurrentNumberScheduled(instance.getCurrentNumberScheduled());
+        this.withDesiredNumberScheduled(instance.getDesiredNumberScheduled());
+        this.withNumberAvailable(instance.getNumberAvailable());
+        this.withNumberMisscheduled(instance.getNumberMisscheduled());
+        this.withNumberReady(instance.getNumberReady());
+        this.withNumberUnavailable(instance.getNumberUnavailable());
+        this.withObservedGeneration(instance.getObservedGeneration());
+        this.withUpdatedNumberScheduled(instance.getUpdatedNumberScheduled());
+    }
   }
   
   public Integer getCollisionCount() {
@@ -66,7 +68,9 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
   }
   
   public A addToConditions(int index,V1DaemonSetCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -75,11 +79,13 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
         _visitables.get("conditions").add(builder);
         conditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConditions(int index,V1DaemonSetCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
     V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
     if (index < 0 || index >= conditions.size()) {
         _visitables.get("conditions").add(builder);
@@ -88,41 +94,71 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
         _visitables.get("conditions").add(builder);
         conditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
-    for (V1DaemonSetCondition item : items) {V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+  public A addToConditions(V1DaemonSetCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1DaemonSetCondition item : items) {
+        V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConditions(Collection<V1DaemonSetCondition> items) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
-    for (V1DaemonSetCondition item : items) {V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);_visitables.get("conditions").add(builder);this.conditions.add(builder);} return (A)this;
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1DaemonSetCondition item : items) {
+        V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items) {
-    if (this.conditions == null) return (A)this;
-    for (V1DaemonSetCondition item : items) {V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+  public A removeFromConditions(V1DaemonSetCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1DaemonSetCondition item : items) {
+        V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConditions(Collection<V1DaemonSetCondition> items) {
-    if (this.conditions == null) return (A)this;
-    for (V1DaemonSetCondition item : items) {V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);_visitables.get("conditions").remove(builder); this.conditions.remove(builder);} return (A)this;
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1DaemonSetCondition item : items) {
+        V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConditions(Predicate<V1DaemonSetConditionBuilder> predicate) {
-    if (conditions == null) return (A) this;
-    final Iterator<V1DaemonSetConditionBuilder> each = conditions.iterator();
-    final List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-      V1DaemonSetConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (conditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1DaemonSetConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1DaemonSetConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1DaemonSetCondition> buildConditions() {
@@ -174,7 +210,7 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
     return (A) this;
   }
   
-  public A withConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... conditions) {
+  public A withConditions(V1DaemonSetCondition... conditions) {
     if (this.conditions != null) {
         this.conditions.clear();
         _visitables.remove("conditions");
@@ -188,7 +224,7 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
   }
   
   public boolean hasConditions() {
-    return this.conditions != null && !this.conditions.isEmpty();
+    return this.conditions != null && !(this.conditions.isEmpty());
   }
   
   public ConditionsNested<A> addNewCondition() {
@@ -204,28 +240,39 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index <= conditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editFirstCondition() {
-    if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
-    return setNewConditionLike(0, buildCondition(0));
+    if (conditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(0, this.buildCondition(0));
   }
   
   public ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
-    return setNewConditionLike(index, buildCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public ConditionsNested<A> editMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<conditions.size();i++) { 
-    if (predicate.test(conditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
-    return setNewConditionLike(index, buildCondition(index));
+    for (int i = 0;i < conditions.size();i++) {
+      if (predicate.test(conditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "conditions"));
+    }
+    return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
   public Integer getCurrentNumberScheduled() {
@@ -333,40 +380,105 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DaemonSetStatusFluent that = (V1DaemonSetStatusFluent) o;
-    if (!java.util.Objects.equals(collisionCount, that.collisionCount)) return false;
-    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
-    if (!java.util.Objects.equals(currentNumberScheduled, that.currentNumberScheduled)) return false;
-    if (!java.util.Objects.equals(desiredNumberScheduled, that.desiredNumberScheduled)) return false;
-    if (!java.util.Objects.equals(numberAvailable, that.numberAvailable)) return false;
-    if (!java.util.Objects.equals(numberMisscheduled, that.numberMisscheduled)) return false;
-    if (!java.util.Objects.equals(numberReady, that.numberReady)) return false;
-    if (!java.util.Objects.equals(numberUnavailable, that.numberUnavailable)) return false;
-    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
-    if (!java.util.Objects.equals(updatedNumberScheduled, that.updatedNumberScheduled)) return false;
+    if (!(Objects.equals(collisionCount, that.collisionCount))) {
+      return false;
+    }
+    if (!(Objects.equals(conditions, that.conditions))) {
+      return false;
+    }
+    if (!(Objects.equals(currentNumberScheduled, that.currentNumberScheduled))) {
+      return false;
+    }
+    if (!(Objects.equals(desiredNumberScheduled, that.desiredNumberScheduled))) {
+      return false;
+    }
+    if (!(Objects.equals(numberAvailable, that.numberAvailable))) {
+      return false;
+    }
+    if (!(Objects.equals(numberMisscheduled, that.numberMisscheduled))) {
+      return false;
+    }
+    if (!(Objects.equals(numberReady, that.numberReady))) {
+      return false;
+    }
+    if (!(Objects.equals(numberUnavailable, that.numberUnavailable))) {
+      return false;
+    }
+    if (!(Objects.equals(observedGeneration, that.observedGeneration))) {
+      return false;
+    }
+    if (!(Objects.equals(updatedNumberScheduled, that.updatedNumberScheduled))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(collisionCount,  conditions,  currentNumberScheduled,  desiredNumberScheduled,  numberAvailable,  numberMisscheduled,  numberReady,  numberUnavailable,  observedGeneration,  updatedNumberScheduled,  super.hashCode());
+    return Objects.hash(collisionCount, conditions, currentNumberScheduled, desiredNumberScheduled, numberAvailable, numberMisscheduled, numberReady, numberUnavailable, observedGeneration, updatedNumberScheduled);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (collisionCount != null) { sb.append("collisionCount:"); sb.append(collisionCount + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (currentNumberScheduled != null) { sb.append("currentNumberScheduled:"); sb.append(currentNumberScheduled + ","); }
-    if (desiredNumberScheduled != null) { sb.append("desiredNumberScheduled:"); sb.append(desiredNumberScheduled + ","); }
-    if (numberAvailable != null) { sb.append("numberAvailable:"); sb.append(numberAvailable + ","); }
-    if (numberMisscheduled != null) { sb.append("numberMisscheduled:"); sb.append(numberMisscheduled + ","); }
-    if (numberReady != null) { sb.append("numberReady:"); sb.append(numberReady + ","); }
-    if (numberUnavailable != null) { sb.append("numberUnavailable:"); sb.append(numberUnavailable + ","); }
-    if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
-    if (updatedNumberScheduled != null) { sb.append("updatedNumberScheduled:"); sb.append(updatedNumberScheduled); }
+    if (!(collisionCount == null)) {
+        sb.append("collisionCount:");
+        sb.append(collisionCount);
+        sb.append(",");
+    }
+    if (!(conditions == null) && !(conditions.isEmpty())) {
+        sb.append("conditions:");
+        sb.append(conditions);
+        sb.append(",");
+    }
+    if (!(currentNumberScheduled == null)) {
+        sb.append("currentNumberScheduled:");
+        sb.append(currentNumberScheduled);
+        sb.append(",");
+    }
+    if (!(desiredNumberScheduled == null)) {
+        sb.append("desiredNumberScheduled:");
+        sb.append(desiredNumberScheduled);
+        sb.append(",");
+    }
+    if (!(numberAvailable == null)) {
+        sb.append("numberAvailable:");
+        sb.append(numberAvailable);
+        sb.append(",");
+    }
+    if (!(numberMisscheduled == null)) {
+        sb.append("numberMisscheduled:");
+        sb.append(numberMisscheduled);
+        sb.append(",");
+    }
+    if (!(numberReady == null)) {
+        sb.append("numberReady:");
+        sb.append(numberReady);
+        sb.append(",");
+    }
+    if (!(numberUnavailable == null)) {
+        sb.append("numberUnavailable:");
+        sb.append(numberUnavailable);
+        sb.append(",");
+    }
+    if (!(observedGeneration == null)) {
+        sb.append("observedGeneration:");
+        sb.append(observedGeneration);
+        sb.append(",");
+    }
+    if (!(updatedNumberScheduled == null)) {
+        sb.append("updatedNumberScheduled:");
+        sb.append(updatedNumberScheduled);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -379,7 +491,7 @@ public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1DaemonSetStatusFluent.this.setToConditions(index,builder.build());
+      return (N) V1DaemonSetStatusFluent.this.setToConditions(index, builder.build());
     }
     
     public N endCondition() {

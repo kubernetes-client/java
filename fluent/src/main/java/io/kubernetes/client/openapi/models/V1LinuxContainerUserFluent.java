@@ -1,20 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
-import java.lang.String;
-import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>> extends BaseFluent<A>{
+public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.models.V1LinuxContainerUserFluent<A>> extends BaseFluent<A>{
   public V1LinuxContainerUserFluent() {
   }
   
@@ -26,12 +28,12 @@ public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>>
   private Long uid;
   
   protected void copyInstance(V1LinuxContainerUser instance) {
-    instance = (instance != null ? instance : new V1LinuxContainerUser());
+    instance = instance != null ? instance : new V1LinuxContainerUser();
     if (instance != null) {
-          this.withGid(instance.getGid());
-          this.withSupplementalGroups(instance.getSupplementalGroups());
-          this.withUid(instance.getUid());
-        }
+        this.withGid(instance.getGid());
+        this.withSupplementalGroups(instance.getSupplementalGroups());
+        this.withUid(instance.getUid());
+    }
   }
   
   public Long getGid() {
@@ -48,34 +50,59 @@ public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>>
   }
   
   public A addToSupplementalGroups(int index,Long item) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
     this.supplementalGroups.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSupplementalGroups(int index,Long item) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    this.supplementalGroups.set(index, item); return (A)this;
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    this.supplementalGroups.set(index, item);
+    return (A) this;
   }
   
-  public A addToSupplementalGroups(java.lang.Long... items) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    for (Long item : items) {this.supplementalGroups.add(item);} return (A)this;
+  public A addToSupplementalGroups(Long... items) {
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    for (Long item : items) {
+      this.supplementalGroups.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToSupplementalGroups(Collection<Long> items) {
-    if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
-    for (Long item : items) {this.supplementalGroups.add(item);} return (A)this;
+    if (this.supplementalGroups == null) {
+      this.supplementalGroups = new ArrayList();
+    }
+    for (Long item : items) {
+      this.supplementalGroups.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromSupplementalGroups(java.lang.Long... items) {
-    if (this.supplementalGroups == null) return (A)this;
-    for (Long item : items) { this.supplementalGroups.remove(item);} return (A)this;
+  public A removeFromSupplementalGroups(Long... items) {
+    if (this.supplementalGroups == null) {
+      return (A) this;
+    }
+    for (Long item : items) {
+      this.supplementalGroups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSupplementalGroups(Collection<Long> items) {
-    if (this.supplementalGroups == null) return (A)this;
-    for (Long item : items) { this.supplementalGroups.remove(item);} return (A)this;
+    if (this.supplementalGroups == null) {
+      return (A) this;
+    }
+    for (Long item : items) {
+      this.supplementalGroups.remove(item);
+    }
+    return (A) this;
   }
   
   public List<Long> getSupplementalGroups() {
@@ -124,7 +151,7 @@ public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>>
     return (A) this;
   }
   
-  public A withSupplementalGroups(java.lang.Long... supplementalGroups) {
+  public A withSupplementalGroups(Long... supplementalGroups) {
     if (this.supplementalGroups != null) {
         this.supplementalGroups.clear();
         _visitables.remove("supplementalGroups");
@@ -138,7 +165,7 @@ public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>>
   }
   
   public boolean hasSupplementalGroups() {
-    return this.supplementalGroups != null && !this.supplementalGroups.isEmpty();
+    return this.supplementalGroups != null && !(this.supplementalGroups.isEmpty());
   }
   
   public Long getUid() {
@@ -155,26 +182,49 @@ public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>>
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LinuxContainerUserFluent that = (V1LinuxContainerUserFluent) o;
-    if (!java.util.Objects.equals(gid, that.gid)) return false;
-    if (!java.util.Objects.equals(supplementalGroups, that.supplementalGroups)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    if (!(Objects.equals(gid, that.gid))) {
+      return false;
+    }
+    if (!(Objects.equals(supplementalGroups, that.supplementalGroups))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(gid,  supplementalGroups,  uid,  super.hashCode());
+    return Objects.hash(gid, supplementalGroups, uid);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (gid != null) { sb.append("gid:"); sb.append(gid + ","); }
-    if (supplementalGroups != null && !supplementalGroups.isEmpty()) { sb.append("supplementalGroups:"); sb.append(supplementalGroups + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (!(gid == null)) {
+        sb.append("gid:");
+        sb.append(gid);
+        sb.append(",");
+    }
+    if (!(supplementalGroups == null) && !(supplementalGroups.isEmpty())) {
+        sb.append("supplementalGroups:");
+        sb.append(supplementalGroups);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+    }
     sb.append("}");
     return sb.toString();
   }

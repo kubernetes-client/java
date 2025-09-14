@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +18,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends BaseFluent<A>{
+public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<A>> extends BaseFluent<A>{
   public V1EndpointSubsetFluent() {
   }
   
@@ -28,16 +30,18 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   private ArrayList<CoreV1EndpointPortBuilder> ports;
   
   protected void copyInstance(V1EndpointSubset instance) {
-    instance = (instance != null ? instance : new V1EndpointSubset());
+    instance = instance != null ? instance : new V1EndpointSubset();
     if (instance != null) {
-          this.withAddresses(instance.getAddresses());
-          this.withNotReadyAddresses(instance.getNotReadyAddresses());
-          this.withPorts(instance.getPorts());
-        }
+        this.withAddresses(instance.getAddresses());
+        this.withNotReadyAddresses(instance.getNotReadyAddresses());
+        this.withPorts(instance.getPorts());
+    }
   }
   
   public A addToAddresses(int index,V1EndpointAddress item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= addresses.size()) {
         _visitables.get("addresses").add(builder);
@@ -46,11 +50,13 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("addresses").add(builder);
         addresses.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAddresses(int index,V1EndpointAddress item) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= addresses.size()) {
         _visitables.get("addresses").add(builder);
@@ -59,41 +65,71 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("addresses").add(builder);
         addresses.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("addresses").add(builder);this.addresses.add(builder);} return (A)this;
+  public A addToAddresses(V1EndpointAddress... items) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAddresses(Collection<V1EndpointAddress> items) {
-    if (this.addresses == null) {this.addresses = new ArrayList<V1EndpointAddressBuilder>();}
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("addresses").add(builder);this.addresses.add(builder);} return (A)this;
+    if (this.addresses == null) {
+      this.addresses = new ArrayList();
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    if (this.addresses == null) return (A)this;
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("addresses").remove(builder); this.addresses.remove(builder);} return (A)this;
+  public A removeFromAddresses(V1EndpointAddress... items) {
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("addresses").remove(builder);
+        this.addresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAddresses(Collection<V1EndpointAddress> items) {
-    if (this.addresses == null) return (A)this;
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("addresses").remove(builder); this.addresses.remove(builder);} return (A)this;
+    if (this.addresses == null) {
+      return (A) this;
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("addresses").remove(builder);
+        this.addresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAddresses(Predicate<V1EndpointAddressBuilder> predicate) {
-    if (addresses == null) return (A) this;
-    final Iterator<V1EndpointAddressBuilder> each = addresses.iterator();
-    final List visitables = _visitables.get("addresses");
-    while (each.hasNext()) {
-      V1EndpointAddressBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (addresses == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1EndpointAddressBuilder> each = addresses.iterator();
+    List visitables = _visitables.get("addresses");
+    while (each.hasNext()) {
+        V1EndpointAddressBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1EndpointAddress> buildAddresses() {
@@ -145,7 +181,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     return (A) this;
   }
   
-  public A withAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... addresses) {
+  public A withAddresses(V1EndpointAddress... addresses) {
     if (this.addresses != null) {
         this.addresses.clear();
         _visitables.remove("addresses");
@@ -159,7 +195,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public boolean hasAddresses() {
-    return this.addresses != null && !this.addresses.isEmpty();
+    return this.addresses != null && !(this.addresses.isEmpty());
   }
   
   public AddressesNested<A> addNewAddress() {
@@ -175,32 +211,45 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public AddressesNested<A> editAddress(int index) {
-    if (addresses.size() <= index) throw new RuntimeException("Can't edit addresses. Index exceeds size.");
-    return setNewAddressLike(index, buildAddress(index));
+    if (index <= addresses.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public AddressesNested<A> editFirstAddress() {
-    if (addresses.size() == 0) throw new RuntimeException("Can't edit first addresses. The list is empty.");
-    return setNewAddressLike(0, buildAddress(0));
+    if (addresses.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "addresses"));
+    }
+    return this.setNewAddressLike(0, this.buildAddress(0));
   }
   
   public AddressesNested<A> editLastAddress() {
     int index = addresses.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last addresses. The list is empty.");
-    return setNewAddressLike(index, buildAddress(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public AddressesNested<A> editMatchingAddress(Predicate<V1EndpointAddressBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<addresses.size();i++) { 
-    if (predicate.test(addresses.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching addresses. No match found.");
-    return setNewAddressLike(index, buildAddress(index));
+    for (int i = 0;i < addresses.size();i++) {
+      if (predicate.test(addresses.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "addresses"));
+    }
+    return this.setNewAddressLike(index, this.buildAddress(index));
   }
   
   public A addToNotReadyAddresses(int index,V1EndpointAddress item) {
-    if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
+    if (this.notReadyAddresses == null) {
+      this.notReadyAddresses = new ArrayList();
+    }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= notReadyAddresses.size()) {
         _visitables.get("notReadyAddresses").add(builder);
@@ -209,11 +258,13 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("notReadyAddresses").add(builder);
         notReadyAddresses.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToNotReadyAddresses(int index,V1EndpointAddress item) {
-    if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
+    if (this.notReadyAddresses == null) {
+      this.notReadyAddresses = new ArrayList();
+    }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= notReadyAddresses.size()) {
         _visitables.get("notReadyAddresses").add(builder);
@@ -222,41 +273,71 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("notReadyAddresses").add(builder);
         notReadyAddresses.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("notReadyAddresses").add(builder);this.notReadyAddresses.add(builder);} return (A)this;
+  public A addToNotReadyAddresses(V1EndpointAddress... items) {
+    if (this.notReadyAddresses == null) {
+      this.notReadyAddresses = new ArrayList();
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToNotReadyAddresses(Collection<V1EndpointAddress> items) {
-    if (this.notReadyAddresses == null) {this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();}
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("notReadyAddresses").add(builder);this.notReadyAddresses.add(builder);} return (A)this;
+    if (this.notReadyAddresses == null) {
+      this.notReadyAddresses = new ArrayList();
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    if (this.notReadyAddresses == null) return (A)this;
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("notReadyAddresses").remove(builder); this.notReadyAddresses.remove(builder);} return (A)this;
+  public A removeFromNotReadyAddresses(V1EndpointAddress... items) {
+    if (this.notReadyAddresses == null) {
+      return (A) this;
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("notReadyAddresses").remove(builder);
+        this.notReadyAddresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromNotReadyAddresses(Collection<V1EndpointAddress> items) {
-    if (this.notReadyAddresses == null) return (A)this;
-    for (V1EndpointAddress item : items) {V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);_visitables.get("notReadyAddresses").remove(builder); this.notReadyAddresses.remove(builder);} return (A)this;
+    if (this.notReadyAddresses == null) {
+      return (A) this;
+    }
+    for (V1EndpointAddress item : items) {
+        V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
+        _visitables.get("notReadyAddresses").remove(builder);
+        this.notReadyAddresses.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromNotReadyAddresses(Predicate<V1EndpointAddressBuilder> predicate) {
-    if (notReadyAddresses == null) return (A) this;
-    final Iterator<V1EndpointAddressBuilder> each = notReadyAddresses.iterator();
-    final List visitables = _visitables.get("notReadyAddresses");
-    while (each.hasNext()) {
-      V1EndpointAddressBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (notReadyAddresses == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1EndpointAddressBuilder> each = notReadyAddresses.iterator();
+    List visitables = _visitables.get("notReadyAddresses");
+    while (each.hasNext()) {
+        V1EndpointAddressBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1EndpointAddress> buildNotReadyAddresses() {
@@ -308,7 +389,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     return (A) this;
   }
   
-  public A withNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... notReadyAddresses) {
+  public A withNotReadyAddresses(V1EndpointAddress... notReadyAddresses) {
     if (this.notReadyAddresses != null) {
         this.notReadyAddresses.clear();
         _visitables.remove("notReadyAddresses");
@@ -322,7 +403,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public boolean hasNotReadyAddresses() {
-    return this.notReadyAddresses != null && !this.notReadyAddresses.isEmpty();
+    return this.notReadyAddresses != null && !(this.notReadyAddresses.isEmpty());
   }
   
   public NotReadyAddressesNested<A> addNewNotReadyAddress() {
@@ -338,32 +419,45 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public NotReadyAddressesNested<A> editNotReadyAddress(int index) {
-    if (notReadyAddresses.size() <= index) throw new RuntimeException("Can't edit notReadyAddresses. Index exceeds size.");
-    return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
+    if (index <= notReadyAddresses.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "notReadyAddresses"));
+    }
+    return this.setNewNotReadyAddressLike(index, this.buildNotReadyAddress(index));
   }
   
   public NotReadyAddressesNested<A> editFirstNotReadyAddress() {
-    if (notReadyAddresses.size() == 0) throw new RuntimeException("Can't edit first notReadyAddresses. The list is empty.");
-    return setNewNotReadyAddressLike(0, buildNotReadyAddress(0));
+    if (notReadyAddresses.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "notReadyAddresses"));
+    }
+    return this.setNewNotReadyAddressLike(0, this.buildNotReadyAddress(0));
   }
   
   public NotReadyAddressesNested<A> editLastNotReadyAddress() {
     int index = notReadyAddresses.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last notReadyAddresses. The list is empty.");
-    return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "notReadyAddresses"));
+    }
+    return this.setNewNotReadyAddressLike(index, this.buildNotReadyAddress(index));
   }
   
   public NotReadyAddressesNested<A> editMatchingNotReadyAddress(Predicate<V1EndpointAddressBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<notReadyAddresses.size();i++) { 
-    if (predicate.test(notReadyAddresses.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching notReadyAddresses. No match found.");
-    return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
+    for (int i = 0;i < notReadyAddresses.size();i++) {
+      if (predicate.test(notReadyAddresses.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "notReadyAddresses"));
+    }
+    return this.setNewNotReadyAddressLike(index, this.buildNotReadyAddress(index));
   }
   
   public A addToPorts(int index,CoreV1EndpointPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -372,11 +466,13 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("ports").add(builder);
         ports.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPorts(int index,CoreV1EndpointPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
     if (index < 0 || index >= ports.size()) {
         _visitables.get("ports").add(builder);
@@ -385,41 +481,71 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
         _visitables.get("ports").add(builder);
         ports.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items) {
-    if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
-    for (CoreV1EndpointPort item : items) {CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+  public A addToPorts(CoreV1EndpointPort... items) {
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (CoreV1EndpointPort item : items) {
+        CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToPorts(Collection<CoreV1EndpointPort> items) {
-    if (this.ports == null) {this.ports = new ArrayList<CoreV1EndpointPortBuilder>();}
-    for (CoreV1EndpointPort item : items) {CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+    if (this.ports == null) {
+      this.ports = new ArrayList();
+    }
+    for (CoreV1EndpointPort item : items) {
+        CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
+        _visitables.get("ports").add(builder);
+        this.ports.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items) {
-    if (this.ports == null) return (A)this;
-    for (CoreV1EndpointPort item : items) {CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+  public A removeFromPorts(CoreV1EndpointPort... items) {
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (CoreV1EndpointPort item : items) {
+        CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPorts(Collection<CoreV1EndpointPort> items) {
-    if (this.ports == null) return (A)this;
-    for (CoreV1EndpointPort item : items) {CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);_visitables.get("ports").remove(builder); this.ports.remove(builder);} return (A)this;
+    if (this.ports == null) {
+      return (A) this;
+    }
+    for (CoreV1EndpointPort item : items) {
+        CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
+        _visitables.get("ports").remove(builder);
+        this.ports.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromPorts(Predicate<CoreV1EndpointPortBuilder> predicate) {
-    if (ports == null) return (A) this;
-    final Iterator<CoreV1EndpointPortBuilder> each = ports.iterator();
-    final List visitables = _visitables.get("ports");
-    while (each.hasNext()) {
-      CoreV1EndpointPortBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (ports == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<CoreV1EndpointPortBuilder> each = ports.iterator();
+    List visitables = _visitables.get("ports");
+    while (each.hasNext()) {
+        CoreV1EndpointPortBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<CoreV1EndpointPort> buildPorts() {
@@ -471,7 +597,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     return (A) this;
   }
   
-  public A withPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... ports) {
+  public A withPorts(CoreV1EndpointPort... ports) {
     if (this.ports != null) {
         this.ports.clear();
         _visitables.remove("ports");
@@ -485,7 +611,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public boolean hasPorts() {
-    return this.ports != null && !this.ports.isEmpty();
+    return this.ports != null && !(this.ports.isEmpty());
   }
   
   public PortsNested<A> addNewPort() {
@@ -501,51 +627,85 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
   }
   
   public PortsNested<A> editPort(int index) {
-    if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
-    return setNewPortLike(index, buildPort(index));
+    if (index <= ports.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
-    return setNewPortLike(0, buildPort(0));
+    if (ports.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(0, this.buildPort(0));
   }
   
   public PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
-    return setNewPortLike(index, buildPort(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public PortsNested<A> editMatchingPort(Predicate<CoreV1EndpointPortBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<ports.size();i++) { 
-    if (predicate.test(ports.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching ports. No match found.");
-    return setNewPortLike(index, buildPort(index));
+    for (int i = 0;i < ports.size();i++) {
+      if (predicate.test(ports.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "ports"));
+    }
+    return this.setNewPortLike(index, this.buildPort(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EndpointSubsetFluent that = (V1EndpointSubsetFluent) o;
-    if (!java.util.Objects.equals(addresses, that.addresses)) return false;
-    if (!java.util.Objects.equals(notReadyAddresses, that.notReadyAddresses)) return false;
-    if (!java.util.Objects.equals(ports, that.ports)) return false;
+    if (!(Objects.equals(addresses, that.addresses))) {
+      return false;
+    }
+    if (!(Objects.equals(notReadyAddresses, that.notReadyAddresses))) {
+      return false;
+    }
+    if (!(Objects.equals(ports, that.ports))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(addresses,  notReadyAddresses,  ports,  super.hashCode());
+    return Objects.hash(addresses, notReadyAddresses, ports);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (addresses != null && !addresses.isEmpty()) { sb.append("addresses:"); sb.append(addresses + ","); }
-    if (notReadyAddresses != null && !notReadyAddresses.isEmpty()) { sb.append("notReadyAddresses:"); sb.append(notReadyAddresses + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports); }
+    if (!(addresses == null) && !(addresses.isEmpty())) {
+        sb.append("addresses:");
+        sb.append(addresses);
+        sb.append(",");
+    }
+    if (!(notReadyAddresses == null) && !(notReadyAddresses.isEmpty())) {
+        sb.append("notReadyAddresses:");
+        sb.append(notReadyAddresses);
+        sb.append(",");
+    }
+    if (!(ports == null) && !(ports.isEmpty())) {
+        sb.append("ports:");
+        sb.append(ports);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -558,7 +718,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     int index;
     
     public N and() {
-      return (N) V1EndpointSubsetFluent.this.setToAddresses(index,builder.build());
+      return (N) V1EndpointSubsetFluent.this.setToAddresses(index, builder.build());
     }
     
     public N endAddress() {
@@ -576,7 +736,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     int index;
     
     public N and() {
-      return (N) V1EndpointSubsetFluent.this.setToNotReadyAddresses(index,builder.build());
+      return (N) V1EndpointSubsetFluent.this.setToNotReadyAddresses(index, builder.build());
     }
     
     public N endNotReadyAddress() {
@@ -594,7 +754,7 @@ public class V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends
     int index;
     
     public N and() {
-      return (N) V1EndpointSubsetFluent.this.setToPorts(index,builder.build());
+      return (N) V1EndpointSubsetFluent.this.setToPorts(index, builder.build());
     }
     
     public N endPort() {

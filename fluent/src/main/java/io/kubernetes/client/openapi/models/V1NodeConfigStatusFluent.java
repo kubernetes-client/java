@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> extends BaseFluent<A>{
+public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<A>> extends BaseFluent<A>{
   public V1NodeConfigStatusFluent() {
   }
   
@@ -23,13 +26,13 @@ public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> ext
   private V1NodeConfigSourceBuilder lastKnownGood;
   
   protected void copyInstance(V1NodeConfigStatus instance) {
-    instance = (instance != null ? instance : new V1NodeConfigStatus());
+    instance = instance != null ? instance : new V1NodeConfigStatus();
     if (instance != null) {
-          this.withActive(instance.getActive());
-          this.withAssigned(instance.getAssigned());
-          this.withError(instance.getError());
-          this.withLastKnownGood(instance.getLastKnownGood());
-        }
+        this.withActive(instance.getActive());
+        this.withAssigned(instance.getAssigned());
+        this.withError(instance.getError());
+        this.withLastKnownGood(instance.getLastKnownGood());
+    }
   }
   
   public V1NodeConfigSource buildActive() {
@@ -61,15 +64,15 @@ public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> ext
   }
   
   public ActiveNested<A> editActive() {
-    return withNewActiveLike(java.util.Optional.ofNullable(buildActive()).orElse(null));
+    return this.withNewActiveLike(Optional.ofNullable(this.buildActive()).orElse(null));
   }
   
   public ActiveNested<A> editOrNewActive() {
-    return withNewActiveLike(java.util.Optional.ofNullable(buildActive()).orElse(new V1NodeConfigSourceBuilder().build()));
+    return this.withNewActiveLike(Optional.ofNullable(this.buildActive()).orElse(new V1NodeConfigSourceBuilder().build()));
   }
   
   public ActiveNested<A> editOrNewActiveLike(V1NodeConfigSource item) {
-    return withNewActiveLike(java.util.Optional.ofNullable(buildActive()).orElse(item));
+    return this.withNewActiveLike(Optional.ofNullable(this.buildActive()).orElse(item));
   }
   
   public V1NodeConfigSource buildAssigned() {
@@ -101,15 +104,15 @@ public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> ext
   }
   
   public AssignedNested<A> editAssigned() {
-    return withNewAssignedLike(java.util.Optional.ofNullable(buildAssigned()).orElse(null));
+    return this.withNewAssignedLike(Optional.ofNullable(this.buildAssigned()).orElse(null));
   }
   
   public AssignedNested<A> editOrNewAssigned() {
-    return withNewAssignedLike(java.util.Optional.ofNullable(buildAssigned()).orElse(new V1NodeConfigSourceBuilder().build()));
+    return this.withNewAssignedLike(Optional.ofNullable(this.buildAssigned()).orElse(new V1NodeConfigSourceBuilder().build()));
   }
   
   public AssignedNested<A> editOrNewAssignedLike(V1NodeConfigSource item) {
-    return withNewAssignedLike(java.util.Optional.ofNullable(buildAssigned()).orElse(item));
+    return this.withNewAssignedLike(Optional.ofNullable(this.buildAssigned()).orElse(item));
   }
   
   public String getError() {
@@ -154,40 +157,69 @@ public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> ext
   }
   
   public LastKnownGoodNested<A> editLastKnownGood() {
-    return withNewLastKnownGoodLike(java.util.Optional.ofNullable(buildLastKnownGood()).orElse(null));
+    return this.withNewLastKnownGoodLike(Optional.ofNullable(this.buildLastKnownGood()).orElse(null));
   }
   
   public LastKnownGoodNested<A> editOrNewLastKnownGood() {
-    return withNewLastKnownGoodLike(java.util.Optional.ofNullable(buildLastKnownGood()).orElse(new V1NodeConfigSourceBuilder().build()));
+    return this.withNewLastKnownGoodLike(Optional.ofNullable(this.buildLastKnownGood()).orElse(new V1NodeConfigSourceBuilder().build()));
   }
   
   public LastKnownGoodNested<A> editOrNewLastKnownGoodLike(V1NodeConfigSource item) {
-    return withNewLastKnownGoodLike(java.util.Optional.ofNullable(buildLastKnownGood()).orElse(item));
+    return this.withNewLastKnownGoodLike(Optional.ofNullable(this.buildLastKnownGood()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1NodeConfigStatusFluent that = (V1NodeConfigStatusFluent) o;
-    if (!java.util.Objects.equals(active, that.active)) return false;
-    if (!java.util.Objects.equals(assigned, that.assigned)) return false;
-    if (!java.util.Objects.equals(error, that.error)) return false;
-    if (!java.util.Objects.equals(lastKnownGood, that.lastKnownGood)) return false;
+    if (!(Objects.equals(active, that.active))) {
+      return false;
+    }
+    if (!(Objects.equals(assigned, that.assigned))) {
+      return false;
+    }
+    if (!(Objects.equals(error, that.error))) {
+      return false;
+    }
+    if (!(Objects.equals(lastKnownGood, that.lastKnownGood))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(active,  assigned,  error,  lastKnownGood,  super.hashCode());
+    return Objects.hash(active, assigned, error, lastKnownGood);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (active != null) { sb.append("active:"); sb.append(active + ","); }
-    if (assigned != null) { sb.append("assigned:"); sb.append(assigned + ","); }
-    if (error != null) { sb.append("error:"); sb.append(error + ","); }
-    if (lastKnownGood != null) { sb.append("lastKnownGood:"); sb.append(lastKnownGood); }
+    if (!(active == null)) {
+        sb.append("active:");
+        sb.append(active);
+        sb.append(",");
+    }
+    if (!(assigned == null)) {
+        sb.append("assigned:");
+        sb.append(assigned);
+        sb.append(",");
+    }
+    if (!(error == null)) {
+        sb.append("error:");
+        sb.append(error);
+        sb.append(",");
+    }
+    if (!(lastKnownGood == null)) {
+        sb.append("lastKnownGood:");
+        sb.append(lastKnownGood);
+    }
     sb.append("}");
     return sb.toString();
   }

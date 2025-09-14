@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SessionAffinityConfigBuilder extends V1SessionAffinityConfigFluent<V1SessionAffinityConfigBuilder> implements VisitableBuilder<V1SessionAffinityConfig,V1SessionAffinityConfigBuilder>{
   public V1SessionAffinityConfigBuilder() {
     this(new V1SessionAffinityConfig());

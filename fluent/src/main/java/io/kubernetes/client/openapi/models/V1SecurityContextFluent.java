@@ -1,18 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Boolean;
+import java.util.Optional;
 import java.lang.Long;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> extends BaseFluent<A>{
+public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.models.V1SecurityContextFluent<A>> extends BaseFluent<A>{
   public V1SecurityContextFluent() {
   }
   
@@ -33,21 +36,21 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   private V1WindowsSecurityContextOptionsBuilder windowsOptions;
   
   protected void copyInstance(V1SecurityContext instance) {
-    instance = (instance != null ? instance : new V1SecurityContext());
+    instance = instance != null ? instance : new V1SecurityContext();
     if (instance != null) {
-          this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
-          this.withAppArmorProfile(instance.getAppArmorProfile());
-          this.withCapabilities(instance.getCapabilities());
-          this.withPrivileged(instance.getPrivileged());
-          this.withProcMount(instance.getProcMount());
-          this.withReadOnlyRootFilesystem(instance.getReadOnlyRootFilesystem());
-          this.withRunAsGroup(instance.getRunAsGroup());
-          this.withRunAsNonRoot(instance.getRunAsNonRoot());
-          this.withRunAsUser(instance.getRunAsUser());
-          this.withSeLinuxOptions(instance.getSeLinuxOptions());
-          this.withSeccompProfile(instance.getSeccompProfile());
-          this.withWindowsOptions(instance.getWindowsOptions());
-        }
+        this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
+        this.withAppArmorProfile(instance.getAppArmorProfile());
+        this.withCapabilities(instance.getCapabilities());
+        this.withPrivileged(instance.getPrivileged());
+        this.withProcMount(instance.getProcMount());
+        this.withReadOnlyRootFilesystem(instance.getReadOnlyRootFilesystem());
+        this.withRunAsGroup(instance.getRunAsGroup());
+        this.withRunAsNonRoot(instance.getRunAsNonRoot());
+        this.withRunAsUser(instance.getRunAsUser());
+        this.withSeLinuxOptions(instance.getSeLinuxOptions());
+        this.withSeccompProfile(instance.getSeccompProfile());
+        this.withWindowsOptions(instance.getWindowsOptions());
+    }
   }
   
   public Boolean getAllowPrivilegeEscalation() {
@@ -92,15 +95,15 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public AppArmorProfileNested<A> editAppArmorProfile() {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(null));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(null));
   }
   
   public AppArmorProfileNested<A> editOrNewAppArmorProfile() {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
   }
   
   public AppArmorProfileNested<A> editOrNewAppArmorProfileLike(V1AppArmorProfile item) {
-    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(item));
+    return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(item));
   }
   
   public V1Capabilities buildCapabilities() {
@@ -132,15 +135,15 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public CapabilitiesNested<A> editCapabilities() {
-    return withNewCapabilitiesLike(java.util.Optional.ofNullable(buildCapabilities()).orElse(null));
+    return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(null));
   }
   
   public CapabilitiesNested<A> editOrNewCapabilities() {
-    return withNewCapabilitiesLike(java.util.Optional.ofNullable(buildCapabilities()).orElse(new V1CapabilitiesBuilder().build()));
+    return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(new V1CapabilitiesBuilder().build()));
   }
   
   public CapabilitiesNested<A> editOrNewCapabilitiesLike(V1Capabilities item) {
-    return withNewCapabilitiesLike(java.util.Optional.ofNullable(buildCapabilities()).orElse(item));
+    return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(item));
   }
   
   public Boolean getPrivileged() {
@@ -250,15 +253,15 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public SeLinuxOptionsNested<A> editSeLinuxOptions() {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(null));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(null));
   }
   
   public SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(new V1SELinuxOptionsBuilder().build()));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(new V1SELinuxOptionsBuilder().build()));
   }
   
   public SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
-    return withNewSeLinuxOptionsLike(java.util.Optional.ofNullable(buildSeLinuxOptions()).orElse(item));
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(item));
   }
   
   public V1SeccompProfile buildSeccompProfile() {
@@ -290,15 +293,15 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public SeccompProfileNested<A> editSeccompProfile() {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(null));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(null));
   }
   
   public SeccompProfileNested<A> editOrNewSeccompProfile() {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(new V1SeccompProfileBuilder().build()));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(new V1SeccompProfileBuilder().build()));
   }
   
   public SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
-    return withNewSeccompProfileLike(java.util.Optional.ofNullable(buildSeccompProfile()).orElse(item));
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(item));
   }
   
   public V1WindowsSecurityContextOptions buildWindowsOptions() {
@@ -330,56 +333,133 @@ public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> exten
   }
   
   public WindowsOptionsNested<A> editWindowsOptions() {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(null));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(null));
   }
   
   public WindowsOptionsNested<A> editOrNewWindowsOptions() {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(new V1WindowsSecurityContextOptionsBuilder().build()));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(new V1WindowsSecurityContextOptionsBuilder().build()));
   }
   
   public WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
-    return withNewWindowsOptionsLike(java.util.Optional.ofNullable(buildWindowsOptions()).orElse(item));
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SecurityContextFluent that = (V1SecurityContextFluent) o;
-    if (!java.util.Objects.equals(allowPrivilegeEscalation, that.allowPrivilegeEscalation)) return false;
-    if (!java.util.Objects.equals(appArmorProfile, that.appArmorProfile)) return false;
-    if (!java.util.Objects.equals(capabilities, that.capabilities)) return false;
-    if (!java.util.Objects.equals(privileged, that.privileged)) return false;
-    if (!java.util.Objects.equals(procMount, that.procMount)) return false;
-    if (!java.util.Objects.equals(readOnlyRootFilesystem, that.readOnlyRootFilesystem)) return false;
-    if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
-    if (!java.util.Objects.equals(runAsNonRoot, that.runAsNonRoot)) return false;
-    if (!java.util.Objects.equals(runAsUser, that.runAsUser)) return false;
-    if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
-    if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
-    if (!java.util.Objects.equals(windowsOptions, that.windowsOptions)) return false;
+    if (!(Objects.equals(allowPrivilegeEscalation, that.allowPrivilegeEscalation))) {
+      return false;
+    }
+    if (!(Objects.equals(appArmorProfile, that.appArmorProfile))) {
+      return false;
+    }
+    if (!(Objects.equals(capabilities, that.capabilities))) {
+      return false;
+    }
+    if (!(Objects.equals(privileged, that.privileged))) {
+      return false;
+    }
+    if (!(Objects.equals(procMount, that.procMount))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnlyRootFilesystem, that.readOnlyRootFilesystem))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsGroup, that.runAsGroup))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsNonRoot, that.runAsNonRoot))) {
+      return false;
+    }
+    if (!(Objects.equals(runAsUser, that.runAsUser))) {
+      return false;
+    }
+    if (!(Objects.equals(seLinuxOptions, that.seLinuxOptions))) {
+      return false;
+    }
+    if (!(Objects.equals(seccompProfile, that.seccompProfile))) {
+      return false;
+    }
+    if (!(Objects.equals(windowsOptions, that.windowsOptions))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allowPrivilegeEscalation,  appArmorProfile,  capabilities,  privileged,  procMount,  readOnlyRootFilesystem,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  windowsOptions,  super.hashCode());
+    return Objects.hash(allowPrivilegeEscalation, appArmorProfile, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allowPrivilegeEscalation != null) { sb.append("allowPrivilegeEscalation:"); sb.append(allowPrivilegeEscalation + ","); }
-    if (appArmorProfile != null) { sb.append("appArmorProfile:"); sb.append(appArmorProfile + ","); }
-    if (capabilities != null) { sb.append("capabilities:"); sb.append(capabilities + ","); }
-    if (privileged != null) { sb.append("privileged:"); sb.append(privileged + ","); }
-    if (procMount != null) { sb.append("procMount:"); sb.append(procMount + ","); }
-    if (readOnlyRootFilesystem != null) { sb.append("readOnlyRootFilesystem:"); sb.append(readOnlyRootFilesystem + ","); }
-    if (runAsGroup != null) { sb.append("runAsGroup:"); sb.append(runAsGroup + ","); }
-    if (runAsNonRoot != null) { sb.append("runAsNonRoot:"); sb.append(runAsNonRoot + ","); }
-    if (runAsUser != null) { sb.append("runAsUser:"); sb.append(runAsUser + ","); }
-    if (seLinuxOptions != null) { sb.append("seLinuxOptions:"); sb.append(seLinuxOptions + ","); }
-    if (seccompProfile != null) { sb.append("seccompProfile:"); sb.append(seccompProfile + ","); }
-    if (windowsOptions != null) { sb.append("windowsOptions:"); sb.append(windowsOptions); }
+    if (!(allowPrivilegeEscalation == null)) {
+        sb.append("allowPrivilegeEscalation:");
+        sb.append(allowPrivilegeEscalation);
+        sb.append(",");
+    }
+    if (!(appArmorProfile == null)) {
+        sb.append("appArmorProfile:");
+        sb.append(appArmorProfile);
+        sb.append(",");
+    }
+    if (!(capabilities == null)) {
+        sb.append("capabilities:");
+        sb.append(capabilities);
+        sb.append(",");
+    }
+    if (!(privileged == null)) {
+        sb.append("privileged:");
+        sb.append(privileged);
+        sb.append(",");
+    }
+    if (!(procMount == null)) {
+        sb.append("procMount:");
+        sb.append(procMount);
+        sb.append(",");
+    }
+    if (!(readOnlyRootFilesystem == null)) {
+        sb.append("readOnlyRootFilesystem:");
+        sb.append(readOnlyRootFilesystem);
+        sb.append(",");
+    }
+    if (!(runAsGroup == null)) {
+        sb.append("runAsGroup:");
+        sb.append(runAsGroup);
+        sb.append(",");
+    }
+    if (!(runAsNonRoot == null)) {
+        sb.append("runAsNonRoot:");
+        sb.append(runAsNonRoot);
+        sb.append(",");
+    }
+    if (!(runAsUser == null)) {
+        sb.append("runAsUser:");
+        sb.append(runAsUser);
+        sb.append(",");
+    }
+    if (!(seLinuxOptions == null)) {
+        sb.append("seLinuxOptions:");
+        sb.append(seLinuxOptions);
+        sb.append(",");
+    }
+    if (!(seccompProfile == null)) {
+        sb.append("seccompProfile:");
+        sb.append(seccompProfile);
+        sb.append(",");
+    }
+    if (!(windowsOptions == null)) {
+        sb.append("windowsOptions:");
+        sb.append(windowsOptions);
+    }
     sb.append("}");
     return sb.toString();
   }

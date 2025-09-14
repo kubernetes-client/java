@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta2ResourceSliceSpecBuilder extends V1beta2ResourceSliceSpecFluent<V1beta2ResourceSliceSpecBuilder> implements VisitableBuilder<V1beta2ResourceSliceSpec,V1beta2ResourceSliceSpecBuilder>{
   public V1beta2ResourceSliceSpecBuilder() {
     this(new V1beta2ResourceSliceSpec());

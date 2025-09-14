@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1GRPCActionBuilder extends V1GRPCActionFluent<V1GRPCActionBuilder> implements VisitableBuilder<V1GRPCAction,V1GRPCActionBuilder>{
   public V1GRPCActionBuilder() {
     this(new V1GRPCAction());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ForZoneBuilder extends V1ForZoneFluent<V1ForZoneBuilder> implements VisitableBuilder<V1ForZone,V1ForZoneBuilder>{
   public V1ForZoneBuilder() {
     this(new V1ForZone());

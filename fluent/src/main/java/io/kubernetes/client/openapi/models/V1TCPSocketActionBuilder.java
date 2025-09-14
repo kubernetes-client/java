@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluent<V1TCPSocketActionBuilder> implements VisitableBuilder<V1TCPSocketAction,V1TCPSocketActionBuilder>{
   public V1TCPSocketActionBuilder() {
     this(new V1TCPSocketAction());

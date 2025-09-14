@@ -1,18 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
 import java.lang.Double;
 import java.lang.Long;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -21,7 +24,7 @@ import java.util.Map;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> extends BaseFluent<A>{
+public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<A>> extends BaseFluent<A>{
   public V1JSONSchemaPropsFluent() {
   }
   
@@ -67,46 +70,46 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   private Boolean uniqueItems;
   
   protected void copyInstance(V1JSONSchemaProps instance) {
-    instance = (instance != null ? instance : new V1JSONSchemaProps());
+    instance = instance != null ? instance : new V1JSONSchemaProps();
     if (instance != null) {
-          this.withRef(instance.get$Ref());
-          this.withSchema(instance.get$Schema());
-          this.withAdditionalItems(instance.getAdditionalItems());
-          this.withAdditionalProperties(instance.getAdditionalProperties());
-          this.withAllOf(instance.getAllOf());
-          this.withAnyOf(instance.getAnyOf());
-          this.withDefault(instance.getDefault());
-          this.withDefinitions(instance.getDefinitions());
-          this.withDependencies(instance.getDependencies());
-          this.withDescription(instance.getDescription());
-          this.withEnum(instance.getEnum());
-          this.withExample(instance.getExample());
-          this.withExclusiveMaximum(instance.getExclusiveMaximum());
-          this.withExclusiveMinimum(instance.getExclusiveMinimum());
-          this.withExternalDocs(instance.getExternalDocs());
-          this.withFormat(instance.getFormat());
-          this.withId(instance.getId());
-          this.withItems(instance.getItems());
-          this.withMaxItems(instance.getMaxItems());
-          this.withMaxLength(instance.getMaxLength());
-          this.withMaxProperties(instance.getMaxProperties());
-          this.withMaximum(instance.getMaximum());
-          this.withMinItems(instance.getMinItems());
-          this.withMinLength(instance.getMinLength());
-          this.withMinProperties(instance.getMinProperties());
-          this.withMinimum(instance.getMinimum());
-          this.withMultipleOf(instance.getMultipleOf());
-          this.withNot(instance.getNot());
-          this.withNullable(instance.getNullable());
-          this.withOneOf(instance.getOneOf());
-          this.withPattern(instance.getPattern());
-          this.withPatternProperties(instance.getPatternProperties());
-          this.withProperties(instance.getProperties());
-          this.withRequired(instance.getRequired());
-          this.withTitle(instance.getTitle());
-          this.withType(instance.getType());
-          this.withUniqueItems(instance.getUniqueItems());
-        }
+        this.withRef(instance.get$Ref());
+        this.withSchema(instance.get$Schema());
+        this.withAdditionalItems(instance.getAdditionalItems());
+        this.withAdditionalProperties(instance.getAdditionalProperties());
+        this.withAllOf(instance.getAllOf());
+        this.withAnyOf(instance.getAnyOf());
+        this.withDefault(instance.getDefault());
+        this.withDefinitions(instance.getDefinitions());
+        this.withDependencies(instance.getDependencies());
+        this.withDescription(instance.getDescription());
+        this.withEnum(instance.getEnum());
+        this.withExample(instance.getExample());
+        this.withExclusiveMaximum(instance.getExclusiveMaximum());
+        this.withExclusiveMinimum(instance.getExclusiveMinimum());
+        this.withExternalDocs(instance.getExternalDocs());
+        this.withFormat(instance.getFormat());
+        this.withId(instance.getId());
+        this.withItems(instance.getItems());
+        this.withMaxItems(instance.getMaxItems());
+        this.withMaxLength(instance.getMaxLength());
+        this.withMaxProperties(instance.getMaxProperties());
+        this.withMaximum(instance.getMaximum());
+        this.withMinItems(instance.getMinItems());
+        this.withMinLength(instance.getMinLength());
+        this.withMinProperties(instance.getMinProperties());
+        this.withMinimum(instance.getMinimum());
+        this.withMultipleOf(instance.getMultipleOf());
+        this.withNot(instance.getNot());
+        this.withNullable(instance.getNullable());
+        this.withOneOf(instance.getOneOf());
+        this.withPattern(instance.getPattern());
+        this.withPatternProperties(instance.getPatternProperties());
+        this.withProperties(instance.getProperties());
+        this.withRequired(instance.getRequired());
+        this.withTitle(instance.getTitle());
+        this.withType(instance.getType());
+        this.withUniqueItems(instance.getUniqueItems());
+    }
   }
   
   public String getRef() {
@@ -162,7 +165,9 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToAllOf(int index,V1JSONSchemaProps item) {
-    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.allOf == null) {
+      this.allOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= allOf.size()) {
         _visitables.get("allOf").add(builder);
@@ -171,11 +176,13 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("allOf").add(builder);
         allOf.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAllOf(int index,V1JSONSchemaProps item) {
-    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.allOf == null) {
+      this.allOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= allOf.size()) {
         _visitables.get("allOf").add(builder);
@@ -184,41 +191,71 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("allOf").add(builder);
         allOf.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("allOf").add(builder);this.allOf.add(builder);} return (A)this;
+  public A addToAllOf(V1JSONSchemaProps... items) {
+    if (this.allOf == null) {
+      this.allOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("allOf").add(builder);
+        this.allOf.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAllOf(Collection<V1JSONSchemaProps> items) {
-    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("allOf").add(builder);this.allOf.add(builder);} return (A)this;
+    if (this.allOf == null) {
+      this.allOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("allOf").add(builder);
+        this.allOf.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.allOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("allOf").remove(builder); this.allOf.remove(builder);} return (A)this;
+  public A removeFromAllOf(V1JSONSchemaProps... items) {
+    if (this.allOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("allOf").remove(builder);
+        this.allOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAllOf(Collection<V1JSONSchemaProps> items) {
-    if (this.allOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("allOf").remove(builder); this.allOf.remove(builder);} return (A)this;
+    if (this.allOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("allOf").remove(builder);
+        this.allOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
-    if (allOf == null) return (A) this;
-    final Iterator<V1JSONSchemaPropsBuilder> each = allOf.iterator();
-    final List visitables = _visitables.get("allOf");
-    while (each.hasNext()) {
-      V1JSONSchemaPropsBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (allOf == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1JSONSchemaPropsBuilder> each = allOf.iterator();
+    List visitables = _visitables.get("allOf");
+    while (each.hasNext()) {
+        V1JSONSchemaPropsBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1JSONSchemaProps> buildAllOf() {
@@ -270,7 +307,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     return (A) this;
   }
   
-  public A withAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... allOf) {
+  public A withAllOf(V1JSONSchemaProps... allOf) {
     if (this.allOf != null) {
         this.allOf.clear();
         _visitables.remove("allOf");
@@ -284,7 +321,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean hasAllOf() {
-    return this.allOf != null && !this.allOf.isEmpty();
+    return this.allOf != null && !(this.allOf.isEmpty());
   }
   
   public AllOfNested<A> addNewAllOf() {
@@ -300,32 +337,45 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public AllOfNested<A> editAllOf(int index) {
-    if (allOf.size() <= index) throw new RuntimeException("Can't edit allOf. Index exceeds size.");
-    return setNewAllOfLike(index, buildAllOf(index));
+    if (index <= allOf.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "allOf"));
+    }
+    return this.setNewAllOfLike(index, this.buildAllOf(index));
   }
   
   public AllOfNested<A> editFirstAllOf() {
-    if (allOf.size() == 0) throw new RuntimeException("Can't edit first allOf. The list is empty.");
-    return setNewAllOfLike(0, buildAllOf(0));
+    if (allOf.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "allOf"));
+    }
+    return this.setNewAllOfLike(0, this.buildAllOf(0));
   }
   
   public AllOfNested<A> editLastAllOf() {
     int index = allOf.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last allOf. The list is empty.");
-    return setNewAllOfLike(index, buildAllOf(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "allOf"));
+    }
+    return this.setNewAllOfLike(index, this.buildAllOf(index));
   }
   
   public AllOfNested<A> editMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<allOf.size();i++) { 
-    if (predicate.test(allOf.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching allOf. No match found.");
-    return setNewAllOfLike(index, buildAllOf(index));
+    for (int i = 0;i < allOf.size();i++) {
+      if (predicate.test(allOf.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "allOf"));
+    }
+    return this.setNewAllOfLike(index, this.buildAllOf(index));
   }
   
   public A addToAnyOf(int index,V1JSONSchemaProps item) {
-    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.anyOf == null) {
+      this.anyOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= anyOf.size()) {
         _visitables.get("anyOf").add(builder);
@@ -334,11 +384,13 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("anyOf").add(builder);
         anyOf.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAnyOf(int index,V1JSONSchemaProps item) {
-    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.anyOf == null) {
+      this.anyOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= anyOf.size()) {
         _visitables.get("anyOf").add(builder);
@@ -347,41 +399,71 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("anyOf").add(builder);
         anyOf.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("anyOf").add(builder);this.anyOf.add(builder);} return (A)this;
+  public A addToAnyOf(V1JSONSchemaProps... items) {
+    if (this.anyOf == null) {
+      this.anyOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("anyOf").add(builder);
+        this.anyOf.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAnyOf(Collection<V1JSONSchemaProps> items) {
-    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("anyOf").add(builder);this.anyOf.add(builder);} return (A)this;
+    if (this.anyOf == null) {
+      this.anyOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("anyOf").add(builder);
+        this.anyOf.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.anyOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("anyOf").remove(builder); this.anyOf.remove(builder);} return (A)this;
+  public A removeFromAnyOf(V1JSONSchemaProps... items) {
+    if (this.anyOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("anyOf").remove(builder);
+        this.anyOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAnyOf(Collection<V1JSONSchemaProps> items) {
-    if (this.anyOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("anyOf").remove(builder); this.anyOf.remove(builder);} return (A)this;
+    if (this.anyOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("anyOf").remove(builder);
+        this.anyOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
-    if (anyOf == null) return (A) this;
-    final Iterator<V1JSONSchemaPropsBuilder> each = anyOf.iterator();
-    final List visitables = _visitables.get("anyOf");
-    while (each.hasNext()) {
-      V1JSONSchemaPropsBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (anyOf == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1JSONSchemaPropsBuilder> each = anyOf.iterator();
+    List visitables = _visitables.get("anyOf");
+    while (each.hasNext()) {
+        V1JSONSchemaPropsBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1JSONSchemaProps> buildAnyOf() {
@@ -433,7 +515,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     return (A) this;
   }
   
-  public A withAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... anyOf) {
+  public A withAnyOf(V1JSONSchemaProps... anyOf) {
     if (this.anyOf != null) {
         this.anyOf.clear();
         _visitables.remove("anyOf");
@@ -447,7 +529,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean hasAnyOf() {
-    return this.anyOf != null && !this.anyOf.isEmpty();
+    return this.anyOf != null && !(this.anyOf.isEmpty());
   }
   
   public AnyOfNested<A> addNewAnyOf() {
@@ -463,28 +545,39 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public AnyOfNested<A> editAnyOf(int index) {
-    if (anyOf.size() <= index) throw new RuntimeException("Can't edit anyOf. Index exceeds size.");
-    return setNewAnyOfLike(index, buildAnyOf(index));
+    if (index <= anyOf.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "anyOf"));
+    }
+    return this.setNewAnyOfLike(index, this.buildAnyOf(index));
   }
   
   public AnyOfNested<A> editFirstAnyOf() {
-    if (anyOf.size() == 0) throw new RuntimeException("Can't edit first anyOf. The list is empty.");
-    return setNewAnyOfLike(0, buildAnyOf(0));
+    if (anyOf.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "anyOf"));
+    }
+    return this.setNewAnyOfLike(0, this.buildAnyOf(0));
   }
   
   public AnyOfNested<A> editLastAnyOf() {
     int index = anyOf.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last anyOf. The list is empty.");
-    return setNewAnyOfLike(index, buildAnyOf(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "anyOf"));
+    }
+    return this.setNewAnyOfLike(index, this.buildAnyOf(index));
   }
   
   public AnyOfNested<A> editMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<anyOf.size();i++) { 
-    if (predicate.test(anyOf.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching anyOf. No match found.");
-    return setNewAnyOfLike(index, buildAnyOf(index));
+    for (int i = 0;i < anyOf.size();i++) {
+      if (predicate.test(anyOf.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "anyOf"));
+    }
+    return this.setNewAnyOfLike(index, this.buildAnyOf(index));
   }
   
   public Object getDefault() {
@@ -501,23 +594,47 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToDefinitions(String key,V1JSONSchemaProps value) {
-    if(this.definitions == null && key != null && value != null) { this.definitions = new LinkedHashMap(); }
-    if(key != null && value != null) {this.definitions.put(key, value);} return (A)this;
+    if (this.definitions == null && key != null && value != null) {
+      this.definitions = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.definitions.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToDefinitions(Map<String,V1JSONSchemaProps> map) {
-    if(this.definitions == null && map != null) { this.definitions = new LinkedHashMap(); }
-    if(map != null) { this.definitions.putAll(map);} return (A)this;
+    if (this.definitions == null && map != null) {
+      this.definitions = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.definitions.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromDefinitions(String key) {
-    if(this.definitions == null) { return (A) this; }
-    if(key != null && this.definitions != null) {this.definitions.remove(key);} return (A)this;
+    if (this.definitions == null) {
+      return (A) this;
+    }
+    if (key != null && this.definitions != null) {
+      this.definitions.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromDefinitions(Map<String,V1JSONSchemaProps> map) {
-    if(this.definitions == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.definitions != null){this.definitions.remove(key);}}} return (A)this;
+    if (this.definitions == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.definitions != null) {
+          this.definitions.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,V1JSONSchemaProps> getDefinitions() {
@@ -538,23 +655,47 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToDependencies(String key,Object value) {
-    if(this.dependencies == null && key != null && value != null) { this.dependencies = new LinkedHashMap(); }
-    if(key != null && value != null) {this.dependencies.put(key, value);} return (A)this;
+    if (this.dependencies == null && key != null && value != null) {
+      this.dependencies = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.dependencies.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToDependencies(Map<String,Object> map) {
-    if(this.dependencies == null && map != null) { this.dependencies = new LinkedHashMap(); }
-    if(map != null) { this.dependencies.putAll(map);} return (A)this;
+    if (this.dependencies == null && map != null) {
+      this.dependencies = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.dependencies.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromDependencies(String key) {
-    if(this.dependencies == null) { return (A) this; }
-    if(key != null && this.dependencies != null) {this.dependencies.remove(key);} return (A)this;
+    if (this.dependencies == null) {
+      return (A) this;
+    }
+    if (key != null && this.dependencies != null) {
+      this.dependencies.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromDependencies(Map<String,Object> map) {
-    if(this.dependencies == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.dependencies != null){this.dependencies.remove(key);}}} return (A)this;
+    if (this.dependencies == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.dependencies != null) {
+          this.dependencies.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Object> getDependencies() {
@@ -588,34 +729,59 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToEnum(int index,Object item) {
-    if (this._enum == null) {this._enum = new ArrayList<Object>();}
+    if (this._enum == null) {
+      this._enum = new ArrayList();
+    }
     this._enum.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToEnum(int index,Object item) {
-    if (this._enum == null) {this._enum = new ArrayList<Object>();}
-    this._enum.set(index, item); return (A)this;
+    if (this._enum == null) {
+      this._enum = new ArrayList();
+    }
+    this._enum.set(index, item);
+    return (A) this;
   }
   
-  public A addToEnum(java.lang.Object... items) {
-    if (this._enum == null) {this._enum = new ArrayList<Object>();}
-    for (Object item : items) {this._enum.add(item);} return (A)this;
+  public A addToEnum(Object... items) {
+    if (this._enum == null) {
+      this._enum = new ArrayList();
+    }
+    for (Object item : items) {
+      this._enum.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToEnum(Collection<Object> items) {
-    if (this._enum == null) {this._enum = new ArrayList<Object>();}
-    for (Object item : items) {this._enum.add(item);} return (A)this;
+    if (this._enum == null) {
+      this._enum = new ArrayList();
+    }
+    for (Object item : items) {
+      this._enum.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromEnum(java.lang.Object... items) {
-    if (this._enum == null) return (A)this;
-    for (Object item : items) { this._enum.remove(item);} return (A)this;
+  public A removeFromEnum(Object... items) {
+    if (this._enum == null) {
+      return (A) this;
+    }
+    for (Object item : items) {
+      this._enum.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromEnum(Collection<Object> items) {
-    if (this._enum == null) return (A)this;
-    for (Object item : items) { this._enum.remove(item);} return (A)this;
+    if (this._enum == null) {
+      return (A) this;
+    }
+    for (Object item : items) {
+      this._enum.remove(item);
+    }
+    return (A) this;
   }
   
   public List<Object> getEnum() {
@@ -664,7 +830,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     return (A) this;
   }
   
-  public A withEnum(java.lang.Object... _enum) {
+  public A withEnum(Object... _enum) {
     if (this._enum != null) {
         this._enum.clear();
         _visitables.remove("_enum");
@@ -678,7 +844,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean hasEnum() {
-    return this._enum != null && !this._enum.isEmpty();
+    return this._enum != null && !(this._enum.isEmpty());
   }
   
   public Object getExample() {
@@ -749,15 +915,15 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public ExternalDocsNested<A> editExternalDocs() {
-    return withNewExternalDocsLike(java.util.Optional.ofNullable(buildExternalDocs()).orElse(null));
+    return this.withNewExternalDocsLike(Optional.ofNullable(this.buildExternalDocs()).orElse(null));
   }
   
   public ExternalDocsNested<A> editOrNewExternalDocs() {
-    return withNewExternalDocsLike(java.util.Optional.ofNullable(buildExternalDocs()).orElse(new V1ExternalDocumentationBuilder().build()));
+    return this.withNewExternalDocsLike(Optional.ofNullable(this.buildExternalDocs()).orElse(new V1ExternalDocumentationBuilder().build()));
   }
   
   public ExternalDocsNested<A> editOrNewExternalDocsLike(V1ExternalDocumentation item) {
-    return withNewExternalDocsLike(java.util.Optional.ofNullable(buildExternalDocs()).orElse(item));
+    return this.withNewExternalDocsLike(Optional.ofNullable(this.buildExternalDocs()).orElse(item));
   }
   
   public String getFormat() {
@@ -945,15 +1111,15 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public NotNested<A> editNot() {
-    return withNewNotLike(java.util.Optional.ofNullable(buildNot()).orElse(null));
+    return this.withNewNotLike(Optional.ofNullable(this.buildNot()).orElse(null));
   }
   
   public NotNested<A> editOrNewNot() {
-    return withNewNotLike(java.util.Optional.ofNullable(buildNot()).orElse(new V1JSONSchemaPropsBuilder().build()));
+    return this.withNewNotLike(Optional.ofNullable(this.buildNot()).orElse(new V1JSONSchemaPropsBuilder().build()));
   }
   
   public NotNested<A> editOrNewNotLike(V1JSONSchemaProps item) {
-    return withNewNotLike(java.util.Optional.ofNullable(buildNot()).orElse(item));
+    return this.withNewNotLike(Optional.ofNullable(this.buildNot()).orElse(item));
   }
   
   public Boolean getNullable() {
@@ -970,7 +1136,9 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToOneOf(int index,V1JSONSchemaProps item) {
-    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.oneOf == null) {
+      this.oneOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= oneOf.size()) {
         _visitables.get("oneOf").add(builder);
@@ -979,11 +1147,13 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("oneOf").add(builder);
         oneOf.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToOneOf(int index,V1JSONSchemaProps item) {
-    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    if (this.oneOf == null) {
+      this.oneOf = new ArrayList();
+    }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= oneOf.size()) {
         _visitables.get("oneOf").add(builder);
@@ -992,41 +1162,71 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
         _visitables.get("oneOf").add(builder);
         oneOf.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("oneOf").add(builder);this.oneOf.add(builder);} return (A)this;
+  public A addToOneOf(V1JSONSchemaProps... items) {
+    if (this.oneOf == null) {
+      this.oneOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("oneOf").add(builder);
+        this.oneOf.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToOneOf(Collection<V1JSONSchemaProps> items) {
-    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("oneOf").add(builder);this.oneOf.add(builder);} return (A)this;
+    if (this.oneOf == null) {
+      this.oneOf = new ArrayList();
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("oneOf").add(builder);
+        this.oneOf.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    if (this.oneOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("oneOf").remove(builder); this.oneOf.remove(builder);} return (A)this;
+  public A removeFromOneOf(V1JSONSchemaProps... items) {
+    if (this.oneOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("oneOf").remove(builder);
+        this.oneOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromOneOf(Collection<V1JSONSchemaProps> items) {
-    if (this.oneOf == null) return (A)this;
-    for (V1JSONSchemaProps item : items) {V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("oneOf").remove(builder); this.oneOf.remove(builder);} return (A)this;
+    if (this.oneOf == null) {
+      return (A) this;
+    }
+    for (V1JSONSchemaProps item : items) {
+        V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+        _visitables.get("oneOf").remove(builder);
+        this.oneOf.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
-    if (oneOf == null) return (A) this;
-    final Iterator<V1JSONSchemaPropsBuilder> each = oneOf.iterator();
-    final List visitables = _visitables.get("oneOf");
-    while (each.hasNext()) {
-      V1JSONSchemaPropsBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (oneOf == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1JSONSchemaPropsBuilder> each = oneOf.iterator();
+    List visitables = _visitables.get("oneOf");
+    while (each.hasNext()) {
+        V1JSONSchemaPropsBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1JSONSchemaProps> buildOneOf() {
@@ -1078,7 +1278,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     return (A) this;
   }
   
-  public A withOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... oneOf) {
+  public A withOneOf(V1JSONSchemaProps... oneOf) {
     if (this.oneOf != null) {
         this.oneOf.clear();
         _visitables.remove("oneOf");
@@ -1092,7 +1292,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean hasOneOf() {
-    return this.oneOf != null && !this.oneOf.isEmpty();
+    return this.oneOf != null && !(this.oneOf.isEmpty());
   }
   
   public OneOfNested<A> addNewOneOf() {
@@ -1108,28 +1308,39 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public OneOfNested<A> editOneOf(int index) {
-    if (oneOf.size() <= index) throw new RuntimeException("Can't edit oneOf. Index exceeds size.");
-    return setNewOneOfLike(index, buildOneOf(index));
+    if (index <= oneOf.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "oneOf"));
+    }
+    return this.setNewOneOfLike(index, this.buildOneOf(index));
   }
   
   public OneOfNested<A> editFirstOneOf() {
-    if (oneOf.size() == 0) throw new RuntimeException("Can't edit first oneOf. The list is empty.");
-    return setNewOneOfLike(0, buildOneOf(0));
+    if (oneOf.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "oneOf"));
+    }
+    return this.setNewOneOfLike(0, this.buildOneOf(0));
   }
   
   public OneOfNested<A> editLastOneOf() {
     int index = oneOf.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last oneOf. The list is empty.");
-    return setNewOneOfLike(index, buildOneOf(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "oneOf"));
+    }
+    return this.setNewOneOfLike(index, this.buildOneOf(index));
   }
   
   public OneOfNested<A> editMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<oneOf.size();i++) { 
-    if (predicate.test(oneOf.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching oneOf. No match found.");
-    return setNewOneOfLike(index, buildOneOf(index));
+    for (int i = 0;i < oneOf.size();i++) {
+      if (predicate.test(oneOf.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "oneOf"));
+    }
+    return this.setNewOneOfLike(index, this.buildOneOf(index));
   }
   
   public String getPattern() {
@@ -1146,23 +1357,47 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToPatternProperties(String key,V1JSONSchemaProps value) {
-    if(this.patternProperties == null && key != null && value != null) { this.patternProperties = new LinkedHashMap(); }
-    if(key != null && value != null) {this.patternProperties.put(key, value);} return (A)this;
+    if (this.patternProperties == null && key != null && value != null) {
+      this.patternProperties = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.patternProperties.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToPatternProperties(Map<String,V1JSONSchemaProps> map) {
-    if(this.patternProperties == null && map != null) { this.patternProperties = new LinkedHashMap(); }
-    if(map != null) { this.patternProperties.putAll(map);} return (A)this;
+    if (this.patternProperties == null && map != null) {
+      this.patternProperties = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.patternProperties.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromPatternProperties(String key) {
-    if(this.patternProperties == null) { return (A) this; }
-    if(key != null && this.patternProperties != null) {this.patternProperties.remove(key);} return (A)this;
+    if (this.patternProperties == null) {
+      return (A) this;
+    }
+    if (key != null && this.patternProperties != null) {
+      this.patternProperties.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromPatternProperties(Map<String,V1JSONSchemaProps> map) {
-    if(this.patternProperties == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.patternProperties != null){this.patternProperties.remove(key);}}} return (A)this;
+    if (this.patternProperties == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.patternProperties != null) {
+          this.patternProperties.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,V1JSONSchemaProps> getPatternProperties() {
@@ -1183,23 +1418,47 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToProperties(String key,V1JSONSchemaProps value) {
-    if(this.properties == null && key != null && value != null) { this.properties = new LinkedHashMap(); }
-    if(key != null && value != null) {this.properties.put(key, value);} return (A)this;
+    if (this.properties == null && key != null && value != null) {
+      this.properties = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.properties.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToProperties(Map<String,V1JSONSchemaProps> map) {
-    if(this.properties == null && map != null) { this.properties = new LinkedHashMap(); }
-    if(map != null) { this.properties.putAll(map);} return (A)this;
+    if (this.properties == null && map != null) {
+      this.properties = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.properties.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromProperties(String key) {
-    if(this.properties == null) { return (A) this; }
-    if(key != null && this.properties != null) {this.properties.remove(key);} return (A)this;
+    if (this.properties == null) {
+      return (A) this;
+    }
+    if (key != null && this.properties != null) {
+      this.properties.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromProperties(Map<String,V1JSONSchemaProps> map) {
-    if(this.properties == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.properties != null){this.properties.remove(key);}}} return (A)this;
+    if (this.properties == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.properties != null) {
+          this.properties.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,V1JSONSchemaProps> getProperties() {
@@ -1220,34 +1479,59 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public A addToRequired(int index,String item) {
-    if (this.required == null) {this.required = new ArrayList<String>();}
+    if (this.required == null) {
+      this.required = new ArrayList();
+    }
     this.required.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRequired(int index,String item) {
-    if (this.required == null) {this.required = new ArrayList<String>();}
-    this.required.set(index, item); return (A)this;
+    if (this.required == null) {
+      this.required = new ArrayList();
+    }
+    this.required.set(index, item);
+    return (A) this;
   }
   
-  public A addToRequired(java.lang.String... items) {
-    if (this.required == null) {this.required = new ArrayList<String>();}
-    for (String item : items) {this.required.add(item);} return (A)this;
+  public A addToRequired(String... items) {
+    if (this.required == null) {
+      this.required = new ArrayList();
+    }
+    for (String item : items) {
+      this.required.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToRequired(Collection<String> items) {
-    if (this.required == null) {this.required = new ArrayList<String>();}
-    for (String item : items) {this.required.add(item);} return (A)this;
+    if (this.required == null) {
+      this.required = new ArrayList();
+    }
+    for (String item : items) {
+      this.required.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromRequired(java.lang.String... items) {
-    if (this.required == null) return (A)this;
-    for (String item : items) { this.required.remove(item);} return (A)this;
+  public A removeFromRequired(String... items) {
+    if (this.required == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.required.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRequired(Collection<String> items) {
-    if (this.required == null) return (A)this;
-    for (String item : items) { this.required.remove(item);} return (A)this;
+    if (this.required == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.required.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getRequired() {
@@ -1296,7 +1580,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     return (A) this;
   }
   
-  public A withRequired(java.lang.String... required) {
+  public A withRequired(String... required) {
     if (this.required != null) {
         this.required.clear();
         _visitables.remove("required");
@@ -1310,7 +1594,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean hasRequired() {
-    return this.required != null && !this.required.isEmpty();
+    return this.required != null && !(this.required.isEmpty());
   }
   
   public String getTitle() {
@@ -1353,94 +1637,321 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1JSONSchemaPropsFluent that = (V1JSONSchemaPropsFluent) o;
-    if (!java.util.Objects.equals($ref, that.$ref)) return false;
-    if (!java.util.Objects.equals($schema, that.$schema)) return false;
-    if (!java.util.Objects.equals(additionalItems, that.additionalItems)) return false;
-    if (!java.util.Objects.equals(additionalProperties, that.additionalProperties)) return false;
-    if (!java.util.Objects.equals(allOf, that.allOf)) return false;
-    if (!java.util.Objects.equals(anyOf, that.anyOf)) return false;
-    if (!java.util.Objects.equals(_default, that._default)) return false;
-    if (!java.util.Objects.equals(definitions, that.definitions)) return false;
-    if (!java.util.Objects.equals(dependencies, that.dependencies)) return false;
-    if (!java.util.Objects.equals(description, that.description)) return false;
-    if (!java.util.Objects.equals(_enum, that._enum)) return false;
-    if (!java.util.Objects.equals(example, that.example)) return false;
-    if (!java.util.Objects.equals(exclusiveMaximum, that.exclusiveMaximum)) return false;
-    if (!java.util.Objects.equals(exclusiveMinimum, that.exclusiveMinimum)) return false;
-    if (!java.util.Objects.equals(externalDocs, that.externalDocs)) return false;
-    if (!java.util.Objects.equals(format, that.format)) return false;
-    if (!java.util.Objects.equals(id, that.id)) return false;
-    if (!java.util.Objects.equals(items, that.items)) return false;
-    if (!java.util.Objects.equals(maxItems, that.maxItems)) return false;
-    if (!java.util.Objects.equals(maxLength, that.maxLength)) return false;
-    if (!java.util.Objects.equals(maxProperties, that.maxProperties)) return false;
-    if (!java.util.Objects.equals(maximum, that.maximum)) return false;
-    if (!java.util.Objects.equals(minItems, that.minItems)) return false;
-    if (!java.util.Objects.equals(minLength, that.minLength)) return false;
-    if (!java.util.Objects.equals(minProperties, that.minProperties)) return false;
-    if (!java.util.Objects.equals(minimum, that.minimum)) return false;
-    if (!java.util.Objects.equals(multipleOf, that.multipleOf)) return false;
-    if (!java.util.Objects.equals(not, that.not)) return false;
-    if (!java.util.Objects.equals(nullable, that.nullable)) return false;
-    if (!java.util.Objects.equals(oneOf, that.oneOf)) return false;
-    if (!java.util.Objects.equals(pattern, that.pattern)) return false;
-    if (!java.util.Objects.equals(patternProperties, that.patternProperties)) return false;
-    if (!java.util.Objects.equals(properties, that.properties)) return false;
-    if (!java.util.Objects.equals(required, that.required)) return false;
-    if (!java.util.Objects.equals(title, that.title)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
-    if (!java.util.Objects.equals(uniqueItems, that.uniqueItems)) return false;
+    if (!(Objects.equals($ref, that.$ref))) {
+      return false;
+    }
+    if (!(Objects.equals($schema, that.$schema))) {
+      return false;
+    }
+    if (!(Objects.equals(additionalItems, that.additionalItems))) {
+      return false;
+    }
+    if (!(Objects.equals(additionalProperties, that.additionalProperties))) {
+      return false;
+    }
+    if (!(Objects.equals(allOf, that.allOf))) {
+      return false;
+    }
+    if (!(Objects.equals(anyOf, that.anyOf))) {
+      return false;
+    }
+    if (!(Objects.equals(_default, that._default))) {
+      return false;
+    }
+    if (!(Objects.equals(definitions, that.definitions))) {
+      return false;
+    }
+    if (!(Objects.equals(dependencies, that.dependencies))) {
+      return false;
+    }
+    if (!(Objects.equals(description, that.description))) {
+      return false;
+    }
+    if (!(Objects.equals(_enum, that._enum))) {
+      return false;
+    }
+    if (!(Objects.equals(example, that.example))) {
+      return false;
+    }
+    if (!(Objects.equals(exclusiveMaximum, that.exclusiveMaximum))) {
+      return false;
+    }
+    if (!(Objects.equals(exclusiveMinimum, that.exclusiveMinimum))) {
+      return false;
+    }
+    if (!(Objects.equals(externalDocs, that.externalDocs))) {
+      return false;
+    }
+    if (!(Objects.equals(format, that.format))) {
+      return false;
+    }
+    if (!(Objects.equals(id, that.id))) {
+      return false;
+    }
+    if (!(Objects.equals(items, that.items))) {
+      return false;
+    }
+    if (!(Objects.equals(maxItems, that.maxItems))) {
+      return false;
+    }
+    if (!(Objects.equals(maxLength, that.maxLength))) {
+      return false;
+    }
+    if (!(Objects.equals(maxProperties, that.maxProperties))) {
+      return false;
+    }
+    if (!(Objects.equals(maximum, that.maximum))) {
+      return false;
+    }
+    if (!(Objects.equals(minItems, that.minItems))) {
+      return false;
+    }
+    if (!(Objects.equals(minLength, that.minLength))) {
+      return false;
+    }
+    if (!(Objects.equals(minProperties, that.minProperties))) {
+      return false;
+    }
+    if (!(Objects.equals(minimum, that.minimum))) {
+      return false;
+    }
+    if (!(Objects.equals(multipleOf, that.multipleOf))) {
+      return false;
+    }
+    if (!(Objects.equals(not, that.not))) {
+      return false;
+    }
+    if (!(Objects.equals(nullable, that.nullable))) {
+      return false;
+    }
+    if (!(Objects.equals(oneOf, that.oneOf))) {
+      return false;
+    }
+    if (!(Objects.equals(pattern, that.pattern))) {
+      return false;
+    }
+    if (!(Objects.equals(patternProperties, that.patternProperties))) {
+      return false;
+    }
+    if (!(Objects.equals(properties, that.properties))) {
+      return false;
+    }
+    if (!(Objects.equals(required, that.required))) {
+      return false;
+    }
+    if (!(Objects.equals(title, that.title))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
+    if (!(Objects.equals(uniqueItems, that.uniqueItems))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash($ref,  $schema,  additionalItems,  additionalProperties,  allOf,  anyOf,  _default,  definitions,  dependencies,  description,  _enum,  example,  exclusiveMaximum,  exclusiveMinimum,  externalDocs,  format,  id,  items,  maxItems,  maxLength,  maxProperties,  maximum,  minItems,  minLength,  minProperties,  minimum,  multipleOf,  not,  nullable,  oneOf,  pattern,  patternProperties,  properties,  required,  title,  type,  uniqueItems,  super.hashCode());
+    return Objects.hash($ref, $schema, additionalItems, additionalProperties, allOf, anyOf, _default, definitions, dependencies, description, _enum, example, exclusiveMaximum, exclusiveMinimum, externalDocs, format, id, items, maxItems, maxLength, maxProperties, maximum, minItems, minLength, minProperties, minimum, multipleOf, not, nullable, oneOf, pattern, patternProperties, properties, required, title, type, uniqueItems);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if ($ref != null) { sb.append("$ref:"); sb.append($ref + ","); }
-    if ($schema != null) { sb.append("$schema:"); sb.append($schema + ","); }
-    if (additionalItems != null) { sb.append("additionalItems:"); sb.append(additionalItems + ","); }
-    if (additionalProperties != null) { sb.append("additionalProperties:"); sb.append(additionalProperties + ","); }
-    if (allOf != null && !allOf.isEmpty()) { sb.append("allOf:"); sb.append(allOf + ","); }
-    if (anyOf != null && !anyOf.isEmpty()) { sb.append("anyOf:"); sb.append(anyOf + ","); }
-    if (_default != null) { sb.append("_default:"); sb.append(_default + ","); }
-    if (definitions != null && !definitions.isEmpty()) { sb.append("definitions:"); sb.append(definitions + ","); }
-    if (dependencies != null && !dependencies.isEmpty()) { sb.append("dependencies:"); sb.append(dependencies + ","); }
-    if (description != null) { sb.append("description:"); sb.append(description + ","); }
-    if (_enum != null && !_enum.isEmpty()) { sb.append("_enum:"); sb.append(_enum + ","); }
-    if (example != null) { sb.append("example:"); sb.append(example + ","); }
-    if (exclusiveMaximum != null) { sb.append("exclusiveMaximum:"); sb.append(exclusiveMaximum + ","); }
-    if (exclusiveMinimum != null) { sb.append("exclusiveMinimum:"); sb.append(exclusiveMinimum + ","); }
-    if (externalDocs != null) { sb.append("externalDocs:"); sb.append(externalDocs + ","); }
-    if (format != null) { sb.append("format:"); sb.append(format + ","); }
-    if (id != null) { sb.append("id:"); sb.append(id + ","); }
-    if (items != null) { sb.append("items:"); sb.append(items + ","); }
-    if (maxItems != null) { sb.append("maxItems:"); sb.append(maxItems + ","); }
-    if (maxLength != null) { sb.append("maxLength:"); sb.append(maxLength + ","); }
-    if (maxProperties != null) { sb.append("maxProperties:"); sb.append(maxProperties + ","); }
-    if (maximum != null) { sb.append("maximum:"); sb.append(maximum + ","); }
-    if (minItems != null) { sb.append("minItems:"); sb.append(minItems + ","); }
-    if (minLength != null) { sb.append("minLength:"); sb.append(minLength + ","); }
-    if (minProperties != null) { sb.append("minProperties:"); sb.append(minProperties + ","); }
-    if (minimum != null) { sb.append("minimum:"); sb.append(minimum + ","); }
-    if (multipleOf != null) { sb.append("multipleOf:"); sb.append(multipleOf + ","); }
-    if (not != null) { sb.append("not:"); sb.append(not + ","); }
-    if (nullable != null) { sb.append("nullable:"); sb.append(nullable + ","); }
-    if (oneOf != null && !oneOf.isEmpty()) { sb.append("oneOf:"); sb.append(oneOf + ","); }
-    if (pattern != null) { sb.append("pattern:"); sb.append(pattern + ","); }
-    if (patternProperties != null && !patternProperties.isEmpty()) { sb.append("patternProperties:"); sb.append(patternProperties + ","); }
-    if (properties != null && !properties.isEmpty()) { sb.append("properties:"); sb.append(properties + ","); }
-    if (required != null && !required.isEmpty()) { sb.append("required:"); sb.append(required + ","); }
-    if (title != null) { sb.append("title:"); sb.append(title + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type + ","); }
-    if (uniqueItems != null) { sb.append("uniqueItems:"); sb.append(uniqueItems); }
+    if (!($ref == null)) {
+        sb.append("$ref:");
+        sb.append($ref);
+        sb.append(",");
+    }
+    if (!($schema == null)) {
+        sb.append("$schema:");
+        sb.append($schema);
+        sb.append(",");
+    }
+    if (!(additionalItems == null)) {
+        sb.append("additionalItems:");
+        sb.append(additionalItems);
+        sb.append(",");
+    }
+    if (!(additionalProperties == null)) {
+        sb.append("additionalProperties:");
+        sb.append(additionalProperties);
+        sb.append(",");
+    }
+    if (!(allOf == null) && !(allOf.isEmpty())) {
+        sb.append("allOf:");
+        sb.append(allOf);
+        sb.append(",");
+    }
+    if (!(anyOf == null) && !(anyOf.isEmpty())) {
+        sb.append("anyOf:");
+        sb.append(anyOf);
+        sb.append(",");
+    }
+    if (!(_default == null)) {
+        sb.append("_default:");
+        sb.append(_default);
+        sb.append(",");
+    }
+    if (!(definitions == null) && !(definitions.isEmpty())) {
+        sb.append("definitions:");
+        sb.append(definitions);
+        sb.append(",");
+    }
+    if (!(dependencies == null) && !(dependencies.isEmpty())) {
+        sb.append("dependencies:");
+        sb.append(dependencies);
+        sb.append(",");
+    }
+    if (!(description == null)) {
+        sb.append("description:");
+        sb.append(description);
+        sb.append(",");
+    }
+    if (!(_enum == null) && !(_enum.isEmpty())) {
+        sb.append("_enum:");
+        sb.append(_enum);
+        sb.append(",");
+    }
+    if (!(example == null)) {
+        sb.append("example:");
+        sb.append(example);
+        sb.append(",");
+    }
+    if (!(exclusiveMaximum == null)) {
+        sb.append("exclusiveMaximum:");
+        sb.append(exclusiveMaximum);
+        sb.append(",");
+    }
+    if (!(exclusiveMinimum == null)) {
+        sb.append("exclusiveMinimum:");
+        sb.append(exclusiveMinimum);
+        sb.append(",");
+    }
+    if (!(externalDocs == null)) {
+        sb.append("externalDocs:");
+        sb.append(externalDocs);
+        sb.append(",");
+    }
+    if (!(format == null)) {
+        sb.append("format:");
+        sb.append(format);
+        sb.append(",");
+    }
+    if (!(id == null)) {
+        sb.append("id:");
+        sb.append(id);
+        sb.append(",");
+    }
+    if (!(items == null)) {
+        sb.append("items:");
+        sb.append(items);
+        sb.append(",");
+    }
+    if (!(maxItems == null)) {
+        sb.append("maxItems:");
+        sb.append(maxItems);
+        sb.append(",");
+    }
+    if (!(maxLength == null)) {
+        sb.append("maxLength:");
+        sb.append(maxLength);
+        sb.append(",");
+    }
+    if (!(maxProperties == null)) {
+        sb.append("maxProperties:");
+        sb.append(maxProperties);
+        sb.append(",");
+    }
+    if (!(maximum == null)) {
+        sb.append("maximum:");
+        sb.append(maximum);
+        sb.append(",");
+    }
+    if (!(minItems == null)) {
+        sb.append("minItems:");
+        sb.append(minItems);
+        sb.append(",");
+    }
+    if (!(minLength == null)) {
+        sb.append("minLength:");
+        sb.append(minLength);
+        sb.append(",");
+    }
+    if (!(minProperties == null)) {
+        sb.append("minProperties:");
+        sb.append(minProperties);
+        sb.append(",");
+    }
+    if (!(minimum == null)) {
+        sb.append("minimum:");
+        sb.append(minimum);
+        sb.append(",");
+    }
+    if (!(multipleOf == null)) {
+        sb.append("multipleOf:");
+        sb.append(multipleOf);
+        sb.append(",");
+    }
+    if (!(not == null)) {
+        sb.append("not:");
+        sb.append(not);
+        sb.append(",");
+    }
+    if (!(nullable == null)) {
+        sb.append("nullable:");
+        sb.append(nullable);
+        sb.append(",");
+    }
+    if (!(oneOf == null) && !(oneOf.isEmpty())) {
+        sb.append("oneOf:");
+        sb.append(oneOf);
+        sb.append(",");
+    }
+    if (!(pattern == null)) {
+        sb.append("pattern:");
+        sb.append(pattern);
+        sb.append(",");
+    }
+    if (!(patternProperties == null) && !(patternProperties.isEmpty())) {
+        sb.append("patternProperties:");
+        sb.append(patternProperties);
+        sb.append(",");
+    }
+    if (!(properties == null) && !(properties.isEmpty())) {
+        sb.append("properties:");
+        sb.append(properties);
+        sb.append(",");
+    }
+    if (!(required == null) && !(required.isEmpty())) {
+        sb.append("required:");
+        sb.append(required);
+        sb.append(",");
+    }
+    if (!(title == null)) {
+        sb.append("title:");
+        sb.append(title);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+        sb.append(",");
+    }
+    if (!(uniqueItems == null)) {
+        sb.append("uniqueItems:");
+        sb.append(uniqueItems);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -1469,7 +1980,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1JSONSchemaPropsFluent.this.setToAllOf(index,builder.build());
+      return (N) V1JSONSchemaPropsFluent.this.setToAllOf(index, builder.build());
     }
     
     public N endAllOf() {
@@ -1487,7 +1998,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1JSONSchemaPropsFluent.this.setToAnyOf(index,builder.build());
+      return (N) V1JSONSchemaPropsFluent.this.setToAnyOf(index, builder.build());
     }
     
     public N endAnyOf() {
@@ -1537,7 +2048,7 @@ public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1JSONSchemaPropsFluent.this.setToOneOf(index,builder.build());
+      return (N) V1JSONSchemaPropsFluent.this.setToOneOf(index, builder.build());
     }
     
     public N endOneOf() {

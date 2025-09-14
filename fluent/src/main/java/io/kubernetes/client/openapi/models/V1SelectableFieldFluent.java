@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SelectableFieldFluent<A extends V1SelectableFieldFluent<A>> extends BaseFluent<A>{
+public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.models.V1SelectableFieldFluent<A>> extends BaseFluent<A>{
   public V1SelectableFieldFluent() {
   }
   
@@ -19,10 +21,10 @@ public class V1SelectableFieldFluent<A extends V1SelectableFieldFluent<A>> exten
   private String jsonPath;
   
   protected void copyInstance(V1SelectableField instance) {
-    instance = (instance != null ? instance : new V1SelectableField());
+    instance = instance != null ? instance : new V1SelectableField();
     if (instance != null) {
-          this.withJsonPath(instance.getJsonPath());
-        }
+      this.withJsonPath(instance.getJsonPath());
+    }
   }
   
   public String getJsonPath() {
@@ -39,22 +41,33 @@ public class V1SelectableFieldFluent<A extends V1SelectableFieldFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SelectableFieldFluent that = (V1SelectableFieldFluent) o;
-    if (!java.util.Objects.equals(jsonPath, that.jsonPath)) return false;
+    if (!(Objects.equals(jsonPath, that.jsonPath))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(jsonPath,  super.hashCode());
+    return Objects.hash(jsonPath);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (jsonPath != null) { sb.append("jsonPath:"); sb.append(jsonPath); }
+    if (!(jsonPath == null)) {
+        sb.append("jsonPath:");
+        sb.append(jsonPath);
+    }
     sb.append("}");
     return sb.toString();
   }

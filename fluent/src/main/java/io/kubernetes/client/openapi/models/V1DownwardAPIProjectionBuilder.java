@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1DownwardAPIProjectionBuilder extends V1DownwardAPIProjectionFluent<V1DownwardAPIProjectionBuilder> implements VisitableBuilder<V1DownwardAPIProjection,V1DownwardAPIProjectionBuilder>{
   public V1DownwardAPIProjectionBuilder() {
     this(new V1DownwardAPIProjection());

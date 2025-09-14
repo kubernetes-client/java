@@ -1,15 +1,18 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.lang.Integer;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -17,7 +20,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends BaseFluent<A>{
+public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.models.V1FlowSchemaSpecFluent<A>> extends BaseFluent<A>{
   public V1FlowSchemaSpecFluent() {
   }
   
@@ -30,13 +33,13 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
   private ArrayList<V1PolicyRulesWithSubjectsBuilder> rules;
   
   protected void copyInstance(V1FlowSchemaSpec instance) {
-    instance = (instance != null ? instance : new V1FlowSchemaSpec());
+    instance = instance != null ? instance : new V1FlowSchemaSpec();
     if (instance != null) {
-          this.withDistinguisherMethod(instance.getDistinguisherMethod());
-          this.withMatchingPrecedence(instance.getMatchingPrecedence());
-          this.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
-          this.withRules(instance.getRules());
-        }
+        this.withDistinguisherMethod(instance.getDistinguisherMethod());
+        this.withMatchingPrecedence(instance.getMatchingPrecedence());
+        this.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
+        this.withRules(instance.getRules());
+    }
   }
   
   public V1FlowDistinguisherMethod buildDistinguisherMethod() {
@@ -68,15 +71,15 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
   }
   
   public DistinguisherMethodNested<A> editDistinguisherMethod() {
-    return withNewDistinguisherMethodLike(java.util.Optional.ofNullable(buildDistinguisherMethod()).orElse(null));
+    return this.withNewDistinguisherMethodLike(Optional.ofNullable(this.buildDistinguisherMethod()).orElse(null));
   }
   
   public DistinguisherMethodNested<A> editOrNewDistinguisherMethod() {
-    return withNewDistinguisherMethodLike(java.util.Optional.ofNullable(buildDistinguisherMethod()).orElse(new V1FlowDistinguisherMethodBuilder().build()));
+    return this.withNewDistinguisherMethodLike(Optional.ofNullable(this.buildDistinguisherMethod()).orElse(new V1FlowDistinguisherMethodBuilder().build()));
   }
   
   public DistinguisherMethodNested<A> editOrNewDistinguisherMethodLike(V1FlowDistinguisherMethod item) {
-    return withNewDistinguisherMethodLike(java.util.Optional.ofNullable(buildDistinguisherMethod()).orElse(item));
+    return this.withNewDistinguisherMethodLike(Optional.ofNullable(this.buildDistinguisherMethod()).orElse(item));
   }
   
   public Integer getMatchingPrecedence() {
@@ -121,19 +124,21 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
   }
   
   public PriorityLevelConfigurationNested<A> editPriorityLevelConfiguration() {
-    return withNewPriorityLevelConfigurationLike(java.util.Optional.ofNullable(buildPriorityLevelConfiguration()).orElse(null));
+    return this.withNewPriorityLevelConfigurationLike(Optional.ofNullable(this.buildPriorityLevelConfiguration()).orElse(null));
   }
   
   public PriorityLevelConfigurationNested<A> editOrNewPriorityLevelConfiguration() {
-    return withNewPriorityLevelConfigurationLike(java.util.Optional.ofNullable(buildPriorityLevelConfiguration()).orElse(new V1PriorityLevelConfigurationReferenceBuilder().build()));
+    return this.withNewPriorityLevelConfigurationLike(Optional.ofNullable(this.buildPriorityLevelConfiguration()).orElse(new V1PriorityLevelConfigurationReferenceBuilder().build()));
   }
   
   public PriorityLevelConfigurationNested<A> editOrNewPriorityLevelConfigurationLike(V1PriorityLevelConfigurationReference item) {
-    return withNewPriorityLevelConfigurationLike(java.util.Optional.ofNullable(buildPriorityLevelConfiguration()).orElse(item));
+    return this.withNewPriorityLevelConfigurationLike(Optional.ofNullable(this.buildPriorityLevelConfiguration()).orElse(item));
   }
   
   public A addToRules(int index,V1PolicyRulesWithSubjects item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRulesWithSubjectsBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -142,11 +147,13 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
         _visitables.get("rules").add(builder);
         rules.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRules(int index,V1PolicyRulesWithSubjects item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRulesWithSubjectsBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -155,41 +162,71 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
         _visitables.get("rules").add(builder);
         rules.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRules(io.kubernetes.client.openapi.models.V1PolicyRulesWithSubjects... items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRulesWithSubjectsBuilder>();}
-    for (V1PolicyRulesWithSubjects item : items) {V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+  public A addToRules(V1PolicyRulesWithSubjects... items) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1PolicyRulesWithSubjects item : items) {
+        V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRules(Collection<V1PolicyRulesWithSubjects> items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRulesWithSubjectsBuilder>();}
-    for (V1PolicyRulesWithSubjects item : items) {V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1PolicyRulesWithSubjects item : items) {
+        V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRules(io.kubernetes.client.openapi.models.V1PolicyRulesWithSubjects... items) {
-    if (this.rules == null) return (A)this;
-    for (V1PolicyRulesWithSubjects item : items) {V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+  public A removeFromRules(V1PolicyRulesWithSubjects... items) {
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRulesWithSubjects item : items) {
+        V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRules(Collection<V1PolicyRulesWithSubjects> items) {
-    if (this.rules == null) return (A)this;
-    for (V1PolicyRulesWithSubjects item : items) {V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRulesWithSubjects item : items) {
+        V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRules(Predicate<V1PolicyRulesWithSubjectsBuilder> predicate) {
-    if (rules == null) return (A) this;
-    final Iterator<V1PolicyRulesWithSubjectsBuilder> each = rules.iterator();
-    final List visitables = _visitables.get("rules");
-    while (each.hasNext()) {
-      V1PolicyRulesWithSubjectsBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (rules == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PolicyRulesWithSubjectsBuilder> each = rules.iterator();
+    List visitables = _visitables.get("rules");
+    while (each.hasNext()) {
+        V1PolicyRulesWithSubjectsBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PolicyRulesWithSubjects> buildRules() {
@@ -241,7 +278,7 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
     return (A) this;
   }
   
-  public A withRules(io.kubernetes.client.openapi.models.V1PolicyRulesWithSubjects... rules) {
+  public A withRules(V1PolicyRulesWithSubjects... rules) {
     if (this.rules != null) {
         this.rules.clear();
         _visitables.remove("rules");
@@ -255,7 +292,7 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
   }
   
   public boolean hasRules() {
-    return this.rules != null && !this.rules.isEmpty();
+    return this.rules != null && !(this.rules.isEmpty());
   }
   
   public RulesNested<A> addNewRule() {
@@ -271,53 +308,93 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
   }
   
   public RulesNested<A> editRule(int index) {
-    if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index <= rules.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
-    return setNewRuleLike(0, buildRule(0));
+    if (rules.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(0, this.buildRule(0));
   }
   
   public RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editMatchingRule(Predicate<V1PolicyRulesWithSubjectsBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<rules.size();i++) { 
-    if (predicate.test(rules.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching rules. No match found.");
-    return setNewRuleLike(index, buildRule(index));
+    for (int i = 0;i < rules.size();i++) {
+      if (predicate.test(rules.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1FlowSchemaSpecFluent that = (V1FlowSchemaSpecFluent) o;
-    if (!java.util.Objects.equals(distinguisherMethod, that.distinguisherMethod)) return false;
-    if (!java.util.Objects.equals(matchingPrecedence, that.matchingPrecedence)) return false;
-    if (!java.util.Objects.equals(priorityLevelConfiguration, that.priorityLevelConfiguration)) return false;
-    if (!java.util.Objects.equals(rules, that.rules)) return false;
+    if (!(Objects.equals(distinguisherMethod, that.distinguisherMethod))) {
+      return false;
+    }
+    if (!(Objects.equals(matchingPrecedence, that.matchingPrecedence))) {
+      return false;
+    }
+    if (!(Objects.equals(priorityLevelConfiguration, that.priorityLevelConfiguration))) {
+      return false;
+    }
+    if (!(Objects.equals(rules, that.rules))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(distinguisherMethod,  matchingPrecedence,  priorityLevelConfiguration,  rules,  super.hashCode());
+    return Objects.hash(distinguisherMethod, matchingPrecedence, priorityLevelConfiguration, rules);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (distinguisherMethod != null) { sb.append("distinguisherMethod:"); sb.append(distinguisherMethod + ","); }
-    if (matchingPrecedence != null) { sb.append("matchingPrecedence:"); sb.append(matchingPrecedence + ","); }
-    if (priorityLevelConfiguration != null) { sb.append("priorityLevelConfiguration:"); sb.append(priorityLevelConfiguration + ","); }
-    if (rules != null && !rules.isEmpty()) { sb.append("rules:"); sb.append(rules); }
+    if (!(distinguisherMethod == null)) {
+        sb.append("distinguisherMethod:");
+        sb.append(distinguisherMethod);
+        sb.append(",");
+    }
+    if (!(matchingPrecedence == null)) {
+        sb.append("matchingPrecedence:");
+        sb.append(matchingPrecedence);
+        sb.append(",");
+    }
+    if (!(priorityLevelConfiguration == null)) {
+        sb.append("priorityLevelConfiguration:");
+        sb.append(priorityLevelConfiguration);
+        sb.append(",");
+    }
+    if (!(rules == null) && !(rules.isEmpty())) {
+        sb.append("rules:");
+        sb.append(rules);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -362,7 +439,7 @@ public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends
     int index;
     
     public N and() {
-      return (N) V1FlowSchemaSpecFluent.this.setToRules(index,builder.build());
+      return (N) V1FlowSchemaSpecFluent.this.setToRules(index, builder.build());
     }
     
     public N endRule() {

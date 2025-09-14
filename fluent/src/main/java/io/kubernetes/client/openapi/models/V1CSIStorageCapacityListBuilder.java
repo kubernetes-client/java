@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CSIStorageCapacityListBuilder extends V1CSIStorageCapacityListFluent<V1CSIStorageCapacityListBuilder> implements VisitableBuilder<V1CSIStorageCapacityList,V1CSIStorageCapacityListBuilder>{
   public V1CSIStorageCapacityListBuilder() {
     this(new V1CSIStorageCapacityList());

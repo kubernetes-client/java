@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluent<V1ScopeSelectorBuilder> implements VisitableBuilder<V1ScopeSelector,V1ScopeSelectorBuilder>{
   public V1ScopeSelectorBuilder() {
     this(new V1ScopeSelector());

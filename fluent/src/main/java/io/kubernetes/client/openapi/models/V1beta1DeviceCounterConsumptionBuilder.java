@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1DeviceCounterConsumptionBuilder extends V1beta1DeviceCounterConsumptionFluent<V1beta1DeviceCounterConsumptionBuilder> implements VisitableBuilder<V1beta1DeviceCounterConsumption,V1beta1DeviceCounterConsumptionBuilder>{
   public V1beta1DeviceCounterConsumptionBuilder() {
     this(new V1beta1DeviceCounterConsumption());

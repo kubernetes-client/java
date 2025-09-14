@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>> extends BaseFluent<A>{
+public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.models.FlowcontrolV1SubjectFluent<A>> extends BaseFluent<A>{
   public FlowcontrolV1SubjectFluent() {
   }
   
@@ -23,13 +26,13 @@ public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>>
   private V1UserSubjectBuilder user;
   
   protected void copyInstance(FlowcontrolV1Subject instance) {
-    instance = (instance != null ? instance : new FlowcontrolV1Subject());
+    instance = instance != null ? instance : new FlowcontrolV1Subject();
     if (instance != null) {
-          this.withGroup(instance.getGroup());
-          this.withKind(instance.getKind());
-          this.withServiceAccount(instance.getServiceAccount());
-          this.withUser(instance.getUser());
-        }
+        this.withGroup(instance.getGroup());
+        this.withKind(instance.getKind());
+        this.withServiceAccount(instance.getServiceAccount());
+        this.withUser(instance.getUser());
+    }
   }
   
   public V1GroupSubject buildGroup() {
@@ -61,15 +64,15 @@ public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>>
   }
   
   public GroupNested<A> editGroup() {
-    return withNewGroupLike(java.util.Optional.ofNullable(buildGroup()).orElse(null));
+    return this.withNewGroupLike(Optional.ofNullable(this.buildGroup()).orElse(null));
   }
   
   public GroupNested<A> editOrNewGroup() {
-    return withNewGroupLike(java.util.Optional.ofNullable(buildGroup()).orElse(new V1GroupSubjectBuilder().build()));
+    return this.withNewGroupLike(Optional.ofNullable(this.buildGroup()).orElse(new V1GroupSubjectBuilder().build()));
   }
   
   public GroupNested<A> editOrNewGroupLike(V1GroupSubject item) {
-    return withNewGroupLike(java.util.Optional.ofNullable(buildGroup()).orElse(item));
+    return this.withNewGroupLike(Optional.ofNullable(this.buildGroup()).orElse(item));
   }
   
   public String getKind() {
@@ -114,15 +117,15 @@ public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>>
   }
   
   public ServiceAccountNested<A> editServiceAccount() {
-    return withNewServiceAccountLike(java.util.Optional.ofNullable(buildServiceAccount()).orElse(null));
+    return this.withNewServiceAccountLike(Optional.ofNullable(this.buildServiceAccount()).orElse(null));
   }
   
   public ServiceAccountNested<A> editOrNewServiceAccount() {
-    return withNewServiceAccountLike(java.util.Optional.ofNullable(buildServiceAccount()).orElse(new V1ServiceAccountSubjectBuilder().build()));
+    return this.withNewServiceAccountLike(Optional.ofNullable(this.buildServiceAccount()).orElse(new V1ServiceAccountSubjectBuilder().build()));
   }
   
   public ServiceAccountNested<A> editOrNewServiceAccountLike(V1ServiceAccountSubject item) {
-    return withNewServiceAccountLike(java.util.Optional.ofNullable(buildServiceAccount()).orElse(item));
+    return this.withNewServiceAccountLike(Optional.ofNullable(this.buildServiceAccount()).orElse(item));
   }
   
   public V1UserSubject buildUser() {
@@ -154,40 +157,69 @@ public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>>
   }
   
   public UserNested<A> editUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(null));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(null));
   }
   
   public UserNested<A> editOrNewUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(new V1UserSubjectBuilder().build()));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(new V1UserSubjectBuilder().build()));
   }
   
   public UserNested<A> editOrNewUserLike(V1UserSubject item) {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(item));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     FlowcontrolV1SubjectFluent that = (FlowcontrolV1SubjectFluent) o;
-    if (!java.util.Objects.equals(group, that.group)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(serviceAccount, that.serviceAccount)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
+    if (!(Objects.equals(group, that.group))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(serviceAccount, that.serviceAccount))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(group,  kind,  serviceAccount,  user,  super.hashCode());
+    return Objects.hash(group, kind, serviceAccount, user);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (group != null) { sb.append("group:"); sb.append(group + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (serviceAccount != null) { sb.append("serviceAccount:"); sb.append(serviceAccount + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user); }
+    if (!(group == null)) {
+        sb.append("group:");
+        sb.append(group);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(serviceAccount == null)) {
+        sb.append("serviceAccount:");
+        sb.append(serviceAccount);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+    }
     sb.append("}");
     return sb.toString();
   }

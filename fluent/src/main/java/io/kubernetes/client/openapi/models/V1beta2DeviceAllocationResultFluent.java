@@ -1,22 +1,24 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocationResultFluent<A>> extends BaseFluent<A>{
+public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceAllocationResultFluent<A>> extends BaseFluent<A>{
   public V1beta2DeviceAllocationResultFluent() {
   }
   
@@ -27,15 +29,17 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
   private ArrayList<V1beta2DeviceRequestAllocationResultBuilder> results;
   
   protected void copyInstance(V1beta2DeviceAllocationResult instance) {
-    instance = (instance != null ? instance : new V1beta2DeviceAllocationResult());
+    instance = instance != null ? instance : new V1beta2DeviceAllocationResult();
     if (instance != null) {
-          this.withConfig(instance.getConfig());
-          this.withResults(instance.getResults());
-        }
+        this.withConfig(instance.getConfig());
+        this.withResults(instance.getResults());
+    }
   }
   
   public A addToConfig(int index,V1beta2DeviceAllocationConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceAllocationConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -44,11 +48,13 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
         _visitables.get("config").add(builder);
         config.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToConfig(int index,V1beta2DeviceAllocationConfiguration item) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceAllocationConfigurationBuilder>();}
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
     V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
     if (index < 0 || index >= config.size()) {
         _visitables.get("config").add(builder);
@@ -57,41 +63,71 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
         _visitables.get("config").add(builder);
         config.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToConfig(io.kubernetes.client.openapi.models.V1beta2DeviceAllocationConfiguration... items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceAllocationConfigurationBuilder>();}
-    for (V1beta2DeviceAllocationConfiguration item : items) {V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+  public A addToConfig(V1beta2DeviceAllocationConfiguration... items) {
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta2DeviceAllocationConfiguration item : items) {
+        V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToConfig(Collection<V1beta2DeviceAllocationConfiguration> items) {
-    if (this.config == null) {this.config = new ArrayList<V1beta2DeviceAllocationConfigurationBuilder>();}
-    for (V1beta2DeviceAllocationConfiguration item : items) {V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);_visitables.get("config").add(builder);this.config.add(builder);} return (A)this;
+    if (this.config == null) {
+      this.config = new ArrayList();
+    }
+    for (V1beta2DeviceAllocationConfiguration item : items) {
+        V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
+        _visitables.get("config").add(builder);
+        this.config.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromConfig(io.kubernetes.client.openapi.models.V1beta2DeviceAllocationConfiguration... items) {
-    if (this.config == null) return (A)this;
-    for (V1beta2DeviceAllocationConfiguration item : items) {V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+  public A removeFromConfig(V1beta2DeviceAllocationConfiguration... items) {
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceAllocationConfiguration item : items) {
+        V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromConfig(Collection<V1beta2DeviceAllocationConfiguration> items) {
-    if (this.config == null) return (A)this;
-    for (V1beta2DeviceAllocationConfiguration item : items) {V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);_visitables.get("config").remove(builder); this.config.remove(builder);} return (A)this;
+    if (this.config == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceAllocationConfiguration item : items) {
+        V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
+        _visitables.get("config").remove(builder);
+        this.config.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromConfig(Predicate<V1beta2DeviceAllocationConfigurationBuilder> predicate) {
-    if (config == null) return (A) this;
-    final Iterator<V1beta2DeviceAllocationConfigurationBuilder> each = config.iterator();
-    final List visitables = _visitables.get("config");
-    while (each.hasNext()) {
-      V1beta2DeviceAllocationConfigurationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (config == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceAllocationConfigurationBuilder> each = config.iterator();
+    List visitables = _visitables.get("config");
+    while (each.hasNext()) {
+        V1beta2DeviceAllocationConfigurationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceAllocationConfiguration> buildConfig() {
@@ -143,7 +179,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
     return (A) this;
   }
   
-  public A withConfig(io.kubernetes.client.openapi.models.V1beta2DeviceAllocationConfiguration... config) {
+  public A withConfig(V1beta2DeviceAllocationConfiguration... config) {
     if (this.config != null) {
         this.config.clear();
         _visitables.remove("config");
@@ -157,7 +193,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
   }
   
   public boolean hasConfig() {
-    return this.config != null && !this.config.isEmpty();
+    return this.config != null && !(this.config.isEmpty());
   }
   
   public ConfigNested<A> addNewConfig() {
@@ -173,32 +209,45 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
   }
   
   public ConfigNested<A> editConfig(int index) {
-    if (config.size() <= index) throw new RuntimeException("Can't edit config. Index exceeds size.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index <= config.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editFirstConfig() {
-    if (config.size() == 0) throw new RuntimeException("Can't edit first config. The list is empty.");
-    return setNewConfigLike(0, buildConfig(0));
+    if (config.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(0, this.buildConfig(0));
   }
   
   public ConfigNested<A> editLastConfig() {
     int index = config.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last config. The list is empty.");
-    return setNewConfigLike(index, buildConfig(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public ConfigNested<A> editMatchingConfig(Predicate<V1beta2DeviceAllocationConfigurationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<config.size();i++) { 
-    if (predicate.test(config.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching config. No match found.");
-    return setNewConfigLike(index, buildConfig(index));
+    for (int i = 0;i < config.size();i++) {
+      if (predicate.test(config.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "config"));
+    }
+    return this.setNewConfigLike(index, this.buildConfig(index));
   }
   
   public A addToResults(int index,V1beta2DeviceRequestAllocationResult item) {
-    if (this.results == null) {this.results = new ArrayList<V1beta2DeviceRequestAllocationResultBuilder>();}
+    if (this.results == null) {
+      this.results = new ArrayList();
+    }
     V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
     if (index < 0 || index >= results.size()) {
         _visitables.get("results").add(builder);
@@ -207,11 +256,13 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
         _visitables.get("results").add(builder);
         results.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToResults(int index,V1beta2DeviceRequestAllocationResult item) {
-    if (this.results == null) {this.results = new ArrayList<V1beta2DeviceRequestAllocationResultBuilder>();}
+    if (this.results == null) {
+      this.results = new ArrayList();
+    }
     V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
     if (index < 0 || index >= results.size()) {
         _visitables.get("results").add(builder);
@@ -220,41 +271,71 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
         _visitables.get("results").add(builder);
         results.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToResults(io.kubernetes.client.openapi.models.V1beta2DeviceRequestAllocationResult... items) {
-    if (this.results == null) {this.results = new ArrayList<V1beta2DeviceRequestAllocationResultBuilder>();}
-    for (V1beta2DeviceRequestAllocationResult item : items) {V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);_visitables.get("results").add(builder);this.results.add(builder);} return (A)this;
+  public A addToResults(V1beta2DeviceRequestAllocationResult... items) {
+    if (this.results == null) {
+      this.results = new ArrayList();
+    }
+    for (V1beta2DeviceRequestAllocationResult item : items) {
+        V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
+        _visitables.get("results").add(builder);
+        this.results.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToResults(Collection<V1beta2DeviceRequestAllocationResult> items) {
-    if (this.results == null) {this.results = new ArrayList<V1beta2DeviceRequestAllocationResultBuilder>();}
-    for (V1beta2DeviceRequestAllocationResult item : items) {V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);_visitables.get("results").add(builder);this.results.add(builder);} return (A)this;
+    if (this.results == null) {
+      this.results = new ArrayList();
+    }
+    for (V1beta2DeviceRequestAllocationResult item : items) {
+        V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
+        _visitables.get("results").add(builder);
+        this.results.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromResults(io.kubernetes.client.openapi.models.V1beta2DeviceRequestAllocationResult... items) {
-    if (this.results == null) return (A)this;
-    for (V1beta2DeviceRequestAllocationResult item : items) {V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);_visitables.get("results").remove(builder); this.results.remove(builder);} return (A)this;
+  public A removeFromResults(V1beta2DeviceRequestAllocationResult... items) {
+    if (this.results == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceRequestAllocationResult item : items) {
+        V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
+        _visitables.get("results").remove(builder);
+        this.results.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromResults(Collection<V1beta2DeviceRequestAllocationResult> items) {
-    if (this.results == null) return (A)this;
-    for (V1beta2DeviceRequestAllocationResult item : items) {V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);_visitables.get("results").remove(builder); this.results.remove(builder);} return (A)this;
+    if (this.results == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceRequestAllocationResult item : items) {
+        V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
+        _visitables.get("results").remove(builder);
+        this.results.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromResults(Predicate<V1beta2DeviceRequestAllocationResultBuilder> predicate) {
-    if (results == null) return (A) this;
-    final Iterator<V1beta2DeviceRequestAllocationResultBuilder> each = results.iterator();
-    final List visitables = _visitables.get("results");
-    while (each.hasNext()) {
-      V1beta2DeviceRequestAllocationResultBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (results == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta2DeviceRequestAllocationResultBuilder> each = results.iterator();
+    List visitables = _visitables.get("results");
+    while (each.hasNext()) {
+        V1beta2DeviceRequestAllocationResultBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta2DeviceRequestAllocationResult> buildResults() {
@@ -306,7 +387,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
     return (A) this;
   }
   
-  public A withResults(io.kubernetes.client.openapi.models.V1beta2DeviceRequestAllocationResult... results) {
+  public A withResults(V1beta2DeviceRequestAllocationResult... results) {
     if (this.results != null) {
         this.results.clear();
         _visitables.remove("results");
@@ -320,7 +401,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
   }
   
   public boolean hasResults() {
-    return this.results != null && !this.results.isEmpty();
+    return this.results != null && !(this.results.isEmpty());
   }
   
   public ResultsNested<A> addNewResult() {
@@ -336,49 +417,77 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
   }
   
   public ResultsNested<A> editResult(int index) {
-    if (results.size() <= index) throw new RuntimeException("Can't edit results. Index exceeds size.");
-    return setNewResultLike(index, buildResult(index));
+    if (index <= results.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "results"));
+    }
+    return this.setNewResultLike(index, this.buildResult(index));
   }
   
   public ResultsNested<A> editFirstResult() {
-    if (results.size() == 0) throw new RuntimeException("Can't edit first results. The list is empty.");
-    return setNewResultLike(0, buildResult(0));
+    if (results.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "results"));
+    }
+    return this.setNewResultLike(0, this.buildResult(0));
   }
   
   public ResultsNested<A> editLastResult() {
     int index = results.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last results. The list is empty.");
-    return setNewResultLike(index, buildResult(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "results"));
+    }
+    return this.setNewResultLike(index, this.buildResult(index));
   }
   
   public ResultsNested<A> editMatchingResult(Predicate<V1beta2DeviceRequestAllocationResultBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<results.size();i++) { 
-    if (predicate.test(results.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching results. No match found.");
-    return setNewResultLike(index, buildResult(index));
+    for (int i = 0;i < results.size();i++) {
+      if (predicate.test(results.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "results"));
+    }
+    return this.setNewResultLike(index, this.buildResult(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta2DeviceAllocationResultFluent that = (V1beta2DeviceAllocationResultFluent) o;
-    if (!java.util.Objects.equals(config, that.config)) return false;
-    if (!java.util.Objects.equals(results, that.results)) return false;
+    if (!(Objects.equals(config, that.config))) {
+      return false;
+    }
+    if (!(Objects.equals(results, that.results))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(config,  results,  super.hashCode());
+    return Objects.hash(config, results);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (config != null && !config.isEmpty()) { sb.append("config:"); sb.append(config + ","); }
-    if (results != null && !results.isEmpty()) { sb.append("results:"); sb.append(results); }
+    if (!(config == null) && !(config.isEmpty())) {
+        sb.append("config:");
+        sb.append(config);
+        sb.append(",");
+    }
+    if (!(results == null) && !(results.isEmpty())) {
+        sb.append("results:");
+        sb.append(results);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -391,7 +500,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
     int index;
     
     public N and() {
-      return (N) V1beta2DeviceAllocationResultFluent.this.setToConfig(index,builder.build());
+      return (N) V1beta2DeviceAllocationResultFluent.this.setToConfig(index, builder.build());
     }
     
     public N endConfig() {
@@ -409,7 +518,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends V1beta2DeviceAllocati
     int index;
     
     public N and() {
-      return (N) V1beta2DeviceAllocationResultFluent.this.setToResults(index,builder.build());
+      return (N) V1beta2DeviceAllocationResultFluent.this.setToResults(index, builder.build());
     }
     
     public N endResult() {

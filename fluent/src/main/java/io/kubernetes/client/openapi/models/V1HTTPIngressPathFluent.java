@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> extends BaseFluent<A>{
+public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<A>> extends BaseFluent<A>{
   public V1HTTPIngressPathFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> exten
   private String pathType;
   
   protected void copyInstance(V1HTTPIngressPath instance) {
-    instance = (instance != null ? instance : new V1HTTPIngressPath());
+    instance = instance != null ? instance : new V1HTTPIngressPath();
     if (instance != null) {
-          this.withBackend(instance.getBackend());
-          this.withPath(instance.getPath());
-          this.withPathType(instance.getPathType());
-        }
+        this.withBackend(instance.getBackend());
+        this.withPath(instance.getPath());
+        this.withPathType(instance.getPathType());
+    }
   }
   
   public V1IngressBackend buildBackend() {
@@ -59,15 +62,15 @@ public class V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> exten
   }
   
   public BackendNested<A> editBackend() {
-    return withNewBackendLike(java.util.Optional.ofNullable(buildBackend()).orElse(null));
+    return this.withNewBackendLike(Optional.ofNullable(this.buildBackend()).orElse(null));
   }
   
   public BackendNested<A> editOrNewBackend() {
-    return withNewBackendLike(java.util.Optional.ofNullable(buildBackend()).orElse(new V1IngressBackendBuilder().build()));
+    return this.withNewBackendLike(Optional.ofNullable(this.buildBackend()).orElse(new V1IngressBackendBuilder().build()));
   }
   
   public BackendNested<A> editOrNewBackendLike(V1IngressBackend item) {
-    return withNewBackendLike(java.util.Optional.ofNullable(buildBackend()).orElse(item));
+    return this.withNewBackendLike(Optional.ofNullable(this.buildBackend()).orElse(item));
   }
   
   public String getPath() {
@@ -97,26 +100,49 @@ public class V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1HTTPIngressPathFluent that = (V1HTTPIngressPathFluent) o;
-    if (!java.util.Objects.equals(backend, that.backend)) return false;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(pathType, that.pathType)) return false;
+    if (!(Objects.equals(backend, that.backend))) {
+      return false;
+    }
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(pathType, that.pathType))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(backend,  path,  pathType,  super.hashCode());
+    return Objects.hash(backend, path, pathType);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (backend != null) { sb.append("backend:"); sb.append(backend + ","); }
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (pathType != null) { sb.append("pathType:"); sb.append(pathType); }
+    if (!(backend == null)) {
+        sb.append("backend:");
+        sb.append(backend);
+        sb.append(",");
+    }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(pathType == null)) {
+        sb.append("pathType:");
+        sb.append(pathType);
+    }
     sb.append("}");
     return sb.toString();
   }
