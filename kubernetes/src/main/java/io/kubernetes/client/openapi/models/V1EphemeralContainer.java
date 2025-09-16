@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ContainerPort;
 import io.kubernetes.client.openapi.models.V1ContainerResizePolicy;
+import io.kubernetes.client.openapi.models.V1ContainerRestartRule;
 import io.kubernetes.client.openapi.models.V1EnvFromSource;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1Lifecycle;
@@ -62,7 +63,7 @@ import io.kubernetes.client.openapi.JSON;
  * An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.
  */
 @ApiModel(description = "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
@@ -133,6 +134,11 @@ public class V1EphemeralContainer {
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
   @jakarta.annotation.Nullable
   private String restartPolicy;
+
+  public static final String SERIALIZED_NAME_RESTART_POLICY_RULES = "restartPolicyRules";
+  @SerializedName(SERIALIZED_NAME_RESTART_POLICY_RULES)
+  @jakarta.annotation.Nullable
+  private List<V1ContainerRestartRule> restartPolicyRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
@@ -290,11 +296,11 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+   * List of sources to populate environment variables in the container. The keys defined within a source may consist of any printable ASCII characters except &#39;&#x3D;&#39;. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
    * @return envFrom
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.")
+  @ApiModelProperty(value = "List of sources to populate environment variables in the container. The keys defined within a source may consist of any printable ASCII characters except '='. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.")
   public List<V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
@@ -506,17 +512,45 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.
+   * Restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.
    * @return restartPolicy
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.")
+  @ApiModelProperty(value = "Restart policy for the container to manage the restart behavior of each container within a pod. You cannot set this field on ephemeral containers.")
   public String getRestartPolicy() {
     return restartPolicy;
   }
 
   public void setRestartPolicy(@jakarta.annotation.Nullable String restartPolicy) {
     this.restartPolicy = restartPolicy;
+  }
+
+
+  public V1EphemeralContainer restartPolicyRules(@jakarta.annotation.Nullable List<V1ContainerRestartRule> restartPolicyRules) {
+    this.restartPolicyRules = restartPolicyRules;
+    return this;
+  }
+
+  public V1EphemeralContainer addRestartPolicyRulesItem(V1ContainerRestartRule restartPolicyRulesItem) {
+    if (this.restartPolicyRules == null) {
+      this.restartPolicyRules = new ArrayList<>();
+    }
+    this.restartPolicyRules.add(restartPolicyRulesItem);
+    return this;
+  }
+
+  /**
+   * Represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.
+   * @return restartPolicyRules
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Represents a list of rules to be checked to determine if the container should be restarted on exit. You cannot set this field on ephemeral containers.")
+  public List<V1ContainerRestartRule> getRestartPolicyRules() {
+    return restartPolicyRules;
+  }
+
+  public void setRestartPolicyRules(@jakarta.annotation.Nullable List<V1ContainerRestartRule> restartPolicyRules) {
+    this.restartPolicyRules = restartPolicyRules;
   }
 
 
@@ -780,6 +814,7 @@ public class V1EphemeralContainer {
         Objects.equals(this.resizePolicy, v1EphemeralContainer.resizePolicy) &&
         Objects.equals(this.resources, v1EphemeralContainer.resources) &&
         Objects.equals(this.restartPolicy, v1EphemeralContainer.restartPolicy) &&
+        Objects.equals(this.restartPolicyRules, v1EphemeralContainer.restartPolicyRules) &&
         Objects.equals(this.securityContext, v1EphemeralContainer.securityContext) &&
         Objects.equals(this.startupProbe, v1EphemeralContainer.startupProbe) &&
         Objects.equals(this.stdin, v1EphemeralContainer.stdin) &&
@@ -795,7 +830,7 @@ public class V1EphemeralContainer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, restartPolicy, securityContext, startupProbe, stdin, stdinOnce, targetContainerName, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
+    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, restartPolicy, restartPolicyRules, securityContext, startupProbe, stdin, stdinOnce, targetContainerName, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
   }
 
   @Override
@@ -816,6 +851,7 @@ public class V1EphemeralContainer {
     sb.append("    resizePolicy: ").append(toIndentedString(resizePolicy)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    restartPolicy: ").append(toIndentedString(restartPolicy)).append("\n");
+    sb.append("    restartPolicyRules: ").append(toIndentedString(restartPolicyRules)).append("\n");
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    startupProbe: ").append(toIndentedString(startupProbe)).append("\n");
     sb.append("    stdin: ").append(toIndentedString(stdin)).append("\n");
@@ -863,6 +899,7 @@ public class V1EphemeralContainer {
     openapiFields.add("resizePolicy");
     openapiFields.add("resources");
     openapiFields.add("restartPolicy");
+    openapiFields.add("restartPolicyRules");
     openapiFields.add("securityContext");
     openapiFields.add("startupProbe");
     openapiFields.add("stdin");
@@ -999,6 +1036,20 @@ public class V1EphemeralContainer {
       }
       if ((jsonObj.get("restartPolicy") != null && !jsonObj.get("restartPolicy").isJsonNull()) && !jsonObj.get("restartPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
+      }
+      if (jsonObj.get("restartPolicyRules") != null && !jsonObj.get("restartPolicyRules").isJsonNull()) {
+        JsonArray jsonArrayrestartPolicyRules = jsonObj.getAsJsonArray("restartPolicyRules");
+        if (jsonArrayrestartPolicyRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("restartPolicyRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `restartPolicyRules` to be an array in the JSON string but got `%s`", jsonObj.get("restartPolicyRules").toString()));
+          }
+
+          // validate the optional field `restartPolicyRules` (array)
+          for (int i = 0; i < jsonArrayrestartPolicyRules.size(); i++) {
+            V1ContainerRestartRule.validateJsonElement(jsonArrayrestartPolicyRules.get(i));
+          };
+        }
       }
       // validate the optional field `securityContext`
       if (jsonObj.get("securityContext") != null && !jsonObj.get("securityContext").isJsonNull()) {

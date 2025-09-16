@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ValidatingAdmissionPolicySpecBuilder extends V1ValidatingAdmissionPolicySpecFluent<V1ValidatingAdmissionPolicySpecBuilder> implements VisitableBuilder<V1ValidatingAdmissionPolicySpec,V1ValidatingAdmissionPolicySpecBuilder>{
   public V1ValidatingAdmissionPolicySpecBuilder() {
     this(new V1ValidatingAdmissionPolicySpec());

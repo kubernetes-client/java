@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V2HPAScalingRulesBuilder extends V2HPAScalingRulesFluent<V2HPAScalingRulesBuilder> implements VisitableBuilder<V2HPAScalingRules,V2HPAScalingRulesBuilder>{
   public V2HPAScalingRulesBuilder() {
     this(new V2HPAScalingRules());

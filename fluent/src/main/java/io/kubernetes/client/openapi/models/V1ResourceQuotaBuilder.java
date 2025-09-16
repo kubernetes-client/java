@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluent<V1ResourceQuotaBuilder> implements VisitableBuilder<V1ResourceQuota,V1ResourceQuotaBuilder>{
   public V1ResourceQuotaBuilder() {
     this(new V1ResourceQuota());

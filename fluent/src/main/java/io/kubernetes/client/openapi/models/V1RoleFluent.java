@@ -1,22 +1,25 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
+public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFluent<A>> extends BaseFluent<A>{
   public V1RoleFluent() {
   }
   
@@ -29,13 +32,13 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
   private ArrayList<V1PolicyRuleBuilder> rules;
   
   protected void copyInstance(V1Role instance) {
-    instance = (instance != null ? instance : new V1Role());
+    instance = instance != null ? instance : new V1Role();
     if (instance != null) {
-          this.withApiVersion(instance.getApiVersion());
-          this.withKind(instance.getKind());
-          this.withMetadata(instance.getMetadata());
-          this.withRules(instance.getRules());
-        }
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withRules(instance.getRules());
+    }
   }
   
   public String getApiVersion() {
@@ -93,19 +96,21 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
   }
   
   public MetadataNested<A> editMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(null));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
   }
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return withNewMetadataLike(java.util.Optional.ofNullable(buildMetadata()).orElse(item));
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToRules(int index,V1PolicyRule item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -114,11 +119,13 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
         _visitables.get("rules").add(builder);
         rules.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToRules(int index,V1PolicyRule item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     if (index < 0 || index >= rules.size()) {
         _visitables.get("rules").add(builder);
@@ -127,41 +134,71 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
         _visitables.get("rules").add(builder);
         rules.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToRules(io.kubernetes.client.openapi.models.V1PolicyRule... items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
-    for (V1PolicyRule item : items) {V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+  public A addToRules(V1PolicyRule... items) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToRules(Collection<V1PolicyRule> items) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PolicyRuleBuilder>();}
-    for (V1PolicyRule item : items) {V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);_visitables.get("rules").add(builder);this.rules.add(builder);} return (A)this;
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromRules(io.kubernetes.client.openapi.models.V1PolicyRule... items) {
-    if (this.rules == null) return (A)this;
-    for (V1PolicyRule item : items) {V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+  public A removeFromRules(V1PolicyRule... items) {
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromRules(Collection<V1PolicyRule> items) {
-    if (this.rules == null) return (A)this;
-    for (V1PolicyRule item : items) {V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);_visitables.get("rules").remove(builder); this.rules.remove(builder);} return (A)this;
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromRules(Predicate<V1PolicyRuleBuilder> predicate) {
-    if (rules == null) return (A) this;
-    final Iterator<V1PolicyRuleBuilder> each = rules.iterator();
-    final List visitables = _visitables.get("rules");
-    while (each.hasNext()) {
-      V1PolicyRuleBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (rules == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PolicyRuleBuilder> each = rules.iterator();
+    List visitables = _visitables.get("rules");
+    while (each.hasNext()) {
+        V1PolicyRuleBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PolicyRule> buildRules() {
@@ -213,7 +250,7 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
     return (A) this;
   }
   
-  public A withRules(io.kubernetes.client.openapi.models.V1PolicyRule... rules) {
+  public A withRules(V1PolicyRule... rules) {
     if (this.rules != null) {
         this.rules.clear();
         _visitables.remove("rules");
@@ -227,7 +264,7 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
   }
   
   public boolean hasRules() {
-    return this.rules != null && !this.rules.isEmpty();
+    return this.rules != null && !(this.rules.isEmpty());
   }
   
   public RulesNested<A> addNewRule() {
@@ -243,53 +280,93 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
   }
   
   public RulesNested<A> editRule(int index) {
-    if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index <= rules.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
-    return setNewRuleLike(0, buildRule(0));
+    if (rules.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(0, this.buildRule(0));
   }
   
   public RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
-    return setNewRuleLike(index, buildRule(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public RulesNested<A> editMatchingRule(Predicate<V1PolicyRuleBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<rules.size();i++) { 
-    if (predicate.test(rules.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching rules. No match found.");
-    return setNewRuleLike(index, buildRule(index));
+    for (int i = 0;i < rules.size();i++) {
+      if (predicate.test(rules.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1RoleFluent that = (V1RoleFluent) o;
-    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
-    if (!java.util.Objects.equals(rules, that.rules)) return false;
+    if (!(Objects.equals(apiVersion, that.apiVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(metadata, that.metadata))) {
+      return false;
+    }
+    if (!(Objects.equals(rules, that.rules))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  kind,  metadata,  rules,  super.hashCode());
+    return Objects.hash(apiVersion, kind, metadata, rules);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (rules != null && !rules.isEmpty()) { sb.append("rules:"); sb.append(rules); }
+    if (!(apiVersion == null)) {
+        sb.append("apiVersion:");
+        sb.append(apiVersion);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(metadata == null)) {
+        sb.append("metadata:");
+        sb.append(metadata);
+        sb.append(",");
+    }
+    if (!(rules == null) && !(rules.isEmpty())) {
+        sb.append("rules:");
+        sb.append(rules);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -318,7 +395,7 @@ public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
     int index;
     
     public N and() {
-      return (N) V1RoleFluent.this.setToRules(index,builder.build());
+      return (N) V1RoleFluent.this.setToRules(index, builder.build());
     }
     
     public N endRule() {

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluent<V1OwnerReferenceBuilder> implements VisitableBuilder<V1OwnerReference,V1OwnerReferenceBuilder>{
   public V1OwnerReferenceBuilder() {
     this(new V1OwnerReference());

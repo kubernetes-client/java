@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSigningRequestConditionFluent<V1CertificateSigningRequestConditionBuilder> implements VisitableBuilder<V1CertificateSigningRequestCondition,V1CertificateSigningRequestConditionBuilder>{
   public V1CertificateSigningRequestConditionBuilder() {
     this(new V1CertificateSigningRequestCondition());

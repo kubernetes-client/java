@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends BaseFluent<A>{
+public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models.V1StatusDetailsFluent<A>> extends BaseFluent<A>{
   public V1StatusDetailsFluent() {
   }
   
@@ -32,19 +34,21 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
   private String uid;
   
   protected void copyInstance(V1StatusDetails instance) {
-    instance = (instance != null ? instance : new V1StatusDetails());
+    instance = instance != null ? instance : new V1StatusDetails();
     if (instance != null) {
-          this.withCauses(instance.getCauses());
-          this.withGroup(instance.getGroup());
-          this.withKind(instance.getKind());
-          this.withName(instance.getName());
-          this.withRetryAfterSeconds(instance.getRetryAfterSeconds());
-          this.withUid(instance.getUid());
-        }
+        this.withCauses(instance.getCauses());
+        this.withGroup(instance.getGroup());
+        this.withKind(instance.getKind());
+        this.withName(instance.getName());
+        this.withRetryAfterSeconds(instance.getRetryAfterSeconds());
+        this.withUid(instance.getUid());
+    }
   }
   
   public A addToCauses(int index,V1StatusCause item) {
-    if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
+    if (this.causes == null) {
+      this.causes = new ArrayList();
+    }
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
     if (index < 0 || index >= causes.size()) {
         _visitables.get("causes").add(builder);
@@ -53,11 +57,13 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
         _visitables.get("causes").add(builder);
         causes.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToCauses(int index,V1StatusCause item) {
-    if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
+    if (this.causes == null) {
+      this.causes = new ArrayList();
+    }
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
     if (index < 0 || index >= causes.size()) {
         _visitables.get("causes").add(builder);
@@ -66,41 +72,71 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
         _visitables.get("causes").add(builder);
         causes.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToCauses(io.kubernetes.client.openapi.models.V1StatusCause... items) {
-    if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
-    for (V1StatusCause item : items) {V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);_visitables.get("causes").add(builder);this.causes.add(builder);} return (A)this;
+  public A addToCauses(V1StatusCause... items) {
+    if (this.causes == null) {
+      this.causes = new ArrayList();
+    }
+    for (V1StatusCause item : items) {
+        V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
+        _visitables.get("causes").add(builder);
+        this.causes.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToCauses(Collection<V1StatusCause> items) {
-    if (this.causes == null) {this.causes = new ArrayList<V1StatusCauseBuilder>();}
-    for (V1StatusCause item : items) {V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);_visitables.get("causes").add(builder);this.causes.add(builder);} return (A)this;
+    if (this.causes == null) {
+      this.causes = new ArrayList();
+    }
+    for (V1StatusCause item : items) {
+        V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
+        _visitables.get("causes").add(builder);
+        this.causes.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromCauses(io.kubernetes.client.openapi.models.V1StatusCause... items) {
-    if (this.causes == null) return (A)this;
-    for (V1StatusCause item : items) {V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);_visitables.get("causes").remove(builder); this.causes.remove(builder);} return (A)this;
+  public A removeFromCauses(V1StatusCause... items) {
+    if (this.causes == null) {
+      return (A) this;
+    }
+    for (V1StatusCause item : items) {
+        V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
+        _visitables.get("causes").remove(builder);
+        this.causes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromCauses(Collection<V1StatusCause> items) {
-    if (this.causes == null) return (A)this;
-    for (V1StatusCause item : items) {V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);_visitables.get("causes").remove(builder); this.causes.remove(builder);} return (A)this;
+    if (this.causes == null) {
+      return (A) this;
+    }
+    for (V1StatusCause item : items) {
+        V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
+        _visitables.get("causes").remove(builder);
+        this.causes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromCauses(Predicate<V1StatusCauseBuilder> predicate) {
-    if (causes == null) return (A) this;
-    final Iterator<V1StatusCauseBuilder> each = causes.iterator();
-    final List visitables = _visitables.get("causes");
-    while (each.hasNext()) {
-      V1StatusCauseBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (causes == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1StatusCauseBuilder> each = causes.iterator();
+    List visitables = _visitables.get("causes");
+    while (each.hasNext()) {
+        V1StatusCauseBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1StatusCause> buildCauses() {
@@ -152,7 +188,7 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
     return (A) this;
   }
   
-  public A withCauses(io.kubernetes.client.openapi.models.V1StatusCause... causes) {
+  public A withCauses(V1StatusCause... causes) {
     if (this.causes != null) {
         this.causes.clear();
         _visitables.remove("causes");
@@ -166,7 +202,7 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
   }
   
   public boolean hasCauses() {
-    return this.causes != null && !this.causes.isEmpty();
+    return this.causes != null && !(this.causes.isEmpty());
   }
   
   public CausesNested<A> addNewCause() {
@@ -182,28 +218,39 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
   }
   
   public CausesNested<A> editCause(int index) {
-    if (causes.size() <= index) throw new RuntimeException("Can't edit causes. Index exceeds size.");
-    return setNewCauseLike(index, buildCause(index));
+    if (index <= causes.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "causes"));
+    }
+    return this.setNewCauseLike(index, this.buildCause(index));
   }
   
   public CausesNested<A> editFirstCause() {
-    if (causes.size() == 0) throw new RuntimeException("Can't edit first causes. The list is empty.");
-    return setNewCauseLike(0, buildCause(0));
+    if (causes.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "causes"));
+    }
+    return this.setNewCauseLike(0, this.buildCause(0));
   }
   
   public CausesNested<A> editLastCause() {
     int index = causes.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last causes. The list is empty.");
-    return setNewCauseLike(index, buildCause(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "causes"));
+    }
+    return this.setNewCauseLike(index, this.buildCause(index));
   }
   
   public CausesNested<A> editMatchingCause(Predicate<V1StatusCauseBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<causes.size();i++) { 
-    if (predicate.test(causes.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching causes. No match found.");
-    return setNewCauseLike(index, buildCause(index));
+    for (int i = 0;i < causes.size();i++) {
+      if (predicate.test(causes.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "causes"));
+    }
+    return this.setNewCauseLike(index, this.buildCause(index));
   }
   
   public String getGroup() {
@@ -272,32 +319,73 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StatusDetailsFluent that = (V1StatusDetailsFluent) o;
-    if (!java.util.Objects.equals(causes, that.causes)) return false;
-    if (!java.util.Objects.equals(group, that.group)) return false;
-    if (!java.util.Objects.equals(kind, that.kind)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(retryAfterSeconds, that.retryAfterSeconds)) return false;
-    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    if (!(Objects.equals(causes, that.causes))) {
+      return false;
+    }
+    if (!(Objects.equals(group, that.group))) {
+      return false;
+    }
+    if (!(Objects.equals(kind, that.kind))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(retryAfterSeconds, that.retryAfterSeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(uid, that.uid))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(causes,  group,  kind,  name,  retryAfterSeconds,  uid,  super.hashCode());
+    return Objects.hash(causes, group, kind, name, retryAfterSeconds, uid);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (causes != null && !causes.isEmpty()) { sb.append("causes:"); sb.append(causes + ","); }
-    if (group != null) { sb.append("group:"); sb.append(group + ","); }
-    if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (retryAfterSeconds != null) { sb.append("retryAfterSeconds:"); sb.append(retryAfterSeconds + ","); }
-    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    if (!(causes == null) && !(causes.isEmpty())) {
+        sb.append("causes:");
+        sb.append(causes);
+        sb.append(",");
+    }
+    if (!(group == null)) {
+        sb.append("group:");
+        sb.append(group);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(retryAfterSeconds == null)) {
+        sb.append("retryAfterSeconds:");
+        sb.append(retryAfterSeconds);
+        sb.append(",");
+    }
+    if (!(uid == null)) {
+        sb.append("uid:");
+        sb.append(uid);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -310,7 +398,7 @@ public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends B
     int index;
     
     public N and() {
-      return (N) V1StatusDetailsFluent.this.setToCauses(index,builder.build());
+      return (N) V1StatusDetailsFluent.this.setToCauses(index, builder.build());
     }
     
     public N endCause() {

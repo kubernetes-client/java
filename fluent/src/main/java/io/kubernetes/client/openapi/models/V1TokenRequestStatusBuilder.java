@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluent<V1TokenRequestStatusBuilder> implements VisitableBuilder<V1TokenRequestStatus,V1TokenRequestStatusBuilder>{
   public V1TokenRequestStatusBuilder() {
     this(new V1TokenRequestStatus());

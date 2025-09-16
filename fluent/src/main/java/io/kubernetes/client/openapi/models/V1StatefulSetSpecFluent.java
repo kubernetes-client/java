@@ -1,15 +1,18 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.lang.Integer;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -17,7 +20,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> extends BaseFluent<A>{
+public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<A>> extends BaseFluent<A>{
   public V1StatefulSetSpecFluent() {
   }
   
@@ -37,20 +40,20 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   private ArrayList<V1PersistentVolumeClaimBuilder> volumeClaimTemplates;
   
   protected void copyInstance(V1StatefulSetSpec instance) {
-    instance = (instance != null ? instance : new V1StatefulSetSpec());
+    instance = instance != null ? instance : new V1StatefulSetSpec();
     if (instance != null) {
-          this.withMinReadySeconds(instance.getMinReadySeconds());
-          this.withOrdinals(instance.getOrdinals());
-          this.withPersistentVolumeClaimRetentionPolicy(instance.getPersistentVolumeClaimRetentionPolicy());
-          this.withPodManagementPolicy(instance.getPodManagementPolicy());
-          this.withReplicas(instance.getReplicas());
-          this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-          this.withSelector(instance.getSelector());
-          this.withServiceName(instance.getServiceName());
-          this.withTemplate(instance.getTemplate());
-          this.withUpdateStrategy(instance.getUpdateStrategy());
-          this.withVolumeClaimTemplates(instance.getVolumeClaimTemplates());
-        }
+        this.withMinReadySeconds(instance.getMinReadySeconds());
+        this.withOrdinals(instance.getOrdinals());
+        this.withPersistentVolumeClaimRetentionPolicy(instance.getPersistentVolumeClaimRetentionPolicy());
+        this.withPodManagementPolicy(instance.getPodManagementPolicy());
+        this.withReplicas(instance.getReplicas());
+        this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+        this.withSelector(instance.getSelector());
+        this.withServiceName(instance.getServiceName());
+        this.withTemplate(instance.getTemplate());
+        this.withUpdateStrategy(instance.getUpdateStrategy());
+        this.withVolumeClaimTemplates(instance.getVolumeClaimTemplates());
+    }
   }
   
   public Integer getMinReadySeconds() {
@@ -95,15 +98,15 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public OrdinalsNested<A> editOrdinals() {
-    return withNewOrdinalsLike(java.util.Optional.ofNullable(buildOrdinals()).orElse(null));
+    return this.withNewOrdinalsLike(Optional.ofNullable(this.buildOrdinals()).orElse(null));
   }
   
   public OrdinalsNested<A> editOrNewOrdinals() {
-    return withNewOrdinalsLike(java.util.Optional.ofNullable(buildOrdinals()).orElse(new V1StatefulSetOrdinalsBuilder().build()));
+    return this.withNewOrdinalsLike(Optional.ofNullable(this.buildOrdinals()).orElse(new V1StatefulSetOrdinalsBuilder().build()));
   }
   
   public OrdinalsNested<A> editOrNewOrdinalsLike(V1StatefulSetOrdinals item) {
-    return withNewOrdinalsLike(java.util.Optional.ofNullable(buildOrdinals()).orElse(item));
+    return this.withNewOrdinalsLike(Optional.ofNullable(this.buildOrdinals()).orElse(item));
   }
   
   public V1StatefulSetPersistentVolumeClaimRetentionPolicy buildPersistentVolumeClaimRetentionPolicy() {
@@ -135,15 +138,15 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public PersistentVolumeClaimRetentionPolicyNested<A> editPersistentVolumeClaimRetentionPolicy() {
-    return withNewPersistentVolumeClaimRetentionPolicyLike(java.util.Optional.ofNullable(buildPersistentVolumeClaimRetentionPolicy()).orElse(null));
+    return this.withNewPersistentVolumeClaimRetentionPolicyLike(Optional.ofNullable(this.buildPersistentVolumeClaimRetentionPolicy()).orElse(null));
   }
   
   public PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicy() {
-    return withNewPersistentVolumeClaimRetentionPolicyLike(java.util.Optional.ofNullable(buildPersistentVolumeClaimRetentionPolicy()).orElse(new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder().build()));
+    return this.withNewPersistentVolumeClaimRetentionPolicyLike(Optional.ofNullable(this.buildPersistentVolumeClaimRetentionPolicy()).orElse(new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder().build()));
   }
   
   public PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicyLike(V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
-    return withNewPersistentVolumeClaimRetentionPolicyLike(java.util.Optional.ofNullable(buildPersistentVolumeClaimRetentionPolicy()).orElse(item));
+    return this.withNewPersistentVolumeClaimRetentionPolicyLike(Optional.ofNullable(this.buildPersistentVolumeClaimRetentionPolicy()).orElse(item));
   }
   
   public String getPodManagementPolicy() {
@@ -214,15 +217,15 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public SelectorNested<A> editSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(null));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
   public String getServiceName() {
@@ -267,15 +270,15 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public TemplateNested<A> editTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(null));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
   }
   
   public TemplateNested<A> editOrNewTemplate() {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
   }
   
   public TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
-    return withNewTemplateLike(java.util.Optional.ofNullable(buildTemplate()).orElse(item));
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(item));
   }
   
   public V1StatefulSetUpdateStrategy buildUpdateStrategy() {
@@ -307,19 +310,21 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public UpdateStrategyNested<A> editUpdateStrategy() {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(null));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(null));
   }
   
   public UpdateStrategyNested<A> editOrNewUpdateStrategy() {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(new V1StatefulSetUpdateStrategyBuilder().build()));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(new V1StatefulSetUpdateStrategyBuilder().build()));
   }
   
   public UpdateStrategyNested<A> editOrNewUpdateStrategyLike(V1StatefulSetUpdateStrategy item) {
-    return withNewUpdateStrategyLike(java.util.Optional.ofNullable(buildUpdateStrategy()).orElse(item));
+    return this.withNewUpdateStrategyLike(Optional.ofNullable(this.buildUpdateStrategy()).orElse(item));
   }
   
   public A addToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
-    if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
+    if (this.volumeClaimTemplates == null) {
+      this.volumeClaimTemplates = new ArrayList();
+    }
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     if (index < 0 || index >= volumeClaimTemplates.size()) {
         _visitables.get("volumeClaimTemplates").add(builder);
@@ -328,11 +333,13 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
         _visitables.get("volumeClaimTemplates").add(builder);
         volumeClaimTemplates.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
-    if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
+    if (this.volumeClaimTemplates == null) {
+      this.volumeClaimTemplates = new ArrayList();
+    }
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     if (index < 0 || index >= volumeClaimTemplates.size()) {
         _visitables.get("volumeClaimTemplates").add(builder);
@@ -341,41 +348,71 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
         _visitables.get("volumeClaimTemplates").add(builder);
         volumeClaimTemplates.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVolumeClaimTemplates(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items) {
-    if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
-    for (V1PersistentVolumeClaim item : items) {V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);_visitables.get("volumeClaimTemplates").add(builder);this.volumeClaimTemplates.add(builder);} return (A)this;
+  public A addToVolumeClaimTemplates(V1PersistentVolumeClaim... items) {
+    if (this.volumeClaimTemplates == null) {
+      this.volumeClaimTemplates = new ArrayList();
+    }
+    for (V1PersistentVolumeClaim item : items) {
+        V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
+        _visitables.get("volumeClaimTemplates").add(builder);
+        this.volumeClaimTemplates.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items) {
-    if (this.volumeClaimTemplates == null) {this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();}
-    for (V1PersistentVolumeClaim item : items) {V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);_visitables.get("volumeClaimTemplates").add(builder);this.volumeClaimTemplates.add(builder);} return (A)this;
+    if (this.volumeClaimTemplates == null) {
+      this.volumeClaimTemplates = new ArrayList();
+    }
+    for (V1PersistentVolumeClaim item : items) {
+        V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
+        _visitables.get("volumeClaimTemplates").add(builder);
+        this.volumeClaimTemplates.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVolumeClaimTemplates(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items) {
-    if (this.volumeClaimTemplates == null) return (A)this;
-    for (V1PersistentVolumeClaim item : items) {V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);_visitables.get("volumeClaimTemplates").remove(builder); this.volumeClaimTemplates.remove(builder);} return (A)this;
+  public A removeFromVolumeClaimTemplates(V1PersistentVolumeClaim... items) {
+    if (this.volumeClaimTemplates == null) {
+      return (A) this;
+    }
+    for (V1PersistentVolumeClaim item : items) {
+        V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
+        _visitables.get("volumeClaimTemplates").remove(builder);
+        this.volumeClaimTemplates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items) {
-    if (this.volumeClaimTemplates == null) return (A)this;
-    for (V1PersistentVolumeClaim item : items) {V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);_visitables.get("volumeClaimTemplates").remove(builder); this.volumeClaimTemplates.remove(builder);} return (A)this;
+    if (this.volumeClaimTemplates == null) {
+      return (A) this;
+    }
+    for (V1PersistentVolumeClaim item : items) {
+        V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
+        _visitables.get("volumeClaimTemplates").remove(builder);
+        this.volumeClaimTemplates.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVolumeClaimTemplates(Predicate<V1PersistentVolumeClaimBuilder> predicate) {
-    if (volumeClaimTemplates == null) return (A) this;
-    final Iterator<V1PersistentVolumeClaimBuilder> each = volumeClaimTemplates.iterator();
-    final List visitables = _visitables.get("volumeClaimTemplates");
-    while (each.hasNext()) {
-      V1PersistentVolumeClaimBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (volumeClaimTemplates == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1PersistentVolumeClaimBuilder> each = volumeClaimTemplates.iterator();
+    List visitables = _visitables.get("volumeClaimTemplates");
+    while (each.hasNext()) {
+        V1PersistentVolumeClaimBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1PersistentVolumeClaim> buildVolumeClaimTemplates() {
@@ -427,7 +464,7 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
     return (A) this;
   }
   
-  public A withVolumeClaimTemplates(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... volumeClaimTemplates) {
+  public A withVolumeClaimTemplates(V1PersistentVolumeClaim... volumeClaimTemplates) {
     if (this.volumeClaimTemplates != null) {
         this.volumeClaimTemplates.clear();
         _visitables.remove("volumeClaimTemplates");
@@ -441,7 +478,7 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public boolean hasVolumeClaimTemplates() {
-    return this.volumeClaimTemplates != null && !this.volumeClaimTemplates.isEmpty();
+    return this.volumeClaimTemplates != null && !(this.volumeClaimTemplates.isEmpty());
   }
   
   public VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplate() {
@@ -457,67 +494,149 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
   }
   
   public VolumeClaimTemplatesNested<A> editVolumeClaimTemplate(int index) {
-    if (volumeClaimTemplates.size() <= index) throw new RuntimeException("Can't edit volumeClaimTemplates. Index exceeds size.");
-    return setNewVolumeClaimTemplateLike(index, buildVolumeClaimTemplate(index));
+    if (index <= volumeClaimTemplates.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "volumeClaimTemplates"));
+    }
+    return this.setNewVolumeClaimTemplateLike(index, this.buildVolumeClaimTemplate(index));
   }
   
   public VolumeClaimTemplatesNested<A> editFirstVolumeClaimTemplate() {
-    if (volumeClaimTemplates.size() == 0) throw new RuntimeException("Can't edit first volumeClaimTemplates. The list is empty.");
-    return setNewVolumeClaimTemplateLike(0, buildVolumeClaimTemplate(0));
+    if (volumeClaimTemplates.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "volumeClaimTemplates"));
+    }
+    return this.setNewVolumeClaimTemplateLike(0, this.buildVolumeClaimTemplate(0));
   }
   
   public VolumeClaimTemplatesNested<A> editLastVolumeClaimTemplate() {
     int index = volumeClaimTemplates.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last volumeClaimTemplates. The list is empty.");
-    return setNewVolumeClaimTemplateLike(index, buildVolumeClaimTemplate(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "volumeClaimTemplates"));
+    }
+    return this.setNewVolumeClaimTemplateLike(index, this.buildVolumeClaimTemplate(index));
   }
   
   public VolumeClaimTemplatesNested<A> editMatchingVolumeClaimTemplate(Predicate<V1PersistentVolumeClaimBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<volumeClaimTemplates.size();i++) { 
-    if (predicate.test(volumeClaimTemplates.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching volumeClaimTemplates. No match found.");
-    return setNewVolumeClaimTemplateLike(index, buildVolumeClaimTemplate(index));
+    for (int i = 0;i < volumeClaimTemplates.size();i++) {
+      if (predicate.test(volumeClaimTemplates.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "volumeClaimTemplates"));
+    }
+    return this.setNewVolumeClaimTemplateLike(index, this.buildVolumeClaimTemplate(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1StatefulSetSpecFluent that = (V1StatefulSetSpecFluent) o;
-    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
-    if (!java.util.Objects.equals(ordinals, that.ordinals)) return false;
-    if (!java.util.Objects.equals(persistentVolumeClaimRetentionPolicy, that.persistentVolumeClaimRetentionPolicy)) return false;
-    if (!java.util.Objects.equals(podManagementPolicy, that.podManagementPolicy)) return false;
-    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
-    if (!java.util.Objects.equals(revisionHistoryLimit, that.revisionHistoryLimit)) return false;
-    if (!java.util.Objects.equals(selector, that.selector)) return false;
-    if (!java.util.Objects.equals(serviceName, that.serviceName)) return false;
-    if (!java.util.Objects.equals(template, that.template)) return false;
-    if (!java.util.Objects.equals(updateStrategy, that.updateStrategy)) return false;
-    if (!java.util.Objects.equals(volumeClaimTemplates, that.volumeClaimTemplates)) return false;
+    if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
+      return false;
+    }
+    if (!(Objects.equals(ordinals, that.ordinals))) {
+      return false;
+    }
+    if (!(Objects.equals(persistentVolumeClaimRetentionPolicy, that.persistentVolumeClaimRetentionPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(podManagementPolicy, that.podManagementPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(replicas, that.replicas))) {
+      return false;
+    }
+    if (!(Objects.equals(revisionHistoryLimit, that.revisionHistoryLimit))) {
+      return false;
+    }
+    if (!(Objects.equals(selector, that.selector))) {
+      return false;
+    }
+    if (!(Objects.equals(serviceName, that.serviceName))) {
+      return false;
+    }
+    if (!(Objects.equals(template, that.template))) {
+      return false;
+    }
+    if (!(Objects.equals(updateStrategy, that.updateStrategy))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeClaimTemplates, that.volumeClaimTemplates))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(minReadySeconds,  ordinals,  persistentVolumeClaimRetentionPolicy,  podManagementPolicy,  replicas,  revisionHistoryLimit,  selector,  serviceName,  template,  updateStrategy,  volumeClaimTemplates,  super.hashCode());
+    return Objects.hash(minReadySeconds, ordinals, persistentVolumeClaimRetentionPolicy, podManagementPolicy, replicas, revisionHistoryLimit, selector, serviceName, template, updateStrategy, volumeClaimTemplates);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (minReadySeconds != null) { sb.append("minReadySeconds:"); sb.append(minReadySeconds + ","); }
-    if (ordinals != null) { sb.append("ordinals:"); sb.append(ordinals + ","); }
-    if (persistentVolumeClaimRetentionPolicy != null) { sb.append("persistentVolumeClaimRetentionPolicy:"); sb.append(persistentVolumeClaimRetentionPolicy + ","); }
-    if (podManagementPolicy != null) { sb.append("podManagementPolicy:"); sb.append(podManagementPolicy + ","); }
-    if (replicas != null) { sb.append("replicas:"); sb.append(replicas + ","); }
-    if (revisionHistoryLimit != null) { sb.append("revisionHistoryLimit:"); sb.append(revisionHistoryLimit + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
-    if (serviceName != null) { sb.append("serviceName:"); sb.append(serviceName + ","); }
-    if (template != null) { sb.append("template:"); sb.append(template + ","); }
-    if (updateStrategy != null) { sb.append("updateStrategy:"); sb.append(updateStrategy + ","); }
-    if (volumeClaimTemplates != null && !volumeClaimTemplates.isEmpty()) { sb.append("volumeClaimTemplates:"); sb.append(volumeClaimTemplates); }
+    if (!(minReadySeconds == null)) {
+        sb.append("minReadySeconds:");
+        sb.append(minReadySeconds);
+        sb.append(",");
+    }
+    if (!(ordinals == null)) {
+        sb.append("ordinals:");
+        sb.append(ordinals);
+        sb.append(",");
+    }
+    if (!(persistentVolumeClaimRetentionPolicy == null)) {
+        sb.append("persistentVolumeClaimRetentionPolicy:");
+        sb.append(persistentVolumeClaimRetentionPolicy);
+        sb.append(",");
+    }
+    if (!(podManagementPolicy == null)) {
+        sb.append("podManagementPolicy:");
+        sb.append(podManagementPolicy);
+        sb.append(",");
+    }
+    if (!(replicas == null)) {
+        sb.append("replicas:");
+        sb.append(replicas);
+        sb.append(",");
+    }
+    if (!(revisionHistoryLimit == null)) {
+        sb.append("revisionHistoryLimit:");
+        sb.append(revisionHistoryLimit);
+        sb.append(",");
+    }
+    if (!(selector == null)) {
+        sb.append("selector:");
+        sb.append(selector);
+        sb.append(",");
+    }
+    if (!(serviceName == null)) {
+        sb.append("serviceName:");
+        sb.append(serviceName);
+        sb.append(",");
+    }
+    if (!(template == null)) {
+        sb.append("template:");
+        sb.append(template);
+        sb.append(",");
+    }
+    if (!(updateStrategy == null)) {
+        sb.append("updateStrategy:");
+        sb.append(updateStrategy);
+        sb.append(",");
+    }
+    if (!(volumeClaimTemplates == null) && !(volumeClaimTemplates.isEmpty())) {
+        sb.append("volumeClaimTemplates:");
+        sb.append(volumeClaimTemplates);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -610,7 +729,7 @@ public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1StatefulSetSpecFluent.this.setToVolumeClaimTemplates(index,builder.build());
+      return (N) V1StatefulSetSpecFluent.this.setToVolumeClaimTemplates(index, builder.build());
     }
     
     public N endVolumeClaimTemplate() {

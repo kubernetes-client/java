@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1AffinityBuilder extends V1AffinityFluent<V1AffinityBuilder> implements VisitableBuilder<V1Affinity,V1AffinityBuilder>{
   public V1AffinityBuilder() {
     this(new V1Affinity());

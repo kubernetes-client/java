@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluent<V1NodeSystemInfoBuilder> implements VisitableBuilder<V1NodeSystemInfo,V1NodeSystemInfoBuilder>{
   public V1NodeSystemInfoBuilder() {
     this(new V1NodeSystemInfo());

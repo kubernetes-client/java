@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ConfigMapKeySelector;
+import io.kubernetes.client.openapi.models.V1FileKeySelector;
 import io.kubernetes.client.openapi.models.V1ObjectFieldSelector;
 import io.kubernetes.client.openapi.models.V1ResourceFieldSelector;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
@@ -54,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * EnvVarSource represents a source for the value of an EnvVar.
  */
 @ApiModel(description = "EnvVarSource represents a source for the value of an EnvVar.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EnvVarSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)
@@ -65,6 +66,11 @@ public class V1EnvVarSource {
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
   @jakarta.annotation.Nullable
   private V1ObjectFieldSelector fieldRef;
+
+  public static final String SERIALIZED_NAME_FILE_KEY_REF = "fileKeyRef";
+  @SerializedName(SERIALIZED_NAME_FILE_KEY_REF)
+  @jakarta.annotation.Nullable
+  private V1FileKeySelector fileKeyRef;
 
   public static final String SERIALIZED_NAME_RESOURCE_FIELD_REF = "resourceFieldRef";
   @SerializedName(SERIALIZED_NAME_RESOURCE_FIELD_REF)
@@ -116,6 +122,26 @@ public class V1EnvVarSource {
 
   public void setFieldRef(@jakarta.annotation.Nullable V1ObjectFieldSelector fieldRef) {
     this.fieldRef = fieldRef;
+  }
+
+
+  public V1EnvVarSource fileKeyRef(@jakarta.annotation.Nullable V1FileKeySelector fileKeyRef) {
+    this.fileKeyRef = fileKeyRef;
+    return this;
+  }
+
+  /**
+   * Get fileKeyRef
+   * @return fileKeyRef
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1FileKeySelector getFileKeyRef() {
+    return fileKeyRef;
+  }
+
+  public void setFileKeyRef(@jakarta.annotation.Nullable V1FileKeySelector fileKeyRef) {
+    this.fileKeyRef = fileKeyRef;
   }
 
 
@@ -171,13 +197,14 @@ public class V1EnvVarSource {
     V1EnvVarSource v1EnvVarSource = (V1EnvVarSource) o;
     return Objects.equals(this.configMapKeyRef, v1EnvVarSource.configMapKeyRef) &&
         Objects.equals(this.fieldRef, v1EnvVarSource.fieldRef) &&
+        Objects.equals(this.fileKeyRef, v1EnvVarSource.fileKeyRef) &&
         Objects.equals(this.resourceFieldRef, v1EnvVarSource.resourceFieldRef) &&
         Objects.equals(this.secretKeyRef, v1EnvVarSource.secretKeyRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configMapKeyRef, fieldRef, resourceFieldRef, secretKeyRef);
+    return Objects.hash(configMapKeyRef, fieldRef, fileKeyRef, resourceFieldRef, secretKeyRef);
   }
 
   @Override
@@ -186,6 +213,7 @@ public class V1EnvVarSource {
     sb.append("class V1EnvVarSource {\n");
     sb.append("    configMapKeyRef: ").append(toIndentedString(configMapKeyRef)).append("\n");
     sb.append("    fieldRef: ").append(toIndentedString(fieldRef)).append("\n");
+    sb.append("    fileKeyRef: ").append(toIndentedString(fileKeyRef)).append("\n");
     sb.append("    resourceFieldRef: ").append(toIndentedString(resourceFieldRef)).append("\n");
     sb.append("    secretKeyRef: ").append(toIndentedString(secretKeyRef)).append("\n");
     sb.append("}");
@@ -212,6 +240,7 @@ public class V1EnvVarSource {
     openapiFields = new HashSet<String>();
     openapiFields.add("configMapKeyRef");
     openapiFields.add("fieldRef");
+    openapiFields.add("fileKeyRef");
     openapiFields.add("resourceFieldRef");
     openapiFields.add("secretKeyRef");
 
@@ -247,6 +276,10 @@ public class V1EnvVarSource {
       // validate the optional field `fieldRef`
       if (jsonObj.get("fieldRef") != null && !jsonObj.get("fieldRef").isJsonNull()) {
         V1ObjectFieldSelector.validateJsonElement(jsonObj.get("fieldRef"));
+      }
+      // validate the optional field `fileKeyRef`
+      if (jsonObj.get("fileKeyRef") != null && !jsonObj.get("fileKeyRef").isJsonNull()) {
+        V1FileKeySelector.validateJsonElement(jsonObj.get("fileKeyRef"));
       }
       // validate the optional field `resourceFieldRef`
       if (jsonObj.get("resourceFieldRef") != null && !jsonObj.get("resourceFieldRef").isJsonNull()) {

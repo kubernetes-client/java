@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1IPAddressSpecBuilder extends V1IPAddressSpecFluent<V1IPAddressSpecBuilder> implements VisitableBuilder<V1IPAddressSpec,V1IPAddressSpecBuilder>{
   public V1IPAddressSpecBuilder() {
     this(new V1IPAddressSpec());

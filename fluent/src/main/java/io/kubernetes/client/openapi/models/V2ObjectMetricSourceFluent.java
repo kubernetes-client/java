@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Optional;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>> extends BaseFluent<A>{
+public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2ObjectMetricSourceFluent<A>> extends BaseFluent<A>{
   public V2ObjectMetricSourceFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>>
   private V2MetricTargetBuilder target;
   
   protected void copyInstance(V2ObjectMetricSource instance) {
-    instance = (instance != null ? instance : new V2ObjectMetricSource());
+    instance = instance != null ? instance : new V2ObjectMetricSource();
     if (instance != null) {
-          this.withDescribedObject(instance.getDescribedObject());
-          this.withMetric(instance.getMetric());
-          this.withTarget(instance.getTarget());
-        }
+        this.withDescribedObject(instance.getDescribedObject());
+        this.withMetric(instance.getMetric());
+        this.withTarget(instance.getTarget());
+    }
   }
   
   public V2CrossVersionObjectReference buildDescribedObject() {
@@ -59,15 +62,15 @@ public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>>
   }
   
   public DescribedObjectNested<A> editDescribedObject() {
-    return withNewDescribedObjectLike(java.util.Optional.ofNullable(buildDescribedObject()).orElse(null));
+    return this.withNewDescribedObjectLike(Optional.ofNullable(this.buildDescribedObject()).orElse(null));
   }
   
   public DescribedObjectNested<A> editOrNewDescribedObject() {
-    return withNewDescribedObjectLike(java.util.Optional.ofNullable(buildDescribedObject()).orElse(new V2CrossVersionObjectReferenceBuilder().build()));
+    return this.withNewDescribedObjectLike(Optional.ofNullable(this.buildDescribedObject()).orElse(new V2CrossVersionObjectReferenceBuilder().build()));
   }
   
   public DescribedObjectNested<A> editOrNewDescribedObjectLike(V2CrossVersionObjectReference item) {
-    return withNewDescribedObjectLike(java.util.Optional.ofNullable(buildDescribedObject()).orElse(item));
+    return this.withNewDescribedObjectLike(Optional.ofNullable(this.buildDescribedObject()).orElse(item));
   }
   
   public V2MetricIdentifier buildMetric() {
@@ -99,15 +102,15 @@ public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>>
   }
   
   public MetricNested<A> editMetric() {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(null));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(null));
   }
   
   public MetricNested<A> editOrNewMetric() {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(new V2MetricIdentifierBuilder().build()));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(new V2MetricIdentifierBuilder().build()));
   }
   
   public MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
-    return withNewMetricLike(java.util.Optional.ofNullable(buildMetric()).orElse(item));
+    return this.withNewMetricLike(Optional.ofNullable(this.buildMetric()).orElse(item));
   }
   
   public V2MetricTarget buildTarget() {
@@ -139,38 +142,61 @@ public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>>
   }
   
   public TargetNested<A> editTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(null));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(null));
   }
   
   public TargetNested<A> editOrNewTarget() {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(new V2MetricTargetBuilder().build()));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(new V2MetricTargetBuilder().build()));
   }
   
   public TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
-    return withNewTargetLike(java.util.Optional.ofNullable(buildTarget()).orElse(item));
+    return this.withNewTargetLike(Optional.ofNullable(this.buildTarget()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V2ObjectMetricSourceFluent that = (V2ObjectMetricSourceFluent) o;
-    if (!java.util.Objects.equals(describedObject, that.describedObject)) return false;
-    if (!java.util.Objects.equals(metric, that.metric)) return false;
-    if (!java.util.Objects.equals(target, that.target)) return false;
+    if (!(Objects.equals(describedObject, that.describedObject))) {
+      return false;
+    }
+    if (!(Objects.equals(metric, that.metric))) {
+      return false;
+    }
+    if (!(Objects.equals(target, that.target))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(describedObject,  metric,  target,  super.hashCode());
+    return Objects.hash(describedObject, metric, target);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (describedObject != null) { sb.append("describedObject:"); sb.append(describedObject + ","); }
-    if (metric != null) { sb.append("metric:"); sb.append(metric + ","); }
-    if (target != null) { sb.append("target:"); sb.append(target); }
+    if (!(describedObject == null)) {
+        sb.append("describedObject:");
+        sb.append(describedObject);
+        sb.append(",");
+    }
+    if (!(metric == null)) {
+        sb.append("metric:");
+        sb.append(metric);
+        sb.append(",");
+    }
+    if (!(target == null)) {
+        sb.append("target:");
+        sb.append(target);
+    }
     sb.append("}");
     return sb.toString();
   }

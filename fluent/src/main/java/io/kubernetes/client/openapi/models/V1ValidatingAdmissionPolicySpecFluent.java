@@ -1,14 +1,17 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -16,7 +19,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissionPolicySpecFluent<A>> extends BaseFluent<A>{
+public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicySpecFluent<A>> extends BaseFluent<A>{
   public V1ValidatingAdmissionPolicySpecFluent() {
   }
   
@@ -32,20 +35,22 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   private ArrayList<V1VariableBuilder> variables;
   
   protected void copyInstance(V1ValidatingAdmissionPolicySpec instance) {
-    instance = (instance != null ? instance : new V1ValidatingAdmissionPolicySpec());
+    instance = instance != null ? instance : new V1ValidatingAdmissionPolicySpec();
     if (instance != null) {
-          this.withAuditAnnotations(instance.getAuditAnnotations());
-          this.withFailurePolicy(instance.getFailurePolicy());
-          this.withMatchConditions(instance.getMatchConditions());
-          this.withMatchConstraints(instance.getMatchConstraints());
-          this.withParamKind(instance.getParamKind());
-          this.withValidations(instance.getValidations());
-          this.withVariables(instance.getVariables());
-        }
+        this.withAuditAnnotations(instance.getAuditAnnotations());
+        this.withFailurePolicy(instance.getFailurePolicy());
+        this.withMatchConditions(instance.getMatchConditions());
+        this.withMatchConstraints(instance.getMatchConstraints());
+        this.withParamKind(instance.getParamKind());
+        this.withValidations(instance.getValidations());
+        this.withVariables(instance.getVariables());
+    }
   }
   
   public A addToAuditAnnotations(int index,V1AuditAnnotation item) {
-    if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1AuditAnnotationBuilder>();}
+    if (this.auditAnnotations == null) {
+      this.auditAnnotations = new ArrayList();
+    }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
     if (index < 0 || index >= auditAnnotations.size()) {
         _visitables.get("auditAnnotations").add(builder);
@@ -54,11 +59,13 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("auditAnnotations").add(builder);
         auditAnnotations.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAuditAnnotations(int index,V1AuditAnnotation item) {
-    if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1AuditAnnotationBuilder>();}
+    if (this.auditAnnotations == null) {
+      this.auditAnnotations = new ArrayList();
+    }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
     if (index < 0 || index >= auditAnnotations.size()) {
         _visitables.get("auditAnnotations").add(builder);
@@ -67,41 +74,71 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("auditAnnotations").add(builder);
         auditAnnotations.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAuditAnnotations(io.kubernetes.client.openapi.models.V1AuditAnnotation... items) {
-    if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1AuditAnnotationBuilder>();}
-    for (V1AuditAnnotation item : items) {V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);_visitables.get("auditAnnotations").add(builder);this.auditAnnotations.add(builder);} return (A)this;
+  public A addToAuditAnnotations(V1AuditAnnotation... items) {
+    if (this.auditAnnotations == null) {
+      this.auditAnnotations = new ArrayList();
+    }
+    for (V1AuditAnnotation item : items) {
+        V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
+        _visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAuditAnnotations(Collection<V1AuditAnnotation> items) {
-    if (this.auditAnnotations == null) {this.auditAnnotations = new ArrayList<V1AuditAnnotationBuilder>();}
-    for (V1AuditAnnotation item : items) {V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);_visitables.get("auditAnnotations").add(builder);this.auditAnnotations.add(builder);} return (A)this;
+    if (this.auditAnnotations == null) {
+      this.auditAnnotations = new ArrayList();
+    }
+    for (V1AuditAnnotation item : items) {
+        V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
+        _visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAuditAnnotations(io.kubernetes.client.openapi.models.V1AuditAnnotation... items) {
-    if (this.auditAnnotations == null) return (A)this;
-    for (V1AuditAnnotation item : items) {V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);_visitables.get("auditAnnotations").remove(builder); this.auditAnnotations.remove(builder);} return (A)this;
+  public A removeFromAuditAnnotations(V1AuditAnnotation... items) {
+    if (this.auditAnnotations == null) {
+      return (A) this;
+    }
+    for (V1AuditAnnotation item : items) {
+        V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
+        _visitables.get("auditAnnotations").remove(builder);
+        this.auditAnnotations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAuditAnnotations(Collection<V1AuditAnnotation> items) {
-    if (this.auditAnnotations == null) return (A)this;
-    for (V1AuditAnnotation item : items) {V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);_visitables.get("auditAnnotations").remove(builder); this.auditAnnotations.remove(builder);} return (A)this;
+    if (this.auditAnnotations == null) {
+      return (A) this;
+    }
+    for (V1AuditAnnotation item : items) {
+        V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
+        _visitables.get("auditAnnotations").remove(builder);
+        this.auditAnnotations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAuditAnnotations(Predicate<V1AuditAnnotationBuilder> predicate) {
-    if (auditAnnotations == null) return (A) this;
-    final Iterator<V1AuditAnnotationBuilder> each = auditAnnotations.iterator();
-    final List visitables = _visitables.get("auditAnnotations");
-    while (each.hasNext()) {
-      V1AuditAnnotationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (auditAnnotations == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1AuditAnnotationBuilder> each = auditAnnotations.iterator();
+    List visitables = _visitables.get("auditAnnotations");
+    while (each.hasNext()) {
+        V1AuditAnnotationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1AuditAnnotation> buildAuditAnnotations() {
@@ -153,7 +190,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     return (A) this;
   }
   
-  public A withAuditAnnotations(io.kubernetes.client.openapi.models.V1AuditAnnotation... auditAnnotations) {
+  public A withAuditAnnotations(V1AuditAnnotation... auditAnnotations) {
     if (this.auditAnnotations != null) {
         this.auditAnnotations.clear();
         _visitables.remove("auditAnnotations");
@@ -167,7 +204,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public boolean hasAuditAnnotations() {
-    return this.auditAnnotations != null && !this.auditAnnotations.isEmpty();
+    return this.auditAnnotations != null && !(this.auditAnnotations.isEmpty());
   }
   
   public AuditAnnotationsNested<A> addNewAuditAnnotation() {
@@ -183,28 +220,39 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public AuditAnnotationsNested<A> editAuditAnnotation(int index) {
-    if (auditAnnotations.size() <= index) throw new RuntimeException("Can't edit auditAnnotations. Index exceeds size.");
-    return setNewAuditAnnotationLike(index, buildAuditAnnotation(index));
+    if (index <= auditAnnotations.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "auditAnnotations"));
+    }
+    return this.setNewAuditAnnotationLike(index, this.buildAuditAnnotation(index));
   }
   
   public AuditAnnotationsNested<A> editFirstAuditAnnotation() {
-    if (auditAnnotations.size() == 0) throw new RuntimeException("Can't edit first auditAnnotations. The list is empty.");
-    return setNewAuditAnnotationLike(0, buildAuditAnnotation(0));
+    if (auditAnnotations.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "auditAnnotations"));
+    }
+    return this.setNewAuditAnnotationLike(0, this.buildAuditAnnotation(0));
   }
   
   public AuditAnnotationsNested<A> editLastAuditAnnotation() {
     int index = auditAnnotations.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last auditAnnotations. The list is empty.");
-    return setNewAuditAnnotationLike(index, buildAuditAnnotation(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "auditAnnotations"));
+    }
+    return this.setNewAuditAnnotationLike(index, this.buildAuditAnnotation(index));
   }
   
   public AuditAnnotationsNested<A> editMatchingAuditAnnotation(Predicate<V1AuditAnnotationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<auditAnnotations.size();i++) { 
-    if (predicate.test(auditAnnotations.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching auditAnnotations. No match found.");
-    return setNewAuditAnnotationLike(index, buildAuditAnnotation(index));
+    for (int i = 0;i < auditAnnotations.size();i++) {
+      if (predicate.test(auditAnnotations.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "auditAnnotations"));
+    }
+    return this.setNewAuditAnnotationLike(index, this.buildAuditAnnotation(index));
   }
   
   public String getFailurePolicy() {
@@ -221,7 +269,9 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public A addToMatchConditions(int index,V1MatchCondition item) {
-    if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
+    if (this.matchConditions == null) {
+      this.matchConditions = new ArrayList();
+    }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= matchConditions.size()) {
         _visitables.get("matchConditions").add(builder);
@@ -230,11 +280,13 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("matchConditions").add(builder);
         matchConditions.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMatchConditions(int index,V1MatchCondition item) {
-    if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
+    if (this.matchConditions == null) {
+      this.matchConditions = new ArrayList();
+    }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= matchConditions.size()) {
         _visitables.get("matchConditions").add(builder);
@@ -243,41 +295,71 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("matchConditions").add(builder);
         matchConditions.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... items) {
-    if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
-    for (V1MatchCondition item : items) {V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);_visitables.get("matchConditions").add(builder);this.matchConditions.add(builder);} return (A)this;
+  public A addToMatchConditions(V1MatchCondition... items) {
+    if (this.matchConditions == null) {
+      this.matchConditions = new ArrayList();
+    }
+    for (V1MatchCondition item : items) {
+        V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
+        _visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToMatchConditions(Collection<V1MatchCondition> items) {
-    if (this.matchConditions == null) {this.matchConditions = new ArrayList<V1MatchConditionBuilder>();}
-    for (V1MatchCondition item : items) {V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);_visitables.get("matchConditions").add(builder);this.matchConditions.add(builder);} return (A)this;
+    if (this.matchConditions == null) {
+      this.matchConditions = new ArrayList();
+    }
+    for (V1MatchCondition item : items) {
+        V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
+        _visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... items) {
-    if (this.matchConditions == null) return (A)this;
-    for (V1MatchCondition item : items) {V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);_visitables.get("matchConditions").remove(builder); this.matchConditions.remove(builder);} return (A)this;
+  public A removeFromMatchConditions(V1MatchCondition... items) {
+    if (this.matchConditions == null) {
+      return (A) this;
+    }
+    for (V1MatchCondition item : items) {
+        V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
+        _visitables.get("matchConditions").remove(builder);
+        this.matchConditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMatchConditions(Collection<V1MatchCondition> items) {
-    if (this.matchConditions == null) return (A)this;
-    for (V1MatchCondition item : items) {V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);_visitables.get("matchConditions").remove(builder); this.matchConditions.remove(builder);} return (A)this;
+    if (this.matchConditions == null) {
+      return (A) this;
+    }
+    for (V1MatchCondition item : items) {
+        V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
+        _visitables.get("matchConditions").remove(builder);
+        this.matchConditions.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromMatchConditions(Predicate<V1MatchConditionBuilder> predicate) {
-    if (matchConditions == null) return (A) this;
-    final Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
-    final List visitables = _visitables.get("matchConditions");
-    while (each.hasNext()) {
-      V1MatchConditionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (matchConditions == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
+    List visitables = _visitables.get("matchConditions");
+    while (each.hasNext()) {
+        V1MatchConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1MatchCondition> buildMatchConditions() {
@@ -329,7 +411,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     return (A) this;
   }
   
-  public A withMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... matchConditions) {
+  public A withMatchConditions(V1MatchCondition... matchConditions) {
     if (this.matchConditions != null) {
         this.matchConditions.clear();
         _visitables.remove("matchConditions");
@@ -343,7 +425,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public boolean hasMatchConditions() {
-    return this.matchConditions != null && !this.matchConditions.isEmpty();
+    return this.matchConditions != null && !(this.matchConditions.isEmpty());
   }
   
   public MatchConditionsNested<A> addNewMatchCondition() {
@@ -359,28 +441,39 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public MatchConditionsNested<A> editMatchCondition(int index) {
-    if (matchConditions.size() <= index) throw new RuntimeException("Can't edit matchConditions. Index exceeds size.");
-    return setNewMatchConditionLike(index, buildMatchCondition(index));
+    if (index <= matchConditions.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "matchConditions"));
+    }
+    return this.setNewMatchConditionLike(index, this.buildMatchCondition(index));
   }
   
   public MatchConditionsNested<A> editFirstMatchCondition() {
-    if (matchConditions.size() == 0) throw new RuntimeException("Can't edit first matchConditions. The list is empty.");
-    return setNewMatchConditionLike(0, buildMatchCondition(0));
+    if (matchConditions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "matchConditions"));
+    }
+    return this.setNewMatchConditionLike(0, this.buildMatchCondition(0));
   }
   
   public MatchConditionsNested<A> editLastMatchCondition() {
     int index = matchConditions.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last matchConditions. The list is empty.");
-    return setNewMatchConditionLike(index, buildMatchCondition(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "matchConditions"));
+    }
+    return this.setNewMatchConditionLike(index, this.buildMatchCondition(index));
   }
   
   public MatchConditionsNested<A> editMatchingMatchCondition(Predicate<V1MatchConditionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<matchConditions.size();i++) { 
-    if (predicate.test(matchConditions.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching matchConditions. No match found.");
-    return setNewMatchConditionLike(index, buildMatchCondition(index));
+    for (int i = 0;i < matchConditions.size();i++) {
+      if (predicate.test(matchConditions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "matchConditions"));
+    }
+    return this.setNewMatchConditionLike(index, this.buildMatchCondition(index));
   }
   
   public V1MatchResources buildMatchConstraints() {
@@ -412,15 +505,15 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public MatchConstraintsNested<A> editMatchConstraints() {
-    return withNewMatchConstraintsLike(java.util.Optional.ofNullable(buildMatchConstraints()).orElse(null));
+    return this.withNewMatchConstraintsLike(Optional.ofNullable(this.buildMatchConstraints()).orElse(null));
   }
   
   public MatchConstraintsNested<A> editOrNewMatchConstraints() {
-    return withNewMatchConstraintsLike(java.util.Optional.ofNullable(buildMatchConstraints()).orElse(new V1MatchResourcesBuilder().build()));
+    return this.withNewMatchConstraintsLike(Optional.ofNullable(this.buildMatchConstraints()).orElse(new V1MatchResourcesBuilder().build()));
   }
   
   public MatchConstraintsNested<A> editOrNewMatchConstraintsLike(V1MatchResources item) {
-    return withNewMatchConstraintsLike(java.util.Optional.ofNullable(buildMatchConstraints()).orElse(item));
+    return this.withNewMatchConstraintsLike(Optional.ofNullable(this.buildMatchConstraints()).orElse(item));
   }
   
   public V1ParamKind buildParamKind() {
@@ -452,19 +545,21 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public ParamKindNested<A> editParamKind() {
-    return withNewParamKindLike(java.util.Optional.ofNullable(buildParamKind()).orElse(null));
+    return this.withNewParamKindLike(Optional.ofNullable(this.buildParamKind()).orElse(null));
   }
   
   public ParamKindNested<A> editOrNewParamKind() {
-    return withNewParamKindLike(java.util.Optional.ofNullable(buildParamKind()).orElse(new V1ParamKindBuilder().build()));
+    return this.withNewParamKindLike(Optional.ofNullable(this.buildParamKind()).orElse(new V1ParamKindBuilder().build()));
   }
   
   public ParamKindNested<A> editOrNewParamKindLike(V1ParamKind item) {
-    return withNewParamKindLike(java.util.Optional.ofNullable(buildParamKind()).orElse(item));
+    return this.withNewParamKindLike(Optional.ofNullable(this.buildParamKind()).orElse(item));
   }
   
   public A addToValidations(int index,V1Validation item) {
-    if (this.validations == null) {this.validations = new ArrayList<V1ValidationBuilder>();}
+    if (this.validations == null) {
+      this.validations = new ArrayList();
+    }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
     if (index < 0 || index >= validations.size()) {
         _visitables.get("validations").add(builder);
@@ -473,11 +568,13 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("validations").add(builder);
         validations.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToValidations(int index,V1Validation item) {
-    if (this.validations == null) {this.validations = new ArrayList<V1ValidationBuilder>();}
+    if (this.validations == null) {
+      this.validations = new ArrayList();
+    }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
     if (index < 0 || index >= validations.size()) {
         _visitables.get("validations").add(builder);
@@ -486,41 +583,71 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("validations").add(builder);
         validations.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToValidations(io.kubernetes.client.openapi.models.V1Validation... items) {
-    if (this.validations == null) {this.validations = new ArrayList<V1ValidationBuilder>();}
-    for (V1Validation item : items) {V1ValidationBuilder builder = new V1ValidationBuilder(item);_visitables.get("validations").add(builder);this.validations.add(builder);} return (A)this;
+  public A addToValidations(V1Validation... items) {
+    if (this.validations == null) {
+      this.validations = new ArrayList();
+    }
+    for (V1Validation item : items) {
+        V1ValidationBuilder builder = new V1ValidationBuilder(item);
+        _visitables.get("validations").add(builder);
+        this.validations.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToValidations(Collection<V1Validation> items) {
-    if (this.validations == null) {this.validations = new ArrayList<V1ValidationBuilder>();}
-    for (V1Validation item : items) {V1ValidationBuilder builder = new V1ValidationBuilder(item);_visitables.get("validations").add(builder);this.validations.add(builder);} return (A)this;
+    if (this.validations == null) {
+      this.validations = new ArrayList();
+    }
+    for (V1Validation item : items) {
+        V1ValidationBuilder builder = new V1ValidationBuilder(item);
+        _visitables.get("validations").add(builder);
+        this.validations.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromValidations(io.kubernetes.client.openapi.models.V1Validation... items) {
-    if (this.validations == null) return (A)this;
-    for (V1Validation item : items) {V1ValidationBuilder builder = new V1ValidationBuilder(item);_visitables.get("validations").remove(builder); this.validations.remove(builder);} return (A)this;
+  public A removeFromValidations(V1Validation... items) {
+    if (this.validations == null) {
+      return (A) this;
+    }
+    for (V1Validation item : items) {
+        V1ValidationBuilder builder = new V1ValidationBuilder(item);
+        _visitables.get("validations").remove(builder);
+        this.validations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromValidations(Collection<V1Validation> items) {
-    if (this.validations == null) return (A)this;
-    for (V1Validation item : items) {V1ValidationBuilder builder = new V1ValidationBuilder(item);_visitables.get("validations").remove(builder); this.validations.remove(builder);} return (A)this;
+    if (this.validations == null) {
+      return (A) this;
+    }
+    for (V1Validation item : items) {
+        V1ValidationBuilder builder = new V1ValidationBuilder(item);
+        _visitables.get("validations").remove(builder);
+        this.validations.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromValidations(Predicate<V1ValidationBuilder> predicate) {
-    if (validations == null) return (A) this;
-    final Iterator<V1ValidationBuilder> each = validations.iterator();
-    final List visitables = _visitables.get("validations");
-    while (each.hasNext()) {
-      V1ValidationBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (validations == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ValidationBuilder> each = validations.iterator();
+    List visitables = _visitables.get("validations");
+    while (each.hasNext()) {
+        V1ValidationBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Validation> buildValidations() {
@@ -572,7 +699,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     return (A) this;
   }
   
-  public A withValidations(io.kubernetes.client.openapi.models.V1Validation... validations) {
+  public A withValidations(V1Validation... validations) {
     if (this.validations != null) {
         this.validations.clear();
         _visitables.remove("validations");
@@ -586,7 +713,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public boolean hasValidations() {
-    return this.validations != null && !this.validations.isEmpty();
+    return this.validations != null && !(this.validations.isEmpty());
   }
   
   public ValidationsNested<A> addNewValidation() {
@@ -602,32 +729,45 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public ValidationsNested<A> editValidation(int index) {
-    if (validations.size() <= index) throw new RuntimeException("Can't edit validations. Index exceeds size.");
-    return setNewValidationLike(index, buildValidation(index));
+    if (index <= validations.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "validations"));
+    }
+    return this.setNewValidationLike(index, this.buildValidation(index));
   }
   
   public ValidationsNested<A> editFirstValidation() {
-    if (validations.size() == 0) throw new RuntimeException("Can't edit first validations. The list is empty.");
-    return setNewValidationLike(0, buildValidation(0));
+    if (validations.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "validations"));
+    }
+    return this.setNewValidationLike(0, this.buildValidation(0));
   }
   
   public ValidationsNested<A> editLastValidation() {
     int index = validations.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last validations. The list is empty.");
-    return setNewValidationLike(index, buildValidation(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "validations"));
+    }
+    return this.setNewValidationLike(index, this.buildValidation(index));
   }
   
   public ValidationsNested<A> editMatchingValidation(Predicate<V1ValidationBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<validations.size();i++) { 
-    if (predicate.test(validations.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching validations. No match found.");
-    return setNewValidationLike(index, buildValidation(index));
+    for (int i = 0;i < validations.size();i++) {
+      if (predicate.test(validations.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "validations"));
+    }
+    return this.setNewValidationLike(index, this.buildValidation(index));
   }
   
   public A addToVariables(int index,V1Variable item) {
-    if (this.variables == null) {this.variables = new ArrayList<V1VariableBuilder>();}
+    if (this.variables == null) {
+      this.variables = new ArrayList();
+    }
     V1VariableBuilder builder = new V1VariableBuilder(item);
     if (index < 0 || index >= variables.size()) {
         _visitables.get("variables").add(builder);
@@ -636,11 +776,13 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("variables").add(builder);
         variables.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVariables(int index,V1Variable item) {
-    if (this.variables == null) {this.variables = new ArrayList<V1VariableBuilder>();}
+    if (this.variables == null) {
+      this.variables = new ArrayList();
+    }
     V1VariableBuilder builder = new V1VariableBuilder(item);
     if (index < 0 || index >= variables.size()) {
         _visitables.get("variables").add(builder);
@@ -649,41 +791,71 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
         _visitables.get("variables").add(builder);
         variables.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVariables(io.kubernetes.client.openapi.models.V1Variable... items) {
-    if (this.variables == null) {this.variables = new ArrayList<V1VariableBuilder>();}
-    for (V1Variable item : items) {V1VariableBuilder builder = new V1VariableBuilder(item);_visitables.get("variables").add(builder);this.variables.add(builder);} return (A)this;
+  public A addToVariables(V1Variable... items) {
+    if (this.variables == null) {
+      this.variables = new ArrayList();
+    }
+    for (V1Variable item : items) {
+        V1VariableBuilder builder = new V1VariableBuilder(item);
+        _visitables.get("variables").add(builder);
+        this.variables.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVariables(Collection<V1Variable> items) {
-    if (this.variables == null) {this.variables = new ArrayList<V1VariableBuilder>();}
-    for (V1Variable item : items) {V1VariableBuilder builder = new V1VariableBuilder(item);_visitables.get("variables").add(builder);this.variables.add(builder);} return (A)this;
+    if (this.variables == null) {
+      this.variables = new ArrayList();
+    }
+    for (V1Variable item : items) {
+        V1VariableBuilder builder = new V1VariableBuilder(item);
+        _visitables.get("variables").add(builder);
+        this.variables.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVariables(io.kubernetes.client.openapi.models.V1Variable... items) {
-    if (this.variables == null) return (A)this;
-    for (V1Variable item : items) {V1VariableBuilder builder = new V1VariableBuilder(item);_visitables.get("variables").remove(builder); this.variables.remove(builder);} return (A)this;
+  public A removeFromVariables(V1Variable... items) {
+    if (this.variables == null) {
+      return (A) this;
+    }
+    for (V1Variable item : items) {
+        V1VariableBuilder builder = new V1VariableBuilder(item);
+        _visitables.get("variables").remove(builder);
+        this.variables.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVariables(Collection<V1Variable> items) {
-    if (this.variables == null) return (A)this;
-    for (V1Variable item : items) {V1VariableBuilder builder = new V1VariableBuilder(item);_visitables.get("variables").remove(builder); this.variables.remove(builder);} return (A)this;
+    if (this.variables == null) {
+      return (A) this;
+    }
+    for (V1Variable item : items) {
+        V1VariableBuilder builder = new V1VariableBuilder(item);
+        _visitables.get("variables").remove(builder);
+        this.variables.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVariables(Predicate<V1VariableBuilder> predicate) {
-    if (variables == null) return (A) this;
-    final Iterator<V1VariableBuilder> each = variables.iterator();
-    final List visitables = _visitables.get("variables");
-    while (each.hasNext()) {
-      V1VariableBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (variables == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1VariableBuilder> each = variables.iterator();
+    List visitables = _visitables.get("variables");
+    while (each.hasNext()) {
+        V1VariableBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1Variable> buildVariables() {
@@ -735,7 +907,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     return (A) this;
   }
   
-  public A withVariables(io.kubernetes.client.openapi.models.V1Variable... variables) {
+  public A withVariables(V1Variable... variables) {
     if (this.variables != null) {
         this.variables.clear();
         _visitables.remove("variables");
@@ -749,7 +921,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public boolean hasVariables() {
-    return this.variables != null && !this.variables.isEmpty();
+    return this.variables != null && !(this.variables.isEmpty());
   }
   
   public VariablesNested<A> addNewVariable() {
@@ -765,59 +937,117 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
   }
   
   public VariablesNested<A> editVariable(int index) {
-    if (variables.size() <= index) throw new RuntimeException("Can't edit variables. Index exceeds size.");
-    return setNewVariableLike(index, buildVariable(index));
+    if (index <= variables.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "variables"));
+    }
+    return this.setNewVariableLike(index, this.buildVariable(index));
   }
   
   public VariablesNested<A> editFirstVariable() {
-    if (variables.size() == 0) throw new RuntimeException("Can't edit first variables. The list is empty.");
-    return setNewVariableLike(0, buildVariable(0));
+    if (variables.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "variables"));
+    }
+    return this.setNewVariableLike(0, this.buildVariable(0));
   }
   
   public VariablesNested<A> editLastVariable() {
     int index = variables.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last variables. The list is empty.");
-    return setNewVariableLike(index, buildVariable(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "variables"));
+    }
+    return this.setNewVariableLike(index, this.buildVariable(index));
   }
   
   public VariablesNested<A> editMatchingVariable(Predicate<V1VariableBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<variables.size();i++) { 
-    if (predicate.test(variables.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching variables. No match found.");
-    return setNewVariableLike(index, buildVariable(index));
+    for (int i = 0;i < variables.size();i++) {
+      if (predicate.test(variables.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "variables"));
+    }
+    return this.setNewVariableLike(index, this.buildVariable(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ValidatingAdmissionPolicySpecFluent that = (V1ValidatingAdmissionPolicySpecFluent) o;
-    if (!java.util.Objects.equals(auditAnnotations, that.auditAnnotations)) return false;
-    if (!java.util.Objects.equals(failurePolicy, that.failurePolicy)) return false;
-    if (!java.util.Objects.equals(matchConditions, that.matchConditions)) return false;
-    if (!java.util.Objects.equals(matchConstraints, that.matchConstraints)) return false;
-    if (!java.util.Objects.equals(paramKind, that.paramKind)) return false;
-    if (!java.util.Objects.equals(validations, that.validations)) return false;
-    if (!java.util.Objects.equals(variables, that.variables)) return false;
+    if (!(Objects.equals(auditAnnotations, that.auditAnnotations))) {
+      return false;
+    }
+    if (!(Objects.equals(failurePolicy, that.failurePolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(matchConditions, that.matchConditions))) {
+      return false;
+    }
+    if (!(Objects.equals(matchConstraints, that.matchConstraints))) {
+      return false;
+    }
+    if (!(Objects.equals(paramKind, that.paramKind))) {
+      return false;
+    }
+    if (!(Objects.equals(validations, that.validations))) {
+      return false;
+    }
+    if (!(Objects.equals(variables, that.variables))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(auditAnnotations,  failurePolicy,  matchConditions,  matchConstraints,  paramKind,  validations,  variables,  super.hashCode());
+    return Objects.hash(auditAnnotations, failurePolicy, matchConditions, matchConstraints, paramKind, validations, variables);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (auditAnnotations != null && !auditAnnotations.isEmpty()) { sb.append("auditAnnotations:"); sb.append(auditAnnotations + ","); }
-    if (failurePolicy != null) { sb.append("failurePolicy:"); sb.append(failurePolicy + ","); }
-    if (matchConditions != null && !matchConditions.isEmpty()) { sb.append("matchConditions:"); sb.append(matchConditions + ","); }
-    if (matchConstraints != null) { sb.append("matchConstraints:"); sb.append(matchConstraints + ","); }
-    if (paramKind != null) { sb.append("paramKind:"); sb.append(paramKind + ","); }
-    if (validations != null && !validations.isEmpty()) { sb.append("validations:"); sb.append(validations + ","); }
-    if (variables != null && !variables.isEmpty()) { sb.append("variables:"); sb.append(variables); }
+    if (!(auditAnnotations == null) && !(auditAnnotations.isEmpty())) {
+        sb.append("auditAnnotations:");
+        sb.append(auditAnnotations);
+        sb.append(",");
+    }
+    if (!(failurePolicy == null)) {
+        sb.append("failurePolicy:");
+        sb.append(failurePolicy);
+        sb.append(",");
+    }
+    if (!(matchConditions == null) && !(matchConditions.isEmpty())) {
+        sb.append("matchConditions:");
+        sb.append(matchConditions);
+        sb.append(",");
+    }
+    if (!(matchConstraints == null)) {
+        sb.append("matchConstraints:");
+        sb.append(matchConstraints);
+        sb.append(",");
+    }
+    if (!(paramKind == null)) {
+        sb.append("paramKind:");
+        sb.append(paramKind);
+        sb.append(",");
+    }
+    if (!(validations == null) && !(validations.isEmpty())) {
+        sb.append("validations:");
+        sb.append(validations);
+        sb.append(",");
+    }
+    if (!(variables == null) && !(variables.isEmpty())) {
+        sb.append("variables:");
+        sb.append(variables);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -830,7 +1060,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     int index;
     
     public N and() {
-      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToAuditAnnotations(index,builder.build());
+      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToAuditAnnotations(index, builder.build());
     }
     
     public N endAuditAnnotation() {
@@ -848,7 +1078,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     int index;
     
     public N and() {
-      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToMatchConditions(index,builder.build());
+      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToMatchConditions(index, builder.build());
     }
     
     public N endMatchCondition() {
@@ -898,7 +1128,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     int index;
     
     public N and() {
-      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToValidations(index,builder.build());
+      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToValidations(index, builder.build());
     }
     
     public N endValidation() {
@@ -916,7 +1146,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissi
     int index;
     
     public N and() {
-      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToVariables(index,builder.build());
+      return (N) V1ValidatingAdmissionPolicySpecFluent.this.setToVariables(index, builder.build());
     }
     
     public N endVariable() {

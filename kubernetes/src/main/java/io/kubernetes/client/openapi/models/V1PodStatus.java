@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ContainerStatus;
 import io.kubernetes.client.openapi.models.V1HostIP;
 import io.kubernetes.client.openapi.models.V1PodCondition;
+import io.kubernetes.client.openapi.models.V1PodExtendedResourceClaimStatus;
 import io.kubernetes.client.openapi.models.V1PodIP;
 import io.kubernetes.client.openapi.models.V1PodResourceClaimStatus;
 import io.swagger.annotations.ApiModel;
@@ -58,7 +59,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.
  */
 @ApiModel(description = "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -74,6 +75,11 @@ public class V1PodStatus {
   @SerializedName(SERIALIZED_NAME_EPHEMERAL_CONTAINER_STATUSES)
   @jakarta.annotation.Nullable
   private List<V1ContainerStatus> ephemeralContainerStatuses = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXTENDED_RESOURCE_CLAIM_STATUS = "extendedResourceClaimStatus";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_RESOURCE_CLAIM_STATUS)
+  @jakarta.annotation.Nullable
+  private V1PodExtendedResourceClaimStatus extendedResourceClaimStatus;
 
   public static final String SERIALIZED_NAME_HOST_I_P = "hostIP";
   @SerializedName(SERIALIZED_NAME_HOST_I_P)
@@ -229,6 +235,26 @@ public class V1PodStatus {
 
   public void setEphemeralContainerStatuses(@jakarta.annotation.Nullable List<V1ContainerStatus> ephemeralContainerStatuses) {
     this.ephemeralContainerStatuses = ephemeralContainerStatuses;
+  }
+
+
+  public V1PodStatus extendedResourceClaimStatus(@jakarta.annotation.Nullable V1PodExtendedResourceClaimStatus extendedResourceClaimStatus) {
+    this.extendedResourceClaimStatus = extendedResourceClaimStatus;
+    return this;
+  }
+
+  /**
+   * Get extendedResourceClaimStatus
+   * @return extendedResourceClaimStatus
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1PodExtendedResourceClaimStatus getExtendedResourceClaimStatus() {
+    return extendedResourceClaimStatus;
+  }
+
+  public void setExtendedResourceClaimStatus(@jakarta.annotation.Nullable V1PodExtendedResourceClaimStatus extendedResourceClaimStatus) {
+    this.extendedResourceClaimStatus = extendedResourceClaimStatus;
   }
 
 
@@ -557,6 +583,7 @@ public class V1PodStatus {
     return Objects.equals(this.conditions, v1PodStatus.conditions) &&
         Objects.equals(this.containerStatuses, v1PodStatus.containerStatuses) &&
         Objects.equals(this.ephemeralContainerStatuses, v1PodStatus.ephemeralContainerStatuses) &&
+        Objects.equals(this.extendedResourceClaimStatus, v1PodStatus.extendedResourceClaimStatus) &&
         Objects.equals(this.hostIP, v1PodStatus.hostIP) &&
         Objects.equals(this.hostIPs, v1PodStatus.hostIPs) &&
         Objects.equals(this.initContainerStatuses, v1PodStatus.initContainerStatuses) &&
@@ -575,7 +602,7 @@ public class V1PodStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
+    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, extendedResourceClaimStatus, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
   }
 
   @Override
@@ -585,6 +612,7 @@ public class V1PodStatus {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    containerStatuses: ").append(toIndentedString(containerStatuses)).append("\n");
     sb.append("    ephemeralContainerStatuses: ").append(toIndentedString(ephemeralContainerStatuses)).append("\n");
+    sb.append("    extendedResourceClaimStatus: ").append(toIndentedString(extendedResourceClaimStatus)).append("\n");
     sb.append("    hostIP: ").append(toIndentedString(hostIP)).append("\n");
     sb.append("    hostIPs: ").append(toIndentedString(hostIPs)).append("\n");
     sb.append("    initContainerStatuses: ").append(toIndentedString(initContainerStatuses)).append("\n");
@@ -624,6 +652,7 @@ public class V1PodStatus {
     openapiFields.add("conditions");
     openapiFields.add("containerStatuses");
     openapiFields.add("ephemeralContainerStatuses");
+    openapiFields.add("extendedResourceClaimStatus");
     openapiFields.add("hostIP");
     openapiFields.add("hostIPs");
     openapiFields.add("initContainerStatuses");
@@ -705,6 +734,10 @@ public class V1PodStatus {
             V1ContainerStatus.validateJsonElement(jsonArrayephemeralContainerStatuses.get(i));
           };
         }
+      }
+      // validate the optional field `extendedResourceClaimStatus`
+      if (jsonObj.get("extendedResourceClaimStatus") != null && !jsonObj.get("extendedResourceClaimStatus").isJsonNull()) {
+        V1PodExtendedResourceClaimStatus.validateJsonElement(jsonObj.get("extendedResourceClaimStatus"));
       }
       if ((jsonObj.get("hostIP") != null && !jsonObj.get("hostIP").isJsonNull()) && !jsonObj.get("hostIP").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostIP").toString()));

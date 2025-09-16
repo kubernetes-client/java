@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1beta1ResourceClaimStatusBuilder extends V1beta1ResourceClaimStatusFluent<V1beta1ResourceClaimStatusBuilder> implements VisitableBuilder<V1beta1ResourceClaimStatus,V1beta1ResourceClaimStatusBuilder>{
   public V1beta1ResourceClaimStatusBuilder() {
     this(new V1beta1ResourceClaimStatus());

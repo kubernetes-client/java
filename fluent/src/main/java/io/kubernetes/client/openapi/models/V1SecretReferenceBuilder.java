@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SecretReferenceBuilder extends V1SecretReferenceFluent<V1SecretReferenceBuilder> implements VisitableBuilder<V1SecretReference,V1SecretReferenceBuilder>{
   public V1SecretReferenceBuilder() {
     this(new V1SecretReference());

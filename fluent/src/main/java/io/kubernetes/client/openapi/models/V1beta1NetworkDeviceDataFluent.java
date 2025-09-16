@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1NetworkDeviceDataFluent<A extends V1beta1NetworkDeviceDataFluent<A>> extends BaseFluent<A>{
+public class V1beta1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.models.V1beta1NetworkDeviceDataFluent<A>> extends BaseFluent<A>{
   public V1beta1NetworkDeviceDataFluent() {
   }
   
@@ -25,12 +27,12 @@ public class V1beta1NetworkDeviceDataFluent<A extends V1beta1NetworkDeviceDataFl
   private List<String> ips;
   
   protected void copyInstance(V1beta1NetworkDeviceData instance) {
-    instance = (instance != null ? instance : new V1beta1NetworkDeviceData());
+    instance = instance != null ? instance : new V1beta1NetworkDeviceData();
     if (instance != null) {
-          this.withHardwareAddress(instance.getHardwareAddress());
-          this.withInterfaceName(instance.getInterfaceName());
-          this.withIps(instance.getIps());
-        }
+        this.withHardwareAddress(instance.getHardwareAddress());
+        this.withInterfaceName(instance.getInterfaceName());
+        this.withIps(instance.getIps());
+    }
   }
   
   public String getHardwareAddress() {
@@ -60,34 +62,59 @@ public class V1beta1NetworkDeviceDataFluent<A extends V1beta1NetworkDeviceDataFl
   }
   
   public A addToIps(int index,String item) {
-    if (this.ips == null) {this.ips = new ArrayList<String>();}
+    if (this.ips == null) {
+      this.ips = new ArrayList();
+    }
     this.ips.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToIps(int index,String item) {
-    if (this.ips == null) {this.ips = new ArrayList<String>();}
-    this.ips.set(index, item); return (A)this;
+    if (this.ips == null) {
+      this.ips = new ArrayList();
+    }
+    this.ips.set(index, item);
+    return (A) this;
   }
   
-  public A addToIps(java.lang.String... items) {
-    if (this.ips == null) {this.ips = new ArrayList<String>();}
-    for (String item : items) {this.ips.add(item);} return (A)this;
+  public A addToIps(String... items) {
+    if (this.ips == null) {
+      this.ips = new ArrayList();
+    }
+    for (String item : items) {
+      this.ips.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToIps(Collection<String> items) {
-    if (this.ips == null) {this.ips = new ArrayList<String>();}
-    for (String item : items) {this.ips.add(item);} return (A)this;
+    if (this.ips == null) {
+      this.ips = new ArrayList();
+    }
+    for (String item : items) {
+      this.ips.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromIps(java.lang.String... items) {
-    if (this.ips == null) return (A)this;
-    for (String item : items) { this.ips.remove(item);} return (A)this;
+  public A removeFromIps(String... items) {
+    if (this.ips == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.ips.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromIps(Collection<String> items) {
-    if (this.ips == null) return (A)this;
-    for (String item : items) { this.ips.remove(item);} return (A)this;
+    if (this.ips == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.ips.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getIps() {
@@ -136,7 +163,7 @@ public class V1beta1NetworkDeviceDataFluent<A extends V1beta1NetworkDeviceDataFl
     return (A) this;
   }
   
-  public A withIps(java.lang.String... ips) {
+  public A withIps(String... ips) {
     if (this.ips != null) {
         this.ips.clear();
         _visitables.remove("ips");
@@ -150,30 +177,53 @@ public class V1beta1NetworkDeviceDataFluent<A extends V1beta1NetworkDeviceDataFl
   }
   
   public boolean hasIps() {
-    return this.ips != null && !this.ips.isEmpty();
+    return this.ips != null && !(this.ips.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1NetworkDeviceDataFluent that = (V1beta1NetworkDeviceDataFluent) o;
-    if (!java.util.Objects.equals(hardwareAddress, that.hardwareAddress)) return false;
-    if (!java.util.Objects.equals(interfaceName, that.interfaceName)) return false;
-    if (!java.util.Objects.equals(ips, that.ips)) return false;
+    if (!(Objects.equals(hardwareAddress, that.hardwareAddress))) {
+      return false;
+    }
+    if (!(Objects.equals(interfaceName, that.interfaceName))) {
+      return false;
+    }
+    if (!(Objects.equals(ips, that.ips))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(hardwareAddress,  interfaceName,  ips,  super.hashCode());
+    return Objects.hash(hardwareAddress, interfaceName, ips);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (hardwareAddress != null) { sb.append("hardwareAddress:"); sb.append(hardwareAddress + ","); }
-    if (interfaceName != null) { sb.append("interfaceName:"); sb.append(interfaceName + ","); }
-    if (ips != null && !ips.isEmpty()) { sb.append("ips:"); sb.append(ips); }
+    if (!(hardwareAddress == null)) {
+        sb.append("hardwareAddress:");
+        sb.append(hardwareAddress);
+        sb.append(",");
+    }
+    if (!(interfaceName == null)) {
+        sb.append("interfaceName:");
+        sb.append(interfaceName);
+        sb.append(",");
+    }
+    if (!(ips == null) && !(ips.isEmpty())) {
+        sb.append("ips:");
+        sb.append(ips);
+    }
     sb.append("}");
     return sb.toString();
   }

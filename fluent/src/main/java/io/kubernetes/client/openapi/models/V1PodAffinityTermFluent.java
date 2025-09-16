@@ -1,11 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> extends BaseFluent<A>{
+public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<A>> extends BaseFluent<A>{
   public V1PodAffinityTermFluent() {
   }
   
@@ -29,15 +32,15 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   private String topologyKey;
   
   protected void copyInstance(V1PodAffinityTerm instance) {
-    instance = (instance != null ? instance : new V1PodAffinityTerm());
+    instance = instance != null ? instance : new V1PodAffinityTerm();
     if (instance != null) {
-          this.withLabelSelector(instance.getLabelSelector());
-          this.withMatchLabelKeys(instance.getMatchLabelKeys());
-          this.withMismatchLabelKeys(instance.getMismatchLabelKeys());
-          this.withNamespaceSelector(instance.getNamespaceSelector());
-          this.withNamespaces(instance.getNamespaces());
-          this.withTopologyKey(instance.getTopologyKey());
-        }
+        this.withLabelSelector(instance.getLabelSelector());
+        this.withMatchLabelKeys(instance.getMatchLabelKeys());
+        this.withMismatchLabelKeys(instance.getMismatchLabelKeys());
+        this.withNamespaceSelector(instance.getNamespaceSelector());
+        this.withNamespaces(instance.getNamespaces());
+        this.withTopologyKey(instance.getTopologyKey());
+    }
   }
   
   public V1LabelSelector buildLabelSelector() {
@@ -69,46 +72,71 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public LabelSelectorNested<A> editLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(null));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(null));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelector() {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
-    return withNewLabelSelectorLike(java.util.Optional.ofNullable(buildLabelSelector()).orElse(item));
+    return this.withNewLabelSelectorLike(Optional.ofNullable(this.buildLabelSelector()).orElse(item));
   }
   
   public A addToMatchLabelKeys(int index,String item) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
     this.matchLabelKeys.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMatchLabelKeys(int index,String item) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    this.matchLabelKeys.set(index, item); return (A)this;
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    this.matchLabelKeys.set(index, item);
+    return (A) this;
   }
   
-  public A addToMatchLabelKeys(java.lang.String... items) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.matchLabelKeys.add(item);} return (A)this;
+  public A addToMatchLabelKeys(String... items) {
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.matchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMatchLabelKeys(Collection<String> items) {
-    if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.matchLabelKeys.add(item);} return (A)this;
+    if (this.matchLabelKeys == null) {
+      this.matchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.matchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMatchLabelKeys(java.lang.String... items) {
-    if (this.matchLabelKeys == null) return (A)this;
-    for (String item : items) { this.matchLabelKeys.remove(item);} return (A)this;
+  public A removeFromMatchLabelKeys(String... items) {
+    if (this.matchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.matchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMatchLabelKeys(Collection<String> items) {
-    if (this.matchLabelKeys == null) return (A)this;
-    for (String item : items) { this.matchLabelKeys.remove(item);} return (A)this;
+    if (this.matchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.matchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMatchLabelKeys() {
@@ -157,7 +185,7 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
     return (A) this;
   }
   
-  public A withMatchLabelKeys(java.lang.String... matchLabelKeys) {
+  public A withMatchLabelKeys(String... matchLabelKeys) {
     if (this.matchLabelKeys != null) {
         this.matchLabelKeys.clear();
         _visitables.remove("matchLabelKeys");
@@ -171,38 +199,63 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public boolean hasMatchLabelKeys() {
-    return this.matchLabelKeys != null && !this.matchLabelKeys.isEmpty();
+    return this.matchLabelKeys != null && !(this.matchLabelKeys.isEmpty());
   }
   
   public A addToMismatchLabelKeys(int index,String item) {
-    if (this.mismatchLabelKeys == null) {this.mismatchLabelKeys = new ArrayList<String>();}
+    if (this.mismatchLabelKeys == null) {
+      this.mismatchLabelKeys = new ArrayList();
+    }
     this.mismatchLabelKeys.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToMismatchLabelKeys(int index,String item) {
-    if (this.mismatchLabelKeys == null) {this.mismatchLabelKeys = new ArrayList<String>();}
-    this.mismatchLabelKeys.set(index, item); return (A)this;
+    if (this.mismatchLabelKeys == null) {
+      this.mismatchLabelKeys = new ArrayList();
+    }
+    this.mismatchLabelKeys.set(index, item);
+    return (A) this;
   }
   
-  public A addToMismatchLabelKeys(java.lang.String... items) {
-    if (this.mismatchLabelKeys == null) {this.mismatchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.mismatchLabelKeys.add(item);} return (A)this;
+  public A addToMismatchLabelKeys(String... items) {
+    if (this.mismatchLabelKeys == null) {
+      this.mismatchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.mismatchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToMismatchLabelKeys(Collection<String> items) {
-    if (this.mismatchLabelKeys == null) {this.mismatchLabelKeys = new ArrayList<String>();}
-    for (String item : items) {this.mismatchLabelKeys.add(item);} return (A)this;
+    if (this.mismatchLabelKeys == null) {
+      this.mismatchLabelKeys = new ArrayList();
+    }
+    for (String item : items) {
+      this.mismatchLabelKeys.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromMismatchLabelKeys(java.lang.String... items) {
-    if (this.mismatchLabelKeys == null) return (A)this;
-    for (String item : items) { this.mismatchLabelKeys.remove(item);} return (A)this;
+  public A removeFromMismatchLabelKeys(String... items) {
+    if (this.mismatchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mismatchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromMismatchLabelKeys(Collection<String> items) {
-    if (this.mismatchLabelKeys == null) return (A)this;
-    for (String item : items) { this.mismatchLabelKeys.remove(item);} return (A)this;
+    if (this.mismatchLabelKeys == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mismatchLabelKeys.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getMismatchLabelKeys() {
@@ -251,7 +304,7 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
     return (A) this;
   }
   
-  public A withMismatchLabelKeys(java.lang.String... mismatchLabelKeys) {
+  public A withMismatchLabelKeys(String... mismatchLabelKeys) {
     if (this.mismatchLabelKeys != null) {
         this.mismatchLabelKeys.clear();
         _visitables.remove("mismatchLabelKeys");
@@ -265,7 +318,7 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public boolean hasMismatchLabelKeys() {
-    return this.mismatchLabelKeys != null && !this.mismatchLabelKeys.isEmpty();
+    return this.mismatchLabelKeys != null && !(this.mismatchLabelKeys.isEmpty());
   }
   
   public V1LabelSelector buildNamespaceSelector() {
@@ -297,46 +350,71 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public NamespaceSelectorNested<A> editNamespaceSelector() {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(null));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(null));
   }
   
   public NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(new V1LabelSelectorBuilder().build()));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
-    return withNewNamespaceSelectorLike(java.util.Optional.ofNullable(buildNamespaceSelector()).orElse(item));
+    return this.withNewNamespaceSelectorLike(Optional.ofNullable(this.buildNamespaceSelector()).orElse(item));
   }
   
   public A addToNamespaces(int index,String item) {
-    if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList();
+    }
     this.namespaces.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToNamespaces(int index,String item) {
-    if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
-    this.namespaces.set(index, item); return (A)this;
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList();
+    }
+    this.namespaces.set(index, item);
+    return (A) this;
   }
   
-  public A addToNamespaces(java.lang.String... items) {
-    if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
-    for (String item : items) {this.namespaces.add(item);} return (A)this;
+  public A addToNamespaces(String... items) {
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList();
+    }
+    for (String item : items) {
+      this.namespaces.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToNamespaces(Collection<String> items) {
-    if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
-    for (String item : items) {this.namespaces.add(item);} return (A)this;
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList();
+    }
+    for (String item : items) {
+      this.namespaces.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromNamespaces(java.lang.String... items) {
-    if (this.namespaces == null) return (A)this;
-    for (String item : items) { this.namespaces.remove(item);} return (A)this;
+  public A removeFromNamespaces(String... items) {
+    if (this.namespaces == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.namespaces.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromNamespaces(Collection<String> items) {
-    if (this.namespaces == null) return (A)this;
-    for (String item : items) { this.namespaces.remove(item);} return (A)this;
+    if (this.namespaces == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.namespaces.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getNamespaces() {
@@ -385,7 +463,7 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
     return (A) this;
   }
   
-  public A withNamespaces(java.lang.String... namespaces) {
+  public A withNamespaces(String... namespaces) {
     if (this.namespaces != null) {
         this.namespaces.clear();
         _visitables.remove("namespaces");
@@ -399,7 +477,7 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public boolean hasNamespaces() {
-    return this.namespaces != null && !this.namespaces.isEmpty();
+    return this.namespaces != null && !(this.namespaces.isEmpty());
   }
   
   public String getTopologyKey() {
@@ -416,32 +494,73 @@ public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> exten
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PodAffinityTermFluent that = (V1PodAffinityTermFluent) o;
-    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
-    if (!java.util.Objects.equals(matchLabelKeys, that.matchLabelKeys)) return false;
-    if (!java.util.Objects.equals(mismatchLabelKeys, that.mismatchLabelKeys)) return false;
-    if (!java.util.Objects.equals(namespaceSelector, that.namespaceSelector)) return false;
-    if (!java.util.Objects.equals(namespaces, that.namespaces)) return false;
-    if (!java.util.Objects.equals(topologyKey, that.topologyKey)) return false;
+    if (!(Objects.equals(labelSelector, that.labelSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(matchLabelKeys, that.matchLabelKeys))) {
+      return false;
+    }
+    if (!(Objects.equals(mismatchLabelKeys, that.mismatchLabelKeys))) {
+      return false;
+    }
+    if (!(Objects.equals(namespaceSelector, that.namespaceSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(namespaces, that.namespaces))) {
+      return false;
+    }
+    if (!(Objects.equals(topologyKey, that.topologyKey))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(labelSelector,  matchLabelKeys,  mismatchLabelKeys,  namespaceSelector,  namespaces,  topologyKey,  super.hashCode());
+    return Objects.hash(labelSelector, matchLabelKeys, mismatchLabelKeys, namespaceSelector, namespaces, topologyKey);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (labelSelector != null) { sb.append("labelSelector:"); sb.append(labelSelector + ","); }
-    if (matchLabelKeys != null && !matchLabelKeys.isEmpty()) { sb.append("matchLabelKeys:"); sb.append(matchLabelKeys + ","); }
-    if (mismatchLabelKeys != null && !mismatchLabelKeys.isEmpty()) { sb.append("mismatchLabelKeys:"); sb.append(mismatchLabelKeys + ","); }
-    if (namespaceSelector != null) { sb.append("namespaceSelector:"); sb.append(namespaceSelector + ","); }
-    if (namespaces != null && !namespaces.isEmpty()) { sb.append("namespaces:"); sb.append(namespaces + ","); }
-    if (topologyKey != null) { sb.append("topologyKey:"); sb.append(topologyKey); }
+    if (!(labelSelector == null)) {
+        sb.append("labelSelector:");
+        sb.append(labelSelector);
+        sb.append(",");
+    }
+    if (!(matchLabelKeys == null) && !(matchLabelKeys.isEmpty())) {
+        sb.append("matchLabelKeys:");
+        sb.append(matchLabelKeys);
+        sb.append(",");
+    }
+    if (!(mismatchLabelKeys == null) && !(mismatchLabelKeys.isEmpty())) {
+        sb.append("mismatchLabelKeys:");
+        sb.append(mismatchLabelKeys);
+        sb.append(",");
+    }
+    if (!(namespaceSelector == null)) {
+        sb.append("namespaceSelector:");
+        sb.append(namespaceSelector);
+        sb.append(",");
+    }
+    if (!(namespaces == null) && !(namespaces.isEmpty())) {
+        sb.append("namespaces:");
+        sb.append(namespaces);
+        sb.append(",");
+    }
+    if (!(topologyKey == null)) {
+        sb.append("topologyKey:");
+        sb.append(topologyKey);
+    }
     sb.append("}");
     return sb.toString();
   }

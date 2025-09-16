@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1MatchResourcesBuilder extends V1MatchResourcesFluent<V1MatchResourcesBuilder> implements VisitableBuilder<V1MatchResources,V1MatchResourcesBuilder>{
   public V1MatchResourcesBuilder() {
     this(new V1MatchResources());

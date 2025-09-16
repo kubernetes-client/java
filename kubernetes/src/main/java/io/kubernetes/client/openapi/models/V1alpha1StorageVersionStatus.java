@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.
  */
 @ApiModel(description = "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1alpha1StorageVersionStatus {
   public static final String SERIALIZED_NAME_COMMON_ENCODING_VERSION = "commonEncodingVersion";
   @SerializedName(SERIALIZED_NAME_COMMON_ENCODING_VERSION)

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SecretEnvSourceBuilder extends V1SecretEnvSourceFluent<V1SecretEnvSourceBuilder> implements VisitableBuilder<V1SecretEnvSource,V1SecretEnvSourceBuilder>{
   public V1SecretEnvSourceBuilder() {
     this(new V1SecretEnvSource());

@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.
  */
 @ApiModel(description = "CSIStorageCapacityList is a collection of CSIStorageCapacity objects.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1CSIStorageCapacityList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

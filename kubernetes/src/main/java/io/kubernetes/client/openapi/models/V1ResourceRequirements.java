@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
-import io.kubernetes.client.openapi.models.V1ResourceClaim;
+import io.kubernetes.client.openapi.models.CoreV1ResourceClaim;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -56,12 +56,12 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceRequirements describes the compute resource requirements.
  */
 @ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1ResourceRequirements {
   public static final String SERIALIZED_NAME_CLAIMS = "claims";
   @SerializedName(SERIALIZED_NAME_CLAIMS)
   @jakarta.annotation.Nullable
-  private List<V1ResourceClaim> claims = new ArrayList<>();
+  private List<CoreV1ResourceClaim> claims = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
@@ -76,12 +76,12 @@ public class V1ResourceRequirements {
   public V1ResourceRequirements() {
   }
 
-  public V1ResourceRequirements claims(@jakarta.annotation.Nullable List<V1ResourceClaim> claims) {
+  public V1ResourceRequirements claims(@jakarta.annotation.Nullable List<CoreV1ResourceClaim> claims) {
     this.claims = claims;
     return this;
   }
 
-  public V1ResourceRequirements addClaimsItem(V1ResourceClaim claimsItem) {
+  public V1ResourceRequirements addClaimsItem(CoreV1ResourceClaim claimsItem) {
     if (this.claims == null) {
       this.claims = new ArrayList<>();
     }
@@ -90,16 +90,16 @@ public class V1ResourceRequirements {
   }
 
   /**
-   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.
+   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This field depends on the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.
    * @return claims
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.")
-  public List<V1ResourceClaim> getClaims() {
+  @ApiModelProperty(value = "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This field depends on the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers.")
+  public List<CoreV1ResourceClaim> getClaims() {
     return claims;
   }
 
-  public void setClaims(@jakarta.annotation.Nullable List<V1ResourceClaim> claims) {
+  public void setClaims(@jakarta.annotation.Nullable List<CoreV1ResourceClaim> claims) {
     this.claims = claims;
   }
 
@@ -248,7 +248,7 @@ public class V1ResourceRequirements {
 
           // validate the optional field `claims` (array)
           for (int i = 0; i < jsonArrayclaims.size(); i++) {
-            V1ResourceClaim.validateJsonElement(jsonArrayclaims.get(i));
+            CoreV1ResourceClaim.validateJsonElement(jsonArrayclaims.get(i));
           };
         }
       }

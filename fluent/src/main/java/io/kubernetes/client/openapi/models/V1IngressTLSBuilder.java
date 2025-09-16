@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1IngressTLSBuilder extends V1IngressTLSFluent<V1IngressTLSBuilder> implements VisitableBuilder<V1IngressTLS,V1IngressTLSBuilder>{
   public V1IngressTLSBuilder() {
     this(new V1IngressTLS());
