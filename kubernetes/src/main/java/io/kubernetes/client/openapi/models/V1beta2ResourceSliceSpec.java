@@ -33,7 +33,7 @@ import java.util.List;
  * ResourceSliceSpec contains the information published by the driver in one ResourceSlice.
  */
 @ApiModel(description = "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2ResourceSliceSpec {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)

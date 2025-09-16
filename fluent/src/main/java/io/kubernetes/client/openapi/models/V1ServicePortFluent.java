@@ -1,9 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import io.kubernetes.client.custom.IntOrString;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ServicePortFluent<A extends V1ServicePortFluent<A>> extends BaseFluent<A>{
+public class V1ServicePortFluent<A extends io.kubernetes.client.openapi.models.V1ServicePortFluent<A>> extends BaseFluent<A>{
   public V1ServicePortFluent() {
   }
   
@@ -26,15 +28,15 @@ public class V1ServicePortFluent<A extends V1ServicePortFluent<A>> extends BaseF
   private IntOrString targetPort;
   
   protected void copyInstance(V1ServicePort instance) {
-    instance = (instance != null ? instance : new V1ServicePort());
+    instance = instance != null ? instance : new V1ServicePort();
     if (instance != null) {
-          this.withAppProtocol(instance.getAppProtocol());
-          this.withName(instance.getName());
-          this.withNodePort(instance.getNodePort());
-          this.withPort(instance.getPort());
-          this.withProtocol(instance.getProtocol());
-          this.withTargetPort(instance.getTargetPort());
-        }
+        this.withAppProtocol(instance.getAppProtocol());
+        this.withName(instance.getName());
+        this.withNodePort(instance.getNodePort());
+        this.withPort(instance.getPort());
+        this.withProtocol(instance.getProtocol());
+        this.withTargetPort(instance.getTargetPort());
+    }
   }
   
   public String getAppProtocol() {
@@ -116,40 +118,81 @@ public class V1ServicePortFluent<A extends V1ServicePortFluent<A>> extends BaseF
   }
   
   public A withNewTargetPort(int value) {
-    return (A)withTargetPort(new IntOrString(value));
+    return (A) this.withTargetPort(new IntOrString(value));
   }
   
   public A withNewTargetPort(String value) {
-    return (A)withTargetPort(new IntOrString(value));
+    return (A) this.withTargetPort(new IntOrString(value));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ServicePortFluent that = (V1ServicePortFluent) o;
-    if (!java.util.Objects.equals(appProtocol, that.appProtocol)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(nodePort, that.nodePort)) return false;
-    if (!java.util.Objects.equals(port, that.port)) return false;
-    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
-    if (!java.util.Objects.equals(targetPort, that.targetPort)) return false;
+    if (!(Objects.equals(appProtocol, that.appProtocol))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(nodePort, that.nodePort))) {
+      return false;
+    }
+    if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
+    if (!(Objects.equals(protocol, that.protocol))) {
+      return false;
+    }
+    if (!(Objects.equals(targetPort, that.targetPort))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(appProtocol,  name,  nodePort,  port,  protocol,  targetPort,  super.hashCode());
+    return Objects.hash(appProtocol, name, nodePort, port, protocol, targetPort);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (appProtocol != null) { sb.append("appProtocol:"); sb.append(appProtocol + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (nodePort != null) { sb.append("nodePort:"); sb.append(nodePort + ","); }
-    if (port != null) { sb.append("port:"); sb.append(port + ","); }
-    if (protocol != null) { sb.append("protocol:"); sb.append(protocol + ","); }
-    if (targetPort != null) { sb.append("targetPort:"); sb.append(targetPort); }
+    if (!(appProtocol == null)) {
+        sb.append("appProtocol:");
+        sb.append(appProtocol);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(nodePort == null)) {
+        sb.append("nodePort:");
+        sb.append(nodePort);
+        sb.append(",");
+    }
+    if (!(port == null)) {
+        sb.append("port:");
+        sb.append(port);
+        sb.append(",");
+    }
+    if (!(protocol == null)) {
+        sb.append("protocol:");
+        sb.append(protocol);
+        sb.append(",");
+    }
+    if (!(targetPort == null)) {
+        sb.append("targetPort:");
+        sb.append(targetPort);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -31,11 +31,15 @@ import java.util.List;
  * DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.
  */
 @ApiModel(description = "DeviceClassSpec is used in a [DeviceClass] to define what can be allocated and how to configure it.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceClassSpec {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
   private List<V1beta1DeviceClassConfiguration> config = null;
+
+  public static final String SERIALIZED_NAME_EXTENDED_RESOURCE_NAME = "extendedResourceName";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_RESOURCE_NAME)
+  private String extendedResourceName;
 
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
@@ -70,6 +74,29 @@ public class V1beta1DeviceClassSpec {
 
   public void setConfig(List<V1beta1DeviceClassConfiguration> config) {
     this.config = config;
+  }
+
+
+  public V1beta1DeviceClassSpec extendedResourceName(String extendedResourceName) {
+
+    this.extendedResourceName = extendedResourceName;
+    return this;
+  }
+
+   /**
+   * ExtendedResourceName is the extended resource name for the devices of this class. The devices of this class can be used to satisfy a pod&#39;s extended resource requests. It has the same format as the name of a pod&#39;s extended resource. It should be unique among all the device classes in a cluster. If two device classes have the same name, then the class created later is picked to satisfy a pod&#39;s extended resource requests. If two classes are created at the same time, then the name of the class lexicographically sorted first is picked.  This is an alpha field.
+   * @return extendedResourceName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ExtendedResourceName is the extended resource name for the devices of this class. The devices of this class can be used to satisfy a pod's extended resource requests. It has the same format as the name of a pod's extended resource. It should be unique among all the device classes in a cluster. If two device classes have the same name, then the class created later is picked to satisfy a pod's extended resource requests. If two classes are created at the same time, then the name of the class lexicographically sorted first is picked.  This is an alpha field.")
+
+  public String getExtendedResourceName() {
+    return extendedResourceName;
+  }
+
+
+  public void setExtendedResourceName(String extendedResourceName) {
+    this.extendedResourceName = extendedResourceName;
   }
 
 
@@ -114,12 +141,13 @@ public class V1beta1DeviceClassSpec {
     }
     V1beta1DeviceClassSpec v1beta1DeviceClassSpec = (V1beta1DeviceClassSpec) o;
     return Objects.equals(this.config, v1beta1DeviceClassSpec.config) &&
+        Objects.equals(this.extendedResourceName, v1beta1DeviceClassSpec.extendedResourceName) &&
         Objects.equals(this.selectors, v1beta1DeviceClassSpec.selectors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, selectors);
+    return Objects.hash(config, extendedResourceName, selectors);
   }
 
 
@@ -128,6 +156,7 @@ public class V1beta1DeviceClassSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceClassSpec {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    extendedResourceName: ").append(toIndentedString(extendedResourceName)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ConfigMapKeySelector;
+import io.kubernetes.client.openapi.models.V1FileKeySelector;
 import io.kubernetes.client.openapi.models.V1ObjectFieldSelector;
 import io.kubernetes.client.openapi.models.V1ResourceFieldSelector;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
@@ -31,7 +32,7 @@ import java.io.IOException;
  * EnvVarSource represents a source for the value of an EnvVar.
  */
 @ApiModel(description = "EnvVarSource represents a source for the value of an EnvVar.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1EnvVarSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)
@@ -40,6 +41,10 @@ public class V1EnvVarSource {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
   private V1ObjectFieldSelector fieldRef;
+
+  public static final String SERIALIZED_NAME_FILE_KEY_REF = "fileKeyRef";
+  @SerializedName(SERIALIZED_NAME_FILE_KEY_REF)
+  private V1FileKeySelector fileKeyRef;
 
   public static final String SERIALIZED_NAME_RESOURCE_FIELD_REF = "resourceFieldRef";
   @SerializedName(SERIALIZED_NAME_RESOURCE_FIELD_REF)
@@ -93,6 +98,29 @@ public class V1EnvVarSource {
 
   public void setFieldRef(V1ObjectFieldSelector fieldRef) {
     this.fieldRef = fieldRef;
+  }
+
+
+  public V1EnvVarSource fileKeyRef(V1FileKeySelector fileKeyRef) {
+
+    this.fileKeyRef = fileKeyRef;
+    return this;
+  }
+
+   /**
+   * Get fileKeyRef
+   * @return fileKeyRef
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1FileKeySelector getFileKeyRef() {
+    return fileKeyRef;
+  }
+
+
+  public void setFileKeyRef(V1FileKeySelector fileKeyRef) {
+    this.fileKeyRef = fileKeyRef;
   }
 
 
@@ -153,13 +181,14 @@ public class V1EnvVarSource {
     V1EnvVarSource v1EnvVarSource = (V1EnvVarSource) o;
     return Objects.equals(this.configMapKeyRef, v1EnvVarSource.configMapKeyRef) &&
         Objects.equals(this.fieldRef, v1EnvVarSource.fieldRef) &&
+        Objects.equals(this.fileKeyRef, v1EnvVarSource.fileKeyRef) &&
         Objects.equals(this.resourceFieldRef, v1EnvVarSource.resourceFieldRef) &&
         Objects.equals(this.secretKeyRef, v1EnvVarSource.secretKeyRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configMapKeyRef, fieldRef, resourceFieldRef, secretKeyRef);
+    return Objects.hash(configMapKeyRef, fieldRef, fileKeyRef, resourceFieldRef, secretKeyRef);
   }
 
 
@@ -169,6 +198,7 @@ public class V1EnvVarSource {
     sb.append("class V1EnvVarSource {\n");
     sb.append("    configMapKeyRef: ").append(toIndentedString(configMapKeyRef)).append("\n");
     sb.append("    fieldRef: ").append(toIndentedString(fieldRef)).append("\n");
+    sb.append("    fileKeyRef: ").append(toIndentedString(fileKeyRef)).append("\n");
     sb.append("    resourceFieldRef: ").append(toIndentedString(resourceFieldRef)).append("\n");
     sb.append("    secretKeyRef: ").append(toIndentedString(secretKeyRef)).append("\n");
     sb.append("}");

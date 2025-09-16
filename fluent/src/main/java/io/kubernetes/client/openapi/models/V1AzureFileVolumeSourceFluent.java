@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1AzureFileVolumeSourceFluent<A extends V1AzureFileVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1AzureFileVolumeSourceFluent() {
   }
   
@@ -22,12 +24,12 @@ public class V1AzureFileVolumeSourceFluent<A extends V1AzureFileVolumeSourceFlue
   private String shareName;
   
   protected void copyInstance(V1AzureFileVolumeSource instance) {
-    instance = (instance != null ? instance : new V1AzureFileVolumeSource());
+    instance = instance != null ? instance : new V1AzureFileVolumeSource();
     if (instance != null) {
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretName(instance.getSecretName());
-          this.withShareName(instance.getShareName());
-        }
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretName(instance.getSecretName());
+        this.withShareName(instance.getShareName());
+    }
   }
   
   public Boolean getReadOnly() {
@@ -70,26 +72,49 @@ public class V1AzureFileVolumeSourceFluent<A extends V1AzureFileVolumeSourceFlue
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1AzureFileVolumeSourceFluent that = (V1AzureFileVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretName, that.secretName)) return false;
-    if (!java.util.Objects.equals(shareName, that.shareName)) return false;
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretName, that.secretName))) {
+      return false;
+    }
+    if (!(Objects.equals(shareName, that.shareName))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(readOnly,  secretName,  shareName,  super.hashCode());
+    return Objects.hash(readOnly, secretName, shareName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretName != null) { sb.append("secretName:"); sb.append(secretName + ","); }
-    if (shareName != null) { sb.append("shareName:"); sb.append(shareName); }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretName == null)) {
+        sb.append("secretName:");
+        sb.append(secretName);
+        sb.append(",");
+    }
+    if (!(shareName == null)) {
+        sb.append("shareName:");
+        sb.append(shareName);
+    }
     sb.append("}");
     return sb.toString();
   }

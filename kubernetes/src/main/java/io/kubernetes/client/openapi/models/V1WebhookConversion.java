@@ -30,7 +30,7 @@ import java.util.List;
  * WebhookConversion describes how to call a conversion webhook
  */
 @ApiModel(description = "WebhookConversion describes how to call a conversion webhook")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1WebhookConversion {
   public static final String SERIALIZED_NAME_CLIENT_CONFIG = "clientConfig";
   @SerializedName(SERIALIZED_NAME_CLIENT_CONFIG)

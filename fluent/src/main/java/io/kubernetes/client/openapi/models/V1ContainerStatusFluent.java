@@ -1,27 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import io.kubernetes.client.custom.Quantity;
-import java.lang.Integer;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.RuntimeException;
+import java.util.Iterator;
+import io.kubernetes.client.custom.Quantity;
+import java.lang.Integer;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> extends BaseFluent<A>{
+public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStatusFluent<A>> extends BaseFluent<A>{
   public V1ContainerStatusFluent() {
   }
   
@@ -45,44 +48,68 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   private ArrayList<V1VolumeMountStatusBuilder> volumeMounts;
   
   protected void copyInstance(V1ContainerStatus instance) {
-    instance = (instance != null ? instance : new V1ContainerStatus());
+    instance = instance != null ? instance : new V1ContainerStatus();
     if (instance != null) {
-          this.withAllocatedResources(instance.getAllocatedResources());
-          this.withAllocatedResourcesStatus(instance.getAllocatedResourcesStatus());
-          this.withContainerID(instance.getContainerID());
-          this.withImage(instance.getImage());
-          this.withImageID(instance.getImageID());
-          this.withLastState(instance.getLastState());
-          this.withName(instance.getName());
-          this.withReady(instance.getReady());
-          this.withResources(instance.getResources());
-          this.withRestartCount(instance.getRestartCount());
-          this.withStarted(instance.getStarted());
-          this.withState(instance.getState());
-          this.withStopSignal(instance.getStopSignal());
-          this.withUser(instance.getUser());
-          this.withVolumeMounts(instance.getVolumeMounts());
-        }
+        this.withAllocatedResources(instance.getAllocatedResources());
+        this.withAllocatedResourcesStatus(instance.getAllocatedResourcesStatus());
+        this.withContainerID(instance.getContainerID());
+        this.withImage(instance.getImage());
+        this.withImageID(instance.getImageID());
+        this.withLastState(instance.getLastState());
+        this.withName(instance.getName());
+        this.withReady(instance.getReady());
+        this.withResources(instance.getResources());
+        this.withRestartCount(instance.getRestartCount());
+        this.withStarted(instance.getStarted());
+        this.withState(instance.getState());
+        this.withStopSignal(instance.getStopSignal());
+        this.withUser(instance.getUser());
+        this.withVolumeMounts(instance.getVolumeMounts());
+    }
   }
   
   public A addToAllocatedResources(String key,Quantity value) {
-    if(this.allocatedResources == null && key != null && value != null) { this.allocatedResources = new LinkedHashMap(); }
-    if(key != null && value != null) {this.allocatedResources.put(key, value);} return (A)this;
+    if (this.allocatedResources == null && key != null && value != null) {
+      this.allocatedResources = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.allocatedResources.put(key, value);
+    }
+    return (A) this;
   }
   
   public A addToAllocatedResources(Map<String,Quantity> map) {
-    if(this.allocatedResources == null && map != null) { this.allocatedResources = new LinkedHashMap(); }
-    if(map != null) { this.allocatedResources.putAll(map);} return (A)this;
+    if (this.allocatedResources == null && map != null) {
+      this.allocatedResources = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.allocatedResources.putAll(map);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResources(String key) {
-    if(this.allocatedResources == null) { return (A) this; }
-    if(key != null && this.allocatedResources != null) {this.allocatedResources.remove(key);} return (A)this;
+    if (this.allocatedResources == null) {
+      return (A) this;
+    }
+    if (key != null && this.allocatedResources != null) {
+      this.allocatedResources.remove(key);
+    }
+    return (A) this;
   }
   
   public A removeFromAllocatedResources(Map<String,Quantity> map) {
-    if(this.allocatedResources == null) { return (A) this; }
-    if(map != null) { for(Object key : map.keySet()) {if (this.allocatedResources != null){this.allocatedResources.remove(key);}}} return (A)this;
+    if (this.allocatedResources == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.allocatedResources != null) {
+          this.allocatedResources.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public Map<String,Quantity> getAllocatedResources() {
@@ -103,7 +130,9 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public A addToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
-    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList();
+    }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
     if (index < 0 || index >= allocatedResourcesStatus.size()) {
         _visitables.get("allocatedResourcesStatus").add(builder);
@@ -112,11 +141,13 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
         _visitables.get("allocatedResourcesStatus").add(builder);
         allocatedResourcesStatus.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
-    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList();
+    }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
     if (index < 0 || index >= allocatedResourcesStatus.size()) {
         _visitables.get("allocatedResourcesStatus").add(builder);
@@ -125,41 +156,71 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
         _visitables.get("allocatedResourcesStatus").add(builder);
         allocatedResourcesStatus.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... items) {
-    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
-    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").add(builder);this.allocatedResourcesStatus.add(builder);} return (A)this;
+  public A addToAllocatedResourcesStatus(V1ResourceStatus... items) {
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList();
+    }
+    for (V1ResourceStatus item : items) {
+        V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToAllocatedResourcesStatus(Collection<V1ResourceStatus> items) {
-    if (this.allocatedResourcesStatus == null) {this.allocatedResourcesStatus = new ArrayList<V1ResourceStatusBuilder>();}
-    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").add(builder);this.allocatedResourcesStatus.add(builder);} return (A)this;
+    if (this.allocatedResourcesStatus == null) {
+      this.allocatedResourcesStatus = new ArrayList();
+    }
+    for (V1ResourceStatus item : items) {
+        V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+        _visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... items) {
-    if (this.allocatedResourcesStatus == null) return (A)this;
-    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").remove(builder); this.allocatedResourcesStatus.remove(builder);} return (A)this;
+  public A removeFromAllocatedResourcesStatus(V1ResourceStatus... items) {
+    if (this.allocatedResourcesStatus == null) {
+      return (A) this;
+    }
+    for (V1ResourceStatus item : items) {
+        V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+        _visitables.get("allocatedResourcesStatus").remove(builder);
+        this.allocatedResourcesStatus.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromAllocatedResourcesStatus(Collection<V1ResourceStatus> items) {
-    if (this.allocatedResourcesStatus == null) return (A)this;
-    for (V1ResourceStatus item : items) {V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);_visitables.get("allocatedResourcesStatus").remove(builder); this.allocatedResourcesStatus.remove(builder);} return (A)this;
+    if (this.allocatedResourcesStatus == null) {
+      return (A) this;
+    }
+    for (V1ResourceStatus item : items) {
+        V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
+        _visitables.get("allocatedResourcesStatus").remove(builder);
+        this.allocatedResourcesStatus.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
-    if (allocatedResourcesStatus == null) return (A) this;
-    final Iterator<V1ResourceStatusBuilder> each = allocatedResourcesStatus.iterator();
-    final List visitables = _visitables.get("allocatedResourcesStatus");
-    while (each.hasNext()) {
-      V1ResourceStatusBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (allocatedResourcesStatus == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1ResourceStatusBuilder> each = allocatedResourcesStatus.iterator();
+    List visitables = _visitables.get("allocatedResourcesStatus");
+    while (each.hasNext()) {
+        V1ResourceStatusBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1ResourceStatus> buildAllocatedResourcesStatus() {
@@ -211,7 +272,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     return (A) this;
   }
   
-  public A withAllocatedResourcesStatus(io.kubernetes.client.openapi.models.V1ResourceStatus... allocatedResourcesStatus) {
+  public A withAllocatedResourcesStatus(V1ResourceStatus... allocatedResourcesStatus) {
     if (this.allocatedResourcesStatus != null) {
         this.allocatedResourcesStatus.clear();
         _visitables.remove("allocatedResourcesStatus");
@@ -225,7 +286,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public boolean hasAllocatedResourcesStatus() {
-    return this.allocatedResourcesStatus != null && !this.allocatedResourcesStatus.isEmpty();
+    return this.allocatedResourcesStatus != null && !(this.allocatedResourcesStatus.isEmpty());
   }
   
   public AllocatedResourcesStatusNested<A> addNewAllocatedResourcesStatus() {
@@ -241,28 +302,39 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public AllocatedResourcesStatusNested<A> editAllocatedResourcesStatus(int index) {
-    if (allocatedResourcesStatus.size() <= index) throw new RuntimeException("Can't edit allocatedResourcesStatus. Index exceeds size.");
-    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
+    if (index <= allocatedResourcesStatus.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "allocatedResourcesStatus"));
+    }
+    return this.setNewAllocatedResourcesStatusLike(index, this.buildAllocatedResourcesStatus(index));
   }
   
   public AllocatedResourcesStatusNested<A> editFirstAllocatedResourcesStatus() {
-    if (allocatedResourcesStatus.size() == 0) throw new RuntimeException("Can't edit first allocatedResourcesStatus. The list is empty.");
-    return setNewAllocatedResourcesStatusLike(0, buildAllocatedResourcesStatus(0));
+    if (allocatedResourcesStatus.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "allocatedResourcesStatus"));
+    }
+    return this.setNewAllocatedResourcesStatusLike(0, this.buildAllocatedResourcesStatus(0));
   }
   
   public AllocatedResourcesStatusNested<A> editLastAllocatedResourcesStatus() {
     int index = allocatedResourcesStatus.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last allocatedResourcesStatus. The list is empty.");
-    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "allocatedResourcesStatus"));
+    }
+    return this.setNewAllocatedResourcesStatusLike(index, this.buildAllocatedResourcesStatus(index));
   }
   
   public AllocatedResourcesStatusNested<A> editMatchingAllocatedResourcesStatus(Predicate<V1ResourceStatusBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<allocatedResourcesStatus.size();i++) { 
-    if (predicate.test(allocatedResourcesStatus.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching allocatedResourcesStatus. No match found.");
-    return setNewAllocatedResourcesStatusLike(index, buildAllocatedResourcesStatus(index));
+    for (int i = 0;i < allocatedResourcesStatus.size();i++) {
+      if (predicate.test(allocatedResourcesStatus.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "allocatedResourcesStatus"));
+    }
+    return this.setNewAllocatedResourcesStatusLike(index, this.buildAllocatedResourcesStatus(index));
   }
   
   public String getContainerID() {
@@ -333,15 +405,15 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public LastStateNested<A> editLastState() {
-    return withNewLastStateLike(java.util.Optional.ofNullable(buildLastState()).orElse(null));
+    return this.withNewLastStateLike(Optional.ofNullable(this.buildLastState()).orElse(null));
   }
   
   public LastStateNested<A> editOrNewLastState() {
-    return withNewLastStateLike(java.util.Optional.ofNullable(buildLastState()).orElse(new V1ContainerStateBuilder().build()));
+    return this.withNewLastStateLike(Optional.ofNullable(this.buildLastState()).orElse(new V1ContainerStateBuilder().build()));
   }
   
   public LastStateNested<A> editOrNewLastStateLike(V1ContainerState item) {
-    return withNewLastStateLike(java.util.Optional.ofNullable(buildLastState()).orElse(item));
+    return this.withNewLastStateLike(Optional.ofNullable(this.buildLastState()).orElse(item));
   }
   
   public String getName() {
@@ -399,15 +471,15 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public ResourcesNested<A> editResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(null));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(null));
   }
   
   public ResourcesNested<A> editOrNewResources() {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(new V1ResourceRequirementsBuilder().build()));
   }
   
   public ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
-    return withNewResourcesLike(java.util.Optional.ofNullable(buildResources()).orElse(item));
+    return this.withNewResourcesLike(Optional.ofNullable(this.buildResources()).orElse(item));
   }
   
   public Integer getRestartCount() {
@@ -465,15 +537,15 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public StateNested<A> editState() {
-    return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(null));
+    return this.withNewStateLike(Optional.ofNullable(this.buildState()).orElse(null));
   }
   
   public StateNested<A> editOrNewState() {
-    return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(new V1ContainerStateBuilder().build()));
+    return this.withNewStateLike(Optional.ofNullable(this.buildState()).orElse(new V1ContainerStateBuilder().build()));
   }
   
   public StateNested<A> editOrNewStateLike(V1ContainerState item) {
-    return withNewStateLike(java.util.Optional.ofNullable(buildState()).orElse(item));
+    return this.withNewStateLike(Optional.ofNullable(this.buildState()).orElse(item));
   }
   
   public String getStopSignal() {
@@ -518,19 +590,21 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public UserNested<A> editUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(null));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(null));
   }
   
   public UserNested<A> editOrNewUser() {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(new V1ContainerUserBuilder().build()));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(new V1ContainerUserBuilder().build()));
   }
   
   public UserNested<A> editOrNewUserLike(V1ContainerUser item) {
-    return withNewUserLike(java.util.Optional.ofNullable(buildUser()).orElse(item));
+    return this.withNewUserLike(Optional.ofNullable(this.buildUser()).orElse(item));
   }
   
   public A addToVolumeMounts(int index,V1VolumeMountStatus item) {
-    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList();
+    }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
     if (index < 0 || index >= volumeMounts.size()) {
         _visitables.get("volumeMounts").add(builder);
@@ -539,11 +613,13 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
         _visitables.get("volumeMounts").add(builder);
         volumeMounts.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToVolumeMounts(int index,V1VolumeMountStatus item) {
-    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList();
+    }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
     if (index < 0 || index >= volumeMounts.size()) {
         _visitables.get("volumeMounts").add(builder);
@@ -552,41 +628,71 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
         _visitables.get("volumeMounts").add(builder);
         volumeMounts.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... items) {
-    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
-    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").add(builder);this.volumeMounts.add(builder);} return (A)this;
+  public A addToVolumeMounts(V1VolumeMountStatus... items) {
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList();
+    }
+    for (V1VolumeMountStatus item : items) {
+        V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+        _visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToVolumeMounts(Collection<V1VolumeMountStatus> items) {
-    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountStatusBuilder>();}
-    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").add(builder);this.volumeMounts.add(builder);} return (A)this;
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList();
+    }
+    for (V1VolumeMountStatus item : items) {
+        V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+        _visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... items) {
-    if (this.volumeMounts == null) return (A)this;
-    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").remove(builder); this.volumeMounts.remove(builder);} return (A)this;
+  public A removeFromVolumeMounts(V1VolumeMountStatus... items) {
+    if (this.volumeMounts == null) {
+      return (A) this;
+    }
+    for (V1VolumeMountStatus item : items) {
+        V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+        _visitables.get("volumeMounts").remove(builder);
+        this.volumeMounts.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromVolumeMounts(Collection<V1VolumeMountStatus> items) {
-    if (this.volumeMounts == null) return (A)this;
-    for (V1VolumeMountStatus item : items) {V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);_visitables.get("volumeMounts").remove(builder); this.volumeMounts.remove(builder);} return (A)this;
+    if (this.volumeMounts == null) {
+      return (A) this;
+    }
+    for (V1VolumeMountStatus item : items) {
+        V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
+        _visitables.get("volumeMounts").remove(builder);
+        this.volumeMounts.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromVolumeMounts(Predicate<V1VolumeMountStatusBuilder> predicate) {
-    if (volumeMounts == null) return (A) this;
-    final Iterator<V1VolumeMountStatusBuilder> each = volumeMounts.iterator();
-    final List visitables = _visitables.get("volumeMounts");
-    while (each.hasNext()) {
-      V1VolumeMountStatusBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (volumeMounts == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1VolumeMountStatusBuilder> each = volumeMounts.iterator();
+    List visitables = _visitables.get("volumeMounts");
+    while (each.hasNext()) {
+        V1VolumeMountStatusBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1VolumeMountStatus> buildVolumeMounts() {
@@ -638,7 +744,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     return (A) this;
   }
   
-  public A withVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMountStatus... volumeMounts) {
+  public A withVolumeMounts(V1VolumeMountStatus... volumeMounts) {
     if (this.volumeMounts != null) {
         this.volumeMounts.clear();
         _visitables.remove("volumeMounts");
@@ -652,7 +758,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public boolean hasVolumeMounts() {
-    return this.volumeMounts != null && !this.volumeMounts.isEmpty();
+    return this.volumeMounts != null && !(this.volumeMounts.isEmpty());
   }
   
   public VolumeMountsNested<A> addNewVolumeMount() {
@@ -668,75 +774,181 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
   }
   
   public VolumeMountsNested<A> editVolumeMount(int index) {
-    if (volumeMounts.size() <= index) throw new RuntimeException("Can't edit volumeMounts. Index exceeds size.");
-    return setNewVolumeMountLike(index, buildVolumeMount(index));
+    if (index <= volumeMounts.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "volumeMounts"));
+    }
+    return this.setNewVolumeMountLike(index, this.buildVolumeMount(index));
   }
   
   public VolumeMountsNested<A> editFirstVolumeMount() {
-    if (volumeMounts.size() == 0) throw new RuntimeException("Can't edit first volumeMounts. The list is empty.");
-    return setNewVolumeMountLike(0, buildVolumeMount(0));
+    if (volumeMounts.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "volumeMounts"));
+    }
+    return this.setNewVolumeMountLike(0, this.buildVolumeMount(0));
   }
   
   public VolumeMountsNested<A> editLastVolumeMount() {
     int index = volumeMounts.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last volumeMounts. The list is empty.");
-    return setNewVolumeMountLike(index, buildVolumeMount(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "volumeMounts"));
+    }
+    return this.setNewVolumeMountLike(index, this.buildVolumeMount(index));
   }
   
   public VolumeMountsNested<A> editMatchingVolumeMount(Predicate<V1VolumeMountStatusBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<volumeMounts.size();i++) { 
-    if (predicate.test(volumeMounts.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching volumeMounts. No match found.");
-    return setNewVolumeMountLike(index, buildVolumeMount(index));
+    for (int i = 0;i < volumeMounts.size();i++) {
+      if (predicate.test(volumeMounts.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "volumeMounts"));
+    }
+    return this.setNewVolumeMountLike(index, this.buildVolumeMount(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerStatusFluent that = (V1ContainerStatusFluent) o;
-    if (!java.util.Objects.equals(allocatedResources, that.allocatedResources)) return false;
-    if (!java.util.Objects.equals(allocatedResourcesStatus, that.allocatedResourcesStatus)) return false;
-    if (!java.util.Objects.equals(containerID, that.containerID)) return false;
-    if (!java.util.Objects.equals(image, that.image)) return false;
-    if (!java.util.Objects.equals(imageID, that.imageID)) return false;
-    if (!java.util.Objects.equals(lastState, that.lastState)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
-    if (!java.util.Objects.equals(ready, that.ready)) return false;
-    if (!java.util.Objects.equals(resources, that.resources)) return false;
-    if (!java.util.Objects.equals(restartCount, that.restartCount)) return false;
-    if (!java.util.Objects.equals(started, that.started)) return false;
-    if (!java.util.Objects.equals(state, that.state)) return false;
-    if (!java.util.Objects.equals(stopSignal, that.stopSignal)) return false;
-    if (!java.util.Objects.equals(user, that.user)) return false;
-    if (!java.util.Objects.equals(volumeMounts, that.volumeMounts)) return false;
+    if (!(Objects.equals(allocatedResources, that.allocatedResources))) {
+      return false;
+    }
+    if (!(Objects.equals(allocatedResourcesStatus, that.allocatedResourcesStatus))) {
+      return false;
+    }
+    if (!(Objects.equals(containerID, that.containerID))) {
+      return false;
+    }
+    if (!(Objects.equals(image, that.image))) {
+      return false;
+    }
+    if (!(Objects.equals(imageID, that.imageID))) {
+      return false;
+    }
+    if (!(Objects.equals(lastState, that.lastState))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
+    if (!(Objects.equals(ready, that.ready))) {
+      return false;
+    }
+    if (!(Objects.equals(resources, that.resources))) {
+      return false;
+    }
+    if (!(Objects.equals(restartCount, that.restartCount))) {
+      return false;
+    }
+    if (!(Objects.equals(started, that.started))) {
+      return false;
+    }
+    if (!(Objects.equals(state, that.state))) {
+      return false;
+    }
+    if (!(Objects.equals(stopSignal, that.stopSignal))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeMounts, that.volumeMounts))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allocatedResources,  allocatedResourcesStatus,  containerID,  image,  imageID,  lastState,  name,  ready,  resources,  restartCount,  started,  state,  stopSignal,  user,  volumeMounts,  super.hashCode());
+    return Objects.hash(allocatedResources, allocatedResourcesStatus, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state, stopSignal, user, volumeMounts);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allocatedResources != null && !allocatedResources.isEmpty()) { sb.append("allocatedResources:"); sb.append(allocatedResources + ","); }
-    if (allocatedResourcesStatus != null && !allocatedResourcesStatus.isEmpty()) { sb.append("allocatedResourcesStatus:"); sb.append(allocatedResourcesStatus + ","); }
-    if (containerID != null) { sb.append("containerID:"); sb.append(containerID + ","); }
-    if (image != null) { sb.append("image:"); sb.append(image + ","); }
-    if (imageID != null) { sb.append("imageID:"); sb.append(imageID + ","); }
-    if (lastState != null) { sb.append("lastState:"); sb.append(lastState + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (ready != null) { sb.append("ready:"); sb.append(ready + ","); }
-    if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
-    if (restartCount != null) { sb.append("restartCount:"); sb.append(restartCount + ","); }
-    if (started != null) { sb.append("started:"); sb.append(started + ","); }
-    if (state != null) { sb.append("state:"); sb.append(state + ","); }
-    if (stopSignal != null) { sb.append("stopSignal:"); sb.append(stopSignal + ","); }
-    if (user != null) { sb.append("user:"); sb.append(user + ","); }
-    if (volumeMounts != null && !volumeMounts.isEmpty()) { sb.append("volumeMounts:"); sb.append(volumeMounts); }
+    if (!(allocatedResources == null) && !(allocatedResources.isEmpty())) {
+        sb.append("allocatedResources:");
+        sb.append(allocatedResources);
+        sb.append(",");
+    }
+    if (!(allocatedResourcesStatus == null) && !(allocatedResourcesStatus.isEmpty())) {
+        sb.append("allocatedResourcesStatus:");
+        sb.append(allocatedResourcesStatus);
+        sb.append(",");
+    }
+    if (!(containerID == null)) {
+        sb.append("containerID:");
+        sb.append(containerID);
+        sb.append(",");
+    }
+    if (!(image == null)) {
+        sb.append("image:");
+        sb.append(image);
+        sb.append(",");
+    }
+    if (!(imageID == null)) {
+        sb.append("imageID:");
+        sb.append(imageID);
+        sb.append(",");
+    }
+    if (!(lastState == null)) {
+        sb.append("lastState:");
+        sb.append(lastState);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+        sb.append(",");
+    }
+    if (!(ready == null)) {
+        sb.append("ready:");
+        sb.append(ready);
+        sb.append(",");
+    }
+    if (!(resources == null)) {
+        sb.append("resources:");
+        sb.append(resources);
+        sb.append(",");
+    }
+    if (!(restartCount == null)) {
+        sb.append("restartCount:");
+        sb.append(restartCount);
+        sb.append(",");
+    }
+    if (!(started == null)) {
+        sb.append("started:");
+        sb.append(started);
+        sb.append(",");
+    }
+    if (!(state == null)) {
+        sb.append("state:");
+        sb.append(state);
+        sb.append(",");
+    }
+    if (!(stopSignal == null)) {
+        sb.append("stopSignal:");
+        sb.append(stopSignal);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+        sb.append(",");
+    }
+    if (!(volumeMounts == null) && !(volumeMounts.isEmpty())) {
+        sb.append("volumeMounts:");
+        sb.append(volumeMounts);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -757,7 +969,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1ContainerStatusFluent.this.setToAllocatedResourcesStatus(index,builder.build());
+      return (N) V1ContainerStatusFluent.this.setToAllocatedResourcesStatus(index, builder.build());
     }
     
     public N endAllocatedResourcesStatus() {
@@ -839,7 +1051,7 @@ public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> exten
     int index;
     
     public N and() {
-      return (N) V1ContainerStatusFluent.this.setToVolumeMounts(index,builder.build());
+      return (N) V1ContainerStatusFluent.this.setToVolumeMounts(index, builder.build());
     }
     
     public N endVolumeMount() {

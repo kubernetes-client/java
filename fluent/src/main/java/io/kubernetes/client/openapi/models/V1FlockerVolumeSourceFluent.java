@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1FlockerVolumeSourceFluent<A extends V1FlockerVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1FlockerVolumeSourceFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1FlockerVolumeSourceFluent<A extends V1FlockerVolumeSourceFluent<A
   private String datasetUUID;
   
   protected void copyInstance(V1FlockerVolumeSource instance) {
-    instance = (instance != null ? instance : new V1FlockerVolumeSource());
+    instance = instance != null ? instance : new V1FlockerVolumeSource();
     if (instance != null) {
-          this.withDatasetName(instance.getDatasetName());
-          this.withDatasetUUID(instance.getDatasetUUID());
-        }
+        this.withDatasetName(instance.getDatasetName());
+        this.withDatasetUUID(instance.getDatasetUUID());
+    }
   }
   
   public String getDatasetName() {
@@ -54,24 +56,41 @@ public class V1FlockerVolumeSourceFluent<A extends V1FlockerVolumeSourceFluent<A
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1FlockerVolumeSourceFluent that = (V1FlockerVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(datasetName, that.datasetName)) return false;
-    if (!java.util.Objects.equals(datasetUUID, that.datasetUUID)) return false;
+    if (!(Objects.equals(datasetName, that.datasetName))) {
+      return false;
+    }
+    if (!(Objects.equals(datasetUUID, that.datasetUUID))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(datasetName,  datasetUUID,  super.hashCode());
+    return Objects.hash(datasetName, datasetUUID);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (datasetName != null) { sb.append("datasetName:"); sb.append(datasetName + ","); }
-    if (datasetUUID != null) { sb.append("datasetUUID:"); sb.append(datasetUUID); }
+    if (!(datasetName == null)) {
+        sb.append("datasetName:");
+        sb.append(datasetName);
+        sb.append(",");
+    }
+    if (!(datasetUUID == null)) {
+        sb.append("datasetUUID:");
+        sb.append(datasetUUID);
+    }
     sb.append("}");
     return sb.toString();
   }

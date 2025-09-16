@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1LifecycleHandlerBuilder extends V1LifecycleHandlerFluent<V1LifecycleHandlerBuilder> implements VisitableBuilder<V1LifecycleHandler,V1LifecycleHandlerBuilder>{
   public V1LifecycleHandlerBuilder() {
     this(new V1LifecycleHandler());

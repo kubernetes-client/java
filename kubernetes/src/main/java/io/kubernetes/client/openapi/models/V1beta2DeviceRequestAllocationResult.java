@@ -19,22 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1beta2DeviceToleration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
 @ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
   private Boolean adminAccess;
+
+  public static final String SERIALIZED_NAME_BINDING_CONDITIONS = "bindingConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_CONDITIONS)
+  private List<String> bindingConditions = null;
+
+  public static final String SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS = "bindingFailureConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS)
+  private List<String> bindingFailureConditions = null;
+
+  public static final String SERIALIZED_NAME_CONSUMED_CAPACITY = "consumedCapacity";
+  @SerializedName(SERIALIZED_NAME_CONSUMED_CAPACITY)
+  private Map<String, Quantity> consumedCapacity = null;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
@@ -51,6 +66,10 @@ public class V1beta2DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
   private String request;
+
+  public static final String SERIALIZED_NAME_SHARE_I_D = "shareID";
+  @SerializedName(SERIALIZED_NAME_SHARE_I_D)
+  private String shareID;
 
   public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
   @SerializedName(SERIALIZED_NAME_TOLERATIONS)
@@ -77,6 +96,99 @@ public class V1beta2DeviceRequestAllocationResult {
 
   public void setAdminAccess(Boolean adminAccess) {
     this.adminAccess = adminAccess;
+  }
+
+
+  public V1beta2DeviceRequestAllocationResult bindingConditions(List<String> bindingConditions) {
+
+    this.bindingConditions = bindingConditions;
+    return this;
+  }
+
+  public V1beta2DeviceRequestAllocationResult addBindingConditionsItem(String bindingConditionsItem) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList<>();
+    }
+    this.bindingConditions.add(bindingConditionsItem);
+    return this;
+  }
+
+   /**
+   * BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingConditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+
+  public List<String> getBindingConditions() {
+    return bindingConditions;
+  }
+
+
+  public void setBindingConditions(List<String> bindingConditions) {
+    this.bindingConditions = bindingConditions;
+  }
+
+
+  public V1beta2DeviceRequestAllocationResult bindingFailureConditions(List<String> bindingFailureConditions) {
+
+    this.bindingFailureConditions = bindingFailureConditions;
+    return this;
+  }
+
+  public V1beta2DeviceRequestAllocationResult addBindingFailureConditionsItem(String bindingFailureConditionsItem) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList<>();
+    }
+    this.bindingFailureConditions.add(bindingFailureConditionsItem);
+    return this;
+  }
+
+   /**
+   * BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingFailureConditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+
+  public List<String> getBindingFailureConditions() {
+    return bindingFailureConditions;
+  }
+
+
+  public void setBindingFailureConditions(List<String> bindingFailureConditions) {
+    this.bindingFailureConditions = bindingFailureConditions;
+  }
+
+
+  public V1beta2DeviceRequestAllocationResult consumedCapacity(Map<String, Quantity> consumedCapacity) {
+
+    this.consumedCapacity = consumedCapacity;
+    return this;
+  }
+
+  public V1beta2DeviceRequestAllocationResult putConsumedCapacityItem(String key, Quantity consumedCapacityItem) {
+    if (this.consumedCapacity == null) {
+      this.consumedCapacity = new HashMap<>();
+    }
+    this.consumedCapacity.put(key, consumedCapacityItem);
+    return this;
+  }
+
+   /**
+   * ConsumedCapacity tracks the amount of capacity consumed per device as part of the claim request. The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device’s requestPolicy if applicable (i.e., may not be less than the requested amount).  The total consumed capacity for each device must not exceed the DeviceCapacity&#39;s Value.  This field is populated only for devices that allow multiple allocations. All capacity entries are included, even if the consumed amount is zero.
+   * @return consumedCapacity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ConsumedCapacity tracks the amount of capacity consumed per device as part of the claim request. The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device’s requestPolicy if applicable (i.e., may not be less than the requested amount).  The total consumed capacity for each device must not exceed the DeviceCapacity's Value.  This field is populated only for devices that allow multiple allocations. All capacity entries are included, even if the consumed amount is zero.")
+
+  public Map<String, Quantity> getConsumedCapacity() {
+    return consumedCapacity;
+  }
+
+
+  public void setConsumedCapacity(Map<String, Quantity> consumedCapacity) {
+    this.consumedCapacity = consumedCapacity;
   }
 
 
@@ -168,6 +280,29 @@ public class V1beta2DeviceRequestAllocationResult {
   }
 
 
+  public V1beta2DeviceRequestAllocationResult shareID(String shareID) {
+
+    this.shareID = shareID;
+    return this;
+  }
+
+   /**
+   * ShareID uniquely identifies an individual allocation share of the device, used when the device supports multiple simultaneous allocations. It serves as an additional map key to differentiate concurrent shares of the same device.
+   * @return shareID
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ShareID uniquely identifies an individual allocation share of the device, used when the device supports multiple simultaneous allocations. It serves as an additional map key to differentiate concurrent shares of the same device.")
+
+  public String getShareID() {
+    return shareID;
+  }
+
+
+  public void setShareID(String shareID) {
+    this.shareID = shareID;
+  }
+
+
   public V1beta2DeviceRequestAllocationResult tolerations(List<V1beta2DeviceToleration> tolerations) {
 
     this.tolerations = tolerations;
@@ -209,16 +344,20 @@ public class V1beta2DeviceRequestAllocationResult {
     }
     V1beta2DeviceRequestAllocationResult v1beta2DeviceRequestAllocationResult = (V1beta2DeviceRequestAllocationResult) o;
     return Objects.equals(this.adminAccess, v1beta2DeviceRequestAllocationResult.adminAccess) &&
+        Objects.equals(this.bindingConditions, v1beta2DeviceRequestAllocationResult.bindingConditions) &&
+        Objects.equals(this.bindingFailureConditions, v1beta2DeviceRequestAllocationResult.bindingFailureConditions) &&
+        Objects.equals(this.consumedCapacity, v1beta2DeviceRequestAllocationResult.consumedCapacity) &&
         Objects.equals(this.device, v1beta2DeviceRequestAllocationResult.device) &&
         Objects.equals(this.driver, v1beta2DeviceRequestAllocationResult.driver) &&
         Objects.equals(this.pool, v1beta2DeviceRequestAllocationResult.pool) &&
         Objects.equals(this.request, v1beta2DeviceRequestAllocationResult.request) &&
+        Objects.equals(this.shareID, v1beta2DeviceRequestAllocationResult.shareID) &&
         Objects.equals(this.tolerations, v1beta2DeviceRequestAllocationResult.tolerations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, device, driver, pool, request, tolerations);
+    return Objects.hash(adminAccess, bindingConditions, bindingFailureConditions, consumedCapacity, device, driver, pool, request, shareID, tolerations);
   }
 
 
@@ -227,10 +366,14 @@ public class V1beta2DeviceRequestAllocationResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2DeviceRequestAllocationResult {\n");
     sb.append("    adminAccess: ").append(toIndentedString(adminAccess)).append("\n");
+    sb.append("    bindingConditions: ").append(toIndentedString(bindingConditions)).append("\n");
+    sb.append("    bindingFailureConditions: ").append(toIndentedString(bindingFailureConditions)).append("\n");
+    sb.append("    consumedCapacity: ").append(toIndentedString(consumedCapacity)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    pool: ").append(toIndentedString(pool)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    shareID: ").append(toIndentedString(shareID)).append("\n");
     sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("}");
     return sb.toString();

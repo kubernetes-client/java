@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1EphemeralVolumeSourceFluent<A extends V1EphemeralVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1EphemeralVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1EphemeralVolumeSourceFluent() {
   }
   
@@ -20,10 +23,10 @@ public class V1EphemeralVolumeSourceFluent<A extends V1EphemeralVolumeSourceFlue
   private V1PersistentVolumeClaimTemplateBuilder volumeClaimTemplate;
   
   protected void copyInstance(V1EphemeralVolumeSource instance) {
-    instance = (instance != null ? instance : new V1EphemeralVolumeSource());
+    instance = instance != null ? instance : new V1EphemeralVolumeSource();
     if (instance != null) {
-          this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-        }
+      this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
+    }
   }
   
   public V1PersistentVolumeClaimTemplate buildVolumeClaimTemplate() {
@@ -55,34 +58,45 @@ public class V1EphemeralVolumeSourceFluent<A extends V1EphemeralVolumeSourceFlue
   }
   
   public VolumeClaimTemplateNested<A> editVolumeClaimTemplate() {
-    return withNewVolumeClaimTemplateLike(java.util.Optional.ofNullable(buildVolumeClaimTemplate()).orElse(null));
+    return this.withNewVolumeClaimTemplateLike(Optional.ofNullable(this.buildVolumeClaimTemplate()).orElse(null));
   }
   
   public VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplate() {
-    return withNewVolumeClaimTemplateLike(java.util.Optional.ofNullable(buildVolumeClaimTemplate()).orElse(new V1PersistentVolumeClaimTemplateBuilder().build()));
+    return this.withNewVolumeClaimTemplateLike(Optional.ofNullable(this.buildVolumeClaimTemplate()).orElse(new V1PersistentVolumeClaimTemplateBuilder().build()));
   }
   
   public VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
-    return withNewVolumeClaimTemplateLike(java.util.Optional.ofNullable(buildVolumeClaimTemplate()).orElse(item));
+    return this.withNewVolumeClaimTemplateLike(Optional.ofNullable(this.buildVolumeClaimTemplate()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1EphemeralVolumeSourceFluent that = (V1EphemeralVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(volumeClaimTemplate, that.volumeClaimTemplate)) return false;
+    if (!(Objects.equals(volumeClaimTemplate, that.volumeClaimTemplate))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(volumeClaimTemplate,  super.hashCode());
+    return Objects.hash(volumeClaimTemplate);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (volumeClaimTemplate != null) { sb.append("volumeClaimTemplate:"); sb.append(volumeClaimTemplate); }
+    if (!(volumeClaimTemplate == null)) {
+        sb.append("volumeClaimTemplate:");
+        sb.append(volumeClaimTemplate);
+    }
     sb.append("}");
     return sb.toString();
   }

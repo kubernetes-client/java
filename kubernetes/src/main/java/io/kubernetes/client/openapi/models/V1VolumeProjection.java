@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ClusterTrustBundleProjection;
 import io.kubernetes.client.openapi.models.V1ConfigMapProjection;
 import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
+import io.kubernetes.client.openapi.models.V1PodCertificateProjection;
 import io.kubernetes.client.openapi.models.V1SecretProjection;
 import io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection;
 import io.swagger.annotations.ApiModel;
@@ -32,7 +33,7 @@ import java.io.IOException;
  * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  */
 @ApiModel(description = "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE = "clusterTrustBundle";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TRUST_BUNDLE)
@@ -45,6 +46,10 @@ public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_DOWNWARD_A_P_I = "downwardAPI";
   @SerializedName(SERIALIZED_NAME_DOWNWARD_A_P_I)
   private V1DownwardAPIProjection downwardAPI;
+
+  public static final String SERIALIZED_NAME_POD_CERTIFICATE = "podCertificate";
+  @SerializedName(SERIALIZED_NAME_POD_CERTIFICATE)
+  private V1PodCertificateProjection podCertificate;
 
   public static final String SERIALIZED_NAME_SECRET = "secret";
   @SerializedName(SERIALIZED_NAME_SECRET)
@@ -124,6 +129,29 @@ public class V1VolumeProjection {
   }
 
 
+  public V1VolumeProjection podCertificate(V1PodCertificateProjection podCertificate) {
+
+    this.podCertificate = podCertificate;
+    return this;
+  }
+
+   /**
+   * Get podCertificate
+   * @return podCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1PodCertificateProjection getPodCertificate() {
+    return podCertificate;
+  }
+
+
+  public void setPodCertificate(V1PodCertificateProjection podCertificate) {
+    this.podCertificate = podCertificate;
+  }
+
+
   public V1VolumeProjection secret(V1SecretProjection secret) {
 
     this.secret = secret;
@@ -182,13 +210,14 @@ public class V1VolumeProjection {
     return Objects.equals(this.clusterTrustBundle, v1VolumeProjection.clusterTrustBundle) &&
         Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
         Objects.equals(this.downwardAPI, v1VolumeProjection.downwardAPI) &&
+        Objects.equals(this.podCertificate, v1VolumeProjection.podCertificate) &&
         Objects.equals(this.secret, v1VolumeProjection.secret) &&
         Objects.equals(this.serviceAccountToken, v1VolumeProjection.serviceAccountToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterTrustBundle, configMap, downwardAPI, secret, serviceAccountToken);
+    return Objects.hash(clusterTrustBundle, configMap, downwardAPI, podCertificate, secret, serviceAccountToken);
   }
 
 
@@ -199,6 +228,7 @@ public class V1VolumeProjection {
     sb.append("    clusterTrustBundle: ").append(toIndentedString(clusterTrustBundle)).append("\n");
     sb.append("    configMap: ").append(toIndentedString(configMap)).append("\n");
     sb.append("    downwardAPI: ").append(toIndentedString(downwardAPI)).append("\n");
+    sb.append("    podCertificate: ").append(toIndentedString(podCertificate)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("    serviceAccountToken: ").append(toIndentedString(serviceAccountToken)).append("\n");
     sb.append("}");

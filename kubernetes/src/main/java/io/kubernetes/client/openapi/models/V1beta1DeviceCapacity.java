@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1beta1CapacityRequestPolicy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,11 +29,38 @@ import java.io.IOException;
  * DeviceCapacity describes a quantity associated with a device.
  */
 @ApiModel(description = "DeviceCapacity describes a quantity associated with a device.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceCapacity {
+  public static final String SERIALIZED_NAME_REQUEST_POLICY = "requestPolicy";
+  @SerializedName(SERIALIZED_NAME_REQUEST_POLICY)
+  private V1beta1CapacityRequestPolicy requestPolicy;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Quantity value;
+
+
+  public V1beta1DeviceCapacity requestPolicy(V1beta1CapacityRequestPolicy requestPolicy) {
+
+    this.requestPolicy = requestPolicy;
+    return this;
+  }
+
+   /**
+   * Get requestPolicy
+   * @return requestPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1beta1CapacityRequestPolicy getRequestPolicy() {
+    return requestPolicy;
+  }
+
+
+  public void setRequestPolicy(V1beta1CapacityRequestPolicy requestPolicy) {
+    this.requestPolicy = requestPolicy;
+  }
 
 
   public V1beta1DeviceCapacity value(Quantity value) {
@@ -66,12 +94,13 @@ public class V1beta1DeviceCapacity {
       return false;
     }
     V1beta1DeviceCapacity v1beta1DeviceCapacity = (V1beta1DeviceCapacity) o;
-    return Objects.equals(this.value, v1beta1DeviceCapacity.value);
+    return Objects.equals(this.requestPolicy, v1beta1DeviceCapacity.requestPolicy) &&
+        Objects.equals(this.value, v1beta1DeviceCapacity.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(requestPolicy, value);
   }
 
 
@@ -79,6 +108,7 @@ public class V1beta1DeviceCapacity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceCapacity {\n");
+    sb.append("    requestPolicy: ").append(toIndentedString(requestPolicy)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,7 +27,7 @@ import java.io.IOException;
  * Variable is the definition of a variable that is used for composition. A variable is defined as a named expression.
  */
 @ApiModel(description = "Variable is the definition of a variable that is used for composition. A variable is defined as a named expression.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1Variable {
   public static final String SERIALIZED_NAME_EXPRESSION = "expression";
   @SerializedName(SERIALIZED_NAME_EXPRESSION)

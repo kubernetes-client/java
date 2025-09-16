@@ -1,9 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -11,7 +13,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerminatedFluent<A>> extends BaseFluent<A>{
+public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A>> extends BaseFluent<A>{
   public V1ContainerStateTerminatedFluent() {
   }
   
@@ -27,16 +29,16 @@ public class V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerminat
   private OffsetDateTime startedAt;
   
   protected void copyInstance(V1ContainerStateTerminated instance) {
-    instance = (instance != null ? instance : new V1ContainerStateTerminated());
+    instance = instance != null ? instance : new V1ContainerStateTerminated();
     if (instance != null) {
-          this.withContainerID(instance.getContainerID());
-          this.withExitCode(instance.getExitCode());
-          this.withFinishedAt(instance.getFinishedAt());
-          this.withMessage(instance.getMessage());
-          this.withReason(instance.getReason());
-          this.withSignal(instance.getSignal());
-          this.withStartedAt(instance.getStartedAt());
-        }
+        this.withContainerID(instance.getContainerID());
+        this.withExitCode(instance.getExitCode());
+        this.withFinishedAt(instance.getFinishedAt());
+        this.withMessage(instance.getMessage());
+        this.withReason(instance.getReason());
+        this.withSignal(instance.getSignal());
+        this.withStartedAt(instance.getStartedAt());
+    }
   }
   
   public String getContainerID() {
@@ -131,34 +133,81 @@ public class V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerminat
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ContainerStateTerminatedFluent that = (V1ContainerStateTerminatedFluent) o;
-    if (!java.util.Objects.equals(containerID, that.containerID)) return false;
-    if (!java.util.Objects.equals(exitCode, that.exitCode)) return false;
-    if (!java.util.Objects.equals(finishedAt, that.finishedAt)) return false;
-    if (!java.util.Objects.equals(message, that.message)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
-    if (!java.util.Objects.equals(signal, that.signal)) return false;
-    if (!java.util.Objects.equals(startedAt, that.startedAt)) return false;
+    if (!(Objects.equals(containerID, that.containerID))) {
+      return false;
+    }
+    if (!(Objects.equals(exitCode, that.exitCode))) {
+      return false;
+    }
+    if (!(Objects.equals(finishedAt, that.finishedAt))) {
+      return false;
+    }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
+    if (!(Objects.equals(signal, that.signal))) {
+      return false;
+    }
+    if (!(Objects.equals(startedAt, that.startedAt))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(containerID,  exitCode,  finishedAt,  message,  reason,  signal,  startedAt,  super.hashCode());
+    return Objects.hash(containerID, exitCode, finishedAt, message, reason, signal, startedAt);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (containerID != null) { sb.append("containerID:"); sb.append(containerID + ","); }
-    if (exitCode != null) { sb.append("exitCode:"); sb.append(exitCode + ","); }
-    if (finishedAt != null) { sb.append("finishedAt:"); sb.append(finishedAt + ","); }
-    if (message != null) { sb.append("message:"); sb.append(message + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
-    if (signal != null) { sb.append("signal:"); sb.append(signal + ","); }
-    if (startedAt != null) { sb.append("startedAt:"); sb.append(startedAt); }
+    if (!(containerID == null)) {
+        sb.append("containerID:");
+        sb.append(containerID);
+        sb.append(",");
+    }
+    if (!(exitCode == null)) {
+        sb.append("exitCode:");
+        sb.append(exitCode);
+        sb.append(",");
+    }
+    if (!(finishedAt == null)) {
+        sb.append("finishedAt:");
+        sb.append(finishedAt);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+        sb.append(",");
+    }
+    if (!(signal == null)) {
+        sb.append("signal:");
+        sb.append(signal);
+        sb.append(",");
+    }
+    if (!(startedAt == null)) {
+        sb.append("startedAt:");
+        sb.append(startedAt);
+    }
     sb.append("}");
     return sb.toString();
   }

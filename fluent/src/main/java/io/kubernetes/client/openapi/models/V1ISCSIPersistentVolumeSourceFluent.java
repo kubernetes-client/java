@@ -1,5 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1ISCSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1ISCSIPersistentVolumeSourceFluent() {
   }
   
@@ -36,20 +39,20 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
   private String targetPortal;
   
   protected void copyInstance(V1ISCSIPersistentVolumeSource instance) {
-    instance = (instance != null ? instance : new V1ISCSIPersistentVolumeSource());
+    instance = instance != null ? instance : new V1ISCSIPersistentVolumeSource();
     if (instance != null) {
-          this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
-          this.withChapAuthSession(instance.getChapAuthSession());
-          this.withFsType(instance.getFsType());
-          this.withInitiatorName(instance.getInitiatorName());
-          this.withIqn(instance.getIqn());
-          this.withIscsiInterface(instance.getIscsiInterface());
-          this.withLun(instance.getLun());
-          this.withPortals(instance.getPortals());
-          this.withReadOnly(instance.getReadOnly());
-          this.withSecretRef(instance.getSecretRef());
-          this.withTargetPortal(instance.getTargetPortal());
-        }
+        this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
+        this.withChapAuthSession(instance.getChapAuthSession());
+        this.withFsType(instance.getFsType());
+        this.withInitiatorName(instance.getInitiatorName());
+        this.withIqn(instance.getIqn());
+        this.withIscsiInterface(instance.getIscsiInterface());
+        this.withLun(instance.getLun());
+        this.withPortals(instance.getPortals());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
+        this.withTargetPortal(instance.getTargetPortal());
+    }
   }
   
   public Boolean getChapAuthDiscovery() {
@@ -144,34 +147,59 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
   }
   
   public A addToPortals(int index,String item) {
-    if (this.portals == null) {this.portals = new ArrayList<String>();}
+    if (this.portals == null) {
+      this.portals = new ArrayList();
+    }
     this.portals.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToPortals(int index,String item) {
-    if (this.portals == null) {this.portals = new ArrayList<String>();}
-    this.portals.set(index, item); return (A)this;
+    if (this.portals == null) {
+      this.portals = new ArrayList();
+    }
+    this.portals.set(index, item);
+    return (A) this;
   }
   
-  public A addToPortals(java.lang.String... items) {
-    if (this.portals == null) {this.portals = new ArrayList<String>();}
-    for (String item : items) {this.portals.add(item);} return (A)this;
+  public A addToPortals(String... items) {
+    if (this.portals == null) {
+      this.portals = new ArrayList();
+    }
+    for (String item : items) {
+      this.portals.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToPortals(Collection<String> items) {
-    if (this.portals == null) {this.portals = new ArrayList<String>();}
-    for (String item : items) {this.portals.add(item);} return (A)this;
+    if (this.portals == null) {
+      this.portals = new ArrayList();
+    }
+    for (String item : items) {
+      this.portals.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromPortals(java.lang.String... items) {
-    if (this.portals == null) return (A)this;
-    for (String item : items) { this.portals.remove(item);} return (A)this;
+  public A removeFromPortals(String... items) {
+    if (this.portals == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.portals.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromPortals(Collection<String> items) {
-    if (this.portals == null) return (A)this;
-    for (String item : items) { this.portals.remove(item);} return (A)this;
+    if (this.portals == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.portals.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getPortals() {
@@ -220,7 +248,7 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
     return (A) this;
   }
   
-  public A withPortals(java.lang.String... portals) {
+  public A withPortals(String... portals) {
     if (this.portals != null) {
         this.portals.clear();
         _visitables.remove("portals");
@@ -234,7 +262,7 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
   }
   
   public boolean hasPortals() {
-    return this.portals != null && !this.portals.isEmpty();
+    return this.portals != null && !(this.portals.isEmpty());
   }
   
   public Boolean getReadOnly() {
@@ -279,15 +307,15 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
   }
   
   public SecretRefNested<A> editSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
-    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
   public String getTargetPortal() {
@@ -304,42 +332,113 @@ public class V1ISCSIPersistentVolumeSourceFluent<A extends V1ISCSIPersistentVolu
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ISCSIPersistentVolumeSourceFluent that = (V1ISCSIPersistentVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(chapAuthDiscovery, that.chapAuthDiscovery)) return false;
-    if (!java.util.Objects.equals(chapAuthSession, that.chapAuthSession)) return false;
-    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
-    if (!java.util.Objects.equals(initiatorName, that.initiatorName)) return false;
-    if (!java.util.Objects.equals(iqn, that.iqn)) return false;
-    if (!java.util.Objects.equals(iscsiInterface, that.iscsiInterface)) return false;
-    if (!java.util.Objects.equals(lun, that.lun)) return false;
-    if (!java.util.Objects.equals(portals, that.portals)) return false;
-    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
-    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
-    if (!java.util.Objects.equals(targetPortal, that.targetPortal)) return false;
+    if (!(Objects.equals(chapAuthDiscovery, that.chapAuthDiscovery))) {
+      return false;
+    }
+    if (!(Objects.equals(chapAuthSession, that.chapAuthSession))) {
+      return false;
+    }
+    if (!(Objects.equals(fsType, that.fsType))) {
+      return false;
+    }
+    if (!(Objects.equals(initiatorName, that.initiatorName))) {
+      return false;
+    }
+    if (!(Objects.equals(iqn, that.iqn))) {
+      return false;
+    }
+    if (!(Objects.equals(iscsiInterface, that.iscsiInterface))) {
+      return false;
+    }
+    if (!(Objects.equals(lun, that.lun))) {
+      return false;
+    }
+    if (!(Objects.equals(portals, that.portals))) {
+      return false;
+    }
+    if (!(Objects.equals(readOnly, that.readOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(secretRef, that.secretRef))) {
+      return false;
+    }
+    if (!(Objects.equals(targetPortal, that.targetPortal))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(chapAuthDiscovery,  chapAuthSession,  fsType,  initiatorName,  iqn,  iscsiInterface,  lun,  portals,  readOnly,  secretRef,  targetPortal,  super.hashCode());
+    return Objects.hash(chapAuthDiscovery, chapAuthSession, fsType, initiatorName, iqn, iscsiInterface, lun, portals, readOnly, secretRef, targetPortal);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (chapAuthDiscovery != null) { sb.append("chapAuthDiscovery:"); sb.append(chapAuthDiscovery + ","); }
-    if (chapAuthSession != null) { sb.append("chapAuthSession:"); sb.append(chapAuthSession + ","); }
-    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
-    if (initiatorName != null) { sb.append("initiatorName:"); sb.append(initiatorName + ","); }
-    if (iqn != null) { sb.append("iqn:"); sb.append(iqn + ","); }
-    if (iscsiInterface != null) { sb.append("iscsiInterface:"); sb.append(iscsiInterface + ","); }
-    if (lun != null) { sb.append("lun:"); sb.append(lun + ","); }
-    if (portals != null && !portals.isEmpty()) { sb.append("portals:"); sb.append(portals + ","); }
-    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
-    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef + ","); }
-    if (targetPortal != null) { sb.append("targetPortal:"); sb.append(targetPortal); }
+    if (!(chapAuthDiscovery == null)) {
+        sb.append("chapAuthDiscovery:");
+        sb.append(chapAuthDiscovery);
+        sb.append(",");
+    }
+    if (!(chapAuthSession == null)) {
+        sb.append("chapAuthSession:");
+        sb.append(chapAuthSession);
+        sb.append(",");
+    }
+    if (!(fsType == null)) {
+        sb.append("fsType:");
+        sb.append(fsType);
+        sb.append(",");
+    }
+    if (!(initiatorName == null)) {
+        sb.append("initiatorName:");
+        sb.append(initiatorName);
+        sb.append(",");
+    }
+    if (!(iqn == null)) {
+        sb.append("iqn:");
+        sb.append(iqn);
+        sb.append(",");
+    }
+    if (!(iscsiInterface == null)) {
+        sb.append("iscsiInterface:");
+        sb.append(iscsiInterface);
+        sb.append(",");
+    }
+    if (!(lun == null)) {
+        sb.append("lun:");
+        sb.append(lun);
+        sb.append(",");
+    }
+    if (!(portals == null) && !(portals.isEmpty())) {
+        sb.append("portals:");
+        sb.append(portals);
+        sb.append(",");
+    }
+    if (!(readOnly == null)) {
+        sb.append("readOnly:");
+        sb.append(readOnly);
+        sb.append(",");
+    }
+    if (!(secretRef == null)) {
+        sb.append("secretRef:");
+        sb.append(secretRef);
+        sb.append(",");
+    }
+    if (!(targetPortal == null)) {
+        sb.append("targetPortal:");
+        sb.append(targetPortal);
+    }
     sb.append("}");
     return sb.toString();
   }

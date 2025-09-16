@@ -27,7 +27,7 @@ import java.io.IOException;
  * OpaqueDeviceConfiguration contains configuration parameters for a driver in a format defined by the driver vendor.
  */
 @ApiModel(description = "OpaqueDeviceConfiguration contains configuration parameters for a driver in a format defined by the driver vendor.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta2OpaqueDeviceConfiguration {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1CapacityRequirements;
 import io.kubernetes.client.openapi.models.V1beta1DeviceSelector;
 import io.kubernetes.client.openapi.models.V1beta1DeviceSubRequest;
 import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
@@ -32,7 +33,7 @@ import java.util.List;
  * DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.
  */
 @ApiModel(description = "DeviceRequest is a request for devices required for a claim. This is typically a request for a single resource like a device, but can also ask for several identical devices.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceRequest {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -41,6 +42,10 @@ public class V1beta1DeviceRequest {
   public static final String SERIALIZED_NAME_ALLOCATION_MODE = "allocationMode";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
   private String allocationMode;
+
+  public static final String SERIALIZED_NAME_CAPACITY = "capacity";
+  @SerializedName(SERIALIZED_NAME_CAPACITY)
+  private V1beta1CapacityRequirements capacity;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -110,6 +115,29 @@ public class V1beta1DeviceRequest {
 
   public void setAllocationMode(String allocationMode) {
     this.allocationMode = allocationMode;
+  }
+
+
+  public V1beta1DeviceRequest capacity(V1beta1CapacityRequirements capacity) {
+
+    this.capacity = capacity;
+    return this;
+  }
+
+   /**
+   * Get capacity
+   * @return capacity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1beta1CapacityRequirements getCapacity() {
+    return capacity;
+  }
+
+
+  public void setCapacity(V1beta1CapacityRequirements capacity) {
+    this.capacity = capacity;
   }
 
 
@@ -285,6 +313,7 @@ public class V1beta1DeviceRequest {
     V1beta1DeviceRequest v1beta1DeviceRequest = (V1beta1DeviceRequest) o;
     return Objects.equals(this.adminAccess, v1beta1DeviceRequest.adminAccess) &&
         Objects.equals(this.allocationMode, v1beta1DeviceRequest.allocationMode) &&
+        Objects.equals(this.capacity, v1beta1DeviceRequest.capacity) &&
         Objects.equals(this.count, v1beta1DeviceRequest.count) &&
         Objects.equals(this.deviceClassName, v1beta1DeviceRequest.deviceClassName) &&
         Objects.equals(this.firstAvailable, v1beta1DeviceRequest.firstAvailable) &&
@@ -295,7 +324,7 @@ public class V1beta1DeviceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, allocationMode, count, deviceClassName, firstAvailable, name, selectors, tolerations);
+    return Objects.hash(adminAccess, allocationMode, capacity, count, deviceClassName, firstAvailable, name, selectors, tolerations);
   }
 
 
@@ -305,6 +334,7 @@ public class V1beta1DeviceRequest {
     sb.append("class V1beta1DeviceRequest {\n");
     sb.append("    adminAccess: ").append(toIndentedString(adminAccess)).append("\n");
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
+    sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
     sb.append("    firstAvailable: ").append(toIndentedString(firstAvailable)).append("\n");

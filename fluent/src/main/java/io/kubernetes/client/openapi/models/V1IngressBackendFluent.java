@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1IngressBackendFluent<A extends V1IngressBackendFluent<A>> extends BaseFluent<A>{
+public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.models.V1IngressBackendFluent<A>> extends BaseFluent<A>{
   public V1IngressBackendFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1IngressBackendFluent<A extends V1IngressBackendFluent<A>> extends
   private V1IngressServiceBackendBuilder service;
   
   protected void copyInstance(V1IngressBackend instance) {
-    instance = (instance != null ? instance : new V1IngressBackend());
+    instance = instance != null ? instance : new V1IngressBackend();
     if (instance != null) {
-          this.withResource(instance.getResource());
-          this.withService(instance.getService());
-        }
+        this.withResource(instance.getResource());
+        this.withService(instance.getService());
+    }
   }
   
   public V1TypedLocalObjectReference buildResource() {
@@ -57,15 +60,15 @@ public class V1IngressBackendFluent<A extends V1IngressBackendFluent<A>> extends
   }
   
   public ResourceNested<A> editResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(null));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(null));
   }
   
   public ResourceNested<A> editOrNewResource() {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(new V1TypedLocalObjectReferenceBuilder().build()));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(new V1TypedLocalObjectReferenceBuilder().build()));
   }
   
   public ResourceNested<A> editOrNewResourceLike(V1TypedLocalObjectReference item) {
-    return withNewResourceLike(java.util.Optional.ofNullable(buildResource()).orElse(item));
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(item));
   }
   
   public V1IngressServiceBackend buildService() {
@@ -97,36 +100,53 @@ public class V1IngressBackendFluent<A extends V1IngressBackendFluent<A>> extends
   }
   
   public ServiceNested<A> editService() {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(null));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(null));
   }
   
   public ServiceNested<A> editOrNewService() {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(new V1IngressServiceBackendBuilder().build()));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(new V1IngressServiceBackendBuilder().build()));
   }
   
   public ServiceNested<A> editOrNewServiceLike(V1IngressServiceBackend item) {
-    return withNewServiceLike(java.util.Optional.ofNullable(buildService()).orElse(item));
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1IngressBackendFluent that = (V1IngressBackendFluent) o;
-    if (!java.util.Objects.equals(resource, that.resource)) return false;
-    if (!java.util.Objects.equals(service, that.service)) return false;
+    if (!(Objects.equals(resource, that.resource))) {
+      return false;
+    }
+    if (!(Objects.equals(service, that.service))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(resource,  service,  super.hashCode());
+    return Objects.hash(resource, service);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (resource != null) { sb.append("resource:"); sb.append(resource + ","); }
-    if (service != null) { sb.append("service:"); sb.append(service); }
+    if (!(resource == null)) {
+        sb.append("resource:");
+        sb.append(resource);
+        sb.append(",");
+    }
+    if (!(service == null)) {
+        sb.append("service:");
+        sb.append(service);
+    }
     sb.append("}");
     return sb.toString();
   }

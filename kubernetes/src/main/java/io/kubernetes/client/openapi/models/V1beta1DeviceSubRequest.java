@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1CapacityRequirements;
 import io.kubernetes.client.openapi.models.V1beta1DeviceSelector;
 import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
 import io.swagger.annotations.ApiModel;
@@ -31,11 +32,15 @@ import java.util.List;
  * DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to Request, but doesn&#39;t expose the AdminAccess or FirstAvailable fields, as those can only be set on the top-level request. AdminAccess is not supported for requests with a prioritized list, and recursive FirstAvailable fields are not supported.
  */
 @ApiModel(description = "DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to Request, but doesn't expose the AdminAccess or FirstAvailable fields, as those can only be set on the top-level request. AdminAccess is not supported for requests with a prioritized list, and recursive FirstAvailable fields are not supported.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceSubRequest {
   public static final String SERIALIZED_NAME_ALLOCATION_MODE = "allocationMode";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
   private String allocationMode;
+
+  public static final String SERIALIZED_NAME_CAPACITY = "capacity";
+  @SerializedName(SERIALIZED_NAME_CAPACITY)
+  private V1beta1CapacityRequirements capacity;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -78,6 +83,29 @@ public class V1beta1DeviceSubRequest {
 
   public void setAllocationMode(String allocationMode) {
     this.allocationMode = allocationMode;
+  }
+
+
+  public V1beta1DeviceSubRequest capacity(V1beta1CapacityRequirements capacity) {
+
+    this.capacity = capacity;
+    return this;
+  }
+
+   /**
+   * Get capacity
+   * @return capacity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1beta1CapacityRequirements getCapacity() {
+    return capacity;
+  }
+
+
+  public void setCapacity(V1beta1CapacityRequirements capacity) {
+    this.capacity = capacity;
   }
 
 
@@ -220,6 +248,7 @@ public class V1beta1DeviceSubRequest {
     }
     V1beta1DeviceSubRequest v1beta1DeviceSubRequest = (V1beta1DeviceSubRequest) o;
     return Objects.equals(this.allocationMode, v1beta1DeviceSubRequest.allocationMode) &&
+        Objects.equals(this.capacity, v1beta1DeviceSubRequest.capacity) &&
         Objects.equals(this.count, v1beta1DeviceSubRequest.count) &&
         Objects.equals(this.deviceClassName, v1beta1DeviceSubRequest.deviceClassName) &&
         Objects.equals(this.name, v1beta1DeviceSubRequest.name) &&
@@ -229,7 +258,7 @@ public class V1beta1DeviceSubRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationMode, count, deviceClassName, name, selectors, tolerations);
+    return Objects.hash(allocationMode, capacity, count, deviceClassName, name, selectors, tolerations);
   }
 
 
@@ -238,6 +267,7 @@ public class V1beta1DeviceSubRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceSubRequest {\n");
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
+    sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

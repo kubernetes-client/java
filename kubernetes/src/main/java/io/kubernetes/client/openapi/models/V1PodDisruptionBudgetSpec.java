@@ -29,7 +29,7 @@ import java.io.IOException;
  * PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
  */
 @ApiModel(description = "PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1PodDisruptionBudgetSpec {
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)

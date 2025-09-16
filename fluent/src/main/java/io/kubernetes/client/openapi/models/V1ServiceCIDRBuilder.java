@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ServiceCIDRBuilder extends V1ServiceCIDRFluent<V1ServiceCIDRBuilder> implements VisitableBuilder<V1ServiceCIDR,V1ServiceCIDRBuilder>{
   public V1ServiceCIDRBuilder() {
     this(new V1ServiceCIDR());

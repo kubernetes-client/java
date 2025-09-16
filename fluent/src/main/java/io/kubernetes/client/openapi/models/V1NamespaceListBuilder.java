@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NamespaceListBuilder extends V1NamespaceListFluent<V1NamespaceListBuilder> implements VisitableBuilder<V1NamespaceList,V1NamespaceListBuilder>{
   public V1NamespaceListBuilder() {
     this(new V1NamespaceList());

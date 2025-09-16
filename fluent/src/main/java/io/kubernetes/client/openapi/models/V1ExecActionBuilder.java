@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ExecActionBuilder extends V1ExecActionFluent<V1ExecActionBuilder> implements VisitableBuilder<V1ExecAction,V1ExecActionBuilder>{
   public V1ExecActionBuilder() {
     this(new V1ExecAction());

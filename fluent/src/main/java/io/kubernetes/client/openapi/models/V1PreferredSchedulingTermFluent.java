@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1PreferredSchedulingTermFluent<A extends V1PreferredSchedulingTermFluent<A>> extends BaseFluent<A>{
+public class V1PreferredSchedulingTermFluent<A extends io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<A>> extends BaseFluent<A>{
   public V1PreferredSchedulingTermFluent() {
   }
   
@@ -22,11 +25,11 @@ public class V1PreferredSchedulingTermFluent<A extends V1PreferredSchedulingTerm
   private Integer weight;
   
   protected void copyInstance(V1PreferredSchedulingTerm instance) {
-    instance = (instance != null ? instance : new V1PreferredSchedulingTerm());
+    instance = instance != null ? instance : new V1PreferredSchedulingTerm();
     if (instance != null) {
-          this.withPreference(instance.getPreference());
-          this.withWeight(instance.getWeight());
-        }
+        this.withPreference(instance.getPreference());
+        this.withWeight(instance.getWeight());
+    }
   }
   
   public V1NodeSelectorTerm buildPreference() {
@@ -58,15 +61,15 @@ public class V1PreferredSchedulingTermFluent<A extends V1PreferredSchedulingTerm
   }
   
   public PreferenceNested<A> editPreference() {
-    return withNewPreferenceLike(java.util.Optional.ofNullable(buildPreference()).orElse(null));
+    return this.withNewPreferenceLike(Optional.ofNullable(this.buildPreference()).orElse(null));
   }
   
   public PreferenceNested<A> editOrNewPreference() {
-    return withNewPreferenceLike(java.util.Optional.ofNullable(buildPreference()).orElse(new V1NodeSelectorTermBuilder().build()));
+    return this.withNewPreferenceLike(Optional.ofNullable(this.buildPreference()).orElse(new V1NodeSelectorTermBuilder().build()));
   }
   
   public PreferenceNested<A> editOrNewPreferenceLike(V1NodeSelectorTerm item) {
-    return withNewPreferenceLike(java.util.Optional.ofNullable(buildPreference()).orElse(item));
+    return this.withNewPreferenceLike(Optional.ofNullable(this.buildPreference()).orElse(item));
   }
   
   public Integer getWeight() {
@@ -83,24 +86,41 @@ public class V1PreferredSchedulingTermFluent<A extends V1PreferredSchedulingTerm
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1PreferredSchedulingTermFluent that = (V1PreferredSchedulingTermFluent) o;
-    if (!java.util.Objects.equals(preference, that.preference)) return false;
-    if (!java.util.Objects.equals(weight, that.weight)) return false;
+    if (!(Objects.equals(preference, that.preference))) {
+      return false;
+    }
+    if (!(Objects.equals(weight, that.weight))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(preference,  weight,  super.hashCode());
+    return Objects.hash(preference, weight);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (preference != null) { sb.append("preference:"); sb.append(preference + ","); }
-    if (weight != null) { sb.append("weight:"); sb.append(weight); }
+    if (!(preference == null)) {
+        sb.append("preference:");
+        sb.append(preference);
+        sb.append(",");
+    }
+    if (!(weight == null)) {
+        sb.append("weight:");
+        sb.append(weight);
+    }
     sb.append("}");
     return sb.toString();
   }

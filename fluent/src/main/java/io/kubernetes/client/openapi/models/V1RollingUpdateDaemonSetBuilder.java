@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1RollingUpdateDaemonSetBuilder extends V1RollingUpdateDaemonSetFluent<V1RollingUpdateDaemonSetBuilder> implements VisitableBuilder<V1RollingUpdateDaemonSet,V1RollingUpdateDaemonSetBuilder>{
   public V1RollingUpdateDaemonSetBuilder() {
     this(new V1RollingUpdateDaemonSet());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1OverheadBuilder extends V1OverheadFluent<V1OverheadBuilder> implements VisitableBuilder<V1Overhead,V1OverheadBuilder>{
   public V1OverheadBuilder() {
     this(new V1Overhead());

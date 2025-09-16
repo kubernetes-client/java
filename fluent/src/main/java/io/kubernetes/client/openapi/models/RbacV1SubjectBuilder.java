@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class RbacV1SubjectBuilder extends RbacV1SubjectFluent<RbacV1SubjectBuilder> implements VisitableBuilder<RbacV1Subject,RbacV1SubjectBuilder>{
   public RbacV1SubjectBuilder() {
     this(new RbacV1Subject());

@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * Describes the state of a migration at a certain point.
  */
 @ApiModel(description = "Describes the state of a migration at a certain point.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1alpha1MigrationCondition {
   public static final String SERIALIZED_NAME_LAST_UPDATE_TIME = "lastUpdateTime";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATE_TIME)

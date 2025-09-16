@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelectorLabelRequirementFluent<V1TopologySelectorLabelRequirementBuilder> implements VisitableBuilder<V1TopologySelectorLabelRequirement,V1TopologySelectorLabelRequirementBuilder>{
   public V1TopologySelectorLabelRequirementBuilder() {
     this(new V1TopologySelectorLabelRequirement());

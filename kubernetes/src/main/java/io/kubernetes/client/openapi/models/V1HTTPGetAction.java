@@ -31,7 +31,7 @@ import java.util.List;
  * HTTPGetAction describes an action based on HTTP Get requests.
  */
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1HTTPGetAction {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)

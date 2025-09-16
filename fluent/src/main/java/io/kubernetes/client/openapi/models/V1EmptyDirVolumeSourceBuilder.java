@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EmptyDirVolumeSourceBuilder extends V1EmptyDirVolumeSourceFluent<V1EmptyDirVolumeSourceBuilder> implements VisitableBuilder<V1EmptyDirVolumeSource,V1EmptyDirVolumeSourceBuilder>{
   public V1EmptyDirVolumeSourceBuilder() {
     this(new V1EmptyDirVolumeSource());

@@ -29,7 +29,7 @@ import java.util.List;
  * ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.
  */
 @ApiModel(description = "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1ServiceCIDRSpec {
   public static final String SERIALIZED_NAME_CIDRS = "cidrs";
   @SerializedName(SERIALIZED_NAME_CIDRS)

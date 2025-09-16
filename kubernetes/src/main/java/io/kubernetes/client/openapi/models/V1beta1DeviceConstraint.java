@@ -29,8 +29,12 @@ import java.util.List;
  * DeviceConstraint must have exactly one field set besides Requests.
  */
 @ApiModel(description = "DeviceConstraint must have exactly one field set besides Requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceConstraint {
+  public static final String SERIALIZED_NAME_DISTINCT_ATTRIBUTE = "distinctAttribute";
+  @SerializedName(SERIALIZED_NAME_DISTINCT_ATTRIBUTE)
+  private String distinctAttribute;
+
   public static final String SERIALIZED_NAME_MATCH_ATTRIBUTE = "matchAttribute";
   @SerializedName(SERIALIZED_NAME_MATCH_ATTRIBUTE)
   private String matchAttribute;
@@ -38,6 +42,29 @@ public class V1beta1DeviceConstraint {
   public static final String SERIALIZED_NAME_REQUESTS = "requests";
   @SerializedName(SERIALIZED_NAME_REQUESTS)
   private List<String> requests = null;
+
+
+  public V1beta1DeviceConstraint distinctAttribute(String distinctAttribute) {
+
+    this.distinctAttribute = distinctAttribute;
+    return this;
+  }
+
+   /**
+   * DistinctAttribute requires that all devices in question have this attribute and that its type and value are unique across those devices.  This acts as the inverse of MatchAttribute.  This constraint is used to avoid allocating multiple requests to the same device by ensuring attribute-level differentiation.  This is useful for scenarios where resource requests must be fulfilled by separate physical devices. For example, a container requests two network interfaces that must be allocated from two different physical NICs.
+   * @return distinctAttribute
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DistinctAttribute requires that all devices in question have this attribute and that its type and value are unique across those devices.  This acts as the inverse of MatchAttribute.  This constraint is used to avoid allocating multiple requests to the same device by ensuring attribute-level differentiation.  This is useful for scenarios where resource requests must be fulfilled by separate physical devices. For example, a container requests two network interfaces that must be allocated from two different physical NICs.")
+
+  public String getDistinctAttribute() {
+    return distinctAttribute;
+  }
+
+
+  public void setDistinctAttribute(String distinctAttribute) {
+    this.distinctAttribute = distinctAttribute;
+  }
 
 
   public V1beta1DeviceConstraint matchAttribute(String matchAttribute) {
@@ -103,13 +130,14 @@ public class V1beta1DeviceConstraint {
       return false;
     }
     V1beta1DeviceConstraint v1beta1DeviceConstraint = (V1beta1DeviceConstraint) o;
-    return Objects.equals(this.matchAttribute, v1beta1DeviceConstraint.matchAttribute) &&
+    return Objects.equals(this.distinctAttribute, v1beta1DeviceConstraint.distinctAttribute) &&
+        Objects.equals(this.matchAttribute, v1beta1DeviceConstraint.matchAttribute) &&
         Objects.equals(this.requests, v1beta1DeviceConstraint.requests);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchAttribute, requests);
+    return Objects.hash(distinctAttribute, matchAttribute, requests);
   }
 
 
@@ -117,6 +145,7 @@ public class V1beta1DeviceConstraint {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceConstraint {\n");
+    sb.append("    distinctAttribute: ").append(toIndentedString(distinctAttribute)).append("\n");
     sb.append("    matchAttribute: ").append(toIndentedString(matchAttribute)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("}");

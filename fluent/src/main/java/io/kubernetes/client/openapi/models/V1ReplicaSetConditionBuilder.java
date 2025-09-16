@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ReplicaSetConditionBuilder extends V1ReplicaSetConditionFluent<V1ReplicaSetConditionBuilder> implements VisitableBuilder<V1ReplicaSetCondition,V1ReplicaSetConditionBuilder>{
   public V1ReplicaSetConditionBuilder() {
     this(new V1ReplicaSetCondition());

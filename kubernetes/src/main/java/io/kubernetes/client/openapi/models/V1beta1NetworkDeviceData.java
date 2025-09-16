@@ -29,7 +29,7 @@ import java.util.List;
  * NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.
  */
 @ApiModel(description = "NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1NetworkDeviceData {
   public static final String SERIALIZED_NAME_HARDWARE_ADDRESS = "hardwareAddress";
   @SerializedName(SERIALIZED_NAME_HARDWARE_ADDRESS)

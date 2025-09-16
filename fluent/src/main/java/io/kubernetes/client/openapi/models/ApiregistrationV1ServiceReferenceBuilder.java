@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class ApiregistrationV1ServiceReferenceBuilder extends ApiregistrationV1ServiceReferenceFluent<ApiregistrationV1ServiceReferenceBuilder> implements VisitableBuilder<ApiregistrationV1ServiceReference,ApiregistrationV1ServiceReferenceBuilder>{
   public ApiregistrationV1ServiceReferenceBuilder() {
     this(new ApiregistrationV1ServiceReference());

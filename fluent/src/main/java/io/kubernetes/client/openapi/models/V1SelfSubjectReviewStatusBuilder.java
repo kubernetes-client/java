@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SelfSubjectReviewStatusBuilder extends V1SelfSubjectReviewStatusFluent<V1SelfSubjectReviewStatusBuilder> implements VisitableBuilder<V1SelfSubjectReviewStatus,V1SelfSubjectReviewStatusBuilder>{
   public V1SelfSubjectReviewStatusBuilder() {
     this(new V1SelfSubjectReviewStatus());

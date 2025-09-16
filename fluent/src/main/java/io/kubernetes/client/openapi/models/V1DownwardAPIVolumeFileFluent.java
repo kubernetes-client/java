@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1DownwardAPIVolumeFileFluent<A extends V1DownwardAPIVolumeFileFluent<A>> extends BaseFluent<A>{
+public class V1DownwardAPIVolumeFileFluent<A extends io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent<A>> extends BaseFluent<A>{
   public V1DownwardAPIVolumeFileFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1DownwardAPIVolumeFileFluent<A extends V1DownwardAPIVolumeFileFlue
   private V1ResourceFieldSelectorBuilder resourceFieldRef;
   
   protected void copyInstance(V1DownwardAPIVolumeFile instance) {
-    instance = (instance != null ? instance : new V1DownwardAPIVolumeFile());
+    instance = instance != null ? instance : new V1DownwardAPIVolumeFile();
     if (instance != null) {
-          this.withFieldRef(instance.getFieldRef());
-          this.withMode(instance.getMode());
-          this.withPath(instance.getPath());
-          this.withResourceFieldRef(instance.getResourceFieldRef());
-        }
+        this.withFieldRef(instance.getFieldRef());
+        this.withMode(instance.getMode());
+        this.withPath(instance.getPath());
+        this.withResourceFieldRef(instance.getResourceFieldRef());
+    }
   }
   
   public V1ObjectFieldSelector buildFieldRef() {
@@ -62,15 +65,15 @@ public class V1DownwardAPIVolumeFileFluent<A extends V1DownwardAPIVolumeFileFlue
   }
   
   public FieldRefNested<A> editFieldRef() {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(null));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(null));
   }
   
   public FieldRefNested<A> editOrNewFieldRef() {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(new V1ObjectFieldSelectorBuilder().build()));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(new V1ObjectFieldSelectorBuilder().build()));
   }
   
   public FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
-    return withNewFieldRefLike(java.util.Optional.ofNullable(buildFieldRef()).orElse(item));
+    return this.withNewFieldRefLike(Optional.ofNullable(this.buildFieldRef()).orElse(item));
   }
   
   public Integer getMode() {
@@ -128,40 +131,69 @@ public class V1DownwardAPIVolumeFileFluent<A extends V1DownwardAPIVolumeFileFlue
   }
   
   public ResourceFieldRefNested<A> editResourceFieldRef() {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(null));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(null));
   }
   
   public ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(new V1ResourceFieldSelectorBuilder().build()));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(new V1ResourceFieldSelectorBuilder().build()));
   }
   
   public ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
-    return withNewResourceFieldRefLike(java.util.Optional.ofNullable(buildResourceFieldRef()).orElse(item));
+    return this.withNewResourceFieldRefLike(Optional.ofNullable(this.buildResourceFieldRef()).orElse(item));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1DownwardAPIVolumeFileFluent that = (V1DownwardAPIVolumeFileFluent) o;
-    if (!java.util.Objects.equals(fieldRef, that.fieldRef)) return false;
-    if (!java.util.Objects.equals(mode, that.mode)) return false;
-    if (!java.util.Objects.equals(path, that.path)) return false;
-    if (!java.util.Objects.equals(resourceFieldRef, that.resourceFieldRef)) return false;
+    if (!(Objects.equals(fieldRef, that.fieldRef))) {
+      return false;
+    }
+    if (!(Objects.equals(mode, that.mode))) {
+      return false;
+    }
+    if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(resourceFieldRef, that.resourceFieldRef))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fieldRef,  mode,  path,  resourceFieldRef,  super.hashCode());
+    return Objects.hash(fieldRef, mode, path, resourceFieldRef);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (fieldRef != null) { sb.append("fieldRef:"); sb.append(fieldRef + ","); }
-    if (mode != null) { sb.append("mode:"); sb.append(mode + ","); }
-    if (path != null) { sb.append("path:"); sb.append(path + ","); }
-    if (resourceFieldRef != null) { sb.append("resourceFieldRef:"); sb.append(resourceFieldRef); }
+    if (!(fieldRef == null)) {
+        sb.append("fieldRef:");
+        sb.append(fieldRef);
+        sb.append(",");
+    }
+    if (!(mode == null)) {
+        sb.append("mode:");
+        sb.append(mode);
+        sb.append(",");
+    }
+    if (!(path == null)) {
+        sb.append("path:");
+        sb.append(path);
+        sb.append(",");
+    }
+    if (!(resourceFieldRef == null)) {
+        sb.append("resourceFieldRef:");
+        sb.append(resourceFieldRef);
+    }
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format
  */
 @ApiModel(description = "ResourceFieldSelector represents container resources (cpu, memory) and their output format")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1ResourceFieldSelector {
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)

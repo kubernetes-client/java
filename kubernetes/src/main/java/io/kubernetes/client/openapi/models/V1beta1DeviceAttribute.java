@@ -27,7 +27,7 @@ import java.io.IOException;
  * DeviceAttribute must have exactly one field set.
  */
 @ApiModel(description = "DeviceAttribute must have exactly one field set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-22T21:20:49.874193Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-12T23:11:52.603861Z[Etc/UTC]")
 public class V1beta1DeviceAttribute {
   public static final String SERIALIZED_NAME_BOOL = "bool";
   @SerializedName(SERIALIZED_NAME_BOOL)
