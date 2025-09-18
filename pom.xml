@@ -52,7 +52,7 @@
     <protobuf.version>4.32.1</protobuf.version>
     <junit-jupiter.version>5.13.4</junit-jupiter.version>
     <bucket4j.version>8.10.1</bucket4j.version>
-    <bouncycastle.version>1.81</bouncycastle.version>
+    <bouncycastle.version>1.82</bouncycastle.version>
     <gson.version>2.13.2</gson.version>
     <jackson.version>2.20.0</jackson.version>
     <jsr305.version>3.0.2</jsr305.version>
