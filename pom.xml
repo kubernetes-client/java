@@ -331,12 +331,12 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>central</id>
+      <id>ossrh</id>
       <url>https://central.sonatype.com/repository/maven-snapshots/</url>
       <layout>default</layout>
     </snapshotRepository>
     <repository>
-      <id>central</id>
+      <id>ossrh</id>
       <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
       <layout>default</layout>
     </repository>
@@ -477,7 +477,7 @@
         <artifactId>nexus-staging-maven-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <serverId>central</serverId>
+          <serverId>ossrh</serverId>
           <nexusUrl>https://ossrh-staging-api.central.sonatype.com/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
