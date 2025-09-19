@@ -385,6 +385,15 @@
           <version>1.7.0</version>
         </plugin>
         <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>0.8.0</version>
+          <extensions>true</extensions>
+          <configuration>
+            <publishingServerId>central</publishingServerId>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>3.6.1</version>
