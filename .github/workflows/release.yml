@@ -78,7 +78,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
         run: |
           # The tests are already executed in the prepare, skipping
-          ./mvnw -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests release:perform
+          ./mvnw -s /home/runner/.m2/settings.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests release:perform
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
