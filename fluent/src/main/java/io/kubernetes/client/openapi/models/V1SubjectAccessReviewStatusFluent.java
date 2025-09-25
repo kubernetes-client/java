@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
@@ -10,7 +12,7 @@ import java.lang.Boolean;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessReviewStatusFluent<A>> extends BaseFluent<A>{
+public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<A>> extends BaseFluent<A>{
   public V1SubjectAccessReviewStatusFluent() {
   }
   
@@ -23,13 +25,13 @@ public class V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessReviewSt
   private String reason;
   
   protected void copyInstance(V1SubjectAccessReviewStatus instance) {
-    instance = (instance != null ? instance : new V1SubjectAccessReviewStatus());
+    instance = instance != null ? instance : new V1SubjectAccessReviewStatus();
     if (instance != null) {
-          this.withAllowed(instance.getAllowed());
-          this.withDenied(instance.getDenied());
-          this.withEvaluationError(instance.getEvaluationError());
-          this.withReason(instance.getReason());
-        }
+        this.withAllowed(instance.getAllowed());
+        this.withDenied(instance.getDenied());
+        this.withEvaluationError(instance.getEvaluationError());
+        this.withReason(instance.getReason());
+    }
   }
   
   public Boolean getAllowed() {
@@ -85,28 +87,57 @@ public class V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessReviewSt
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1SubjectAccessReviewStatusFluent that = (V1SubjectAccessReviewStatusFluent) o;
-    if (!java.util.Objects.equals(allowed, that.allowed)) return false;
-    if (!java.util.Objects.equals(denied, that.denied)) return false;
-    if (!java.util.Objects.equals(evaluationError, that.evaluationError)) return false;
-    if (!java.util.Objects.equals(reason, that.reason)) return false;
+    if (!(Objects.equals(allowed, that.allowed))) {
+      return false;
+    }
+    if (!(Objects.equals(denied, that.denied))) {
+      return false;
+    }
+    if (!(Objects.equals(evaluationError, that.evaluationError))) {
+      return false;
+    }
+    if (!(Objects.equals(reason, that.reason))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allowed,  denied,  evaluationError,  reason,  super.hashCode());
+    return Objects.hash(allowed, denied, evaluationError, reason);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allowed != null) { sb.append("allowed:"); sb.append(allowed + ","); }
-    if (denied != null) { sb.append("denied:"); sb.append(denied + ","); }
-    if (evaluationError != null) { sb.append("evaluationError:"); sb.append(evaluationError + ","); }
-    if (reason != null) { sb.append("reason:"); sb.append(reason); }
+    if (!(allowed == null)) {
+        sb.append("allowed:");
+        sb.append(allowed);
+        sb.append(",");
+    }
+    if (!(denied == null)) {
+        sb.append("denied:");
+        sb.append(denied);
+        sb.append(",");
+    }
+    if (!(evaluationError == null)) {
+        sb.append("evaluationError:");
+        sb.append(evaluationError);
+        sb.append(",");
+    }
+    if (!(reason == null)) {
+        sb.append("reason:");
+        sb.append(reason);
+    }
     sb.append("}");
     return sb.toString();
   }

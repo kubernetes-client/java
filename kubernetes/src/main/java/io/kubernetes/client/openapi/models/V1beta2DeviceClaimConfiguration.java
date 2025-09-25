@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.
  */
 @ApiModel(description = "DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta2DeviceClaimConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)

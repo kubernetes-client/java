@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.function.Predicate;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ExecActionFluent<A extends V1ExecActionFluent<A>> extends BaseFluent<A>{
+public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1ExecActionFluent<A>> extends BaseFluent<A>{
   public V1ExecActionFluent() {
   }
   
@@ -23,41 +25,66 @@ public class V1ExecActionFluent<A extends V1ExecActionFluent<A>> extends BaseFlu
   private List<String> command;
   
   protected void copyInstance(V1ExecAction instance) {
-    instance = (instance != null ? instance : new V1ExecAction());
+    instance = instance != null ? instance : new V1ExecAction();
     if (instance != null) {
-          this.withCommand(instance.getCommand());
-        }
+      this.withCommand(instance.getCommand());
+    }
   }
   
   public A addToCommand(int index,String item) {
-    if (this.command == null) {this.command = new ArrayList<String>();}
+    if (this.command == null) {
+      this.command = new ArrayList();
+    }
     this.command.add(index, item);
-    return (A)this;
+    return (A) this;
   }
   
   public A setToCommand(int index,String item) {
-    if (this.command == null) {this.command = new ArrayList<String>();}
-    this.command.set(index, item); return (A)this;
+    if (this.command == null) {
+      this.command = new ArrayList();
+    }
+    this.command.set(index, item);
+    return (A) this;
   }
   
-  public A addToCommand(java.lang.String... items) {
-    if (this.command == null) {this.command = new ArrayList<String>();}
-    for (String item : items) {this.command.add(item);} return (A)this;
+  public A addToCommand(String... items) {
+    if (this.command == null) {
+      this.command = new ArrayList();
+    }
+    for (String item : items) {
+      this.command.add(item);
+    }
+    return (A) this;
   }
   
   public A addAllToCommand(Collection<String> items) {
-    if (this.command == null) {this.command = new ArrayList<String>();}
-    for (String item : items) {this.command.add(item);} return (A)this;
+    if (this.command == null) {
+      this.command = new ArrayList();
+    }
+    for (String item : items) {
+      this.command.add(item);
+    }
+    return (A) this;
   }
   
-  public A removeFromCommand(java.lang.String... items) {
-    if (this.command == null) return (A)this;
-    for (String item : items) { this.command.remove(item);} return (A)this;
+  public A removeFromCommand(String... items) {
+    if (this.command == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.command.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeAllFromCommand(Collection<String> items) {
-    if (this.command == null) return (A)this;
-    for (String item : items) { this.command.remove(item);} return (A)this;
+    if (this.command == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.command.remove(item);
+    }
+    return (A) this;
   }
   
   public List<String> getCommand() {
@@ -106,7 +133,7 @@ public class V1ExecActionFluent<A extends V1ExecActionFluent<A>> extends BaseFlu
     return (A) this;
   }
   
-  public A withCommand(java.lang.String... command) {
+  public A withCommand(String... command) {
     if (this.command != null) {
         this.command.clear();
         _visitables.remove("command");
@@ -120,26 +147,37 @@ public class V1ExecActionFluent<A extends V1ExecActionFluent<A>> extends BaseFlu
   }
   
   public boolean hasCommand() {
-    return this.command != null && !this.command.isEmpty();
+    return this.command != null && !(this.command.isEmpty());
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ExecActionFluent that = (V1ExecActionFluent) o;
-    if (!java.util.Objects.equals(command, that.command)) return false;
+    if (!(Objects.equals(command, that.command))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(command,  super.hashCode());
+    return Objects.hash(command);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (command != null && !command.isEmpty()) { sb.append("command:"); sb.append(command); }
+    if (!(command == null) && !(command.isEmpty())) {
+        sb.append("command:");
+        sb.append(command);
+    }
     sb.append("}");
     return sb.toString();
   }

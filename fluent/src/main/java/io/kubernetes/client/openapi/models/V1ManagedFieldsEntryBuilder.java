@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluent<V1ManagedFieldsEntryBuilder> implements VisitableBuilder<V1ManagedFieldsEntry,V1ManagedFieldsEntryBuilder>{
   public V1ManagedFieldsEntryBuilder() {
     this(new V1ManagedFieldsEntry());

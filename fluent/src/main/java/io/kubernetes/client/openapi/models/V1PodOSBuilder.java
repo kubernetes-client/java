@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodOSBuilder extends V1PodOSFluent<V1PodOSBuilder> implements VisitableBuilder<V1PodOS,V1PodOSBuilder>{
   public V1PodOSBuilder() {
     this(new V1PodOS());

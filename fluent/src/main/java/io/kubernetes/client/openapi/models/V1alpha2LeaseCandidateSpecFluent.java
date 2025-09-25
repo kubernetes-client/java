@@ -1,8 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.time.OffsetDateTime;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -10,7 +12,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1alpha2LeaseCandidateSpecFluent<A extends V1alpha2LeaseCandidateSpecFluent<A>> extends BaseFluent<A>{
+public class V1alpha2LeaseCandidateSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha2LeaseCandidateSpecFluent<A>> extends BaseFluent<A>{
   public V1alpha2LeaseCandidateSpecFluent() {
   }
   
@@ -25,15 +27,15 @@ public class V1alpha2LeaseCandidateSpecFluent<A extends V1alpha2LeaseCandidateSp
   private String strategy;
   
   protected void copyInstance(V1alpha2LeaseCandidateSpec instance) {
-    instance = (instance != null ? instance : new V1alpha2LeaseCandidateSpec());
+    instance = instance != null ? instance : new V1alpha2LeaseCandidateSpec();
     if (instance != null) {
-          this.withBinaryVersion(instance.getBinaryVersion());
-          this.withEmulationVersion(instance.getEmulationVersion());
-          this.withLeaseName(instance.getLeaseName());
-          this.withPingTime(instance.getPingTime());
-          this.withRenewTime(instance.getRenewTime());
-          this.withStrategy(instance.getStrategy());
-        }
+        this.withBinaryVersion(instance.getBinaryVersion());
+        this.withEmulationVersion(instance.getEmulationVersion());
+        this.withLeaseName(instance.getLeaseName());
+        this.withPingTime(instance.getPingTime());
+        this.withRenewTime(instance.getRenewTime());
+        this.withStrategy(instance.getStrategy());
+    }
   }
   
   public String getBinaryVersion() {
@@ -115,32 +117,73 @@ public class V1alpha2LeaseCandidateSpecFluent<A extends V1alpha2LeaseCandidateSp
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1alpha2LeaseCandidateSpecFluent that = (V1alpha2LeaseCandidateSpecFluent) o;
-    if (!java.util.Objects.equals(binaryVersion, that.binaryVersion)) return false;
-    if (!java.util.Objects.equals(emulationVersion, that.emulationVersion)) return false;
-    if (!java.util.Objects.equals(leaseName, that.leaseName)) return false;
-    if (!java.util.Objects.equals(pingTime, that.pingTime)) return false;
-    if (!java.util.Objects.equals(renewTime, that.renewTime)) return false;
-    if (!java.util.Objects.equals(strategy, that.strategy)) return false;
+    if (!(Objects.equals(binaryVersion, that.binaryVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(emulationVersion, that.emulationVersion))) {
+      return false;
+    }
+    if (!(Objects.equals(leaseName, that.leaseName))) {
+      return false;
+    }
+    if (!(Objects.equals(pingTime, that.pingTime))) {
+      return false;
+    }
+    if (!(Objects.equals(renewTime, that.renewTime))) {
+      return false;
+    }
+    if (!(Objects.equals(strategy, that.strategy))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(binaryVersion,  emulationVersion,  leaseName,  pingTime,  renewTime,  strategy,  super.hashCode());
+    return Objects.hash(binaryVersion, emulationVersion, leaseName, pingTime, renewTime, strategy);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (binaryVersion != null) { sb.append("binaryVersion:"); sb.append(binaryVersion + ","); }
-    if (emulationVersion != null) { sb.append("emulationVersion:"); sb.append(emulationVersion + ","); }
-    if (leaseName != null) { sb.append("leaseName:"); sb.append(leaseName + ","); }
-    if (pingTime != null) { sb.append("pingTime:"); sb.append(pingTime + ","); }
-    if (renewTime != null) { sb.append("renewTime:"); sb.append(renewTime + ","); }
-    if (strategy != null) { sb.append("strategy:"); sb.append(strategy); }
+    if (!(binaryVersion == null)) {
+        sb.append("binaryVersion:");
+        sb.append(binaryVersion);
+        sb.append(",");
+    }
+    if (!(emulationVersion == null)) {
+        sb.append("emulationVersion:");
+        sb.append(emulationVersion);
+        sb.append(",");
+    }
+    if (!(leaseName == null)) {
+        sb.append("leaseName:");
+        sb.append(leaseName);
+        sb.append(",");
+    }
+    if (!(pingTime == null)) {
+        sb.append("pingTime:");
+        sb.append(pingTime);
+        sb.append(",");
+    }
+    if (!(renewTime == null)) {
+        sb.append("renewTime:");
+        sb.append(renewTime);
+        sb.append(",");
+    }
+    if (!(strategy == null)) {
+        sb.append("strategy:");
+        sb.append(strategy);
+    }
     sb.append("}");
     return sb.toString();
   }

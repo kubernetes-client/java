@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NodeAddressBuilder extends V1NodeAddressFluent<V1NodeAddressBuilder> implements VisitableBuilder<V1NodeAddress,V1NodeAddressBuilder>{
   public V1NodeAddressBuilder() {
     this(new V1NodeAddress());

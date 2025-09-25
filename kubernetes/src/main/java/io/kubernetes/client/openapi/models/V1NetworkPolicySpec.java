@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * NetworkPolicySpec provides the specification of a NetworkPolicy
  */
 @ApiModel(description = "NetworkPolicySpec provides the specification of a NetworkPolicy")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1NetworkPolicySpec {
   public static final String SERIALIZED_NAME_EGRESS = "egress";
   @SerializedName(SERIALIZED_NAME_EGRESS)
@@ -69,7 +69,7 @@ public class V1NetworkPolicySpec {
 
   public static final String SERIALIZED_NAME_POD_SELECTOR = "podSelector";
   @SerializedName(SERIALIZED_NAME_POD_SELECTOR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1LabelSelector podSelector;
 
   public static final String SERIALIZED_NAME_POLICY_TYPES = "policyTypes";
@@ -136,7 +136,7 @@ public class V1NetworkPolicySpec {
   }
 
 
-  public V1NetworkPolicySpec podSelector(@jakarta.annotation.Nonnull V1LabelSelector podSelector) {
+  public V1NetworkPolicySpec podSelector(@jakarta.annotation.Nullable V1LabelSelector podSelector) {
     this.podSelector = podSelector;
     return this;
   }
@@ -145,13 +145,13 @@ public class V1NetworkPolicySpec {
    * Get podSelector
    * @return podSelector
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1LabelSelector getPodSelector() {
     return podSelector;
   }
 
-  public void setPodSelector(@jakarta.annotation.Nonnull V1LabelSelector podSelector) {
+  public void setPodSelector(@jakarta.annotation.Nullable V1LabelSelector podSelector) {
     this.podSelector = podSelector;
   }
 
@@ -242,7 +242,6 @@ public class V1NetworkPolicySpec {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("podSelector");
   }
 
   /**
@@ -263,13 +262,6 @@ public class V1NetworkPolicySpec {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NetworkPolicySpec.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NetworkPolicySpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1NetworkPolicySpec.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -301,8 +293,10 @@ public class V1NetworkPolicySpec {
           };
         }
       }
-      // validate the required field `podSelector`
-      V1LabelSelector.validateJsonElement(jsonObj.get("podSelector"));
+      // validate the optional field `podSelector`
+      if (jsonObj.get("podSelector") != null && !jsonObj.get("podSelector").isJsonNull()) {
+        V1LabelSelector.validateJsonElement(jsonObj.get("podSelector"));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("policyTypes") != null && !jsonObj.get("policyTypes").isJsonNull() && !jsonObj.get("policyTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `policyTypes` to be an array in the JSON string but got `%s`", jsonObj.get("policyTypes").toString()));

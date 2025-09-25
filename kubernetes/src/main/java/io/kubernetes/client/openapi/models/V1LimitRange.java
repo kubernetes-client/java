@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * LimitRange sets resource usage limits for each kind of resource in a Namespace.
  */
 @ApiModel(description = "LimitRange sets resource usage limits for each kind of resource in a Namespace.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1LimitRange implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

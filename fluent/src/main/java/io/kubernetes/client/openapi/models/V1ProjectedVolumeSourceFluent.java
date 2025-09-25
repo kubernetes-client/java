@@ -1,14 +1,16 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFluent<A>> extends BaseFluent<A>{
+public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<A>> extends BaseFluent<A>{
   public V1ProjectedVolumeSourceFluent() {
   }
   
@@ -28,11 +30,11 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
   private ArrayList<V1VolumeProjectionBuilder> sources;
   
   protected void copyInstance(V1ProjectedVolumeSource instance) {
-    instance = (instance != null ? instance : new V1ProjectedVolumeSource());
+    instance = instance != null ? instance : new V1ProjectedVolumeSource();
     if (instance != null) {
-          this.withDefaultMode(instance.getDefaultMode());
-          this.withSources(instance.getSources());
-        }
+        this.withDefaultMode(instance.getDefaultMode());
+        this.withSources(instance.getSources());
+    }
   }
   
   public Integer getDefaultMode() {
@@ -49,7 +51,9 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
   }
   
   public A addToSources(int index,V1VolumeProjection item) {
-    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
+    if (this.sources == null) {
+      this.sources = new ArrayList();
+    }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
     if (index < 0 || index >= sources.size()) {
         _visitables.get("sources").add(builder);
@@ -58,11 +62,13 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
         _visitables.get("sources").add(builder);
         sources.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSources(int index,V1VolumeProjection item) {
-    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
+    if (this.sources == null) {
+      this.sources = new ArrayList();
+    }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
     if (index < 0 || index >= sources.size()) {
         _visitables.get("sources").add(builder);
@@ -71,41 +77,71 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
         _visitables.get("sources").add(builder);
         sources.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSources(io.kubernetes.client.openapi.models.V1VolumeProjection... items) {
-    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
-    for (V1VolumeProjection item : items) {V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);_visitables.get("sources").add(builder);this.sources.add(builder);} return (A)this;
+  public A addToSources(V1VolumeProjection... items) {
+    if (this.sources == null) {
+      this.sources = new ArrayList();
+    }
+    for (V1VolumeProjection item : items) {
+        V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
+        _visitables.get("sources").add(builder);
+        this.sources.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSources(Collection<V1VolumeProjection> items) {
-    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
-    for (V1VolumeProjection item : items) {V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);_visitables.get("sources").add(builder);this.sources.add(builder);} return (A)this;
+    if (this.sources == null) {
+      this.sources = new ArrayList();
+    }
+    for (V1VolumeProjection item : items) {
+        V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
+        _visitables.get("sources").add(builder);
+        this.sources.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSources(io.kubernetes.client.openapi.models.V1VolumeProjection... items) {
-    if (this.sources == null) return (A)this;
-    for (V1VolumeProjection item : items) {V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);_visitables.get("sources").remove(builder); this.sources.remove(builder);} return (A)this;
+  public A removeFromSources(V1VolumeProjection... items) {
+    if (this.sources == null) {
+      return (A) this;
+    }
+    for (V1VolumeProjection item : items) {
+        V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
+        _visitables.get("sources").remove(builder);
+        this.sources.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSources(Collection<V1VolumeProjection> items) {
-    if (this.sources == null) return (A)this;
-    for (V1VolumeProjection item : items) {V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);_visitables.get("sources").remove(builder); this.sources.remove(builder);} return (A)this;
+    if (this.sources == null) {
+      return (A) this;
+    }
+    for (V1VolumeProjection item : items) {
+        V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
+        _visitables.get("sources").remove(builder);
+        this.sources.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSources(Predicate<V1VolumeProjectionBuilder> predicate) {
-    if (sources == null) return (A) this;
-    final Iterator<V1VolumeProjectionBuilder> each = sources.iterator();
-    final List visitables = _visitables.get("sources");
-    while (each.hasNext()) {
-      V1VolumeProjectionBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (sources == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1VolumeProjectionBuilder> each = sources.iterator();
+    List visitables = _visitables.get("sources");
+    while (each.hasNext()) {
+        V1VolumeProjectionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1VolumeProjection> buildSources() {
@@ -157,7 +193,7 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
     return (A) this;
   }
   
-  public A withSources(io.kubernetes.client.openapi.models.V1VolumeProjection... sources) {
+  public A withSources(V1VolumeProjection... sources) {
     if (this.sources != null) {
         this.sources.clear();
         _visitables.remove("sources");
@@ -171,7 +207,7 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
   }
   
   public boolean hasSources() {
-    return this.sources != null && !this.sources.isEmpty();
+    return this.sources != null && !(this.sources.isEmpty());
   }
   
   public SourcesNested<A> addNewSource() {
@@ -187,49 +223,77 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
   }
   
   public SourcesNested<A> editSource(int index) {
-    if (sources.size() <= index) throw new RuntimeException("Can't edit sources. Index exceeds size.");
-    return setNewSourceLike(index, buildSource(index));
+    if (index <= sources.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "sources"));
+    }
+    return this.setNewSourceLike(index, this.buildSource(index));
   }
   
   public SourcesNested<A> editFirstSource() {
-    if (sources.size() == 0) throw new RuntimeException("Can't edit first sources. The list is empty.");
-    return setNewSourceLike(0, buildSource(0));
+    if (sources.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "sources"));
+    }
+    return this.setNewSourceLike(0, this.buildSource(0));
   }
   
   public SourcesNested<A> editLastSource() {
     int index = sources.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last sources. The list is empty.");
-    return setNewSourceLike(index, buildSource(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "sources"));
+    }
+    return this.setNewSourceLike(index, this.buildSource(index));
   }
   
   public SourcesNested<A> editMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<sources.size();i++) { 
-    if (predicate.test(sources.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching sources. No match found.");
-    return setNewSourceLike(index, buildSource(index));
+    for (int i = 0;i < sources.size();i++) {
+      if (predicate.test(sources.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "sources"));
+    }
+    return this.setNewSourceLike(index, this.buildSource(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1ProjectedVolumeSourceFluent that = (V1ProjectedVolumeSourceFluent) o;
-    if (!java.util.Objects.equals(defaultMode, that.defaultMode)) return false;
-    if (!java.util.Objects.equals(sources, that.sources)) return false;
+    if (!(Objects.equals(defaultMode, that.defaultMode))) {
+      return false;
+    }
+    if (!(Objects.equals(sources, that.sources))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(defaultMode,  sources,  super.hashCode());
+    return Objects.hash(defaultMode, sources);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (defaultMode != null) { sb.append("defaultMode:"); sb.append(defaultMode + ","); }
-    if (sources != null && !sources.isEmpty()) { sb.append("sources:"); sb.append(sources); }
+    if (!(defaultMode == null)) {
+        sb.append("defaultMode:");
+        sb.append(defaultMode);
+        sb.append(",");
+    }
+    if (!(sources == null) && !(sources.isEmpty())) {
+        sb.append("sources:");
+        sb.append(sources);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -242,7 +306,7 @@ public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFlue
     int index;
     
     public N and() {
-      return (N) V1ProjectedVolumeSourceFluent.this.setToSources(index,builder.build());
+      return (N) V1ProjectedVolumeSourceFluent.this.setToSources(index, builder.build());
     }
     
     public N endSource() {

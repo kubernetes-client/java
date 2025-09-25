@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
-import java.lang.Object;
 import java.lang.String;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
+import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LimitResponseFluent<A extends V1LimitResponseFluent<A>> extends BaseFluent<A>{
+public class V1LimitResponseFluent<A extends io.kubernetes.client.openapi.models.V1LimitResponseFluent<A>> extends BaseFluent<A>{
   public V1LimitResponseFluent() {
   }
   
@@ -21,11 +24,11 @@ public class V1LimitResponseFluent<A extends V1LimitResponseFluent<A>> extends B
   private String type;
   
   protected void copyInstance(V1LimitResponse instance) {
-    instance = (instance != null ? instance : new V1LimitResponse());
+    instance = instance != null ? instance : new V1LimitResponse();
     if (instance != null) {
-          this.withQueuing(instance.getQueuing());
-          this.withType(instance.getType());
-        }
+        this.withQueuing(instance.getQueuing());
+        this.withType(instance.getType());
+    }
   }
   
   public V1QueuingConfiguration buildQueuing() {
@@ -57,15 +60,15 @@ public class V1LimitResponseFluent<A extends V1LimitResponseFluent<A>> extends B
   }
   
   public QueuingNested<A> editQueuing() {
-    return withNewQueuingLike(java.util.Optional.ofNullable(buildQueuing()).orElse(null));
+    return this.withNewQueuingLike(Optional.ofNullable(this.buildQueuing()).orElse(null));
   }
   
   public QueuingNested<A> editOrNewQueuing() {
-    return withNewQueuingLike(java.util.Optional.ofNullable(buildQueuing()).orElse(new V1QueuingConfigurationBuilder().build()));
+    return this.withNewQueuingLike(Optional.ofNullable(this.buildQueuing()).orElse(new V1QueuingConfigurationBuilder().build()));
   }
   
   public QueuingNested<A> editOrNewQueuingLike(V1QueuingConfiguration item) {
-    return withNewQueuingLike(java.util.Optional.ofNullable(buildQueuing()).orElse(item));
+    return this.withNewQueuingLike(Optional.ofNullable(this.buildQueuing()).orElse(item));
   }
   
   public String getType() {
@@ -82,24 +85,41 @@ public class V1LimitResponseFluent<A extends V1LimitResponseFluent<A>> extends B
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LimitResponseFluent that = (V1LimitResponseFluent) o;
-    if (!java.util.Objects.equals(queuing, that.queuing)) return false;
-    if (!java.util.Objects.equals(type, that.type)) return false;
+    if (!(Objects.equals(queuing, that.queuing))) {
+      return false;
+    }
+    if (!(Objects.equals(type, that.type))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(queuing,  type,  super.hashCode());
+    return Objects.hash(queuing, type);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (queuing != null) { sb.append("queuing:"); sb.append(queuing + ","); }
-    if (type != null) { sb.append("type:"); sb.append(type); }
+    if (!(queuing == null)) {
+        sb.append("queuing:");
+        sb.append(queuing);
+        sb.append(",");
+    }
+    if (!(type == null)) {
+        sb.append("type:");
+        sb.append(type);
+    }
     sb.append("}");
     return sb.toString();
   }

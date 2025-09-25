@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminatedFluent<V1ContainerStateTerminatedBuilder> implements VisitableBuilder<V1ContainerStateTerminated,V1ContainerStateTerminatedBuilder>{
   public V1ContainerStateTerminatedBuilder() {
     this(new V1ContainerStateTerminated());

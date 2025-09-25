@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluent<V1PodAffinityTermBuilder> implements VisitableBuilder<V1PodAffinityTerm,V1PodAffinityTermBuilder>{
   public V1PodAffinityTermBuilder() {
     this(new V1PodAffinityTerm());

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1SuccessPolicyRuleBuilder extends V1SuccessPolicyRuleFluent<V1SuccessPolicyRuleBuilder> implements VisitableBuilder<V1SuccessPolicyRule,V1SuccessPolicyRuleBuilder>{
   public V1SuccessPolicyRuleBuilder() {
     this(new V1SuccessPolicyRule());

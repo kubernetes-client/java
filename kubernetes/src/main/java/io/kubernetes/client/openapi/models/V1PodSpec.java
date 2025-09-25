@@ -70,7 +70,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodSpec is a description of a pod.
  */
 @ApiModel(description = "PodSpec is a description of a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -141,6 +141,11 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
   @jakarta.annotation.Nullable
   private String hostname;
+
+  public static final String SERIALIZED_NAME_HOSTNAME_OVERRIDE = "hostnameOverride";
+  @SerializedName(SERIALIZED_NAME_HOSTNAME_OVERRIDE)
+  @jakarta.annotation.Nullable
+  private String hostnameOverride;
 
   public static final String SERIALIZED_NAME_IMAGE_PULL_SECRETS = "imagePullSecrets";
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_SECRETS)
@@ -505,11 +510,11 @@ public class V1PodSpec {
   }
 
   /**
-   * Host networking requested for this pod. Use the host&#39;s network namespace. If this option is set, the ports that will be used must be specified. Default to false.
+   * Host networking requested for this pod. Use the host&#39;s network namespace. When using HostNetwork you should specify ports so the scheduler is aware. When &#x60;hostNetwork&#x60; is true, specified &#x60;hostPort&#x60; fields in port definitions must match &#x60;containerPort&#x60;, and unspecified &#x60;hostPort&#x60; fields in port definitions are defaulted to match &#x60;containerPort&#x60;. Default to false.
    * @return hostNetwork
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified. Default to false.")
+  @ApiModelProperty(value = "Host networking requested for this pod. Use the host's network namespace. When using HostNetwork you should specify ports so the scheduler is aware. When `hostNetwork` is true, specified `hostPort` fields in port definitions must match `containerPort`, and unspecified `hostPort` fields in port definitions are defaulted to match `containerPort`. Default to false.")
   public Boolean getHostNetwork() {
     return hostNetwork;
   }
@@ -576,6 +581,26 @@ public class V1PodSpec {
 
   public void setHostname(@jakarta.annotation.Nullable String hostname) {
     this.hostname = hostname;
+  }
+
+
+  public V1PodSpec hostnameOverride(@jakarta.annotation.Nullable String hostnameOverride) {
+    this.hostnameOverride = hostnameOverride;
+    return this;
+  }
+
+  /**
+   * HostnameOverride specifies an explicit override for the pod&#39;s hostname as perceived by the pod. This field only specifies the pod&#39;s hostname and does not affect its DNS records. When this field is set to a non-empty string: - It takes precedence over the values set in &#x60;hostname&#x60; and &#x60;subdomain&#x60;. - The Pod&#39;s hostname will be set to this value. - &#x60;setHostnameAsFQDN&#x60; must be nil or set to false. - &#x60;hostNetwork&#x60; must be set to false.  This field must be a valid DNS subdomain as defined in RFC 1123 and contain at most 64 characters. Requires the HostnameOverride feature gate to be enabled.
+   * @return hostnameOverride
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "HostnameOverride specifies an explicit override for the pod's hostname as perceived by the pod. This field only specifies the pod's hostname and does not affect its DNS records. When this field is set to a non-empty string: - It takes precedence over the values set in `hostname` and `subdomain`. - The Pod's hostname will be set to this value. - `setHostnameAsFQDN` must be nil or set to false. - `hostNetwork` must be set to false.  This field must be a valid DNS subdomain as defined in RFC 1123 and contain at most 64 characters. Requires the HostnameOverride feature gate to be enabled.")
+  public String getHostnameOverride() {
+    return hostnameOverride;
+  }
+
+  public void setHostnameOverride(@jakarta.annotation.Nullable String hostnameOverride) {
+    this.hostnameOverride = hostnameOverride;
   }
 
 
@@ -1203,6 +1228,7 @@ public class V1PodSpec {
         Objects.equals(this.hostPID, v1PodSpec.hostPID) &&
         Objects.equals(this.hostUsers, v1PodSpec.hostUsers) &&
         Objects.equals(this.hostname, v1PodSpec.hostname) &&
+        Objects.equals(this.hostnameOverride, v1PodSpec.hostnameOverride) &&
         Objects.equals(this.imagePullSecrets, v1PodSpec.imagePullSecrets) &&
         Objects.equals(this.initContainers, v1PodSpec.initContainers) &&
         Objects.equals(this.nodeName, v1PodSpec.nodeName) &&
@@ -1233,7 +1259,7 @@ public class V1PodSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
+    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
   }
 
   @Override
@@ -1254,6 +1280,7 @@ public class V1PodSpec {
     sb.append("    hostPID: ").append(toIndentedString(hostPID)).append("\n");
     sb.append("    hostUsers: ").append(toIndentedString(hostUsers)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    hostnameOverride: ").append(toIndentedString(hostnameOverride)).append("\n");
     sb.append("    imagePullSecrets: ").append(toIndentedString(imagePullSecrets)).append("\n");
     sb.append("    initContainers: ").append(toIndentedString(initContainers)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
@@ -1316,6 +1343,7 @@ public class V1PodSpec {
     openapiFields.add("hostPID");
     openapiFields.add("hostUsers");
     openapiFields.add("hostname");
+    openapiFields.add("hostnameOverride");
     openapiFields.add("imagePullSecrets");
     openapiFields.add("initContainers");
     openapiFields.add("nodeName");
@@ -1427,6 +1455,9 @@ public class V1PodSpec {
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+      }
+      if ((jsonObj.get("hostnameOverride") != null && !jsonObj.get("hostnameOverride").isJsonNull()) && !jsonObj.get("hostnameOverride").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hostnameOverride` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostnameOverride").toString()));
       }
       if (jsonObj.get("imagePullSecrets") != null && !jsonObj.get("imagePullSecrets").isJsonNull()) {
         JsonArray jsonArrayimagePullSecrets = jsonObj.getAsJsonArray("imagePullSecrets");

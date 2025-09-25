@@ -1,17 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LimitedPriorityLevelConfigurationFluent<A extends V1LimitedPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
+public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1LimitedPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
   public V1LimitedPriorityLevelConfigurationFluent() {
   }
   
@@ -24,13 +27,13 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends V1LimitedPriori
   private Integer nominalConcurrencyShares;
   
   protected void copyInstance(V1LimitedPriorityLevelConfiguration instance) {
-    instance = (instance != null ? instance : new V1LimitedPriorityLevelConfiguration());
+    instance = instance != null ? instance : new V1LimitedPriorityLevelConfiguration();
     if (instance != null) {
-          this.withBorrowingLimitPercent(instance.getBorrowingLimitPercent());
-          this.withLendablePercent(instance.getLendablePercent());
-          this.withLimitResponse(instance.getLimitResponse());
-          this.withNominalConcurrencyShares(instance.getNominalConcurrencyShares());
-        }
+        this.withBorrowingLimitPercent(instance.getBorrowingLimitPercent());
+        this.withLendablePercent(instance.getLendablePercent());
+        this.withLimitResponse(instance.getLimitResponse());
+        this.withNominalConcurrencyShares(instance.getNominalConcurrencyShares());
+    }
   }
   
   public Integer getBorrowingLimitPercent() {
@@ -88,15 +91,15 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends V1LimitedPriori
   }
   
   public LimitResponseNested<A> editLimitResponse() {
-    return withNewLimitResponseLike(java.util.Optional.ofNullable(buildLimitResponse()).orElse(null));
+    return this.withNewLimitResponseLike(Optional.ofNullable(this.buildLimitResponse()).orElse(null));
   }
   
   public LimitResponseNested<A> editOrNewLimitResponse() {
-    return withNewLimitResponseLike(java.util.Optional.ofNullable(buildLimitResponse()).orElse(new V1LimitResponseBuilder().build()));
+    return this.withNewLimitResponseLike(Optional.ofNullable(this.buildLimitResponse()).orElse(new V1LimitResponseBuilder().build()));
   }
   
   public LimitResponseNested<A> editOrNewLimitResponseLike(V1LimitResponse item) {
-    return withNewLimitResponseLike(java.util.Optional.ofNullable(buildLimitResponse()).orElse(item));
+    return this.withNewLimitResponseLike(Optional.ofNullable(this.buildLimitResponse()).orElse(item));
   }
   
   public Integer getNominalConcurrencyShares() {
@@ -113,28 +116,57 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends V1LimitedPriori
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LimitedPriorityLevelConfigurationFluent that = (V1LimitedPriorityLevelConfigurationFluent) o;
-    if (!java.util.Objects.equals(borrowingLimitPercent, that.borrowingLimitPercent)) return false;
-    if (!java.util.Objects.equals(lendablePercent, that.lendablePercent)) return false;
-    if (!java.util.Objects.equals(limitResponse, that.limitResponse)) return false;
-    if (!java.util.Objects.equals(nominalConcurrencyShares, that.nominalConcurrencyShares)) return false;
+    if (!(Objects.equals(borrowingLimitPercent, that.borrowingLimitPercent))) {
+      return false;
+    }
+    if (!(Objects.equals(lendablePercent, that.lendablePercent))) {
+      return false;
+    }
+    if (!(Objects.equals(limitResponse, that.limitResponse))) {
+      return false;
+    }
+    if (!(Objects.equals(nominalConcurrencyShares, that.nominalConcurrencyShares))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(borrowingLimitPercent,  lendablePercent,  limitResponse,  nominalConcurrencyShares,  super.hashCode());
+    return Objects.hash(borrowingLimitPercent, lendablePercent, limitResponse, nominalConcurrencyShares);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (borrowingLimitPercent != null) { sb.append("borrowingLimitPercent:"); sb.append(borrowingLimitPercent + ","); }
-    if (lendablePercent != null) { sb.append("lendablePercent:"); sb.append(lendablePercent + ","); }
-    if (limitResponse != null) { sb.append("limitResponse:"); sb.append(limitResponse + ","); }
-    if (nominalConcurrencyShares != null) { sb.append("nominalConcurrencyShares:"); sb.append(nominalConcurrencyShares); }
+    if (!(borrowingLimitPercent == null)) {
+        sb.append("borrowingLimitPercent:");
+        sb.append(borrowingLimitPercent);
+        sb.append(",");
+    }
+    if (!(lendablePercent == null)) {
+        sb.append("lendablePercent:");
+        sb.append(lendablePercent);
+        sb.append(",");
+    }
+    if (!(limitResponse == null)) {
+        sb.append("limitResponse:");
+        sb.append(limitResponse);
+        sb.append(",");
+    }
+    if (!(nominalConcurrencyShares == null)) {
+        sb.append("nominalConcurrencyShares:");
+        sb.append(nominalConcurrencyShares);
+    }
     sb.append("}");
     return sb.toString();
   }

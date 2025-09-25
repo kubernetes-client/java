@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsFluent<V1UncountedTerminatedPodsBuilder> implements VisitableBuilder<V1UncountedTerminatedPods,V1UncountedTerminatedPodsBuilder>{
   public V1UncountedTerminatedPodsBuilder() {
     this(new V1UncountedTerminatedPods());

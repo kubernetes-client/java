@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluent<V1JSONSchemaPropsBuilder> implements VisitableBuilder<V1JSONSchemaProps,V1JSONSchemaPropsBuilder>{
   public V1JSONSchemaPropsBuilder() {
     this(new V1JSONSchemaProps());

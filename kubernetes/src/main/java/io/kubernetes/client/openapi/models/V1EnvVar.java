@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * EnvVar represents an environment variable present in a Container.
  */
 @ApiModel(description = "EnvVar represents an environment variable present in a Container.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1EnvVar {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -77,11 +77,11 @@ public class V1EnvVar {
   }
 
   /**
-   * Name of the environment variable. Must be a C_IDENTIFIER.
+   * Name of the environment variable. May consist of any printable ASCII characters except &#39;&#x3D;&#39;.
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the environment variable. Must be a C_IDENTIFIER.")
+  @ApiModelProperty(required = true, value = "Name of the environment variable. May consist of any printable ASCII characters except '='.")
   public String getName() {
     return name;
   }

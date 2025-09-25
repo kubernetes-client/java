@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1PodResourceClaimBuilder extends V1PodResourceClaimFluent<V1PodResourceClaimBuilder> implements VisitableBuilder<V1PodResourceClaim,V1PodResourceClaimBuilder>{
   public V1PodResourceClaimBuilder() {
     this(new V1PodResourceClaim());

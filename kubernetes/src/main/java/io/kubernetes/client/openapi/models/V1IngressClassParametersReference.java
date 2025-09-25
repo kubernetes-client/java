@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.
  */
 @ApiModel(description = "IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1IngressClassParametersReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)

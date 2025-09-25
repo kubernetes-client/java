@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluent<StorageV1TokenRequestBuilder> implements VisitableBuilder<StorageV1TokenRequest,StorageV1TokenRequestBuilder>{
   public StorageV1TokenRequestBuilder() {
     this(new StorageV1TokenRequest());

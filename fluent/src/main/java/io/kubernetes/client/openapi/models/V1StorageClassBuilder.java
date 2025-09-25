@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1StorageClassBuilder extends V1StorageClassFluent<V1StorageClassBuilder> implements VisitableBuilder<V1StorageClass,V1StorageClassBuilder>{
   public V1StorageClassBuilder() {
     this(new V1StorageClass());

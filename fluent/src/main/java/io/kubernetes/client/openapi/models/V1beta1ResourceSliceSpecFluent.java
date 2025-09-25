@@ -1,15 +1,18 @@
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
+import java.util.Optional;
+import java.util.Objects;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -17,7 +20,7 @@ import java.lang.Object;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFluent<A>> extends BaseFluent<A>{
+public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1ResourceSliceSpecFluent<A>> extends BaseFluent<A>{
   public V1beta1ResourceSliceSpecFluent() {
   }
   
@@ -34,17 +37,17 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   private ArrayList<V1beta1CounterSetBuilder> sharedCounters;
   
   protected void copyInstance(V1beta1ResourceSliceSpec instance) {
-    instance = (instance != null ? instance : new V1beta1ResourceSliceSpec());
+    instance = instance != null ? instance : new V1beta1ResourceSliceSpec();
     if (instance != null) {
-          this.withAllNodes(instance.getAllNodes());
-          this.withDevices(instance.getDevices());
-          this.withDriver(instance.getDriver());
-          this.withNodeName(instance.getNodeName());
-          this.withNodeSelector(instance.getNodeSelector());
-          this.withPerDeviceNodeSelection(instance.getPerDeviceNodeSelection());
-          this.withPool(instance.getPool());
-          this.withSharedCounters(instance.getSharedCounters());
-        }
+        this.withAllNodes(instance.getAllNodes());
+        this.withDevices(instance.getDevices());
+        this.withDriver(instance.getDriver());
+        this.withNodeName(instance.getNodeName());
+        this.withNodeSelector(instance.getNodeSelector());
+        this.withPerDeviceNodeSelection(instance.getPerDeviceNodeSelection());
+        this.withPool(instance.getPool());
+        this.withSharedCounters(instance.getSharedCounters());
+    }
   }
   
   public Boolean getAllNodes() {
@@ -61,7 +64,9 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public A addToDevices(int index,V1beta1Device item) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta1DeviceBuilder>();}
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
     V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
     if (index < 0 || index >= devices.size()) {
         _visitables.get("devices").add(builder);
@@ -70,11 +75,13 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
         _visitables.get("devices").add(builder);
         devices.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToDevices(int index,V1beta1Device item) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta1DeviceBuilder>();}
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
     V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
     if (index < 0 || index >= devices.size()) {
         _visitables.get("devices").add(builder);
@@ -83,41 +90,71 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
         _visitables.get("devices").add(builder);
         devices.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToDevices(io.kubernetes.client.openapi.models.V1beta1Device... items) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta1DeviceBuilder>();}
-    for (V1beta1Device item : items) {V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+  public A addToDevices(V1beta1Device... items) {
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
+    for (V1beta1Device item : items) {
+        V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
+        _visitables.get("devices").add(builder);
+        this.devices.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToDevices(Collection<V1beta1Device> items) {
-    if (this.devices == null) {this.devices = new ArrayList<V1beta1DeviceBuilder>();}
-    for (V1beta1Device item : items) {V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);_visitables.get("devices").add(builder);this.devices.add(builder);} return (A)this;
+    if (this.devices == null) {
+      this.devices = new ArrayList();
+    }
+    for (V1beta1Device item : items) {
+        V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
+        _visitables.get("devices").add(builder);
+        this.devices.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromDevices(io.kubernetes.client.openapi.models.V1beta1Device... items) {
-    if (this.devices == null) return (A)this;
-    for (V1beta1Device item : items) {V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+  public A removeFromDevices(V1beta1Device... items) {
+    if (this.devices == null) {
+      return (A) this;
+    }
+    for (V1beta1Device item : items) {
+        V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
+        _visitables.get("devices").remove(builder);
+        this.devices.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromDevices(Collection<V1beta1Device> items) {
-    if (this.devices == null) return (A)this;
-    for (V1beta1Device item : items) {V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);_visitables.get("devices").remove(builder); this.devices.remove(builder);} return (A)this;
+    if (this.devices == null) {
+      return (A) this;
+    }
+    for (V1beta1Device item : items) {
+        V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
+        _visitables.get("devices").remove(builder);
+        this.devices.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromDevices(Predicate<V1beta1DeviceBuilder> predicate) {
-    if (devices == null) return (A) this;
-    final Iterator<V1beta1DeviceBuilder> each = devices.iterator();
-    final List visitables = _visitables.get("devices");
-    while (each.hasNext()) {
-      V1beta1DeviceBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (devices == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta1DeviceBuilder> each = devices.iterator();
+    List visitables = _visitables.get("devices");
+    while (each.hasNext()) {
+        V1beta1DeviceBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta1Device> buildDevices() {
@@ -169,7 +206,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
     return (A) this;
   }
   
-  public A withDevices(io.kubernetes.client.openapi.models.V1beta1Device... devices) {
+  public A withDevices(V1beta1Device... devices) {
     if (this.devices != null) {
         this.devices.clear();
         _visitables.remove("devices");
@@ -183,7 +220,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public boolean hasDevices() {
-    return this.devices != null && !this.devices.isEmpty();
+    return this.devices != null && !(this.devices.isEmpty());
   }
   
   public DevicesNested<A> addNewDevice() {
@@ -199,28 +236,39 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public DevicesNested<A> editDevice(int index) {
-    if (devices.size() <= index) throw new RuntimeException("Can't edit devices. Index exceeds size.");
-    return setNewDeviceLike(index, buildDevice(index));
+    if (index <= devices.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public DevicesNested<A> editFirstDevice() {
-    if (devices.size() == 0) throw new RuntimeException("Can't edit first devices. The list is empty.");
-    return setNewDeviceLike(0, buildDevice(0));
+    if (devices.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "devices"));
+    }
+    return this.setNewDeviceLike(0, this.buildDevice(0));
   }
   
   public DevicesNested<A> editLastDevice() {
     int index = devices.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last devices. The list is empty.");
-    return setNewDeviceLike(index, buildDevice(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public DevicesNested<A> editMatchingDevice(Predicate<V1beta1DeviceBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<devices.size();i++) { 
-    if (predicate.test(devices.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching devices. No match found.");
-    return setNewDeviceLike(index, buildDevice(index));
+    for (int i = 0;i < devices.size();i++) {
+      if (predicate.test(devices.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "devices"));
+    }
+    return this.setNewDeviceLike(index, this.buildDevice(index));
   }
   
   public String getDriver() {
@@ -278,15 +326,15 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public NodeSelectorNested<A> editNodeSelector() {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(null));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(null));
   }
   
   public NodeSelectorNested<A> editOrNewNodeSelector() {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(new V1NodeSelectorBuilder().build()));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(new V1NodeSelectorBuilder().build()));
   }
   
   public NodeSelectorNested<A> editOrNewNodeSelectorLike(V1NodeSelector item) {
-    return withNewNodeSelectorLike(java.util.Optional.ofNullable(buildNodeSelector()).orElse(item));
+    return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(item));
   }
   
   public Boolean getPerDeviceNodeSelection() {
@@ -331,19 +379,21 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public PoolNested<A> editPool() {
-    return withNewPoolLike(java.util.Optional.ofNullable(buildPool()).orElse(null));
+    return this.withNewPoolLike(Optional.ofNullable(this.buildPool()).orElse(null));
   }
   
   public PoolNested<A> editOrNewPool() {
-    return withNewPoolLike(java.util.Optional.ofNullable(buildPool()).orElse(new V1beta1ResourcePoolBuilder().build()));
+    return this.withNewPoolLike(Optional.ofNullable(this.buildPool()).orElse(new V1beta1ResourcePoolBuilder().build()));
   }
   
   public PoolNested<A> editOrNewPoolLike(V1beta1ResourcePool item) {
-    return withNewPoolLike(java.util.Optional.ofNullable(buildPool()).orElse(item));
+    return this.withNewPoolLike(Optional.ofNullable(this.buildPool()).orElse(item));
   }
   
   public A addToSharedCounters(int index,V1beta1CounterSet item) {
-    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1beta1CounterSetBuilder>();}
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList();
+    }
     V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
     if (index < 0 || index >= sharedCounters.size()) {
         _visitables.get("sharedCounters").add(builder);
@@ -352,11 +402,13 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
         _visitables.get("sharedCounters").add(builder);
         sharedCounters.add(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
   public A setToSharedCounters(int index,V1beta1CounterSet item) {
-    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1beta1CounterSetBuilder>();}
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList();
+    }
     V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
     if (index < 0 || index >= sharedCounters.size()) {
         _visitables.get("sharedCounters").add(builder);
@@ -365,41 +417,71 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
         _visitables.get("sharedCounters").add(builder);
         sharedCounters.set(index, builder);
     }
-    return (A)this;
+    return (A) this;
   }
   
-  public A addToSharedCounters(io.kubernetes.client.openapi.models.V1beta1CounterSet... items) {
-    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1beta1CounterSetBuilder>();}
-    for (V1beta1CounterSet item : items) {V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);_visitables.get("sharedCounters").add(builder);this.sharedCounters.add(builder);} return (A)this;
+  public A addToSharedCounters(V1beta1CounterSet... items) {
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList();
+    }
+    for (V1beta1CounterSet item : items) {
+        V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
+        _visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.add(builder);
+    }
+    return (A) this;
   }
   
   public A addAllToSharedCounters(Collection<V1beta1CounterSet> items) {
-    if (this.sharedCounters == null) {this.sharedCounters = new ArrayList<V1beta1CounterSetBuilder>();}
-    for (V1beta1CounterSet item : items) {V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);_visitables.get("sharedCounters").add(builder);this.sharedCounters.add(builder);} return (A)this;
+    if (this.sharedCounters == null) {
+      this.sharedCounters = new ArrayList();
+    }
+    for (V1beta1CounterSet item : items) {
+        V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
+        _visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.add(builder);
+    }
+    return (A) this;
   }
   
-  public A removeFromSharedCounters(io.kubernetes.client.openapi.models.V1beta1CounterSet... items) {
-    if (this.sharedCounters == null) return (A)this;
-    for (V1beta1CounterSet item : items) {V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);_visitables.get("sharedCounters").remove(builder); this.sharedCounters.remove(builder);} return (A)this;
+  public A removeFromSharedCounters(V1beta1CounterSet... items) {
+    if (this.sharedCounters == null) {
+      return (A) this;
+    }
+    for (V1beta1CounterSet item : items) {
+        V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
+        _visitables.get("sharedCounters").remove(builder);
+        this.sharedCounters.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSharedCounters(Collection<V1beta1CounterSet> items) {
-    if (this.sharedCounters == null) return (A)this;
-    for (V1beta1CounterSet item : items) {V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);_visitables.get("sharedCounters").remove(builder); this.sharedCounters.remove(builder);} return (A)this;
+    if (this.sharedCounters == null) {
+      return (A) this;
+    }
+    for (V1beta1CounterSet item : items) {
+        V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
+        _visitables.get("sharedCounters").remove(builder);
+        this.sharedCounters.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeMatchingFromSharedCounters(Predicate<V1beta1CounterSetBuilder> predicate) {
-    if (sharedCounters == null) return (A) this;
-    final Iterator<V1beta1CounterSetBuilder> each = sharedCounters.iterator();
-    final List visitables = _visitables.get("sharedCounters");
-    while (each.hasNext()) {
-      V1beta1CounterSetBuilder builder = each.next();
-      if (predicate.test(builder)) {
-        visitables.remove(builder);
-        each.remove();
-      }
+    if (sharedCounters == null) {
+      return (A) this;
     }
-    return (A)this;
+    Iterator<V1beta1CounterSetBuilder> each = sharedCounters.iterator();
+    List visitables = _visitables.get("sharedCounters");
+    while (each.hasNext()) {
+        V1beta1CounterSetBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
   }
   
   public List<V1beta1CounterSet> buildSharedCounters() {
@@ -451,7 +533,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
     return (A) this;
   }
   
-  public A withSharedCounters(io.kubernetes.client.openapi.models.V1beta1CounterSet... sharedCounters) {
+  public A withSharedCounters(V1beta1CounterSet... sharedCounters) {
     if (this.sharedCounters != null) {
         this.sharedCounters.clear();
         _visitables.remove("sharedCounters");
@@ -465,7 +547,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public boolean hasSharedCounters() {
-    return this.sharedCounters != null && !this.sharedCounters.isEmpty();
+    return this.sharedCounters != null && !(this.sharedCounters.isEmpty());
   }
   
   public SharedCountersNested<A> addNewSharedCounter() {
@@ -481,61 +563,125 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
   }
   
   public SharedCountersNested<A> editSharedCounter(int index) {
-    if (sharedCounters.size() <= index) throw new RuntimeException("Can't edit sharedCounters. Index exceeds size.");
-    return setNewSharedCounterLike(index, buildSharedCounter(index));
+    if (index <= sharedCounters.size()) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "sharedCounters"));
+    }
+    return this.setNewSharedCounterLike(index, this.buildSharedCounter(index));
   }
   
   public SharedCountersNested<A> editFirstSharedCounter() {
-    if (sharedCounters.size() == 0) throw new RuntimeException("Can't edit first sharedCounters. The list is empty.");
-    return setNewSharedCounterLike(0, buildSharedCounter(0));
+    if (sharedCounters.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "sharedCounters"));
+    }
+    return this.setNewSharedCounterLike(0, this.buildSharedCounter(0));
   }
   
   public SharedCountersNested<A> editLastSharedCounter() {
     int index = sharedCounters.size() - 1;
-    if (index < 0) throw new RuntimeException("Can't edit last sharedCounters. The list is empty.");
-    return setNewSharedCounterLike(index, buildSharedCounter(index));
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "sharedCounters"));
+    }
+    return this.setNewSharedCounterLike(index, this.buildSharedCounter(index));
   }
   
   public SharedCountersNested<A> editMatchingSharedCounter(Predicate<V1beta1CounterSetBuilder> predicate) {
     int index = -1;
-    for (int i=0;i<sharedCounters.size();i++) { 
-    if (predicate.test(sharedCounters.get(i))) {index = i; break;}
-    } 
-    if (index < 0) throw new RuntimeException("Can't edit matching sharedCounters. No match found.");
-    return setNewSharedCounterLike(index, buildSharedCounter(index));
+    for (int i = 0;i < sharedCounters.size();i++) {
+      if (predicate.test(sharedCounters.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "sharedCounters"));
+    }
+    return this.setNewSharedCounterLike(index, this.buildSharedCounter(index));
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1beta1ResourceSliceSpecFluent that = (V1beta1ResourceSliceSpecFluent) o;
-    if (!java.util.Objects.equals(allNodes, that.allNodes)) return false;
-    if (!java.util.Objects.equals(devices, that.devices)) return false;
-    if (!java.util.Objects.equals(driver, that.driver)) return false;
-    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
-    if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
-    if (!java.util.Objects.equals(perDeviceNodeSelection, that.perDeviceNodeSelection)) return false;
-    if (!java.util.Objects.equals(pool, that.pool)) return false;
-    if (!java.util.Objects.equals(sharedCounters, that.sharedCounters)) return false;
+    if (!(Objects.equals(allNodes, that.allNodes))) {
+      return false;
+    }
+    if (!(Objects.equals(devices, that.devices))) {
+      return false;
+    }
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeName, that.nodeName))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeSelector, that.nodeSelector))) {
+      return false;
+    }
+    if (!(Objects.equals(perDeviceNodeSelection, that.perDeviceNodeSelection))) {
+      return false;
+    }
+    if (!(Objects.equals(pool, that.pool))) {
+      return false;
+    }
+    if (!(Objects.equals(sharedCounters, that.sharedCounters))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(allNodes,  devices,  driver,  nodeName,  nodeSelector,  perDeviceNodeSelection,  pool,  sharedCounters,  super.hashCode());
+    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, perDeviceNodeSelection, pool, sharedCounters);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (allNodes != null) { sb.append("allNodes:"); sb.append(allNodes + ","); }
-    if (devices != null && !devices.isEmpty()) { sb.append("devices:"); sb.append(devices + ","); }
-    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
-    if (nodeName != null) { sb.append("nodeName:"); sb.append(nodeName + ","); }
-    if (nodeSelector != null) { sb.append("nodeSelector:"); sb.append(nodeSelector + ","); }
-    if (perDeviceNodeSelection != null) { sb.append("perDeviceNodeSelection:"); sb.append(perDeviceNodeSelection + ","); }
-    if (pool != null) { sb.append("pool:"); sb.append(pool + ","); }
-    if (sharedCounters != null && !sharedCounters.isEmpty()) { sb.append("sharedCounters:"); sb.append(sharedCounters); }
+    if (!(allNodes == null)) {
+        sb.append("allNodes:");
+        sb.append(allNodes);
+        sb.append(",");
+    }
+    if (!(devices == null) && !(devices.isEmpty())) {
+        sb.append("devices:");
+        sb.append(devices);
+        sb.append(",");
+    }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(nodeName == null)) {
+        sb.append("nodeName:");
+        sb.append(nodeName);
+        sb.append(",");
+    }
+    if (!(nodeSelector == null)) {
+        sb.append("nodeSelector:");
+        sb.append(nodeSelector);
+        sb.append(",");
+    }
+    if (!(perDeviceNodeSelection == null)) {
+        sb.append("perDeviceNodeSelection:");
+        sb.append(perDeviceNodeSelection);
+        sb.append(",");
+    }
+    if (!(pool == null)) {
+        sb.append("pool:");
+        sb.append(pool);
+        sb.append(",");
+    }
+    if (!(sharedCounters == null) && !(sharedCounters.isEmpty())) {
+        sb.append("sharedCounters:");
+        sb.append(sharedCounters);
+    }
     sb.append("}");
     return sb.toString();
   }
@@ -556,7 +702,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
     int index;
     
     public N and() {
-      return (N) V1beta1ResourceSliceSpecFluent.this.setToDevices(index,builder.build());
+      return (N) V1beta1ResourceSliceSpecFluent.this.setToDevices(index, builder.build());
     }
     
     public N endDevice() {
@@ -606,7 +752,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends V1beta1ResourceSliceSpecFl
     int index;
     
     public N and() {
-      return (N) V1beta1ResourceSliceSpecFluent.this.setToSharedCounters(index,builder.build());
+      return (N) V1beta1ResourceSliceSpecFluent.this.setToSharedCounters(index, builder.build());
     }
     
     public N endSharedCounter() {

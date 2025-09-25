@@ -1,7 +1,9 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
 
@@ -9,7 +11,7 @@ import java.lang.String;
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1MatchConditionFluent<A extends V1MatchConditionFluent<A>> extends BaseFluent<A>{
+public class V1MatchConditionFluent<A extends io.kubernetes.client.openapi.models.V1MatchConditionFluent<A>> extends BaseFluent<A>{
   public V1MatchConditionFluent() {
   }
   
@@ -20,11 +22,11 @@ public class V1MatchConditionFluent<A extends V1MatchConditionFluent<A>> extends
   private String name;
   
   protected void copyInstance(V1MatchCondition instance) {
-    instance = (instance != null ? instance : new V1MatchCondition());
+    instance = instance != null ? instance : new V1MatchCondition();
     if (instance != null) {
-          this.withExpression(instance.getExpression());
-          this.withName(instance.getName());
-        }
+        this.withExpression(instance.getExpression());
+        this.withName(instance.getName());
+    }
   }
   
   public String getExpression() {
@@ -54,24 +56,41 @@ public class V1MatchConditionFluent<A extends V1MatchConditionFluent<A>> extends
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1MatchConditionFluent that = (V1MatchConditionFluent) o;
-    if (!java.util.Objects.equals(expression, that.expression)) return false;
-    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!(Objects.equals(expression, that.expression))) {
+      return false;
+    }
+    if (!(Objects.equals(name, that.name))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(expression,  name,  super.hashCode());
+    return Objects.hash(expression, name);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (expression != null) { sb.append("expression:"); sb.append(expression + ","); }
-    if (name != null) { sb.append("name:"); sb.append(name); }
+    if (!(expression == null)) {
+        sb.append("expression:");
+        sb.append(expression);
+        sb.append(",");
+    }
+    if (!(name == null)) {
+        sb.append("name:");
+        sb.append(name);
+    }
     sb.append("}");
     return sb.toString();
   }

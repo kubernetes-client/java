@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1HostIPBuilder extends V1HostIPFluent<V1HostIPBuilder> implements VisitableBuilder<V1HostIP,V1HostIPBuilder>{
   public V1HostIPBuilder() {
     this(new V1HostIP());

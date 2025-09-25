@@ -1,16 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
+import java.lang.StringBuilder;
+import java.util.Optional;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Objects;
 import java.lang.Object;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
-public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluent<A>{
+public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1LifecycleFluent<A>> extends BaseFluent<A>{
   public V1LifecycleFluent() {
   }
   
@@ -22,12 +25,12 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
   private String stopSignal;
   
   protected void copyInstance(V1Lifecycle instance) {
-    instance = (instance != null ? instance : new V1Lifecycle());
+    instance = instance != null ? instance : new V1Lifecycle();
     if (instance != null) {
-          this.withPostStart(instance.getPostStart());
-          this.withPreStop(instance.getPreStop());
-          this.withStopSignal(instance.getStopSignal());
-        }
+        this.withPostStart(instance.getPostStart());
+        this.withPreStop(instance.getPreStop());
+        this.withStopSignal(instance.getStopSignal());
+    }
   }
   
   public V1LifecycleHandler buildPostStart() {
@@ -59,15 +62,15 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
   }
   
   public PostStartNested<A> editPostStart() {
-    return withNewPostStartLike(java.util.Optional.ofNullable(buildPostStart()).orElse(null));
+    return this.withNewPostStartLike(Optional.ofNullable(this.buildPostStart()).orElse(null));
   }
   
   public PostStartNested<A> editOrNewPostStart() {
-    return withNewPostStartLike(java.util.Optional.ofNullable(buildPostStart()).orElse(new V1LifecycleHandlerBuilder().build()));
+    return this.withNewPostStartLike(Optional.ofNullable(this.buildPostStart()).orElse(new V1LifecycleHandlerBuilder().build()));
   }
   
   public PostStartNested<A> editOrNewPostStartLike(V1LifecycleHandler item) {
-    return withNewPostStartLike(java.util.Optional.ofNullable(buildPostStart()).orElse(item));
+    return this.withNewPostStartLike(Optional.ofNullable(this.buildPostStart()).orElse(item));
   }
   
   public V1LifecycleHandler buildPreStop() {
@@ -99,15 +102,15 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
   }
   
   public PreStopNested<A> editPreStop() {
-    return withNewPreStopLike(java.util.Optional.ofNullable(buildPreStop()).orElse(null));
+    return this.withNewPreStopLike(Optional.ofNullable(this.buildPreStop()).orElse(null));
   }
   
   public PreStopNested<A> editOrNewPreStop() {
-    return withNewPreStopLike(java.util.Optional.ofNullable(buildPreStop()).orElse(new V1LifecycleHandlerBuilder().build()));
+    return this.withNewPreStopLike(Optional.ofNullable(this.buildPreStop()).orElse(new V1LifecycleHandlerBuilder().build()));
   }
   
   public PreStopNested<A> editOrNewPreStopLike(V1LifecycleHandler item) {
-    return withNewPreStopLike(java.util.Optional.ofNullable(buildPreStop()).orElse(item));
+    return this.withNewPreStopLike(Optional.ofNullable(this.buildPreStop()).orElse(item));
   }
   
   public String getStopSignal() {
@@ -124,26 +127,49 @@ public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluen
   }
   
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
     V1LifecycleFluent that = (V1LifecycleFluent) o;
-    if (!java.util.Objects.equals(postStart, that.postStart)) return false;
-    if (!java.util.Objects.equals(preStop, that.preStop)) return false;
-    if (!java.util.Objects.equals(stopSignal, that.stopSignal)) return false;
+    if (!(Objects.equals(postStart, that.postStart))) {
+      return false;
+    }
+    if (!(Objects.equals(preStop, that.preStop))) {
+      return false;
+    }
+    if (!(Objects.equals(stopSignal, that.stopSignal))) {
+      return false;
+    }
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(postStart,  preStop,  stopSignal,  super.hashCode());
+    return Objects.hash(postStart, preStop, stopSignal);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (postStart != null) { sb.append("postStart:"); sb.append(postStart + ","); }
-    if (preStop != null) { sb.append("preStop:"); sb.append(preStop + ","); }
-    if (stopSignal != null) { sb.append("stopSignal:"); sb.append(stopSignal); }
+    if (!(postStart == null)) {
+        sb.append("postStart:");
+        sb.append(postStart);
+        sb.append(",");
+    }
+    if (!(preStop == null)) {
+        sb.append("preStop:");
+        sb.append(preStop);
+        sb.append(",");
+    }
+    if (!(stopSignal == null)) {
+        sb.append("stopSignal:");
+        sb.append(stopSignal);
+    }
     sb.append("}");
     return sb.toString();
   }

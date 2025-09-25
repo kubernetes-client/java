@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta2CapacityRequirements;
 import io.kubernetes.client.openapi.models.V1beta2DeviceSelector;
 import io.kubernetes.client.openapi.models.V1beta2DeviceToleration;
 import io.swagger.annotations.ApiModel;
@@ -54,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * ExactDeviceRequest is a request for one or more identical devices.
  */
 @ApiModel(description = "ExactDeviceRequest is a request for one or more identical devices.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta2ExactDeviceRequest {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -65,6 +66,11 @@ public class V1beta2ExactDeviceRequest {
   @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
   @jakarta.annotation.Nullable
   private String allocationMode;
+
+  public static final String SERIALIZED_NAME_CAPACITY = "capacity";
+  @SerializedName(SERIALIZED_NAME_CAPACITY)
+  @jakarta.annotation.Nullable
+  private V1beta2CapacityRequirements capacity;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -126,6 +132,26 @@ public class V1beta2ExactDeviceRequest {
 
   public void setAllocationMode(@jakarta.annotation.Nullable String allocationMode) {
     this.allocationMode = allocationMode;
+  }
+
+
+  public V1beta2ExactDeviceRequest capacity(@jakarta.annotation.Nullable V1beta2CapacityRequirements capacity) {
+    this.capacity = capacity;
+    return this;
+  }
+
+  /**
+   * Get capacity
+   * @return capacity
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1beta2CapacityRequirements getCapacity() {
+    return capacity;
+  }
+
+  public void setCapacity(@jakarta.annotation.Nullable V1beta2CapacityRequirements capacity) {
+    this.capacity = capacity;
   }
 
 
@@ -237,6 +263,7 @@ public class V1beta2ExactDeviceRequest {
     V1beta2ExactDeviceRequest v1beta2ExactDeviceRequest = (V1beta2ExactDeviceRequest) o;
     return Objects.equals(this.adminAccess, v1beta2ExactDeviceRequest.adminAccess) &&
         Objects.equals(this.allocationMode, v1beta2ExactDeviceRequest.allocationMode) &&
+        Objects.equals(this.capacity, v1beta2ExactDeviceRequest.capacity) &&
         Objects.equals(this.count, v1beta2ExactDeviceRequest.count) &&
         Objects.equals(this.deviceClassName, v1beta2ExactDeviceRequest.deviceClassName) &&
         Objects.equals(this.selectors, v1beta2ExactDeviceRequest.selectors) &&
@@ -245,7 +272,7 @@ public class V1beta2ExactDeviceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminAccess, allocationMode, count, deviceClassName, selectors, tolerations);
+    return Objects.hash(adminAccess, allocationMode, capacity, count, deviceClassName, selectors, tolerations);
   }
 
   @Override
@@ -254,6 +281,7 @@ public class V1beta2ExactDeviceRequest {
     sb.append("class V1beta2ExactDeviceRequest {\n");
     sb.append("    adminAccess: ").append(toIndentedString(adminAccess)).append("\n");
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
+    sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
@@ -282,6 +310,7 @@ public class V1beta2ExactDeviceRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("adminAccess");
     openapiFields.add("allocationMode");
+    openapiFields.add("capacity");
     openapiFields.add("count");
     openapiFields.add("deviceClassName");
     openapiFields.add("selectors");
@@ -322,6 +351,10 @@ public class V1beta2ExactDeviceRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("allocationMode") != null && !jsonObj.get("allocationMode").isJsonNull()) && !jsonObj.get("allocationMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allocationMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allocationMode").toString()));
+      }
+      // validate the optional field `capacity`
+      if (jsonObj.get("capacity") != null && !jsonObj.get("capacity").isJsonNull()) {
+        V1beta2CapacityRequirements.validateJsonElement(jsonObj.get("capacity"));
       }
       if (!jsonObj.get("deviceClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deviceClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceClassName").toString()));

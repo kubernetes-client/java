@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluent<V1EnvFromSourceBuilder> implements VisitableBuilder<V1EnvFromSource,V1EnvFromSourceBuilder>{
   public V1EnvFromSourceBuilder() {
     this(new V1EnvFromSource());

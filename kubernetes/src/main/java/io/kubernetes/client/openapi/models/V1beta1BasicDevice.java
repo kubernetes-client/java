@@ -59,17 +59,37 @@ import io.kubernetes.client.openapi.JSON;
  * BasicDevice defines one device instance.
  */
 @ApiModel(description = "BasicDevice defines one device instance.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1BasicDevice {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
   @jakarta.annotation.Nullable
   private Boolean allNodes;
 
+  public static final String SERIALIZED_NAME_ALLOW_MULTIPLE_ALLOCATIONS = "allowMultipleAllocations";
+  @SerializedName(SERIALIZED_NAME_ALLOW_MULTIPLE_ALLOCATIONS)
+  @jakarta.annotation.Nullable
+  private Boolean allowMultipleAllocations;
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   @jakarta.annotation.Nullable
   private Map<String, V1beta1DeviceAttribute> attributes = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_BINDING_CONDITIONS = "bindingConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_CONDITIONS)
+  @jakarta.annotation.Nullable
+  private List<String> bindingConditions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS = "bindingFailureConditions";
+  @SerializedName(SERIALIZED_NAME_BINDING_FAILURE_CONDITIONS)
+  @jakarta.annotation.Nullable
+  private List<String> bindingFailureConditions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_BINDS_TO_NODE = "bindsToNode";
+  @SerializedName(SERIALIZED_NAME_BINDS_TO_NODE)
+  @jakarta.annotation.Nullable
+  private Boolean bindsToNode;
 
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
@@ -119,6 +139,26 @@ public class V1beta1BasicDevice {
   }
 
 
+  public V1beta1BasicDevice allowMultipleAllocations(@jakarta.annotation.Nullable Boolean allowMultipleAllocations) {
+    this.allowMultipleAllocations = allowMultipleAllocations;
+    return this;
+  }
+
+  /**
+   * AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.  If AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.
+   * @return allowMultipleAllocations
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "AllowMultipleAllocations marks whether the device is allowed to be allocated to multiple DeviceRequests.  If AllowMultipleAllocations is set to true, the device can be allocated more than once, and all of its capacity is consumable, regardless of whether the requestPolicy is defined or not.")
+  public Boolean getAllowMultipleAllocations() {
+    return allowMultipleAllocations;
+  }
+
+  public void setAllowMultipleAllocations(@jakarta.annotation.Nullable Boolean allowMultipleAllocations) {
+    this.allowMultipleAllocations = allowMultipleAllocations;
+  }
+
+
   public V1beta1BasicDevice attributes(@jakarta.annotation.Nullable Map<String, V1beta1DeviceAttribute> attributes) {
     this.attributes = attributes;
     return this;
@@ -144,6 +184,82 @@ public class V1beta1BasicDevice {
 
   public void setAttributes(@jakarta.annotation.Nullable Map<String, V1beta1DeviceAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public V1beta1BasicDevice bindingConditions(@jakarta.annotation.Nullable List<String> bindingConditions) {
+    this.bindingConditions = bindingConditions;
+    return this;
+  }
+
+  public V1beta1BasicDevice addBindingConditionsItem(String bindingConditionsItem) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList<>();
+    }
+    this.bindingConditions.add(bindingConditionsItem);
+    return this;
+  }
+
+  /**
+   * BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingConditions
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  public List<String> getBindingConditions() {
+    return bindingConditions;
+  }
+
+  public void setBindingConditions(@jakarta.annotation.Nullable List<String> bindingConditions) {
+    this.bindingConditions = bindingConditions;
+  }
+
+
+  public V1beta1BasicDevice bindingFailureConditions(@jakarta.annotation.Nullable List<String> bindingFailureConditions) {
+    this.bindingFailureConditions = bindingFailureConditions;
+    return this;
+  }
+
+  public V1beta1BasicDevice addBindingFailureConditionsItem(String bindingFailureConditionsItem) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList<>();
+    }
+    this.bindingFailureConditions.add(bindingFailureConditionsItem);
+    return this;
+  }
+
+  /**
+   * BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindingFailureConditions
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  public List<String> getBindingFailureConditions() {
+    return bindingFailureConditions;
+  }
+
+  public void setBindingFailureConditions(@jakarta.annotation.Nullable List<String> bindingFailureConditions) {
+    this.bindingFailureConditions = bindingFailureConditions;
+  }
+
+
+  public V1beta1BasicDevice bindsToNode(@jakarta.annotation.Nullable Boolean bindsToNode) {
+    this.bindsToNode = bindsToNode;
+    return this;
+  }
+
+  /**
+   * BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * @return bindsToNode
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  public Boolean getBindsToNode() {
+    return bindsToNode;
+  }
+
+  public void setBindsToNode(@jakarta.annotation.Nullable Boolean bindsToNode) {
+    this.bindsToNode = bindsToNode;
   }
 
 
@@ -282,7 +398,11 @@ public class V1beta1BasicDevice {
     }
     V1beta1BasicDevice v1beta1BasicDevice = (V1beta1BasicDevice) o;
     return Objects.equals(this.allNodes, v1beta1BasicDevice.allNodes) &&
+        Objects.equals(this.allowMultipleAllocations, v1beta1BasicDevice.allowMultipleAllocations) &&
         Objects.equals(this.attributes, v1beta1BasicDevice.attributes) &&
+        Objects.equals(this.bindingConditions, v1beta1BasicDevice.bindingConditions) &&
+        Objects.equals(this.bindingFailureConditions, v1beta1BasicDevice.bindingFailureConditions) &&
+        Objects.equals(this.bindsToNode, v1beta1BasicDevice.bindsToNode) &&
         Objects.equals(this.capacity, v1beta1BasicDevice.capacity) &&
         Objects.equals(this.consumesCounters, v1beta1BasicDevice.consumesCounters) &&
         Objects.equals(this.nodeName, v1beta1BasicDevice.nodeName) &&
@@ -292,7 +412,7 @@ public class V1beta1BasicDevice {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, attributes, capacity, consumesCounters, nodeName, nodeSelector, taints);
+    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeName, nodeSelector, taints);
   }
 
   @Override
@@ -300,7 +420,11 @@ public class V1beta1BasicDevice {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1BasicDevice {\n");
     sb.append("    allNodes: ").append(toIndentedString(allNodes)).append("\n");
+    sb.append("    allowMultipleAllocations: ").append(toIndentedString(allowMultipleAllocations)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    bindingConditions: ").append(toIndentedString(bindingConditions)).append("\n");
+    sb.append("    bindingFailureConditions: ").append(toIndentedString(bindingFailureConditions)).append("\n");
+    sb.append("    bindsToNode: ").append(toIndentedString(bindsToNode)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    consumesCounters: ").append(toIndentedString(consumesCounters)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
@@ -329,7 +453,11 @@ public class V1beta1BasicDevice {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allNodes");
+    openapiFields.add("allowMultipleAllocations");
     openapiFields.add("attributes");
+    openapiFields.add("bindingConditions");
+    openapiFields.add("bindingFailureConditions");
+    openapiFields.add("bindsToNode");
     openapiFields.add("capacity");
     openapiFields.add("consumesCounters");
     openapiFields.add("nodeName");
@@ -361,6 +489,14 @@ public class V1beta1BasicDevice {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("bindingConditions") != null && !jsonObj.get("bindingConditions").isJsonNull() && !jsonObj.get("bindingConditions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bindingConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingConditions").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("bindingFailureConditions") != null && !jsonObj.get("bindingFailureConditions").isJsonNull() && !jsonObj.get("bindingFailureConditions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bindingFailureConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingFailureConditions").toString()));
+      }
       if (jsonObj.get("consumesCounters") != null && !jsonObj.get("consumesCounters").isJsonNull()) {
         JsonArray jsonArrayconsumesCounters = jsonObj.getAsJsonArray("consumesCounters");
         if (jsonArrayconsumesCounters != null) {

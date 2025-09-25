@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.Object;
 public class V1NamespaceSpecBuilder extends V1NamespaceSpecFluent<V1NamespaceSpecBuilder> implements VisitableBuilder<V1NamespaceSpec,V1NamespaceSpecBuilder>{
   public V1NamespaceSpecBuilder() {
     this(new V1NamespaceSpec());

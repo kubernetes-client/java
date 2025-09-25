@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta1CapacityRequirements;
 import io.kubernetes.client.openapi.models.V1beta1DeviceSelector;
 import io.kubernetes.client.openapi.models.V1beta1DeviceToleration;
 import io.swagger.annotations.ApiModel;
@@ -54,12 +55,17 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to Request, but doesn&#39;t expose the AdminAccess or FirstAvailable fields, as those can only be set on the top-level request. AdminAccess is not supported for requests with a prioritized list, and recursive FirstAvailable fields are not supported.
  */
 @ApiModel(description = "DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to Request, but doesn't expose the AdminAccess or FirstAvailable fields, as those can only be set on the top-level request. AdminAccess is not supported for requests with a prioritized list, and recursive FirstAvailable fields are not supported.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-20T20:47:13.890592Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
 public class V1beta1DeviceSubRequest {
   public static final String SERIALIZED_NAME_ALLOCATION_MODE = "allocationMode";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
   @jakarta.annotation.Nullable
   private String allocationMode;
+
+  public static final String SERIALIZED_NAME_CAPACITY = "capacity";
+  @SerializedName(SERIALIZED_NAME_CAPACITY)
+  @jakarta.annotation.Nullable
+  private V1beta1CapacityRequirements capacity;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -106,6 +112,26 @@ public class V1beta1DeviceSubRequest {
 
   public void setAllocationMode(@jakarta.annotation.Nullable String allocationMode) {
     this.allocationMode = allocationMode;
+  }
+
+
+  public V1beta1DeviceSubRequest capacity(@jakarta.annotation.Nullable V1beta1CapacityRequirements capacity) {
+    this.capacity = capacity;
+    return this;
+  }
+
+  /**
+   * Get capacity
+   * @return capacity
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1beta1CapacityRequirements getCapacity() {
+    return capacity;
+  }
+
+  public void setCapacity(@jakarta.annotation.Nullable V1beta1CapacityRequirements capacity) {
+    this.capacity = capacity;
   }
 
 
@@ -236,6 +262,7 @@ public class V1beta1DeviceSubRequest {
     }
     V1beta1DeviceSubRequest v1beta1DeviceSubRequest = (V1beta1DeviceSubRequest) o;
     return Objects.equals(this.allocationMode, v1beta1DeviceSubRequest.allocationMode) &&
+        Objects.equals(this.capacity, v1beta1DeviceSubRequest.capacity) &&
         Objects.equals(this.count, v1beta1DeviceSubRequest.count) &&
         Objects.equals(this.deviceClassName, v1beta1DeviceSubRequest.deviceClassName) &&
         Objects.equals(this.name, v1beta1DeviceSubRequest.name) &&
@@ -245,7 +272,7 @@ public class V1beta1DeviceSubRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationMode, count, deviceClassName, name, selectors, tolerations);
+    return Objects.hash(allocationMode, capacity, count, deviceClassName, name, selectors, tolerations);
   }
 
   @Override
@@ -253,6 +280,7 @@ public class V1beta1DeviceSubRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1DeviceSubRequest {\n");
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
+    sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -281,6 +309,7 @@ public class V1beta1DeviceSubRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allocationMode");
+    openapiFields.add("capacity");
     openapiFields.add("count");
     openapiFields.add("deviceClassName");
     openapiFields.add("name");
@@ -323,6 +352,10 @@ public class V1beta1DeviceSubRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("allocationMode") != null && !jsonObj.get("allocationMode").isJsonNull()) && !jsonObj.get("allocationMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allocationMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allocationMode").toString()));
+      }
+      // validate the optional field `capacity`
+      if (jsonObj.get("capacity") != null && !jsonObj.get("capacity").isJsonNull()) {
+        V1beta1CapacityRequirements.validateJsonElement(jsonObj.get("capacity"));
       }
       if (!jsonObj.get("deviceClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deviceClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceClassName").toString()));
