@@ -1496,28 +1496,9 @@ public class ApiClient {
             TrustManager[] trustManagers;
             HostnameVerifier hostnameVerifier;
             if (!verifyingSsl) {
-                trustManagers = new TrustManager[]{
-                        new X509TrustManager() {
-                            @Override
-                            public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                            }
-
-                            @Override
-                            public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                            }
-
-                            @Override
-                            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                                return new java.security.cert.X509Certificate[]{};
-                            }
-                        }
-                };
-                hostnameVerifier = new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) {
-                        return true;
-                    }
-                };
+                throw new IllegalStateException(
+                    "Disabling SSL verification is insecure and no longer supported. " +
+                    "Please provide a trusted CA certificate via sslCaCert.");
             } else {
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
