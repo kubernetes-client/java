@@ -18,7 +18,7 @@ See the wiki page and documentation [here](https://github.com/kubernetes-client/
 
 ## Release
 
-Starting from `20.0.0` (Kubernetes 1.28), `client-java-api` was introduced non-backward-compatible changes. Optional 
+Starting from `20.0.0` (Kubernetes 1.28), `client-java-api` has introduced non-backward-compatible changes. Optional 
 parameters are now consolidated into a single object, and Java8 support has been removed. For Java8 users or those 
 preferring the old SDK interface, a legacy SDK module version is available with a "-legacy" suffix, like `20.0.0-legacy`.
 
