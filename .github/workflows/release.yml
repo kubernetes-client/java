@@ -63,7 +63,7 @@ jobs:
         run: |
           git checkout -b 'automated-release-${{ github.event.inputs.releaseVersion }}'
           ./mvnw --batch-mode \
-            release:prepare \
+            org.apache.maven.plugins:maven-release-plugin:prepare \
             -Dtag=v${{ github.event.inputs.releaseVersion }} \
             -DconnectionUrl=https://${{ github.token }}@github.com/${{ github.repository }}.git \
             -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
@@ -78,7 +78,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
         run: |
           # The tests are already executed in the prepare, skipping
-          ./mvnw -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests release:perform
+          ./mvnw -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests org.apache.maven.plugins:maven-release-plugin:perform
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
