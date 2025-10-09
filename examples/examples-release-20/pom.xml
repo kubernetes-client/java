@@ -93,7 +93,7 @@
 		</plugins>
 	</build>
     <properties>
-        <junit-jupiter.version>5.13.4</junit-jupiter.version>
+        <junit-jupiter.version>6.0.0</junit-jupiter.version>
         <spring.boot.version>3.5.4</spring.boot.version>
     </properties>
 </project>
