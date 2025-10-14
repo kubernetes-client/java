@@ -14,6 +14,9 @@ package io.kubernetes.client.util.generic.dynamic;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Map;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
