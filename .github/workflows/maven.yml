@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: 11
+          java-version: 17
       - name: Verify Format and License
         run: ./mvnw spotless:check
   build:
