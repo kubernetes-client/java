@@ -18,12 +18,12 @@ import io.kubernetes.client.informer.SharedInformerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-/** The type Controller mananger builder. */
+/** The type Controller manager builder. */
 public class ControllerManagerBuilder {
 
   private SharedInformerFactory informerFactory;
 
-  /** Instantiates a new Controller mananger builder. */
+  /** Instantiates a new Controller manager builder. */
   ControllerManagerBuilder(SharedInformerFactory factory) {
     this.informerFactory = factory;
     this.controllerList = new ArrayList<>();
@@ -32,10 +32,10 @@ public class ControllerManagerBuilder {
   private List<Controller> controllerList;
 
   /**
-   * Add controller controller mananger builder.
+   * Add controller controller manager builder.
    *
    * @param controller the controller
-   * @return the controller mananger builder
+   * @return the controller manager builder
    */
   public ControllerManagerBuilder addController(Controller controller) {
     this.controllerList.add(controller);

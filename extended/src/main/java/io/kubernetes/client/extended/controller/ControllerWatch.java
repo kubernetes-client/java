@@ -25,7 +25,7 @@ public interface ControllerWatch<ApiType extends KubernetesObject> {
   /**
    * Gets the watching resource class.
    *
-   * @return the resouce class
+   * @return the resource class
    */
   Class<ApiType> getResourceClass();
 
