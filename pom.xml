@@ -63,7 +63,7 @@
     <apache.commons.lang3.version>3.19.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.5.0</apache.commons.collections4.version>
     <apache.commons.compress>1.28.0</apache.commons.compress>
-    <apache.commons.io>2.20.0</apache.commons.io>
+    <apache.commons.io>2.21.0</apache.commons.io>
     <common.codec.version>1.20.0</common.codec.version>
     <spring.boot.version>3.5.7</spring.boot.version>
     <spring.version>6.2.12</spring.version>
