@@ -54074,7 +54074,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -54102,7 +54102,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -54130,7 +54130,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -54282,7 +54282,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -54313,7 +54313,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -54344,7 +54344,7 @@ java.lang.String defaultValue) {
      * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
      * on that node is marked deleted. If the old pod becomes unavailable for any
      * reason (Ready transitions to false, is evicted, or is drained) an updated
-     * pod is immediatedly created on that node without considering surge limits.
+     * pod is immediately created on that node without considering surge limits.
      * Allowing surge implies the possibility that the resources consumed by the
      * daemonset on any given node can double if the readiness check fails, and
      * so resource intensive daemonsets should take into account that they may
@@ -55018,7 +55018,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55048,7 +55048,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55082,7 +55082,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55121,7 +55121,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55158,7 +55158,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55202,7 +55202,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55238,7 +55238,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55269,7 +55269,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -55303,7 +55303,7 @@ java.lang.String defaultValue) {
        * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
        * on that node is marked deleted. If the old pod becomes unavailable for any
        * reason (Ready transitions to false, is evicted, or is drained) an updated
-       * pod is immediatedly created on that node without considering surge limits.
+       * pod is immediately created on that node without considering surge limits.
        * Allowing surge implies the possibility that the resources consumed by the
        * daemonset on any given node can double if the readiness check fails, and
        * so resource intensive daemonsets should take into account that they may
@@ -59872,7 +59872,7 @@ java.lang.String defaultValue) {
       "sRuleValue\030\002 \001(\0132/.k8s.io.api.extensions" +
       ".v1beta1.IngressRuleValue\"U\n\020IngressRule" +
       "Value\022A\n\004http\030\001 \001(\01323.k8s.io.api.extensi" +
-      "ons.v1beta1.HTTPIngressRuleValue\"\332\001\n\013Ing" +
+      "owns.v1beta1.HTTPIngressRuleValue\"\332\001\n\013Ing" +
       "ressSpec\022\030\n\020ingressClassName\030\004 \001(\t\022>\n\007ba" +
       "ckend\030\001 \001(\0132-.k8s.io.api.extensions.v1be" +
       "ta1.IngressBackend\0226\n\003tls\030\002 \003(\0132).k8s.io" +
@@ -59883,9 +59883,9 @@ java.lang.String defaultValue) {
       "eta1.IngressLoadBalancerStatus\"/\n\nIngres" +
       "sTLS\022\r\n\005hosts\030\001 \003(\t\022\022\n\nsecretName\030\002 \001(\t\"" +
       "\223\001\n\rNetworkPolicy\022B\n\010metadata\030\001 \001(\01320.k8" +
-      "s.io.apimachinery.pkg.apis.meta.v1.Objec" +
+      "s.io.apimachinery.pkg.apis.meta.v1.Object" +
       "tMeta\022>\n\004spec\030\002 \001(\01320.k8s.io.api.extensi" +
-      "ons.v1beta1.NetworkPolicySpec\"\230\001\n\027Networ" +
+      "owns.v1beta1.NetworkPolicySpec\"\230\001\n\027Networ" +
       "kPolicyEgressRule\022?\n\005ports\030\001 \003(\01320.k8s.i" +
       "o.api.extensions.v1beta1.NetworkPolicyPo" +
       "rt\022<\n\002to\030\002 \003(\01320.k8s.io.api.extensions.v" +
