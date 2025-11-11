@@ -123,7 +123,7 @@ class KubernetesInformerCreatorTest {
             .metadata(new V1ObjectMeta().namespace("default").name("bar1"));
 
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/pods.*"))
+        get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -135,13 +135,13 @@ class KubernetesInformerCreatorTest {
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Collections.singletonList(foo1))))));
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/pods.*"))
+        get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
 
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -153,7 +153,7 @@ class KubernetesInformerCreatorTest {
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Collections.singletonList(bar1))))));
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
