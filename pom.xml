@@ -60,7 +60,7 @@
     <swagger-core.version>1.6.16</swagger-core.version>
     <sundrio.version>0.230.2</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
-    <apache.commons.lang3.version>3.19.0</apache.commons.lang3.version>
+    <apache.commons.lang3.version>3.20.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.5.0</apache.commons.collections4.version>
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.21.0</apache.commons.io>
