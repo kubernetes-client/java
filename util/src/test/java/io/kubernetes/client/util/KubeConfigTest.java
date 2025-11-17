@@ -425,4 +425,35 @@ class KubeConfigTest {
     assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_CLIENT_KEY_DATA_KEY, "key");
     assertThat(kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY)).isNull();
   }
+
+  @Test
+  void tlsServerName() {
+    String configWithTlsServerName =
+        "apiVersion: v1\n"
+            + "clusters:\n"
+            + "- cluster:\n"
+            + "    server: https://192.168.1.1:6443\n"
+            + "    tls-server-name: my-cluster.example.com\n"
+            + "    certificate-authority-data: dGVzdAo=\n"
+            + "  name: test-cluster\n"
+            + "users:\n"
+            + "- user:\n"
+            + "    token: test-token\n"
+            + "  name: test-user\n"
+            + "contexts:\n"
+            + "- context:\n"
+            + "    cluster: test-cluster\n"
+            + "    user: test-user\n"
+            + "  name: test-context\n"
+            + "current-context: test-context\n";
+
+    KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(configWithTlsServerName));
+    assertThat("my-cluster.example.com").isEqualTo(config.getTlsServerName());
+  }
+
+  @Test
+  void tlsServerNameNotPresent() {
+    KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_TOKEN));
+    assertThat(config.getTlsServerName()).isNull();
+  }
 }
