@@ -60,7 +60,7 @@ class GenericKubernetesApiTest {
   void deleteNamespacedJobReturningStatus() {
     V1Status status = new V1Status().kind("Status").code(200).message("good!");
     apiServer.stubFor(
-        delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        delete(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1", null);
@@ -76,7 +76,7 @@ class GenericKubernetesApiTest {
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
     apiServer.stubFor(
-        delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        delete(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
@@ -91,7 +91,7 @@ class GenericKubernetesApiTest {
     V1Status status = new V1Status().kind("Status").code(403).message("good!");
 
     apiServer.stubFor(
-        delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        delete(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
@@ -188,7 +188,7 @@ class GenericKubernetesApiTest {
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
     apiServer.stubFor(
-        post(urlEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+        post(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.create(foo1);
     assertThat(jobListResp.isSuccess()).isTrue();
@@ -203,7 +203,7 @@ class GenericKubernetesApiTest {
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
     apiServer.stubFor(
-        put(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        put(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.update(foo1);
     assertThat(jobListResp.isSuccess()).isTrue();
@@ -219,7 +219,7 @@ class GenericKubernetesApiTest {
     foo1.setStatus(new V1JobStatus().failed(1));
 
     apiServer.stubFor(
-        patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
+        patch(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
             .willReturn(aResponse().withStatus(200).withBody(new JSON().serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
     assertThat(jobListResp.isSuccess()).isTrue();
@@ -235,7 +235,7 @@ class GenericKubernetesApiTest {
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
     apiServer.stubFor(
-        patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        patch(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobPatchResp =
@@ -251,7 +251,7 @@ class GenericKubernetesApiTest {
   void patchNamespacedJobReturningEmpty() {
     V1Patch v1Patch = new V1Patch("{}");
     apiServer.stubFor(
-        patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+        patch(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
             .willReturn(aResponse().withStatus(200).withBody("")));
     KubernetesApiResponse<V1Job> jobPatchResp =
@@ -289,7 +289,7 @@ class GenericKubernetesApiTest {
             .readTimeout(1, TimeUnit.MILLISECONDS) // timeout everytime
             .build());
     apiServer.stubFor(
-        get(urlEqualTo("/apis/batch/v1/namespaces/foo/jobs/test"))
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/test"))
             .willReturn(aResponse().withFixedDelay(99999).withStatus(200).withBody("")));
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
