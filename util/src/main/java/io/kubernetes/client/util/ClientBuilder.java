@@ -64,6 +64,7 @@ public class ClientBuilder {
   private boolean verifyingSsl = true;
   private Authentication authentication;
   private String keyStorePassphrase;
+  private String tlsServerName;
   // defaulting client protocols to HTTP1.1 and HTTP 2
   private List<Protocol> protocols = Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1);
   // default to unlimited read timeout
@@ -312,6 +313,11 @@ public class ClientBuilder {
     }
     builder.setVerifyingSsl(config.verifySSL());
 
+    String tlsServerName = config.getTlsServerName();
+    if (tlsServerName != null && !tlsServerName.isEmpty()) {
+      builder.setTlsServerName(tlsServerName);
+    }
+
     builder.setBasePath(server);
     builder.setAuthentication(new KubeconfigAuthentication(config, tokenRefreshPeriod));
     return builder;
@@ -436,6 +442,15 @@ public class ClientBuilder {
     return this;
   }
 
+  public String getTlsServerName() {
+    return tlsServerName;
+  }
+
+  public ClientBuilder setTlsServerName(String tlsServerName) {
+    this.tlsServerName = tlsServerName;
+    return this;
+  }
+
   public ApiClient getApiClient() {
     return this.apiClient;
   }
@@ -465,6 +480,10 @@ public class ClientBuilder {
     }
 
     client.setVerifyingSsl(verifyingSsl);
+
+    if (tlsServerName != null && !tlsServerName.isEmpty()) {
+      client.setTlsServerName(tlsServerName);
+    }
 
     if (authentication != null) {
       if (StringUtils.isNotEmpty(keyStorePassphrase)) {
