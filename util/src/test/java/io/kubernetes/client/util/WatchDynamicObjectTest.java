@@ -26,6 +26,10 @@ class WatchDynamicObjectTest {
   @Test
   void watchAddedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
+    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle DynamicKubernetesObject
+    json.setGson(json.getGson().newBuilder()
+        .registerTypeAdapterFactory(new io.kubernetes.client.util.generic.dynamic.DynamicKubernetesTypeAdaptorFactory())
+        .create());
     Watch<DynamicKubernetesObject> watch =
         new Watch<>(
             json, null, new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(), null);
@@ -54,6 +58,10 @@ class WatchDynamicObjectTest {
   @Test
   void watchModifiedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
+    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle DynamicKubernetesObject
+    json.setGson(json.getGson().newBuilder()
+        .registerTypeAdapterFactory(new io.kubernetes.client.util.generic.dynamic.DynamicKubernetesTypeAdaptorFactory())
+        .create());
     Watch<DynamicKubernetesObject> watch =
         new Watch<>(
             json, null, new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(), null);
