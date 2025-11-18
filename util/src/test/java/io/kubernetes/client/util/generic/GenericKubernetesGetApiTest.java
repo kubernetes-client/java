@@ -59,10 +59,10 @@ class GenericKubernetesGetApiTest {
     FooCustomResource foo = new FooCustomResource();
 
     apiServer.stubFor(
-        get(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
             .willReturn(aResponse().withStatus(200).withBody(JSON.serialize(job))));
     apiServer.stubFor(
-        get(urlEqualTo("/apis/example.io/v1/namespaces/default/foos/noxu"))
+        get(urlPathEqualTo("/apis/example.io/v1/namespaces/default/foos/noxu"))
             .willReturn(aResponse().withStatus(200).withBody(JSON.serialize(foo))));
 
     KubernetesApiResponse<V1Job> jobResp = jobClient.get("default", "noxu");
@@ -79,10 +79,10 @@ class GenericKubernetesGetApiTest {
     V1Status forbiddenStatus = new V1Status().kind("Status");
 
     apiServer.stubFor(
-        get(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
             .willReturn(aResponse().withStatus(403).withBody(JSON.serialize(forbiddenStatus))));
     apiServer.stubFor(
-        get(urlEqualTo("/apis/example.io/v1/namespaces/default/foos/noxu"))
+        get(urlPathEqualTo("/apis/example.io/v1/namespaces/default/foos/noxu"))
             .willReturn(aResponse().withStatus(403).withBody(JSON.serialize(forbiddenStatus))));
 
     KubernetesApiResponse<V1Job> jobResp = jobClient.get("default", "noxu");
