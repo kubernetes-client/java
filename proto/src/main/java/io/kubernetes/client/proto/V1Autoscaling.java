@@ -1418,7 +1418,7 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -1426,7 +1426,7 @@ public final class V1Autoscaling {
     boolean hasContainer();
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -1434,7 +1434,7 @@ public final class V1Autoscaling {
     java.lang.String getContainer();
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -1688,7 +1688,7 @@ public final class V1Autoscaling {
     private volatile java.lang.Object container_;
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -1698,7 +1698,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -1719,7 +1719,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * container is the name of the container in the pods of the scaling taget
+     * container is the name of the container in the pods of the scaling target
      * </pre>
      *
      * <code>optional string container = 4;</code>
@@ -2499,7 +2499,7 @@ public final class V1Autoscaling {
       private java.lang.Object container_ = "";
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -2509,7 +2509,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -2530,7 +2530,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -2550,7 +2550,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -2567,7 +2567,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -2580,7 +2580,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * container is the name of the container in the pods of the scaling taget
+       * container is the name of the container in the pods of the scaling target
        * </pre>
        *
        * <code>optional string container = 4;</code>
@@ -28524,7 +28524,7 @@ public final class V1Autoscaling {
       "tReplicas\030\003 \001(\005\022\027\n\017desiredReplicas\030\004 \001(\005" +
       "\022\'\n\037currentCPUUtilizationPercentage\030\005 \001(" +
       "\005\"\357\002\n\nMetricSpec\022\014\n\004type\030\001 \001(\t\022=\n\006object" +
-      "\030\002 \001(\0132-.k8s.io.api.autoscaling.v1.Objec" +
+      "\030\002 \001(\0132-.k8s.io.api.autoscaling.v1.Object" +
       "tMetricSource\0229\n\004pods\030\003 \001(\0132+.k8s.io.api" +
       ".autoscaling.v1.PodsMetricSource\022A\n\010reso" +
       "urce\030\004 \001(\0132/.k8s.io.api.autoscaling.v1.R" +
