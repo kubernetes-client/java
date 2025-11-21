@@ -48,6 +48,8 @@ class ClientBuilderTest {
       Resources.getResource("kubeconfig-https").getPath();
   private static final String KUBECONFIG_HTTPS_X509_FILE_PATH =
       Resources.getResource("kubeconfig-https-x509").getPath();
+  private static final String KUBECONFIG_TLS_SERVER_NAME_FILE_PATH =
+      Resources.getResource("kubeconfig-tls-server-name").getPath();
   private static final String SSL_CA_CERT_PATH =
       new File(Resources.getResource("ca-cert.pem").getPath()).toString();
   private static final String INVALID_SSL_CA_CERT_PATH =
@@ -320,5 +322,23 @@ class ClientBuilderTest {
 
           ClientBuilder.kubeconfig(kubeConfigWithoutServer);
         }).hasMessage("No server in kubeconfig").isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void tlsServerNameSetFromKubeConfig() throws IOException {
+    ApiClient client =
+        ClientBuilder.kubeconfig(
+                KubeConfig.loadKubeConfig(new FileReader(KUBECONFIG_TLS_SERVER_NAME_FILE_PATH)))
+            .build();
+    assertThat(client.getTlsServerName()).isEqualTo("my-cluster.example.com");
+  }
+
+  @Test
+  void tlsServerNameNotSetWhenNotInKubeConfig() throws IOException {
+    ApiClient client =
+        ClientBuilder.kubeconfig(
+                KubeConfig.loadKubeConfig(new FileReader(KUBECONFIG_HTTPS_FILE_PATH)))
+            .build();
+    assertThat(client.getTlsServerName()).isNull();
   }
 }
