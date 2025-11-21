@@ -157,7 +157,12 @@ class EventCorrelatorTest {
     // Using a polling loop instead of a fixed sleep makes the test more robust
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() - startTime < 100) {
-      Thread.sleep(10);
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw e;
+      }
     }
     OffsetDateTime now = OffsetDateTime.now();
     newEvent.setFirstTimestamp(now);

@@ -187,8 +187,6 @@ class PortForwardTest {
     synchronized (block) {
       t.start();
       initStarted.await();
-      // Give init() a moment to process the message
-      Thread.yield();
       handler.close();
       block.wait();
     }

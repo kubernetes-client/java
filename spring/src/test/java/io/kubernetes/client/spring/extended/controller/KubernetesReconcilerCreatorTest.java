@@ -198,7 +198,12 @@ class KubernetesReconcilerCreatorTest {
     WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
     long deadline = System.currentTimeMillis() + 2000; // 2 second timeout
     while (workQueue.length() == 0 && System.currentTimeMillis() < deadline) {
-      Thread.sleep(50);
+      try {
+        Thread.sleep(50);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw e;
+      }
     }
 
     assertThat(workQueue.length()).isEqualTo(1);
