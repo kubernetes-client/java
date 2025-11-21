@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Java
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.PAT_TOKEN }}
       - name: Setup Java
@@ -39,7 +39,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17.0.x
       - name: Checkout Gen
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: gen
           repository: kubernetes-client/gen

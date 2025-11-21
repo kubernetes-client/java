@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Verify Source Format
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
@@ -30,7 +30,7 @@ jobs:
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: graalvm/setup-graalvm@v1
         with:
           version: '22.3.0'
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     name: End-to-End Test Against Real Cluster
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@v1.13.0
       - name: Setup Java
@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Examples smoke test
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
@@ -142,7 +142,7 @@ jobs:
           - 5000:5000
     name: CRD Java Models Code Generation
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
