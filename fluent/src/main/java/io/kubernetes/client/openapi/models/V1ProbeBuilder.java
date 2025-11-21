@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ProbeBuilder extends V1ProbeFluent<V1ProbeBuilder> implements VisitableBuilder<V1Probe,V1ProbeBuilder>{
+
+  V1ProbeFluent<?> fluent;
+
   public V1ProbeBuilder() {
     this(new V1Probe());
   }
@@ -11,17 +14,16 @@ public class V1ProbeBuilder extends V1ProbeFluent<V1ProbeBuilder> implements Vis
     this(fluent, new V1Probe());
   }
   
-  public V1ProbeBuilder(V1ProbeFluent<?> fluent,V1Probe instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ProbeBuilder(V1Probe instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ProbeFluent<?> fluent;
   
+  public V1ProbeBuilder(V1ProbeFluent<?> fluent,V1Probe instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Probe build() {
     V1Probe buildable = new V1Probe();
     buildable.setExec(fluent.buildExec());
@@ -37,5 +39,4 @@ public class V1ProbeBuilder extends V1ProbeFluent<V1ProbeBuilder> implements Vis
     return buildable;
   }
   
-
 }

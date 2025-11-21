@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openapi.models.V1NonResourceAttributesFluent<A>> extends BaseFluent<A>{
+
+  private String path;
+  private String verb;
+
   public V1NonResourceAttributesFluent() {
   }
   
   public V1NonResourceAttributesFluent(V1NonResourceAttributes instance) {
     this.copyInstance(instance);
   }
-  private String path;
-  private String verb;
-  
+
   protected void copyInstance(V1NonResourceAttributes instance) {
     instance = instance != null ? instance : new V1NonResourceAttributes();
     if (instance != null) {
         this.withPath(instance.getPath());
         this.withVerb(instance.getVerb());
     }
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public String getVerb() {
-    return this.verb;
-  }
-  
-  public A withVerb(String verb) {
-    this.verb = verb;
-    return (A) this;
-  }
-  
-  public boolean hasVerb() {
-    return this.verb != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openap
     return true;
   }
   
+  public String getPath() {
+    return this.path;
+  }
+  
+  public String getVerb() {
+    return this.verb;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasVerb() {
+    return this.verb != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(path, verb);
   }
@@ -95,5 +87,14 @@ public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openap
     return sb.toString();
   }
   
-
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
+  public A withVerb(String verb) {
+    this.verb = verb;
+    return (A) this;
+  }
+  
 }

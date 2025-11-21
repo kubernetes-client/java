@@ -1,34 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.List;
-import java.lang.Boolean;
-import java.util.Optional;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.models.V1beta1BasicDeviceFluent<A>> extends BaseFluent<A>{
-  public V1beta1BasicDeviceFluent() {
-  }
-  
-  public V1beta1BasicDeviceFluent(V1beta1BasicDevice instance) {
-    this.copyInstance(instance);
-  }
+
   private Boolean allNodes;
   private Boolean allowMultipleAllocations;
   private Map<String,V1beta1DeviceAttribute> attributes;
@@ -40,6 +35,257 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
   private String nodeName;
   private V1NodeSelectorBuilder nodeSelector;
   private ArrayList<V1beta1DeviceTaintBuilder> taints;
+
+  public V1beta1BasicDeviceFluent() {
+  }
+  
+  public V1beta1BasicDeviceFluent(V1beta1BasicDevice instance) {
+    this.copyInstance(instance);
+  }
+
+  public A addAllToBindingConditions(Collection<String> items) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList();
+    }
+    for (String item : items) {
+      this.bindingConditions.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToBindingFailureConditions(Collection<String> items) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList();
+    }
+    for (String item : items) {
+      this.bindingFailureConditions.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToConsumesCounters(Collection<V1beta1DeviceCounterConsumption> items) {
+    if (this.consumesCounters == null) {
+      this.consumesCounters = new ArrayList();
+    }
+    for (V1beta1DeviceCounterConsumption item : items) {
+        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+        _visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToTaints(Collection<V1beta1DeviceTaint> items) {
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    for (V1beta1DeviceTaint item : items) {
+        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+        _visitables.get("taints").add(builder);
+        this.taints.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public ConsumesCountersNested<A> addNewConsumesCounter() {
+    return new ConsumesCountersNested(-1, null);
+  }
+  
+  public ConsumesCountersNested<A> addNewConsumesCounterLike(V1beta1DeviceCounterConsumption item) {
+    return new ConsumesCountersNested(-1, item);
+  }
+  
+  public TaintsNested<A> addNewTaint() {
+    return new TaintsNested(-1, null);
+  }
+  
+  public TaintsNested<A> addNewTaintLike(V1beta1DeviceTaint item) {
+    return new TaintsNested(-1, item);
+  }
+  
+  public A addToAttributes(Map<String,V1beta1DeviceAttribute> map) {
+    if (this.attributes == null && map != null) {
+      this.attributes = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.attributes.putAll(map);
+    }
+    return (A) this;
+  }
+  
+  public A addToAttributes(String key,V1beta1DeviceAttribute value) {
+    if (this.attributes == null && key != null && value != null) {
+      this.attributes = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.attributes.put(key, value);
+    }
+    return (A) this;
+  }
+  
+  public A addToBindingConditions(String... items) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList();
+    }
+    for (String item : items) {
+      this.bindingConditions.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToBindingConditions(int index,String item) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList();
+    }
+    this.bindingConditions.add(index, item);
+    return (A) this;
+  }
+  
+  public A addToBindingFailureConditions(String... items) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList();
+    }
+    for (String item : items) {
+      this.bindingFailureConditions.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToBindingFailureConditions(int index,String item) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList();
+    }
+    this.bindingFailureConditions.add(index, item);
+    return (A) this;
+  }
+  
+  public A addToCapacity(Map<String,V1beta1DeviceCapacity> map) {
+    if (this.capacity == null && map != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.capacity.putAll(map);
+    }
+    return (A) this;
+  }
+  
+  public A addToCapacity(String key,V1beta1DeviceCapacity value) {
+    if (this.capacity == null && key != null && value != null) {
+      this.capacity = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.capacity.put(key, value);
+    }
+    return (A) this;
+  }
+  
+  public A addToConsumesCounters(V1beta1DeviceCounterConsumption... items) {
+    if (this.consumesCounters == null) {
+      this.consumesCounters = new ArrayList();
+    }
+    for (V1beta1DeviceCounterConsumption item : items) {
+        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+        _visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToConsumesCounters(int index,V1beta1DeviceCounterConsumption item) {
+    if (this.consumesCounters == null) {
+      this.consumesCounters = new ArrayList();
+    }
+    V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+    if (index < 0 || index >= consumesCounters.size()) {
+        _visitables.get("consumesCounters").add(builder);
+        consumesCounters.add(builder);
+    } else {
+        _visitables.get("consumesCounters").add(builder);
+        consumesCounters.add(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToTaints(V1beta1DeviceTaint... items) {
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    for (V1beta1DeviceTaint item : items) {
+        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+        _visitables.get("taints").add(builder);
+        this.taints.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToTaints(int index,V1beta1DeviceTaint item) {
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+    if (index < 0 || index >= taints.size()) {
+        _visitables.get("taints").add(builder);
+        taints.add(builder);
+    } else {
+        _visitables.get("taints").add(builder);
+        taints.add(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public V1beta1DeviceCounterConsumption buildConsumesCounter(int index) {
+    return this.consumesCounters.get(index).build();
+  }
+  
+  public List<V1beta1DeviceCounterConsumption> buildConsumesCounters() {
+    return this.consumesCounters != null ? build(consumesCounters) : null;
+  }
+  
+  public V1beta1DeviceCounterConsumption buildFirstConsumesCounter() {
+    return this.consumesCounters.get(0).build();
+  }
+  
+  public V1beta1DeviceTaint buildFirstTaint() {
+    return this.taints.get(0).build();
+  }
+  
+  public V1beta1DeviceCounterConsumption buildLastConsumesCounter() {
+    return this.consumesCounters.get(consumesCounters.size() - 1).build();
+  }
+  
+  public V1beta1DeviceTaint buildLastTaint() {
+    return this.taints.get(taints.size() - 1).build();
+  }
+  
+  public V1beta1DeviceCounterConsumption buildMatchingConsumesCounter(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
+      for (V1beta1DeviceCounterConsumptionBuilder item : consumesCounters) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public V1beta1DeviceTaint buildMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
+      for (V1beta1DeviceTaintBuilder item : taints) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  public V1NodeSelector buildNodeSelector() {
+    return this.nodeSelector != null ? this.nodeSelector.build() : null;
+  }
+  
+  public V1beta1DeviceTaint buildTaint(int index) {
+    return this.taints.get(index).build();
+  }
+  
+  public List<V1beta1DeviceTaint> buildTaints() {
+    return this.taints != null ? build(taints) : null;
+  }
   
   protected void copyInstance(V1beta1BasicDevice instance) {
     instance = instance != null ? instance : new V1beta1BasicDevice();
@@ -58,579 +304,8 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     }
   }
   
-  public Boolean getAllNodes() {
-    return this.allNodes;
-  }
-  
-  public A withAllNodes(Boolean allNodes) {
-    this.allNodes = allNodes;
-    return (A) this;
-  }
-  
-  public boolean hasAllNodes() {
-    return this.allNodes != null;
-  }
-  
-  public Boolean getAllowMultipleAllocations() {
-    return this.allowMultipleAllocations;
-  }
-  
-  public A withAllowMultipleAllocations(Boolean allowMultipleAllocations) {
-    this.allowMultipleAllocations = allowMultipleAllocations;
-    return (A) this;
-  }
-  
-  public boolean hasAllowMultipleAllocations() {
-    return this.allowMultipleAllocations != null;
-  }
-  
-  public A addToAttributes(String key,V1beta1DeviceAttribute value) {
-    if (this.attributes == null && key != null && value != null) {
-      this.attributes = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.attributes.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToAttributes(Map<String,V1beta1DeviceAttribute> map) {
-    if (this.attributes == null && map != null) {
-      this.attributes = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.attributes.putAll(map);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromAttributes(String key) {
-    if (this.attributes == null) {
-      return (A) this;
-    }
-    if (key != null && this.attributes != null) {
-      this.attributes.remove(key);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromAttributes(Map<String,V1beta1DeviceAttribute> map) {
-    if (this.attributes == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.attributes != null) {
-          this.attributes.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,V1beta1DeviceAttribute> getAttributes() {
-    return this.attributes;
-  }
-  
-  public <K,V>A withAttributes(Map<String,V1beta1DeviceAttribute> attributes) {
-    if (attributes == null) {
-      this.attributes = null;
-    } else {
-      this.attributes = new LinkedHashMap(attributes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasAttributes() {
-    return this.attributes != null;
-  }
-  
-  public A addToBindingConditions(int index,String item) {
-    if (this.bindingConditions == null) {
-      this.bindingConditions = new ArrayList();
-    }
-    this.bindingConditions.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToBindingConditions(int index,String item) {
-    if (this.bindingConditions == null) {
-      this.bindingConditions = new ArrayList();
-    }
-    this.bindingConditions.set(index, item);
-    return (A) this;
-  }
-  
-  public A addToBindingConditions(String... items) {
-    if (this.bindingConditions == null) {
-      this.bindingConditions = new ArrayList();
-    }
-    for (String item : items) {
-      this.bindingConditions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToBindingConditions(Collection<String> items) {
-    if (this.bindingConditions == null) {
-      this.bindingConditions = new ArrayList();
-    }
-    for (String item : items) {
-      this.bindingConditions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromBindingConditions(String... items) {
-    if (this.bindingConditions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.bindingConditions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromBindingConditions(Collection<String> items) {
-    if (this.bindingConditions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.bindingConditions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getBindingConditions() {
-    return this.bindingConditions;
-  }
-  
-  public String getBindingCondition(int index) {
-    return this.bindingConditions.get(index);
-  }
-  
-  public String getFirstBindingCondition() {
-    return this.bindingConditions.get(0);
-  }
-  
-  public String getLastBindingCondition() {
-    return this.bindingConditions.get(bindingConditions.size() - 1);
-  }
-  
-  public String getMatchingBindingCondition(Predicate<String> predicate) {
-      for (String item : bindingConditions) {
-        if (predicate.test(item)) {
-          return item;
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingBindingCondition(Predicate<String> predicate) {
-      for (String item : bindingConditions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withBindingConditions(List<String> bindingConditions) {
-    if (bindingConditions != null) {
-        this.bindingConditions = new ArrayList();
-        for (String item : bindingConditions) {
-          this.addToBindingConditions(item);
-        }
-    } else {
-      this.bindingConditions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withBindingConditions(String... bindingConditions) {
-    if (this.bindingConditions != null) {
-        this.bindingConditions.clear();
-        _visitables.remove("bindingConditions");
-    }
-    if (bindingConditions != null) {
-      for (String item : bindingConditions) {
-        this.addToBindingConditions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasBindingConditions() {
-    return this.bindingConditions != null && !(this.bindingConditions.isEmpty());
-  }
-  
-  public A addToBindingFailureConditions(int index,String item) {
-    if (this.bindingFailureConditions == null) {
-      this.bindingFailureConditions = new ArrayList();
-    }
-    this.bindingFailureConditions.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToBindingFailureConditions(int index,String item) {
-    if (this.bindingFailureConditions == null) {
-      this.bindingFailureConditions = new ArrayList();
-    }
-    this.bindingFailureConditions.set(index, item);
-    return (A) this;
-  }
-  
-  public A addToBindingFailureConditions(String... items) {
-    if (this.bindingFailureConditions == null) {
-      this.bindingFailureConditions = new ArrayList();
-    }
-    for (String item : items) {
-      this.bindingFailureConditions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToBindingFailureConditions(Collection<String> items) {
-    if (this.bindingFailureConditions == null) {
-      this.bindingFailureConditions = new ArrayList();
-    }
-    for (String item : items) {
-      this.bindingFailureConditions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromBindingFailureConditions(String... items) {
-    if (this.bindingFailureConditions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.bindingFailureConditions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromBindingFailureConditions(Collection<String> items) {
-    if (this.bindingFailureConditions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.bindingFailureConditions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getBindingFailureConditions() {
-    return this.bindingFailureConditions;
-  }
-  
-  public String getBindingFailureCondition(int index) {
-    return this.bindingFailureConditions.get(index);
-  }
-  
-  public String getFirstBindingFailureCondition() {
-    return this.bindingFailureConditions.get(0);
-  }
-  
-  public String getLastBindingFailureCondition() {
-    return this.bindingFailureConditions.get(bindingFailureConditions.size() - 1);
-  }
-  
-  public String getMatchingBindingFailureCondition(Predicate<String> predicate) {
-      for (String item : bindingFailureConditions) {
-        if (predicate.test(item)) {
-          return item;
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingBindingFailureCondition(Predicate<String> predicate) {
-      for (String item : bindingFailureConditions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withBindingFailureConditions(List<String> bindingFailureConditions) {
-    if (bindingFailureConditions != null) {
-        this.bindingFailureConditions = new ArrayList();
-        for (String item : bindingFailureConditions) {
-          this.addToBindingFailureConditions(item);
-        }
-    } else {
-      this.bindingFailureConditions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withBindingFailureConditions(String... bindingFailureConditions) {
-    if (this.bindingFailureConditions != null) {
-        this.bindingFailureConditions.clear();
-        _visitables.remove("bindingFailureConditions");
-    }
-    if (bindingFailureConditions != null) {
-      for (String item : bindingFailureConditions) {
-        this.addToBindingFailureConditions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasBindingFailureConditions() {
-    return this.bindingFailureConditions != null && !(this.bindingFailureConditions.isEmpty());
-  }
-  
-  public Boolean getBindsToNode() {
-    return this.bindsToNode;
-  }
-  
-  public A withBindsToNode(Boolean bindsToNode) {
-    this.bindsToNode = bindsToNode;
-    return (A) this;
-  }
-  
-  public boolean hasBindsToNode() {
-    return this.bindsToNode != null;
-  }
-  
-  public A addToCapacity(String key,V1beta1DeviceCapacity value) {
-    if (this.capacity == null && key != null && value != null) {
-      this.capacity = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.capacity.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToCapacity(Map<String,V1beta1DeviceCapacity> map) {
-    if (this.capacity == null && map != null) {
-      this.capacity = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.capacity.putAll(map);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromCapacity(String key) {
-    if (this.capacity == null) {
-      return (A) this;
-    }
-    if (key != null && this.capacity != null) {
-      this.capacity.remove(key);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromCapacity(Map<String,V1beta1DeviceCapacity> map) {
-    if (this.capacity == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.capacity != null) {
-          this.capacity.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,V1beta1DeviceCapacity> getCapacity() {
-    return this.capacity;
-  }
-  
-  public <K,V>A withCapacity(Map<String,V1beta1DeviceCapacity> capacity) {
-    if (capacity == null) {
-      this.capacity = null;
-    } else {
-      this.capacity = new LinkedHashMap(capacity);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasCapacity() {
-    return this.capacity != null;
-  }
-  
-  public A addToConsumesCounters(int index,V1beta1DeviceCounterConsumption item) {
-    if (this.consumesCounters == null) {
-      this.consumesCounters = new ArrayList();
-    }
-    V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-    if (index < 0 || index >= consumesCounters.size()) {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(builder);
-    } else {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A setToConsumesCounters(int index,V1beta1DeviceCounterConsumption item) {
-    if (this.consumesCounters == null) {
-      this.consumesCounters = new ArrayList();
-    }
-    V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-    if (index < 0 || index >= consumesCounters.size()) {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(builder);
-    } else {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToConsumesCounters(V1beta1DeviceCounterConsumption... items) {
-    if (this.consumesCounters == null) {
-      this.consumesCounters = new ArrayList();
-    }
-    for (V1beta1DeviceCounterConsumption item : items) {
-        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").add(builder);
-        this.consumesCounters.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToConsumesCounters(Collection<V1beta1DeviceCounterConsumption> items) {
-    if (this.consumesCounters == null) {
-      this.consumesCounters = new ArrayList();
-    }
-    for (V1beta1DeviceCounterConsumption item : items) {
-        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").add(builder);
-        this.consumesCounters.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromConsumesCounters(V1beta1DeviceCounterConsumption... items) {
-    if (this.consumesCounters == null) {
-      return (A) this;
-    }
-    for (V1beta1DeviceCounterConsumption item : items) {
-        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").remove(builder);
-        this.consumesCounters.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromConsumesCounters(Collection<V1beta1DeviceCounterConsumption> items) {
-    if (this.consumesCounters == null) {
-      return (A) this;
-    }
-    for (V1beta1DeviceCounterConsumption item : items) {
-        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").remove(builder);
-        this.consumesCounters.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromConsumesCounters(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
-    if (consumesCounters == null) {
-      return (A) this;
-    }
-    Iterator<V1beta1DeviceCounterConsumptionBuilder> each = consumesCounters.iterator();
-    List visitables = _visitables.get("consumesCounters");
-    while (each.hasNext()) {
-        V1beta1DeviceCounterConsumptionBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1beta1DeviceCounterConsumption> buildConsumesCounters() {
-    return this.consumesCounters != null ? build(consumesCounters) : null;
-  }
-  
-  public V1beta1DeviceCounterConsumption buildConsumesCounter(int index) {
-    return this.consumesCounters.get(index).build();
-  }
-  
-  public V1beta1DeviceCounterConsumption buildFirstConsumesCounter() {
-    return this.consumesCounters.get(0).build();
-  }
-  
-  public V1beta1DeviceCounterConsumption buildLastConsumesCounter() {
-    return this.consumesCounters.get(consumesCounters.size() - 1).build();
-  }
-  
-  public V1beta1DeviceCounterConsumption buildMatchingConsumesCounter(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
-      for (V1beta1DeviceCounterConsumptionBuilder item : consumesCounters) {
-        if (predicate.test(item)) {
-          return item.build();
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingConsumesCounter(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
-      for (V1beta1DeviceCounterConsumptionBuilder item : consumesCounters) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withConsumesCounters(List<V1beta1DeviceCounterConsumption> consumesCounters) {
-    if (this.consumesCounters != null) {
-      this._visitables.get("consumesCounters").clear();
-    }
-    if (consumesCounters != null) {
-        this.consumesCounters = new ArrayList();
-        for (V1beta1DeviceCounterConsumption item : consumesCounters) {
-          this.addToConsumesCounters(item);
-        }
-    } else {
-      this.consumesCounters = null;
-    }
-    return (A) this;
-  }
-  
-  public A withConsumesCounters(V1beta1DeviceCounterConsumption... consumesCounters) {
-    if (this.consumesCounters != null) {
-        this.consumesCounters.clear();
-        _visitables.remove("consumesCounters");
-    }
-    if (consumesCounters != null) {
-      for (V1beta1DeviceCounterConsumption item : consumesCounters) {
-        this.addToConsumesCounters(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasConsumesCounters() {
-    return this.consumesCounters != null && !(this.consumesCounters.isEmpty());
-  }
-  
-  public ConsumesCountersNested<A> addNewConsumesCounter() {
-    return new ConsumesCountersNested(-1, null);
-  }
-  
-  public ConsumesCountersNested<A> addNewConsumesCounterLike(V1beta1DeviceCounterConsumption item) {
-    return new ConsumesCountersNested(-1, item);
-  }
-  
-  public ConsumesCountersNested<A> setNewConsumesCounterLike(int index,V1beta1DeviceCounterConsumption item) {
-    return new ConsumesCountersNested(index, item);
-  }
-  
   public ConsumesCountersNested<A> editConsumesCounter(int index) {
-    if (index <= consumesCounters.size()) {
+    if (consumesCounters.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "consumesCounters"));
     }
     return this.setNewConsumesCounterLike(index, this.buildConsumesCounter(index));
@@ -643,12 +318,27 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return this.setNewConsumesCounterLike(0, this.buildConsumesCounter(0));
   }
   
+  public TaintsNested<A> editFirstTaint() {
+    if (taints.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "taints"));
+    }
+    return this.setNewTaintLike(0, this.buildTaint(0));
+  }
+  
   public ConsumesCountersNested<A> editLastConsumesCounter() {
     int index = consumesCounters.size() - 1;
     if (index < 0) {
       throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "consumesCounters"));
     }
     return this.setNewConsumesCounterLike(index, this.buildConsumesCounter(index));
+  }
+  
+  public TaintsNested<A> editLastTaint() {
+    int index = taints.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "taints"));
+    }
+    return this.setNewTaintLike(index, this.buildTaint(index));
   }
   
   public ConsumesCountersNested<A> editMatchingConsumesCounter(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
@@ -665,45 +355,18 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return this.setNewConsumesCounterLike(index, this.buildConsumesCounter(index));
   }
   
-  public String getNodeName() {
-    return this.nodeName;
-  }
-  
-  public A withNodeName(String nodeName) {
-    this.nodeName = nodeName;
-    return (A) this;
-  }
-  
-  public boolean hasNodeName() {
-    return this.nodeName != null;
-  }
-  
-  public V1NodeSelector buildNodeSelector() {
-    return this.nodeSelector != null ? this.nodeSelector.build() : null;
-  }
-  
-  public A withNodeSelector(V1NodeSelector nodeSelector) {
-    this._visitables.remove("nodeSelector");
-    if (nodeSelector != null) {
-        this.nodeSelector = new V1NodeSelectorBuilder(nodeSelector);
-        this._visitables.get("nodeSelector").add(this.nodeSelector);
-    } else {
-        this.nodeSelector = null;
-        this._visitables.get("nodeSelector").remove(this.nodeSelector);
+  public TaintsNested<A> editMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < taints.size();i++) {
+      if (predicate.test(taints.get(i))) {
+          index = i;
+          break;
+      }
     }
-    return (A) this;
-  }
-  
-  public boolean hasNodeSelector() {
-    return this.nodeSelector != null;
-  }
-  
-  public NodeSelectorNested<A> withNewNodeSelector() {
-    return new NodeSelectorNested(null);
-  }
-  
-  public NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
-    return new NodeSelectorNested(item);
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "taints"));
+    }
+    return this.setNewTaintLike(index, this.buildTaint(index));
   }
   
   public NodeSelectorNested<A> editNodeSelector() {
@@ -718,210 +381,9 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return this.withNewNodeSelectorLike(Optional.ofNullable(this.buildNodeSelector()).orElse(item));
   }
   
-  public A addToTaints(int index,V1beta1DeviceTaint item) {
-    if (this.taints == null) {
-      this.taints = new ArrayList();
-    }
-    V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
-    } else {
-        _visitables.get("taints").add(builder);
-        taints.add(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A setToTaints(int index,V1beta1DeviceTaint item) {
-    if (this.taints == null) {
-      this.taints = new ArrayList();
-    }
-    V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
-    } else {
-        _visitables.get("taints").add(builder);
-        taints.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToTaints(V1beta1DeviceTaint... items) {
-    if (this.taints == null) {
-      this.taints = new ArrayList();
-    }
-    for (V1beta1DeviceTaint item : items) {
-        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").add(builder);
-        this.taints.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToTaints(Collection<V1beta1DeviceTaint> items) {
-    if (this.taints == null) {
-      this.taints = new ArrayList();
-    }
-    for (V1beta1DeviceTaint item : items) {
-        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").add(builder);
-        this.taints.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromTaints(V1beta1DeviceTaint... items) {
-    if (this.taints == null) {
-      return (A) this;
-    }
-    for (V1beta1DeviceTaint item : items) {
-        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").remove(builder);
-        this.taints.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromTaints(Collection<V1beta1DeviceTaint> items) {
-    if (this.taints == null) {
-      return (A) this;
-    }
-    for (V1beta1DeviceTaint item : items) {
-        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").remove(builder);
-        this.taints.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromTaints(Predicate<V1beta1DeviceTaintBuilder> predicate) {
-    if (taints == null) {
-      return (A) this;
-    }
-    Iterator<V1beta1DeviceTaintBuilder> each = taints.iterator();
-    List visitables = _visitables.get("taints");
-    while (each.hasNext()) {
-        V1beta1DeviceTaintBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1beta1DeviceTaint> buildTaints() {
-    return this.taints != null ? build(taints) : null;
-  }
-  
-  public V1beta1DeviceTaint buildTaint(int index) {
-    return this.taints.get(index).build();
-  }
-  
-  public V1beta1DeviceTaint buildFirstTaint() {
-    return this.taints.get(0).build();
-  }
-  
-  public V1beta1DeviceTaint buildLastTaint() {
-    return this.taints.get(taints.size() - 1).build();
-  }
-  
-  public V1beta1DeviceTaint buildMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
-      for (V1beta1DeviceTaintBuilder item : taints) {
-        if (predicate.test(item)) {
-          return item.build();
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
-      for (V1beta1DeviceTaintBuilder item : taints) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withTaints(List<V1beta1DeviceTaint> taints) {
-    if (this.taints != null) {
-      this._visitables.get("taints").clear();
-    }
-    if (taints != null) {
-        this.taints = new ArrayList();
-        for (V1beta1DeviceTaint item : taints) {
-          this.addToTaints(item);
-        }
-    } else {
-      this.taints = null;
-    }
-    return (A) this;
-  }
-  
-  public A withTaints(V1beta1DeviceTaint... taints) {
-    if (this.taints != null) {
-        this.taints.clear();
-        _visitables.remove("taints");
-    }
-    if (taints != null) {
-      for (V1beta1DeviceTaint item : taints) {
-        this.addToTaints(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasTaints() {
-    return this.taints != null && !(this.taints.isEmpty());
-  }
-  
-  public TaintsNested<A> addNewTaint() {
-    return new TaintsNested(-1, null);
-  }
-  
-  public TaintsNested<A> addNewTaintLike(V1beta1DeviceTaint item) {
-    return new TaintsNested(-1, item);
-  }
-  
-  public TaintsNested<A> setNewTaintLike(int index,V1beta1DeviceTaint item) {
-    return new TaintsNested(index, item);
-  }
-  
   public TaintsNested<A> editTaint(int index) {
-    if (index <= taints.size()) {
+    if (taints.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "taints"));
-    }
-    return this.setNewTaintLike(index, this.buildTaint(index));
-  }
-  
-  public TaintsNested<A> editFirstTaint() {
-    if (taints.size() == 0) {
-      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "taints"));
-    }
-    return this.setNewTaintLike(0, this.buildTaint(0));
-  }
-  
-  public TaintsNested<A> editLastTaint() {
-    int index = taints.size() - 1;
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "taints"));
-    }
-    return this.setNewTaintLike(index, this.buildTaint(index));
-  }
-  
-  public TaintsNested<A> editMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
-    int index = -1;
-    for (int i = 0;i < taints.size();i++) {
-      if (predicate.test(taints.get(i))) {
-          index = i;
-          break;
-      }
-    }
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "taints"));
     }
     return this.setNewTaintLike(index, this.buildTaint(index));
   }
@@ -973,8 +435,384 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return true;
   }
   
+  public Boolean getAllNodes() {
+    return this.allNodes;
+  }
+  
+  public Boolean getAllowMultipleAllocations() {
+    return this.allowMultipleAllocations;
+  }
+  
+  public Map<String,V1beta1DeviceAttribute> getAttributes() {
+    return this.attributes;
+  }
+  
+  public String getBindingCondition(int index) {
+    return this.bindingConditions.get(index);
+  }
+  
+  public List<String> getBindingConditions() {
+    return this.bindingConditions;
+  }
+  
+  public String getBindingFailureCondition(int index) {
+    return this.bindingFailureConditions.get(index);
+  }
+  
+  public List<String> getBindingFailureConditions() {
+    return this.bindingFailureConditions;
+  }
+  
+  public Boolean getBindsToNode() {
+    return this.bindsToNode;
+  }
+  
+  public Map<String,V1beta1DeviceCapacity> getCapacity() {
+    return this.capacity;
+  }
+  
+  public String getFirstBindingCondition() {
+    return this.bindingConditions.get(0);
+  }
+  
+  public String getFirstBindingFailureCondition() {
+    return this.bindingFailureConditions.get(0);
+  }
+  
+  public String getLastBindingCondition() {
+    return this.bindingConditions.get(bindingConditions.size() - 1);
+  }
+  
+  public String getLastBindingFailureCondition() {
+    return this.bindingFailureConditions.get(bindingFailureConditions.size() - 1);
+  }
+  
+  public String getMatchingBindingCondition(Predicate<String> predicate) {
+      for (String item : bindingConditions) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public String getMatchingBindingFailureCondition(Predicate<String> predicate) {
+      for (String item : bindingFailureConditions) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public String getNodeName() {
+    return this.nodeName;
+  }
+  
+  public boolean hasAllNodes() {
+    return this.allNodes != null;
+  }
+  
+  public boolean hasAllowMultipleAllocations() {
+    return this.allowMultipleAllocations != null;
+  }
+  
+  public boolean hasAttributes() {
+    return this.attributes != null;
+  }
+  
+  public boolean hasBindingConditions() {
+    return this.bindingConditions != null && !(this.bindingConditions.isEmpty());
+  }
+  
+  public boolean hasBindingFailureConditions() {
+    return this.bindingFailureConditions != null && !(this.bindingFailureConditions.isEmpty());
+  }
+  
+  public boolean hasBindsToNode() {
+    return this.bindsToNode != null;
+  }
+  
+  public boolean hasCapacity() {
+    return this.capacity != null;
+  }
+  
+  public boolean hasConsumesCounters() {
+    return this.consumesCounters != null && !(this.consumesCounters.isEmpty());
+  }
+  
+  public boolean hasMatchingBindingCondition(Predicate<String> predicate) {
+      for (String item : bindingConditions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingBindingFailureCondition(Predicate<String> predicate) {
+      for (String item : bindingFailureConditions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingConsumesCounter(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
+      for (V1beta1DeviceCounterConsumptionBuilder item : consumesCounters) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingTaint(Predicate<V1beta1DeviceTaintBuilder> predicate) {
+      for (V1beta1DeviceTaintBuilder item : taints) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasNodeName() {
+    return this.nodeName != null;
+  }
+  
+  public boolean hasNodeSelector() {
+    return this.nodeSelector != null;
+  }
+  
+  public boolean hasTaints() {
+    return this.taints != null && !(this.taints.isEmpty());
+  }
+  
   public int hashCode() {
     return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeName, nodeSelector, taints);
+  }
+  
+  public A removeAllFromBindingConditions(Collection<String> items) {
+    if (this.bindingConditions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.bindingConditions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromBindingFailureConditions(Collection<String> items) {
+    if (this.bindingFailureConditions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.bindingFailureConditions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromConsumesCounters(Collection<V1beta1DeviceCounterConsumption> items) {
+    if (this.consumesCounters == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceCounterConsumption item : items) {
+        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+        _visitables.get("consumesCounters").remove(builder);
+        this.consumesCounters.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromTaints(Collection<V1beta1DeviceTaint> items) {
+    if (this.taints == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceTaint item : items) {
+        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+        _visitables.get("taints").remove(builder);
+        this.taints.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAttributes(String key) {
+    if (this.attributes == null) {
+      return (A) this;
+    }
+    if (key != null && this.attributes != null) {
+      this.attributes.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAttributes(Map<String,V1beta1DeviceAttribute> map) {
+    if (this.attributes == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.attributes != null) {
+          this.attributes.remove(key);
+        }
+      }
+    }
+    return (A) this;
+  }
+  
+  public A removeFromBindingConditions(String... items) {
+    if (this.bindingConditions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.bindingConditions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromBindingFailureConditions(String... items) {
+    if (this.bindingFailureConditions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.bindingFailureConditions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromCapacity(String key) {
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (key != null && this.capacity != null) {
+      this.capacity.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromCapacity(Map<String,V1beta1DeviceCapacity> map) {
+    if (this.capacity == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.capacity != null) {
+          this.capacity.remove(key);
+        }
+      }
+    }
+    return (A) this;
+  }
+  
+  public A removeFromConsumesCounters(V1beta1DeviceCounterConsumption... items) {
+    if (this.consumesCounters == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceCounterConsumption item : items) {
+        V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+        _visitables.get("consumesCounters").remove(builder);
+        this.consumesCounters.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromTaints(V1beta1DeviceTaint... items) {
+    if (this.taints == null) {
+      return (A) this;
+    }
+    for (V1beta1DeviceTaint item : items) {
+        V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+        _visitables.get("taints").remove(builder);
+        this.taints.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromConsumesCounters(Predicate<V1beta1DeviceCounterConsumptionBuilder> predicate) {
+    if (consumesCounters == null) {
+      return (A) this;
+    }
+    Iterator<V1beta1DeviceCounterConsumptionBuilder> each = consumesCounters.iterator();
+    List visitables = _visitables.get("consumesCounters");
+    while (each.hasNext()) {
+        V1beta1DeviceCounterConsumptionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromTaints(Predicate<V1beta1DeviceTaintBuilder> predicate) {
+    if (taints == null) {
+      return (A) this;
+    }
+    Iterator<V1beta1DeviceTaintBuilder> each = taints.iterator();
+    List visitables = _visitables.get("taints");
+    while (each.hasNext()) {
+        V1beta1DeviceTaintBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ConsumesCountersNested<A> setNewConsumesCounterLike(int index,V1beta1DeviceCounterConsumption item) {
+    return new ConsumesCountersNested(index, item);
+  }
+  
+  public TaintsNested<A> setNewTaintLike(int index,V1beta1DeviceTaint item) {
+    return new TaintsNested(index, item);
+  }
+  
+  public A setToBindingConditions(int index,String item) {
+    if (this.bindingConditions == null) {
+      this.bindingConditions = new ArrayList();
+    }
+    this.bindingConditions.set(index, item);
+    return (A) this;
+  }
+  
+  public A setToBindingFailureConditions(int index,String item) {
+    if (this.bindingFailureConditions == null) {
+      this.bindingFailureConditions = new ArrayList();
+    }
+    this.bindingFailureConditions.set(index, item);
+    return (A) this;
+  }
+  
+  public A setToConsumesCounters(int index,V1beta1DeviceCounterConsumption item) {
+    if (this.consumesCounters == null) {
+      this.consumesCounters = new ArrayList();
+    }
+    V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
+    if (index < 0 || index >= consumesCounters.size()) {
+        _visitables.get("consumesCounters").add(builder);
+        consumesCounters.add(builder);
+    } else {
+        _visitables.get("consumesCounters").add(builder);
+        consumesCounters.set(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A setToTaints(int index,V1beta1DeviceTaint item) {
+    if (this.taints == null) {
+      this.taints = new ArrayList();
+    }
+    V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
+    if (index < 0 || index >= taints.size()) {
+        _visitables.get("taints").add(builder);
+        taints.add(builder);
+    } else {
+        _visitables.get("taints").add(builder);
+        taints.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -1042,21 +880,187 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return withAllNodes(true);
   }
   
+  public A withAllNodes(Boolean allNodes) {
+    this.allNodes = allNodes;
+    return (A) this;
+  }
+  
   public A withAllowMultipleAllocations() {
     return withAllowMultipleAllocations(true);
+  }
+  
+  public A withAllowMultipleAllocations(Boolean allowMultipleAllocations) {
+    this.allowMultipleAllocations = allowMultipleAllocations;
+    return (A) this;
+  }
+  
+  public <K,V>A withAttributes(Map<String,V1beta1DeviceAttribute> attributes) {
+    if (attributes == null) {
+      this.attributes = null;
+    } else {
+      this.attributes = new LinkedHashMap(attributes);
+    }
+    return (A) this;
+  }
+  
+  public A withBindingConditions(List<String> bindingConditions) {
+    if (bindingConditions != null) {
+        this.bindingConditions = new ArrayList();
+        for (String item : bindingConditions) {
+          this.addToBindingConditions(item);
+        }
+    } else {
+      this.bindingConditions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withBindingConditions(String... bindingConditions) {
+    if (this.bindingConditions != null) {
+        this.bindingConditions.clear();
+        _visitables.remove("bindingConditions");
+    }
+    if (bindingConditions != null) {
+      for (String item : bindingConditions) {
+        this.addToBindingConditions(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withBindingFailureConditions(List<String> bindingFailureConditions) {
+    if (bindingFailureConditions != null) {
+        this.bindingFailureConditions = new ArrayList();
+        for (String item : bindingFailureConditions) {
+          this.addToBindingFailureConditions(item);
+        }
+    } else {
+      this.bindingFailureConditions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withBindingFailureConditions(String... bindingFailureConditions) {
+    if (this.bindingFailureConditions != null) {
+        this.bindingFailureConditions.clear();
+        _visitables.remove("bindingFailureConditions");
+    }
+    if (bindingFailureConditions != null) {
+      for (String item : bindingFailureConditions) {
+        this.addToBindingFailureConditions(item);
+      }
+    }
+    return (A) this;
   }
   
   public A withBindsToNode() {
     return withBindsToNode(true);
   }
+  
+  public A withBindsToNode(Boolean bindsToNode) {
+    this.bindsToNode = bindsToNode;
+    return (A) this;
+  }
+  
+  public <K,V>A withCapacity(Map<String,V1beta1DeviceCapacity> capacity) {
+    if (capacity == null) {
+      this.capacity = null;
+    } else {
+      this.capacity = new LinkedHashMap(capacity);
+    }
+    return (A) this;
+  }
+  
+  public A withConsumesCounters(List<V1beta1DeviceCounterConsumption> consumesCounters) {
+    if (this.consumesCounters != null) {
+      this._visitables.get("consumesCounters").clear();
+    }
+    if (consumesCounters != null) {
+        this.consumesCounters = new ArrayList();
+        for (V1beta1DeviceCounterConsumption item : consumesCounters) {
+          this.addToConsumesCounters(item);
+        }
+    } else {
+      this.consumesCounters = null;
+    }
+    return (A) this;
+  }
+  
+  public A withConsumesCounters(V1beta1DeviceCounterConsumption... consumesCounters) {
+    if (this.consumesCounters != null) {
+        this.consumesCounters.clear();
+        _visitables.remove("consumesCounters");
+    }
+    if (consumesCounters != null) {
+      for (V1beta1DeviceCounterConsumption item : consumesCounters) {
+        this.addToConsumesCounters(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public NodeSelectorNested<A> withNewNodeSelector() {
+    return new NodeSelectorNested(null);
+  }
+  
+  public NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
+    return new NodeSelectorNested(item);
+  }
+  
+  public A withNodeName(String nodeName) {
+    this.nodeName = nodeName;
+    return (A) this;
+  }
+  
+  public A withNodeSelector(V1NodeSelector nodeSelector) {
+    this._visitables.remove("nodeSelector");
+    if (nodeSelector != null) {
+        this.nodeSelector = new V1NodeSelectorBuilder(nodeSelector);
+        this._visitables.get("nodeSelector").add(this.nodeSelector);
+    } else {
+        this.nodeSelector = null;
+        this._visitables.get("nodeSelector").remove(this.nodeSelector);
+    }
+    return (A) this;
+  }
+  
+  public A withTaints(List<V1beta1DeviceTaint> taints) {
+    if (this.taints != null) {
+      this._visitables.get("taints").clear();
+    }
+    if (taints != null) {
+        this.taints = new ArrayList();
+        for (V1beta1DeviceTaint item : taints) {
+          this.addToTaints(item);
+        }
+    } else {
+      this.taints = null;
+    }
+    return (A) this;
+  }
+  
+  public A withTaints(V1beta1DeviceTaint... taints) {
+    if (this.taints != null) {
+        this.taints.clear();
+        _visitables.remove("taints");
+    }
+    if (taints != null) {
+      for (V1beta1DeviceTaint item : taints) {
+        this.addToTaints(item);
+      }
+    }
+    return (A) this;
+  }
   public class ConsumesCountersNested<N> extends V1beta1DeviceCounterConsumptionFluent<ConsumesCountersNested<N>> implements Nested<N>{
+  
+    V1beta1DeviceCounterConsumptionBuilder builder;
+    int index;
+  
     ConsumesCountersNested(int index,V1beta1DeviceCounterConsumption item) {
       this.index = index;
       this.builder = new V1beta1DeviceCounterConsumptionBuilder(this, item);
     }
-    V1beta1DeviceCounterConsumptionBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1beta1BasicDeviceFluent.this.setToConsumesCounters(index, builder.build());
     }
@@ -1065,14 +1069,15 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return and();
     }
     
-  
   }
   public class NodeSelectorNested<N> extends V1NodeSelectorFluent<NodeSelectorNested<N>> implements Nested<N>{
+  
+    V1NodeSelectorBuilder builder;
+  
     NodeSelectorNested(V1NodeSelector item) {
       this.builder = new V1NodeSelectorBuilder(this, item);
     }
-    V1NodeSelectorBuilder builder;
-    
+  
     public N and() {
       return (N) V1beta1BasicDeviceFluent.this.withNodeSelector(builder.build());
     }
@@ -1081,16 +1086,17 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return and();
     }
     
-  
   }
   public class TaintsNested<N> extends V1beta1DeviceTaintFluent<TaintsNested<N>> implements Nested<N>{
+  
+    V1beta1DeviceTaintBuilder builder;
+    int index;
+  
     TaintsNested(int index,V1beta1DeviceTaint item) {
       this.index = index;
       this.builder = new V1beta1DeviceTaintBuilder(this, item);
     }
-    V1beta1DeviceTaintBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1beta1BasicDeviceFluent.this.setToTaints(index, builder.build());
     }
@@ -1099,7 +1105,5 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return and();
     }
     
-  
   }
-
 }

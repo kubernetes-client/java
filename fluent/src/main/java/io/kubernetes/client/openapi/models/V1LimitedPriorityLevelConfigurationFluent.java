@@ -1,30 +1,36 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Integer;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1LimitedPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private Integer borrowingLimitPercent;
+  private Integer lendablePercent;
+  private V1LimitResponseBuilder limitResponse;
+  private Integer nominalConcurrencyShares;
+
   public V1LimitedPriorityLevelConfigurationFluent() {
   }
   
   public V1LimitedPriorityLevelConfigurationFluent(V1LimitedPriorityLevelConfiguration instance) {
     this.copyInstance(instance);
   }
-  private Integer borrowingLimitPercent;
-  private Integer lendablePercent;
-  private V1LimitResponseBuilder limitResponse;
-  private Integer nominalConcurrencyShares;
+
+  public V1LimitResponse buildLimitResponse() {
+    return this.limitResponse != null ? this.limitResponse.build() : null;
+  }
   
   protected void copyInstance(V1LimitedPriorityLevelConfiguration instance) {
     instance = instance != null ? instance : new V1LimitedPriorityLevelConfiguration();
@@ -34,60 +40,6 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
         this.withLimitResponse(instance.getLimitResponse());
         this.withNominalConcurrencyShares(instance.getNominalConcurrencyShares());
     }
-  }
-  
-  public Integer getBorrowingLimitPercent() {
-    return this.borrowingLimitPercent;
-  }
-  
-  public A withBorrowingLimitPercent(Integer borrowingLimitPercent) {
-    this.borrowingLimitPercent = borrowingLimitPercent;
-    return (A) this;
-  }
-  
-  public boolean hasBorrowingLimitPercent() {
-    return this.borrowingLimitPercent != null;
-  }
-  
-  public Integer getLendablePercent() {
-    return this.lendablePercent;
-  }
-  
-  public A withLendablePercent(Integer lendablePercent) {
-    this.lendablePercent = lendablePercent;
-    return (A) this;
-  }
-  
-  public boolean hasLendablePercent() {
-    return this.lendablePercent != null;
-  }
-  
-  public V1LimitResponse buildLimitResponse() {
-    return this.limitResponse != null ? this.limitResponse.build() : null;
-  }
-  
-  public A withLimitResponse(V1LimitResponse limitResponse) {
-    this._visitables.remove("limitResponse");
-    if (limitResponse != null) {
-        this.limitResponse = new V1LimitResponseBuilder(limitResponse);
-        this._visitables.get("limitResponse").add(this.limitResponse);
-    } else {
-        this.limitResponse = null;
-        this._visitables.get("limitResponse").remove(this.limitResponse);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasLimitResponse() {
-    return this.limitResponse != null;
-  }
-  
-  public LimitResponseNested<A> withNewLimitResponse() {
-    return new LimitResponseNested(null);
-  }
-  
-  public LimitResponseNested<A> withNewLimitResponseLike(V1LimitResponse item) {
-    return new LimitResponseNested(item);
   }
   
   public LimitResponseNested<A> editLimitResponse() {
@@ -100,19 +52,6 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
   
   public LimitResponseNested<A> editOrNewLimitResponseLike(V1LimitResponse item) {
     return this.withNewLimitResponseLike(Optional.ofNullable(this.buildLimitResponse()).orElse(item));
-  }
-  
-  public Integer getNominalConcurrencyShares() {
-    return this.nominalConcurrencyShares;
-  }
-  
-  public A withNominalConcurrencyShares(Integer nominalConcurrencyShares) {
-    this.nominalConcurrencyShares = nominalConcurrencyShares;
-    return (A) this;
-  }
-  
-  public boolean hasNominalConcurrencyShares() {
-    return this.nominalConcurrencyShares != null;
   }
   
   public boolean equals(Object o) {
@@ -139,6 +78,34 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
       return false;
     }
     return true;
+  }
+  
+  public Integer getBorrowingLimitPercent() {
+    return this.borrowingLimitPercent;
+  }
+  
+  public Integer getLendablePercent() {
+    return this.lendablePercent;
+  }
+  
+  public Integer getNominalConcurrencyShares() {
+    return this.nominalConcurrencyShares;
+  }
+  
+  public boolean hasBorrowingLimitPercent() {
+    return this.borrowingLimitPercent != null;
+  }
+  
+  public boolean hasLendablePercent() {
+    return this.lendablePercent != null;
+  }
+  
+  public boolean hasLimitResponse() {
+    return this.limitResponse != null;
+  }
+  
+  public boolean hasNominalConcurrencyShares() {
+    return this.nominalConcurrencyShares != null;
   }
   
   public int hashCode() {
@@ -170,12 +137,49 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withBorrowingLimitPercent(Integer borrowingLimitPercent) {
+    this.borrowingLimitPercent = borrowingLimitPercent;
+    return (A) this;
+  }
+  
+  public A withLendablePercent(Integer lendablePercent) {
+    this.lendablePercent = lendablePercent;
+    return (A) this;
+  }
+  
+  public A withLimitResponse(V1LimitResponse limitResponse) {
+    this._visitables.remove("limitResponse");
+    if (limitResponse != null) {
+        this.limitResponse = new V1LimitResponseBuilder(limitResponse);
+        this._visitables.get("limitResponse").add(this.limitResponse);
+    } else {
+        this.limitResponse = null;
+        this._visitables.get("limitResponse").remove(this.limitResponse);
+    }
+    return (A) this;
+  }
+  
+  public LimitResponseNested<A> withNewLimitResponse() {
+    return new LimitResponseNested(null);
+  }
+  
+  public LimitResponseNested<A> withNewLimitResponseLike(V1LimitResponse item) {
+    return new LimitResponseNested(item);
+  }
+  
+  public A withNominalConcurrencyShares(Integer nominalConcurrencyShares) {
+    this.nominalConcurrencyShares = nominalConcurrencyShares;
+    return (A) this;
+  }
   public class LimitResponseNested<N> extends V1LimitResponseFluent<LimitResponseNested<N>> implements Nested<N>{
+  
+    V1LimitResponseBuilder builder;
+  
     LimitResponseNested(V1LimitResponse item) {
       this.builder = new V1LimitResponseBuilder(this, item);
     }
-    V1LimitResponseBuilder builder;
-    
+  
     public N and() {
       return (N) V1LimitedPriorityLevelConfigurationFluent.this.withLimitResponse(builder.build());
     }
@@ -184,7 +188,5 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
       return and();
     }
     
-  
   }
-
 }

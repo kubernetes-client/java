@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ClusterTrustBundleProjectionBuilder extends V1ClusterTrustBundleProjectionFluent<V1ClusterTrustBundleProjectionBuilder> implements VisitableBuilder<V1ClusterTrustBundleProjection,V1ClusterTrustBundleProjectionBuilder>{
+
+  V1ClusterTrustBundleProjectionFluent<?> fluent;
+
   public V1ClusterTrustBundleProjectionBuilder() {
     this(new V1ClusterTrustBundleProjection());
   }
@@ -11,17 +14,16 @@ public class V1ClusterTrustBundleProjectionBuilder extends V1ClusterTrustBundleP
     this(fluent, new V1ClusterTrustBundleProjection());
   }
   
-  public V1ClusterTrustBundleProjectionBuilder(V1ClusterTrustBundleProjectionFluent<?> fluent,V1ClusterTrustBundleProjection instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ClusterTrustBundleProjectionBuilder(V1ClusterTrustBundleProjection instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ClusterTrustBundleProjectionFluent<?> fluent;
   
+  public V1ClusterTrustBundleProjectionBuilder(V1ClusterTrustBundleProjectionFluent<?> fluent,V1ClusterTrustBundleProjection instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ClusterTrustBundleProjection build() {
     V1ClusterTrustBundleProjection buildable = new V1ClusterTrustBundleProjection();
     buildable.setLabelSelector(fluent.buildLabelSelector());
@@ -32,5 +34,4 @@ public class V1ClusterTrustBundleProjectionBuilder extends V1ClusterTrustBundleP
     return buildable;
   }
   
-
 }

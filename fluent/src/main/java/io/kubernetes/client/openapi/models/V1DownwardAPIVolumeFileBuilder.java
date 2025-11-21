@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluent<V1DownwardAPIVolumeFileBuilder> implements VisitableBuilder<V1DownwardAPIVolumeFile,V1DownwardAPIVolumeFileBuilder>{
+
+  V1DownwardAPIVolumeFileFluent<?> fluent;
+
   public V1DownwardAPIVolumeFileBuilder() {
     this(new V1DownwardAPIVolumeFile());
   }
@@ -11,17 +14,16 @@ public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluen
     this(fluent, new V1DownwardAPIVolumeFile());
   }
   
-  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,V1DownwardAPIVolumeFile instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DownwardAPIVolumeFileFluent<?> fluent;
   
+  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,V1DownwardAPIVolumeFile instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DownwardAPIVolumeFile build() {
     V1DownwardAPIVolumeFile buildable = new V1DownwardAPIVolumeFile();
     buildable.setFieldRef(fluent.buildFieldRef());
@@ -31,5 +33,4 @@ public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluen
     return buildable;
   }
   
-
 }

@@ -1,32 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Integer;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<A>> extends BaseFluent<A>{
+
+  private Integer currentCPUUtilizationPercentage;
+  private Integer currentReplicas;
+  private Integer desiredReplicas;
+  private OffsetDateTime lastScaleTime;
+  private Long observedGeneration;
+
   public V1HorizontalPodAutoscalerStatusFluent() {
   }
   
   public V1HorizontalPodAutoscalerStatusFluent(V1HorizontalPodAutoscalerStatus instance) {
     this.copyInstance(instance);
   }
-  private Integer currentCPUUtilizationPercentage;
-  private Integer currentReplicas;
-  private Integer desiredReplicas;
-  private OffsetDateTime lastScaleTime;
-  private Long observedGeneration;
-  
+
   protected void copyInstance(V1HorizontalPodAutoscalerStatus instance) {
     instance = instance != null ? instance : new V1HorizontalPodAutoscalerStatus();
     if (instance != null) {
@@ -36,71 +38,6 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
         this.withLastScaleTime(instance.getLastScaleTime());
         this.withObservedGeneration(instance.getObservedGeneration());
     }
-  }
-  
-  public Integer getCurrentCPUUtilizationPercentage() {
-    return this.currentCPUUtilizationPercentage;
-  }
-  
-  public A withCurrentCPUUtilizationPercentage(Integer currentCPUUtilizationPercentage) {
-    this.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage;
-    return (A) this;
-  }
-  
-  public boolean hasCurrentCPUUtilizationPercentage() {
-    return this.currentCPUUtilizationPercentage != null;
-  }
-  
-  public Integer getCurrentReplicas() {
-    return this.currentReplicas;
-  }
-  
-  public A withCurrentReplicas(Integer currentReplicas) {
-    this.currentReplicas = currentReplicas;
-    return (A) this;
-  }
-  
-  public boolean hasCurrentReplicas() {
-    return this.currentReplicas != null;
-  }
-  
-  public Integer getDesiredReplicas() {
-    return this.desiredReplicas;
-  }
-  
-  public A withDesiredReplicas(Integer desiredReplicas) {
-    this.desiredReplicas = desiredReplicas;
-    return (A) this;
-  }
-  
-  public boolean hasDesiredReplicas() {
-    return this.desiredReplicas != null;
-  }
-  
-  public OffsetDateTime getLastScaleTime() {
-    return this.lastScaleTime;
-  }
-  
-  public A withLastScaleTime(OffsetDateTime lastScaleTime) {
-    this.lastScaleTime = lastScaleTime;
-    return (A) this;
-  }
-  
-  public boolean hasLastScaleTime() {
-    return this.lastScaleTime != null;
-  }
-  
-  public Long getObservedGeneration() {
-    return this.observedGeneration;
-  }
-  
-  public A withObservedGeneration(Long observedGeneration) {
-    this.observedGeneration = observedGeneration;
-    return (A) this;
-  }
-  
-  public boolean hasObservedGeneration() {
-    return this.observedGeneration != null;
   }
   
   public boolean equals(Object o) {
@@ -130,6 +67,46 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       return false;
     }
     return true;
+  }
+  
+  public Integer getCurrentCPUUtilizationPercentage() {
+    return this.currentCPUUtilizationPercentage;
+  }
+  
+  public Integer getCurrentReplicas() {
+    return this.currentReplicas;
+  }
+  
+  public Integer getDesiredReplicas() {
+    return this.desiredReplicas;
+  }
+  
+  public OffsetDateTime getLastScaleTime() {
+    return this.lastScaleTime;
+  }
+  
+  public Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  
+  public boolean hasCurrentCPUUtilizationPercentage() {
+    return this.currentCPUUtilizationPercentage != null;
+  }
+  
+  public boolean hasCurrentReplicas() {
+    return this.currentReplicas != null;
+  }
+  
+  public boolean hasDesiredReplicas() {
+    return this.desiredReplicas != null;
+  }
+  
+  public boolean hasLastScaleTime() {
+    return this.lastScaleTime != null;
+  }
+  
+  public boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
   }
   
   public int hashCode() {
@@ -167,5 +144,29 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
-
+  public A withCurrentCPUUtilizationPercentage(Integer currentCPUUtilizationPercentage) {
+    this.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage;
+    return (A) this;
+  }
+  
+  public A withCurrentReplicas(Integer currentReplicas) {
+    this.currentReplicas = currentReplicas;
+    return (A) this;
+  }
+  
+  public A withDesiredReplicas(Integer desiredReplicas) {
+    this.desiredReplicas = desiredReplicas;
+    return (A) this;
+  }
+  
+  public A withLastScaleTime(OffsetDateTime lastScaleTime) {
+    this.lastScaleTime = lastScaleTime;
+    return (A) this;
+  }
+  
+  public A withObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+    return (A) this;
+  }
+  
 }

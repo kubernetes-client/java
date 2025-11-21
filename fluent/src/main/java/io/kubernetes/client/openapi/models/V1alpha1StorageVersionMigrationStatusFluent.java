@@ -1,39 +1,65 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes.client.openapi.models.V1alpha1StorageVersionMigrationStatusFluent<A>> extends BaseFluent<A>{
+
+  private ArrayList<V1alpha1MigrationConditionBuilder> conditions;
+  private String resourceVersion;
+
   public V1alpha1StorageVersionMigrationStatusFluent() {
   }
   
   public V1alpha1StorageVersionMigrationStatusFluent(V1alpha1StorageVersionMigrationStatus instance) {
     this.copyInstance(instance);
   }
-  private ArrayList<V1alpha1MigrationConditionBuilder> conditions;
-  private String resourceVersion;
-  
-  protected void copyInstance(V1alpha1StorageVersionMigrationStatus instance) {
-    instance = instance != null ? instance : new V1alpha1StorageVersionMigrationStatus();
-    if (instance != null) {
-        this.withConditions(instance.getConditions());
-        this.withResourceVersion(instance.getResourceVersion());
+
+  public A addAllToConditions(Collection<V1alpha1MigrationCondition> items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
     }
+    for (V1alpha1MigrationCondition item : items) {
+        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public ConditionsNested<A> addNewCondition() {
+    return new ConditionsNested(-1, null);
+  }
+  
+  public ConditionsNested<A> addNewConditionLike(V1alpha1MigrationCondition item) {
+    return new ConditionsNested(-1, item);
+  }
+  
+  public A addToConditions(V1alpha1MigrationCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1alpha1MigrationCondition item : items) {
+        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToConditions(int index,V1alpha1MigrationCondition item) {
@@ -51,91 +77,12 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
     return (A) this;
   }
   
-  public A setToConditions(int index,V1alpha1MigrationCondition item) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
-    } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToConditions(V1alpha1MigrationCondition... items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1alpha1MigrationCondition item : items) {
-        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToConditions(Collection<V1alpha1MigrationCondition> items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1alpha1MigrationCondition item : items) {
-        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromConditions(V1alpha1MigrationCondition... items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1alpha1MigrationCondition item : items) {
-        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromConditions(Collection<V1alpha1MigrationCondition> items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1alpha1MigrationCondition item : items) {
-        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromConditions(Predicate<V1alpha1MigrationConditionBuilder> predicate) {
-    if (conditions == null) {
-      return (A) this;
-    }
-    Iterator<V1alpha1MigrationConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-        V1alpha1MigrationConditionBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
+  public V1alpha1MigrationCondition buildCondition(int index) {
+    return this.conditions.get(index).build();
   }
   
   public List<V1alpha1MigrationCondition> buildConditions() {
     return this.conditions != null ? build(conditions) : null;
-  }
-  
-  public V1alpha1MigrationCondition buildCondition(int index) {
-    return this.conditions.get(index).build();
   }
   
   public V1alpha1MigrationCondition buildFirstCondition() {
@@ -155,61 +102,16 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
       return null;
   }
   
-  public boolean hasMatchingCondition(Predicate<V1alpha1MigrationConditionBuilder> predicate) {
-      for (V1alpha1MigrationConditionBuilder item : conditions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withConditions(List<V1alpha1MigrationCondition> conditions) {
-    if (this.conditions != null) {
-      this._visitables.get("conditions").clear();
+  protected void copyInstance(V1alpha1StorageVersionMigrationStatus instance) {
+    instance = instance != null ? instance : new V1alpha1StorageVersionMigrationStatus();
+    if (instance != null) {
+        this.withConditions(instance.getConditions());
+        this.withResourceVersion(instance.getResourceVersion());
     }
-    if (conditions != null) {
-        this.conditions = new ArrayList();
-        for (V1alpha1MigrationCondition item : conditions) {
-          this.addToConditions(item);
-        }
-    } else {
-      this.conditions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withConditions(V1alpha1MigrationCondition... conditions) {
-    if (this.conditions != null) {
-        this.conditions.clear();
-        _visitables.remove("conditions");
-    }
-    if (conditions != null) {
-      for (V1alpha1MigrationCondition item : conditions) {
-        this.addToConditions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasConditions() {
-    return this.conditions != null && !(this.conditions.isEmpty());
-  }
-  
-  public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
-  }
-  
-  public ConditionsNested<A> addNewConditionLike(V1alpha1MigrationCondition item) {
-    return new ConditionsNested(-1, item);
-  }
-  
-  public ConditionsNested<A> setNewConditionLike(int index,V1alpha1MigrationCondition item) {
-    return new ConditionsNested(index, item);
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (index <= conditions.size()) {
+    if (conditions.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
     }
     return this.setNewConditionLike(index, this.buildCondition(index));
@@ -244,19 +146,6 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
     return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
-  public String getResourceVersion() {
-    return this.resourceVersion;
-  }
-  
-  public A withResourceVersion(String resourceVersion) {
-    this.resourceVersion = resourceVersion;
-    return (A) this;
-  }
-  
-  public boolean hasResourceVersion() {
-    return this.resourceVersion != null;
-  }
-  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -277,8 +166,88 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
     return true;
   }
   
+  public String getResourceVersion() {
+    return this.resourceVersion;
+  }
+  
+  public boolean hasConditions() {
+    return this.conditions != null && !(this.conditions.isEmpty());
+  }
+  
+  public boolean hasMatchingCondition(Predicate<V1alpha1MigrationConditionBuilder> predicate) {
+      for (V1alpha1MigrationConditionBuilder item : conditions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasResourceVersion() {
+    return this.resourceVersion != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(conditions, resourceVersion);
+  }
+  
+  public A removeAllFromConditions(Collection<V1alpha1MigrationCondition> items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1alpha1MigrationCondition item : items) {
+        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromConditions(V1alpha1MigrationCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1alpha1MigrationCondition item : items) {
+        V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromConditions(Predicate<V1alpha1MigrationConditionBuilder> predicate) {
+    if (conditions == null) {
+      return (A) this;
+    }
+    Iterator<V1alpha1MigrationConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1alpha1MigrationConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ConditionsNested<A> setNewConditionLike(int index,V1alpha1MigrationCondition item) {
+    return new ConditionsNested(index, item);
+  }
+  
+  public A setToConditions(int index,V1alpha1MigrationCondition item) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    V1alpha1MigrationConditionBuilder builder = new V1alpha1MigrationConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -296,14 +265,49 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withConditions(List<V1alpha1MigrationCondition> conditions) {
+    if (this.conditions != null) {
+      this._visitables.get("conditions").clear();
+    }
+    if (conditions != null) {
+        this.conditions = new ArrayList();
+        for (V1alpha1MigrationCondition item : conditions) {
+          this.addToConditions(item);
+        }
+    } else {
+      this.conditions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withConditions(V1alpha1MigrationCondition... conditions) {
+    if (this.conditions != null) {
+        this.conditions.clear();
+        _visitables.remove("conditions");
+    }
+    if (conditions != null) {
+      for (V1alpha1MigrationCondition item : conditions) {
+        this.addToConditions(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withResourceVersion(String resourceVersion) {
+    this.resourceVersion = resourceVersion;
+    return (A) this;
+  }
   public class ConditionsNested<N> extends V1alpha1MigrationConditionFluent<ConditionsNested<N>> implements Nested<N>{
+  
+    V1alpha1MigrationConditionBuilder builder;
+    int index;
+  
     ConditionsNested(int index,V1alpha1MigrationCondition item) {
       this.index = index;
       this.builder = new V1alpha1MigrationConditionBuilder(this, item);
     }
-    V1alpha1MigrationConditionBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1alpha1StorageVersionMigrationStatusFluent.this.setToConditions(index, builder.build());
     }
@@ -312,7 +316,5 @@ public class V1alpha1StorageVersionMigrationStatusFluent<A extends io.kubernetes
       return and();
     }
     
-  
   }
-
 }

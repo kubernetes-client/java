@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1OpaqueDeviceConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1beta1OpaqueDeviceConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private String driver;
+  private Object parameters;
+
   public V1beta1OpaqueDeviceConfigurationFluent() {
   }
   
   public V1beta1OpaqueDeviceConfigurationFluent(V1beta1OpaqueDeviceConfiguration instance) {
     this.copyInstance(instance);
   }
-  private String driver;
-  private Object parameters;
-  
+
   protected void copyInstance(V1beta1OpaqueDeviceConfiguration instance) {
     instance = instance != null ? instance : new V1beta1OpaqueDeviceConfiguration();
     if (instance != null) {
         this.withDriver(instance.getDriver());
         this.withParameters(instance.getParameters());
     }
-  }
-  
-  public String getDriver() {
-    return this.driver;
-  }
-  
-  public A withDriver(String driver) {
-    this.driver = driver;
-    return (A) this;
-  }
-  
-  public boolean hasDriver() {
-    return this.driver != null;
-  }
-  
-  public Object getParameters() {
-    return this.parameters;
-  }
-  
-  public A withParameters(Object parameters) {
-    this.parameters = parameters;
-    return (A) this;
-  }
-  
-  public boolean hasParameters() {
-    return this.parameters != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1beta1OpaqueDeviceConfigurationFluent<A extends io.kubernetes.clie
     return true;
   }
   
+  public String getDriver() {
+    return this.driver;
+  }
+  
+  public Object getParameters() {
+    return this.parameters;
+  }
+  
+  public boolean hasDriver() {
+    return this.driver != null;
+  }
+  
+  public boolean hasParameters() {
+    return this.parameters != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(driver, parameters);
   }
@@ -95,5 +87,14 @@ public class V1beta1OpaqueDeviceConfigurationFluent<A extends io.kubernetes.clie
     return sb.toString();
   }
   
-
+  public A withDriver(String driver) {
+    this.driver = driver;
+    return (A) this;
+  }
+  
+  public A withParameters(Object parameters) {
+    this.parameters = parameters;
+    return (A) this;
+  }
+  
 }

@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<A>> extends BaseFluent<A>{
+
+  private String audience;
+  private Long expirationSeconds;
+
   public StorageV1TokenRequestFluent() {
   }
   
   public StorageV1TokenRequestFluent(StorageV1TokenRequest instance) {
     this.copyInstance(instance);
   }
-  private String audience;
-  private Long expirationSeconds;
-  
+
   protected void copyInstance(StorageV1TokenRequest instance) {
     instance = instance != null ? instance : new StorageV1TokenRequest();
     if (instance != null) {
         this.withAudience(instance.getAudience());
         this.withExpirationSeconds(instance.getExpirationSeconds());
     }
-  }
-  
-  public String getAudience() {
-    return this.audience;
-  }
-  
-  public A withAudience(String audience) {
-    this.audience = audience;
-    return (A) this;
-  }
-  
-  public boolean hasAudience() {
-    return this.audience != null;
-  }
-  
-  public Long getExpirationSeconds() {
-    return this.expirationSeconds;
-  }
-  
-  public A withExpirationSeconds(Long expirationSeconds) {
-    this.expirationSeconds = expirationSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasExpirationSeconds() {
-    return this.expirationSeconds != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public String getAudience() {
+    return this.audience;
+  }
+  
+  public Long getExpirationSeconds() {
+    return this.expirationSeconds;
+  }
+  
+  public boolean hasAudience() {
+    return this.audience != null;
+  }
+  
+  public boolean hasExpirationSeconds() {
+    return this.expirationSeconds != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(audience, expirationSeconds);
   }
@@ -96,5 +88,14 @@ public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public A withAudience(String audience) {
+    this.audience = audience;
+    return (A) this;
+  }
+  
+  public A withExpirationSeconds(Long expirationSeconds) {
+    this.expirationSeconds = expirationSeconds;
+    return (A) this;
+  }
+  
 }

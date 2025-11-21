@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NetworkPolicyListBuilder extends V1NetworkPolicyListFluent<V1NetworkPolicyListBuilder> implements VisitableBuilder<V1NetworkPolicyList,V1NetworkPolicyListBuilder>{
+
+  V1NetworkPolicyListFluent<?> fluent;
+
   public V1NetworkPolicyListBuilder() {
     this(new V1NetworkPolicyList());
   }
@@ -11,17 +14,16 @@ public class V1NetworkPolicyListBuilder extends V1NetworkPolicyListFluent<V1Netw
     this(fluent, new V1NetworkPolicyList());
   }
   
-  public V1NetworkPolicyListBuilder(V1NetworkPolicyListFluent<?> fluent,V1NetworkPolicyList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NetworkPolicyListBuilder(V1NetworkPolicyList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NetworkPolicyListFluent<?> fluent;
   
+  public V1NetworkPolicyListBuilder(V1NetworkPolicyListFluent<?> fluent,V1NetworkPolicyList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NetworkPolicyList build() {
     V1NetworkPolicyList buildable = new V1NetworkPolicyList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1NetworkPolicyListBuilder extends V1NetworkPolicyListFluent<V1Netw
     return buildable;
   }
   
-
 }

@@ -1,31 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<A>> extends BaseFluent<A>{
-  public V1OwnerReferenceFluent() {
-  }
-  
-  public V1OwnerReferenceFluent(V1OwnerReference instance) {
-    this.copyInstance(instance);
-  }
+
   private String apiVersion;
   private Boolean blockOwnerDeletion;
   private Boolean controller;
   private String kind;
   private String name;
   private String uid;
+
+  public V1OwnerReferenceFluent() {
+  }
   
+  public V1OwnerReferenceFluent(V1OwnerReference instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1OwnerReference instance) {
     instance = instance != null ? instance : new V1OwnerReference();
     if (instance != null) {
@@ -36,84 +38,6 @@ public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.model
         this.withName(instance.getName());
         this.withUid(instance.getUid());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public Boolean getBlockOwnerDeletion() {
-    return this.blockOwnerDeletion;
-  }
-  
-  public A withBlockOwnerDeletion(Boolean blockOwnerDeletion) {
-    this.blockOwnerDeletion = blockOwnerDeletion;
-    return (A) this;
-  }
-  
-  public boolean hasBlockOwnerDeletion() {
-    return this.blockOwnerDeletion != null;
-  }
-  
-  public Boolean getController() {
-    return this.controller;
-  }
-  
-  public A withController(Boolean controller) {
-    this.controller = controller;
-    return (A) this;
-  }
-  
-  public boolean hasController() {
-    return this.controller != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getUid() {
-    return this.uid;
-  }
-  
-  public A withUid(String uid) {
-    this.uid = uid;
-    return (A) this;
-  }
-  
-  public boolean hasUid() {
-    return this.uid != null;
   }
   
   public boolean equals(Object o) {
@@ -146,6 +70,54 @@ public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.model
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public Boolean getBlockOwnerDeletion() {
+    return this.blockOwnerDeletion;
+  }
+  
+  public Boolean getController() {
+    return this.controller;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getUid() {
+    return this.uid;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasBlockOwnerDeletion() {
+    return this.blockOwnerDeletion != null;
+  }
+  
+  public boolean hasController() {
+    return this.controller != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasUid() {
+    return this.uid != null;
   }
   
   public int hashCode() {
@@ -188,13 +160,42 @@ public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
   public A withBlockOwnerDeletion() {
     return withBlockOwnerDeletion(true);
+  }
+  
+  public A withBlockOwnerDeletion(Boolean blockOwnerDeletion) {
+    this.blockOwnerDeletion = blockOwnerDeletion;
+    return (A) this;
   }
   
   public A withController() {
     return withController(true);
   }
   
-
+  public A withController(Boolean controller) {
+    this.controller = controller;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withUid(String uid) {
+    this.uid = uid;
+    return (A) this;
+  }
+  
 }

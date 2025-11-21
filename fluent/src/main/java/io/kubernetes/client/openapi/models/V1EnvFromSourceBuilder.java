@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluent<V1EnvFromSourceBuilder> implements VisitableBuilder<V1EnvFromSource,V1EnvFromSourceBuilder>{
+
+  V1EnvFromSourceFluent<?> fluent;
+
   public V1EnvFromSourceBuilder() {
     this(new V1EnvFromSource());
   }
@@ -11,17 +14,16 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluent<V1EnvFromSourc
     this(fluent, new V1EnvFromSource());
   }
   
-  public V1EnvFromSourceBuilder(V1EnvFromSourceFluent<?> fluent,V1EnvFromSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1EnvFromSourceBuilder(V1EnvFromSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1EnvFromSourceFluent<?> fluent;
   
+  public V1EnvFromSourceBuilder(V1EnvFromSourceFluent<?> fluent,V1EnvFromSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1EnvFromSource build() {
     V1EnvFromSource buildable = new V1EnvFromSource();
     buildable.setConfigMapRef(fluent.buildConfigMapRef());
@@ -30,5 +32,4 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluent<V1EnvFromSourc
     return buildable;
   }
   
-
 }

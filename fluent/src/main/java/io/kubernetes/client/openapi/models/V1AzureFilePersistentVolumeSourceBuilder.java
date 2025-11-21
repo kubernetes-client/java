@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1AzureFilePersistentVolumeSourceBuilder extends V1AzureFilePersistentVolumeSourceFluent<V1AzureFilePersistentVolumeSourceBuilder> implements VisitableBuilder<V1AzureFilePersistentVolumeSource,V1AzureFilePersistentVolumeSourceBuilder>{
+
+  V1AzureFilePersistentVolumeSourceFluent<?> fluent;
+
   public V1AzureFilePersistentVolumeSourceBuilder() {
     this(new V1AzureFilePersistentVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1AzureFilePersistentVolumeSourceBuilder extends V1AzureFilePersist
     this(fluent, new V1AzureFilePersistentVolumeSource());
   }
   
-  public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSourceFluent<?> fluent,V1AzureFilePersistentVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1AzureFilePersistentVolumeSourceFluent<?> fluent;
   
+  public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSourceFluent<?> fluent,V1AzureFilePersistentVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1AzureFilePersistentVolumeSource build() {
     V1AzureFilePersistentVolumeSource buildable = new V1AzureFilePersistentVolumeSource();
     buildable.setReadOnly(fluent.getReadOnly());
@@ -31,5 +33,4 @@ public class V1AzureFilePersistentVolumeSourceBuilder extends V1AzureFilePersist
     return buildable;
   }
   
-
 }

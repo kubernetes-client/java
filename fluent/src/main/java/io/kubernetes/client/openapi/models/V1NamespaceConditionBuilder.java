@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluent<V1NamespaceConditionBuilder> implements VisitableBuilder<V1NamespaceCondition,V1NamespaceConditionBuilder>{
+
+  V1NamespaceConditionFluent<?> fluent;
+
   public V1NamespaceConditionBuilder() {
     this(new V1NamespaceCondition());
   }
@@ -11,17 +14,16 @@ public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluent<V1Na
     this(fluent, new V1NamespaceCondition());
   }
   
-  public V1NamespaceConditionBuilder(V1NamespaceConditionFluent<?> fluent,V1NamespaceCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NamespaceConditionBuilder(V1NamespaceCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NamespaceConditionFluent<?> fluent;
   
+  public V1NamespaceConditionBuilder(V1NamespaceConditionFluent<?> fluent,V1NamespaceCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NamespaceCondition build() {
     V1NamespaceCondition buildable = new V1NamespaceCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -32,5 +34,4 @@ public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluent<V1Na
     return buildable;
   }
   
-
 }

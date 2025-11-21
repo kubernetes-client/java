@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PersistentVolumeClaimVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String claimName;
+  private Boolean readOnly;
+
   public V1PersistentVolumeClaimVolumeSourceFluent() {
   }
   
   public V1PersistentVolumeClaimVolumeSourceFluent(V1PersistentVolumeClaimVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String claimName;
-  private Boolean readOnly;
-  
+
   protected void copyInstance(V1PersistentVolumeClaimVolumeSource instance) {
     instance = instance != null ? instance : new V1PersistentVolumeClaimVolumeSource();
     if (instance != null) {
         this.withClaimName(instance.getClaimName());
         this.withReadOnly(instance.getReadOnly());
     }
-  }
-  
-  public String getClaimName() {
-    return this.claimName;
-  }
-  
-  public A withClaimName(String claimName) {
-    this.claimName = claimName;
-    return (A) this;
-  }
-  
-  public boolean hasClaimName() {
-    return this.claimName != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class V1PersistentVolumeClaimVolumeSourceFluent<A extends io.kubernetes.c
     return true;
   }
   
+  public String getClaimName() {
+    return this.claimName;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public boolean hasClaimName() {
+    return this.claimName != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(claimName, readOnly);
   }
@@ -96,9 +88,18 @@ public class V1PersistentVolumeClaimVolumeSourceFluent<A extends io.kubernetes.c
     return sb.toString();
   }
   
+  public A withClaimName(String claimName) {
+    this.claimName = claimName;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
 }

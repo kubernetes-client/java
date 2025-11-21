@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implements VisitableBuilder<V1PodSpec,V1PodSpecBuilder>{
+
+  V1PodSpecFluent<?> fluent;
+
   public V1PodSpecBuilder() {
     this(new V1PodSpec());
   }
@@ -11,17 +14,16 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     this(fluent, new V1PodSpec());
   }
   
-  public V1PodSpecBuilder(V1PodSpecFluent<?> fluent,V1PodSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PodSpecBuilder(V1PodSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PodSpecFluent<?> fluent;
   
+  public V1PodSpecBuilder(V1PodSpecFluent<?> fluent,V1PodSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PodSpec build() {
     V1PodSpec buildable = new V1PodSpec();
     buildable.setActiveDeadlineSeconds(fluent.getActiveDeadlineSeconds());
@@ -68,5 +70,4 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     return buildable;
   }
   
-
 }

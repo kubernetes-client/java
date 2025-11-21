@@ -1,75 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
 import io.kubernetes.client.custom.IntOrString;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1RollingUpdateDaemonSetFluent<A extends io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<A>> extends BaseFluent<A>{
+
+  private IntOrString maxSurge;
+  private IntOrString maxUnavailable;
+
   public V1RollingUpdateDaemonSetFluent() {
   }
   
   public V1RollingUpdateDaemonSetFluent(V1RollingUpdateDaemonSet instance) {
     this.copyInstance(instance);
   }
-  private IntOrString maxSurge;
-  private IntOrString maxUnavailable;
-  
+
   protected void copyInstance(V1RollingUpdateDaemonSet instance) {
     instance = instance != null ? instance : new V1RollingUpdateDaemonSet();
     if (instance != null) {
         this.withMaxSurge(instance.getMaxSurge());
         this.withMaxUnavailable(instance.getMaxUnavailable());
     }
-  }
-  
-  public IntOrString getMaxSurge() {
-    return this.maxSurge;
-  }
-  
-  public A withMaxSurge(IntOrString maxSurge) {
-    this.maxSurge = maxSurge;
-    return (A) this;
-  }
-  
-  public boolean hasMaxSurge() {
-    return this.maxSurge != null;
-  }
-  
-  public A withNewMaxSurge(int value) {
-    return (A) this.withMaxSurge(new IntOrString(value));
-  }
-  
-  public A withNewMaxSurge(String value) {
-    return (A) this.withMaxSurge(new IntOrString(value));
-  }
-  
-  public IntOrString getMaxUnavailable() {
-    return this.maxUnavailable;
-  }
-  
-  public A withMaxUnavailable(IntOrString maxUnavailable) {
-    this.maxUnavailable = maxUnavailable;
-    return (A) this;
-  }
-  
-  public boolean hasMaxUnavailable() {
-    return this.maxUnavailable != null;
-  }
-  
-  public A withNewMaxUnavailable(int value) {
-    return (A) this.withMaxUnavailable(new IntOrString(value));
-  }
-  
-  public A withNewMaxUnavailable(String value) {
-    return (A) this.withMaxUnavailable(new IntOrString(value));
   }
   
   public boolean equals(Object o) {
@@ -92,6 +52,22 @@ public class V1RollingUpdateDaemonSetFluent<A extends io.kubernetes.client.opena
     return true;
   }
   
+  public IntOrString getMaxSurge() {
+    return this.maxSurge;
+  }
+  
+  public IntOrString getMaxUnavailable() {
+    return this.maxUnavailable;
+  }
+  
+  public boolean hasMaxSurge() {
+    return this.maxSurge != null;
+  }
+  
+  public boolean hasMaxUnavailable() {
+    return this.maxUnavailable != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(maxSurge, maxUnavailable);
   }
@@ -112,5 +88,30 @@ public class V1RollingUpdateDaemonSetFluent<A extends io.kubernetes.client.opena
     return sb.toString();
   }
   
-
+  public A withMaxSurge(IntOrString maxSurge) {
+    this.maxSurge = maxSurge;
+    return (A) this;
+  }
+  
+  public A withMaxUnavailable(IntOrString maxUnavailable) {
+    this.maxUnavailable = maxUnavailable;
+    return (A) this;
+  }
+  
+  public A withNewMaxSurge(int value) {
+    return (A) this.withMaxSurge(new IntOrString(value));
+  }
+  
+  public A withNewMaxSurge(String value) {
+    return (A) this.withMaxSurge(new IntOrString(value));
+  }
+  
+  public A withNewMaxUnavailable(int value) {
+    return (A) this.withMaxUnavailable(new IntOrString(value));
+  }
+  
+  public A withNewMaxUnavailable(String value) {
+    return (A) this.withMaxUnavailable(new IntOrString(value));
+  }
+  
 }

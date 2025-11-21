@@ -1,72 +1,69 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
 import java.time.OffsetDateTime;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1alpha1PodCertificateRequestStatusFluent<A>> extends BaseFluent<A>{
+
+  private OffsetDateTime beginRefreshAt;
+  private String certificateChain;
+  private ArrayList<V1ConditionBuilder> conditions;
+  private OffsetDateTime notAfter;
+  private OffsetDateTime notBefore;
+
   public V1alpha1PodCertificateRequestStatusFluent() {
   }
   
   public V1alpha1PodCertificateRequestStatusFluent(V1alpha1PodCertificateRequestStatus instance) {
     this.copyInstance(instance);
   }
-  private OffsetDateTime beginRefreshAt;
-  private String certificateChain;
-  private ArrayList<V1ConditionBuilder> conditions;
-  private OffsetDateTime notAfter;
-  private OffsetDateTime notBefore;
-  
-  protected void copyInstance(V1alpha1PodCertificateRequestStatus instance) {
-    instance = instance != null ? instance : new V1alpha1PodCertificateRequestStatus();
-    if (instance != null) {
-        this.withBeginRefreshAt(instance.getBeginRefreshAt());
-        this.withCertificateChain(instance.getCertificateChain());
-        this.withConditions(instance.getConditions());
-        this.withNotAfter(instance.getNotAfter());
-        this.withNotBefore(instance.getNotBefore());
+
+  public A addAllToConditions(Collection<V1Condition> items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
     }
-  }
-  
-  public OffsetDateTime getBeginRefreshAt() {
-    return this.beginRefreshAt;
-  }
-  
-  public A withBeginRefreshAt(OffsetDateTime beginRefreshAt) {
-    this.beginRefreshAt = beginRefreshAt;
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasBeginRefreshAt() {
-    return this.beginRefreshAt != null;
+  public ConditionsNested<A> addNewCondition() {
+    return new ConditionsNested(-1, null);
   }
   
-  public String getCertificateChain() {
-    return this.certificateChain;
+  public ConditionsNested<A> addNewConditionLike(V1Condition item) {
+    return new ConditionsNested(-1, item);
   }
   
-  public A withCertificateChain(String certificateChain) {
-    this.certificateChain = certificateChain;
+  public A addToConditions(V1Condition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
     return (A) this;
-  }
-  
-  public boolean hasCertificateChain() {
-    return this.certificateChain != null;
   }
   
   public A addToConditions(int index,V1Condition item) {
@@ -84,91 +81,12 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
     return (A) this;
   }
   
-  public A setToConditions(int index,V1Condition item) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    V1ConditionBuilder builder = new V1ConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
-    } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToConditions(V1Condition... items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1Condition item : items) {
-        V1ConditionBuilder builder = new V1ConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToConditions(Collection<V1Condition> items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1Condition item : items) {
-        V1ConditionBuilder builder = new V1ConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromConditions(V1Condition... items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1Condition item : items) {
-        V1ConditionBuilder builder = new V1ConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromConditions(Collection<V1Condition> items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1Condition item : items) {
-        V1ConditionBuilder builder = new V1ConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate) {
-    if (conditions == null) {
-      return (A) this;
-    }
-    Iterator<V1ConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-        V1ConditionBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
+  public V1Condition buildCondition(int index) {
+    return this.conditions.get(index).build();
   }
   
   public List<V1Condition> buildConditions() {
     return this.conditions != null ? build(conditions) : null;
-  }
-  
-  public V1Condition buildCondition(int index) {
-    return this.conditions.get(index).build();
   }
   
   public V1Condition buildFirstCondition() {
@@ -188,61 +106,19 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
       return null;
   }
   
-  public boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
-      for (V1ConditionBuilder item : conditions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withConditions(List<V1Condition> conditions) {
-    if (this.conditions != null) {
-      this._visitables.get("conditions").clear();
+  protected void copyInstance(V1alpha1PodCertificateRequestStatus instance) {
+    instance = instance != null ? instance : new V1alpha1PodCertificateRequestStatus();
+    if (instance != null) {
+        this.withBeginRefreshAt(instance.getBeginRefreshAt());
+        this.withCertificateChain(instance.getCertificateChain());
+        this.withConditions(instance.getConditions());
+        this.withNotAfter(instance.getNotAfter());
+        this.withNotBefore(instance.getNotBefore());
     }
-    if (conditions != null) {
-        this.conditions = new ArrayList();
-        for (V1Condition item : conditions) {
-          this.addToConditions(item);
-        }
-    } else {
-      this.conditions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withConditions(V1Condition... conditions) {
-    if (this.conditions != null) {
-        this.conditions.clear();
-        _visitables.remove("conditions");
-    }
-    if (conditions != null) {
-      for (V1Condition item : conditions) {
-        this.addToConditions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasConditions() {
-    return this.conditions != null && !(this.conditions.isEmpty());
-  }
-  
-  public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
-  }
-  
-  public ConditionsNested<A> addNewConditionLike(V1Condition item) {
-    return new ConditionsNested(-1, item);
-  }
-  
-  public ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
-    return new ConditionsNested(index, item);
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (index <= conditions.size()) {
+    if (conditions.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
     }
     return this.setNewConditionLike(index, this.buildCondition(index));
@@ -277,32 +153,6 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
     return this.setNewConditionLike(index, this.buildCondition(index));
   }
   
-  public OffsetDateTime getNotAfter() {
-    return this.notAfter;
-  }
-  
-  public A withNotAfter(OffsetDateTime notAfter) {
-    this.notAfter = notAfter;
-    return (A) this;
-  }
-  
-  public boolean hasNotAfter() {
-    return this.notAfter != null;
-  }
-  
-  public OffsetDateTime getNotBefore() {
-    return this.notBefore;
-  }
-  
-  public A withNotBefore(OffsetDateTime notBefore) {
-    this.notBefore = notBefore;
-    return (A) this;
-  }
-  
-  public boolean hasNotBefore() {
-    return this.notBefore != null;
-  }
-  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -332,8 +182,112 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
     return true;
   }
   
+  public OffsetDateTime getBeginRefreshAt() {
+    return this.beginRefreshAt;
+  }
+  
+  public String getCertificateChain() {
+    return this.certificateChain;
+  }
+  
+  public OffsetDateTime getNotAfter() {
+    return this.notAfter;
+  }
+  
+  public OffsetDateTime getNotBefore() {
+    return this.notBefore;
+  }
+  
+  public boolean hasBeginRefreshAt() {
+    return this.beginRefreshAt != null;
+  }
+  
+  public boolean hasCertificateChain() {
+    return this.certificateChain != null;
+  }
+  
+  public boolean hasConditions() {
+    return this.conditions != null && !(this.conditions.isEmpty());
+  }
+  
+  public boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+      for (V1ConditionBuilder item : conditions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasNotAfter() {
+    return this.notAfter != null;
+  }
+  
+  public boolean hasNotBefore() {
+    return this.notBefore != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(beginRefreshAt, certificateChain, conditions, notAfter, notBefore);
+  }
+  
+  public A removeAllFromConditions(Collection<V1Condition> items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromConditions(V1Condition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1Condition item : items) {
+        V1ConditionBuilder builder = new V1ConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate) {
+    if (conditions == null) {
+      return (A) this;
+    }
+    Iterator<V1ConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1ConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
+    return new ConditionsNested(index, item);
+  }
+  
+  public A setToConditions(int index,V1Condition item) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -366,14 +320,64 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withBeginRefreshAt(OffsetDateTime beginRefreshAt) {
+    this.beginRefreshAt = beginRefreshAt;
+    return (A) this;
+  }
+  
+  public A withCertificateChain(String certificateChain) {
+    this.certificateChain = certificateChain;
+    return (A) this;
+  }
+  
+  public A withConditions(List<V1Condition> conditions) {
+    if (this.conditions != null) {
+      this._visitables.get("conditions").clear();
+    }
+    if (conditions != null) {
+        this.conditions = new ArrayList();
+        for (V1Condition item : conditions) {
+          this.addToConditions(item);
+        }
+    } else {
+      this.conditions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withConditions(V1Condition... conditions) {
+    if (this.conditions != null) {
+        this.conditions.clear();
+        _visitables.remove("conditions");
+    }
+    if (conditions != null) {
+      for (V1Condition item : conditions) {
+        this.addToConditions(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withNotAfter(OffsetDateTime notAfter) {
+    this.notAfter = notAfter;
+    return (A) this;
+  }
+  
+  public A withNotBefore(OffsetDateTime notBefore) {
+    this.notBefore = notBefore;
+    return (A) this;
+  }
   public class ConditionsNested<N> extends V1ConditionFluent<ConditionsNested<N>> implements Nested<N>{
+  
+    V1ConditionBuilder builder;
+    int index;
+  
     ConditionsNested(int index,V1Condition item) {
       this.index = index;
       this.builder = new V1ConditionBuilder(this, item);
     }
-    V1ConditionBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1alpha1PodCertificateRequestStatusFluent.this.setToConditions(index, builder.build());
     }
@@ -382,7 +386,5 @@ public class V1alpha1PodCertificateRequestStatusFluent<A extends io.kubernetes.c
       return and();
     }
     
-  
   }
-
 }

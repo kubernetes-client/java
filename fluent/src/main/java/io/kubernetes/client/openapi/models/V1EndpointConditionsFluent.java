@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<A>> extends BaseFluent<A>{
+
+  private Boolean ready;
+  private Boolean serving;
+  private Boolean terminating;
+
   public V1EndpointConditionsFluent() {
   }
   
   public V1EndpointConditionsFluent(V1EndpointConditions instance) {
     this.copyInstance(instance);
   }
-  private Boolean ready;
-  private Boolean serving;
-  private Boolean terminating;
-  
+
   protected void copyInstance(V1EndpointConditions instance) {
     instance = instance != null ? instance : new V1EndpointConditions();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.m
         this.withServing(instance.getServing());
         this.withTerminating(instance.getTerminating());
     }
-  }
-  
-  public Boolean getReady() {
-    return this.ready;
-  }
-  
-  public A withReady(Boolean ready) {
-    this.ready = ready;
-    return (A) this;
-  }
-  
-  public boolean hasReady() {
-    return this.ready != null;
-  }
-  
-  public Boolean getServing() {
-    return this.serving;
-  }
-  
-  public A withServing(Boolean serving) {
-    this.serving = serving;
-    return (A) this;
-  }
-  
-  public boolean hasServing() {
-    return this.serving != null;
-  }
-  
-  public Boolean getTerminating() {
-    return this.terminating;
-  }
-  
-  public A withTerminating(Boolean terminating) {
-    this.terminating = terminating;
-    return (A) this;
-  }
-  
-  public boolean hasTerminating() {
-    return this.terminating != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.m
       return false;
     }
     return true;
+  }
+  
+  public Boolean getReady() {
+    return this.ready;
+  }
+  
+  public Boolean getServing() {
+    return this.serving;
+  }
+  
+  public Boolean getTerminating() {
+    return this.terminating;
+  }
+  
+  public boolean hasReady() {
+    return this.ready != null;
+  }
+  
+  public boolean hasServing() {
+    return this.serving != null;
+  }
+  
+  public boolean hasTerminating() {
+    return this.terminating != null;
   }
   
   public int hashCode() {
@@ -123,13 +110,27 @@ public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.m
     return withReady(true);
   }
   
+  public A withReady(Boolean ready) {
+    this.ready = ready;
+    return (A) this;
+  }
+  
   public A withServing() {
     return withServing(true);
+  }
+  
+  public A withServing(Boolean serving) {
+    this.serving = serving;
+    return (A) this;
   }
   
   public A withTerminating() {
     return withTerminating(true);
   }
   
-
+  public A withTerminating(Boolean terminating) {
+    this.terminating = terminating;
+    return (A) this;
+  }
+  
 }

@@ -1,21 +1,32 @@
 package io.kubernetes.client.fluent;
 
-import java.util.Map.Entry;
-import java.util.Collection;
+import java.lang.Boolean;
 import java.lang.Class;
 import java.lang.Object;
-import java.util.List;
 import java.lang.String;
-import java.lang.Boolean;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.Predicate;
 public final class VisitorWiretap<T> implements Visitor<T>{
+
+  private final Visitor<T> delegate;
+  private final Collection<VisitorListener> listeners;
+
   private VisitorWiretap(Visitor<T> delegate,Collection<VisitorListener> listeners) {
     this.delegate = delegate;
         this.listeners = listeners;
   }
-  private final Collection<VisitorListener> listeners;
-  private final Visitor<T> delegate;
+
+  public <F>Boolean canVisit(List<Entry<String,Object>> path,F target) {
+    boolean canVisit = delegate.canVisit(path, target);
+        for (VisitorListener l : listeners) {
+          l.onCheck(delegate, canVisit, target);
+        }
+    
+        return canVisit;
+  }
   
   public static <T>VisitorWiretap<T> create(Visitor<T> visitor,Collection<VisitorListener> listeners) {
     if (visitor instanceof VisitorWiretap) {
@@ -28,6 +39,10 @@ public final class VisitorWiretap<T> implements Visitor<T>{
     return delegate.getType();
   }
   
+  public int order() {
+    return delegate.order();
+  }
+  
   public void visit(T target) {
     for (VisitorListener l : listeners) {
           l.beforeVisit(delegate, Collections.emptyList(), target);
@@ -36,10 +51,6 @@ public final class VisitorWiretap<T> implements Visitor<T>{
         for (VisitorListener l : listeners) {
           l.afterVisit(delegate, Collections.emptyList(), target);
         }
-  }
-  
-  public int order() {
-    return delegate.order();
   }
   
   public void visit(List<Entry<String,Object>> path,T target) {
@@ -52,14 +63,4 @@ public final class VisitorWiretap<T> implements Visitor<T>{
         }
   }
   
-  public <F>Boolean canVisit(List<Entry<String,Object>> path,F target) {
-    boolean canVisit = delegate.canVisit(path, target);
-        for (VisitorListener l : listeners) {
-          l.onCheck(delegate, canVisit, target);
-        }
-    
-        return canVisit;
-  }
-  
-
 }

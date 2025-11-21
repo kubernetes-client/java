@@ -1,25 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1LeaseSpecFluent<A>> extends BaseFluent<A>{
-  public V1LeaseSpecFluent() {
-  }
-  
-  public V1LeaseSpecFluent(V1LeaseSpec instance) {
-    this.copyInstance(instance);
-  }
+
   private OffsetDateTime acquireTime;
   private String holderIdentity;
   private Integer leaseDurationSeconds;
@@ -27,7 +22,14 @@ public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1L
   private String preferredHolder;
   private OffsetDateTime renewTime;
   private String strategy;
+
+  public V1LeaseSpecFluent() {
+  }
   
+  public V1LeaseSpecFluent(V1LeaseSpec instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1LeaseSpec instance) {
     instance = instance != null ? instance : new V1LeaseSpec();
     if (instance != null) {
@@ -39,97 +41,6 @@ public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1L
         this.withRenewTime(instance.getRenewTime());
         this.withStrategy(instance.getStrategy());
     }
-  }
-  
-  public OffsetDateTime getAcquireTime() {
-    return this.acquireTime;
-  }
-  
-  public A withAcquireTime(OffsetDateTime acquireTime) {
-    this.acquireTime = acquireTime;
-    return (A) this;
-  }
-  
-  public boolean hasAcquireTime() {
-    return this.acquireTime != null;
-  }
-  
-  public String getHolderIdentity() {
-    return this.holderIdentity;
-  }
-  
-  public A withHolderIdentity(String holderIdentity) {
-    this.holderIdentity = holderIdentity;
-    return (A) this;
-  }
-  
-  public boolean hasHolderIdentity() {
-    return this.holderIdentity != null;
-  }
-  
-  public Integer getLeaseDurationSeconds() {
-    return this.leaseDurationSeconds;
-  }
-  
-  public A withLeaseDurationSeconds(Integer leaseDurationSeconds) {
-    this.leaseDurationSeconds = leaseDurationSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasLeaseDurationSeconds() {
-    return this.leaseDurationSeconds != null;
-  }
-  
-  public Integer getLeaseTransitions() {
-    return this.leaseTransitions;
-  }
-  
-  public A withLeaseTransitions(Integer leaseTransitions) {
-    this.leaseTransitions = leaseTransitions;
-    return (A) this;
-  }
-  
-  public boolean hasLeaseTransitions() {
-    return this.leaseTransitions != null;
-  }
-  
-  public String getPreferredHolder() {
-    return this.preferredHolder;
-  }
-  
-  public A withPreferredHolder(String preferredHolder) {
-    this.preferredHolder = preferredHolder;
-    return (A) this;
-  }
-  
-  public boolean hasPreferredHolder() {
-    return this.preferredHolder != null;
-  }
-  
-  public OffsetDateTime getRenewTime() {
-    return this.renewTime;
-  }
-  
-  public A withRenewTime(OffsetDateTime renewTime) {
-    this.renewTime = renewTime;
-    return (A) this;
-  }
-  
-  public boolean hasRenewTime() {
-    return this.renewTime != null;
-  }
-  
-  public String getStrategy() {
-    return this.strategy;
-  }
-  
-  public A withStrategy(String strategy) {
-    this.strategy = strategy;
-    return (A) this;
-  }
-  
-  public boolean hasStrategy() {
-    return this.strategy != null;
   }
   
   public boolean equals(Object o) {
@@ -165,6 +76,62 @@ public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1L
       return false;
     }
     return true;
+  }
+  
+  public OffsetDateTime getAcquireTime() {
+    return this.acquireTime;
+  }
+  
+  public String getHolderIdentity() {
+    return this.holderIdentity;
+  }
+  
+  public Integer getLeaseDurationSeconds() {
+    return this.leaseDurationSeconds;
+  }
+  
+  public Integer getLeaseTransitions() {
+    return this.leaseTransitions;
+  }
+  
+  public String getPreferredHolder() {
+    return this.preferredHolder;
+  }
+  
+  public OffsetDateTime getRenewTime() {
+    return this.renewTime;
+  }
+  
+  public String getStrategy() {
+    return this.strategy;
+  }
+  
+  public boolean hasAcquireTime() {
+    return this.acquireTime != null;
+  }
+  
+  public boolean hasHolderIdentity() {
+    return this.holderIdentity != null;
+  }
+  
+  public boolean hasLeaseDurationSeconds() {
+    return this.leaseDurationSeconds != null;
+  }
+  
+  public boolean hasLeaseTransitions() {
+    return this.leaseTransitions != null;
+  }
+  
+  public boolean hasPreferredHolder() {
+    return this.preferredHolder != null;
+  }
+  
+  public boolean hasRenewTime() {
+    return this.renewTime != null;
+  }
+  
+  public boolean hasStrategy() {
+    return this.strategy != null;
   }
   
   public int hashCode() {
@@ -212,5 +179,39 @@ public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1L
     return sb.toString();
   }
   
-
+  public A withAcquireTime(OffsetDateTime acquireTime) {
+    this.acquireTime = acquireTime;
+    return (A) this;
+  }
+  
+  public A withHolderIdentity(String holderIdentity) {
+    this.holderIdentity = holderIdentity;
+    return (A) this;
+  }
+  
+  public A withLeaseDurationSeconds(Integer leaseDurationSeconds) {
+    this.leaseDurationSeconds = leaseDurationSeconds;
+    return (A) this;
+  }
+  
+  public A withLeaseTransitions(Integer leaseTransitions) {
+    this.leaseTransitions = leaseTransitions;
+    return (A) this;
+  }
+  
+  public A withPreferredHolder(String preferredHolder) {
+    this.preferredHolder = preferredHolder;
+    return (A) this;
+  }
+  
+  public A withRenewTime(OffsetDateTime renewTime) {
+    this.renewTime = renewTime;
+    return (A) this;
+  }
+  
+  public A withStrategy(String strategy) {
+    this.strategy = strategy;
+    return (A) this;
+  }
+  
 }

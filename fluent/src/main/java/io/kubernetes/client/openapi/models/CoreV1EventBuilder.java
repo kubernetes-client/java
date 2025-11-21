@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class CoreV1EventBuilder extends CoreV1EventFluent<CoreV1EventBuilder> implements VisitableBuilder<CoreV1Event,CoreV1EventBuilder>{
+
+  CoreV1EventFluent<?> fluent;
+
   public CoreV1EventBuilder() {
     this(new CoreV1Event());
   }
@@ -11,17 +14,16 @@ public class CoreV1EventBuilder extends CoreV1EventFluent<CoreV1EventBuilder> im
     this(fluent, new CoreV1Event());
   }
   
-  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public CoreV1EventBuilder(CoreV1Event instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  CoreV1EventFluent<?> fluent;
   
+  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public CoreV1Event build() {
     CoreV1Event buildable = new CoreV1Event();
     buildable.setAction(fluent.getAction());
@@ -44,5 +46,4 @@ public class CoreV1EventBuilder extends CoreV1EventFluent<CoreV1EventBuilder> im
     return buildable;
   }
   
-
 }

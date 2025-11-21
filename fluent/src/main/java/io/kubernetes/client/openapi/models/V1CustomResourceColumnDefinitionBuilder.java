@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CustomResourceColumnDefinitionBuilder extends V1CustomResourceColumnDefinitionFluent<V1CustomResourceColumnDefinitionBuilder> implements VisitableBuilder<V1CustomResourceColumnDefinition,V1CustomResourceColumnDefinitionBuilder>{
+
+  V1CustomResourceColumnDefinitionFluent<?> fluent;
+
   public V1CustomResourceColumnDefinitionBuilder() {
     this(new V1CustomResourceColumnDefinition());
   }
@@ -11,17 +14,16 @@ public class V1CustomResourceColumnDefinitionBuilder extends V1CustomResourceCol
     this(fluent, new V1CustomResourceColumnDefinition());
   }
   
-  public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinitionFluent<?> fluent,V1CustomResourceColumnDefinition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CustomResourceColumnDefinitionFluent<?> fluent;
   
+  public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinitionFluent<?> fluent,V1CustomResourceColumnDefinition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CustomResourceColumnDefinition build() {
     V1CustomResourceColumnDefinition buildable = new V1CustomResourceColumnDefinition();
     buildable.setDescription(fluent.getDescription());
@@ -33,5 +35,4 @@ public class V1CustomResourceColumnDefinitionBuilder extends V1CustomResourceCol
     return buildable;
   }
   
-
 }

@@ -1,56 +1,46 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.List;
-import java.util.Optional;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
-  public V1SubjectAccessReviewSpecFluent() {
-  }
-  
-  public V1SubjectAccessReviewSpecFluent(V1SubjectAccessReviewSpec instance) {
-    this.copyInstance(instance);
-  }
+
   private Map<String,List<String>> extra;
   private List<String> groups;
   private V1NonResourceAttributesBuilder nonResourceAttributes;
   private V1ResourceAttributesBuilder resourceAttributes;
   private String uid;
   private String user;
-  
-  protected void copyInstance(V1SubjectAccessReviewSpec instance) {
-    instance = instance != null ? instance : new V1SubjectAccessReviewSpec();
-    if (instance != null) {
-        this.withExtra(instance.getExtra());
-        this.withGroups(instance.getGroups());
-        this.withNonResourceAttributes(instance.getNonResourceAttributes());
-        this.withResourceAttributes(instance.getResourceAttributes());
-        this.withUid(instance.getUid());
-        this.withUser(instance.getUser());
-    }
+
+  public V1SubjectAccessReviewSpecFluent() {
   }
   
-  public A addToExtra(String key,List<String> value) {
-    if (this.extra == null && key != null && value != null) {
-      this.extra = new LinkedHashMap();
+  public V1SubjectAccessReviewSpecFluent(V1SubjectAccessReviewSpec instance) {
+    this.copyInstance(instance);
+  }
+
+  public A addAllToGroups(Collection<String> items) {
+    if (this.groups == null) {
+      this.groups = new ArrayList();
     }
-    if (key != null && value != null) {
-      this.extra.put(key, value);
+    for (String item : items) {
+      this.groups.add(item);
     }
     return (A) this;
   }
@@ -65,60 +55,13 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     return (A) this;
   }
   
-  public A removeFromExtra(String key) {
-    if (this.extra == null) {
-      return (A) this;
+  public A addToExtra(String key,List<String> value) {
+    if (this.extra == null && key != null && value != null) {
+      this.extra = new LinkedHashMap();
     }
-    if (key != null && this.extra != null) {
-      this.extra.remove(key);
+    if (key != null && value != null) {
+      this.extra.put(key, value);
     }
-    return (A) this;
-  }
-  
-  public A removeFromExtra(Map<String,List<String>> map) {
-    if (this.extra == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.extra != null) {
-          this.extra.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,List<String>> getExtra() {
-    return this.extra;
-  }
-  
-  public <K,V>A withExtra(Map<String,List<String>> extra) {
-    if (extra == null) {
-      this.extra = null;
-    } else {
-      this.extra = new LinkedHashMap(extra);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasExtra() {
-    return this.extra != null;
-  }
-  
-  public A addToGroups(int index,String item) {
-    if (this.groups == null) {
-      this.groups = new ArrayList();
-    }
-    this.groups.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToGroups(int index,String item) {
-    if (this.groups == null) {
-      this.groups = new ArrayList();
-    }
-    this.groups.set(index, item);
     return (A) this;
   }
   
@@ -132,125 +75,32 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     return (A) this;
   }
   
-  public A addAllToGroups(Collection<String> items) {
+  public A addToGroups(int index,String item) {
     if (this.groups == null) {
       this.groups = new ArrayList();
     }
-    for (String item : items) {
-      this.groups.add(item);
-    }
+    this.groups.add(index, item);
     return (A) this;
-  }
-  
-  public A removeFromGroups(String... items) {
-    if (this.groups == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.groups.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromGroups(Collection<String> items) {
-    if (this.groups == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.groups.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getGroups() {
-    return this.groups;
-  }
-  
-  public String getGroup(int index) {
-    return this.groups.get(index);
-  }
-  
-  public String getFirstGroup() {
-    return this.groups.get(0);
-  }
-  
-  public String getLastGroup() {
-    return this.groups.get(groups.size() - 1);
-  }
-  
-  public String getMatchingGroup(Predicate<String> predicate) {
-      for (String item : groups) {
-        if (predicate.test(item)) {
-          return item;
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingGroup(Predicate<String> predicate) {
-      for (String item : groups) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withGroups(List<String> groups) {
-    if (groups != null) {
-        this.groups = new ArrayList();
-        for (String item : groups) {
-          this.addToGroups(item);
-        }
-    } else {
-      this.groups = null;
-    }
-    return (A) this;
-  }
-  
-  public A withGroups(String... groups) {
-    if (this.groups != null) {
-        this.groups.clear();
-        _visitables.remove("groups");
-    }
-    if (groups != null) {
-      for (String item : groups) {
-        this.addToGroups(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasGroups() {
-    return this.groups != null && !(this.groups.isEmpty());
   }
   
   public V1NonResourceAttributes buildNonResourceAttributes() {
     return this.nonResourceAttributes != null ? this.nonResourceAttributes.build() : null;
   }
   
-  public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
-    this._visitables.remove("nonResourceAttributes");
-    if (nonResourceAttributes != null) {
-        this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
-        this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
-    } else {
-        this.nonResourceAttributes = null;
-        this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
+  public V1ResourceAttributes buildResourceAttributes() {
+    return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
+  }
+  
+  protected void copyInstance(V1SubjectAccessReviewSpec instance) {
+    instance = instance != null ? instance : new V1SubjectAccessReviewSpec();
+    if (instance != null) {
+        this.withExtra(instance.getExtra());
+        this.withGroups(instance.getGroups());
+        this.withNonResourceAttributes(instance.getNonResourceAttributes());
+        this.withResourceAttributes(instance.getResourceAttributes());
+        this.withUid(instance.getUid());
+        this.withUser(instance.getUser());
     }
-    return (A) this;
-  }
-  
-  public boolean hasNonResourceAttributes() {
-    return this.nonResourceAttributes != null;
-  }
-  
-  public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
-    return new NonResourceAttributesNested(null);
-  }
-  
-  public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return new NonResourceAttributesNested(item);
   }
   
   public NonResourceAttributesNested<A> editNonResourceAttributes() {
@@ -265,38 +115,6 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(item));
   }
   
-  public V1ResourceAttributes buildResourceAttributes() {
-    return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
-  }
-  
-  public A withResourceAttributes(V1ResourceAttributes resourceAttributes) {
-    this._visitables.remove("resourceAttributes");
-    if (resourceAttributes != null) {
-        this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
-        this._visitables.get("resourceAttributes").add(this.resourceAttributes);
-    } else {
-        this.resourceAttributes = null;
-        this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasResourceAttributes() {
-    return this.resourceAttributes != null;
-  }
-  
-  public ResourceAttributesNested<A> withNewResourceAttributes() {
-    return new ResourceAttributesNested(null);
-  }
-  
-  public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
-    return new ResourceAttributesNested(item);
-  }
-  
-  public ResourceAttributesNested<A> editResourceAttributes() {
-    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
-  }
-  
   public ResourceAttributesNested<A> editOrNewResourceAttributes() {
     return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
   }
@@ -305,30 +123,8 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(item));
   }
   
-  public String getUid() {
-    return this.uid;
-  }
-  
-  public A withUid(String uid) {
-    this.uid = uid;
-    return (A) this;
-  }
-  
-  public boolean hasUid() {
-    return this.uid != null;
-  }
-  
-  public String getUser() {
-    return this.user;
-  }
-  
-  public A withUser(String user) {
-    this.user = user;
-    return (A) this;
-  }
-  
-  public boolean hasUser() {
-    return this.user != null;
+  public ResourceAttributesNested<A> editResourceAttributes() {
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -363,8 +159,130 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     return true;
   }
   
+  public Map<String,List<String>> getExtra() {
+    return this.extra;
+  }
+  
+  public String getFirstGroup() {
+    return this.groups.get(0);
+  }
+  
+  public String getGroup(int index) {
+    return this.groups.get(index);
+  }
+  
+  public List<String> getGroups() {
+    return this.groups;
+  }
+  
+  public String getLastGroup() {
+    return this.groups.get(groups.size() - 1);
+  }
+  
+  public String getMatchingGroup(Predicate<String> predicate) {
+      for (String item : groups) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public String getUid() {
+    return this.uid;
+  }
+  
+  public String getUser() {
+    return this.user;
+  }
+  
+  public boolean hasExtra() {
+    return this.extra != null;
+  }
+  
+  public boolean hasGroups() {
+    return this.groups != null && !(this.groups.isEmpty());
+  }
+  
+  public boolean hasMatchingGroup(Predicate<String> predicate) {
+      for (String item : groups) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasNonResourceAttributes() {
+    return this.nonResourceAttributes != null;
+  }
+  
+  public boolean hasResourceAttributes() {
+    return this.resourceAttributes != null;
+  }
+  
+  public boolean hasUid() {
+    return this.uid != null;
+  }
+  
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(extra, groups, nonResourceAttributes, resourceAttributes, uid, user);
+  }
+  
+  public A removeAllFromGroups(Collection<String> items) {
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromExtra(String key) {
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (key != null && this.extra != null) {
+      this.extra.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromExtra(Map<String,List<String>> map) {
+    if (this.extra == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.extra != null) {
+          this.extra.remove(key);
+        }
+      }
+    }
+    return (A) this;
+  }
+  
+  public A removeFromGroups(String... items) {
+    if (this.groups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.groups.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A setToGroups(int index,String item) {
+    if (this.groups == null) {
+      this.groups = new ArrayList();
+    }
+    this.groups.set(index, item);
+    return (A) this;
   }
   
   public String toString() {
@@ -402,12 +320,98 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     sb.append("}");
     return sb.toString();
   }
+  
+  public <K,V>A withExtra(Map<String,List<String>> extra) {
+    if (extra == null) {
+      this.extra = null;
+    } else {
+      this.extra = new LinkedHashMap(extra);
+    }
+    return (A) this;
+  }
+  
+  public A withGroups(List<String> groups) {
+    if (groups != null) {
+        this.groups = new ArrayList();
+        for (String item : groups) {
+          this.addToGroups(item);
+        }
+    } else {
+      this.groups = null;
+    }
+    return (A) this;
+  }
+  
+  public A withGroups(String... groups) {
+    if (this.groups != null) {
+        this.groups.clear();
+        _visitables.remove("groups");
+    }
+    if (groups != null) {
+      for (String item : groups) {
+        this.addToGroups(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
+    return new NonResourceAttributesNested(null);
+  }
+  
+  public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+    return new NonResourceAttributesNested(item);
+  }
+  
+  public ResourceAttributesNested<A> withNewResourceAttributes() {
+    return new ResourceAttributesNested(null);
+  }
+  
+  public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
+    return new ResourceAttributesNested(item);
+  }
+  
+  public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
+    this._visitables.remove("nonResourceAttributes");
+    if (nonResourceAttributes != null) {
+        this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
+        this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
+    } else {
+        this.nonResourceAttributes = null;
+        this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
+    }
+    return (A) this;
+  }
+  
+  public A withResourceAttributes(V1ResourceAttributes resourceAttributes) {
+    this._visitables.remove("resourceAttributes");
+    if (resourceAttributes != null) {
+        this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
+        this._visitables.get("resourceAttributes").add(this.resourceAttributes);
+    } else {
+        this.resourceAttributes = null;
+        this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
+    }
+    return (A) this;
+  }
+  
+  public A withUid(String uid) {
+    this.uid = uid;
+    return (A) this;
+  }
+  
+  public A withUser(String user) {
+    this.user = user;
+    return (A) this;
+  }
   public class NonResourceAttributesNested<N> extends V1NonResourceAttributesFluent<NonResourceAttributesNested<N>> implements Nested<N>{
+  
+    V1NonResourceAttributesBuilder builder;
+  
     NonResourceAttributesNested(V1NonResourceAttributes item) {
       this.builder = new V1NonResourceAttributesBuilder(this, item);
     }
-    V1NonResourceAttributesBuilder builder;
-    
+  
     public N and() {
       return (N) V1SubjectAccessReviewSpecFluent.this.withNonResourceAttributes(builder.build());
     }
@@ -416,14 +420,15 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
       return and();
     }
     
-  
   }
   public class ResourceAttributesNested<N> extends V1ResourceAttributesFluent<ResourceAttributesNested<N>> implements Nested<N>{
+  
+    V1ResourceAttributesBuilder builder;
+  
     ResourceAttributesNested(V1ResourceAttributes item) {
       this.builder = new V1ResourceAttributesBuilder(this, item);
     }
-    V1ResourceAttributesBuilder builder;
-    
+  
     public N and() {
       return (N) V1SubjectAccessReviewSpecFluent.this.withResourceAttributes(builder.build());
     }
@@ -432,7 +437,5 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
       return and();
     }
     
-  
   }
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SelfSubjectReviewBuilder extends V1SelfSubjectReviewFluent<V1SelfSubjectReviewBuilder> implements VisitableBuilder<V1SelfSubjectReview,V1SelfSubjectReviewBuilder>{
+
+  V1SelfSubjectReviewFluent<?> fluent;
+
   public V1SelfSubjectReviewBuilder() {
     this(new V1SelfSubjectReview());
   }
@@ -11,17 +14,16 @@ public class V1SelfSubjectReviewBuilder extends V1SelfSubjectReviewFluent<V1Self
     this(fluent, new V1SelfSubjectReview());
   }
   
-  public V1SelfSubjectReviewBuilder(V1SelfSubjectReviewFluent<?> fluent,V1SelfSubjectReview instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SelfSubjectReviewBuilder(V1SelfSubjectReview instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SelfSubjectReviewFluent<?> fluent;
   
+  public V1SelfSubjectReviewBuilder(V1SelfSubjectReviewFluent<?> fluent,V1SelfSubjectReview instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SelfSubjectReview build() {
     V1SelfSubjectReview buildable = new V1SelfSubjectReview();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1SelfSubjectReviewBuilder extends V1SelfSubjectReviewFluent<V1Self
     return buildable;
   }
   
-
 }

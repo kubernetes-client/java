@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ImageVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String pullPolicy;
+  private String reference;
+
   public V1ImageVolumeSourceFluent() {
   }
   
   public V1ImageVolumeSourceFluent(V1ImageVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String pullPolicy;
-  private String reference;
-  
+
   protected void copyInstance(V1ImageVolumeSource instance) {
     instance = instance != null ? instance : new V1ImageVolumeSource();
     if (instance != null) {
         this.withPullPolicy(instance.getPullPolicy());
         this.withReference(instance.getReference());
     }
-  }
-  
-  public String getPullPolicy() {
-    return this.pullPolicy;
-  }
-  
-  public A withPullPolicy(String pullPolicy) {
-    this.pullPolicy = pullPolicy;
-    return (A) this;
-  }
-  
-  public boolean hasPullPolicy() {
-    return this.pullPolicy != null;
-  }
-  
-  public String getReference() {
-    return this.reference;
-  }
-  
-  public A withReference(String reference) {
-    this.reference = reference;
-    return (A) this;
-  }
-  
-  public boolean hasReference() {
-    return this.reference != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
     return true;
   }
   
+  public String getPullPolicy() {
+    return this.pullPolicy;
+  }
+  
+  public String getReference() {
+    return this.reference;
+  }
+  
+  public boolean hasPullPolicy() {
+    return this.pullPolicy != null;
+  }
+  
+  public boolean hasReference() {
+    return this.reference != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(pullPolicy, reference);
   }
@@ -95,5 +87,14 @@ public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withPullPolicy(String pullPolicy) {
+    this.pullPolicy = pullPolicy;
+    return (A) this;
+  }
+  
+  public A withReference(String reference) {
+    this.reference = reference;
+    return (A) this;
+  }
+  
 }

@@ -1,30 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String fsType;
+  private Integer partition;
+  private String pdName;
+  private Boolean readOnly;
+
   public V1GCEPersistentDiskVolumeSourceFluent() {
   }
   
   public V1GCEPersistentDiskVolumeSourceFluent(V1GCEPersistentDiskVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String fsType;
-  private Integer partition;
-  private String pdName;
-  private Boolean readOnly;
-  
+
   protected void copyInstance(V1GCEPersistentDiskVolumeSource instance) {
     instance = instance != null ? instance : new V1GCEPersistentDiskVolumeSource();
     if (instance != null) {
@@ -33,58 +35,6 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.clien
         this.withPdName(instance.getPdName());
         this.withReadOnly(instance.getReadOnly());
     }
-  }
-  
-  public String getFsType() {
-    return this.fsType;
-  }
-  
-  public A withFsType(String fsType) {
-    this.fsType = fsType;
-    return (A) this;
-  }
-  
-  public boolean hasFsType() {
-    return this.fsType != null;
-  }
-  
-  public Integer getPartition() {
-    return this.partition;
-  }
-  
-  public A withPartition(Integer partition) {
-    this.partition = partition;
-    return (A) this;
-  }
-  
-  public boolean hasPartition() {
-    return this.partition != null;
-  }
-  
-  public String getPdName() {
-    return this.pdName;
-  }
-  
-  public A withPdName(String pdName) {
-    this.pdName = pdName;
-    return (A) this;
-  }
-  
-  public boolean hasPdName() {
-    return this.pdName != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
   }
   
   public boolean equals(Object o) {
@@ -111,6 +61,38 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.clien
       return false;
     }
     return true;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public Integer getPartition() {
+    return this.partition;
+  }
+  
+  public String getPdName() {
+    return this.pdName;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public boolean hasPartition() {
+    return this.partition != null;
+  }
+  
+  public boolean hasPdName() {
+    return this.pdName != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
   }
   
   public int hashCode() {
@@ -143,9 +125,28 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public A withPartition(Integer partition) {
+    this.partition = partition;
+    return (A) this;
+  }
+  
+  public A withPdName(String pdName) {
+    this.pdName = pdName;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
 }

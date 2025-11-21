@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerStateRunningFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateRunningFluent<A>> extends BaseFluent<A>{
+
+  private OffsetDateTime startedAt;
+
   public V1ContainerStateRunningFluent() {
   }
   
   public V1ContainerStateRunningFluent(V1ContainerStateRunning instance) {
     this.copyInstance(instance);
   }
-  private OffsetDateTime startedAt;
-  
+
   protected void copyInstance(V1ContainerStateRunning instance) {
     instance = instance != null ? instance : new V1ContainerStateRunning();
     if (instance != null) {
       this.withStartedAt(instance.getStartedAt());
     }
-  }
-  
-  public OffsetDateTime getStartedAt() {
-    return this.startedAt;
-  }
-  
-  public A withStartedAt(OffsetDateTime startedAt) {
-    this.startedAt = startedAt;
-    return (A) this;
-  }
-  
-  public boolean hasStartedAt() {
-    return this.startedAt != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1ContainerStateRunningFluent<A extends io.kubernetes.client.openap
     return true;
   }
   
+  public OffsetDateTime getStartedAt() {
+    return this.startedAt;
+  }
+  
+  public boolean hasStartedAt() {
+    return this.startedAt != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(startedAt);
   }
@@ -73,5 +70,9 @@ public class V1ContainerStateRunningFluent<A extends io.kubernetes.client.openap
     return sb.toString();
   }
   
-
+  public A withStartedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
+    return (A) this;
+  }
+  
 }

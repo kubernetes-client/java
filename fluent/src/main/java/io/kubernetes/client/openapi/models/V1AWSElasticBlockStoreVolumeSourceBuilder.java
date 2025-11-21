@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlockStoreVolumeSourceFluent<V1AWSElasticBlockStoreVolumeSourceBuilder> implements VisitableBuilder<V1AWSElasticBlockStoreVolumeSource,V1AWSElasticBlockStoreVolumeSourceBuilder>{
+
+  V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;
+
   public V1AWSElasticBlockStoreVolumeSourceBuilder() {
     this(new V1AWSElasticBlockStoreVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlock
     this(fluent, new V1AWSElasticBlockStoreVolumeSource());
   }
   
-  public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,V1AWSElasticBlockStoreVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;
   
+  public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,V1AWSElasticBlockStoreVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1AWSElasticBlockStoreVolumeSource build() {
     V1AWSElasticBlockStoreVolumeSource buildable = new V1AWSElasticBlockStoreVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -31,5 +33,4 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlock
     return buildable;
   }
   
-
 }

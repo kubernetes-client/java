@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsFluent<V1UncountedTerminatedPodsBuilder> implements VisitableBuilder<V1UncountedTerminatedPods,V1UncountedTerminatedPodsBuilder>{
+
+  V1UncountedTerminatedPodsFluent<?> fluent;
+
   public V1UncountedTerminatedPodsBuilder() {
     this(new V1UncountedTerminatedPods());
   }
@@ -11,17 +14,16 @@ public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsF
     this(fluent, new V1UncountedTerminatedPods());
   }
   
-  public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPodsFluent<?> fluent,V1UncountedTerminatedPods instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPods instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1UncountedTerminatedPodsFluent<?> fluent;
   
+  public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPodsFluent<?> fluent,V1UncountedTerminatedPods instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1UncountedTerminatedPods build() {
     V1UncountedTerminatedPods buildable = new V1UncountedTerminatedPods();
     buildable.setFailed(fluent.getFailed());
@@ -29,5 +31,4 @@ public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsF
     return buildable;
   }
   
-
 }
