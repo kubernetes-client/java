@@ -630,6 +630,8 @@ public class Yaml {
   public static Object createResource(io.kubernetes.client.openapi.ApiClient client, Reader reader)
       throws IOException, io.kubernetes.client.openapi.ApiException {
     // Load the YAML as a map to extract apiVersion and kind
+    // Note: The getSnakeYaml() method already configures LoaderOptions with appropriate
+    // security settings to prevent YAML bombs and other attacks
     Map<String, Object> data = getSnakeYaml(null).load(reader);
     
     String kind = (String) data.get("kind");
@@ -649,6 +651,8 @@ public class Yaml {
     }
 
     // Load the YAML into the strongly typed object
+    // Note: This double-loading approach (first as Map, then as typed object) follows the
+    // design recommended in the issue discussion to properly handle type determination
     Object resource = loadAs(new StringReader(getSnakeYaml(clazz).dump(data)), clazz);
 
     // Ensure the resource is a KubernetesObject
@@ -703,6 +707,7 @@ public class Yaml {
       // For namespaced resources
       String namespace = k8sObject.getMetadata().getNamespace();
       if (namespace == null || namespace.isEmpty()) {
+        // Default to "default" namespace, matching kubectl behavior
         namespace = "default";
       }
       response = api.create(namespace, k8sObject, new io.kubernetes.client.util.generic.options.CreateOptions());
