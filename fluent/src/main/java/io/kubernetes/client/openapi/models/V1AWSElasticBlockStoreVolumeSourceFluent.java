@@ -1,30 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String fsType;
+  private Integer partition;
+  private Boolean readOnly;
+  private String volumeID;
+
   public V1AWSElasticBlockStoreVolumeSourceFluent() {
   }
   
   public V1AWSElasticBlockStoreVolumeSourceFluent(V1AWSElasticBlockStoreVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String fsType;
-  private Integer partition;
-  private Boolean readOnly;
-  private String volumeID;
-  
+
   protected void copyInstance(V1AWSElasticBlockStoreVolumeSource instance) {
     instance = instance != null ? instance : new V1AWSElasticBlockStoreVolumeSource();
     if (instance != null) {
@@ -33,58 +35,6 @@ public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.cl
         this.withReadOnly(instance.getReadOnly());
         this.withVolumeID(instance.getVolumeID());
     }
-  }
-  
-  public String getFsType() {
-    return this.fsType;
-  }
-  
-  public A withFsType(String fsType) {
-    this.fsType = fsType;
-    return (A) this;
-  }
-  
-  public boolean hasFsType() {
-    return this.fsType != null;
-  }
-  
-  public Integer getPartition() {
-    return this.partition;
-  }
-  
-  public A withPartition(Integer partition) {
-    this.partition = partition;
-    return (A) this;
-  }
-  
-  public boolean hasPartition() {
-    return this.partition != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public String getVolumeID() {
-    return this.volumeID;
-  }
-  
-  public A withVolumeID(String volumeID) {
-    this.volumeID = volumeID;
-    return (A) this;
-  }
-  
-  public boolean hasVolumeID() {
-    return this.volumeID != null;
   }
   
   public boolean equals(Object o) {
@@ -111,6 +61,38 @@ public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.cl
       return false;
     }
     return true;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public Integer getPartition() {
+    return this.partition;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public String getVolumeID() {
+    return this.volumeID;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public boolean hasPartition() {
+    return this.partition != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasVolumeID() {
+    return this.volumeID != null;
   }
   
   public int hashCode() {
@@ -143,9 +125,28 @@ public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.cl
     return sb.toString();
   }
   
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public A withPartition(Integer partition) {
+    this.partition = partition;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withVolumeID(String volumeID) {
+    this.volumeID = volumeID;
+    return (A) this;
+  }
+  
 }

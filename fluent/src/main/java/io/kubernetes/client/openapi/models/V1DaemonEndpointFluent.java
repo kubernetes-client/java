@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<A>> extends BaseFluent<A>{
+
+  private Integer port;
+
   public V1DaemonEndpointFluent() {
   }
   
   public V1DaemonEndpointFluent(V1DaemonEndpoint instance) {
     this.copyInstance(instance);
   }
-  private Integer port;
-  
+
   protected void copyInstance(V1DaemonEndpoint instance) {
     instance = instance != null ? instance : new V1DaemonEndpoint();
     if (instance != null) {
       this.withPort(instance.getPort());
     }
-  }
-  
-  public Integer getPort() {
-    return this.port;
-  }
-  
-  public A withPort(Integer port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.model
     return true;
   }
   
+  public Integer getPort() {
+    return this.port;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(port);
   }
@@ -73,5 +70,9 @@ public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
-
+  public A withPort(Integer port) {
+    this.port = port;
+    return (A) this;
+  }
+  
 }

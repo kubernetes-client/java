@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskVolumeSourceFluent<V1GCEPersistentDiskVolumeSourceBuilder> implements VisitableBuilder<V1GCEPersistentDiskVolumeSource,V1GCEPersistentDiskVolumeSourceBuilder>{
+
+  V1GCEPersistentDiskVolumeSourceFluent<?> fluent;
+
   public V1GCEPersistentDiskVolumeSourceBuilder() {
     this(new V1GCEPersistentDiskVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskV
     this(fluent, new V1GCEPersistentDiskVolumeSource());
   }
   
-  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,V1GCEPersistentDiskVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1GCEPersistentDiskVolumeSourceFluent<?> fluent;
   
+  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,V1GCEPersistentDiskVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1GCEPersistentDiskVolumeSource build() {
     V1GCEPersistentDiskVolumeSource buildable = new V1GCEPersistentDiskVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -31,5 +33,4 @@ public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskV
     return buildable;
   }
   
-
 }

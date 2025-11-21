@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1AuditAnnotationBuilder extends V1AuditAnnotationFluent<V1AuditAnnotationBuilder> implements VisitableBuilder<V1AuditAnnotation,V1AuditAnnotationBuilder>{
+
+  V1AuditAnnotationFluent<?> fluent;
+
   public V1AuditAnnotationBuilder() {
     this(new V1AuditAnnotation());
   }
@@ -11,17 +14,16 @@ public class V1AuditAnnotationBuilder extends V1AuditAnnotationFluent<V1AuditAnn
     this(fluent, new V1AuditAnnotation());
   }
   
-  public V1AuditAnnotationBuilder(V1AuditAnnotationFluent<?> fluent,V1AuditAnnotation instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1AuditAnnotationBuilder(V1AuditAnnotation instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1AuditAnnotationFluent<?> fluent;
   
+  public V1AuditAnnotationBuilder(V1AuditAnnotationFluent<?> fluent,V1AuditAnnotation instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1AuditAnnotation build() {
     V1AuditAnnotation buildable = new V1AuditAnnotation();
     buildable.setKey(fluent.getKey());
@@ -29,5 +31,4 @@ public class V1AuditAnnotationBuilder extends V1AuditAnnotationFluent<V1AuditAnn
     return buildable;
   }
   
-
 }

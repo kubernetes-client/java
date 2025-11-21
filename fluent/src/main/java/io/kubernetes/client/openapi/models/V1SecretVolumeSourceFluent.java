@@ -1,58 +1,69 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
-import java.lang.Boolean;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private Integer defaultMode;
+  private ArrayList<V1KeyToPathBuilder> items;
+  private Boolean optional;
+  private String secretName;
+
   public V1SecretVolumeSourceFluent() {
   }
   
   public V1SecretVolumeSourceFluent(V1SecretVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private Integer defaultMode;
-  private ArrayList<V1KeyToPathBuilder> items;
-  private Boolean optional;
-  private String secretName;
-  
-  protected void copyInstance(V1SecretVolumeSource instance) {
-    instance = instance != null ? instance : new V1SecretVolumeSource();
-    if (instance != null) {
-        this.withDefaultMode(instance.getDefaultMode());
-        this.withItems(instance.getItems());
-        this.withOptional(instance.getOptional());
-        this.withSecretName(instance.getSecretName());
+
+  public A addAllToItems(Collection<V1KeyToPath> items) {
+    if (this.items == null) {
+      this.items = new ArrayList();
     }
-  }
-  
-  public Integer getDefaultMode() {
-    return this.defaultMode;
-  }
-  
-  public A withDefaultMode(Integer defaultMode) {
-    this.defaultMode = defaultMode;
+    for (V1KeyToPath item : items) {
+        V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasDefaultMode() {
-    return this.defaultMode != null;
+  public ItemsNested<A> addNewItem() {
+    return new ItemsNested(-1, null);
+  }
+  
+  public ItemsNested<A> addNewItemLike(V1KeyToPath item) {
+    return new ItemsNested(-1, item);
+  }
+  
+  public A addToItems(V1KeyToPath... items) {
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    for (V1KeyToPath item : items) {
+        V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToItems(int index,V1KeyToPath item) {
@@ -70,46 +81,145 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
-  public A setToItems(int index,V1KeyToPath item) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    if (index < 0 || index >= items.size()) {
-        _visitables.get("items").add(builder);
-        items.add(builder);
-    } else {
-        _visitables.get("items").add(builder);
-        items.set(index, builder);
-    }
-    return (A) this;
+  public V1KeyToPath buildFirstItem() {
+    return this.items.get(0).build();
   }
   
-  public A addToItems(V1KeyToPath... items) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    for (V1KeyToPath item : items) {
-        V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-        _visitables.get("items").add(builder);
-        this.items.add(builder);
-    }
-    return (A) this;
+  public V1KeyToPath buildItem(int index) {
+    return this.items.get(index).build();
   }
   
-  public A addAllToItems(Collection<V1KeyToPath> items) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    for (V1KeyToPath item : items) {
-        V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-        _visitables.get("items").add(builder);
-        this.items.add(builder);
-    }
-    return (A) this;
+  public List<V1KeyToPath> buildItems() {
+    return this.items != null ? build(items) : null;
   }
   
-  public A removeFromItems(V1KeyToPath... items) {
+  public V1KeyToPath buildLastItem() {
+    return this.items.get(items.size() - 1).build();
+  }
+  
+  public V1KeyToPath buildMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
+      for (V1KeyToPathBuilder item : items) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  protected void copyInstance(V1SecretVolumeSource instance) {
+    instance = instance != null ? instance : new V1SecretVolumeSource();
+    if (instance != null) {
+        this.withDefaultMode(instance.getDefaultMode());
+        this.withItems(instance.getItems());
+        this.withOptional(instance.getOptional());
+        this.withSecretName(instance.getSecretName());
+    }
+  }
+  
+  public ItemsNested<A> editFirstItem() {
+    if (items.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "items"));
+    }
+    return this.setNewItemLike(0, this.buildItem(0));
+  }
+  
+  public ItemsNested<A> editItem(int index) {
+    if (items.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
+  }
+  
+  public ItemsNested<A> editLastItem() {
+    int index = items.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
+  }
+  
+  public ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < items.size();i++) {
+      if (predicate.test(items.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1SecretVolumeSourceFluent that = (V1SecretVolumeSourceFluent) o;
+    if (!(Objects.equals(defaultMode, that.defaultMode))) {
+      return false;
+    }
+    if (!(Objects.equals(items, that.items))) {
+      return false;
+    }
+    if (!(Objects.equals(optional, that.optional))) {
+      return false;
+    }
+    if (!(Objects.equals(secretName, that.secretName))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public Integer getDefaultMode() {
+    return this.defaultMode;
+  }
+  
+  public Boolean getOptional() {
+    return this.optional;
+  }
+  
+  public String getSecretName() {
+    return this.secretName;
+  }
+  
+  public boolean hasDefaultMode() {
+    return this.defaultMode != null;
+  }
+  
+  public boolean hasItems() {
+    return this.items != null && !(this.items.isEmpty());
+  }
+  
+  public boolean hasMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
+      for (V1KeyToPathBuilder item : items) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasOptional() {
+    return this.optional != null;
+  }
+  
+  public boolean hasSecretName() {
+    return this.secretName != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(defaultMode, items, optional, secretName);
+  }
+  
+  public A removeAllFromItems(Collection<V1KeyToPath> items) {
     if (this.items == null) {
       return (A) this;
     }
@@ -121,7 +231,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
-  public A removeAllFromItems(Collection<V1KeyToPath> items) {
+  public A removeFromItems(V1KeyToPath... items) {
     if (this.items == null) {
       return (A) this;
     }
@@ -149,38 +259,54 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
-  public List<V1KeyToPath> buildItems() {
-    return this.items != null ? build(items) : null;
+  public ItemsNested<A> setNewItemLike(int index,V1KeyToPath item) {
+    return new ItemsNested(index, item);
   }
   
-  public V1KeyToPath buildItem(int index) {
-    return this.items.get(index).build();
+  public A setToItems(int index,V1KeyToPath item) {
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
+    return (A) this;
   }
   
-  public V1KeyToPath buildFirstItem() {
-    return this.items.get(0).build();
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(defaultMode == null)) {
+        sb.append("defaultMode:");
+        sb.append(defaultMode);
+        sb.append(",");
+    }
+    if (!(items == null) && !(items.isEmpty())) {
+        sb.append("items:");
+        sb.append(items);
+        sb.append(",");
+    }
+    if (!(optional == null)) {
+        sb.append("optional:");
+        sb.append(optional);
+        sb.append(",");
+    }
+    if (!(secretName == null)) {
+        sb.append("secretName:");
+        sb.append(secretName);
+    }
+    sb.append("}");
+    return sb.toString();
   }
   
-  public V1KeyToPath buildLastItem() {
-    return this.items.get(items.size() - 1).build();
-  }
-  
-  public V1KeyToPath buildMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
-      for (V1KeyToPathBuilder item : items) {
-        if (predicate.test(item)) {
-          return item.build();
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
-      for (V1KeyToPathBuilder item : items) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public A withDefaultMode(Integer defaultMode) {
+    this.defaultMode = defaultMode;
+    return (A) this;
   }
   
   public A withItems(List<V1KeyToPath> items) {
@@ -211,60 +337,8 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
-  public boolean hasItems() {
-    return this.items != null && !(this.items.isEmpty());
-  }
-  
-  public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
-  }
-  
-  public ItemsNested<A> addNewItemLike(V1KeyToPath item) {
-    return new ItemsNested(-1, item);
-  }
-  
-  public ItemsNested<A> setNewItemLike(int index,V1KeyToPath item) {
-    return new ItemsNested(index, item);
-  }
-  
-  public ItemsNested<A> editItem(int index) {
-    if (index <= items.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "items"));
-    }
-    return this.setNewItemLike(index, this.buildItem(index));
-  }
-  
-  public ItemsNested<A> editFirstItem() {
-    if (items.size() == 0) {
-      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "items"));
-    }
-    return this.setNewItemLike(0, this.buildItem(0));
-  }
-  
-  public ItemsNested<A> editLastItem() {
-    int index = items.size() - 1;
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "items"));
-    }
-    return this.setNewItemLike(index, this.buildItem(index));
-  }
-  
-  public ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
-    int index = -1;
-    for (int i = 0;i < items.size();i++) {
-      if (predicate.test(items.get(i))) {
-          index = i;
-          break;
-      }
-    }
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "items"));
-    }
-    return this.setNewItemLike(index, this.buildItem(index));
-  }
-  
-  public Boolean getOptional() {
-    return this.optional;
+  public A withOptional() {
+    return withOptional(true);
   }
   
   public A withOptional(Boolean optional) {
@@ -272,90 +346,20 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
-  public boolean hasOptional() {
-    return this.optional != null;
-  }
-  
-  public String getSecretName() {
-    return this.secretName;
-  }
-  
   public A withSecretName(String secretName) {
     this.secretName = secretName;
     return (A) this;
   }
-  
-  public boolean hasSecretName() {
-    return this.secretName != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1SecretVolumeSourceFluent that = (V1SecretVolumeSourceFluent) o;
-    if (!(Objects.equals(defaultMode, that.defaultMode))) {
-      return false;
-    }
-    if (!(Objects.equals(items, that.items))) {
-      return false;
-    }
-    if (!(Objects.equals(optional, that.optional))) {
-      return false;
-    }
-    if (!(Objects.equals(secretName, that.secretName))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(defaultMode, items, optional, secretName);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(defaultMode == null)) {
-        sb.append("defaultMode:");
-        sb.append(defaultMode);
-        sb.append(",");
-    }
-    if (!(items == null) && !(items.isEmpty())) {
-        sb.append("items:");
-        sb.append(items);
-        sb.append(",");
-    }
-    if (!(optional == null)) {
-        sb.append("optional:");
-        sb.append(optional);
-        sb.append(",");
-    }
-    if (!(secretName == null)) {
-        sb.append("secretName:");
-        sb.append(secretName);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
-  
-  public A withOptional() {
-    return withOptional(true);
-  }
   public class ItemsNested<N> extends V1KeyToPathFluent<ItemsNested<N>> implements Nested<N>{
+  
+    V1KeyToPathBuilder builder;
+    int index;
+  
     ItemsNested(int index,V1KeyToPath item) {
       this.index = index;
       this.builder = new V1KeyToPathBuilder(this, item);
     }
-    V1KeyToPathBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1SecretVolumeSourceFluent.this.setToItems(index, builder.build());
     }
@@ -364,7 +368,5 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
-
 }

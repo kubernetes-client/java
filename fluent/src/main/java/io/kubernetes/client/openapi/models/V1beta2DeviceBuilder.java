@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1beta2DeviceBuilder extends V1beta2DeviceFluent<V1beta2DeviceBuilder> implements VisitableBuilder<V1beta2Device,V1beta2DeviceBuilder>{
+
+  V1beta2DeviceFluent<?> fluent;
+
   public V1beta2DeviceBuilder() {
     this(new V1beta2Device());
   }
@@ -11,17 +14,16 @@ public class V1beta2DeviceBuilder extends V1beta2DeviceFluent<V1beta2DeviceBuild
     this(fluent, new V1beta2Device());
   }
   
-  public V1beta2DeviceBuilder(V1beta2DeviceFluent<?> fluent,V1beta2Device instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1beta2DeviceBuilder(V1beta2Device instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1beta2DeviceFluent<?> fluent;
   
+  public V1beta2DeviceBuilder(V1beta2DeviceFluent<?> fluent,V1beta2Device instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1beta2Device build() {
     V1beta2Device buildable = new V1beta2Device();
     buildable.setAllNodes(fluent.getAllNodes());
@@ -39,5 +41,4 @@ public class V1beta2DeviceBuilder extends V1beta2DeviceFluent<V1beta2DeviceBuild
     return buildable;
   }
   
-
 }

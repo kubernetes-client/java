@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.models.V1SeccompProfileFluent<A>> extends BaseFluent<A>{
+
+  private String localhostProfile;
+  private String type;
+
   public V1SeccompProfileFluent() {
   }
   
   public V1SeccompProfileFluent(V1SeccompProfile instance) {
     this.copyInstance(instance);
   }
-  private String localhostProfile;
-  private String type;
-  
+
   protected void copyInstance(V1SeccompProfile instance) {
     instance = instance != null ? instance : new V1SeccompProfile();
     if (instance != null) {
         this.withLocalhostProfile(instance.getLocalhostProfile());
         this.withType(instance.getType());
     }
-  }
-  
-  public String getLocalhostProfile() {
-    return this.localhostProfile;
-  }
-  
-  public A withLocalhostProfile(String localhostProfile) {
-    this.localhostProfile = localhostProfile;
-    return (A) this;
-  }
-  
-  public boolean hasLocalhostProfile() {
-    return this.localhostProfile != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.model
     return true;
   }
   
+  public String getLocalhostProfile() {
+    return this.localhostProfile;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasLocalhostProfile() {
+    return this.localhostProfile != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(localhostProfile, type);
   }
@@ -95,5 +87,14 @@ public class V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
-
+  public A withLocalhostProfile(String localhostProfile) {
+    this.localhostProfile = localhostProfile;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

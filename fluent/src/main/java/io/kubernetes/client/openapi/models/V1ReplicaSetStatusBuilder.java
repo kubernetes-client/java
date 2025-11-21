@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ReplicaSetStatusBuilder extends V1ReplicaSetStatusFluent<V1ReplicaSetStatusBuilder> implements VisitableBuilder<V1ReplicaSetStatus,V1ReplicaSetStatusBuilder>{
+
+  V1ReplicaSetStatusFluent<?> fluent;
+
   public V1ReplicaSetStatusBuilder() {
     this(new V1ReplicaSetStatus());
   }
@@ -11,17 +14,16 @@ public class V1ReplicaSetStatusBuilder extends V1ReplicaSetStatusFluent<V1Replic
     this(fluent, new V1ReplicaSetStatus());
   }
   
-  public V1ReplicaSetStatusBuilder(V1ReplicaSetStatusFluent<?> fluent,V1ReplicaSetStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ReplicaSetStatusBuilder(V1ReplicaSetStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ReplicaSetStatusFluent<?> fluent;
   
+  public V1ReplicaSetStatusBuilder(V1ReplicaSetStatusFluent<?> fluent,V1ReplicaSetStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ReplicaSetStatus build() {
     V1ReplicaSetStatus buildable = new V1ReplicaSetStatus();
     buildable.setAvailableReplicas(fluent.getAvailableReplicas());
@@ -34,5 +36,4 @@ public class V1ReplicaSetStatusBuilder extends V1ReplicaSetStatusFluent<V1Replic
     return buildable;
   }
   
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ComponentStatusListBuilder extends V1ComponentStatusListFluent<V1ComponentStatusListBuilder> implements VisitableBuilder<V1ComponentStatusList,V1ComponentStatusListBuilder>{
+
+  V1ComponentStatusListFluent<?> fluent;
+
   public V1ComponentStatusListBuilder() {
     this(new V1ComponentStatusList());
   }
@@ -11,17 +14,16 @@ public class V1ComponentStatusListBuilder extends V1ComponentStatusListFluent<V1
     this(fluent, new V1ComponentStatusList());
   }
   
-  public V1ComponentStatusListBuilder(V1ComponentStatusListFluent<?> fluent,V1ComponentStatusList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ComponentStatusListBuilder(V1ComponentStatusList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ComponentStatusListFluent<?> fluent;
   
+  public V1ComponentStatusListBuilder(V1ComponentStatusListFluent<?> fluent,V1ComponentStatusList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ComponentStatusList build() {
     V1ComponentStatusList buildable = new V1ComponentStatusList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1ComponentStatusListBuilder extends V1ComponentStatusListFluent<V1
     return buildable;
   }
   
-
 }

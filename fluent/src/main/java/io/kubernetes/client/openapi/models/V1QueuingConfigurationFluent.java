@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1QueuingConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private Integer handSize;
+  private Integer queueLengthLimit;
+  private Integer queues;
+
   public V1QueuingConfigurationFluent() {
   }
   
   public V1QueuingConfigurationFluent(V1QueuingConfiguration instance) {
     this.copyInstance(instance);
   }
-  private Integer handSize;
-  private Integer queueLengthLimit;
-  private Integer queues;
-  
+
   protected void copyInstance(V1QueuingConfiguration instance) {
     instance = instance != null ? instance : new V1QueuingConfiguration();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi
         this.withQueueLengthLimit(instance.getQueueLengthLimit());
         this.withQueues(instance.getQueues());
     }
-  }
-  
-  public Integer getHandSize() {
-    return this.handSize;
-  }
-  
-  public A withHandSize(Integer handSize) {
-    this.handSize = handSize;
-    return (A) this;
-  }
-  
-  public boolean hasHandSize() {
-    return this.handSize != null;
-  }
-  
-  public Integer getQueueLengthLimit() {
-    return this.queueLengthLimit;
-  }
-  
-  public A withQueueLengthLimit(Integer queueLengthLimit) {
-    this.queueLengthLimit = queueLengthLimit;
-    return (A) this;
-  }
-  
-  public boolean hasQueueLengthLimit() {
-    return this.queueLengthLimit != null;
-  }
-  
-  public Integer getQueues() {
-    return this.queues;
-  }
-  
-  public A withQueues(Integer queues) {
-    this.queues = queues;
-    return (A) this;
-  }
-  
-  public boolean hasQueues() {
-    return this.queues != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi
       return false;
     }
     return true;
+  }
+  
+  public Integer getHandSize() {
+    return this.handSize;
+  }
+  
+  public Integer getQueueLengthLimit() {
+    return this.queueLengthLimit;
+  }
+  
+  public Integer getQueues() {
+    return this.queues;
+  }
+  
+  public boolean hasHandSize() {
+    return this.handSize != null;
+  }
+  
+  public boolean hasQueueLengthLimit() {
+    return this.queueLengthLimit != null;
+  }
+  
+  public boolean hasQueues() {
+    return this.queues != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi
     return sb.toString();
   }
   
-
+  public A withHandSize(Integer handSize) {
+    this.handSize = handSize;
+    return (A) this;
+  }
+  
+  public A withQueueLengthLimit(Integer queueLengthLimit) {
+    this.queueLengthLimit = queueLengthLimit;
+    return (A) this;
+  }
+  
+  public A withQueues(Integer queues) {
+    this.queues = queues;
+    return (A) this;
+  }
+  
 }

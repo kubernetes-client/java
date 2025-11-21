@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1LeaseListBuilder extends V1LeaseListFluent<V1LeaseListBuilder> implements VisitableBuilder<V1LeaseList,V1LeaseListBuilder>{
+
+  V1LeaseListFluent<?> fluent;
+
   public V1LeaseListBuilder() {
     this(new V1LeaseList());
   }
@@ -11,17 +14,16 @@ public class V1LeaseListBuilder extends V1LeaseListFluent<V1LeaseListBuilder> im
     this(fluent, new V1LeaseList());
   }
   
-  public V1LeaseListBuilder(V1LeaseListFluent<?> fluent,V1LeaseList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1LeaseListBuilder(V1LeaseList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1LeaseListFluent<?> fluent;
   
+  public V1LeaseListBuilder(V1LeaseListFluent<?> fluent,V1LeaseList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1LeaseList build() {
     V1LeaseList buildable = new V1LeaseList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1LeaseListBuilder extends V1LeaseListFluent<V1LeaseListBuilder> im
     return buildable;
   }
   
-
 }

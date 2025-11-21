@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1StatusCauseBuilder extends V1StatusCauseFluent<V1StatusCauseBuilder> implements VisitableBuilder<V1StatusCause,V1StatusCauseBuilder>{
+
+  V1StatusCauseFluent<?> fluent;
+
   public V1StatusCauseBuilder() {
     this(new V1StatusCause());
   }
@@ -11,17 +14,16 @@ public class V1StatusCauseBuilder extends V1StatusCauseFluent<V1StatusCauseBuild
     this(fluent, new V1StatusCause());
   }
   
-  public V1StatusCauseBuilder(V1StatusCauseFluent<?> fluent,V1StatusCause instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1StatusCauseBuilder(V1StatusCause instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1StatusCauseFluent<?> fluent;
   
+  public V1StatusCauseBuilder(V1StatusCauseFluent<?> fluent,V1StatusCause instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1StatusCause build() {
     V1StatusCause buildable = new V1StatusCause();
     buildable.setField(fluent.getField());
@@ -30,5 +32,4 @@ public class V1StatusCauseBuilder extends V1StatusCauseFluent<V1StatusCauseBuild
     return buildable;
   }
   
-
 }

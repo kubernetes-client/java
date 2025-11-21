@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
 import io.kubernetes.client.custom.IntOrString;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<A>> extends BaseFluent<A>{
+
+  private Integer endPort;
+  private IntOrString port;
+  private String protocol;
+
   public V1NetworkPolicyPortFluent() {
   }
   
   public V1NetworkPolicyPortFluent(V1NetworkPolicyPort instance) {
     this.copyInstance(instance);
   }
-  private Integer endPort;
-  private IntOrString port;
-  private String protocol;
-  
+
   protected void copyInstance(V1NetworkPolicyPort instance) {
     instance = instance != null ? instance : new V1NetworkPolicyPort();
     if (instance != null) {
@@ -31,53 +33,6 @@ public class V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openapi.mo
         this.withPort(instance.getPort());
         this.withProtocol(instance.getProtocol());
     }
-  }
-  
-  public Integer getEndPort() {
-    return this.endPort;
-  }
-  
-  public A withEndPort(Integer endPort) {
-    this.endPort = endPort;
-    return (A) this;
-  }
-  
-  public boolean hasEndPort() {
-    return this.endPort != null;
-  }
-  
-  public IntOrString getPort() {
-    return this.port;
-  }
-  
-  public A withPort(IntOrString port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
-  }
-  
-  public A withNewPort(int value) {
-    return (A) this.withPort(new IntOrString(value));
-  }
-  
-  public A withNewPort(String value) {
-    return (A) this.withPort(new IntOrString(value));
-  }
-  
-  public String getProtocol() {
-    return this.protocol;
-  }
-  
-  public A withProtocol(String protocol) {
-    this.protocol = protocol;
-    return (A) this;
-  }
-  
-  public boolean hasProtocol() {
-    return this.protocol != null;
   }
   
   public boolean equals(Object o) {
@@ -101,6 +56,30 @@ public class V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openapi.mo
       return false;
     }
     return true;
+  }
+  
+  public Integer getEndPort() {
+    return this.endPort;
+  }
+  
+  public IntOrString getPort() {
+    return this.port;
+  }
+  
+  public String getProtocol() {
+    return this.protocol;
+  }
+  
+  public boolean hasEndPort() {
+    return this.endPort != null;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
+  public boolean hasProtocol() {
+    return this.protocol != null;
   }
   
   public int hashCode() {
@@ -128,5 +107,27 @@ public class V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withEndPort(Integer endPort) {
+    this.endPort = endPort;
+    return (A) this;
+  }
+  
+  public A withNewPort(int value) {
+    return (A) this.withPort(new IntOrString(value));
+  }
+  
+  public A withNewPort(String value) {
+    return (A) this.withPort(new IntOrString(value));
+  }
+  
+  public A withPort(IntOrString port) {
+    this.port = port;
+    return (A) this;
+  }
+  
+  public A withProtocol(String protocol) {
+    this.protocol = protocol;
+    return (A) this;
+  }
+  
 }

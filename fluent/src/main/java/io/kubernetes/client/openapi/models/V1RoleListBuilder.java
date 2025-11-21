@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1RoleListBuilder extends V1RoleListFluent<V1RoleListBuilder> implements VisitableBuilder<V1RoleList,V1RoleListBuilder>{
+
+  V1RoleListFluent<?> fluent;
+
   public V1RoleListBuilder() {
     this(new V1RoleList());
   }
@@ -11,17 +14,16 @@ public class V1RoleListBuilder extends V1RoleListFluent<V1RoleListBuilder> imple
     this(fluent, new V1RoleList());
   }
   
-  public V1RoleListBuilder(V1RoleListFluent<?> fluent,V1RoleList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1RoleListBuilder(V1RoleList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1RoleListFluent<?> fluent;
   
+  public V1RoleListBuilder(V1RoleListFluent<?> fluent,V1RoleList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1RoleList build() {
     V1RoleList buildable = new V1RoleList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1RoleListBuilder extends V1RoleListFluent<V1RoleListBuilder> imple
     return buildable;
   }
   
-
 }

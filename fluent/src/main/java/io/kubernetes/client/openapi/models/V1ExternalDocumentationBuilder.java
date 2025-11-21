@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluent<V1ExternalDocumentationBuilder> implements VisitableBuilder<V1ExternalDocumentation,V1ExternalDocumentationBuilder>{
+
+  V1ExternalDocumentationFluent<?> fluent;
+
   public V1ExternalDocumentationBuilder() {
     this(new V1ExternalDocumentation());
   }
@@ -11,17 +14,16 @@ public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluen
     this(fluent, new V1ExternalDocumentation());
   }
   
-  public V1ExternalDocumentationBuilder(V1ExternalDocumentationFluent<?> fluent,V1ExternalDocumentation instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ExternalDocumentationBuilder(V1ExternalDocumentation instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ExternalDocumentationFluent<?> fluent;
   
+  public V1ExternalDocumentationBuilder(V1ExternalDocumentationFluent<?> fluent,V1ExternalDocumentation instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ExternalDocumentation build() {
     V1ExternalDocumentation buildable = new V1ExternalDocumentation();
     buildable.setDescription(fluent.getDescription());
@@ -29,5 +31,4 @@ public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluen
     return buildable;
   }
   
-
 }

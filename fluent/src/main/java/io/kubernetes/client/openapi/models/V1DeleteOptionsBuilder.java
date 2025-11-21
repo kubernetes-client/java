@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluent<V1DeleteOptionsBuilder> implements VisitableBuilder<V1DeleteOptions,V1DeleteOptionsBuilder>{
+
+  V1DeleteOptionsFluent<?> fluent;
+
   public V1DeleteOptionsBuilder() {
     this(new V1DeleteOptions());
   }
@@ -11,17 +14,16 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluent<V1DeleteOption
     this(fluent, new V1DeleteOptions());
   }
   
-  public V1DeleteOptionsBuilder(V1DeleteOptionsFluent<?> fluent,V1DeleteOptions instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DeleteOptionsBuilder(V1DeleteOptions instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DeleteOptionsFluent<?> fluent;
   
+  public V1DeleteOptionsBuilder(V1DeleteOptionsFluent<?> fluent,V1DeleteOptions instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DeleteOptions build() {
     V1DeleteOptions buildable = new V1DeleteOptions();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -35,5 +37,4 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluent<V1DeleteOption
     return buildable;
   }
   
-
 }

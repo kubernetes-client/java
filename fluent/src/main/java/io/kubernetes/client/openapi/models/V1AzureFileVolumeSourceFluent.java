@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private Boolean readOnly;
+  private String secretName;
+  private String shareName;
+
   public V1AzureFileVolumeSourceFluent() {
   }
   
   public V1AzureFileVolumeSourceFluent(V1AzureFileVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private Boolean readOnly;
-  private String secretName;
-  private String shareName;
-  
+
   protected void copyInstance(V1AzureFileVolumeSource instance) {
     instance = instance != null ? instance : new V1AzureFileVolumeSource();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.openap
         this.withSecretName(instance.getSecretName());
         this.withShareName(instance.getShareName());
     }
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public String getSecretName() {
-    return this.secretName;
-  }
-  
-  public A withSecretName(String secretName) {
-    this.secretName = secretName;
-    return (A) this;
-  }
-  
-  public boolean hasSecretName() {
-    return this.secretName != null;
-  }
-  
-  public String getShareName() {
-    return this.shareName;
-  }
-  
-  public A withShareName(String shareName) {
-    this.shareName = shareName;
-    return (A) this;
-  }
-  
-  public boolean hasShareName() {
-    return this.shareName != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.openap
       return false;
     }
     return true;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public String getSecretName() {
+    return this.secretName;
+  }
+  
+  public String getShareName() {
+    return this.shareName;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasSecretName() {
+    return this.secretName != null;
+  }
+  
+  public boolean hasShareName() {
+    return this.shareName != null;
   }
   
   public int hashCode() {
@@ -123,5 +110,19 @@ public class V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.openap
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withSecretName(String secretName) {
+    this.secretName = secretName;
+    return (A) this;
+  }
+  
+  public A withShareName(String shareName) {
+    this.shareName = shareName;
+    return (A) this;
+  }
+  
 }

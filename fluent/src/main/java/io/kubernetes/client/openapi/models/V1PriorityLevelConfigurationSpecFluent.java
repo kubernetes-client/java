@@ -1,28 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationSpecFluent<A>> extends BaseFluent<A>{
+
+  private V1ExemptPriorityLevelConfigurationBuilder exempt;
+  private V1LimitedPriorityLevelConfigurationBuilder limited;
+  private String type;
+
   public V1PriorityLevelConfigurationSpecFluent() {
   }
   
   public V1PriorityLevelConfigurationSpecFluent(V1PriorityLevelConfigurationSpec instance) {
     this.copyInstance(instance);
   }
-  private V1ExemptPriorityLevelConfigurationBuilder exempt;
-  private V1LimitedPriorityLevelConfigurationBuilder limited;
-  private String type;
+
+  public V1ExemptPriorityLevelConfiguration buildExempt() {
+    return this.exempt != null ? this.exempt.build() : null;
+  }
+  
+  public V1LimitedPriorityLevelConfiguration buildLimited() {
+    return this.limited != null ? this.limited.build() : null;
+  }
   
   protected void copyInstance(V1PriorityLevelConfigurationSpec instance) {
     instance = instance != null ? instance : new V1PriorityLevelConfigurationSpec();
@@ -33,36 +43,12 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
     }
   }
   
-  public V1ExemptPriorityLevelConfiguration buildExempt() {
-    return this.exempt != null ? this.exempt.build() : null;
-  }
-  
-  public A withExempt(V1ExemptPriorityLevelConfiguration exempt) {
-    this._visitables.remove("exempt");
-    if (exempt != null) {
-        this.exempt = new V1ExemptPriorityLevelConfigurationBuilder(exempt);
-        this._visitables.get("exempt").add(this.exempt);
-    } else {
-        this.exempt = null;
-        this._visitables.get("exempt").remove(this.exempt);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasExempt() {
-    return this.exempt != null;
-  }
-  
-  public ExemptNested<A> withNewExempt() {
-    return new ExemptNested(null);
-  }
-  
-  public ExemptNested<A> withNewExemptLike(V1ExemptPriorityLevelConfiguration item) {
-    return new ExemptNested(item);
-  }
-  
   public ExemptNested<A> editExempt() {
     return this.withNewExemptLike(Optional.ofNullable(this.buildExempt()).orElse(null));
+  }
+  
+  public LimitedNested<A> editLimited() {
+    return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(null));
   }
   
   public ExemptNested<A> editOrNewExempt() {
@@ -73,57 +59,12 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
     return this.withNewExemptLike(Optional.ofNullable(this.buildExempt()).orElse(item));
   }
   
-  public V1LimitedPriorityLevelConfiguration buildLimited() {
-    return this.limited != null ? this.limited.build() : null;
-  }
-  
-  public A withLimited(V1LimitedPriorityLevelConfiguration limited) {
-    this._visitables.remove("limited");
-    if (limited != null) {
-        this.limited = new V1LimitedPriorityLevelConfigurationBuilder(limited);
-        this._visitables.get("limited").add(this.limited);
-    } else {
-        this.limited = null;
-        this._visitables.get("limited").remove(this.limited);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasLimited() {
-    return this.limited != null;
-  }
-  
-  public LimitedNested<A> withNewLimited() {
-    return new LimitedNested(null);
-  }
-  
-  public LimitedNested<A> withNewLimitedLike(V1LimitedPriorityLevelConfiguration item) {
-    return new LimitedNested(item);
-  }
-  
-  public LimitedNested<A> editLimited() {
-    return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(null));
-  }
-  
   public LimitedNested<A> editOrNewLimited() {
     return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(new V1LimitedPriorityLevelConfigurationBuilder().build()));
   }
   
   public LimitedNested<A> editOrNewLimitedLike(V1LimitedPriorityLevelConfiguration item) {
     return this.withNewLimitedLike(Optional.ofNullable(this.buildLimited()).orElse(item));
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -147,6 +88,22 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
       return false;
     }
     return true;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasExempt() {
+    return this.exempt != null;
+  }
+  
+  public boolean hasLimited() {
+    return this.limited != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
   }
   
   public int hashCode() {
@@ -173,12 +130,59 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withExempt(V1ExemptPriorityLevelConfiguration exempt) {
+    this._visitables.remove("exempt");
+    if (exempt != null) {
+        this.exempt = new V1ExemptPriorityLevelConfigurationBuilder(exempt);
+        this._visitables.get("exempt").add(this.exempt);
+    } else {
+        this.exempt = null;
+        this._visitables.get("exempt").remove(this.exempt);
+    }
+    return (A) this;
+  }
+  
+  public A withLimited(V1LimitedPriorityLevelConfiguration limited) {
+    this._visitables.remove("limited");
+    if (limited != null) {
+        this.limited = new V1LimitedPriorityLevelConfigurationBuilder(limited);
+        this._visitables.get("limited").add(this.limited);
+    } else {
+        this.limited = null;
+        this._visitables.get("limited").remove(this.limited);
+    }
+    return (A) this;
+  }
+  
+  public ExemptNested<A> withNewExempt() {
+    return new ExemptNested(null);
+  }
+  
+  public ExemptNested<A> withNewExemptLike(V1ExemptPriorityLevelConfiguration item) {
+    return new ExemptNested(item);
+  }
+  
+  public LimitedNested<A> withNewLimited() {
+    return new LimitedNested(null);
+  }
+  
+  public LimitedNested<A> withNewLimitedLike(V1LimitedPriorityLevelConfiguration item) {
+    return new LimitedNested(item);
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
   public class ExemptNested<N> extends V1ExemptPriorityLevelConfigurationFluent<ExemptNested<N>> implements Nested<N>{
+  
+    V1ExemptPriorityLevelConfigurationBuilder builder;
+  
     ExemptNested(V1ExemptPriorityLevelConfiguration item) {
       this.builder = new V1ExemptPriorityLevelConfigurationBuilder(this, item);
     }
-    V1ExemptPriorityLevelConfigurationBuilder builder;
-    
+  
     public N and() {
       return (N) V1PriorityLevelConfigurationSpecFluent.this.withExempt(builder.build());
     }
@@ -187,14 +191,15 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
       return and();
     }
     
-  
   }
   public class LimitedNested<N> extends V1LimitedPriorityLevelConfigurationFluent<LimitedNested<N>> implements Nested<N>{
+  
+    V1LimitedPriorityLevelConfigurationBuilder builder;
+  
     LimitedNested(V1LimitedPriorityLevelConfiguration item) {
       this.builder = new V1LimitedPriorityLevelConfigurationBuilder(this, item);
     }
-    V1LimitedPriorityLevelConfigurationBuilder builder;
-    
+  
     public N and() {
       return (N) V1PriorityLevelConfigurationSpecFluent.this.withLimited(builder.build());
     }
@@ -203,7 +208,5 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
       return and();
     }
     
-  
   }
-
 }
