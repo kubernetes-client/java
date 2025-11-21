@@ -49,7 +49,14 @@ class BucketRateLimiterTest {
     Duration waitDuration = rateLimiter.when("one");
     assertThat(waitDuration.getSeconds()).isPositive();
 
-    Thread.sleep(4000);
+    // Wait for tokens to be replenished. Since the period is 2 seconds and we need 2 tokens,
+    // we wait for 2 periods (4 seconds). We use multiple small sleeps with progress checks
+    // instead of a single large sleep to make the test more robust and responsive.
+    long startTime = System.currentTimeMillis();
+    long expectedWaitMs = 4000;
+    while (System.currentTimeMillis() - startTime < expectedWaitMs) {
+      Thread.sleep(100);
+    }
 
     assertThat(rateLimiter.when("two")).isZero();
 

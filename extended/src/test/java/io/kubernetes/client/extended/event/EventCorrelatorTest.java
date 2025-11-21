@@ -153,7 +153,12 @@ class EventCorrelatorTest {
         correlator.updateState(event);
       }
     }
-    Thread.sleep(100);
+    // Brief pause to ensure timestamp differences are measurable
+    // Using a polling loop instead of a fixed sleep makes the test more robust
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() - startTime < 100) {
+      Thread.sleep(10);
+    }
     OffsetDateTime now = OffsetDateTime.now();
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);

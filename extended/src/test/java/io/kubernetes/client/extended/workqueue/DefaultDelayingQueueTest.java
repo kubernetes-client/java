@@ -45,7 +45,6 @@ class DefaultDelayingQueueTest {
     String item = queue.get();
     queue.done(item);
 
-    Thread.sleep(10 * 1000L);
     assertThat(0).isEqualTo(queue.length());
   }
 

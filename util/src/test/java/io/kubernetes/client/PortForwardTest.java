@@ -35,6 +35,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -168,10 +169,12 @@ class PortForwardTest {
     handler.bytesMessage(makeStream(new byte[] {66}, msgData.getBytes(StandardCharsets.UTF_8)));
 
     final Object block = new Object();
+    CountDownLatch initStarted = new CountDownLatch(1);
     Thread t =
         new Thread(
             () -> {
               try {
+                initStarted.countDown();
                 result.init();
               } catch (IOException ex) {
                 thrownException = ex;
@@ -183,7 +186,9 @@ class PortForwardTest {
             });
     synchronized (block) {
       t.start();
-      Thread.sleep(2000);
+      initStarted.await();
+      // Give init() a moment to process the message
+      Thread.yield();
       handler.close();
       block.wait();
     }
