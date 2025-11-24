@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Java
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.PAT_TOKEN }}
       - name: Setup Java
@@ -39,7 +39,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17.0.x
       - name: Checkout Gen
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: gen
           repository: kubernetes-client/gen
@@ -73,12 +73,22 @@ jobs:
 
           USE_SINGLE_PARAMETER=true bash java.sh ../../kubernetes/ settings
           popd
-          rm -rf gen
           git config user.email "k8s-publishing-bot@users.noreply.github.com"
           git config user.name "Kubernetes Publisher"
           git checkout -b "$BRANCH"
           git add .
           git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
+      - name: Generate Proto
+        run: |
+          pushd gen/proto
+          # Download proto dependencies for the specified Kubernetes branch
+          bash dependencies.sh "${{ github.event.inputs.kubernetesBranch }}"
+          # Generate Java proto classes
+          bash generate.sh java ../../proto/src/main/java/
+          popd
+          rm -rf gen
+          git add proto/
+          git commit -s -m 'Automated proto generation from ${{ github.event.inputs.kubernetesBranch }}'
       - name: Apply Manual Diffs
         if: ${{ github.event.inputs.skip_patches != 'true' }}
         run: |

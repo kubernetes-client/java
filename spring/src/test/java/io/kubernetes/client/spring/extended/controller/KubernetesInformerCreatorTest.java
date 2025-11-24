@@ -16,7 +16,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -123,7 +122,7 @@ class KubernetesInformerCreatorTest {
             .metadata(new V1ObjectMeta().namespace("default").name("bar1"));
 
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/pods.*"))
+        get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -135,13 +134,13 @@ class KubernetesInformerCreatorTest {
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Collections.singletonList(foo1))))));
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/pods.*"))
+        get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
 
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -153,7 +152,7 @@ class KubernetesInformerCreatorTest {
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Collections.singletonList(bar1))))));
     apiServer.stubFor(
-        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
