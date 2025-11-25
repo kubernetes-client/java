@@ -28,6 +28,8 @@ jobs:
           echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-legacy-SNAPSHOT$/'
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
       - name: Check Actor
         run: |
           # Release actor should be in the OWNER list
@@ -89,7 +91,7 @@ jobs:
         with:
           source_branch: automated-release-${{ github.event.inputs.releaseVersion }}
           destination_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           pr_title: "Automated Release: ${{ github.event.inputs.releaseVersion }}"
       - name: Publish Release
         if: ${{ github.event.inputs.dry-run != 'true' }}
