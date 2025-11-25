@@ -8,6 +8,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>prometheus-operator-models</name>
     <artifactId>client-java-prometheus-operator-models</artifactId>
     <version>25.0.0-legacy-SNAPSHOT</version>
     <dependencies>
@@ -26,6 +27,10 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
