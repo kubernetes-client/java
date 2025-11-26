@@ -629,10 +629,19 @@ public class Yaml {
    */
   public static Object createResource(io.kubernetes.client.openapi.ApiClient client, Reader reader)
       throws IOException, io.kubernetes.client.openapi.ApiException {
+    // Read the entire content into a string first so we can parse it twice
+    StringBuilder sb = new StringBuilder();
+    char[] buffer = new char[8192];
+    int read;
+    while ((read = reader.read(buffer)) != -1) {
+      sb.append(buffer, 0, read);
+    }
+    String yamlContent = sb.toString();
+
     // Load the YAML as a map to extract apiVersion and kind
     // Note: The getSnakeYaml() method already configures LoaderOptions with appropriate
     // security settings to prevent YAML bombs and other attacks
-    Map<String, Object> data = getSnakeYaml(null).load(reader);
+    Map<String, Object> data = getSnakeYaml(null).load(new StringReader(yamlContent));
     
     String kind = (String) data.get("kind");
     if (kind == null) {
@@ -650,10 +659,8 @@ public class Yaml {
           "Unknown apiVersion/kind: " + apiVersion + "/" + kind + ". Is it registered?");
     }
 
-    // Load the YAML into the strongly typed object
-    // Note: This double-loading approach (first as Map, then as typed object) follows the
-    // design recommended in the issue discussion to properly handle type determination
-    Object resource = loadAs(new StringReader(getSnakeYaml(clazz).dump(data)), clazz);
+    // Load the YAML into the strongly typed object using the same content
+    Object resource = loadAs(new StringReader(yamlContent), clazz);
 
     // Ensure the resource is a KubernetesObject
     if (!(resource instanceof io.kubernetes.client.common.KubernetesObject)) {
