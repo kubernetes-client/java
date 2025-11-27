@@ -194,9 +194,18 @@ class KubernetesReconcilerCreatorTest {
               }
             });
 
-    Thread.sleep(500);
-
+    // Wait for the work queue to be populated using a polling mechanism with timeout
     WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
+    long deadline = System.currentTimeMillis() + 2000; // 2 second timeout
+    while (workQueue.length() == 0 && System.currentTimeMillis() < deadline) {
+      try {
+        Thread.sleep(50);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw e;
+      }
+    }
+
     assertThat(workQueue.length()).isEqualTo(1);
     assertThat(workQueue.get().getName()).isEqualTo("foo");
     sharedInformerFactory.stopAllRegisteredInformers();

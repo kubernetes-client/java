@@ -68,21 +68,25 @@ class SharedProcessorTest {
         new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
     final boolean[] interrupted = {false};
-    CountDownLatch latch = new CountDownLatch(1);
+    CountDownLatch startedLatch = new CountDownLatch(1);
+    CountDownLatch finishedLatch = new CountDownLatch(1);
     slowWorker.setTask(
         () -> {
           try {
-            // sleep 10s so that it could be interrupted by shutdownNow()
-            Thread.sleep(10 * 1000);
+            startedLatch.countDown();
+            // Wait indefinitely so that it can be interrupted by shutdownNow()
+            // This is more reliable than Thread.sleep() as it doesn't depend on timing
+            new CountDownLatch(1).await();
           } catch (InterruptedException e) {
             interrupted[0] = true;
           } finally {
-            latch.countDown();
+            finishedLatch.countDown();
           }
         });
     sharedProcessor.addAndStartListener(slowWorker);
+    startedLatch.await(); // Wait for worker to start
     sharedProcessor.stop();
-    latch.await();
+    finishedLatch.await();
     assertThat(interrupted[0]).isTrue();
   }
 
