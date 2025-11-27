@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1WatchEventBuilder extends V1WatchEventFluent<V1WatchEventBuilder> implements VisitableBuilder<V1WatchEvent,V1WatchEventBuilder>{
+
+  V1WatchEventFluent<?> fluent;
+
   public V1WatchEventBuilder() {
     this(new V1WatchEvent());
   }
@@ -11,17 +14,16 @@ public class V1WatchEventBuilder extends V1WatchEventFluent<V1WatchEventBuilder>
     this(fluent, new V1WatchEvent());
   }
   
-  public V1WatchEventBuilder(V1WatchEventFluent<?> fluent,V1WatchEvent instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1WatchEventBuilder(V1WatchEvent instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1WatchEventFluent<?> fluent;
   
+  public V1WatchEventBuilder(V1WatchEventFluent<?> fluent,V1WatchEvent instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1WatchEvent build() {
     V1WatchEvent buildable = new V1WatchEvent();
     buildable.setObject(fluent.getObject());
@@ -29,5 +31,4 @@ public class V1WatchEventBuilder extends V1WatchEventFluent<V1WatchEventBuilder>
     return buildable;
   }
   
-
 }

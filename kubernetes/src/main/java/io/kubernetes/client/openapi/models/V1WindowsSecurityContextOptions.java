@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,6 +44,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -50,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * WindowsSecurityContextOptions contain Windows-specific options and credentials.
  */
 @ApiModel(description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
   @SerializedName(SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC)
@@ -205,14 +207,10 @@ public class V1WindowsSecurityContextOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("gmsaCredentialSpec");
-    openapiFields.add("gmsaCredentialSpecName");
-    openapiFields.add("hostProcess");
-    openapiFields.add("runAsUserName");
+    openapiFields = new HashSet<String>(Arrays.asList("gmsaCredentialSpec", "gmsaCredentialSpecName", "hostProcess", "runAsUserName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -224,7 +222,7 @@ public class V1WindowsSecurityContextOptions {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1WindowsSecurityContextOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1WindowsSecurityContextOptions is not found in the empty JSON string", V1WindowsSecurityContextOptions.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1WindowsSecurityContextOptions is not found in the empty JSON string", V1WindowsSecurityContextOptions.openapiRequiredFields.toString()));
         }
       }
 
@@ -232,18 +230,18 @@ public class V1WindowsSecurityContextOptions {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1WindowsSecurityContextOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1WindowsSecurityContextOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1WindowsSecurityContextOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gmsaCredentialSpec") != null && !jsonObj.get("gmsaCredentialSpec").isJsonNull()) && !jsonObj.get("gmsaCredentialSpec").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gmsaCredentialSpec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gmsaCredentialSpec").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `gmsaCredentialSpec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gmsaCredentialSpec").toString()));
       }
       if ((jsonObj.get("gmsaCredentialSpecName") != null && !jsonObj.get("gmsaCredentialSpecName").isJsonNull()) && !jsonObj.get("gmsaCredentialSpecName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gmsaCredentialSpecName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gmsaCredentialSpecName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `gmsaCredentialSpecName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gmsaCredentialSpecName").toString()));
       }
       if ((jsonObj.get("runAsUserName") != null && !jsonObj.get("runAsUserName").isJsonNull()) && !jsonObj.get("runAsUserName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `runAsUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runAsUserName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `runAsUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runAsUserName").toString()));
       }
   }
 

@@ -1,34 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.List;
-import java.lang.Boolean;
-import java.util.Optional;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.V1StorageClassFluent<A>> extends BaseFluent<A>{
-  public V1StorageClassFluent() {
-  }
-  
-  public V1StorageClassFluent(V1StorageClass instance) {
-    this.copyInstance(instance);
-  }
+
   private Boolean allowVolumeExpansion;
   private ArrayList<V1TopologySelectorTermBuilder> allowedTopologies;
   private String apiVersion;
@@ -39,34 +34,54 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
   private String provisioner;
   private String reclaimPolicy;
   private String volumeBindingMode;
+
+  public V1StorageClassFluent() {
+  }
   
-  protected void copyInstance(V1StorageClass instance) {
-    instance = instance != null ? instance : new V1StorageClass();
-    if (instance != null) {
-        this.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
-        this.withAllowedTopologies(instance.getAllowedTopologies());
-        this.withApiVersion(instance.getApiVersion());
-        this.withKind(instance.getKind());
-        this.withMetadata(instance.getMetadata());
-        this.withMountOptions(instance.getMountOptions());
-        this.withParameters(instance.getParameters());
-        this.withProvisioner(instance.getProvisioner());
-        this.withReclaimPolicy(instance.getReclaimPolicy());
-        this.withVolumeBindingMode(instance.getVolumeBindingMode());
+  public V1StorageClassFluent(V1StorageClass instance) {
+    this.copyInstance(instance);
+  }
+
+  public A addAllToAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
     }
-  }
-  
-  public Boolean getAllowVolumeExpansion() {
-    return this.allowVolumeExpansion;
-  }
-  
-  public A withAllowVolumeExpansion(Boolean allowVolumeExpansion) {
-    this.allowVolumeExpansion = allowVolumeExpansion;
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").add(builder);
+        this.allowedTopologies.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasAllowVolumeExpansion() {
-    return this.allowVolumeExpansion != null;
+  public A addAllToMountOptions(Collection<String> items) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    for (String item : items) {
+      this.mountOptions.add(item);
+    }
+    return (A) this;
+  }
+  
+  public AllowedTopologiesNested<A> addNewAllowedTopology() {
+    return new AllowedTopologiesNested(-1, null);
+  }
+  
+  public AllowedTopologiesNested<A> addNewAllowedTopologyLike(V1TopologySelectorTerm item) {
+    return new AllowedTopologiesNested(-1, item);
+  }
+  
+  public A addToAllowedTopologies(V1TopologySelectorTerm... items) {
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").add(builder);
+        this.allowedTopologies.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToAllowedTopologies(int index,V1TopologySelectorTerm item) {
@@ -84,81 +99,40 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
     return (A) this;
   }
   
-  public A setToAllowedTopologies(int index,V1TopologySelectorTerm item) {
-    if (this.allowedTopologies == null) {
-      this.allowedTopologies = new ArrayList();
+  public A addToMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
     }
-    V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-    if (index < 0 || index >= allowedTopologies.size()) {
-        _visitables.get("allowedTopologies").add(builder);
-        allowedTopologies.add(builder);
-    } else {
-        _visitables.get("allowedTopologies").add(builder);
-        allowedTopologies.set(index, builder);
+    for (String item : items) {
+      this.mountOptions.add(item);
     }
     return (A) this;
   }
   
-  public A addToAllowedTopologies(V1TopologySelectorTerm... items) {
-    if (this.allowedTopologies == null) {
-      this.allowedTopologies = new ArrayList();
+  public A addToMountOptions(int index,String item) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
     }
-    for (V1TopologySelectorTerm item : items) {
-        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-        _visitables.get("allowedTopologies").add(builder);
-        this.allowedTopologies.add(builder);
+    this.mountOptions.add(index, item);
+    return (A) this;
+  }
+  
+  public A addToParameters(Map<String,String> map) {
+    if (this.parameters == null && map != null) {
+      this.parameters = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.parameters.putAll(map);
     }
     return (A) this;
   }
   
-  public A addAllToAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
-    if (this.allowedTopologies == null) {
-      this.allowedTopologies = new ArrayList();
+  public A addToParameters(String key,String value) {
+    if (this.parameters == null && key != null && value != null) {
+      this.parameters = new LinkedHashMap();
     }
-    for (V1TopologySelectorTerm item : items) {
-        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-        _visitables.get("allowedTopologies").add(builder);
-        this.allowedTopologies.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromAllowedTopologies(V1TopologySelectorTerm... items) {
-    if (this.allowedTopologies == null) {
-      return (A) this;
-    }
-    for (V1TopologySelectorTerm item : items) {
-        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-        _visitables.get("allowedTopologies").remove(builder);
-        this.allowedTopologies.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
-    if (this.allowedTopologies == null) {
-      return (A) this;
-    }
-    for (V1TopologySelectorTerm item : items) {
-        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
-        _visitables.get("allowedTopologies").remove(builder);
-        this.allowedTopologies.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromAllowedTopologies(Predicate<V1TopologySelectorTermBuilder> predicate) {
-    if (allowedTopologies == null) {
-      return (A) this;
-    }
-    Iterator<V1TopologySelectorTermBuilder> each = allowedTopologies.iterator();
-    List visitables = _visitables.get("allowedTopologies");
-    while (each.hasNext()) {
-        V1TopologySelectorTermBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
+    if (key != null && value != null) {
+      this.parameters.put(key, value);
     }
     return (A) this;
   }
@@ -188,61 +162,28 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
       return null;
   }
   
-  public boolean hasMatchingAllowedTopology(Predicate<V1TopologySelectorTermBuilder> predicate) {
-      for (V1TopologySelectorTermBuilder item : allowedTopologies) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
   }
   
-  public A withAllowedTopologies(List<V1TopologySelectorTerm> allowedTopologies) {
-    if (this.allowedTopologies != null) {
-      this._visitables.get("allowedTopologies").clear();
+  protected void copyInstance(V1StorageClass instance) {
+    instance = instance != null ? instance : new V1StorageClass();
+    if (instance != null) {
+        this.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
+        this.withAllowedTopologies(instance.getAllowedTopologies());
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withMountOptions(instance.getMountOptions());
+        this.withParameters(instance.getParameters());
+        this.withProvisioner(instance.getProvisioner());
+        this.withReclaimPolicy(instance.getReclaimPolicy());
+        this.withVolumeBindingMode(instance.getVolumeBindingMode());
     }
-    if (allowedTopologies != null) {
-        this.allowedTopologies = new ArrayList();
-        for (V1TopologySelectorTerm item : allowedTopologies) {
-          this.addToAllowedTopologies(item);
-        }
-    } else {
-      this.allowedTopologies = null;
-    }
-    return (A) this;
-  }
-  
-  public A withAllowedTopologies(V1TopologySelectorTerm... allowedTopologies) {
-    if (this.allowedTopologies != null) {
-        this.allowedTopologies.clear();
-        _visitables.remove("allowedTopologies");
-    }
-    if (allowedTopologies != null) {
-      for (V1TopologySelectorTerm item : allowedTopologies) {
-        this.addToAllowedTopologies(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasAllowedTopologies() {
-    return this.allowedTopologies != null && !(this.allowedTopologies.isEmpty());
-  }
-  
-  public AllowedTopologiesNested<A> addNewAllowedTopology() {
-    return new AllowedTopologiesNested(-1, null);
-  }
-  
-  public AllowedTopologiesNested<A> addNewAllowedTopologyLike(V1TopologySelectorTerm item) {
-    return new AllowedTopologiesNested(-1, item);
-  }
-  
-  public AllowedTopologiesNested<A> setNewAllowedTopologyLike(int index,V1TopologySelectorTerm item) {
-    return new AllowedTopologiesNested(index, item);
   }
   
   public AllowedTopologiesNested<A> editAllowedTopology(int index) {
-    if (index <= allowedTopologies.size()) {
+    if (allowedTopologies.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "allowedTopologies"));
     }
     return this.setNewAllowedTopologyLike(index, this.buildAllowedTopology(index));
@@ -277,60 +218,6 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
     return this.setNewAllowedTopologyLike(index, this.buildAllowedTopology(index));
   }
   
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
-  }
-  
   public MetadataNested<A> editMetadata() {
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
@@ -341,225 +228,6 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
-  }
-  
-  public A addToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList();
-    }
-    this.mountOptions.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToMountOptions(int index,String item) {
-    if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList();
-    }
-    this.mountOptions.set(index, item);
-    return (A) this;
-  }
-  
-  public A addToMountOptions(String... items) {
-    if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList();
-    }
-    for (String item : items) {
-      this.mountOptions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList();
-    }
-    for (String item : items) {
-      this.mountOptions.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromMountOptions(String... items) {
-    if (this.mountOptions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.mountOptions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromMountOptions(Collection<String> items) {
-    if (this.mountOptions == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.mountOptions.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getMountOptions() {
-    return this.mountOptions;
-  }
-  
-  public String getMountOption(int index) {
-    return this.mountOptions.get(index);
-  }
-  
-  public String getFirstMountOption() {
-    return this.mountOptions.get(0);
-  }
-  
-  public String getLastMountOption() {
-    return this.mountOptions.get(mountOptions.size() - 1);
-  }
-  
-  public String getMatchingMountOption(Predicate<String> predicate) {
-      for (String item : mountOptions) {
-        if (predicate.test(item)) {
-          return item;
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingMountOption(Predicate<String> predicate) {
-      for (String item : mountOptions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withMountOptions(List<String> mountOptions) {
-    if (mountOptions != null) {
-        this.mountOptions = new ArrayList();
-        for (String item : mountOptions) {
-          this.addToMountOptions(item);
-        }
-    } else {
-      this.mountOptions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withMountOptions(String... mountOptions) {
-    if (this.mountOptions != null) {
-        this.mountOptions.clear();
-        _visitables.remove("mountOptions");
-    }
-    if (mountOptions != null) {
-      for (String item : mountOptions) {
-        this.addToMountOptions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMountOptions() {
-    return this.mountOptions != null && !(this.mountOptions.isEmpty());
-  }
-  
-  public A addToParameters(String key,String value) {
-    if (this.parameters == null && key != null && value != null) {
-      this.parameters = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.parameters.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToParameters(Map<String,String> map) {
-    if (this.parameters == null && map != null) {
-      this.parameters = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.parameters.putAll(map);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromParameters(String key) {
-    if (this.parameters == null) {
-      return (A) this;
-    }
-    if (key != null && this.parameters != null) {
-      this.parameters.remove(key);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromParameters(Map<String,String> map) {
-    if (this.parameters == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.parameters != null) {
-          this.parameters.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,String> getParameters() {
-    return this.parameters;
-  }
-  
-  public <K,V>A withParameters(Map<String,String> parameters) {
-    if (parameters == null) {
-      this.parameters = null;
-    } else {
-      this.parameters = new LinkedHashMap(parameters);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasParameters() {
-    return this.parameters != null;
-  }
-  
-  public String getProvisioner() {
-    return this.provisioner;
-  }
-  
-  public A withProvisioner(String provisioner) {
-    this.provisioner = provisioner;
-    return (A) this;
-  }
-  
-  public boolean hasProvisioner() {
-    return this.provisioner != null;
-  }
-  
-  public String getReclaimPolicy() {
-    return this.reclaimPolicy;
-  }
-  
-  public A withReclaimPolicy(String reclaimPolicy) {
-    this.reclaimPolicy = reclaimPolicy;
-    return (A) this;
-  }
-  
-  public boolean hasReclaimPolicy() {
-    return this.reclaimPolicy != null;
-  }
-  
-  public String getVolumeBindingMode() {
-    return this.volumeBindingMode;
-  }
-  
-  public A withVolumeBindingMode(String volumeBindingMode) {
-    this.volumeBindingMode = volumeBindingMode;
-    return (A) this;
-  }
-  
-  public boolean hasVolumeBindingMode() {
-    return this.volumeBindingMode != null;
   }
   
   public boolean equals(Object o) {
@@ -606,8 +274,230 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
     return true;
   }
   
+  public Boolean getAllowVolumeExpansion() {
+    return this.allowVolumeExpansion;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getFirstMountOption() {
+    return this.mountOptions.get(0);
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public String getLastMountOption() {
+    return this.mountOptions.get(mountOptions.size() - 1);
+  }
+  
+  public String getMatchingMountOption(Predicate<String> predicate) {
+      for (String item : mountOptions) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public String getMountOption(int index) {
+    return this.mountOptions.get(index);
+  }
+  
+  public List<String> getMountOptions() {
+    return this.mountOptions;
+  }
+  
+  public Map<String,String> getParameters() {
+    return this.parameters;
+  }
+  
+  public String getProvisioner() {
+    return this.provisioner;
+  }
+  
+  public String getReclaimPolicy() {
+    return this.reclaimPolicy;
+  }
+  
+  public String getVolumeBindingMode() {
+    return this.volumeBindingMode;
+  }
+  
+  public boolean hasAllowVolumeExpansion() {
+    return this.allowVolumeExpansion != null;
+  }
+  
+  public boolean hasAllowedTopologies() {
+    return this.allowedTopologies != null && !(this.allowedTopologies.isEmpty());
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMatchingAllowedTopology(Predicate<V1TopologySelectorTermBuilder> predicate) {
+      for (V1TopologySelectorTermBuilder item : allowedTopologies) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingMountOption(Predicate<String> predicate) {
+      for (String item : mountOptions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasMountOptions() {
+    return this.mountOptions != null && !(this.mountOptions.isEmpty());
+  }
+  
+  public boolean hasParameters() {
+    return this.parameters != null;
+  }
+  
+  public boolean hasProvisioner() {
+    return this.provisioner != null;
+  }
+  
+  public boolean hasReclaimPolicy() {
+    return this.reclaimPolicy != null;
+  }
+  
+  public boolean hasVolumeBindingMode() {
+    return this.volumeBindingMode != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(allowVolumeExpansion, allowedTopologies, apiVersion, kind, metadata, mountOptions, parameters, provisioner, reclaimPolicy, volumeBindingMode);
+  }
+  
+  public A removeAllFromAllowedTopologies(Collection<V1TopologySelectorTerm> items) {
+    if (this.allowedTopologies == null) {
+      return (A) this;
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").remove(builder);
+        this.allowedTopologies.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromMountOptions(Collection<String> items) {
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAllowedTopologies(V1TopologySelectorTerm... items) {
+    if (this.allowedTopologies == null) {
+      return (A) this;
+    }
+    for (V1TopologySelectorTerm item : items) {
+        V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+        _visitables.get("allowedTopologies").remove(builder);
+        this.allowedTopologies.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromMountOptions(String... items) {
+    if (this.mountOptions == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.mountOptions.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromParameters(String key) {
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (key != null && this.parameters != null) {
+      this.parameters.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromParameters(Map<String,String> map) {
+    if (this.parameters == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.parameters != null) {
+          this.parameters.remove(key);
+        }
+      }
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromAllowedTopologies(Predicate<V1TopologySelectorTermBuilder> predicate) {
+    if (allowedTopologies == null) {
+      return (A) this;
+    }
+    Iterator<V1TopologySelectorTermBuilder> each = allowedTopologies.iterator();
+    List visitables = _visitables.get("allowedTopologies");
+    while (each.hasNext()) {
+        V1TopologySelectorTermBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public AllowedTopologiesNested<A> setNewAllowedTopologyLike(int index,V1TopologySelectorTerm item) {
+    return new AllowedTopologiesNested(index, item);
+  }
+  
+  public A setToAllowedTopologies(int index,V1TopologySelectorTerm item) {
+    if (this.allowedTopologies == null) {
+      this.allowedTopologies = new ArrayList();
+    }
+    V1TopologySelectorTermBuilder builder = new V1TopologySelectorTermBuilder(item);
+    if (index < 0 || index >= allowedTopologies.size()) {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.add(builder);
+    } else {
+        _visitables.get("allowedTopologies").add(builder);
+        allowedTopologies.set(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A setToMountOptions(int index,String item) {
+    if (this.mountOptions == null) {
+      this.mountOptions = new ArrayList();
+    }
+    this.mountOptions.set(index, item);
+    return (A) this;
   }
   
   public String toString() {
@@ -669,14 +559,128 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
   public A withAllowVolumeExpansion() {
     return withAllowVolumeExpansion(true);
   }
+  
+  public A withAllowVolumeExpansion(Boolean allowVolumeExpansion) {
+    this.allowVolumeExpansion = allowVolumeExpansion;
+    return (A) this;
+  }
+  
+  public A withAllowedTopologies(List<V1TopologySelectorTerm> allowedTopologies) {
+    if (this.allowedTopologies != null) {
+      this._visitables.get("allowedTopologies").clear();
+    }
+    if (allowedTopologies != null) {
+        this.allowedTopologies = new ArrayList();
+        for (V1TopologySelectorTerm item : allowedTopologies) {
+          this.addToAllowedTopologies(item);
+        }
+    } else {
+      this.allowedTopologies = null;
+    }
+    return (A) this;
+  }
+  
+  public A withAllowedTopologies(V1TopologySelectorTerm... allowedTopologies) {
+    if (this.allowedTopologies != null) {
+        this.allowedTopologies.clear();
+        _visitables.remove("allowedTopologies");
+    }
+    if (allowedTopologies != null) {
+      for (V1TopologySelectorTerm item : allowedTopologies) {
+        this.addToAllowedTopologies(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public A withMountOptions(List<String> mountOptions) {
+    if (mountOptions != null) {
+        this.mountOptions = new ArrayList();
+        for (String item : mountOptions) {
+          this.addToMountOptions(item);
+        }
+    } else {
+      this.mountOptions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withMountOptions(String... mountOptions) {
+    if (this.mountOptions != null) {
+        this.mountOptions.clear();
+        _visitables.remove("mountOptions");
+    }
+    if (mountOptions != null) {
+      for (String item : mountOptions) {
+        this.addToMountOptions(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public <K,V>A withParameters(Map<String,String> parameters) {
+    if (parameters == null) {
+      this.parameters = null;
+    } else {
+      this.parameters = new LinkedHashMap(parameters);
+    }
+    return (A) this;
+  }
+  
+  public A withProvisioner(String provisioner) {
+    this.provisioner = provisioner;
+    return (A) this;
+  }
+  
+  public A withReclaimPolicy(String reclaimPolicy) {
+    this.reclaimPolicy = reclaimPolicy;
+    return (A) this;
+  }
+  
+  public A withVolumeBindingMode(String volumeBindingMode) {
+    this.volumeBindingMode = volumeBindingMode;
+    return (A) this;
+  }
   public class AllowedTopologiesNested<N> extends V1TopologySelectorTermFluent<AllowedTopologiesNested<N>> implements Nested<N>{
+  
+    V1TopologySelectorTermBuilder builder;
+    int index;
+  
     AllowedTopologiesNested(int index,V1TopologySelectorTerm item) {
       this.index = index;
       this.builder = new V1TopologySelectorTermBuilder(this, item);
     }
-    V1TopologySelectorTermBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1StorageClassFluent.this.setToAllowedTopologies(index, builder.build());
     }
@@ -685,14 +689,15 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
       return and();
     }
     
-  
   }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1StorageClassFluent.this.withMetadata(builder.build());
     }
@@ -701,7 +706,5 @@ public class V1StorageClassFluent<A extends io.kubernetes.client.openapi.models.
       return and();
     }
     
-  
   }
-
 }

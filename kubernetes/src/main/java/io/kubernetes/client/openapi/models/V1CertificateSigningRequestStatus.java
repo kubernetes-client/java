@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -53,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.
  */
 @ApiModel(description = "CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1CertificateSigningRequestStatus {
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE)
@@ -162,12 +164,10 @@ public class V1CertificateSigningRequestStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate");
-    openapiFields.add("conditions");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate", "conditions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -179,7 +179,7 @@ public class V1CertificateSigningRequestStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CertificateSigningRequestStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CertificateSigningRequestStatus is not found in the empty JSON string", V1CertificateSigningRequestStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1CertificateSigningRequestStatus is not found in the empty JSON string", V1CertificateSigningRequestStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -187,7 +187,7 @@ public class V1CertificateSigningRequestStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CertificateSigningRequestStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CertificateSigningRequestStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1CertificateSigningRequestStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -196,7 +196,7 @@ public class V1CertificateSigningRequestStatus {
         if (jsonArrayconditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("conditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
           }
 
           // validate the optional field `conditions` (array)

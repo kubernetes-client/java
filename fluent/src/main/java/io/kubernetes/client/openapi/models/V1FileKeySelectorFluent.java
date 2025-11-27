@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.models.V1FileKeySelectorFluent<A>> extends BaseFluent<A>{
+
+  private String key;
+  private Boolean optional;
+  private String path;
+  private String volumeName;
+
   public V1FileKeySelectorFluent() {
   }
   
   public V1FileKeySelectorFluent(V1FileKeySelector instance) {
     this.copyInstance(instance);
   }
-  private String key;
-  private Boolean optional;
-  private String path;
-  private String volumeName;
-  
+
   protected void copyInstance(V1FileKeySelector instance) {
     instance = instance != null ? instance : new V1FileKeySelector();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.mode
         this.withPath(instance.getPath());
         this.withVolumeName(instance.getVolumeName());
     }
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public Boolean getOptional() {
-    return this.optional;
-  }
-  
-  public A withOptional(Boolean optional) {
-    this.optional = optional;
-    return (A) this;
-  }
-  
-  public boolean hasOptional() {
-    return this.optional != null;
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public String getVolumeName() {
-    return this.volumeName;
-  }
-  
-  public A withVolumeName(String volumeName) {
-    this.volumeName = volumeName;
-    return (A) this;
-  }
-  
-  public boolean hasVolumeName() {
-    return this.volumeName != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.mode
       return false;
     }
     return true;
+  }
+  
+  public String getKey() {
+    return this.key;
+  }
+  
+  public Boolean getOptional() {
+    return this.optional;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public String getVolumeName() {
+    return this.volumeName;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
+  public boolean hasOptional() {
+    return this.optional != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasVolumeName() {
+    return this.volumeName != null;
   }
   
   public int hashCode() {
@@ -142,9 +124,28 @@ public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
+  }
+  
   public A withOptional() {
     return withOptional(true);
   }
   
-
+  public A withOptional(Boolean optional) {
+    this.optional = optional;
+    return (A) this;
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
+  public A withVolumeName(String volumeName) {
+    this.volumeName = volumeName;
+    return (A) this;
+  }
+  
 }

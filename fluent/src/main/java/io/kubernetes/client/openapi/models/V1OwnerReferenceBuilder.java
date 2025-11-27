@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluent<V1OwnerReferenceBuilder> implements VisitableBuilder<V1OwnerReference,V1OwnerReferenceBuilder>{
+
+  V1OwnerReferenceFluent<?> fluent;
+
   public V1OwnerReferenceBuilder() {
     this(new V1OwnerReference());
   }
@@ -11,17 +14,16 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluent<V1OwnerRefer
     this(fluent, new V1OwnerReference());
   }
   
-  public V1OwnerReferenceBuilder(V1OwnerReferenceFluent<?> fluent,V1OwnerReference instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1OwnerReferenceBuilder(V1OwnerReference instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1OwnerReferenceFluent<?> fluent;
   
+  public V1OwnerReferenceBuilder(V1OwnerReferenceFluent<?> fluent,V1OwnerReference instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1OwnerReference build() {
     V1OwnerReference buildable = new V1OwnerReference();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -33,5 +35,4 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluent<V1OwnerRefer
     return buildable;
   }
   
-
 }

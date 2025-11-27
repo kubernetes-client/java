@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,6 +49,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -55,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
  * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.
  */
 @ApiModel(description = "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1ClusterRoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -245,16 +247,10 @@ public class V1ClusterRoleBinding implements io.kubernetes.client.common.Kuberne
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiVersion");
-    openapiFields.add("kind");
-    openapiFields.add("metadata");
-    openapiFields.add("roleRef");
-    openapiFields.add("subjects");
+    openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "roleRef", "subjects"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("roleRef");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("roleRef"));
   }
 
   /**
@@ -266,7 +262,7 @@ public class V1ClusterRoleBinding implements io.kubernetes.client.common.Kuberne
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ClusterRoleBinding.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ClusterRoleBinding is not found in the empty JSON string", V1ClusterRoleBinding.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1ClusterRoleBinding is not found in the empty JSON string", V1ClusterRoleBinding.openapiRequiredFields.toString()));
         }
       }
 
@@ -274,22 +270,22 @@ public class V1ClusterRoleBinding implements io.kubernetes.client.common.Kuberne
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ClusterRoleBinding.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ClusterRoleBinding` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ClusterRoleBinding` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ClusterRoleBinding.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
@@ -302,7 +298,7 @@ public class V1ClusterRoleBinding implements io.kubernetes.client.common.Kuberne
         if (jsonArraysubjects != null) {
           // ensure the json data is an array
           if (!jsonObj.get("subjects").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `subjects` to be an array in the JSON string but got `%s`", jsonObj.get("subjects").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subjects` to be an array in the JSON string but got `%s`", jsonObj.get("subjects").toString()));
           }
 
           // validate the optional field `subjects` (array)

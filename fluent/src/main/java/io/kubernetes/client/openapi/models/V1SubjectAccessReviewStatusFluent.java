@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<A>> extends BaseFluent<A>{
+
+  private Boolean allowed;
+  private Boolean denied;
+  private String evaluationError;
+  private String reason;
+
   public V1SubjectAccessReviewStatusFluent() {
   }
   
   public V1SubjectAccessReviewStatusFluent(V1SubjectAccessReviewStatus instance) {
     this.copyInstance(instance);
   }
-  private Boolean allowed;
-  private Boolean denied;
-  private String evaluationError;
-  private String reason;
-  
+
   protected void copyInstance(V1SubjectAccessReviewStatus instance) {
     instance = instance != null ? instance : new V1SubjectAccessReviewStatus();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.op
         this.withEvaluationError(instance.getEvaluationError());
         this.withReason(instance.getReason());
     }
-  }
-  
-  public Boolean getAllowed() {
-    return this.allowed;
-  }
-  
-  public A withAllowed(Boolean allowed) {
-    this.allowed = allowed;
-    return (A) this;
-  }
-  
-  public boolean hasAllowed() {
-    return this.allowed != null;
-  }
-  
-  public Boolean getDenied() {
-    return this.denied;
-  }
-  
-  public A withDenied(Boolean denied) {
-    this.denied = denied;
-    return (A) this;
-  }
-  
-  public boolean hasDenied() {
-    return this.denied != null;
-  }
-  
-  public String getEvaluationError() {
-    return this.evaluationError;
-  }
-  
-  public A withEvaluationError(String evaluationError) {
-    this.evaluationError = evaluationError;
-    return (A) this;
-  }
-  
-  public boolean hasEvaluationError() {
-    return this.evaluationError != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.op
       return false;
     }
     return true;
+  }
+  
+  public Boolean getAllowed() {
+    return this.allowed;
+  }
+  
+  public Boolean getDenied() {
+    return this.denied;
+  }
+  
+  public String getEvaluationError() {
+    return this.evaluationError;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public boolean hasAllowed() {
+    return this.allowed != null;
+  }
+  
+  public boolean hasDenied() {
+    return this.denied != null;
+  }
+  
+  public boolean hasEvaluationError() {
+    return this.evaluationError != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
   }
   
   public int hashCode() {
@@ -146,9 +128,28 @@ public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.op
     return withAllowed(true);
   }
   
+  public A withAllowed(Boolean allowed) {
+    this.allowed = allowed;
+    return (A) this;
+  }
+  
   public A withDenied() {
     return withDenied(true);
   }
   
-
+  public A withDenied(Boolean denied) {
+    this.denied = denied;
+    return (A) this;
+  }
+  
+  public A withEvaluationError(String evaluationError) {
+    this.evaluationError = evaluationError;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
 }

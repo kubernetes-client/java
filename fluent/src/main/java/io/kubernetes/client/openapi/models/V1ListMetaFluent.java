@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1ListMetaFluent<A>> extends BaseFluent<A>{
+
+  private String _continue;
+  private Long remainingItemCount;
+  private String resourceVersion;
+  private String selfLink;
+
   public V1ListMetaFluent() {
   }
   
   public V1ListMetaFluent(V1ListMeta instance) {
     this.copyInstance(instance);
   }
-  private String _continue;
-  private Long remainingItemCount;
-  private String resourceVersion;
-  private String selfLink;
-  
+
   protected void copyInstance(V1ListMeta instance) {
     instance = instance != null ? instance : new V1ListMeta();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
         this.withResourceVersion(instance.getResourceVersion());
         this.withSelfLink(instance.getSelfLink());
     }
-  }
-  
-  public String getContinue() {
-    return this._continue;
-  }
-  
-  public A withContinue(String _continue) {
-    this._continue = _continue;
-    return (A) this;
-  }
-  
-  public boolean hasContinue() {
-    return this._continue != null;
-  }
-  
-  public Long getRemainingItemCount() {
-    return this.remainingItemCount;
-  }
-  
-  public A withRemainingItemCount(Long remainingItemCount) {
-    this.remainingItemCount = remainingItemCount;
-    return (A) this;
-  }
-  
-  public boolean hasRemainingItemCount() {
-    return this.remainingItemCount != null;
-  }
-  
-  public String getResourceVersion() {
-    return this.resourceVersion;
-  }
-  
-  public A withResourceVersion(String resourceVersion) {
-    this.resourceVersion = resourceVersion;
-    return (A) this;
-  }
-  
-  public boolean hasResourceVersion() {
-    return this.resourceVersion != null;
-  }
-  
-  public String getSelfLink() {
-    return this.selfLink;
-  }
-  
-  public A withSelfLink(String selfLink) {
-    this.selfLink = selfLink;
-    return (A) this;
-  }
-  
-  public boolean hasSelfLink() {
-    return this.selfLink != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
       return false;
     }
     return true;
+  }
+  
+  public String getContinue() {
+    return this._continue;
+  }
+  
+  public Long getRemainingItemCount() {
+    return this.remainingItemCount;
+  }
+  
+  public String getResourceVersion() {
+    return this.resourceVersion;
+  }
+  
+  public String getSelfLink() {
+    return this.selfLink;
+  }
+  
+  public boolean hasContinue() {
+    return this._continue != null;
+  }
+  
+  public boolean hasRemainingItemCount() {
+    return this.remainingItemCount != null;
+  }
+  
+  public boolean hasResourceVersion() {
+    return this.resourceVersion != null;
+  }
+  
+  public boolean hasSelfLink() {
+    return this.selfLink != null;
   }
   
   public int hashCode() {
@@ -142,5 +124,24 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     return sb.toString();
   }
   
-
+  public A withContinue(String _continue) {
+    this._continue = _continue;
+    return (A) this;
+  }
+  
+  public A withRemainingItemCount(Long remainingItemCount) {
+    this.remainingItemCount = remainingItemCount;
+    return (A) this;
+  }
+  
+  public A withResourceVersion(String resourceVersion) {
+    this.resourceVersion = resourceVersion;
+    return (A) this;
+  }
+  
+  public A withSelfLink(String selfLink) {
+    this.selfLink = selfLink;
+    return (A) this;
+  }
+  
 }

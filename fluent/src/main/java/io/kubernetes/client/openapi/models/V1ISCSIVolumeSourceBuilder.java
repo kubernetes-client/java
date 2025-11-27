@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ISCSIVolumeSourceBuilder extends V1ISCSIVolumeSourceFluent<V1ISCSIVolumeSourceBuilder> implements VisitableBuilder<V1ISCSIVolumeSource,V1ISCSIVolumeSourceBuilder>{
+
+  V1ISCSIVolumeSourceFluent<?> fluent;
+
   public V1ISCSIVolumeSourceBuilder() {
     this(new V1ISCSIVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1ISCSIVolumeSourceBuilder extends V1ISCSIVolumeSourceFluent<V1ISCS
     this(fluent, new V1ISCSIVolumeSource());
   }
   
-  public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSourceFluent<?> fluent,V1ISCSIVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ISCSIVolumeSourceFluent<?> fluent;
   
+  public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSourceFluent<?> fluent,V1ISCSIVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ISCSIVolumeSource build() {
     V1ISCSIVolumeSource buildable = new V1ISCSIVolumeSource();
     buildable.setChapAuthDiscovery(fluent.getChapAuthDiscovery());
@@ -38,5 +40,4 @@ public class V1ISCSIVolumeSourceBuilder extends V1ISCSIVolumeSourceFluent<V1ISCS
     return buildable;
   }
   
-
 }

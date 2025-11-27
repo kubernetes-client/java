@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1FCVolumeSourceBuilder extends V1FCVolumeSourceFluent<V1FCVolumeSourceBuilder> implements VisitableBuilder<V1FCVolumeSource,V1FCVolumeSourceBuilder>{
+
+  V1FCVolumeSourceFluent<?> fluent;
+
   public V1FCVolumeSourceBuilder() {
     this(new V1FCVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1FCVolumeSourceBuilder extends V1FCVolumeSourceFluent<V1FCVolumeSo
     this(fluent, new V1FCVolumeSource());
   }
   
-  public V1FCVolumeSourceBuilder(V1FCVolumeSourceFluent<?> fluent,V1FCVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1FCVolumeSourceBuilder(V1FCVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1FCVolumeSourceFluent<?> fluent;
   
+  public V1FCVolumeSourceBuilder(V1FCVolumeSourceFluent<?> fluent,V1FCVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1FCVolumeSource build() {
     V1FCVolumeSource buildable = new V1FCVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -32,5 +34,4 @@ public class V1FCVolumeSourceBuilder extends V1FCVolumeSourceFluent<V1FCVolumeSo
     return buildable;
   }
   
-
 }

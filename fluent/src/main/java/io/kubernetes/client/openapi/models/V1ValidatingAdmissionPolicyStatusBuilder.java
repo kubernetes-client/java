@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ValidatingAdmissionPolicyStatusBuilder extends V1ValidatingAdmissionPolicyStatusFluent<V1ValidatingAdmissionPolicyStatusBuilder> implements VisitableBuilder<V1ValidatingAdmissionPolicyStatus,V1ValidatingAdmissionPolicyStatusBuilder>{
+
+  V1ValidatingAdmissionPolicyStatusFluent<?> fluent;
+
   public V1ValidatingAdmissionPolicyStatusBuilder() {
     this(new V1ValidatingAdmissionPolicyStatus());
   }
@@ -11,17 +14,16 @@ public class V1ValidatingAdmissionPolicyStatusBuilder extends V1ValidatingAdmiss
     this(fluent, new V1ValidatingAdmissionPolicyStatus());
   }
   
-  public V1ValidatingAdmissionPolicyStatusBuilder(V1ValidatingAdmissionPolicyStatusFluent<?> fluent,V1ValidatingAdmissionPolicyStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ValidatingAdmissionPolicyStatusBuilder(V1ValidatingAdmissionPolicyStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ValidatingAdmissionPolicyStatusFluent<?> fluent;
   
+  public V1ValidatingAdmissionPolicyStatusBuilder(V1ValidatingAdmissionPolicyStatusFluent<?> fluent,V1ValidatingAdmissionPolicyStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ValidatingAdmissionPolicyStatus build() {
     V1ValidatingAdmissionPolicyStatus buildable = new V1ValidatingAdmissionPolicyStatus();
     buildable.setConditions(fluent.buildConditions());
@@ -30,5 +32,4 @@ public class V1ValidatingAdmissionPolicyStatusBuilder extends V1ValidatingAdmiss
     return buildable;
   }
   
-
 }

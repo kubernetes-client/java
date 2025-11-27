@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubresourcesFluent<V1CustomResourceSubresourcesBuilder> implements VisitableBuilder<V1CustomResourceSubresources,V1CustomResourceSubresourcesBuilder>{
+
+  V1CustomResourceSubresourcesFluent<?> fluent;
+
   public V1CustomResourceSubresourcesBuilder() {
     this(new V1CustomResourceSubresources());
   }
@@ -11,17 +14,16 @@ public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubreso
     this(fluent, new V1CustomResourceSubresources());
   }
   
-  public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,V1CustomResourceSubresources instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresources instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CustomResourceSubresourcesFluent<?> fluent;
   
+  public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,V1CustomResourceSubresources instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CustomResourceSubresources build() {
     V1CustomResourceSubresources buildable = new V1CustomResourceSubresources();
     buildable.setScale(fluent.buildScale());
@@ -29,5 +31,4 @@ public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubreso
     return buildable;
   }
   
-
 }

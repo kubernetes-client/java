@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1beta2ResourceSliceListBuilder extends V1beta2ResourceSliceListFluent<V1beta2ResourceSliceListBuilder> implements VisitableBuilder<V1beta2ResourceSliceList,V1beta2ResourceSliceListBuilder>{
+
+  V1beta2ResourceSliceListFluent<?> fluent;
+
   public V1beta2ResourceSliceListBuilder() {
     this(new V1beta2ResourceSliceList());
   }
@@ -11,17 +14,16 @@ public class V1beta2ResourceSliceListBuilder extends V1beta2ResourceSliceListFlu
     this(fluent, new V1beta2ResourceSliceList());
   }
   
-  public V1beta2ResourceSliceListBuilder(V1beta2ResourceSliceListFluent<?> fluent,V1beta2ResourceSliceList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1beta2ResourceSliceListBuilder(V1beta2ResourceSliceList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1beta2ResourceSliceListFluent<?> fluent;
   
+  public V1beta2ResourceSliceListBuilder(V1beta2ResourceSliceListFluent<?> fluent,V1beta2ResourceSliceList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1beta2ResourceSliceList build() {
     V1beta2ResourceSliceList buildable = new V1beta2ResourceSliceList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1beta2ResourceSliceListBuilder extends V1beta2ResourceSliceListFlu
     return buildable;
   }
   
-
 }

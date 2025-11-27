@@ -14,13 +14,14 @@ package io.kubernetes.client.openapi;
 
 import java.util.Map;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
  * <p>ApiException class.</p>
  */
 @SuppressWarnings("serial")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 
@@ -160,7 +161,7 @@ public class ApiException extends Exception {
      * @return The exception message
      */
     public String getMessage() {
-        return String.format("Message: %s%nHTTP response code: %s%nHTTP response body: %s%nHTTP response headers: %s",
+        return String.format(Locale.ROOT, "Message: %s%nHTTP response code: %s%nHTTP response body: %s%nHTTP response headers: %s",
                 super.getMessage(), this.getCode(), this.getResponseBody(), this.getResponseHeaders());
     }
 }

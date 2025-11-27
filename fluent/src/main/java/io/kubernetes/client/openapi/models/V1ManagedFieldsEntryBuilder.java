@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluent<V1ManagedFieldsEntryBuilder> implements VisitableBuilder<V1ManagedFieldsEntry,V1ManagedFieldsEntryBuilder>{
+
+  V1ManagedFieldsEntryFluent<?> fluent;
+
   public V1ManagedFieldsEntryBuilder() {
     this(new V1ManagedFieldsEntry());
   }
@@ -11,17 +14,16 @@ public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluent<V1Ma
     this(fluent, new V1ManagedFieldsEntry());
   }
   
-  public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntryFluent<?> fluent,V1ManagedFieldsEntry instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntry instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ManagedFieldsEntryFluent<?> fluent;
   
+  public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntryFluent<?> fluent,V1ManagedFieldsEntry instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ManagedFieldsEntry build() {
     V1ManagedFieldsEntry buildable = new V1ManagedFieldsEntry();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -34,5 +36,4 @@ public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluent<V1Ma
     return buildable;
   }
   
-
 }

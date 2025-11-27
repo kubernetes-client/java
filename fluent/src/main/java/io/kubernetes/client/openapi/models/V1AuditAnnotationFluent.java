@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1AuditAnnotationFluent<A extends io.kubernetes.client.openapi.models.V1AuditAnnotationFluent<A>> extends BaseFluent<A>{
+
+  private String key;
+  private String valueExpression;
+
   public V1AuditAnnotationFluent() {
   }
   
   public V1AuditAnnotationFluent(V1AuditAnnotation instance) {
     this.copyInstance(instance);
   }
-  private String key;
-  private String valueExpression;
-  
+
   protected void copyInstance(V1AuditAnnotation instance) {
     instance = instance != null ? instance : new V1AuditAnnotation();
     if (instance != null) {
         this.withKey(instance.getKey());
         this.withValueExpression(instance.getValueExpression());
     }
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public String getValueExpression() {
-    return this.valueExpression;
-  }
-  
-  public A withValueExpression(String valueExpression) {
-    this.valueExpression = valueExpression;
-    return (A) this;
-  }
-  
-  public boolean hasValueExpression() {
-    return this.valueExpression != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1AuditAnnotationFluent<A extends io.kubernetes.client.openapi.mode
     return true;
   }
   
+  public String getKey() {
+    return this.key;
+  }
+  
+  public String getValueExpression() {
+    return this.valueExpression;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
+  public boolean hasValueExpression() {
+    return this.valueExpression != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(key, valueExpression);
   }
@@ -95,5 +87,14 @@ public class V1AuditAnnotationFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
-
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
+  }
+  
+  public A withValueExpression(String valueExpression) {
+    this.valueExpression = valueExpression;
+    return (A) this;
+  }
+  
 }

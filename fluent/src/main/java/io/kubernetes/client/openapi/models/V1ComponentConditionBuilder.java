@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ComponentConditionBuilder extends V1ComponentConditionFluent<V1ComponentConditionBuilder> implements VisitableBuilder<V1ComponentCondition,V1ComponentConditionBuilder>{
+
+  V1ComponentConditionFluent<?> fluent;
+
   public V1ComponentConditionBuilder() {
     this(new V1ComponentCondition());
   }
@@ -11,17 +14,16 @@ public class V1ComponentConditionBuilder extends V1ComponentConditionFluent<V1Co
     this(fluent, new V1ComponentCondition());
   }
   
-  public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,V1ComponentCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ComponentConditionBuilder(V1ComponentCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ComponentConditionFluent<?> fluent;
   
+  public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,V1ComponentCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ComponentCondition build() {
     V1ComponentCondition buildable = new V1ComponentCondition();
     buildable.setError(fluent.getError());
@@ -31,5 +33,4 @@ public class V1ComponentConditionBuilder extends V1ComponentConditionFluent<V1Co
     return buildable;
   }
   
-
 }

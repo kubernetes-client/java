@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ReplicationControllerListBuilder extends V1ReplicationControllerListFluent<V1ReplicationControllerListBuilder> implements VisitableBuilder<V1ReplicationControllerList,V1ReplicationControllerListBuilder>{
+
+  V1ReplicationControllerListFluent<?> fluent;
+
   public V1ReplicationControllerListBuilder() {
     this(new V1ReplicationControllerList());
   }
@@ -11,17 +14,16 @@ public class V1ReplicationControllerListBuilder extends V1ReplicationControllerL
     this(fluent, new V1ReplicationControllerList());
   }
   
-  public V1ReplicationControllerListBuilder(V1ReplicationControllerListFluent<?> fluent,V1ReplicationControllerList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ReplicationControllerListBuilder(V1ReplicationControllerList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ReplicationControllerListFluent<?> fluent;
   
+  public V1ReplicationControllerListBuilder(V1ReplicationControllerListFluent<?> fluent,V1ReplicationControllerList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ReplicationControllerList build() {
     V1ReplicationControllerList buildable = new V1ReplicationControllerList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1ReplicationControllerListBuilder extends V1ReplicationControllerL
     return buildable;
   }
   
-
 }

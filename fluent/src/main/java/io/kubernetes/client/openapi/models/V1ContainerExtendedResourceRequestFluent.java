@@ -1,27 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.client.openapi.models.V1ContainerExtendedResourceRequestFluent<A>> extends BaseFluent<A>{
+
+  private String containerName;
+  private String requestName;
+  private String resourceName;
+
   public V1ContainerExtendedResourceRequestFluent() {
   }
   
   public V1ContainerExtendedResourceRequestFluent(V1ContainerExtendedResourceRequest instance) {
     this.copyInstance(instance);
   }
-  private String containerName;
-  private String requestName;
-  private String resourceName;
-  
+
   protected void copyInstance(V1ContainerExtendedResourceRequest instance) {
     instance = instance != null ? instance : new V1ContainerExtendedResourceRequest();
     if (instance != null) {
@@ -29,45 +31,6 @@ public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.cl
         this.withRequestName(instance.getRequestName());
         this.withResourceName(instance.getResourceName());
     }
-  }
-  
-  public String getContainerName() {
-    return this.containerName;
-  }
-  
-  public A withContainerName(String containerName) {
-    this.containerName = containerName;
-    return (A) this;
-  }
-  
-  public boolean hasContainerName() {
-    return this.containerName != null;
-  }
-  
-  public String getRequestName() {
-    return this.requestName;
-  }
-  
-  public A withRequestName(String requestName) {
-    this.requestName = requestName;
-    return (A) this;
-  }
-  
-  public boolean hasRequestName() {
-    return this.requestName != null;
-  }
-  
-  public String getResourceName() {
-    return this.resourceName;
-  }
-  
-  public A withResourceName(String resourceName) {
-    this.resourceName = resourceName;
-    return (A) this;
-  }
-  
-  public boolean hasResourceName() {
-    return this.resourceName != null;
   }
   
   public boolean equals(Object o) {
@@ -91,6 +54,30 @@ public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.cl
       return false;
     }
     return true;
+  }
+  
+  public String getContainerName() {
+    return this.containerName;
+  }
+  
+  public String getRequestName() {
+    return this.requestName;
+  }
+  
+  public String getResourceName() {
+    return this.resourceName;
+  }
+  
+  public boolean hasContainerName() {
+    return this.containerName != null;
+  }
+  
+  public boolean hasRequestName() {
+    return this.requestName != null;
+  }
+  
+  public boolean hasResourceName() {
+    return this.resourceName != null;
   }
   
   public int hashCode() {
@@ -118,5 +105,19 @@ public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.cl
     return sb.toString();
   }
   
-
+  public A withContainerName(String containerName) {
+    this.containerName = containerName;
+    return (A) this;
+  }
+  
+  public A withRequestName(String requestName) {
+    this.requestName = requestName;
+    return (A) this;
+  }
+  
+  public A withResourceName(String resourceName) {
+    this.resourceName = resourceName;
+    return (A) this;
+  }
+  
 }

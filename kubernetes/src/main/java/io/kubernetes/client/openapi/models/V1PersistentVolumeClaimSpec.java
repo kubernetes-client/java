@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,6 +50,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -56,7 +58,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  */
 @ApiModel(description = "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -354,19 +356,10 @@ public class V1PersistentVolumeClaimSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessModes");
-    openapiFields.add("dataSource");
-    openapiFields.add("dataSourceRef");
-    openapiFields.add("resources");
-    openapiFields.add("selector");
-    openapiFields.add("storageClassName");
-    openapiFields.add("volumeAttributesClassName");
-    openapiFields.add("volumeMode");
-    openapiFields.add("volumeName");
+    openapiFields = new HashSet<String>(Arrays.asList("accessModes", "dataSource", "dataSourceRef", "resources", "selector", "storageClassName", "volumeAttributesClassName", "volumeMode", "volumeName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -378,7 +371,7 @@ public class V1PersistentVolumeClaimSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeClaimSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeClaimSpec is not found in the empty JSON string", V1PersistentVolumeClaimSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1PersistentVolumeClaimSpec is not found in the empty JSON string", V1PersistentVolumeClaimSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -386,13 +379,13 @@ public class V1PersistentVolumeClaimSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeClaimSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonNull() && !jsonObj.get("accessModes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
       }
       // validate the optional field `dataSource`
       if (jsonObj.get("dataSource") != null && !jsonObj.get("dataSource").isJsonNull()) {
@@ -411,16 +404,16 @@ public class V1PersistentVolumeClaimSpec {
         V1LabelSelector.validateJsonElement(jsonObj.get("selector"));
       }
       if ((jsonObj.get("storageClassName") != null && !jsonObj.get("storageClassName").isJsonNull()) && !jsonObj.get("storageClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
       }
       if ((jsonObj.get("volumeAttributesClassName") != null && !jsonObj.get("volumeAttributesClassName").isJsonNull()) && !jsonObj.get("volumeAttributesClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
       }
       if ((jsonObj.get("volumeMode") != null && !jsonObj.get("volumeMode").isJsonNull()) && !jsonObj.get("volumeMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeMode").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `volumeMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeMode").toString()));
       }
       if ((jsonObj.get("volumeName") != null && !jsonObj.get("volumeName").isJsonNull()) && !jsonObj.get("volumeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `volumeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeName").toString()));
       }
   }
 

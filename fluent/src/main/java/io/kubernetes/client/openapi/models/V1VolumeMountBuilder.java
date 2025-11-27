@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuilder> implements VisitableBuilder<V1VolumeMount,V1VolumeMountBuilder>{
+
+  V1VolumeMountFluent<?> fluent;
+
   public V1VolumeMountBuilder() {
     this(new V1VolumeMount());
   }
@@ -11,17 +14,16 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuild
     this(fluent, new V1VolumeMount());
   }
   
-  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,V1VolumeMount instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1VolumeMountBuilder(V1VolumeMount instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1VolumeMountFluent<?> fluent;
   
+  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,V1VolumeMount instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1VolumeMount build() {
     V1VolumeMount buildable = new V1VolumeMount();
     buildable.setMountPath(fluent.getMountPath());
@@ -34,5 +36,4 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuild
     return buildable;
   }
   
-
 }

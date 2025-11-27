@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -53,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceAllocationConfiguration gets embedded in an AllocationResult.
  */
 @ApiModel(description = "DeviceAllocationConfiguration gets embedded in an AllocationResult.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1DeviceAllocationConfiguration {
   public static final String SERIALIZED_NAME_OPAQUE = "opaque";
   @SerializedName(SERIALIZED_NAME_OPAQUE)
@@ -189,14 +191,10 @@ public class V1DeviceAllocationConfiguration {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("opaque");
-    openapiFields.add("requests");
-    openapiFields.add("source");
+    openapiFields = new HashSet<String>(Arrays.asList("opaque", "requests", "source"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("source");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("source"));
   }
 
   /**
@@ -208,7 +206,7 @@ public class V1DeviceAllocationConfiguration {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DeviceAllocationConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DeviceAllocationConfiguration is not found in the empty JSON string", V1DeviceAllocationConfiguration.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1DeviceAllocationConfiguration is not found in the empty JSON string", V1DeviceAllocationConfiguration.openapiRequiredFields.toString()));
         }
       }
 
@@ -216,14 +214,14 @@ public class V1DeviceAllocationConfiguration {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1DeviceAllocationConfiguration.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DeviceAllocationConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1DeviceAllocationConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1DeviceAllocationConfiguration.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -233,10 +231,10 @@ public class V1DeviceAllocationConfiguration {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("requests") != null && !jsonObj.get("requests").isJsonNull() && !jsonObj.get("requests").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requests` to be an array in the JSON string but got `%s`", jsonObj.get("requests").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `requests` to be an array in the JSON string but got `%s`", jsonObj.get("requests").toString()));
       }
       if (!jsonObj.get("source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
   }
 
