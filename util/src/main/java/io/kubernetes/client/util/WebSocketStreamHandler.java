@@ -117,6 +117,15 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     return this.error;
   }
 
+  /**
+   * Check if the handler is closed.
+   *
+   * @return true if the handler is closed, false otherwise.
+   */
+  public synchronized boolean isClosed() {
+    return state == State.CLOSED;
+  }
+
   @Override
   public synchronized void close() {
     if (state != State.CLOSED) {
