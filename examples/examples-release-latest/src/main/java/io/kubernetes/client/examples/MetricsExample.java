@@ -64,5 +64,22 @@ public class MetricsExample {
         System.out.println();
       }
     }
+
+      for (PodMetrics item : metrics.getPodMetrics("default", "foo=bar").getItems()) {
+          System.out.println(item.getMetadata().getName());
+          System.out.println("------------------------------");
+          if (item.getContainers() == null) {
+              continue;
+          }
+          for (ContainerMetrics container : item.getContainers()) {
+              System.out.println(container.getName());
+              System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+              for (String key : container.getUsage().keySet()) {
+                  System.out.println("\t" + key);
+                  System.out.println("\t" + container.getUsage().get(key));
+              }
+              System.out.println();
+          }
+      }
   }
 }
