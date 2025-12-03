@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecScaleIOSecretRef {
@@ -46,7 +46,7 @@ public class V1ThanosRulerSpecScaleIOSecretRef {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?")

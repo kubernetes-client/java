@@ -23,7 +23,7 @@ import java.util.Objects;
 
 /** *Experimental* PodMonitors to be selected for target discovery. */
 @ApiModel(description = "*Experimental* PodMonitors to be selected for target discovery.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecPodMonitorSelector {
@@ -58,7 +58,7 @@ public class V1PrometheusSpecPodMonitorSelector {
    *
    * @return matchExpressions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "matchExpressions is a list of label selector requirements. The requirements are ANDed.")
@@ -93,7 +93,7 @@ public class V1PrometheusSpecPodMonitorSelector {
    *
    * @return matchLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.")

@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Security options the pod should run with. More info: https://kubernetes.io/docs/concepts/policy/security-context/ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecSecurityContext {
@@ -95,7 +95,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return allowPrivilegeEscalation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN")
@@ -119,7 +119,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return capabilities
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContextCapabilities getCapabilities() {
     return capabilities;
@@ -141,7 +141,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return privileged
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.")
@@ -166,7 +166,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return procMount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.")
@@ -189,7 +189,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return readOnlyRootFilesystem
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Whether this container has a read-only root filesystem. Default is false.")
   public Boolean getReadOnlyRootFilesystem() {
@@ -213,7 +213,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return runAsGroup
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
@@ -240,7 +240,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return runAsNonRoot
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
@@ -265,7 +265,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return runAsUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
@@ -289,7 +289,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return seLinuxOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContextSeLinuxOptions getSeLinuxOptions() {
     return seLinuxOptions;
@@ -311,7 +311,7 @@ public class V1ThanosRulerSpecSecurityContext {
    *
    * @return windowsOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContextWindowsOptions getWindowsOptions() {
     return windowsOptions;

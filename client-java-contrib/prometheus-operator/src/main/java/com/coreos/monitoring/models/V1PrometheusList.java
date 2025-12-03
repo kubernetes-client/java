@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /** PrometheusList is a list of Prometheus */
 @ApiModel(description = "PrometheusList is a list of Prometheus")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusList implements io.kubernetes.client.common.KubernetesListObject {
@@ -60,7 +60,7 @@ public class V1PrometheusList implements io.kubernetes.client.common.KubernetesL
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
@@ -115,7 +115,7 @@ public class V1PrometheusList implements io.kubernetes.client.common.KubernetesL
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
@@ -138,7 +138,7 @@ public class V1PrometheusList implements io.kubernetes.client.common.KubernetesL
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ListMeta getMetadata() {
     return metadata;

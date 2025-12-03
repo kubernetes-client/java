@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecSecurityContextCapabilities {
@@ -59,7 +59,7 @@ public class V1ThanosRulerSpecSecurityContextCapabilities {
    *
    * @return add
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Added capabilities")
   public List<String> getAdd() {
     return add;
@@ -88,7 +88,7 @@ public class V1ThanosRulerSpecSecurityContextCapabilities {
    *
    * @return drop
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Removed capabilities")
   public List<String> getDrop() {
     return drop;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** TLS Config to use for alertmanager connection. */
 @ApiModel(description = "TLS Config to use for alertmanager connection.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecAlertingTlsConfig {
@@ -74,7 +74,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return ca
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCa getCa() {
     return ca;
@@ -95,7 +95,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return caFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the CA cert in the Prometheus container to use for the targets.")
   public String getCaFile() {
@@ -117,7 +117,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return cert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCert getCert() {
     return cert;
@@ -138,7 +138,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return certFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the client cert file in the Prometheus container for the targets.")
   public String getCertFile() {
@@ -160,7 +160,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return insecureSkipVerify
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Disable target certificate validation.")
   public Boolean getInsecureSkipVerify() {
     return insecureSkipVerify;
@@ -181,7 +181,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return keyFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the client key file in the Prometheus container for the targets.")
   public String getKeyFile() {
@@ -204,7 +204,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return keySecret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigKeySecret getKeySecret() {
     return keySecret;
@@ -225,7 +225,7 @@ public class V1PrometheusSpecAlertingTlsConfig {
    *
    * @return serverName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used to verify the hostname for the targets.")
   public String getServerName() {
     return serverName;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** CHAP Secret for iSCSI target and initiator authentication */
 @ApiModel(description = "CHAP Secret for iSCSI target and initiator authentication")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecIscsiSecretRef {
@@ -41,7 +41,7 @@ public class V1ThanosRulerSpecIscsiSecretRef {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?")

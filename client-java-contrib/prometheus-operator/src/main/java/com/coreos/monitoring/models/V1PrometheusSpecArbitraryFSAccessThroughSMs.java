@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ArbitraryFSAccessThroughSMs configures whether configuration based on a service monitor can access arbitrary files on the file system of the Prometheus container e.g. bearer token files.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecArbitraryFSAccessThroughSMs {
@@ -44,7 +44,7 @@ public class V1PrometheusSpecArbitraryFSAccessThroughSMs {
    *
    * @return deny
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Boolean getDeny() {
     return deny;

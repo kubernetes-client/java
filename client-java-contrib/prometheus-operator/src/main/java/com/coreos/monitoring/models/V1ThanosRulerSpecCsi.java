@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecCsi {
@@ -92,7 +92,7 @@ public class V1ThanosRulerSpecCsi {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
@@ -116,7 +116,7 @@ public class V1ThanosRulerSpecCsi {
    *
    * @return nodePublishSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecCsiNodePublishSecretRef getNodePublishSecretRef() {
     return nodePublishSecretRef;
@@ -138,7 +138,7 @@ public class V1ThanosRulerSpecCsi {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Specifies a read-only configuration for the volume. Defaults to false (read/write).")
   public Boolean getReadOnly() {
@@ -169,7 +169,7 @@ public class V1ThanosRulerSpecCsi {
    *
    * @return volumeAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")

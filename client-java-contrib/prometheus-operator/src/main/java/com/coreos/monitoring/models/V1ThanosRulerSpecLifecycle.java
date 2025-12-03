@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Actions that the management system should take in response to container lifecycle events. Cannot be updated.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecLifecycle {
@@ -49,7 +49,7 @@ public class V1ThanosRulerSpecLifecycle {
    *
    * @return postStart
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStart getPostStart() {
     return postStart;
@@ -70,7 +70,7 @@ public class V1ThanosRulerSpecLifecycle {
    *
    * @return preStop
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePreStop getPreStop() {
     return preStop;
