@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "GitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecGitRepo {
@@ -57,7 +57,7 @@ public class V1ThanosRulerSpecGitRepo {
    *
    * @return directory
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.")
@@ -100,7 +100,7 @@ public class V1ThanosRulerSpecGitRepo {
    *
    * @return revision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Commit hash for the specified revision.")
   public String getRevision() {
     return revision;

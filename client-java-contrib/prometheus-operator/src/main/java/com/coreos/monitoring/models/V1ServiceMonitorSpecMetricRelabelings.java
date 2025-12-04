@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "RelabelConfig allows dynamic rewriting of the label set, being applied to samples before ingestion. It defines `<metric_relabel_configs>`-section of Prometheus configuration. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ServiceMonitorSpecMetricRelabelings {
@@ -78,7 +78,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return action
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Action to perform based on regex matching. Default is 'replace'")
   public String getAction() {
     return action;
@@ -99,7 +99,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return modulus
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Modulus to take of the hash of the source label values.")
   public Long getModulus() {
     return modulus;
@@ -120,7 +120,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return regex
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Regular expression against which the extracted value is matched. Default is '(.*)'")
   public String getRegex() {
@@ -143,7 +143,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return replacement
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Replacement value against which a regex replace is performed if the regular expression matches. Regex capture groups are available. Default is '$1'")
@@ -166,7 +166,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return separator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Separator placed between concatenated source label values. default is ';'.")
   public String getSeparator() {
@@ -198,7 +198,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return sourceLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The source labels select values from existing labels. Their content is concatenated using the configured separator and matched against the configured regular expression for the replace, keep, and drop actions.")
@@ -222,7 +222,7 @@ public class V1ServiceMonitorSpecMetricRelabelings {
    *
    * @return targetLabel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Label to which the resulting value is written in a replace action. It is mandatory for replace actions. Regex capture groups are available.")

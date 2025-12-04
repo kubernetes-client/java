@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Source for the environment variable's value. Cannot be used if value is not empty.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecValueFrom {
@@ -57,7 +57,7 @@ public class V1ThanosRulerSpecValueFrom {
    *
    * @return configMapKeyRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecValueFromConfigMapKeyRef getConfigMapKeyRef() {
     return configMapKeyRef;
@@ -78,7 +78,7 @@ public class V1ThanosRulerSpecValueFrom {
    *
    * @return fieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecValueFromFieldRef getFieldRef() {
     return fieldRef;
@@ -100,7 +100,7 @@ public class V1ThanosRulerSpecValueFrom {
    *
    * @return resourceFieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecValueFromResourceFieldRef getResourceFieldRef() {
     return resourceFieldRef;
@@ -122,7 +122,7 @@ public class V1ThanosRulerSpecValueFrom {
    *
    * @return secretKeyRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecValueFromSecretKeyRef getSecretKeyRef() {
     return secretKeyRef;

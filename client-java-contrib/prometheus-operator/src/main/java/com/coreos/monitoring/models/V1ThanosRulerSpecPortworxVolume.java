@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PortworxVolume represents a portworx volume attached and mounted on kubelets host machine")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecPortworxVolume {
@@ -53,7 +53,7 @@ public class V1ThanosRulerSpecPortworxVolume {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.")
@@ -76,7 +76,7 @@ public class V1ThanosRulerSpecPortworxVolume {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")

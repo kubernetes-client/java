@@ -23,7 +23,7 @@ import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.ListOptions;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public class Metrics {
   private static final String API_GROUP = "metrics.k8s.io";

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Maps a string key to a path within a volume. */
 @ApiModel(description = "Maps a string key to a path within a volume.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecConfigMapItems {
@@ -71,7 +71,7 @@ public class V1ThanosRulerSpecConfigMapItems {
    *
    * @return mode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")

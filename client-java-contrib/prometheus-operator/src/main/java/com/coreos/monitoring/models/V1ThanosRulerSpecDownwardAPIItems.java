@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "DownwardAPIVolumeFile represents information to create the file containing the pod field")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecDownwardAPIItems {
@@ -56,7 +56,7 @@ public class V1ThanosRulerSpecDownwardAPIItems {
    *
    * @return fieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecDownwardAPIFieldRef getFieldRef() {
     return fieldRef;
@@ -79,7 +79,7 @@ public class V1ThanosRulerSpecDownwardAPIItems {
    *
    * @return mode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
@@ -128,7 +128,7 @@ public class V1ThanosRulerSpecDownwardAPIItems {
    *
    * @return resourceFieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecDownwardAPIResourceFieldRef getResourceFieldRef() {
     return resourceFieldRef;

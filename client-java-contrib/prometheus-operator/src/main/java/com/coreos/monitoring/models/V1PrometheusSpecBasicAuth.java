@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** BasicAuth for the URL. */
 @ApiModel(description = "BasicAuth for the URL.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecBasicAuth {
@@ -44,7 +44,7 @@ public class V1PrometheusSpecBasicAuth {
    *
    * @return password
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBasicAuthPassword getPassword() {
     return password;
@@ -65,7 +65,7 @@ public class V1PrometheusSpecBasicAuth {
    *
    * @return username
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBasicAuthUsername getUsername() {
     return username;

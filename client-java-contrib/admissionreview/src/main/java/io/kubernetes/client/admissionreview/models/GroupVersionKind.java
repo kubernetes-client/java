@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "GroupVersionKind unambiguously identifies a kind.  It doesn't anonymously include GroupVersion to avoid automatic coersion.  It doesn't use a GroupVersion to avoid custom marshalling")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2021-07-01T14:30:02.888Z[Etc/UTC]")
 public class GroupVersionKind {

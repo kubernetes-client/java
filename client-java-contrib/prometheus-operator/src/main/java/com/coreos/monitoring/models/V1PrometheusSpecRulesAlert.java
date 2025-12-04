@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** /--rules.alert.*_/ command-line arguments */
 @ApiModel(description = "/--rules.alert.*_/ command-line arguments")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecRulesAlert {
@@ -50,7 +50,7 @@ public class V1PrometheusSpecRulesAlert {
    *
    * @return forGracePeriod
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Minimum duration between alert and restored 'for' state. This is maintained only for alerts with configured 'for' time greater than grace period.")
@@ -73,7 +73,7 @@ public class V1PrometheusSpecRulesAlert {
    *
    * @return forOutageTolerance
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Max time to tolerate prometheus outage for restoring 'for' state of alert.")
   public String getForOutageTolerance() {
@@ -95,7 +95,7 @@ public class V1PrometheusSpecRulesAlert {
    *
    * @return resendDelay
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Minimum amount of time to wait before resending an alert to Alertmanager.")
   public String getResendDelay() {

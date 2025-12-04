@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution {

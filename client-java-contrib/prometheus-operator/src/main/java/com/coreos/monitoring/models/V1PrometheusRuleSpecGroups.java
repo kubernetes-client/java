@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "RuleGroup is a list of sequentially evaluated recording and alerting rules. Note: PartialResponseStrategy is only used by ThanosRuler and will be ignored by Prometheus instances.  Valid values for this field are 'warn' or 'abort'.  More info: https://github.com/thanos-io/thanos/blob/master/docs/components/rule.md#partial-response")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusRuleSpecGroups {
@@ -64,7 +64,7 @@ public class V1PrometheusRuleSpecGroups {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getInterval() {
     return interval;
@@ -105,7 +105,7 @@ public class V1PrometheusRuleSpecGroups {
    *
    * @return partialResponseStrategy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getPartialResponseStrategy() {
     return partialResponseStrategy;
