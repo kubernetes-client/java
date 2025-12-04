@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -53,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSIDriverSpec is the specification of a CSIDriver.
  */
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
@@ -359,19 +361,10 @@ public class V1CSIDriverSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("attachRequired");
-    openapiFields.add("fsGroupPolicy");
-    openapiFields.add("nodeAllocatableUpdatePeriodSeconds");
-    openapiFields.add("podInfoOnMount");
-    openapiFields.add("requiresRepublish");
-    openapiFields.add("seLinuxMount");
-    openapiFields.add("storageCapacity");
-    openapiFields.add("tokenRequests");
-    openapiFields.add("volumeLifecycleModes");
+    openapiFields = new HashSet<String>(Arrays.asList("attachRequired", "fsGroupPolicy", "nodeAllocatableUpdatePeriodSeconds", "podInfoOnMount", "requiresRepublish", "seLinuxMount", "storageCapacity", "tokenRequests", "volumeLifecycleModes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -383,7 +376,7 @@ public class V1CSIDriverSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSIDriverSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CSIDriverSpec is not found in the empty JSON string", V1CSIDriverSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1CSIDriverSpec is not found in the empty JSON string", V1CSIDriverSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -391,19 +384,19 @@ public class V1CSIDriverSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CSIDriverSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fsGroupPolicy") != null && !jsonObj.get("fsGroupPolicy").isJsonNull()) && !jsonObj.get("fsGroupPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fsGroupPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupPolicy").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `fsGroupPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupPolicy").toString()));
       }
       if (jsonObj.get("tokenRequests") != null && !jsonObj.get("tokenRequests").isJsonNull()) {
         JsonArray jsonArraytokenRequests = jsonObj.getAsJsonArray("tokenRequests");
         if (jsonArraytokenRequests != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tokenRequests").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tokenRequests` to be an array in the JSON string but got `%s`", jsonObj.get("tokenRequests").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tokenRequests` to be an array in the JSON string but got `%s`", jsonObj.get("tokenRequests").toString()));
           }
 
           // validate the optional field `tokenRequests` (array)
@@ -414,7 +407,7 @@ public class V1CSIDriverSpec {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("volumeLifecycleModes") != null && !jsonObj.get("volumeLifecycleModes").isJsonNull() && !jsonObj.get("volumeLifecycleModes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeLifecycleModes` to be an array in the JSON string but got `%s`", jsonObj.get("volumeLifecycleModes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `volumeLifecycleModes` to be an array in the JSON string but got `%s`", jsonObj.get("volumeLifecycleModes").toString()));
       }
   }
 

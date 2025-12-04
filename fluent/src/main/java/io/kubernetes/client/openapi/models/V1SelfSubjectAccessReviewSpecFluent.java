@@ -1,27 +1,37 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
+
+  private V1NonResourceAttributesBuilder nonResourceAttributes;
+  private V1ResourceAttributesBuilder resourceAttributes;
+
   public V1SelfSubjectAccessReviewSpecFluent() {
   }
   
   public V1SelfSubjectAccessReviewSpecFluent(V1SelfSubjectAccessReviewSpec instance) {
     this.copyInstance(instance);
   }
-  private V1NonResourceAttributesBuilder nonResourceAttributes;
-  private V1ResourceAttributesBuilder resourceAttributes;
+
+  public V1NonResourceAttributes buildNonResourceAttributes() {
+    return this.nonResourceAttributes != null ? this.nonResourceAttributes.build() : null;
+  }
+  
+  public V1ResourceAttributes buildResourceAttributes() {
+    return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
+  }
   
   protected void copyInstance(V1SelfSubjectAccessReviewSpec instance) {
     instance = instance != null ? instance : new V1SelfSubjectAccessReviewSpec();
@@ -29,34 +39,6 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
         this.withNonResourceAttributes(instance.getNonResourceAttributes());
         this.withResourceAttributes(instance.getResourceAttributes());
     }
-  }
-  
-  public V1NonResourceAttributes buildNonResourceAttributes() {
-    return this.nonResourceAttributes != null ? this.nonResourceAttributes.build() : null;
-  }
-  
-  public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
-    this._visitables.remove("nonResourceAttributes");
-    if (nonResourceAttributes != null) {
-        this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
-        this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
-    } else {
-        this.nonResourceAttributes = null;
-        this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasNonResourceAttributes() {
-    return this.nonResourceAttributes != null;
-  }
-  
-  public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
-    return new NonResourceAttributesNested(null);
-  }
-  
-  public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return new NonResourceAttributesNested(item);
   }
   
   public NonResourceAttributesNested<A> editNonResourceAttributes() {
@@ -71,44 +53,16 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
     return this.withNewNonResourceAttributesLike(Optional.ofNullable(this.buildNonResourceAttributes()).orElse(item));
   }
   
-  public V1ResourceAttributes buildResourceAttributes() {
-    return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
-  }
-  
-  public A withResourceAttributes(V1ResourceAttributes resourceAttributes) {
-    this._visitables.remove("resourceAttributes");
-    if (resourceAttributes != null) {
-        this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
-        this._visitables.get("resourceAttributes").add(this.resourceAttributes);
-    } else {
-        this.resourceAttributes = null;
-        this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasResourceAttributes() {
-    return this.resourceAttributes != null;
-  }
-  
-  public ResourceAttributesNested<A> withNewResourceAttributes() {
-    return new ResourceAttributesNested(null);
-  }
-  
-  public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
-    return new ResourceAttributesNested(item);
-  }
-  
-  public ResourceAttributesNested<A> editResourceAttributes() {
-    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
-  }
-  
   public ResourceAttributesNested<A> editOrNewResourceAttributes() {
     return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(new V1ResourceAttributesBuilder().build()));
   }
   
   public ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
     return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(item));
+  }
+  
+  public ResourceAttributesNested<A> editResourceAttributes() {
+    return this.withNewResourceAttributesLike(Optional.ofNullable(this.buildResourceAttributes()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -131,6 +85,14 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
     return true;
   }
   
+  public boolean hasNonResourceAttributes() {
+    return this.nonResourceAttributes != null;
+  }
+  
+  public boolean hasResourceAttributes() {
+    return this.resourceAttributes != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(nonResourceAttributes, resourceAttributes);
   }
@@ -150,12 +112,54 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
     sb.append("}");
     return sb.toString();
   }
+  
+  public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
+    return new NonResourceAttributesNested(null);
+  }
+  
+  public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+    return new NonResourceAttributesNested(item);
+  }
+  
+  public ResourceAttributesNested<A> withNewResourceAttributes() {
+    return new ResourceAttributesNested(null);
+  }
+  
+  public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
+    return new ResourceAttributesNested(item);
+  }
+  
+  public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
+    this._visitables.remove("nonResourceAttributes");
+    if (nonResourceAttributes != null) {
+        this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
+        this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
+    } else {
+        this.nonResourceAttributes = null;
+        this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
+    }
+    return (A) this;
+  }
+  
+  public A withResourceAttributes(V1ResourceAttributes resourceAttributes) {
+    this._visitables.remove("resourceAttributes");
+    if (resourceAttributes != null) {
+        this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
+        this._visitables.get("resourceAttributes").add(this.resourceAttributes);
+    } else {
+        this.resourceAttributes = null;
+        this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
+    }
+    return (A) this;
+  }
   public class NonResourceAttributesNested<N> extends V1NonResourceAttributesFluent<NonResourceAttributesNested<N>> implements Nested<N>{
+  
+    V1NonResourceAttributesBuilder builder;
+  
     NonResourceAttributesNested(V1NonResourceAttributes item) {
       this.builder = new V1NonResourceAttributesBuilder(this, item);
     }
-    V1NonResourceAttributesBuilder builder;
-    
+  
     public N and() {
       return (N) V1SelfSubjectAccessReviewSpecFluent.this.withNonResourceAttributes(builder.build());
     }
@@ -164,14 +168,15 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
       return and();
     }
     
-  
   }
   public class ResourceAttributesNested<N> extends V1ResourceAttributesFluent<ResourceAttributesNested<N>> implements Nested<N>{
+  
+    V1ResourceAttributesBuilder builder;
+  
     ResourceAttributesNested(V1ResourceAttributes item) {
       this.builder = new V1ResourceAttributesBuilder(this, item);
     }
-    V1ResourceAttributesBuilder builder;
-    
+  
     public N and() {
       return (N) V1SelfSubjectAccessReviewSpecFluent.this.withResourceAttributes(builder.build());
     }
@@ -180,7 +185,5 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
       return and();
     }
     
-  
   }
-
 }

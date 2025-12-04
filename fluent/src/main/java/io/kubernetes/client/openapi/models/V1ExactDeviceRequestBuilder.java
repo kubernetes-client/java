@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ExactDeviceRequestBuilder extends V1ExactDeviceRequestFluent<V1ExactDeviceRequestBuilder> implements VisitableBuilder<V1ExactDeviceRequest,V1ExactDeviceRequestBuilder>{
+
+  V1ExactDeviceRequestFluent<?> fluent;
+
   public V1ExactDeviceRequestBuilder() {
     this(new V1ExactDeviceRequest());
   }
@@ -11,17 +14,16 @@ public class V1ExactDeviceRequestBuilder extends V1ExactDeviceRequestFluent<V1Ex
     this(fluent, new V1ExactDeviceRequest());
   }
   
-  public V1ExactDeviceRequestBuilder(V1ExactDeviceRequestFluent<?> fluent,V1ExactDeviceRequest instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ExactDeviceRequestBuilder(V1ExactDeviceRequest instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ExactDeviceRequestFluent<?> fluent;
   
+  public V1ExactDeviceRequestBuilder(V1ExactDeviceRequestFluent<?> fluent,V1ExactDeviceRequest instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ExactDeviceRequest build() {
     V1ExactDeviceRequest buildable = new V1ExactDeviceRequest();
     buildable.setAdminAccess(fluent.getAdminAccess());
@@ -34,5 +36,4 @@ public class V1ExactDeviceRequestBuilder extends V1ExactDeviceRequestFluent<V1Ex
     return buildable;
   }
   
-
 }

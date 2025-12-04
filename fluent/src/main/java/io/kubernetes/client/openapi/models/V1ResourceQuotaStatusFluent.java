@@ -1,35 +1,39 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
-import java.util.Map;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.models.V1ResourceQuotaStatusFluent<A>> extends BaseFluent<A>{
+
+  private Map<String,Quantity> hard;
+  private Map<String,Quantity> used;
+
   public V1ResourceQuotaStatusFluent() {
   }
   
   public V1ResourceQuotaStatusFluent(V1ResourceQuotaStatus instance) {
     this.copyInstance(instance);
   }
-  private Map<String,Quantity> hard;
-  private Map<String,Quantity> used;
-  
-  protected void copyInstance(V1ResourceQuotaStatus instance) {
-    instance = instance != null ? instance : new V1ResourceQuotaStatus();
-    if (instance != null) {
-        this.withHard(instance.getHard());
-        this.withUsed(instance.getUsed());
+
+  public A addToHard(Map<String,Quantity> map) {
+    if (this.hard == null && map != null) {
+      this.hard = new LinkedHashMap();
     }
+    if (map != null) {
+      this.hard.putAll(map);
+    }
+    return (A) this;
   }
   
   public A addToHard(String key,Quantity value) {
@@ -42,14 +46,72 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     return (A) this;
   }
   
-  public A addToHard(Map<String,Quantity> map) {
-    if (this.hard == null && map != null) {
-      this.hard = new LinkedHashMap();
+  public A addToUsed(Map<String,Quantity> map) {
+    if (this.used == null && map != null) {
+      this.used = new LinkedHashMap();
     }
     if (map != null) {
-      this.hard.putAll(map);
+      this.used.putAll(map);
     }
     return (A) this;
+  }
+  
+  public A addToUsed(String key,Quantity value) {
+    if (this.used == null && key != null && value != null) {
+      this.used = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.used.put(key, value);
+    }
+    return (A) this;
+  }
+  
+  protected void copyInstance(V1ResourceQuotaStatus instance) {
+    instance = instance != null ? instance : new V1ResourceQuotaStatus();
+    if (instance != null) {
+        this.withHard(instance.getHard());
+        this.withUsed(instance.getUsed());
+    }
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1ResourceQuotaStatusFluent that = (V1ResourceQuotaStatusFluent) o;
+    if (!(Objects.equals(hard, that.hard))) {
+      return false;
+    }
+    if (!(Objects.equals(used, that.used))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public Map<String,Quantity> getHard() {
+    return this.hard;
+  }
+  
+  public Map<String,Quantity> getUsed() {
+    return this.used;
+  }
+  
+  public boolean hasHard() {
+    return this.hard != null;
+  }
+  
+  public boolean hasUsed() {
+    return this.used != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(hard, used);
   }
   
   public A removeFromHard(String key) {
@@ -72,43 +134,6 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
           this.hard.remove(key);
         }
       }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,Quantity> getHard() {
-    return this.hard;
-  }
-  
-  public <K,V>A withHard(Map<String,Quantity> hard) {
-    if (hard == null) {
-      this.hard = null;
-    } else {
-      this.hard = new LinkedHashMap(hard);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasHard() {
-    return this.hard != null;
-  }
-  
-  public A addToUsed(String key,Quantity value) {
-    if (this.used == null && key != null && value != null) {
-      this.used = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.used.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToUsed(Map<String,Quantity> map) {
-    if (this.used == null && map != null) {
-      this.used = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.used.putAll(map);
     }
     return (A) this;
   }
@@ -137,47 +162,6 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     return (A) this;
   }
   
-  public Map<String,Quantity> getUsed() {
-    return this.used;
-  }
-  
-  public <K,V>A withUsed(Map<String,Quantity> used) {
-    if (used == null) {
-      this.used = null;
-    } else {
-      this.used = new LinkedHashMap(used);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasUsed() {
-    return this.used != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1ResourceQuotaStatusFluent that = (V1ResourceQuotaStatusFluent) o;
-    if (!(Objects.equals(hard, that.hard))) {
-      return false;
-    }
-    if (!(Objects.equals(used, that.used))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(hard, used);
-  }
-  
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
@@ -194,5 +178,22 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public <K,V>A withHard(Map<String,Quantity> hard) {
+    if (hard == null) {
+      this.hard = null;
+    } else {
+      this.hard = new LinkedHashMap(hard);
+    }
+    return (A) this;
+  }
+  
+  public <K,V>A withUsed(Map<String,Quantity> used) {
+    if (used == null) {
+      this.used = null;
+    } else {
+      this.used = new LinkedHashMap(used);
+    }
+    return (A) this;
+  }
+  
 }

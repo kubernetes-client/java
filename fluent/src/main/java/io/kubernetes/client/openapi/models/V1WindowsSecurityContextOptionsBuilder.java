@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityContextOptionsFluent<V1WindowsSecurityContextOptionsBuilder> implements VisitableBuilder<V1WindowsSecurityContextOptions,V1WindowsSecurityContextOptionsBuilder>{
+
+  V1WindowsSecurityContextOptionsFluent<?> fluent;
+
   public V1WindowsSecurityContextOptionsBuilder() {
     this(new V1WindowsSecurityContextOptions());
   }
@@ -11,17 +14,16 @@ public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityCon
     this(fluent, new V1WindowsSecurityContextOptions());
   }
   
-  public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptionsFluent<?> fluent,V1WindowsSecurityContextOptions instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptions instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1WindowsSecurityContextOptionsFluent<?> fluent;
   
+  public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptionsFluent<?> fluent,V1WindowsSecurityContextOptions instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1WindowsSecurityContextOptions build() {
     V1WindowsSecurityContextOptions buildable = new V1WindowsSecurityContextOptions();
     buildable.setGmsaCredentialSpec(fluent.getGmsaCredentialSpec());
@@ -31,5 +33,4 @@ public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityCon
     return buildable;
   }
   
-
 }

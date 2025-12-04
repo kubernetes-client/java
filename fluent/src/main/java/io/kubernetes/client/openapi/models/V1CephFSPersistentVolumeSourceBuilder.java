@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CephFSPersistentVolumeSourceBuilder extends V1CephFSPersistentVolumeSourceFluent<V1CephFSPersistentVolumeSourceBuilder> implements VisitableBuilder<V1CephFSPersistentVolumeSource,V1CephFSPersistentVolumeSourceBuilder>{
+
+  V1CephFSPersistentVolumeSourceFluent<?> fluent;
+
   public V1CephFSPersistentVolumeSourceBuilder() {
     this(new V1CephFSPersistentVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1CephFSPersistentVolumeSourceBuilder extends V1CephFSPersistentVol
     this(fluent, new V1CephFSPersistentVolumeSource());
   }
   
-  public V1CephFSPersistentVolumeSourceBuilder(V1CephFSPersistentVolumeSourceFluent<?> fluent,V1CephFSPersistentVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CephFSPersistentVolumeSourceBuilder(V1CephFSPersistentVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CephFSPersistentVolumeSourceFluent<?> fluent;
   
+  public V1CephFSPersistentVolumeSourceBuilder(V1CephFSPersistentVolumeSourceFluent<?> fluent,V1CephFSPersistentVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CephFSPersistentVolumeSource build() {
     V1CephFSPersistentVolumeSource buildable = new V1CephFSPersistentVolumeSource();
     buildable.setMonitors(fluent.getMonitors());
@@ -33,5 +35,4 @@ public class V1CephFSPersistentVolumeSourceBuilder extends V1CephFSPersistentVol
     return buildable;
   }
   
-
 }

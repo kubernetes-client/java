@@ -1,32 +1,27 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.lang.Boolean;
-import java.util.Optional;
 import java.util.Objects;
-import java.util.Collection;
-import java.lang.Object;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<A>> extends BaseFluent<A>{
-  public V1CustomResourceDefinitionVersionFluent() {
-  }
-  
-  public V1CustomResourceDefinitionVersionFluent(V1CustomResourceDefinitionVersion instance) {
-    this.copyInstance(instance);
-  }
+
   private ArrayList<V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
   private Boolean deprecated;
   private String deprecationWarning;
@@ -36,20 +31,64 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   private Boolean served;
   private Boolean storage;
   private V1CustomResourceSubresourcesBuilder subresources;
+
+  public V1CustomResourceDefinitionVersionFluent() {
+  }
   
-  protected void copyInstance(V1CustomResourceDefinitionVersion instance) {
-    instance = instance != null ? instance : new V1CustomResourceDefinitionVersion();
-    if (instance != null) {
-        this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
-        this.withDeprecated(instance.getDeprecated());
-        this.withDeprecationWarning(instance.getDeprecationWarning());
-        this.withName(instance.getName());
-        this.withSchema(instance.getSchema());
-        this.withSelectableFields(instance.getSelectableFields());
-        this.withServed(instance.getServed());
-        this.withStorage(instance.getStorage());
-        this.withSubresources(instance.getSubresources());
+  public V1CustomResourceDefinitionVersionFluent(V1CustomResourceDefinitionVersion instance) {
+    this.copyInstance(instance);
+  }
+
+  public A addAllToAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
+    if (this.additionalPrinterColumns == null) {
+      this.additionalPrinterColumns = new ArrayList();
     }
+    for (V1CustomResourceColumnDefinition item : items) {
+        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+        _visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToSelectableFields(Collection<V1SelectableField> items) {
+    if (this.selectableFields == null) {
+      this.selectableFields = new ArrayList();
+    }
+    for (V1SelectableField item : items) {
+        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+        _visitables.get("selectableFields").add(builder);
+        this.selectableFields.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn() {
+    return new AdditionalPrinterColumnsNested(-1, null);
+  }
+  
+  public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
+    return new AdditionalPrinterColumnsNested(-1, item);
+  }
+  
+  public SelectableFieldsNested<A> addNewSelectableField() {
+    return new SelectableFieldsNested(-1, null);
+  }
+  
+  public SelectableFieldsNested<A> addNewSelectableFieldLike(V1SelectableField item) {
+    return new SelectableFieldsNested(-1, item);
+  }
+  
+  public A addToAdditionalPrinterColumns(V1CustomResourceColumnDefinition... items) {
+    if (this.additionalPrinterColumns == null) {
+      this.additionalPrinterColumns = new ArrayList();
+    }
+    for (V1CustomResourceColumnDefinition item : items) {
+        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+        _visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
@@ -67,276 +106,16 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return (A) this;
   }
   
-  public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
-    if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
+  public A addToSelectableFields(V1SelectableField... items) {
+    if (this.selectableFields == null) {
+      this.selectableFields = new ArrayList();
     }
-    V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= additionalPrinterColumns.size()) {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.add(builder);
-    } else {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.set(index, builder);
+    for (V1SelectableField item : items) {
+        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+        _visitables.get("selectableFields").add(builder);
+        this.selectableFields.add(builder);
     }
     return (A) this;
-  }
-  
-  public A addToAdditionalPrinterColumns(V1CustomResourceColumnDefinition... items) {
-    if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
-    }
-    for (V1CustomResourceColumnDefinition item : items) {
-        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").add(builder);
-        this.additionalPrinterColumns.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
-    if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
-    }
-    for (V1CustomResourceColumnDefinition item : items) {
-        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").add(builder);
-        this.additionalPrinterColumns.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromAdditionalPrinterColumns(V1CustomResourceColumnDefinition... items) {
-    if (this.additionalPrinterColumns == null) {
-      return (A) this;
-    }
-    for (V1CustomResourceColumnDefinition item : items) {
-        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").remove(builder);
-        this.additionalPrinterColumns.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
-    if (this.additionalPrinterColumns == null) {
-      return (A) this;
-    }
-    for (V1CustomResourceColumnDefinition item : items) {
-        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").remove(builder);
-        this.additionalPrinterColumns.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromAdditionalPrinterColumns(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
-    if (additionalPrinterColumns == null) {
-      return (A) this;
-    }
-    Iterator<V1CustomResourceColumnDefinitionBuilder> each = additionalPrinterColumns.iterator();
-    List visitables = _visitables.get("additionalPrinterColumns");
-    while (each.hasNext()) {
-        V1CustomResourceColumnDefinitionBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns() {
-    return this.additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
-  }
-  
-  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(int index) {
-    return this.additionalPrinterColumns.get(index).build();
-  }
-  
-  public V1CustomResourceColumnDefinition buildFirstAdditionalPrinterColumn() {
-    return this.additionalPrinterColumns.get(0).build();
-  }
-  
-  public V1CustomResourceColumnDefinition buildLastAdditionalPrinterColumn() {
-    return this.additionalPrinterColumns.get(additionalPrinterColumns.size() - 1).build();
-  }
-  
-  public V1CustomResourceColumnDefinition buildMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
-      for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
-        if (predicate.test(item)) {
-          return item.build();
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
-      for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withAdditionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
-    if (this.additionalPrinterColumns != null) {
-      this._visitables.get("additionalPrinterColumns").clear();
-    }
-    if (additionalPrinterColumns != null) {
-        this.additionalPrinterColumns = new ArrayList();
-        for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
-          this.addToAdditionalPrinterColumns(item);
-        }
-    } else {
-      this.additionalPrinterColumns = null;
-    }
-    return (A) this;
-  }
-  
-  public A withAdditionalPrinterColumns(V1CustomResourceColumnDefinition... additionalPrinterColumns) {
-    if (this.additionalPrinterColumns != null) {
-        this.additionalPrinterColumns.clear();
-        _visitables.remove("additionalPrinterColumns");
-    }
-    if (additionalPrinterColumns != null) {
-      for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
-        this.addToAdditionalPrinterColumns(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasAdditionalPrinterColumns() {
-    return this.additionalPrinterColumns != null && !(this.additionalPrinterColumns.isEmpty());
-  }
-  
-  public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn() {
-    return new AdditionalPrinterColumnsNested(-1, null);
-  }
-  
-  public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
-    return new AdditionalPrinterColumnsNested(-1, item);
-  }
-  
-  public AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(int index,V1CustomResourceColumnDefinition item) {
-    return new AdditionalPrinterColumnsNested(index, item);
-  }
-  
-  public AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(int index) {
-    if (index <= additionalPrinterColumns.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "additionalPrinterColumns"));
-    }
-    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
-  }
-  
-  public AdditionalPrinterColumnsNested<A> editFirstAdditionalPrinterColumn() {
-    if (additionalPrinterColumns.size() == 0) {
-      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "additionalPrinterColumns"));
-    }
-    return this.setNewAdditionalPrinterColumnLike(0, this.buildAdditionalPrinterColumn(0));
-  }
-  
-  public AdditionalPrinterColumnsNested<A> editLastAdditionalPrinterColumn() {
-    int index = additionalPrinterColumns.size() - 1;
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "additionalPrinterColumns"));
-    }
-    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
-  }
-  
-  public AdditionalPrinterColumnsNested<A> editMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
-    int index = -1;
-    for (int i = 0;i < additionalPrinterColumns.size();i++) {
-      if (predicate.test(additionalPrinterColumns.get(i))) {
-          index = i;
-          break;
-      }
-    }
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "additionalPrinterColumns"));
-    }
-    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
-  }
-  
-  public Boolean getDeprecated() {
-    return this.deprecated;
-  }
-  
-  public A withDeprecated(Boolean deprecated) {
-    this.deprecated = deprecated;
-    return (A) this;
-  }
-  
-  public boolean hasDeprecated() {
-    return this.deprecated != null;
-  }
-  
-  public String getDeprecationWarning() {
-    return this.deprecationWarning;
-  }
-  
-  public A withDeprecationWarning(String deprecationWarning) {
-    this.deprecationWarning = deprecationWarning;
-    return (A) this;
-  }
-  
-  public boolean hasDeprecationWarning() {
-    return this.deprecationWarning != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public V1CustomResourceValidation buildSchema() {
-    return this.schema != null ? this.schema.build() : null;
-  }
-  
-  public A withSchema(V1CustomResourceValidation schema) {
-    this._visitables.remove("schema");
-    if (schema != null) {
-        this.schema = new V1CustomResourceValidationBuilder(schema);
-        this._visitables.get("schema").add(this.schema);
-    } else {
-        this.schema = null;
-        this._visitables.get("schema").remove(this.schema);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSchema() {
-    return this.schema != null;
-  }
-  
-  public SchemaNested<A> withNewSchema() {
-    return new SchemaNested(null);
-  }
-  
-  public SchemaNested<A> withNewSchemaLike(V1CustomResourceValidation item) {
-    return new SchemaNested(item);
-  }
-  
-  public SchemaNested<A> editSchema() {
-    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(null));
-  }
-  
-  public SchemaNested<A> editOrNewSchema() {
-    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(new V1CustomResourceValidationBuilder().build()));
-  }
-  
-  public SchemaNested<A> editOrNewSchemaLike(V1CustomResourceValidation item) {
-    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(item));
   }
   
   public A addToSelectableFields(int index,V1SelectableField item) {
@@ -354,99 +133,37 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return (A) this;
   }
   
-  public A setToSelectableFields(int index,V1SelectableField item) {
-    if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
-    }
-    V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-    if (index < 0 || index >= selectableFields.size()) {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.add(builder);
-    } else {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.set(index, builder);
-    }
-    return (A) this;
+  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(int index) {
+    return this.additionalPrinterColumns.get(index).build();
   }
   
-  public A addToSelectableFields(V1SelectableField... items) {
-    if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
-    }
-    for (V1SelectableField item : items) {
-        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").add(builder);
-        this.selectableFields.add(builder);
-    }
-    return (A) this;
+  public List<V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns() {
+    return this.additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
   
-  public A addAllToSelectableFields(Collection<V1SelectableField> items) {
-    if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
-    }
-    for (V1SelectableField item : items) {
-        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").add(builder);
-        this.selectableFields.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromSelectableFields(V1SelectableField... items) {
-    if (this.selectableFields == null) {
-      return (A) this;
-    }
-    for (V1SelectableField item : items) {
-        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").remove(builder);
-        this.selectableFields.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromSelectableFields(Collection<V1SelectableField> items) {
-    if (this.selectableFields == null) {
-      return (A) this;
-    }
-    for (V1SelectableField item : items) {
-        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").remove(builder);
-        this.selectableFields.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromSelectableFields(Predicate<V1SelectableFieldBuilder> predicate) {
-    if (selectableFields == null) {
-      return (A) this;
-    }
-    Iterator<V1SelectableFieldBuilder> each = selectableFields.iterator();
-    List visitables = _visitables.get("selectableFields");
-    while (each.hasNext()) {
-        V1SelectableFieldBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1SelectableField> buildSelectableFields() {
-    return this.selectableFields != null ? build(selectableFields) : null;
-  }
-  
-  public V1SelectableField buildSelectableField(int index) {
-    return this.selectableFields.get(index).build();
+  public V1CustomResourceColumnDefinition buildFirstAdditionalPrinterColumn() {
+    return this.additionalPrinterColumns.get(0).build();
   }
   
   public V1SelectableField buildFirstSelectableField() {
     return this.selectableFields.get(0).build();
   }
   
+  public V1CustomResourceColumnDefinition buildLastAdditionalPrinterColumn() {
+    return this.additionalPrinterColumns.get(additionalPrinterColumns.size() - 1).build();
+  }
+  
   public V1SelectableField buildLastSelectableField() {
     return this.selectableFields.get(selectableFields.size() - 1).build();
+  }
+  
+  public V1CustomResourceColumnDefinition buildMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+      for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
   }
   
   public V1SelectableField buildMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
@@ -458,64 +175,49 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return null;
   }
   
-  public boolean hasMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
-      for (V1SelectableFieldBuilder item : selectableFields) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public V1CustomResourceValidation buildSchema() {
+    return this.schema != null ? this.schema.build() : null;
   }
   
-  public A withSelectableFields(List<V1SelectableField> selectableFields) {
-    if (this.selectableFields != null) {
-      this._visitables.get("selectableFields").clear();
+  public V1SelectableField buildSelectableField(int index) {
+    return this.selectableFields.get(index).build();
+  }
+  
+  public List<V1SelectableField> buildSelectableFields() {
+    return this.selectableFields != null ? build(selectableFields) : null;
+  }
+  
+  public V1CustomResourceSubresources buildSubresources() {
+    return this.subresources != null ? this.subresources.build() : null;
+  }
+  
+  protected void copyInstance(V1CustomResourceDefinitionVersion instance) {
+    instance = instance != null ? instance : new V1CustomResourceDefinitionVersion();
+    if (instance != null) {
+        this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
+        this.withDeprecated(instance.getDeprecated());
+        this.withDeprecationWarning(instance.getDeprecationWarning());
+        this.withName(instance.getName());
+        this.withSchema(instance.getSchema());
+        this.withSelectableFields(instance.getSelectableFields());
+        this.withServed(instance.getServed());
+        this.withStorage(instance.getStorage());
+        this.withSubresources(instance.getSubresources());
     }
-    if (selectableFields != null) {
-        this.selectableFields = new ArrayList();
-        for (V1SelectableField item : selectableFields) {
-          this.addToSelectableFields(item);
-        }
-    } else {
-      this.selectableFields = null;
+  }
+  
+  public AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(int index) {
+    if (additionalPrinterColumns.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "additionalPrinterColumns"));
     }
-    return (A) this;
+    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
   }
   
-  public A withSelectableFields(V1SelectableField... selectableFields) {
-    if (this.selectableFields != null) {
-        this.selectableFields.clear();
-        _visitables.remove("selectableFields");
+  public AdditionalPrinterColumnsNested<A> editFirstAdditionalPrinterColumn() {
+    if (additionalPrinterColumns.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "additionalPrinterColumns"));
     }
-    if (selectableFields != null) {
-      for (V1SelectableField item : selectableFields) {
-        this.addToSelectableFields(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSelectableFields() {
-    return this.selectableFields != null && !(this.selectableFields.isEmpty());
-  }
-  
-  public SelectableFieldsNested<A> addNewSelectableField() {
-    return new SelectableFieldsNested(-1, null);
-  }
-  
-  public SelectableFieldsNested<A> addNewSelectableFieldLike(V1SelectableField item) {
-    return new SelectableFieldsNested(-1, item);
-  }
-  
-  public SelectableFieldsNested<A> setNewSelectableFieldLike(int index,V1SelectableField item) {
-    return new SelectableFieldsNested(index, item);
-  }
-  
-  public SelectableFieldsNested<A> editSelectableField(int index) {
-    if (index <= selectableFields.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "selectableFields"));
-    }
-    return this.setNewSelectableFieldLike(index, this.buildSelectableField(index));
+    return this.setNewAdditionalPrinterColumnLike(0, this.buildAdditionalPrinterColumn(0));
   }
   
   public SelectableFieldsNested<A> editFirstSelectableField() {
@@ -525,12 +227,34 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return this.setNewSelectableFieldLike(0, this.buildSelectableField(0));
   }
   
+  public AdditionalPrinterColumnsNested<A> editLastAdditionalPrinterColumn() {
+    int index = additionalPrinterColumns.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "additionalPrinterColumns"));
+    }
+    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
+  }
+  
   public SelectableFieldsNested<A> editLastSelectableField() {
     int index = selectableFields.size() - 1;
     if (index < 0) {
       throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "selectableFields"));
     }
     return this.setNewSelectableFieldLike(index, this.buildSelectableField(index));
+  }
+  
+  public AdditionalPrinterColumnsNested<A> editMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < additionalPrinterColumns.size();i++) {
+      if (predicate.test(additionalPrinterColumns.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "additionalPrinterColumns"));
+    }
+    return this.setNewAdditionalPrinterColumnLike(index, this.buildAdditionalPrinterColumn(index));
   }
   
   public SelectableFieldsNested<A> editMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
@@ -547,62 +271,12 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return this.setNewSelectableFieldLike(index, this.buildSelectableField(index));
   }
   
-  public Boolean getServed() {
-    return this.served;
+  public SchemaNested<A> editOrNewSchema() {
+    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(new V1CustomResourceValidationBuilder().build()));
   }
   
-  public A withServed(Boolean served) {
-    this.served = served;
-    return (A) this;
-  }
-  
-  public boolean hasServed() {
-    return this.served != null;
-  }
-  
-  public Boolean getStorage() {
-    return this.storage;
-  }
-  
-  public A withStorage(Boolean storage) {
-    this.storage = storage;
-    return (A) this;
-  }
-  
-  public boolean hasStorage() {
-    return this.storage != null;
-  }
-  
-  public V1CustomResourceSubresources buildSubresources() {
-    return this.subresources != null ? this.subresources.build() : null;
-  }
-  
-  public A withSubresources(V1CustomResourceSubresources subresources) {
-    this._visitables.remove("subresources");
-    if (subresources != null) {
-        this.subresources = new V1CustomResourceSubresourcesBuilder(subresources);
-        this._visitables.get("subresources").add(this.subresources);
-    } else {
-        this.subresources = null;
-        this._visitables.get("subresources").remove(this.subresources);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSubresources() {
-    return this.subresources != null;
-  }
-  
-  public SubresourcesNested<A> withNewSubresources() {
-    return new SubresourcesNested(null);
-  }
-  
-  public SubresourcesNested<A> withNewSubresourcesLike(V1CustomResourceSubresources item) {
-    return new SubresourcesNested(item);
-  }
-  
-  public SubresourcesNested<A> editSubresources() {
-    return this.withNewSubresourcesLike(Optional.ofNullable(this.buildSubresources()).orElse(null));
+  public SchemaNested<A> editOrNewSchemaLike(V1CustomResourceValidation item) {
+    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(item));
   }
   
   public SubresourcesNested<A> editOrNewSubresources() {
@@ -611,6 +285,21 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public SubresourcesNested<A> editOrNewSubresourcesLike(V1CustomResourceSubresources item) {
     return this.withNewSubresourcesLike(Optional.ofNullable(this.buildSubresources()).orElse(item));
+  }
+  
+  public SchemaNested<A> editSchema() {
+    return this.withNewSchemaLike(Optional.ofNullable(this.buildSchema()).orElse(null));
+  }
+  
+  public SelectableFieldsNested<A> editSelectableField(int index) {
+    if (selectableFields.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "selectableFields"));
+    }
+    return this.setNewSelectableFieldLike(index, this.buildSelectableField(index));
+  }
+  
+  public SubresourcesNested<A> editSubresources() {
+    return this.withNewSubresourcesLike(Optional.ofNullable(this.buildSubresources()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -654,8 +343,200 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return true;
   }
   
+  public Boolean getDeprecated() {
+    return this.deprecated;
+  }
+  
+  public String getDeprecationWarning() {
+    return this.deprecationWarning;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public Boolean getServed() {
+    return this.served;
+  }
+  
+  public Boolean getStorage() {
+    return this.storage;
+  }
+  
+  public boolean hasAdditionalPrinterColumns() {
+    return this.additionalPrinterColumns != null && !(this.additionalPrinterColumns.isEmpty());
+  }
+  
+  public boolean hasDeprecated() {
+    return this.deprecated != null;
+  }
+  
+  public boolean hasDeprecationWarning() {
+    return this.deprecationWarning != null;
+  }
+  
+  public boolean hasMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+      for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingSelectableField(Predicate<V1SelectableFieldBuilder> predicate) {
+      for (V1SelectableFieldBuilder item : selectableFields) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasSchema() {
+    return this.schema != null;
+  }
+  
+  public boolean hasSelectableFields() {
+    return this.selectableFields != null && !(this.selectableFields.isEmpty());
+  }
+  
+  public boolean hasServed() {
+    return this.served != null;
+  }
+  
+  public boolean hasStorage() {
+    return this.storage != null;
+  }
+  
+  public boolean hasSubresources() {
+    return this.subresources != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(additionalPrinterColumns, deprecated, deprecationWarning, name, schema, selectableFields, served, storage, subresources);
+  }
+  
+  public A removeAllFromAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
+    if (this.additionalPrinterColumns == null) {
+      return (A) this;
+    }
+    for (V1CustomResourceColumnDefinition item : items) {
+        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+        _visitables.get("additionalPrinterColumns").remove(builder);
+        this.additionalPrinterColumns.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromSelectableFields(Collection<V1SelectableField> items) {
+    if (this.selectableFields == null) {
+      return (A) this;
+    }
+    for (V1SelectableField item : items) {
+        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+        _visitables.get("selectableFields").remove(builder);
+        this.selectableFields.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAdditionalPrinterColumns(V1CustomResourceColumnDefinition... items) {
+    if (this.additionalPrinterColumns == null) {
+      return (A) this;
+    }
+    for (V1CustomResourceColumnDefinition item : items) {
+        V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+        _visitables.get("additionalPrinterColumns").remove(builder);
+        this.additionalPrinterColumns.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromSelectableFields(V1SelectableField... items) {
+    if (this.selectableFields == null) {
+      return (A) this;
+    }
+    for (V1SelectableField item : items) {
+        V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+        _visitables.get("selectableFields").remove(builder);
+        this.selectableFields.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromAdditionalPrinterColumns(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+    if (additionalPrinterColumns == null) {
+      return (A) this;
+    }
+    Iterator<V1CustomResourceColumnDefinitionBuilder> each = additionalPrinterColumns.iterator();
+    List visitables = _visitables.get("additionalPrinterColumns");
+    while (each.hasNext()) {
+        V1CustomResourceColumnDefinitionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromSelectableFields(Predicate<V1SelectableFieldBuilder> predicate) {
+    if (selectableFields == null) {
+      return (A) this;
+    }
+    Iterator<V1SelectableFieldBuilder> each = selectableFields.iterator();
+    List visitables = _visitables.get("selectableFields");
+    while (each.hasNext()) {
+        V1SelectableFieldBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(int index,V1CustomResourceColumnDefinition item) {
+    return new AdditionalPrinterColumnsNested(index, item);
+  }
+  
+  public SelectableFieldsNested<A> setNewSelectableFieldLike(int index,V1SelectableField item) {
+    return new SelectableFieldsNested(index, item);
+  }
+  
+  public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
+    if (this.additionalPrinterColumns == null) {
+      this.additionalPrinterColumns = new ArrayList();
+    }
+    V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+    if (index < 0 || index >= additionalPrinterColumns.size()) {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.add(builder);
+    } else {
+        _visitables.get("additionalPrinterColumns").add(builder);
+        additionalPrinterColumns.set(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A setToSelectableFields(int index,V1SelectableField item) {
+    if (this.selectableFields == null) {
+      this.selectableFields = new ArrayList();
+    }
+    V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
+    if (index < 0 || index >= selectableFields.size()) {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.add(builder);
+    } else {
+        _visitables.get("selectableFields").add(builder);
+        selectableFields.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -709,25 +590,148 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     return sb.toString();
   }
   
+  public A withAdditionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
+    if (this.additionalPrinterColumns != null) {
+      this._visitables.get("additionalPrinterColumns").clear();
+    }
+    if (additionalPrinterColumns != null) {
+        this.additionalPrinterColumns = new ArrayList();
+        for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
+          this.addToAdditionalPrinterColumns(item);
+        }
+    } else {
+      this.additionalPrinterColumns = null;
+    }
+    return (A) this;
+  }
+  
+  public A withAdditionalPrinterColumns(V1CustomResourceColumnDefinition... additionalPrinterColumns) {
+    if (this.additionalPrinterColumns != null) {
+        this.additionalPrinterColumns.clear();
+        _visitables.remove("additionalPrinterColumns");
+    }
+    if (additionalPrinterColumns != null) {
+      for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
+        this.addToAdditionalPrinterColumns(item);
+      }
+    }
+    return (A) this;
+  }
+  
   public A withDeprecated() {
     return withDeprecated(true);
+  }
+  
+  public A withDeprecated(Boolean deprecated) {
+    this.deprecated = deprecated;
+    return (A) this;
+  }
+  
+  public A withDeprecationWarning(String deprecationWarning) {
+    this.deprecationWarning = deprecationWarning;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public SchemaNested<A> withNewSchema() {
+    return new SchemaNested(null);
+  }
+  
+  public SchemaNested<A> withNewSchemaLike(V1CustomResourceValidation item) {
+    return new SchemaNested(item);
+  }
+  
+  public SubresourcesNested<A> withNewSubresources() {
+    return new SubresourcesNested(null);
+  }
+  
+  public SubresourcesNested<A> withNewSubresourcesLike(V1CustomResourceSubresources item) {
+    return new SubresourcesNested(item);
+  }
+  
+  public A withSchema(V1CustomResourceValidation schema) {
+    this._visitables.remove("schema");
+    if (schema != null) {
+        this.schema = new V1CustomResourceValidationBuilder(schema);
+        this._visitables.get("schema").add(this.schema);
+    } else {
+        this.schema = null;
+        this._visitables.get("schema").remove(this.schema);
+    }
+    return (A) this;
+  }
+  
+  public A withSelectableFields(List<V1SelectableField> selectableFields) {
+    if (this.selectableFields != null) {
+      this._visitables.get("selectableFields").clear();
+    }
+    if (selectableFields != null) {
+        this.selectableFields = new ArrayList();
+        for (V1SelectableField item : selectableFields) {
+          this.addToSelectableFields(item);
+        }
+    } else {
+      this.selectableFields = null;
+    }
+    return (A) this;
+  }
+  
+  public A withSelectableFields(V1SelectableField... selectableFields) {
+    if (this.selectableFields != null) {
+        this.selectableFields.clear();
+        _visitables.remove("selectableFields");
+    }
+    if (selectableFields != null) {
+      for (V1SelectableField item : selectableFields) {
+        this.addToSelectableFields(item);
+      }
+    }
+    return (A) this;
   }
   
   public A withServed() {
     return withServed(true);
   }
   
+  public A withServed(Boolean served) {
+    this.served = served;
+    return (A) this;
+  }
+  
   public A withStorage() {
     return withStorage(true);
   }
+  
+  public A withStorage(Boolean storage) {
+    this.storage = storage;
+    return (A) this;
+  }
+  
+  public A withSubresources(V1CustomResourceSubresources subresources) {
+    this._visitables.remove("subresources");
+    if (subresources != null) {
+        this.subresources = new V1CustomResourceSubresourcesBuilder(subresources);
+        this._visitables.get("subresources").add(this.subresources);
+    } else {
+        this.subresources = null;
+        this._visitables.get("subresources").remove(this.subresources);
+    }
+    return (A) this;
+  }
   public class AdditionalPrinterColumnsNested<N> extends V1CustomResourceColumnDefinitionFluent<AdditionalPrinterColumnsNested<N>> implements Nested<N>{
+  
+    V1CustomResourceColumnDefinitionBuilder builder;
+    int index;
+  
     AdditionalPrinterColumnsNested(int index,V1CustomResourceColumnDefinition item) {
       this.index = index;
       this.builder = new V1CustomResourceColumnDefinitionBuilder(this, item);
     }
-    V1CustomResourceColumnDefinitionBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluent.this.setToAdditionalPrinterColumns(index, builder.build());
     }
@@ -736,14 +740,15 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return and();
     }
     
-  
   }
   public class SchemaNested<N> extends V1CustomResourceValidationFluent<SchemaNested<N>> implements Nested<N>{
+  
+    V1CustomResourceValidationBuilder builder;
+  
     SchemaNested(V1CustomResourceValidation item) {
       this.builder = new V1CustomResourceValidationBuilder(this, item);
     }
-    V1CustomResourceValidationBuilder builder;
-    
+  
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluent.this.withSchema(builder.build());
     }
@@ -752,16 +757,17 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return and();
     }
     
-  
   }
   public class SelectableFieldsNested<N> extends V1SelectableFieldFluent<SelectableFieldsNested<N>> implements Nested<N>{
+  
+    V1SelectableFieldBuilder builder;
+    int index;
+  
     SelectableFieldsNested(int index,V1SelectableField item) {
       this.index = index;
       this.builder = new V1SelectableFieldBuilder(this, item);
     }
-    V1SelectableFieldBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluent.this.setToSelectableFields(index, builder.build());
     }
@@ -770,14 +776,15 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return and();
     }
     
-  
   }
   public class SubresourcesNested<N> extends V1CustomResourceSubresourcesFluent<SubresourcesNested<N>> implements Nested<N>{
+  
+    V1CustomResourceSubresourcesBuilder builder;
+  
     SubresourcesNested(V1CustomResourceSubresources item) {
       this.builder = new V1CustomResourceSubresourcesBuilder(this, item);
     }
-    V1CustomResourceSubresourcesBuilder builder;
-    
+  
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluent.this.withSubresources(builder.build());
     }
@@ -786,7 +793,5 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return and();
     }
     
-  
   }
-
 }

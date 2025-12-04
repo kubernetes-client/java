@@ -1,31 +1,37 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.models.V1ControllerRevisionFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private Object data;
+  private String kind;
+  private V1ObjectMetaBuilder metadata;
+  private Long revision;
+
   public V1ControllerRevisionFluent() {
   }
   
   public V1ControllerRevisionFluent(V1ControllerRevision instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private Object data;
-  private String kind;
-  private V1ObjectMetaBuilder metadata;
-  private Long revision;
+
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
+  }
   
   protected void copyInstance(V1ControllerRevision instance) {
     instance = instance != null ? instance : new V1ControllerRevision();
@@ -38,73 +44,6 @@ public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.m
     }
   }
   
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public Object getData() {
-    return this.data;
-  }
-  
-  public A withData(Object data) {
-    this.data = data;
-    return (A) this;
-  }
-  
-  public boolean hasData() {
-    return this.data != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
-  }
-  
   public MetadataNested<A> editMetadata() {
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
@@ -115,19 +54,6 @@ public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.m
   
   public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
-  }
-  
-  public Long getRevision() {
-    return this.revision;
-  }
-  
-  public A withRevision(Long revision) {
-    this.revision = revision;
-    return (A) this;
-  }
-  
-  public boolean hasRevision() {
-    return this.revision != null;
   }
   
   public boolean equals(Object o) {
@@ -157,6 +83,42 @@ public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.m
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public Object getData() {
+    return this.data;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public Long getRevision() {
+    return this.revision;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasData() {
+    return this.data != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasRevision() {
+    return this.revision != null;
   }
   
   public int hashCode() {
@@ -193,12 +155,54 @@ public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.m
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withData(Object data) {
+    this.data = data;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public A withRevision(Long revision) {
+    this.revision = revision;
+    return (A) this;
+  }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1ControllerRevisionFluent.this.withMetadata(builder.build());
     }
@@ -207,7 +211,5 @@ public class V1ControllerRevisionFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
-
 }

@@ -1,43 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A>> extends BaseFluent<A>{
+
+  private String conditionType;
+
   public V1PodReadinessGateFluent() {
   }
   
   public V1PodReadinessGateFluent(V1PodReadinessGate instance) {
     this.copyInstance(instance);
   }
-  private String conditionType;
-  
+
   protected void copyInstance(V1PodReadinessGate instance) {
     instance = instance != null ? instance : new V1PodReadinessGate();
     if (instance != null) {
       this.withConditionType(instance.getConditionType());
     }
-  }
-  
-  public String getConditionType() {
-    return this.conditionType;
-  }
-  
-  public A withConditionType(String conditionType) {
-    this.conditionType = conditionType;
-    return (A) this;
-  }
-  
-  public boolean hasConditionType() {
-    return this.conditionType != null;
   }
   
   public boolean equals(Object o) {
@@ -57,6 +46,14 @@ public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.mod
     return true;
   }
   
+  public String getConditionType() {
+    return this.conditionType;
+  }
+  
+  public boolean hasConditionType() {
+    return this.conditionType != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(conditionType);
   }
@@ -72,5 +69,9 @@ public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.mod
     return sb.toString();
   }
   
-
+  public A withConditionType(String conditionType) {
+    this.conditionType = conditionType;
+    return (A) this;
+  }
+  
 }

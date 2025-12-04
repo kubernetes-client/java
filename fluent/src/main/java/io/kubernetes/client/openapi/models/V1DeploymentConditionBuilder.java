@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluent<V1DeploymentConditionBuilder> implements VisitableBuilder<V1DeploymentCondition,V1DeploymentConditionBuilder>{
+
+  V1DeploymentConditionFluent<?> fluent;
+
   public V1DeploymentConditionBuilder() {
     this(new V1DeploymentCondition());
   }
@@ -11,17 +14,16 @@ public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluent<V1
     this(fluent, new V1DeploymentCondition());
   }
   
-  public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent,V1DeploymentCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DeploymentConditionBuilder(V1DeploymentCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DeploymentConditionFluent<?> fluent;
   
+  public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent,V1DeploymentCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DeploymentCondition build() {
     V1DeploymentCondition buildable = new V1DeploymentCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -33,5 +35,4 @@ public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluent<V1
     return buildable;
   }
   
-
 }

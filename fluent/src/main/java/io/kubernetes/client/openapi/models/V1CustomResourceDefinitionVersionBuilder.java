@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDefinitionVersionFluent<V1CustomResourceDefinitionVersionBuilder> implements VisitableBuilder<V1CustomResourceDefinitionVersion,V1CustomResourceDefinitionVersionBuilder>{
+
+  V1CustomResourceDefinitionVersionFluent<?> fluent;
+
   public V1CustomResourceDefinitionVersionBuilder() {
     this(new V1CustomResourceDefinitionVersion());
   }
@@ -11,17 +14,16 @@ public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDe
     this(fluent, new V1CustomResourceDefinitionVersion());
   }
   
-  public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersionFluent<?> fluent,V1CustomResourceDefinitionVersion instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersion instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CustomResourceDefinitionVersionFluent<?> fluent;
   
+  public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersionFluent<?> fluent,V1CustomResourceDefinitionVersion instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CustomResourceDefinitionVersion build() {
     V1CustomResourceDefinitionVersion buildable = new V1CustomResourceDefinitionVersion();
     buildable.setAdditionalPrinterColumns(fluent.buildAdditionalPrinterColumns());
@@ -36,5 +38,4 @@ public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDe
     return buildable;
   }
   
-
 }

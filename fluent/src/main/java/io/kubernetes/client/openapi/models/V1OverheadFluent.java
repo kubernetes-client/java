@@ -1,33 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
-import java.util.Map;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1OverheadFluent<A>> extends BaseFluent<A>{
+
+  private Map<String,Quantity> podFixed;
+
   public V1OverheadFluent() {
   }
   
   public V1OverheadFluent(V1Overhead instance) {
     this.copyInstance(instance);
   }
-  private Map<String,Quantity> podFixed;
-  
-  protected void copyInstance(V1Overhead instance) {
-    instance = instance != null ? instance : new V1Overhead();
-    if (instance != null) {
-      this.withPodFixed(instance.getPodFixed());
+
+  public A addToPodFixed(Map<String,Quantity> map) {
+    if (this.podFixed == null && map != null) {
+      this.podFixed = new LinkedHashMap();
     }
+    if (map != null) {
+      this.podFixed.putAll(map);
+    }
+    return (A) this;
   }
   
   public A addToPodFixed(String key,Quantity value) {
@@ -40,14 +45,40 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
     return (A) this;
   }
   
-  public A addToPodFixed(Map<String,Quantity> map) {
-    if (this.podFixed == null && map != null) {
-      this.podFixed = new LinkedHashMap();
+  protected void copyInstance(V1Overhead instance) {
+    instance = instance != null ? instance : new V1Overhead();
+    if (instance != null) {
+      this.withPodFixed(instance.getPodFixed());
     }
-    if (map != null) {
-      this.podFixed.putAll(map);
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    return (A) this;
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1OverheadFluent that = (V1OverheadFluent) o;
+    if (!(Objects.equals(podFixed, that.podFixed))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public Map<String,Quantity> getPodFixed() {
+    return this.podFixed;
+  }
+  
+  public boolean hasPodFixed() {
+    return this.podFixed != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(podFixed);
   }
   
   public A removeFromPodFixed(String key) {
@@ -74,44 +105,6 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
     return (A) this;
   }
   
-  public Map<String,Quantity> getPodFixed() {
-    return this.podFixed;
-  }
-  
-  public <K,V>A withPodFixed(Map<String,Quantity> podFixed) {
-    if (podFixed == null) {
-      this.podFixed = null;
-    } else {
-      this.podFixed = new LinkedHashMap(podFixed);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasPodFixed() {
-    return this.podFixed != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1OverheadFluent that = (V1OverheadFluent) o;
-    if (!(Objects.equals(podFixed, that.podFixed))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(podFixed);
-  }
-  
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
@@ -123,5 +116,13 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
     return sb.toString();
   }
   
-
+  public <K,V>A withPodFixed(Map<String,Quantity> podFixed) {
+    if (podFixed == null) {
+      this.podFixed = null;
+    } else {
+      this.podFixed = new LinkedHashMap(podFixed);
+    }
+    return (A) this;
+  }
+  
 }

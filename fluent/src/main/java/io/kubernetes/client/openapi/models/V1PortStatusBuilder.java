@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PortStatusBuilder extends V1PortStatusFluent<V1PortStatusBuilder> implements VisitableBuilder<V1PortStatus,V1PortStatusBuilder>{
+
+  V1PortStatusFluent<?> fluent;
+
   public V1PortStatusBuilder() {
     this(new V1PortStatus());
   }
@@ -11,17 +14,16 @@ public class V1PortStatusBuilder extends V1PortStatusFluent<V1PortStatusBuilder>
     this(fluent, new V1PortStatus());
   }
   
-  public V1PortStatusBuilder(V1PortStatusFluent<?> fluent,V1PortStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PortStatusBuilder(V1PortStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PortStatusFluent<?> fluent;
   
+  public V1PortStatusBuilder(V1PortStatusFluent<?> fluent,V1PortStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PortStatus build() {
     V1PortStatus buildable = new V1PortStatus();
     buildable.setError(fluent.getError());
@@ -30,5 +32,4 @@ public class V1PortStatusBuilder extends V1PortStatusFluent<V1PortStatusBuilder>
     return buildable;
   }
   
-
 }

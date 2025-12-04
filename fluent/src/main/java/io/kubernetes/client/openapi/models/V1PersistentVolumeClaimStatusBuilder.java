@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClaimStatusFluent<V1PersistentVolumeClaimStatusBuilder> implements VisitableBuilder<V1PersistentVolumeClaimStatus,V1PersistentVolumeClaimStatusBuilder>{
+
+  V1PersistentVolumeClaimStatusFluent<?> fluent;
+
   public V1PersistentVolumeClaimStatusBuilder() {
     this(new V1PersistentVolumeClaimStatus());
   }
@@ -11,17 +14,16 @@ public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClai
     this(fluent, new V1PersistentVolumeClaimStatus());
   }
   
-  public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,V1PersistentVolumeClaimStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PersistentVolumeClaimStatusFluent<?> fluent;
   
+  public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,V1PersistentVolumeClaimStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PersistentVolumeClaimStatus build() {
     V1PersistentVolumeClaimStatus buildable = new V1PersistentVolumeClaimStatus();
     buildable.setAccessModes(fluent.getAccessModes());
@@ -35,5 +37,4 @@ public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClai
     return buildable;
   }
   
-
 }

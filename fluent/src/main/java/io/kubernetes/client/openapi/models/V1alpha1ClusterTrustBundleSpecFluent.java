@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha1ClusterTrustBundleSpecFluent<A>> extends BaseFluent<A>{
+
+  private String signerName;
+  private String trustBundle;
+
   public V1alpha1ClusterTrustBundleSpecFluent() {
   }
   
   public V1alpha1ClusterTrustBundleSpecFluent(V1alpha1ClusterTrustBundleSpec instance) {
     this.copyInstance(instance);
   }
-  private String signerName;
-  private String trustBundle;
-  
+
   protected void copyInstance(V1alpha1ClusterTrustBundleSpec instance) {
     instance = instance != null ? instance : new V1alpha1ClusterTrustBundleSpec();
     if (instance != null) {
         this.withSignerName(instance.getSignerName());
         this.withTrustBundle(instance.getTrustBundle());
     }
-  }
-  
-  public String getSignerName() {
-    return this.signerName;
-  }
-  
-  public A withSignerName(String signerName) {
-    this.signerName = signerName;
-    return (A) this;
-  }
-  
-  public boolean hasSignerName() {
-    return this.signerName != null;
-  }
-  
-  public String getTrustBundle() {
-    return this.trustBundle;
-  }
-  
-  public A withTrustBundle(String trustBundle) {
-    this.trustBundle = trustBundle;
-    return (A) this;
-  }
-  
-  public boolean hasTrustBundle() {
-    return this.trustBundle != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1alpha1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client
     return true;
   }
   
+  public String getSignerName() {
+    return this.signerName;
+  }
+  
+  public String getTrustBundle() {
+    return this.trustBundle;
+  }
+  
+  public boolean hasSignerName() {
+    return this.signerName != null;
+  }
+  
+  public boolean hasTrustBundle() {
+    return this.trustBundle != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(signerName, trustBundle);
   }
@@ -95,5 +87,14 @@ public class V1alpha1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client
     return sb.toString();
   }
   
-
+  public A withSignerName(String signerName) {
+    this.signerName = signerName;
+    return (A) this;
+  }
+  
+  public A withTrustBundle(String trustBundle) {
+    this.trustBundle = trustBundle;
+    return (A) this;
+  }
+  
 }

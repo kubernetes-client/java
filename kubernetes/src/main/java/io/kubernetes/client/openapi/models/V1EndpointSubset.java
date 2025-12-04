@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,6 +48,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -54,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],    Ports:     [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]  Deprecated: This API is deprecated in v1.33+.
  */
 @ApiModel(description = "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]  Deprecated: This API is deprecated in v1.33+.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -206,13 +208,10 @@ public class V1EndpointSubset {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("addresses");
-    openapiFields.add("notReadyAddresses");
-    openapiFields.add("ports");
+    openapiFields = new HashSet<String>(Arrays.asList("addresses", "notReadyAddresses", "ports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -224,7 +223,7 @@ public class V1EndpointSubset {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1EndpointSubset.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1EndpointSubset is not found in the empty JSON string", V1EndpointSubset.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1EndpointSubset is not found in the empty JSON string", V1EndpointSubset.openapiRequiredFields.toString()));
         }
       }
 
@@ -232,7 +231,7 @@ public class V1EndpointSubset {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1EndpointSubset.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1EndpointSubset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1EndpointSubset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -241,7 +240,7 @@ public class V1EndpointSubset {
         if (jsonArrayaddresses != null) {
           // ensure the json data is an array
           if (!jsonObj.get("addresses").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
           }
 
           // validate the optional field `addresses` (array)
@@ -255,7 +254,7 @@ public class V1EndpointSubset {
         if (jsonArraynotReadyAddresses != null) {
           // ensure the json data is an array
           if (!jsonObj.get("notReadyAddresses").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `notReadyAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("notReadyAddresses").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `notReadyAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("notReadyAddresses").toString()));
           }
 
           // validate the optional field `notReadyAddresses` (array)
@@ -269,7 +268,7 @@ public class V1EndpointSubset {
         if (jsonArrayports != null) {
           // ensure the json data is an array
           if (!jsonObj.get("ports").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
           }
 
           // validate the optional field `ports` (array)

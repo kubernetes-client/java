@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SecretListBuilder extends V1SecretListFluent<V1SecretListBuilder> implements VisitableBuilder<V1SecretList,V1SecretListBuilder>{
+
+  V1SecretListFluent<?> fluent;
+
   public V1SecretListBuilder() {
     this(new V1SecretList());
   }
@@ -11,17 +14,16 @@ public class V1SecretListBuilder extends V1SecretListFluent<V1SecretListBuilder>
     this(fluent, new V1SecretList());
   }
   
-  public V1SecretListBuilder(V1SecretListFluent<?> fluent,V1SecretList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SecretListBuilder(V1SecretList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SecretListFluent<?> fluent;
   
+  public V1SecretListBuilder(V1SecretListFluent<?> fluent,V1SecretList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SecretList build() {
     V1SecretList buildable = new V1SecretList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1SecretListBuilder extends V1SecretListFluent<V1SecretListBuilder>
     return buildable;
   }
   
-
 }

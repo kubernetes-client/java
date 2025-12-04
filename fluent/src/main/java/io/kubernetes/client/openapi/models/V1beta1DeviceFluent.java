@@ -1,27 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceFluent<A>> extends BaseFluent<A>{
+
+  private V1beta1BasicDeviceBuilder basic;
+  private String name;
+
   public V1beta1DeviceFluent() {
   }
   
   public V1beta1DeviceFluent(V1beta1Device instance) {
     this.copyInstance(instance);
   }
-  private V1beta1BasicDeviceBuilder basic;
-  private String name;
+
+  public V1beta1BasicDevice buildBasic() {
+    return this.basic != null ? this.basic.build() : null;
+  }
   
   protected void copyInstance(V1beta1Device instance) {
     instance = instance != null ? instance : new V1beta1Device();
@@ -29,34 +35,6 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
         this.withBasic(instance.getBasic());
         this.withName(instance.getName());
     }
-  }
-  
-  public V1beta1BasicDevice buildBasic() {
-    return this.basic != null ? this.basic.build() : null;
-  }
-  
-  public A withBasic(V1beta1BasicDevice basic) {
-    this._visitables.remove("basic");
-    if (basic != null) {
-        this.basic = new V1beta1BasicDeviceBuilder(basic);
-        this._visitables.get("basic").add(this.basic);
-    } else {
-        this.basic = null;
-        this._visitables.get("basic").remove(this.basic);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasBasic() {
-    return this.basic != null;
-  }
-  
-  public BasicNested<A> withNewBasic() {
-    return new BasicNested(null);
-  }
-  
-  public BasicNested<A> withNewBasicLike(V1beta1BasicDevice item) {
-    return new BasicNested(item);
   }
   
   public BasicNested<A> editBasic() {
@@ -69,19 +47,6 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public BasicNested<A> editOrNewBasicLike(V1beta1BasicDevice item) {
     return this.withNewBasicLike(Optional.ofNullable(this.buildBasic()).orElse(item));
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
   }
   
   public boolean equals(Object o) {
@@ -104,6 +69,18 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public boolean hasBasic() {
+    return this.basic != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(basic, name);
   }
@@ -123,12 +100,39 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withBasic(V1beta1BasicDevice basic) {
+    this._visitables.remove("basic");
+    if (basic != null) {
+        this.basic = new V1beta1BasicDeviceBuilder(basic);
+        this._visitables.get("basic").add(this.basic);
+    } else {
+        this.basic = null;
+        this._visitables.get("basic").remove(this.basic);
+    }
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public BasicNested<A> withNewBasic() {
+    return new BasicNested(null);
+  }
+  
+  public BasicNested<A> withNewBasicLike(V1beta1BasicDevice item) {
+    return new BasicNested(item);
+  }
   public class BasicNested<N> extends V1beta1BasicDeviceFluent<BasicNested<N>> implements Nested<N>{
+  
+    V1beta1BasicDeviceBuilder builder;
+  
     BasicNested(V1beta1BasicDevice item) {
       this.builder = new V1beta1BasicDeviceBuilder(this, item);
     }
-    V1beta1BasicDeviceBuilder builder;
-    
+  
     public N and() {
       return (N) V1beta1DeviceFluent.this.withBasic(builder.build());
     }
@@ -137,7 +141,5 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
       return and();
     }
     
-  
   }
-
 }

@@ -1,14 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
 import java.util.List;
-import java.lang.String;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -16,49 +16,24 @@ import java.util.function.Predicate;
  */
 @SuppressWarnings("unchecked")
 public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementFluent<A>> extends BaseFluent<A>{
+
+  private String key;
+  private List<String> values;
+
   public V1TopologySelectorLabelRequirementFluent() {
   }
   
   public V1TopologySelectorLabelRequirementFluent(V1TopologySelectorLabelRequirement instance) {
     this.copyInstance(instance);
   }
-  private String key;
-  private List<String> values;
-  
-  protected void copyInstance(V1TopologySelectorLabelRequirement instance) {
-    instance = instance != null ? instance : new V1TopologySelectorLabelRequirement();
-    if (instance != null) {
-        this.withKey(instance.getKey());
-        this.withValues(instance.getValues());
-    }
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public A addToValues(int index,String item) {
+
+  public A addAllToValues(Collection<String> items) {
     if (this.values == null) {
       this.values = new ArrayList();
     }
-    this.values.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToValues(int index,String item) {
-    if (this.values == null) {
-      this.values = new ArrayList();
+    for (String item : items) {
+      this.values.add(item);
     }
-    this.values.set(index, item);
     return (A) this;
   }
   
@@ -72,46 +47,48 @@ public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.cl
     return (A) this;
   }
   
-  public A addAllToValues(Collection<String> items) {
+  public A addToValues(int index,String item) {
     if (this.values == null) {
       this.values = new ArrayList();
     }
-    for (String item : items) {
-      this.values.add(item);
-    }
+    this.values.add(index, item);
     return (A) this;
   }
   
-  public A removeFromValues(String... items) {
-    if (this.values == null) {
-      return (A) this;
+  protected void copyInstance(V1TopologySelectorLabelRequirement instance) {
+    instance = instance != null ? instance : new V1TopologySelectorLabelRequirement();
+    if (instance != null) {
+        this.withKey(instance.getKey());
+        this.withValues(instance.getValues());
     }
-    for (String item : items) {
-      this.values.remove(item);
-    }
-    return (A) this;
   }
   
-  public A removeAllFromValues(Collection<String> items) {
-    if (this.values == null) {
-      return (A) this;
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    for (String item : items) {
-      this.values.remove(item);
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
     }
-    return (A) this;
-  }
-  
-  public List<String> getValues() {
-    return this.values;
-  }
-  
-  public String getValue(int index) {
-    return this.values.get(index);
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1TopologySelectorLabelRequirementFluent that = (V1TopologySelectorLabelRequirementFluent) o;
+    if (!(Objects.equals(key, that.key))) {
+      return false;
+    }
+    if (!(Objects.equals(values, that.values))) {
+      return false;
+    }
+    return true;
   }
   
   public String getFirstValue() {
     return this.values.get(0);
+  }
+  
+  public String getKey() {
+    return this.key;
   }
   
   public String getLastValue() {
@@ -127,6 +104,18 @@ public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.cl
       return null;
   }
   
+  public String getValue(int index) {
+    return this.values.get(index);
+  }
+  
+  public List<String> getValues() {
+    return this.values;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
   public boolean hasMatchingValue(Predicate<String> predicate) {
       for (String item : values) {
         if (predicate.test(item)) {
@@ -134,6 +123,63 @@ public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.cl
         }
       }
       return false;
+  }
+  
+  public boolean hasValues() {
+    return this.values != null && !(this.values.isEmpty());
+  }
+  
+  public int hashCode() {
+    return Objects.hash(key, values);
+  }
+  
+  public A removeAllFromValues(Collection<String> items) {
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromValues(String... items) {
+    if (this.values == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.values.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A setToValues(int index,String item) {
+    if (this.values == null) {
+      this.values = new ArrayList();
+    }
+    this.values.set(index, item);
+    return (A) this;
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(key == null)) {
+        sb.append("key:");
+        sb.append(key);
+        sb.append(",");
+    }
+    if (!(values == null) && !(values.isEmpty())) {
+        sb.append("values:");
+        sb.append(values);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
   }
   
   public A withValues(List<String> values) {
@@ -161,49 +207,4 @@ public class V1TopologySelectorLabelRequirementFluent<A extends io.kubernetes.cl
     return (A) this;
   }
   
-  public boolean hasValues() {
-    return this.values != null && !(this.values.isEmpty());
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1TopologySelectorLabelRequirementFluent that = (V1TopologySelectorLabelRequirementFluent) o;
-    if (!(Objects.equals(key, that.key))) {
-      return false;
-    }
-    if (!(Objects.equals(values, that.values))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(key, values);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(key == null)) {
-        sb.append("key:");
-        sb.append(key);
-        sb.append(",");
-    }
-    if (!(values == null) && !(values.isEmpty())) {
-        sb.append("values:");
-        sb.append(values);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
-  
-
 }

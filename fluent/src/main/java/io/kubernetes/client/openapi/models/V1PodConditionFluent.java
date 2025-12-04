@@ -1,25 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PodConditionFluent<A extends io.kubernetes.client.openapi.models.V1PodConditionFluent<A>> extends BaseFluent<A>{
-  public V1PodConditionFluent() {
-  }
-  
-  public V1PodConditionFluent(V1PodCondition instance) {
-    this.copyInstance(instance);
-  }
+
   private OffsetDateTime lastProbeTime;
   private OffsetDateTime lastTransitionTime;
   private String message;
@@ -27,7 +22,14 @@ public class V1PodConditionFluent<A extends io.kubernetes.client.openapi.models.
   private String reason;
   private String status;
   private String type;
+
+  public V1PodConditionFluent() {
+  }
   
+  public V1PodConditionFluent(V1PodCondition instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1PodCondition instance) {
     instance = instance != null ? instance : new V1PodCondition();
     if (instance != null) {
@@ -39,97 +41,6 @@ public class V1PodConditionFluent<A extends io.kubernetes.client.openapi.models.
         this.withStatus(instance.getStatus());
         this.withType(instance.getType());
     }
-  }
-  
-  public OffsetDateTime getLastProbeTime() {
-    return this.lastProbeTime;
-  }
-  
-  public A withLastProbeTime(OffsetDateTime lastProbeTime) {
-    this.lastProbeTime = lastProbeTime;
-    return (A) this;
-  }
-  
-  public boolean hasLastProbeTime() {
-    return this.lastProbeTime != null;
-  }
-  
-  public OffsetDateTime getLastTransitionTime() {
-    return this.lastTransitionTime;
-  }
-  
-  public A withLastTransitionTime(OffsetDateTime lastTransitionTime) {
-    this.lastTransitionTime = lastTransitionTime;
-    return (A) this;
-  }
-  
-  public boolean hasLastTransitionTime() {
-    return this.lastTransitionTime != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public Long getObservedGeneration() {
-    return this.observedGeneration;
-  }
-  
-  public A withObservedGeneration(Long observedGeneration) {
-    this.observedGeneration = observedGeneration;
-    return (A) this;
-  }
-  
-  public boolean hasObservedGeneration() {
-    return this.observedGeneration != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
-  }
-  
-  public String getStatus() {
-    return this.status;
-  }
-  
-  public A withStatus(String status) {
-    this.status = status;
-    return (A) this;
-  }
-  
-  public boolean hasStatus() {
-    return this.status != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -165,6 +76,62 @@ public class V1PodConditionFluent<A extends io.kubernetes.client.openapi.models.
       return false;
     }
     return true;
+  }
+  
+  public OffsetDateTime getLastProbeTime() {
+    return this.lastProbeTime;
+  }
+  
+  public OffsetDateTime getLastTransitionTime() {
+    return this.lastTransitionTime;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public String getStatus() {
+    return this.status;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasLastProbeTime() {
+    return this.lastProbeTime != null;
+  }
+  
+  public boolean hasLastTransitionTime() {
+    return this.lastTransitionTime != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
   }
   
   public int hashCode() {
@@ -212,5 +179,39 @@ public class V1PodConditionFluent<A extends io.kubernetes.client.openapi.models.
     return sb.toString();
   }
   
-
+  public A withLastProbeTime(OffsetDateTime lastProbeTime) {
+    this.lastProbeTime = lastProbeTime;
+    return (A) this;
+  }
+  
+  public A withLastTransitionTime(OffsetDateTime lastTransitionTime) {
+    this.lastTransitionTime = lastTransitionTime;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
+  public A withStatus(String status) {
+    this.status = status;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

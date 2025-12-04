@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NamespaceBuilder extends V1NamespaceFluent<V1NamespaceBuilder> implements VisitableBuilder<V1Namespace,V1NamespaceBuilder>{
+
+  V1NamespaceFluent<?> fluent;
+
   public V1NamespaceBuilder() {
     this(new V1Namespace());
   }
@@ -11,17 +14,16 @@ public class V1NamespaceBuilder extends V1NamespaceFluent<V1NamespaceBuilder> im
     this(fluent, new V1Namespace());
   }
   
-  public V1NamespaceBuilder(V1NamespaceFluent<?> fluent,V1Namespace instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NamespaceBuilder(V1Namespace instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NamespaceFluent<?> fluent;
   
+  public V1NamespaceBuilder(V1NamespaceFluent<?> fluent,V1Namespace instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Namespace build() {
     V1Namespace buildable = new V1Namespace();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -32,5 +34,4 @@ public class V1NamespaceBuilder extends V1NamespaceFluent<V1NamespaceBuilder> im
     return buildable;
   }
   
-
 }

@@ -1,27 +1,22 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Long;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.lang.Boolean;
-import java.util.Optional;
-import java.lang.Long;
 import java.util.Objects;
-import java.lang.Object;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.models.V1SecurityContextFluent<A>> extends BaseFluent<A>{
-  public V1SecurityContextFluent() {
-  }
-  
-  public V1SecurityContextFluent(V1SecurityContext instance) {
-    this.copyInstance(instance);
-  }
+
   private Boolean allowPrivilegeEscalation;
   private V1AppArmorProfileBuilder appArmorProfile;
   private V1CapabilitiesBuilder capabilities;
@@ -34,6 +29,33 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
   private V1SELinuxOptionsBuilder seLinuxOptions;
   private V1SeccompProfileBuilder seccompProfile;
   private V1WindowsSecurityContextOptionsBuilder windowsOptions;
+
+  public V1SecurityContextFluent() {
+  }
+  
+  public V1SecurityContextFluent(V1SecurityContext instance) {
+    this.copyInstance(instance);
+  }
+
+  public V1AppArmorProfile buildAppArmorProfile() {
+    return this.appArmorProfile != null ? this.appArmorProfile.build() : null;
+  }
+  
+  public V1Capabilities buildCapabilities() {
+    return this.capabilities != null ? this.capabilities.build() : null;
+  }
+  
+  public V1SELinuxOptions buildSeLinuxOptions() {
+    return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
+  }
+  
+  public V1SeccompProfile buildSeccompProfile() {
+    return this.seccompProfile != null ? this.seccompProfile.build() : null;
+  }
+  
+  public V1WindowsSecurityContextOptions buildWindowsOptions() {
+    return this.windowsOptions != null ? this.windowsOptions.build() : null;
+  }
   
   protected void copyInstance(V1SecurityContext instance) {
     instance = instance != null ? instance : new V1SecurityContext();
@@ -53,49 +75,12 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     }
   }
   
-  public Boolean getAllowPrivilegeEscalation() {
-    return this.allowPrivilegeEscalation;
-  }
-  
-  public A withAllowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
-    this.allowPrivilegeEscalation = allowPrivilegeEscalation;
-    return (A) this;
-  }
-  
-  public boolean hasAllowPrivilegeEscalation() {
-    return this.allowPrivilegeEscalation != null;
-  }
-  
-  public V1AppArmorProfile buildAppArmorProfile() {
-    return this.appArmorProfile != null ? this.appArmorProfile.build() : null;
-  }
-  
-  public A withAppArmorProfile(V1AppArmorProfile appArmorProfile) {
-    this._visitables.remove("appArmorProfile");
-    if (appArmorProfile != null) {
-        this.appArmorProfile = new V1AppArmorProfileBuilder(appArmorProfile);
-        this._visitables.get("appArmorProfile").add(this.appArmorProfile);
-    } else {
-        this.appArmorProfile = null;
-        this._visitables.get("appArmorProfile").remove(this.appArmorProfile);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasAppArmorProfile() {
-    return this.appArmorProfile != null;
-  }
-  
-  public AppArmorProfileNested<A> withNewAppArmorProfile() {
-    return new AppArmorProfileNested(null);
-  }
-  
-  public AppArmorProfileNested<A> withNewAppArmorProfileLike(V1AppArmorProfile item) {
-    return new AppArmorProfileNested(item);
-  }
-  
   public AppArmorProfileNested<A> editAppArmorProfile() {
     return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(null));
+  }
+  
+  public CapabilitiesNested<A> editCapabilities() {
+    return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(null));
   }
   
   public AppArmorProfileNested<A> editOrNewAppArmorProfile() {
@@ -106,154 +91,12 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     return this.withNewAppArmorProfileLike(Optional.ofNullable(this.buildAppArmorProfile()).orElse(item));
   }
   
-  public V1Capabilities buildCapabilities() {
-    return this.capabilities != null ? this.capabilities.build() : null;
-  }
-  
-  public A withCapabilities(V1Capabilities capabilities) {
-    this._visitables.remove("capabilities");
-    if (capabilities != null) {
-        this.capabilities = new V1CapabilitiesBuilder(capabilities);
-        this._visitables.get("capabilities").add(this.capabilities);
-    } else {
-        this.capabilities = null;
-        this._visitables.get("capabilities").remove(this.capabilities);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasCapabilities() {
-    return this.capabilities != null;
-  }
-  
-  public CapabilitiesNested<A> withNewCapabilities() {
-    return new CapabilitiesNested(null);
-  }
-  
-  public CapabilitiesNested<A> withNewCapabilitiesLike(V1Capabilities item) {
-    return new CapabilitiesNested(item);
-  }
-  
-  public CapabilitiesNested<A> editCapabilities() {
-    return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(null));
-  }
-  
   public CapabilitiesNested<A> editOrNewCapabilities() {
     return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(new V1CapabilitiesBuilder().build()));
   }
   
   public CapabilitiesNested<A> editOrNewCapabilitiesLike(V1Capabilities item) {
     return this.withNewCapabilitiesLike(Optional.ofNullable(this.buildCapabilities()).orElse(item));
-  }
-  
-  public Boolean getPrivileged() {
-    return this.privileged;
-  }
-  
-  public A withPrivileged(Boolean privileged) {
-    this.privileged = privileged;
-    return (A) this;
-  }
-  
-  public boolean hasPrivileged() {
-    return this.privileged != null;
-  }
-  
-  public String getProcMount() {
-    return this.procMount;
-  }
-  
-  public A withProcMount(String procMount) {
-    this.procMount = procMount;
-    return (A) this;
-  }
-  
-  public boolean hasProcMount() {
-    return this.procMount != null;
-  }
-  
-  public Boolean getReadOnlyRootFilesystem() {
-    return this.readOnlyRootFilesystem;
-  }
-  
-  public A withReadOnlyRootFilesystem(Boolean readOnlyRootFilesystem) {
-    this.readOnlyRootFilesystem = readOnlyRootFilesystem;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnlyRootFilesystem() {
-    return this.readOnlyRootFilesystem != null;
-  }
-  
-  public Long getRunAsGroup() {
-    return this.runAsGroup;
-  }
-  
-  public A withRunAsGroup(Long runAsGroup) {
-    this.runAsGroup = runAsGroup;
-    return (A) this;
-  }
-  
-  public boolean hasRunAsGroup() {
-    return this.runAsGroup != null;
-  }
-  
-  public Boolean getRunAsNonRoot() {
-    return this.runAsNonRoot;
-  }
-  
-  public A withRunAsNonRoot(Boolean runAsNonRoot) {
-    this.runAsNonRoot = runAsNonRoot;
-    return (A) this;
-  }
-  
-  public boolean hasRunAsNonRoot() {
-    return this.runAsNonRoot != null;
-  }
-  
-  public Long getRunAsUser() {
-    return this.runAsUser;
-  }
-  
-  public A withRunAsUser(Long runAsUser) {
-    this.runAsUser = runAsUser;
-    return (A) this;
-  }
-  
-  public boolean hasRunAsUser() {
-    return this.runAsUser != null;
-  }
-  
-  public V1SELinuxOptions buildSeLinuxOptions() {
-    return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
-  }
-  
-  public A withSeLinuxOptions(V1SELinuxOptions seLinuxOptions) {
-    this._visitables.remove("seLinuxOptions");
-    if (seLinuxOptions != null) {
-        this.seLinuxOptions = new V1SELinuxOptionsBuilder(seLinuxOptions);
-        this._visitables.get("seLinuxOptions").add(this.seLinuxOptions);
-    } else {
-        this.seLinuxOptions = null;
-        this._visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSeLinuxOptions() {
-    return this.seLinuxOptions != null;
-  }
-  
-  public SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
-    return new SeLinuxOptionsNested(null);
-  }
-  
-  public SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
-    return new SeLinuxOptionsNested(item);
-  }
-  
-  public SeLinuxOptionsNested<A> editSeLinuxOptions() {
-    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(null));
   }
   
   public SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
@@ -264,38 +107,6 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(item));
   }
   
-  public V1SeccompProfile buildSeccompProfile() {
-    return this.seccompProfile != null ? this.seccompProfile.build() : null;
-  }
-  
-  public A withSeccompProfile(V1SeccompProfile seccompProfile) {
-    this._visitables.remove("seccompProfile");
-    if (seccompProfile != null) {
-        this.seccompProfile = new V1SeccompProfileBuilder(seccompProfile);
-        this._visitables.get("seccompProfile").add(this.seccompProfile);
-    } else {
-        this.seccompProfile = null;
-        this._visitables.get("seccompProfile").remove(this.seccompProfile);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSeccompProfile() {
-    return this.seccompProfile != null;
-  }
-  
-  public SeccompProfileNested<A> withNewSeccompProfile() {
-    return new SeccompProfileNested(null);
-  }
-  
-  public SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
-    return new SeccompProfileNested(item);
-  }
-  
-  public SeccompProfileNested<A> editSeccompProfile() {
-    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(null));
-  }
-  
   public SeccompProfileNested<A> editOrNewSeccompProfile() {
     return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(new V1SeccompProfileBuilder().build()));
   }
@@ -304,44 +115,24 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(item));
   }
   
-  public V1WindowsSecurityContextOptions buildWindowsOptions() {
-    return this.windowsOptions != null ? this.windowsOptions.build() : null;
-  }
-  
-  public A withWindowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
-    this._visitables.remove("windowsOptions");
-    if (windowsOptions != null) {
-        this.windowsOptions = new V1WindowsSecurityContextOptionsBuilder(windowsOptions);
-        this._visitables.get("windowsOptions").add(this.windowsOptions);
-    } else {
-        this.windowsOptions = null;
-        this._visitables.get("windowsOptions").remove(this.windowsOptions);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasWindowsOptions() {
-    return this.windowsOptions != null;
-  }
-  
-  public WindowsOptionsNested<A> withNewWindowsOptions() {
-    return new WindowsOptionsNested(null);
-  }
-  
-  public WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
-    return new WindowsOptionsNested(item);
-  }
-  
-  public WindowsOptionsNested<A> editWindowsOptions() {
-    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(null));
-  }
-  
   public WindowsOptionsNested<A> editOrNewWindowsOptions() {
     return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(new V1WindowsSecurityContextOptionsBuilder().build()));
   }
   
   public WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
     return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(item));
+  }
+  
+  public SeLinuxOptionsNested<A> editSeLinuxOptions() {
+    return this.withNewSeLinuxOptionsLike(Optional.ofNullable(this.buildSeLinuxOptions()).orElse(null));
+  }
+  
+  public SeccompProfileNested<A> editSeccompProfile() {
+    return this.withNewSeccompProfileLike(Optional.ofNullable(this.buildSeccompProfile()).orElse(null));
+  }
+  
+  public WindowsOptionsNested<A> editWindowsOptions() {
+    return this.withNewWindowsOptionsLike(Optional.ofNullable(this.buildWindowsOptions()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -392,6 +183,82 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return false;
     }
     return true;
+  }
+  
+  public Boolean getAllowPrivilegeEscalation() {
+    return this.allowPrivilegeEscalation;
+  }
+  
+  public Boolean getPrivileged() {
+    return this.privileged;
+  }
+  
+  public String getProcMount() {
+    return this.procMount;
+  }
+  
+  public Boolean getReadOnlyRootFilesystem() {
+    return this.readOnlyRootFilesystem;
+  }
+  
+  public Long getRunAsGroup() {
+    return this.runAsGroup;
+  }
+  
+  public Boolean getRunAsNonRoot() {
+    return this.runAsNonRoot;
+  }
+  
+  public Long getRunAsUser() {
+    return this.runAsUser;
+  }
+  
+  public boolean hasAllowPrivilegeEscalation() {
+    return this.allowPrivilegeEscalation != null;
+  }
+  
+  public boolean hasAppArmorProfile() {
+    return this.appArmorProfile != null;
+  }
+  
+  public boolean hasCapabilities() {
+    return this.capabilities != null;
+  }
+  
+  public boolean hasPrivileged() {
+    return this.privileged != null;
+  }
+  
+  public boolean hasProcMount() {
+    return this.procMount != null;
+  }
+  
+  public boolean hasReadOnlyRootFilesystem() {
+    return this.readOnlyRootFilesystem != null;
+  }
+  
+  public boolean hasRunAsGroup() {
+    return this.runAsGroup != null;
+  }
+  
+  public boolean hasRunAsNonRoot() {
+    return this.runAsNonRoot != null;
+  }
+  
+  public boolean hasRunAsUser() {
+    return this.runAsUser != null;
+  }
+  
+  public boolean hasSeLinuxOptions() {
+    return this.seLinuxOptions != null;
+  }
+  
+  public boolean hasSeccompProfile() {
+    return this.seccompProfile != null;
+  }
+  
+  public boolean hasWindowsOptions() {
+    return this.windowsOptions != null;
   }
   
   public int hashCode() {
@@ -468,23 +335,160 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     return withAllowPrivilegeEscalation(true);
   }
   
+  public A withAllowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
+    this.allowPrivilegeEscalation = allowPrivilegeEscalation;
+    return (A) this;
+  }
+  
+  public A withAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this._visitables.remove("appArmorProfile");
+    if (appArmorProfile != null) {
+        this.appArmorProfile = new V1AppArmorProfileBuilder(appArmorProfile);
+        this._visitables.get("appArmorProfile").add(this.appArmorProfile);
+    } else {
+        this.appArmorProfile = null;
+        this._visitables.get("appArmorProfile").remove(this.appArmorProfile);
+    }
+    return (A) this;
+  }
+  
+  public A withCapabilities(V1Capabilities capabilities) {
+    this._visitables.remove("capabilities");
+    if (capabilities != null) {
+        this.capabilities = new V1CapabilitiesBuilder(capabilities);
+        this._visitables.get("capabilities").add(this.capabilities);
+    } else {
+        this.capabilities = null;
+        this._visitables.get("capabilities").remove(this.capabilities);
+    }
+    return (A) this;
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfile() {
+    return new AppArmorProfileNested(null);
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfileLike(V1AppArmorProfile item) {
+    return new AppArmorProfileNested(item);
+  }
+  
+  public CapabilitiesNested<A> withNewCapabilities() {
+    return new CapabilitiesNested(null);
+  }
+  
+  public CapabilitiesNested<A> withNewCapabilitiesLike(V1Capabilities item) {
+    return new CapabilitiesNested(item);
+  }
+  
+  public SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
+    return new SeLinuxOptionsNested(null);
+  }
+  
+  public SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
+    return new SeLinuxOptionsNested(item);
+  }
+  
+  public SeccompProfileNested<A> withNewSeccompProfile() {
+    return new SeccompProfileNested(null);
+  }
+  
+  public SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
+    return new SeccompProfileNested(item);
+  }
+  
+  public WindowsOptionsNested<A> withNewWindowsOptions() {
+    return new WindowsOptionsNested(null);
+  }
+  
+  public WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
+    return new WindowsOptionsNested(item);
+  }
+  
   public A withPrivileged() {
     return withPrivileged(true);
+  }
+  
+  public A withPrivileged(Boolean privileged) {
+    this.privileged = privileged;
+    return (A) this;
+  }
+  
+  public A withProcMount(String procMount) {
+    this.procMount = procMount;
+    return (A) this;
   }
   
   public A withReadOnlyRootFilesystem() {
     return withReadOnlyRootFilesystem(true);
   }
   
+  public A withReadOnlyRootFilesystem(Boolean readOnlyRootFilesystem) {
+    this.readOnlyRootFilesystem = readOnlyRootFilesystem;
+    return (A) this;
+  }
+  
+  public A withRunAsGroup(Long runAsGroup) {
+    this.runAsGroup = runAsGroup;
+    return (A) this;
+  }
+  
   public A withRunAsNonRoot() {
     return withRunAsNonRoot(true);
   }
+  
+  public A withRunAsNonRoot(Boolean runAsNonRoot) {
+    this.runAsNonRoot = runAsNonRoot;
+    return (A) this;
+  }
+  
+  public A withRunAsUser(Long runAsUser) {
+    this.runAsUser = runAsUser;
+    return (A) this;
+  }
+  
+  public A withSeLinuxOptions(V1SELinuxOptions seLinuxOptions) {
+    this._visitables.remove("seLinuxOptions");
+    if (seLinuxOptions != null) {
+        this.seLinuxOptions = new V1SELinuxOptionsBuilder(seLinuxOptions);
+        this._visitables.get("seLinuxOptions").add(this.seLinuxOptions);
+    } else {
+        this.seLinuxOptions = null;
+        this._visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
+    }
+    return (A) this;
+  }
+  
+  public A withSeccompProfile(V1SeccompProfile seccompProfile) {
+    this._visitables.remove("seccompProfile");
+    if (seccompProfile != null) {
+        this.seccompProfile = new V1SeccompProfileBuilder(seccompProfile);
+        this._visitables.get("seccompProfile").add(this.seccompProfile);
+    } else {
+        this.seccompProfile = null;
+        this._visitables.get("seccompProfile").remove(this.seccompProfile);
+    }
+    return (A) this;
+  }
+  
+  public A withWindowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
+    this._visitables.remove("windowsOptions");
+    if (windowsOptions != null) {
+        this.windowsOptions = new V1WindowsSecurityContextOptionsBuilder(windowsOptions);
+        this._visitables.get("windowsOptions").add(this.windowsOptions);
+    } else {
+        this.windowsOptions = null;
+        this._visitables.get("windowsOptions").remove(this.windowsOptions);
+    }
+    return (A) this;
+  }
   public class AppArmorProfileNested<N> extends V1AppArmorProfileFluent<AppArmorProfileNested<N>> implements Nested<N>{
+  
+    V1AppArmorProfileBuilder builder;
+  
     AppArmorProfileNested(V1AppArmorProfile item) {
       this.builder = new V1AppArmorProfileBuilder(this, item);
     }
-    V1AppArmorProfileBuilder builder;
-    
+  
     public N and() {
       return (N) V1SecurityContextFluent.this.withAppArmorProfile(builder.build());
     }
@@ -493,14 +497,15 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
   public class CapabilitiesNested<N> extends V1CapabilitiesFluent<CapabilitiesNested<N>> implements Nested<N>{
+  
+    V1CapabilitiesBuilder builder;
+  
     CapabilitiesNested(V1Capabilities item) {
       this.builder = new V1CapabilitiesBuilder(this, item);
     }
-    V1CapabilitiesBuilder builder;
-    
+  
     public N and() {
       return (N) V1SecurityContextFluent.this.withCapabilities(builder.build());
     }
@@ -509,14 +514,15 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
   public class SeLinuxOptionsNested<N> extends V1SELinuxOptionsFluent<SeLinuxOptionsNested<N>> implements Nested<N>{
+  
+    V1SELinuxOptionsBuilder builder;
+  
     SeLinuxOptionsNested(V1SELinuxOptions item) {
       this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
-    V1SELinuxOptionsBuilder builder;
-    
+  
     public N and() {
       return (N) V1SecurityContextFluent.this.withSeLinuxOptions(builder.build());
     }
@@ -525,14 +531,15 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
   public class SeccompProfileNested<N> extends V1SeccompProfileFluent<SeccompProfileNested<N>> implements Nested<N>{
+  
+    V1SeccompProfileBuilder builder;
+  
     SeccompProfileNested(V1SeccompProfile item) {
       this.builder = new V1SeccompProfileBuilder(this, item);
     }
-    V1SeccompProfileBuilder builder;
-    
+  
     public N and() {
       return (N) V1SecurityContextFluent.this.withSeccompProfile(builder.build());
     }
@@ -541,14 +548,15 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
   public class WindowsOptionsNested<N> extends V1WindowsSecurityContextOptionsFluent<WindowsOptionsNested<N>> implements Nested<N>{
+  
+    V1WindowsSecurityContextOptionsBuilder builder;
+  
     WindowsOptionsNested(V1WindowsSecurityContextOptions item) {
       this.builder = new V1WindowsSecurityContextOptionsBuilder(this, item);
     }
-    V1WindowsSecurityContextOptionsBuilder builder;
-    
+  
     public N and() {
       return (N) V1SecurityContextFluent.this.withWindowsOptions(builder.build());
     }
@@ -557,7 +565,5 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
-
 }

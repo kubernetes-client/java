@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -53,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSINodeDriver holds information about the specification of one CSI driver installed on a node
  */
 @ApiModel(description = "CSINodeDriver holds information about the specification of one CSI driver installed on a node")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1CSINodeDriver {
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
   @SerializedName(SERIALIZED_NAME_ALLOCATABLE)
@@ -216,16 +218,10 @@ public class V1CSINodeDriver {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allocatable");
-    openapiFields.add("name");
-    openapiFields.add("nodeID");
-    openapiFields.add("topologyKeys");
+    openapiFields = new HashSet<String>(Arrays.asList("allocatable", "name", "nodeID", "topologyKeys"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("nodeID");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "nodeID"));
   }
 
   /**
@@ -237,7 +233,7 @@ public class V1CSINodeDriver {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSINodeDriver.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CSINodeDriver is not found in the empty JSON string", V1CSINodeDriver.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1CSINodeDriver is not found in the empty JSON string", V1CSINodeDriver.openapiRequiredFields.toString()));
         }
       }
 
@@ -245,14 +241,14 @@ public class V1CSINodeDriver {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CSINodeDriver.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSINodeDriver` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1CSINodeDriver` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1CSINodeDriver.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -261,14 +257,14 @@ public class V1CSINodeDriver {
         V1VolumeNodeResources.validateJsonElement(jsonObj.get("allocatable"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("nodeID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nodeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `nodeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeID").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("topologyKeys") != null && !jsonObj.get("topologyKeys").isJsonNull() && !jsonObj.get("topologyKeys").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `topologyKeys` to be an array in the JSON string but got `%s`", jsonObj.get("topologyKeys").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `topologyKeys` to be an array in the JSON string but got `%s`", jsonObj.get("topologyKeys").toString()));
       }
   }
 

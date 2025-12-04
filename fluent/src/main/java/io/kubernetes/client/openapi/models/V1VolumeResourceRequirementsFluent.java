@@ -1,35 +1,39 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
-import java.util.Map;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.openapi.models.V1VolumeResourceRequirementsFluent<A>> extends BaseFluent<A>{
+
+  private Map<String,Quantity> limits;
+  private Map<String,Quantity> requests;
+
   public V1VolumeResourceRequirementsFluent() {
   }
   
   public V1VolumeResourceRequirementsFluent(V1VolumeResourceRequirements instance) {
     this.copyInstance(instance);
   }
-  private Map<String,Quantity> limits;
-  private Map<String,Quantity> requests;
-  
-  protected void copyInstance(V1VolumeResourceRequirements instance) {
-    instance = instance != null ? instance : new V1VolumeResourceRequirements();
-    if (instance != null) {
-        this.withLimits(instance.getLimits());
-        this.withRequests(instance.getRequests());
+
+  public A addToLimits(Map<String,Quantity> map) {
+    if (this.limits == null && map != null) {
+      this.limits = new LinkedHashMap();
     }
+    if (map != null) {
+      this.limits.putAll(map);
+    }
+    return (A) this;
   }
   
   public A addToLimits(String key,Quantity value) {
@@ -42,14 +46,72 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     return (A) this;
   }
   
-  public A addToLimits(Map<String,Quantity> map) {
-    if (this.limits == null && map != null) {
-      this.limits = new LinkedHashMap();
+  public A addToRequests(Map<String,Quantity> map) {
+    if (this.requests == null && map != null) {
+      this.requests = new LinkedHashMap();
     }
     if (map != null) {
-      this.limits.putAll(map);
+      this.requests.putAll(map);
     }
     return (A) this;
+  }
+  
+  public A addToRequests(String key,Quantity value) {
+    if (this.requests == null && key != null && value != null) {
+      this.requests = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.requests.put(key, value);
+    }
+    return (A) this;
+  }
+  
+  protected void copyInstance(V1VolumeResourceRequirements instance) {
+    instance = instance != null ? instance : new V1VolumeResourceRequirements();
+    if (instance != null) {
+        this.withLimits(instance.getLimits());
+        this.withRequests(instance.getRequests());
+    }
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1VolumeResourceRequirementsFluent that = (V1VolumeResourceRequirementsFluent) o;
+    if (!(Objects.equals(limits, that.limits))) {
+      return false;
+    }
+    if (!(Objects.equals(requests, that.requests))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public Map<String,Quantity> getLimits() {
+    return this.limits;
+  }
+  
+  public Map<String,Quantity> getRequests() {
+    return this.requests;
+  }
+  
+  public boolean hasLimits() {
+    return this.limits != null;
+  }
+  
+  public boolean hasRequests() {
+    return this.requests != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(limits, requests);
   }
   
   public A removeFromLimits(String key) {
@@ -72,43 +134,6 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
           this.limits.remove(key);
         }
       }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,Quantity> getLimits() {
-    return this.limits;
-  }
-  
-  public <K,V>A withLimits(Map<String,Quantity> limits) {
-    if (limits == null) {
-      this.limits = null;
-    } else {
-      this.limits = new LinkedHashMap(limits);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasLimits() {
-    return this.limits != null;
-  }
-  
-  public A addToRequests(String key,Quantity value) {
-    if (this.requests == null && key != null && value != null) {
-      this.requests = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.requests.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToRequests(Map<String,Quantity> map) {
-    if (this.requests == null && map != null) {
-      this.requests = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.requests.putAll(map);
     }
     return (A) this;
   }
@@ -137,47 +162,6 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     return (A) this;
   }
   
-  public Map<String,Quantity> getRequests() {
-    return this.requests;
-  }
-  
-  public <K,V>A withRequests(Map<String,Quantity> requests) {
-    if (requests == null) {
-      this.requests = null;
-    } else {
-      this.requests = new LinkedHashMap(requests);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasRequests() {
-    return this.requests != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1VolumeResourceRequirementsFluent that = (V1VolumeResourceRequirementsFluent) o;
-    if (!(Objects.equals(limits, that.limits))) {
-      return false;
-    }
-    if (!(Objects.equals(requests, that.requests))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(limits, requests);
-  }
-  
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
@@ -194,5 +178,22 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     return sb.toString();
   }
   
-
+  public <K,V>A withLimits(Map<String,Quantity> limits) {
+    if (limits == null) {
+      this.limits = null;
+    } else {
+      this.limits = new LinkedHashMap(limits);
+    }
+    return (A) this;
+  }
+  
+  public <K,V>A withRequests(Map<String,Quantity> requests) {
+    if (requests == null) {
+      this.requests = null;
+    } else {
+      this.requests = new LinkedHashMap(requests);
+    }
+    return (A) this;
+  }
+  
 }

@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsFluent<A>> extends BaseFluent<A>{
+
+  private String gmsaCredentialSpec;
+  private String gmsaCredentialSpecName;
+  private Boolean hostProcess;
+  private String runAsUserName;
+
   public V1WindowsSecurityContextOptionsFluent() {
   }
   
   public V1WindowsSecurityContextOptionsFluent(V1WindowsSecurityContextOptions instance) {
     this.copyInstance(instance);
   }
-  private String gmsaCredentialSpec;
-  private String gmsaCredentialSpecName;
-  private Boolean hostProcess;
-  private String runAsUserName;
-  
+
   protected void copyInstance(V1WindowsSecurityContextOptions instance) {
     instance = instance != null ? instance : new V1WindowsSecurityContextOptions();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.clien
         this.withHostProcess(instance.getHostProcess());
         this.withRunAsUserName(instance.getRunAsUserName());
     }
-  }
-  
-  public String getGmsaCredentialSpec() {
-    return this.gmsaCredentialSpec;
-  }
-  
-  public A withGmsaCredentialSpec(String gmsaCredentialSpec) {
-    this.gmsaCredentialSpec = gmsaCredentialSpec;
-    return (A) this;
-  }
-  
-  public boolean hasGmsaCredentialSpec() {
-    return this.gmsaCredentialSpec != null;
-  }
-  
-  public String getGmsaCredentialSpecName() {
-    return this.gmsaCredentialSpecName;
-  }
-  
-  public A withGmsaCredentialSpecName(String gmsaCredentialSpecName) {
-    this.gmsaCredentialSpecName = gmsaCredentialSpecName;
-    return (A) this;
-  }
-  
-  public boolean hasGmsaCredentialSpecName() {
-    return this.gmsaCredentialSpecName != null;
-  }
-  
-  public Boolean getHostProcess() {
-    return this.hostProcess;
-  }
-  
-  public A withHostProcess(Boolean hostProcess) {
-    this.hostProcess = hostProcess;
-    return (A) this;
-  }
-  
-  public boolean hasHostProcess() {
-    return this.hostProcess != null;
-  }
-  
-  public String getRunAsUserName() {
-    return this.runAsUserName;
-  }
-  
-  public A withRunAsUserName(String runAsUserName) {
-    this.runAsUserName = runAsUserName;
-    return (A) this;
-  }
-  
-  public boolean hasRunAsUserName() {
-    return this.runAsUserName != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.clien
       return false;
     }
     return true;
+  }
+  
+  public String getGmsaCredentialSpec() {
+    return this.gmsaCredentialSpec;
+  }
+  
+  public String getGmsaCredentialSpecName() {
+    return this.gmsaCredentialSpecName;
+  }
+  
+  public Boolean getHostProcess() {
+    return this.hostProcess;
+  }
+  
+  public String getRunAsUserName() {
+    return this.runAsUserName;
+  }
+  
+  public boolean hasGmsaCredentialSpec() {
+    return this.gmsaCredentialSpec != null;
+  }
+  
+  public boolean hasGmsaCredentialSpecName() {
+    return this.gmsaCredentialSpecName != null;
+  }
+  
+  public boolean hasHostProcess() {
+    return this.hostProcess != null;
+  }
+  
+  public boolean hasRunAsUserName() {
+    return this.runAsUserName != null;
   }
   
   public int hashCode() {
@@ -142,9 +124,28 @@ public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
+  public A withGmsaCredentialSpec(String gmsaCredentialSpec) {
+    this.gmsaCredentialSpec = gmsaCredentialSpec;
+    return (A) this;
+  }
+  
+  public A withGmsaCredentialSpecName(String gmsaCredentialSpecName) {
+    this.gmsaCredentialSpecName = gmsaCredentialSpecName;
+    return (A) this;
+  }
+  
   public A withHostProcess() {
     return withHostProcess(true);
   }
   
-
+  public A withHostProcess(Boolean hostProcess) {
+    this.hostProcess = hostProcess;
+    return (A) this;
+  }
+  
+  public A withRunAsUserName(String runAsUserName) {
+    this.runAsUserName = runAsUserName;
+    return (A) this;
+  }
+  
 }

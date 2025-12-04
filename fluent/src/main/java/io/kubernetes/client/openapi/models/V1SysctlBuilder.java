@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SysctlBuilder extends V1SysctlFluent<V1SysctlBuilder> implements VisitableBuilder<V1Sysctl,V1SysctlBuilder>{
+
+  V1SysctlFluent<?> fluent;
+
   public V1SysctlBuilder() {
     this(new V1Sysctl());
   }
@@ -11,17 +14,16 @@ public class V1SysctlBuilder extends V1SysctlFluent<V1SysctlBuilder> implements 
     this(fluent, new V1Sysctl());
   }
   
-  public V1SysctlBuilder(V1SysctlFluent<?> fluent,V1Sysctl instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SysctlBuilder(V1Sysctl instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SysctlFluent<?> fluent;
   
+  public V1SysctlBuilder(V1SysctlFluent<?> fluent,V1Sysctl instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Sysctl build() {
     V1Sysctl buildable = new V1Sysctl();
     buildable.setName(fluent.getName());
@@ -29,5 +31,4 @@ public class V1SysctlBuilder extends V1SysctlFluent<V1SysctlBuilder> implements 
     return buildable;
   }
   
-
 }

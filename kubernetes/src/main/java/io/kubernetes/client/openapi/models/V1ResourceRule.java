@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,6 +46,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -52,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn&#39;t significant, may contain duplicates, and possibly be incomplete.
  */
 @ApiModel(description = "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1ResourceRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
@@ -239,15 +241,10 @@ public class V1ResourceRule {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiGroups");
-    openapiFields.add("resourceNames");
-    openapiFields.add("resources");
-    openapiFields.add("verbs");
+    openapiFields = new HashSet<String>(Arrays.asList("apiGroups", "resourceNames", "resources", "verbs"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("verbs");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("verbs"));
   }
 
   /**
@@ -259,7 +256,7 @@ public class V1ResourceRule {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ResourceRule is not found in the empty JSON string", V1ResourceRule.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1ResourceRule is not found in the empty JSON string", V1ResourceRule.openapiRequiredFields.toString()));
         }
       }
 
@@ -267,34 +264,34 @@ public class V1ResourceRule {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ResourceRule.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ResourceRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ResourceRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ResourceRule.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonNull() && !jsonObj.get("apiGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("resourceNames") != null && !jsonObj.get("resourceNames").isJsonNull() && !jsonObj.get("resourceNames").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resourceNames` to be an array in the JSON string but got `%s`", jsonObj.get("resourceNames").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resourceNames` to be an array in the JSON string but got `%s`", jsonObj.get("resourceNames").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull() && !jsonObj.get("resources").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("verbs") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("verbs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `verbs` to be an array in the JSON string but got `%s`", jsonObj.get("verbs").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `verbs` to be an array in the JSON string but got `%s`", jsonObj.get("verbs").toString()));
       }
   }
 

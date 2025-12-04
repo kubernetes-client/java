@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DeviceTolerationBuilder extends V1DeviceTolerationFluent<V1DeviceTolerationBuilder> implements VisitableBuilder<V1DeviceToleration,V1DeviceTolerationBuilder>{
+
+  V1DeviceTolerationFluent<?> fluent;
+
   public V1DeviceTolerationBuilder() {
     this(new V1DeviceToleration());
   }
@@ -11,17 +14,16 @@ public class V1DeviceTolerationBuilder extends V1DeviceTolerationFluent<V1Device
     this(fluent, new V1DeviceToleration());
   }
   
-  public V1DeviceTolerationBuilder(V1DeviceTolerationFluent<?> fluent,V1DeviceToleration instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DeviceTolerationBuilder(V1DeviceToleration instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DeviceTolerationFluent<?> fluent;
   
+  public V1DeviceTolerationBuilder(V1DeviceTolerationFluent<?> fluent,V1DeviceToleration instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DeviceToleration build() {
     V1DeviceToleration buildable = new V1DeviceToleration();
     buildable.setEffect(fluent.getEffect());
@@ -32,5 +34,4 @@ public class V1DeviceTolerationBuilder extends V1DeviceTolerationFluent<V1Device
     return buildable;
   }
   
-
 }

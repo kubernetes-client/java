@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ScaleIOVolumeSourceBuilder extends V1ScaleIOVolumeSourceFluent<V1ScaleIOVolumeSourceBuilder> implements VisitableBuilder<V1ScaleIOVolumeSource,V1ScaleIOVolumeSourceBuilder>{
+
+  V1ScaleIOVolumeSourceFluent<?> fluent;
+
   public V1ScaleIOVolumeSourceBuilder() {
     this(new V1ScaleIOVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1ScaleIOVolumeSourceBuilder extends V1ScaleIOVolumeSourceFluent<V1
     this(fluent, new V1ScaleIOVolumeSource());
   }
   
-  public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSourceFluent<?> fluent,V1ScaleIOVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ScaleIOVolumeSourceFluent<?> fluent;
   
+  public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSourceFluent<?> fluent,V1ScaleIOVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ScaleIOVolumeSource build() {
     V1ScaleIOVolumeSource buildable = new V1ScaleIOVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -37,5 +39,4 @@ public class V1ScaleIOVolumeSourceBuilder extends V1ScaleIOVolumeSourceFluent<V1
     return buildable;
   }
   
-
 }

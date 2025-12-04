@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NodeSelectorRequirementBuilder extends V1NodeSelectorRequirementFluent<V1NodeSelectorRequirementBuilder> implements VisitableBuilder<V1NodeSelectorRequirement,V1NodeSelectorRequirementBuilder>{
+
+  V1NodeSelectorRequirementFluent<?> fluent;
+
   public V1NodeSelectorRequirementBuilder() {
     this(new V1NodeSelectorRequirement());
   }
@@ -11,17 +14,16 @@ public class V1NodeSelectorRequirementBuilder extends V1NodeSelectorRequirementF
     this(fluent, new V1NodeSelectorRequirement());
   }
   
-  public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirementFluent<?> fluent,V1NodeSelectorRequirement instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirement instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NodeSelectorRequirementFluent<?> fluent;
   
+  public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirementFluent<?> fluent,V1NodeSelectorRequirement instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NodeSelectorRequirement build() {
     V1NodeSelectorRequirement buildable = new V1NodeSelectorRequirement();
     buildable.setKey(fluent.getKey());
@@ -30,5 +32,4 @@ public class V1NodeSelectorRequirementBuilder extends V1NodeSelectorRequirementF
     return buildable;
   }
   
-
 }

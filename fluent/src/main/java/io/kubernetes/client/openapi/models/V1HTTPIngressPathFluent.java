@@ -1,28 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<A>> extends BaseFluent<A>{
+
+  private V1IngressBackendBuilder backend;
+  private String path;
+  private String pathType;
+
   public V1HTTPIngressPathFluent() {
   }
   
   public V1HTTPIngressPathFluent(V1HTTPIngressPath instance) {
     this.copyInstance(instance);
   }
-  private V1IngressBackendBuilder backend;
-  private String path;
-  private String pathType;
+
+  public V1IngressBackend buildBackend() {
+    return this.backend != null ? this.backend.build() : null;
+  }
   
   protected void copyInstance(V1HTTPIngressPath instance) {
     instance = instance != null ? instance : new V1HTTPIngressPath();
@@ -31,34 +37,6 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
         this.withPath(instance.getPath());
         this.withPathType(instance.getPathType());
     }
-  }
-  
-  public V1IngressBackend buildBackend() {
-    return this.backend != null ? this.backend.build() : null;
-  }
-  
-  public A withBackend(V1IngressBackend backend) {
-    this._visitables.remove("backend");
-    if (backend != null) {
-        this.backend = new V1IngressBackendBuilder(backend);
-        this._visitables.get("backend").add(this.backend);
-    } else {
-        this.backend = null;
-        this._visitables.get("backend").remove(this.backend);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasBackend() {
-    return this.backend != null;
-  }
-  
-  public BackendNested<A> withNewBackend() {
-    return new BackendNested(null);
-  }
-  
-  public BackendNested<A> withNewBackendLike(V1IngressBackend item) {
-    return new BackendNested(item);
   }
   
   public BackendNested<A> editBackend() {
@@ -71,32 +49,6 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
   
   public BackendNested<A> editOrNewBackendLike(V1IngressBackend item) {
     return this.withNewBackendLike(Optional.ofNullable(this.buildBackend()).orElse(item));
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public String getPathType() {
-    return this.pathType;
-  }
-  
-  public A withPathType(String pathType) {
-    this.pathType = pathType;
-    return (A) this;
-  }
-  
-  public boolean hasPathType() {
-    return this.pathType != null;
   }
   
   public boolean equals(Object o) {
@@ -120,6 +72,26 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
       return false;
     }
     return true;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public String getPathType() {
+    return this.pathType;
+  }
+  
+  public boolean hasBackend() {
+    return this.backend != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasPathType() {
+    return this.pathType != null;
   }
   
   public int hashCode() {
@@ -146,12 +118,44 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withBackend(V1IngressBackend backend) {
+    this._visitables.remove("backend");
+    if (backend != null) {
+        this.backend = new V1IngressBackendBuilder(backend);
+        this._visitables.get("backend").add(this.backend);
+    } else {
+        this.backend = null;
+        this._visitables.get("backend").remove(this.backend);
+    }
+    return (A) this;
+  }
+  
+  public BackendNested<A> withNewBackend() {
+    return new BackendNested(null);
+  }
+  
+  public BackendNested<A> withNewBackendLike(V1IngressBackend item) {
+    return new BackendNested(item);
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
+  public A withPathType(String pathType) {
+    this.pathType = pathType;
+    return (A) this;
+  }
   public class BackendNested<N> extends V1IngressBackendFluent<BackendNested<N>> implements Nested<N>{
+  
+    V1IngressBackendBuilder builder;
+  
     BackendNested(V1IngressBackend item) {
       this.builder = new V1IngressBackendBuilder(this, item);
     }
-    V1IngressBackendBuilder builder;
-    
+  
     public N and() {
       return (N) V1HTTPIngressPathFluent.this.withBackend(builder.build());
     }
@@ -160,7 +164,5 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
-
 }

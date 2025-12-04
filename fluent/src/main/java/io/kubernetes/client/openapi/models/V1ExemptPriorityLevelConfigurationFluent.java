@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ExemptPriorityLevelConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1ExemptPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private Integer lendablePercent;
+  private Integer nominalConcurrencyShares;
+
   public V1ExemptPriorityLevelConfigurationFluent() {
   }
   
   public V1ExemptPriorityLevelConfigurationFluent(V1ExemptPriorityLevelConfiguration instance) {
     this.copyInstance(instance);
   }
-  private Integer lendablePercent;
-  private Integer nominalConcurrencyShares;
-  
+
   protected void copyInstance(V1ExemptPriorityLevelConfiguration instance) {
     instance = instance != null ? instance : new V1ExemptPriorityLevelConfiguration();
     if (instance != null) {
         this.withLendablePercent(instance.getLendablePercent());
         this.withNominalConcurrencyShares(instance.getNominalConcurrencyShares());
     }
-  }
-  
-  public Integer getLendablePercent() {
-    return this.lendablePercent;
-  }
-  
-  public A withLendablePercent(Integer lendablePercent) {
-    this.lendablePercent = lendablePercent;
-    return (A) this;
-  }
-  
-  public boolean hasLendablePercent() {
-    return this.lendablePercent != null;
-  }
-  
-  public Integer getNominalConcurrencyShares() {
-    return this.nominalConcurrencyShares;
-  }
-  
-  public A withNominalConcurrencyShares(Integer nominalConcurrencyShares) {
-    this.nominalConcurrencyShares = nominalConcurrencyShares;
-    return (A) this;
-  }
-  
-  public boolean hasNominalConcurrencyShares() {
-    return this.nominalConcurrencyShares != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class V1ExemptPriorityLevelConfigurationFluent<A extends io.kubernetes.cl
     return true;
   }
   
+  public Integer getLendablePercent() {
+    return this.lendablePercent;
+  }
+  
+  public Integer getNominalConcurrencyShares() {
+    return this.nominalConcurrencyShares;
+  }
+  
+  public boolean hasLendablePercent() {
+    return this.lendablePercent != null;
+  }
+  
+  public boolean hasNominalConcurrencyShares() {
+    return this.nominalConcurrencyShares != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(lendablePercent, nominalConcurrencyShares);
   }
@@ -96,5 +88,14 @@ public class V1ExemptPriorityLevelConfigurationFluent<A extends io.kubernetes.cl
     return sb.toString();
   }
   
-
+  public A withLendablePercent(Integer lendablePercent) {
+    this.lendablePercent = lendablePercent;
+    return (A) this;
+  }
+  
+  public A withNominalConcurrencyShares(Integer nominalConcurrencyShares) {
+    this.nominalConcurrencyShares = nominalConcurrencyShares;
+    return (A) this;
+  }
+  
 }

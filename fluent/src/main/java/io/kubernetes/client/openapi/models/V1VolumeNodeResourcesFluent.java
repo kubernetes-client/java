@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1VolumeNodeResourcesFluent<A extends io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<A>> extends BaseFluent<A>{
+
+  private Integer count;
+
   public V1VolumeNodeResourcesFluent() {
   }
   
   public V1VolumeNodeResourcesFluent(V1VolumeNodeResources instance) {
     this.copyInstance(instance);
   }
-  private Integer count;
-  
+
   protected void copyInstance(V1VolumeNodeResources instance) {
     instance = instance != null ? instance : new V1VolumeNodeResources();
     if (instance != null) {
       this.withCount(instance.getCount());
     }
-  }
-  
-  public Integer getCount() {
-    return this.count;
-  }
-  
-  public A withCount(Integer count) {
-    this.count = count;
-    return (A) this;
-  }
-  
-  public boolean hasCount() {
-    return this.count != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1VolumeNodeResourcesFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public Integer getCount() {
+    return this.count;
+  }
+  
+  public boolean hasCount() {
+    return this.count != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(count);
   }
@@ -73,5 +70,9 @@ public class V1VolumeNodeResourcesFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public A withCount(Integer count) {
+    this.count = count;
+    return (A) this;
+  }
+  
 }

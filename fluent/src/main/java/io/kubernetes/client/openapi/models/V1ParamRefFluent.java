@@ -1,29 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1ParamRefFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private String namespace;
+  private String parameterNotFoundAction;
+  private V1LabelSelectorBuilder selector;
+
   public V1ParamRefFluent() {
   }
   
   public V1ParamRefFluent(V1ParamRef instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private String namespace;
-  private String parameterNotFoundAction;
-  private V1LabelSelectorBuilder selector;
+
+  public V1LabelSelector buildSelector() {
+    return this.selector != null ? this.selector.build() : null;
+  }
   
   protected void copyInstance(V1ParamRef instance) {
     instance = instance != null ? instance : new V1ParamRef();
@@ -35,83 +41,16 @@ public class V1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1Pa
     }
   }
   
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getNamespace() {
-    return this.namespace;
-  }
-  
-  public A withNamespace(String namespace) {
-    this.namespace = namespace;
-    return (A) this;
-  }
-  
-  public boolean hasNamespace() {
-    return this.namespace != null;
-  }
-  
-  public String getParameterNotFoundAction() {
-    return this.parameterNotFoundAction;
-  }
-  
-  public A withParameterNotFoundAction(String parameterNotFoundAction) {
-    this.parameterNotFoundAction = parameterNotFoundAction;
-    return (A) this;
-  }
-  
-  public boolean hasParameterNotFoundAction() {
-    return this.parameterNotFoundAction != null;
-  }
-  
-  public V1LabelSelector buildSelector() {
-    return this.selector != null ? this.selector.build() : null;
-  }
-  
-  public A withSelector(V1LabelSelector selector) {
-    this._visitables.remove("selector");
-    if (selector != null) {
-        this.selector = new V1LabelSelectorBuilder(selector);
-        this._visitables.get("selector").add(this.selector);
-    } else {
-        this.selector = null;
-        this._visitables.get("selector").remove(this.selector);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSelector() {
-    return this.selector != null;
-  }
-  
-  public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
-  }
-  
-  public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
-  }
-  
-  public SelectorNested<A> editSelector() {
-    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
-  }
-  
   public SelectorNested<A> editOrNewSelector() {
     return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
+  }
+  
+  public SelectorNested<A> editSelector() {
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -138,6 +77,34 @@ public class V1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1Pa
       return false;
     }
     return true;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getNamespace() {
+    return this.namespace;
+  }
+  
+  public String getParameterNotFoundAction() {
+    return this.parameterNotFoundAction;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasNamespace() {
+    return this.namespace != null;
+  }
+  
+  public boolean hasParameterNotFoundAction() {
+    return this.parameterNotFoundAction != null;
+  }
+  
+  public boolean hasSelector() {
+    return this.selector != null;
   }
   
   public int hashCode() {
@@ -169,12 +136,49 @@ public class V1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1Pa
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withNamespace(String namespace) {
+    this.namespace = namespace;
+    return (A) this;
+  }
+  
+  public SelectorNested<A> withNewSelector() {
+    return new SelectorNested(null);
+  }
+  
+  public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+    return new SelectorNested(item);
+  }
+  
+  public A withParameterNotFoundAction(String parameterNotFoundAction) {
+    this.parameterNotFoundAction = parameterNotFoundAction;
+    return (A) this;
+  }
+  
+  public A withSelector(V1LabelSelector selector) {
+    this._visitables.remove("selector");
+    if (selector != null) {
+        this.selector = new V1LabelSelectorBuilder(selector);
+        this._visitables.get("selector").add(this.selector);
+    } else {
+        this.selector = null;
+        this._visitables.get("selector").remove(this.selector);
+    }
+    return (A) this;
+  }
   public class SelectorNested<N> extends V1LabelSelectorFluent<SelectorNested<N>> implements Nested<N>{
+  
+    V1LabelSelectorBuilder builder;
+  
     SelectorNested(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
-    V1LabelSelectorBuilder builder;
-    
+  
     public N and() {
       return (N) V1ParamRefFluent.this.withSelector(builder.build());
     }
@@ -183,7 +187,5 @@ public class V1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1Pa
       return and();
     }
     
-  
   }
-
 }

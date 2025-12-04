@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluent<V1StatefulSetSpecBuilder> implements VisitableBuilder<V1StatefulSetSpec,V1StatefulSetSpecBuilder>{
+
+  V1StatefulSetSpecFluent<?> fluent;
+
   public V1StatefulSetSpecBuilder() {
     this(new V1StatefulSetSpec());
   }
@@ -11,17 +14,16 @@ public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluent<V1Stateful
     this(fluent, new V1StatefulSetSpec());
   }
   
-  public V1StatefulSetSpecBuilder(V1StatefulSetSpecFluent<?> fluent,V1StatefulSetSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1StatefulSetSpecBuilder(V1StatefulSetSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1StatefulSetSpecFluent<?> fluent;
   
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpecFluent<?> fluent,V1StatefulSetSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1StatefulSetSpec build() {
     V1StatefulSetSpec buildable = new V1StatefulSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
@@ -38,5 +40,4 @@ public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluent<V1Stateful
     return buildable;
   }
   
-
 }

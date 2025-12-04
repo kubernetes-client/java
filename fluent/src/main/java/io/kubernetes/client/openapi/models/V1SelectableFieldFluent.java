@@ -1,43 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.models.V1SelectableFieldFluent<A>> extends BaseFluent<A>{
+
+  private String jsonPath;
+
   public V1SelectableFieldFluent() {
   }
   
   public V1SelectableFieldFluent(V1SelectableField instance) {
     this.copyInstance(instance);
   }
-  private String jsonPath;
-  
+
   protected void copyInstance(V1SelectableField instance) {
     instance = instance != null ? instance : new V1SelectableField();
     if (instance != null) {
       this.withJsonPath(instance.getJsonPath());
     }
-  }
-  
-  public String getJsonPath() {
-    return this.jsonPath;
-  }
-  
-  public A withJsonPath(String jsonPath) {
-    this.jsonPath = jsonPath;
-    return (A) this;
-  }
-  
-  public boolean hasJsonPath() {
-    return this.jsonPath != null;
   }
   
   public boolean equals(Object o) {
@@ -57,6 +46,14 @@ public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.mode
     return true;
   }
   
+  public String getJsonPath() {
+    return this.jsonPath;
+  }
+  
+  public boolean hasJsonPath() {
+    return this.jsonPath != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(jsonPath);
   }
@@ -72,5 +69,9 @@ public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
-
+  public A withJsonPath(String jsonPath) {
+    this.jsonPath = jsonPath;
+    return (A) this;
+  }
+  
 }
