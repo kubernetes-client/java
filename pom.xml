@@ -50,7 +50,7 @@
     <snakeyaml.version>2.5</snakeyaml.version>
     <slf4j.version>2.0.17</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
-    <protobuf.version>4.33.1</protobuf.version>
+    <protobuf.version>4.33.2</protobuf.version>
     <junit.version>4.13</junit.version>
     <bucket4j.version>7.6.0</bucket4j.version>
     <bouncycastle.version>1.83</bouncycastle.version>
