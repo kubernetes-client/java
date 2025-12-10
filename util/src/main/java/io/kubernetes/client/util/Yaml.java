@@ -39,7 +39,6 @@ import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
-import org.yaml.snakeyaml.DumperOptions.FlowStyle;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.TypeDescription;
 import org.yaml.snakeyaml.constructor.BaseConstructor;
@@ -367,7 +366,7 @@ public class Yaml {
       if (propertyValue == null) {
         return null;
       }
-      if (propertyValue instanceof List<?> && ((List<?>)propertyValue).size() == 0) {
+      if (propertyValue instanceof List<?> && ((List<?>) propertyValue).size() == 0) {
         return null;
       }
       return super.representJavaBeanProperty(javaBean, property, propertyValue, customTag);
@@ -575,6 +574,7 @@ public class Yaml {
    * <p>This is equivalent to `kubectl create -f <yaml-content>`.
    *
    * <p>Example usage:
+   *
    * <pre>{@code
    * ApiClient client = Config.defaultClient();
    * String yaml = "apiVersion: v1\n" +
@@ -589,7 +589,8 @@ public class Yaml {
    * @param content The YAML content as a string
    * @return The created resource object
    * @throws IOException If an error occurs while reading or parsing the YAML
-   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the resource in the cluster
+   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the
+   *     resource in the cluster
    */
   public static Object createResource(io.kubernetes.client.openapi.ApiClient client, String content)
       throws IOException, io.kubernetes.client.openapi.ApiException {
@@ -607,7 +608,8 @@ public class Yaml {
    * @param f The YAML file to load
    * @return The created resource object
    * @throws IOException If an error occurs while reading or parsing the YAML
-   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the resource in the cluster
+   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the
+   *     resource in the cluster
    */
   public static Object createResource(io.kubernetes.client.openapi.ApiClient client, File f)
       throws IOException, io.kubernetes.client.openapi.ApiException {
@@ -625,7 +627,8 @@ public class Yaml {
    * @param reader The stream to load
    * @return The created resource object
    * @throws IOException If an error occurs while reading or parsing the YAML
-   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the resource in the cluster
+   * @throws io.kubernetes.client.openapi.ApiException If an error occurs while creating the
+   *     resource in the cluster
    */
   public static Object createResource(io.kubernetes.client.openapi.ApiClient client, Reader reader)
       throws IOException, io.kubernetes.client.openapi.ApiException {
@@ -642,7 +645,7 @@ public class Yaml {
     // Note: The getSnakeYaml() method already configures LoaderOptions with appropriate
     // security settings to prevent YAML bombs and other attacks
     Map<String, Object> data = getSnakeYaml(null).load(new StringReader(yamlContent));
-    
+
     String kind = (String) data.get("kind");
     if (kind == null) {
       throw new IOException("Missing kind in YAML!");
@@ -664,8 +667,7 @@ public class Yaml {
 
     // Ensure the resource is a KubernetesObject
     if (!(resource instanceof io.kubernetes.client.common.KubernetesObject)) {
-      throw new IOException(
-          "Resource is not a KubernetesObject: " + resource.getClass().getName());
+      throw new IOException("Resource is not a KubernetesObject: " + resource.getClass().getName());
     }
 
     io.kubernetes.client.common.KubernetesObject k8sObject =
@@ -678,13 +680,13 @@ public class Yaml {
     // Get the resource metadata to determine the plural name
     io.kubernetes.client.apimachinery.GroupVersionResource gvr =
         ModelMapper.getGroupVersionResourceByClass(clazz);
-    
+
     if (gvr == null) {
       // If no GVR mapping exists, we need to perform discovery
       io.kubernetes.client.Discovery discovery = new io.kubernetes.client.Discovery(client);
       ModelMapper.refresh(discovery);
       gvr = ModelMapper.getGroupVersionResourceByClass(clazz);
-      
+
       if (gvr == null) {
         throw new IOException(
             "Unable to determine resource plural name for " + apiVersion + "/" + kind);
@@ -708,7 +710,7 @@ public class Yaml {
     io.kubernetes.client.util.generic.KubernetesApiResponse<
             io.kubernetes.client.common.KubernetesObject>
         response;
-    
+
     Boolean isNamespaced = ModelMapper.isNamespaced(clazz);
     if (isNamespaced != null && isNamespaced) {
       // For namespaced resources
@@ -717,16 +719,18 @@ public class Yaml {
         // Default to "default" namespace, matching kubectl behavior
         namespace = "default";
       }
-      response = api.create(namespace, k8sObject, new io.kubernetes.client.util.generic.options.CreateOptions());
+      response =
+          api.create(
+              namespace, k8sObject, new io.kubernetes.client.util.generic.options.CreateOptions());
     } else {
       // For cluster-scoped resources
-      response = api.create(k8sObject, new io.kubernetes.client.util.generic.options.CreateOptions());
+      response =
+          api.create(k8sObject, new io.kubernetes.client.util.generic.options.CreateOptions());
     }
 
     if (!response.isSuccess()) {
       throw new io.kubernetes.client.openapi.ApiException(
-          response.getHttpStatusCode(),
-          "Failed to create resource: " + response.getStatus());
+          response.getHttpStatusCode(), "Failed to create resource: " + response.getStatus());
     }
 
     return response.getObject();

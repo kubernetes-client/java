@@ -98,7 +98,7 @@ public class YamlCreateResourceExample {
     System.out.println("\nCleaning up...");
     api.deleteNamespacedConfigMap("example-config", "default").execute();
     System.out.println("Deleted ConfigMap");
-    
+
     api.deleteNamespacedPod("example-pod", "default").execute();
     System.out.println("Deleted Pod");
   }
