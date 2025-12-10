@@ -272,11 +272,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       int i = 0;
       while (WebSocketStreamHandler.this.socket.queueSize() > 0) {
         try {
-          Thread.sleep(100);
+          Thread.sleep(1);
         } catch (InterruptedException ex) {
         }
         // Wait a maximum of 10 seconds.
-        if (i++ > 100) {
+        if (i++ > 10000) {
           throw new IOException("Timed out waiting for web-socket to flush.");
         }
       }
