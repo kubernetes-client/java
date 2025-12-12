@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -53,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.
  */
 @ApiModel(description = "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1DeviceCounterConsumption {
   public static final String SERIALIZED_NAME_COUNTER_SET = "counterSet";
   @SerializedName(SERIALIZED_NAME_COUNTER_SET)
@@ -162,14 +164,10 @@ public class V1DeviceCounterConsumption {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("counterSet");
-    openapiFields.add("counters");
+    openapiFields = new HashSet<String>(Arrays.asList("counterSet", "counters"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("counterSet");
-    openapiRequiredFields.add("counters");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("counterSet", "counters"));
   }
 
   /**
@@ -181,7 +179,7 @@ public class V1DeviceCounterConsumption {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1DeviceCounterConsumption.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DeviceCounterConsumption is not found in the empty JSON string", V1DeviceCounterConsumption.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1DeviceCounterConsumption is not found in the empty JSON string", V1DeviceCounterConsumption.openapiRequiredFields.toString()));
         }
       }
 
@@ -189,19 +187,19 @@ public class V1DeviceCounterConsumption {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1DeviceCounterConsumption.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DeviceCounterConsumption` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1DeviceCounterConsumption` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1DeviceCounterConsumption.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("counterSet").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `counterSet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("counterSet").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `counterSet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("counterSet").toString()));
       }
   }
 

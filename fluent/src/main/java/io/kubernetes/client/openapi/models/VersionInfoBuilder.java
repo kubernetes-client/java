@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class VersionInfoBuilder extends VersionInfoFluent<VersionInfoBuilder> implements VisitableBuilder<VersionInfo,VersionInfoBuilder>{
+
+  VersionInfoFluent<?> fluent;
+
   public VersionInfoBuilder() {
     this(new VersionInfo());
   }
@@ -11,17 +14,16 @@ public class VersionInfoBuilder extends VersionInfoFluent<VersionInfoBuilder> im
     this(fluent, new VersionInfo());
   }
   
-  public VersionInfoBuilder(VersionInfoFluent<?> fluent,VersionInfo instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public VersionInfoBuilder(VersionInfo instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  VersionInfoFluent<?> fluent;
   
+  public VersionInfoBuilder(VersionInfoFluent<?> fluent,VersionInfo instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public VersionInfo build() {
     VersionInfo buildable = new VersionInfo();
     buildable.setBuildDate(fluent.getBuildDate());
@@ -40,5 +42,4 @@ public class VersionInfoBuilder extends VersionInfoFluent<VersionInfoBuilder> im
     return buildable;
   }
   
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1StatefulSetConditionBuilder extends V1StatefulSetConditionFluent<V1StatefulSetConditionBuilder> implements VisitableBuilder<V1StatefulSetCondition,V1StatefulSetConditionBuilder>{
+
+  V1StatefulSetConditionFluent<?> fluent;
+
   public V1StatefulSetConditionBuilder() {
     this(new V1StatefulSetCondition());
   }
@@ -11,17 +14,16 @@ public class V1StatefulSetConditionBuilder extends V1StatefulSetConditionFluent<
     this(fluent, new V1StatefulSetCondition());
   }
   
-  public V1StatefulSetConditionBuilder(V1StatefulSetConditionFluent<?> fluent,V1StatefulSetCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1StatefulSetConditionBuilder(V1StatefulSetCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1StatefulSetConditionFluent<?> fluent;
   
+  public V1StatefulSetConditionBuilder(V1StatefulSetConditionFluent<?> fluent,V1StatefulSetCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1StatefulSetCondition build() {
     V1StatefulSetCondition buildable = new V1StatefulSetCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -32,5 +34,4 @@ public class V1StatefulSetConditionBuilder extends V1StatefulSetConditionFluent<
     return buildable;
   }
   
-
 }

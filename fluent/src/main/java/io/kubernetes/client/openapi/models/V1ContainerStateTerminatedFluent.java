@@ -1,25 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A>> extends BaseFluent<A>{
-  public V1ContainerStateTerminatedFluent() {
-  }
-  
-  public V1ContainerStateTerminatedFluent(V1ContainerStateTerminated instance) {
-    this.copyInstance(instance);
-  }
+
   private String containerID;
   private Integer exitCode;
   private OffsetDateTime finishedAt;
@@ -27,7 +22,14 @@ public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.ope
   private String reason;
   private Integer signal;
   private OffsetDateTime startedAt;
+
+  public V1ContainerStateTerminatedFluent() {
+  }
   
+  public V1ContainerStateTerminatedFluent(V1ContainerStateTerminated instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1ContainerStateTerminated instance) {
     instance = instance != null ? instance : new V1ContainerStateTerminated();
     if (instance != null) {
@@ -39,97 +41,6 @@ public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.ope
         this.withSignal(instance.getSignal());
         this.withStartedAt(instance.getStartedAt());
     }
-  }
-  
-  public String getContainerID() {
-    return this.containerID;
-  }
-  
-  public A withContainerID(String containerID) {
-    this.containerID = containerID;
-    return (A) this;
-  }
-  
-  public boolean hasContainerID() {
-    return this.containerID != null;
-  }
-  
-  public Integer getExitCode() {
-    return this.exitCode;
-  }
-  
-  public A withExitCode(Integer exitCode) {
-    this.exitCode = exitCode;
-    return (A) this;
-  }
-  
-  public boolean hasExitCode() {
-    return this.exitCode != null;
-  }
-  
-  public OffsetDateTime getFinishedAt() {
-    return this.finishedAt;
-  }
-  
-  public A withFinishedAt(OffsetDateTime finishedAt) {
-    this.finishedAt = finishedAt;
-    return (A) this;
-  }
-  
-  public boolean hasFinishedAt() {
-    return this.finishedAt != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
-  }
-  
-  public Integer getSignal() {
-    return this.signal;
-  }
-  
-  public A withSignal(Integer signal) {
-    this.signal = signal;
-    return (A) this;
-  }
-  
-  public boolean hasSignal() {
-    return this.signal != null;
-  }
-  
-  public OffsetDateTime getStartedAt() {
-    return this.startedAt;
-  }
-  
-  public A withStartedAt(OffsetDateTime startedAt) {
-    this.startedAt = startedAt;
-    return (A) this;
-  }
-  
-  public boolean hasStartedAt() {
-    return this.startedAt != null;
   }
   
   public boolean equals(Object o) {
@@ -165,6 +76,62 @@ public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.ope
       return false;
     }
     return true;
+  }
+  
+  public String getContainerID() {
+    return this.containerID;
+  }
+  
+  public Integer getExitCode() {
+    return this.exitCode;
+  }
+  
+  public OffsetDateTime getFinishedAt() {
+    return this.finishedAt;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public Integer getSignal() {
+    return this.signal;
+  }
+  
+  public OffsetDateTime getStartedAt() {
+    return this.startedAt;
+  }
+  
+  public boolean hasContainerID() {
+    return this.containerID != null;
+  }
+  
+  public boolean hasExitCode() {
+    return this.exitCode != null;
+  }
+  
+  public boolean hasFinishedAt() {
+    return this.finishedAt != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
+  }
+  
+  public boolean hasSignal() {
+    return this.signal != null;
+  }
+  
+  public boolean hasStartedAt() {
+    return this.startedAt != null;
   }
   
   public int hashCode() {
@@ -212,5 +179,39 @@ public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.ope
     return sb.toString();
   }
   
-
+  public A withContainerID(String containerID) {
+    this.containerID = containerID;
+    return (A) this;
+  }
+  
+  public A withExitCode(Integer exitCode) {
+    this.exitCode = exitCode;
+    return (A) this;
+  }
+  
+  public A withFinishedAt(OffsetDateTime finishedAt) {
+    this.finishedAt = finishedAt;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
+  public A withSignal(Integer signal) {
+    this.signal = signal;
+    return (A) this;
+  }
+  
+  public A withStartedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
+    return (A) this;
+  }
+  
 }

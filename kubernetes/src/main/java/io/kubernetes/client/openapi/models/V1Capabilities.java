@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,6 +46,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -52,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * Adds and removes POSIX capabilities from running containers.
  */
 @ApiModel(description = "Adds and removes POSIX capabilities from running containers.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1Capabilities {
   public static final String SERIALIZED_NAME_ADD = "add";
   @SerializedName(SERIALIZED_NAME_ADD)
@@ -169,12 +171,10 @@ public class V1Capabilities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("add");
-    openapiFields.add("drop");
+    openapiFields = new HashSet<String>(Arrays.asList("add", "drop"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -186,7 +186,7 @@ public class V1Capabilities {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Capabilities is not found in the empty JSON string", V1Capabilities.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1Capabilities is not found in the empty JSON string", V1Capabilities.openapiRequiredFields.toString()));
         }
       }
 
@@ -194,17 +194,17 @@ public class V1Capabilities {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1Capabilities.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Capabilities` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1Capabilities` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("add") != null && !jsonObj.get("add").isJsonNull() && !jsonObj.get("add").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `add` to be an array in the JSON string but got `%s`", jsonObj.get("add").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `add` to be an array in the JSON string but got `%s`", jsonObj.get("add").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("drop") != null && !jsonObj.get("drop").isJsonNull() && !jsonObj.get("drop").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `drop` to be an array in the JSON string but got `%s`", jsonObj.get("drop").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `drop` to be an array in the JSON string but got `%s`", jsonObj.get("drop").toString()));
       }
   }
 

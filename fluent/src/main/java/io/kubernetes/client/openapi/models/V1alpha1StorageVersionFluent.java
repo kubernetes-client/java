@@ -1,30 +1,40 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String kind;
+  private V1ObjectMetaBuilder metadata;
+  private Object spec;
+  private V1alpha1StorageVersionStatusBuilder status;
+
   public V1alpha1StorageVersionFluent() {
   }
   
   public V1alpha1StorageVersionFluent(V1alpha1StorageVersion instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String kind;
-  private V1ObjectMetaBuilder metadata;
-  private Object spec;
-  private V1alpha1StorageVersionStatusBuilder status;
+
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
+  }
+  
+  public V1alpha1StorageVersionStatus buildStatus() {
+    return this.status != null ? this.status.build() : null;
+  }
   
   protected void copyInstance(V1alpha1StorageVersion instance) {
     instance = instance != null ? instance : new V1alpha1StorageVersion();
@@ -35,60 +45,6 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
         this.withSpec(instance.getSpec());
         this.withStatus(instance.getStatus());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
   }
   
   public MetadataNested<A> editMetadata() {
@@ -103,57 +59,16 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
-  public Object getSpec() {
-    return this.spec;
-  }
-  
-  public A withSpec(Object spec) {
-    this.spec = spec;
-    return (A) this;
-  }
-  
-  public boolean hasSpec() {
-    return this.spec != null;
-  }
-  
-  public V1alpha1StorageVersionStatus buildStatus() {
-    return this.status != null ? this.status.build() : null;
-  }
-  
-  public A withStatus(V1alpha1StorageVersionStatus status) {
-    this._visitables.remove("status");
-    if (status != null) {
-        this.status = new V1alpha1StorageVersionStatusBuilder(status);
-        this._visitables.get("status").add(this.status);
-    } else {
-        this.status = null;
-        this._visitables.get("status").remove(this.status);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasStatus() {
-    return this.status != null;
-  }
-  
-  public StatusNested<A> withNewStatus() {
-    return new StatusNested(null);
-  }
-  
-  public StatusNested<A> withNewStatusLike(V1alpha1StorageVersionStatus item) {
-    return new StatusNested(item);
-  }
-  
-  public StatusNested<A> editStatus() {
-    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
-  }
-  
   public StatusNested<A> editOrNewStatus() {
     return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(new V1alpha1StorageVersionStatusBuilder().build()));
   }
   
   public StatusNested<A> editOrNewStatusLike(V1alpha1StorageVersionStatus item) {
     return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(item));
+  }
+  
+  public StatusNested<A> editStatus() {
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -183,6 +98,38 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public Object getSpec() {
+    return this.spec;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasSpec() {
+    return this.spec != null;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
   }
   
   public int hashCode() {
@@ -219,12 +166,69 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public StatusNested<A> withNewStatus() {
+    return new StatusNested(null);
+  }
+  
+  public StatusNested<A> withNewStatusLike(V1alpha1StorageVersionStatus item) {
+    return new StatusNested(item);
+  }
+  
+  public A withSpec(Object spec) {
+    this.spec = spec;
+    return (A) this;
+  }
+  
+  public A withStatus(V1alpha1StorageVersionStatus status) {
+    this._visitables.remove("status");
+    if (status != null) {
+        this.status = new V1alpha1StorageVersionStatusBuilder(status);
+        this._visitables.get("status").add(this.status);
+    } else {
+        this.status = null;
+        this._visitables.get("status").remove(this.status);
+    }
+    return (A) this;
+  }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1alpha1StorageVersionFluent.this.withMetadata(builder.build());
     }
@@ -233,14 +237,15 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
       return and();
     }
     
-  
   }
   public class StatusNested<N> extends V1alpha1StorageVersionStatusFluent<StatusNested<N>> implements Nested<N>{
+  
+    V1alpha1StorageVersionStatusBuilder builder;
+  
     StatusNested(V1alpha1StorageVersionStatus item) {
       this.builder = new V1alpha1StorageVersionStatusBuilder(this, item);
     }
-    V1alpha1StorageVersionStatusBuilder builder;
-    
+  
     public N and() {
       return (N) V1alpha1StorageVersionFluent.this.withStatus(builder.build());
     }
@@ -249,7 +254,5 @@ public class V1alpha1StorageVersionFluent<A extends io.kubernetes.client.openapi
       return and();
     }
     
-  
   }
-
 }

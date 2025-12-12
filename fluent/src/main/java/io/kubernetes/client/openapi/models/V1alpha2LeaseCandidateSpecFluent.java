@@ -1,31 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha2LeaseCandidateSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha2LeaseCandidateSpecFluent<A>> extends BaseFluent<A>{
-  public V1alpha2LeaseCandidateSpecFluent() {
-  }
-  
-  public V1alpha2LeaseCandidateSpecFluent(V1alpha2LeaseCandidateSpec instance) {
-    this.copyInstance(instance);
-  }
+
   private String binaryVersion;
   private String emulationVersion;
   private String leaseName;
   private OffsetDateTime pingTime;
   private OffsetDateTime renewTime;
   private String strategy;
+
+  public V1alpha2LeaseCandidateSpecFluent() {
+  }
   
+  public V1alpha2LeaseCandidateSpecFluent(V1alpha2LeaseCandidateSpec instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1alpha2LeaseCandidateSpec instance) {
     instance = instance != null ? instance : new V1alpha2LeaseCandidateSpec();
     if (instance != null) {
@@ -36,84 +38,6 @@ public class V1alpha2LeaseCandidateSpecFluent<A extends io.kubernetes.client.ope
         this.withRenewTime(instance.getRenewTime());
         this.withStrategy(instance.getStrategy());
     }
-  }
-  
-  public String getBinaryVersion() {
-    return this.binaryVersion;
-  }
-  
-  public A withBinaryVersion(String binaryVersion) {
-    this.binaryVersion = binaryVersion;
-    return (A) this;
-  }
-  
-  public boolean hasBinaryVersion() {
-    return this.binaryVersion != null;
-  }
-  
-  public String getEmulationVersion() {
-    return this.emulationVersion;
-  }
-  
-  public A withEmulationVersion(String emulationVersion) {
-    this.emulationVersion = emulationVersion;
-    return (A) this;
-  }
-  
-  public boolean hasEmulationVersion() {
-    return this.emulationVersion != null;
-  }
-  
-  public String getLeaseName() {
-    return this.leaseName;
-  }
-  
-  public A withLeaseName(String leaseName) {
-    this.leaseName = leaseName;
-    return (A) this;
-  }
-  
-  public boolean hasLeaseName() {
-    return this.leaseName != null;
-  }
-  
-  public OffsetDateTime getPingTime() {
-    return this.pingTime;
-  }
-  
-  public A withPingTime(OffsetDateTime pingTime) {
-    this.pingTime = pingTime;
-    return (A) this;
-  }
-  
-  public boolean hasPingTime() {
-    return this.pingTime != null;
-  }
-  
-  public OffsetDateTime getRenewTime() {
-    return this.renewTime;
-  }
-  
-  public A withRenewTime(OffsetDateTime renewTime) {
-    this.renewTime = renewTime;
-    return (A) this;
-  }
-  
-  public boolean hasRenewTime() {
-    return this.renewTime != null;
-  }
-  
-  public String getStrategy() {
-    return this.strategy;
-  }
-  
-  public A withStrategy(String strategy) {
-    this.strategy = strategy;
-    return (A) this;
-  }
-  
-  public boolean hasStrategy() {
-    return this.strategy != null;
   }
   
   public boolean equals(Object o) {
@@ -146,6 +70,54 @@ public class V1alpha2LeaseCandidateSpecFluent<A extends io.kubernetes.client.ope
       return false;
     }
     return true;
+  }
+  
+  public String getBinaryVersion() {
+    return this.binaryVersion;
+  }
+  
+  public String getEmulationVersion() {
+    return this.emulationVersion;
+  }
+  
+  public String getLeaseName() {
+    return this.leaseName;
+  }
+  
+  public OffsetDateTime getPingTime() {
+    return this.pingTime;
+  }
+  
+  public OffsetDateTime getRenewTime() {
+    return this.renewTime;
+  }
+  
+  public String getStrategy() {
+    return this.strategy;
+  }
+  
+  public boolean hasBinaryVersion() {
+    return this.binaryVersion != null;
+  }
+  
+  public boolean hasEmulationVersion() {
+    return this.emulationVersion != null;
+  }
+  
+  public boolean hasLeaseName() {
+    return this.leaseName != null;
+  }
+  
+  public boolean hasPingTime() {
+    return this.pingTime != null;
+  }
+  
+  public boolean hasRenewTime() {
+    return this.renewTime != null;
+  }
+  
+  public boolean hasStrategy() {
+    return this.strategy != null;
   }
   
   public int hashCode() {
@@ -188,5 +160,34 @@ public class V1alpha2LeaseCandidateSpecFluent<A extends io.kubernetes.client.ope
     return sb.toString();
   }
   
-
+  public A withBinaryVersion(String binaryVersion) {
+    this.binaryVersion = binaryVersion;
+    return (A) this;
+  }
+  
+  public A withEmulationVersion(String emulationVersion) {
+    this.emulationVersion = emulationVersion;
+    return (A) this;
+  }
+  
+  public A withLeaseName(String leaseName) {
+    this.leaseName = leaseName;
+    return (A) this;
+  }
+  
+  public A withPingTime(OffsetDateTime pingTime) {
+    this.pingTime = pingTime;
+    return (A) this;
+  }
+  
+  public A withRenewTime(OffsetDateTime renewTime) {
+    this.renewTime = renewTime;
+    return (A) this;
+  }
+  
+  public A withStrategy(String strategy) {
+    this.strategy = strategy;
+    return (A) this;
+  }
+  
 }

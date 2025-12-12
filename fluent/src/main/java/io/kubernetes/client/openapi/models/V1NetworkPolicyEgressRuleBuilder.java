@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleFluent<V1NetworkPolicyEgressRuleBuilder> implements VisitableBuilder<V1NetworkPolicyEgressRule,V1NetworkPolicyEgressRuleBuilder>{
+
+  V1NetworkPolicyEgressRuleFluent<?> fluent;
+
   public V1NetworkPolicyEgressRuleBuilder() {
     this(new V1NetworkPolicyEgressRule());
   }
@@ -11,17 +14,16 @@ public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleF
     this(fluent, new V1NetworkPolicyEgressRule());
   }
   
-  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,V1NetworkPolicyEgressRule instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NetworkPolicyEgressRuleFluent<?> fluent;
   
+  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,V1NetworkPolicyEgressRule instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NetworkPolicyEgressRule build() {
     V1NetworkPolicyEgressRule buildable = new V1NetworkPolicyEgressRule();
     buildable.setPorts(fluent.buildPorts());
@@ -29,5 +31,4 @@ public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleF
     return buildable;
   }
   
-
 }

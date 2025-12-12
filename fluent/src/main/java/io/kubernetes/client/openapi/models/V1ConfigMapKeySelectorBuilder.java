@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluent<V1ConfigMapKeySelectorBuilder> implements VisitableBuilder<V1ConfigMapKeySelector,V1ConfigMapKeySelectorBuilder>{
+
+  V1ConfigMapKeySelectorFluent<?> fluent;
+
   public V1ConfigMapKeySelectorBuilder() {
     this(new V1ConfigMapKeySelector());
   }
@@ -11,17 +14,16 @@ public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluent<
     this(fluent, new V1ConfigMapKeySelector());
   }
   
-  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent,V1ConfigMapKeySelector instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelector instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ConfigMapKeySelectorFluent<?> fluent;
   
+  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent,V1ConfigMapKeySelector instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ConfigMapKeySelector build() {
     V1ConfigMapKeySelector buildable = new V1ConfigMapKeySelector();
     buildable.setKey(fluent.getKey());
@@ -30,5 +32,4 @@ public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluent<
     return buildable;
   }
   
-
 }

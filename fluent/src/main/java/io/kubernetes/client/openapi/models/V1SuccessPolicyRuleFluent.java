@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SuccessPolicyRuleFluent<A extends io.kubernetes.client.openapi.models.V1SuccessPolicyRuleFluent<A>> extends BaseFluent<A>{
+
+  private Integer succeededCount;
+  private String succeededIndexes;
+
   public V1SuccessPolicyRuleFluent() {
   }
   
   public V1SuccessPolicyRuleFluent(V1SuccessPolicyRule instance) {
     this.copyInstance(instance);
   }
-  private Integer succeededCount;
-  private String succeededIndexes;
-  
+
   protected void copyInstance(V1SuccessPolicyRule instance) {
     instance = instance != null ? instance : new V1SuccessPolicyRule();
     if (instance != null) {
         this.withSucceededCount(instance.getSucceededCount());
         this.withSucceededIndexes(instance.getSucceededIndexes());
     }
-  }
-  
-  public Integer getSucceededCount() {
-    return this.succeededCount;
-  }
-  
-  public A withSucceededCount(Integer succeededCount) {
-    this.succeededCount = succeededCount;
-    return (A) this;
-  }
-  
-  public boolean hasSucceededCount() {
-    return this.succeededCount != null;
-  }
-  
-  public String getSucceededIndexes() {
-    return this.succeededIndexes;
-  }
-  
-  public A withSucceededIndexes(String succeededIndexes) {
-    this.succeededIndexes = succeededIndexes;
-    return (A) this;
-  }
-  
-  public boolean hasSucceededIndexes() {
-    return this.succeededIndexes != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class V1SuccessPolicyRuleFluent<A extends io.kubernetes.client.openapi.mo
     return true;
   }
   
+  public Integer getSucceededCount() {
+    return this.succeededCount;
+  }
+  
+  public String getSucceededIndexes() {
+    return this.succeededIndexes;
+  }
+  
+  public boolean hasSucceededCount() {
+    return this.succeededCount != null;
+  }
+  
+  public boolean hasSucceededIndexes() {
+    return this.succeededIndexes != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(succeededCount, succeededIndexes);
   }
@@ -96,5 +88,14 @@ public class V1SuccessPolicyRuleFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withSucceededCount(Integer succeededCount) {
+    this.succeededCount = succeededCount;
+    return (A) this;
+  }
+  
+  public A withSucceededIndexes(String succeededIndexes) {
+    this.succeededIndexes = succeededIndexes;
+    return (A) this;
+  }
+  
 }

@@ -1,26 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import io.kubernetes.client.custom.Quantity;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<A>> extends BaseFluent<A>{
-  public V1CSIStorageCapacityFluent() {
-  }
-  
-  public V1CSIStorageCapacityFluent(V1CSIStorageCapacity instance) {
-    this.copyInstance(instance);
-  }
+
   private String apiVersion;
   private Quantity capacity;
   private String kind;
@@ -28,6 +23,21 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
   private V1ObjectMetaBuilder metadata;
   private V1LabelSelectorBuilder nodeTopology;
   private String storageClassName;
+
+  public V1CSIStorageCapacityFluent() {
+  }
+  
+  public V1CSIStorageCapacityFluent(V1CSIStorageCapacity instance) {
+    this.copyInstance(instance);
+  }
+
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
+  }
+  
+  public V1LabelSelector buildNodeTopology() {
+    return this.nodeTopology != null ? this.nodeTopology.build() : null;
+  }
   
   protected void copyInstance(V1CSIStorageCapacity instance) {
     instance = instance != null ? instance : new V1CSIStorageCapacity();
@@ -42,96 +52,12 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
     }
   }
   
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public Quantity getCapacity() {
-    return this.capacity;
-  }
-  
-  public A withCapacity(Quantity capacity) {
-    this.capacity = capacity;
-    return (A) this;
-  }
-  
-  public boolean hasCapacity() {
-    return this.capacity != null;
-  }
-  
-  public A withNewCapacity(String value) {
-    return (A) this.withCapacity(new Quantity(value));
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public Quantity getMaximumVolumeSize() {
-    return this.maximumVolumeSize;
-  }
-  
-  public A withMaximumVolumeSize(Quantity maximumVolumeSize) {
-    this.maximumVolumeSize = maximumVolumeSize;
-    return (A) this;
-  }
-  
-  public boolean hasMaximumVolumeSize() {
-    return this.maximumVolumeSize != null;
-  }
-  
-  public A withNewMaximumVolumeSize(String value) {
-    return (A) this.withMaximumVolumeSize(new Quantity(value));
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
-  }
-  
   public MetadataNested<A> editMetadata() {
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
+  }
+  
+  public NodeTopologyNested<A> editNodeTopology() {
+    return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
@@ -142,57 +68,12 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
-  public V1LabelSelector buildNodeTopology() {
-    return this.nodeTopology != null ? this.nodeTopology.build() : null;
-  }
-  
-  public A withNodeTopology(V1LabelSelector nodeTopology) {
-    this._visitables.remove("nodeTopology");
-    if (nodeTopology != null) {
-        this.nodeTopology = new V1LabelSelectorBuilder(nodeTopology);
-        this._visitables.get("nodeTopology").add(this.nodeTopology);
-    } else {
-        this.nodeTopology = null;
-        this._visitables.get("nodeTopology").remove(this.nodeTopology);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasNodeTopology() {
-    return this.nodeTopology != null;
-  }
-  
-  public NodeTopologyNested<A> withNewNodeTopology() {
-    return new NodeTopologyNested(null);
-  }
-  
-  public NodeTopologyNested<A> withNewNodeTopologyLike(V1LabelSelector item) {
-    return new NodeTopologyNested(item);
-  }
-  
-  public NodeTopologyNested<A> editNodeTopology() {
-    return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(null));
-  }
-  
   public NodeTopologyNested<A> editOrNewNodeTopology() {
     return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(new V1LabelSelectorBuilder().build()));
   }
   
   public NodeTopologyNested<A> editOrNewNodeTopologyLike(V1LabelSelector item) {
     return this.withNewNodeTopologyLike(Optional.ofNullable(this.buildNodeTopology()).orElse(item));
-  }
-  
-  public String getStorageClassName() {
-    return this.storageClassName;
-  }
-  
-  public A withStorageClassName(String storageClassName) {
-    this.storageClassName = storageClassName;
-    return (A) this;
-  }
-  
-  public boolean hasStorageClassName() {
-    return this.storageClassName != null;
   }
   
   public boolean equals(Object o) {
@@ -228,6 +109,54 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public Quantity getCapacity() {
+    return this.capacity;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public Quantity getMaximumVolumeSize() {
+    return this.maximumVolumeSize;
+  }
+  
+  public String getStorageClassName() {
+    return this.storageClassName;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasCapacity() {
+    return this.capacity != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMaximumVolumeSize() {
+    return this.maximumVolumeSize != null;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasNodeTopology() {
+    return this.nodeTopology != null;
+  }
+  
+  public boolean hasStorageClassName() {
+    return this.storageClassName != null;
   }
   
   public int hashCode() {
@@ -274,12 +203,87 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withCapacity(Quantity capacity) {
+    this.capacity = capacity;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMaximumVolumeSize(Quantity maximumVolumeSize) {
+    this.maximumVolumeSize = maximumVolumeSize;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public A withNewCapacity(String value) {
+    return (A) this.withCapacity(new Quantity(value));
+  }
+  
+  public A withNewMaximumVolumeSize(String value) {
+    return (A) this.withMaximumVolumeSize(new Quantity(value));
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public NodeTopologyNested<A> withNewNodeTopology() {
+    return new NodeTopologyNested(null);
+  }
+  
+  public NodeTopologyNested<A> withNewNodeTopologyLike(V1LabelSelector item) {
+    return new NodeTopologyNested(item);
+  }
+  
+  public A withNodeTopology(V1LabelSelector nodeTopology) {
+    this._visitables.remove("nodeTopology");
+    if (nodeTopology != null) {
+        this.nodeTopology = new V1LabelSelectorBuilder(nodeTopology);
+        this._visitables.get("nodeTopology").add(this.nodeTopology);
+    } else {
+        this.nodeTopology = null;
+        this._visitables.get("nodeTopology").remove(this.nodeTopology);
+    }
+    return (A) this;
+  }
+  
+  public A withStorageClassName(String storageClassName) {
+    this.storageClassName = storageClassName;
+    return (A) this;
+  }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1CSIStorageCapacityFluent.this.withMetadata(builder.build());
     }
@@ -288,14 +292,15 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
   public class NodeTopologyNested<N> extends V1LabelSelectorFluent<NodeTopologyNested<N>> implements Nested<N>{
+  
+    V1LabelSelectorBuilder builder;
+  
     NodeTopologyNested(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
-    V1LabelSelectorBuilder builder;
-    
+  
     public N and() {
       return (N) V1CSIStorageCapacityFluent.this.withNodeTopology(builder.build());
     }
@@ -304,7 +309,5 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
-
 }

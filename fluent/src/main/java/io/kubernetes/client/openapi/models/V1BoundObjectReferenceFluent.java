@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1BoundObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1BoundObjectReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String kind;
+  private String name;
+  private String uid;
+
   public V1BoundObjectReferenceFluent() {
   }
   
   public V1BoundObjectReferenceFluent(V1BoundObjectReference instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String kind;
-  private String name;
-  private String uid;
-  
+
   protected void copyInstance(V1BoundObjectReference instance) {
     instance = instance != null ? instance : new V1BoundObjectReference();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1BoundObjectReferenceFluent<A extends io.kubernetes.client.openapi
         this.withName(instance.getName());
         this.withUid(instance.getUid());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getUid() {
-    return this.uid;
-  }
-  
-  public A withUid(String uid) {
-    this.uid = uid;
-    return (A) this;
-  }
-  
-  public boolean hasUid() {
-    return this.uid != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1BoundObjectReferenceFluent<A extends io.kubernetes.client.openapi
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getUid() {
+    return this.uid;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasUid() {
+    return this.uid != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1BoundObjectReferenceFluent<A extends io.kubernetes.client.openapi
     return sb.toString();
   }
   
-
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withUid(String uid) {
+    this.uid = uid;
+    return (A) this;
+  }
+  
 }

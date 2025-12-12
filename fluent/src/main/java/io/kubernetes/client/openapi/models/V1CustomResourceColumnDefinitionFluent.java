@@ -1,31 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<A>> extends BaseFluent<A>{
-  public V1CustomResourceColumnDefinitionFluent() {
-  }
-  
-  public V1CustomResourceColumnDefinitionFluent(V1CustomResourceColumnDefinition instance) {
-    this.copyInstance(instance);
-  }
+
   private String description;
   private String format;
   private String jsonPath;
   private String name;
   private Integer priority;
   private String type;
+
+  public V1CustomResourceColumnDefinitionFluent() {
+  }
   
+  public V1CustomResourceColumnDefinitionFluent(V1CustomResourceColumnDefinition instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1CustomResourceColumnDefinition instance) {
     instance = instance != null ? instance : new V1CustomResourceColumnDefinition();
     if (instance != null) {
@@ -36,84 +38,6 @@ public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.clie
         this.withPriority(instance.getPriority());
         this.withType(instance.getType());
     }
-  }
-  
-  public String getDescription() {
-    return this.description;
-  }
-  
-  public A withDescription(String description) {
-    this.description = description;
-    return (A) this;
-  }
-  
-  public boolean hasDescription() {
-    return this.description != null;
-  }
-  
-  public String getFormat() {
-    return this.format;
-  }
-  
-  public A withFormat(String format) {
-    this.format = format;
-    return (A) this;
-  }
-  
-  public boolean hasFormat() {
-    return this.format != null;
-  }
-  
-  public String getJsonPath() {
-    return this.jsonPath;
-  }
-  
-  public A withJsonPath(String jsonPath) {
-    this.jsonPath = jsonPath;
-    return (A) this;
-  }
-  
-  public boolean hasJsonPath() {
-    return this.jsonPath != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public Integer getPriority() {
-    return this.priority;
-  }
-  
-  public A withPriority(Integer priority) {
-    this.priority = priority;
-    return (A) this;
-  }
-  
-  public boolean hasPriority() {
-    return this.priority != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -146,6 +70,54 @@ public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.clie
       return false;
     }
     return true;
+  }
+  
+  public String getDescription() {
+    return this.description;
+  }
+  
+  public String getFormat() {
+    return this.format;
+  }
+  
+  public String getJsonPath() {
+    return this.jsonPath;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public Integer getPriority() {
+    return this.priority;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasDescription() {
+    return this.description != null;
+  }
+  
+  public boolean hasFormat() {
+    return this.format != null;
+  }
+  
+  public boolean hasJsonPath() {
+    return this.jsonPath != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasPriority() {
+    return this.priority != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
   }
   
   public int hashCode() {
@@ -188,5 +160,34 @@ public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.clie
     return sb.toString();
   }
   
-
+  public A withDescription(String description) {
+    this.description = description;
+    return (A) this;
+  }
+  
+  public A withFormat(String format) {
+    this.format = format;
+    return (A) this;
+  }
+  
+  public A withJsonPath(String jsonPath) {
+    this.jsonPath = jsonPath;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withPriority(Integer priority) {
+    this.priority = priority;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

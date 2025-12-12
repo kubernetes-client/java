@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ReplicaSetConditionBuilder extends V1ReplicaSetConditionFluent<V1ReplicaSetConditionBuilder> implements VisitableBuilder<V1ReplicaSetCondition,V1ReplicaSetConditionBuilder>{
+
+  V1ReplicaSetConditionFluent<?> fluent;
+
   public V1ReplicaSetConditionBuilder() {
     this(new V1ReplicaSetCondition());
   }
@@ -11,17 +14,16 @@ public class V1ReplicaSetConditionBuilder extends V1ReplicaSetConditionFluent<V1
     this(fluent, new V1ReplicaSetCondition());
   }
   
-  public V1ReplicaSetConditionBuilder(V1ReplicaSetConditionFluent<?> fluent,V1ReplicaSetCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ReplicaSetConditionBuilder(V1ReplicaSetCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ReplicaSetConditionFluent<?> fluent;
   
+  public V1ReplicaSetConditionBuilder(V1ReplicaSetConditionFluent<?> fluent,V1ReplicaSetCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ReplicaSetCondition build() {
     V1ReplicaSetCondition buildable = new V1ReplicaSetCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -32,5 +34,4 @@ public class V1ReplicaSetConditionBuilder extends V1ReplicaSetConditionFluent<V1
     return buildable;
   }
   
-
 }

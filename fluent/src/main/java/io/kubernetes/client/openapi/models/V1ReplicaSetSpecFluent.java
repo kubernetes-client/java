@@ -1,30 +1,40 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Integer;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<A>> extends BaseFluent<A>{
+
+  private Integer minReadySeconds;
+  private Integer replicas;
+  private V1LabelSelectorBuilder selector;
+  private V1PodTemplateSpecBuilder template;
+
   public V1ReplicaSetSpecFluent() {
   }
   
   public V1ReplicaSetSpecFluent(V1ReplicaSetSpec instance) {
     this.copyInstance(instance);
   }
-  private Integer minReadySeconds;
-  private Integer replicas;
-  private V1LabelSelectorBuilder selector;
-  private V1PodTemplateSpecBuilder template;
+
+  public V1LabelSelector buildSelector() {
+    return this.selector != null ? this.selector.build() : null;
+  }
+  
+  public V1PodTemplateSpec buildTemplate() {
+    return this.template != null ? this.template.build() : null;
+  }
   
   protected void copyInstance(V1ReplicaSetSpec instance) {
     instance = instance != null ? instance : new V1ReplicaSetSpec();
@@ -36,64 +46,6 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
     }
   }
   
-  public Integer getMinReadySeconds() {
-    return this.minReadySeconds;
-  }
-  
-  public A withMinReadySeconds(Integer minReadySeconds) {
-    this.minReadySeconds = minReadySeconds;
-    return (A) this;
-  }
-  
-  public boolean hasMinReadySeconds() {
-    return this.minReadySeconds != null;
-  }
-  
-  public Integer getReplicas() {
-    return this.replicas;
-  }
-  
-  public A withReplicas(Integer replicas) {
-    this.replicas = replicas;
-    return (A) this;
-  }
-  
-  public boolean hasReplicas() {
-    return this.replicas != null;
-  }
-  
-  public V1LabelSelector buildSelector() {
-    return this.selector != null ? this.selector.build() : null;
-  }
-  
-  public A withSelector(V1LabelSelector selector) {
-    this._visitables.remove("selector");
-    if (selector != null) {
-        this.selector = new V1LabelSelectorBuilder(selector);
-        this._visitables.get("selector").add(this.selector);
-    } else {
-        this.selector = null;
-        this._visitables.get("selector").remove(this.selector);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSelector() {
-    return this.selector != null;
-  }
-  
-  public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
-  }
-  
-  public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
-  }
-  
-  public SelectorNested<A> editSelector() {
-    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
-  }
-  
   public SelectorNested<A> editOrNewSelector() {
     return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(new V1LabelSelectorBuilder().build()));
   }
@@ -102,44 +54,20 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
     return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(item));
   }
   
-  public V1PodTemplateSpec buildTemplate() {
-    return this.template != null ? this.template.build() : null;
-  }
-  
-  public A withTemplate(V1PodTemplateSpec template) {
-    this._visitables.remove("template");
-    if (template != null) {
-        this.template = new V1PodTemplateSpecBuilder(template);
-        this._visitables.get("template").add(this.template);
-    } else {
-        this.template = null;
-        this._visitables.get("template").remove(this.template);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasTemplate() {
-    return this.template != null;
-  }
-  
-  public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
-  }
-  
-  public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
-  }
-  
-  public TemplateNested<A> editTemplate() {
-    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
-  }
-  
   public TemplateNested<A> editOrNewTemplate() {
     return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(new V1PodTemplateSpecBuilder().build()));
   }
   
   public TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(item));
+  }
+  
+  public SelectorNested<A> editSelector() {
+    return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
+  }
+  
+  public TemplateNested<A> editTemplate() {
+    return this.withNewTemplateLike(Optional.ofNullable(this.buildTemplate()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -166,6 +94,30 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
       return false;
     }
     return true;
+  }
+  
+  public Integer getMinReadySeconds() {
+    return this.minReadySeconds;
+  }
+  
+  public Integer getReplicas() {
+    return this.replicas;
+  }
+  
+  public boolean hasMinReadySeconds() {
+    return this.minReadySeconds != null;
+  }
+  
+  public boolean hasReplicas() {
+    return this.replicas != null;
+  }
+  
+  public boolean hasSelector() {
+    return this.selector != null;
+  }
+  
+  public boolean hasTemplate() {
+    return this.template != null;
   }
   
   public int hashCode() {
@@ -197,12 +149,64 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withMinReadySeconds(Integer minReadySeconds) {
+    this.minReadySeconds = minReadySeconds;
+    return (A) this;
+  }
+  
+  public SelectorNested<A> withNewSelector() {
+    return new SelectorNested(null);
+  }
+  
+  public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+    return new SelectorNested(item);
+  }
+  
+  public TemplateNested<A> withNewTemplate() {
+    return new TemplateNested(null);
+  }
+  
+  public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+    return new TemplateNested(item);
+  }
+  
+  public A withReplicas(Integer replicas) {
+    this.replicas = replicas;
+    return (A) this;
+  }
+  
+  public A withSelector(V1LabelSelector selector) {
+    this._visitables.remove("selector");
+    if (selector != null) {
+        this.selector = new V1LabelSelectorBuilder(selector);
+        this._visitables.get("selector").add(this.selector);
+    } else {
+        this.selector = null;
+        this._visitables.get("selector").remove(this.selector);
+    }
+    return (A) this;
+  }
+  
+  public A withTemplate(V1PodTemplateSpec template) {
+    this._visitables.remove("template");
+    if (template != null) {
+        this.template = new V1PodTemplateSpecBuilder(template);
+        this._visitables.get("template").add(this.template);
+    } else {
+        this.template = null;
+        this._visitables.get("template").remove(this.template);
+    }
+    return (A) this;
+  }
   public class SelectorNested<N> extends V1LabelSelectorFluent<SelectorNested<N>> implements Nested<N>{
+  
+    V1LabelSelectorBuilder builder;
+  
     SelectorNested(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
-    V1LabelSelectorBuilder builder;
-    
+  
     public N and() {
       return (N) V1ReplicaSetSpecFluent.this.withSelector(builder.build());
     }
@@ -211,14 +215,15 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
       return and();
     }
     
-  
   }
   public class TemplateNested<N> extends V1PodTemplateSpecFluent<TemplateNested<N>> implements Nested<N>{
+  
+    V1PodTemplateSpecBuilder builder;
+  
     TemplateNested(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
-    V1PodTemplateSpecBuilder builder;
-    
+  
     public N and() {
       return (N) V1ReplicaSetSpecFluent.this.withTemplate(builder.build());
     }
@@ -227,7 +232,5 @@ public class V1ReplicaSetSpecFluent<A extends io.kubernetes.client.openapi.model
       return and();
     }
     
-  
   }
-
 }

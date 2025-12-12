@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PodTemplateListBuilder extends V1PodTemplateListFluent<V1PodTemplateListBuilder> implements VisitableBuilder<V1PodTemplateList,V1PodTemplateListBuilder>{
+
+  V1PodTemplateListFluent<?> fluent;
+
   public V1PodTemplateListBuilder() {
     this(new V1PodTemplateList());
   }
@@ -11,17 +14,16 @@ public class V1PodTemplateListBuilder extends V1PodTemplateListFluent<V1PodTempl
     this(fluent, new V1PodTemplateList());
   }
   
-  public V1PodTemplateListBuilder(V1PodTemplateListFluent<?> fluent,V1PodTemplateList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PodTemplateListBuilder(V1PodTemplateList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PodTemplateListFluent<?> fluent;
   
+  public V1PodTemplateListBuilder(V1PodTemplateListFluent<?> fluent,V1PodTemplateList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PodTemplateList build() {
     V1PodTemplateList buildable = new V1PodTemplateList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1PodTemplateListBuilder extends V1PodTemplateListFluent<V1PodTempl
     return buildable;
   }
   
-
 }

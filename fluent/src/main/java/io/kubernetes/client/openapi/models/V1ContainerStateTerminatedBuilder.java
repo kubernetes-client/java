@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminatedFluent<V1ContainerStateTerminatedBuilder> implements VisitableBuilder<V1ContainerStateTerminated,V1ContainerStateTerminatedBuilder>{
+
+  V1ContainerStateTerminatedFluent<?> fluent;
+
   public V1ContainerStateTerminatedBuilder() {
     this(new V1ContainerStateTerminated());
   }
@@ -11,17 +14,16 @@ public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminate
     this(fluent, new V1ContainerStateTerminated());
   }
   
-  public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminatedFluent<?> fluent,V1ContainerStateTerminated instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminated instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ContainerStateTerminatedFluent<?> fluent;
   
+  public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminatedFluent<?> fluent,V1ContainerStateTerminated instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ContainerStateTerminated build() {
     V1ContainerStateTerminated buildable = new V1ContainerStateTerminated();
     buildable.setContainerID(fluent.getContainerID());
@@ -34,5 +36,4 @@ public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminate
     return buildable;
   }
   
-
 }

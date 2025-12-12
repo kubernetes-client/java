@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ResourceSliceSpecBuilder extends V1ResourceSliceSpecFluent<V1ResourceSliceSpecBuilder> implements VisitableBuilder<V1ResourceSliceSpec,V1ResourceSliceSpecBuilder>{
+
+  V1ResourceSliceSpecFluent<?> fluent;
+
   public V1ResourceSliceSpecBuilder() {
     this(new V1ResourceSliceSpec());
   }
@@ -11,17 +14,16 @@ public class V1ResourceSliceSpecBuilder extends V1ResourceSliceSpecFluent<V1Reso
     this(fluent, new V1ResourceSliceSpec());
   }
   
-  public V1ResourceSliceSpecBuilder(V1ResourceSliceSpecFluent<?> fluent,V1ResourceSliceSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ResourceSliceSpecBuilder(V1ResourceSliceSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ResourceSliceSpecFluent<?> fluent;
   
+  public V1ResourceSliceSpecBuilder(V1ResourceSliceSpecFluent<?> fluent,V1ResourceSliceSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ResourceSliceSpec build() {
     V1ResourceSliceSpec buildable = new V1ResourceSliceSpec();
     buildable.setAllNodes(fluent.getAllNodes());
@@ -35,5 +37,4 @@ public class V1ResourceSliceSpecBuilder extends V1ResourceSliceSpecFluent<V1Reso
     return buildable;
   }
   
-
 }

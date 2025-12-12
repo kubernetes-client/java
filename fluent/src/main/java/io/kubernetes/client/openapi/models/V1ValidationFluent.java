@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ValidationFluent<A extends io.kubernetes.client.openapi.models.V1ValidationFluent<A>> extends BaseFluent<A>{
+
+  private String expression;
+  private String message;
+  private String messageExpression;
+  private String reason;
+
   public V1ValidationFluent() {
   }
   
   public V1ValidationFluent(V1Validation instance) {
     this.copyInstance(instance);
   }
-  private String expression;
-  private String message;
-  private String messageExpression;
-  private String reason;
-  
+
   protected void copyInstance(V1Validation instance) {
     instance = instance != null ? instance : new V1Validation();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1ValidationFluent<A extends io.kubernetes.client.openapi.models.V1
         this.withMessageExpression(instance.getMessageExpression());
         this.withReason(instance.getReason());
     }
-  }
-  
-  public String getExpression() {
-    return this.expression;
-  }
-  
-  public A withExpression(String expression) {
-    this.expression = expression;
-    return (A) this;
-  }
-  
-  public boolean hasExpression() {
-    return this.expression != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public String getMessageExpression() {
-    return this.messageExpression;
-  }
-  
-  public A withMessageExpression(String messageExpression) {
-    this.messageExpression = messageExpression;
-    return (A) this;
-  }
-  
-  public boolean hasMessageExpression() {
-    return this.messageExpression != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1ValidationFluent<A extends io.kubernetes.client.openapi.models.V1
       return false;
     }
     return true;
+  }
+  
+  public String getExpression() {
+    return this.expression;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public String getMessageExpression() {
+    return this.messageExpression;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public boolean hasExpression() {
+    return this.expression != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasMessageExpression() {
+    return this.messageExpression != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1ValidationFluent<A extends io.kubernetes.client.openapi.models.V1
     return sb.toString();
   }
   
-
+  public A withExpression(String expression) {
+    this.expression = expression;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withMessageExpression(String messageExpression) {
+    this.messageExpression = messageExpression;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1alpha1MatchResourcesBuilder extends V1alpha1MatchResourcesFluent<V1alpha1MatchResourcesBuilder> implements VisitableBuilder<V1alpha1MatchResources,V1alpha1MatchResourcesBuilder>{
+
+  V1alpha1MatchResourcesFluent<?> fluent;
+
   public V1alpha1MatchResourcesBuilder() {
     this(new V1alpha1MatchResources());
   }
@@ -11,17 +14,16 @@ public class V1alpha1MatchResourcesBuilder extends V1alpha1MatchResourcesFluent<
     this(fluent, new V1alpha1MatchResources());
   }
   
-  public V1alpha1MatchResourcesBuilder(V1alpha1MatchResourcesFluent<?> fluent,V1alpha1MatchResources instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1alpha1MatchResourcesBuilder(V1alpha1MatchResources instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1alpha1MatchResourcesFluent<?> fluent;
   
+  public V1alpha1MatchResourcesBuilder(V1alpha1MatchResourcesFluent<?> fluent,V1alpha1MatchResources instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1alpha1MatchResources build() {
     V1alpha1MatchResources buildable = new V1alpha1MatchResources();
     buildable.setExcludeResourceRules(fluent.buildExcludeResourceRules());
@@ -32,5 +34,4 @@ public class V1alpha1MatchResourcesBuilder extends V1alpha1MatchResourcesFluent<
     return buildable;
   }
   
-
 }

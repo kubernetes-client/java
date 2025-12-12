@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluent<V1ResourceAttributesBuilder> implements VisitableBuilder<V1ResourceAttributes,V1ResourceAttributesBuilder>{
+
+  V1ResourceAttributesFluent<?> fluent;
+
   public V1ResourceAttributesBuilder() {
     this(new V1ResourceAttributes());
   }
@@ -11,17 +14,16 @@ public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluent<V1Re
     this(fluent, new V1ResourceAttributes());
   }
   
-  public V1ResourceAttributesBuilder(V1ResourceAttributesFluent<?> fluent,V1ResourceAttributes instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ResourceAttributesBuilder(V1ResourceAttributes instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ResourceAttributesFluent<?> fluent;
   
+  public V1ResourceAttributesBuilder(V1ResourceAttributesFluent<?> fluent,V1ResourceAttributes instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ResourceAttributes build() {
     V1ResourceAttributes buildable = new V1ResourceAttributes();
     buildable.setFieldSelector(fluent.buildFieldSelector());
@@ -36,5 +38,4 @@ public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluent<V1Re
     return buildable;
   }
   
-
 }

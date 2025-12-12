@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1MutatingWebhookBuilder extends V1MutatingWebhookFluent<V1MutatingWebhookBuilder> implements VisitableBuilder<V1MutatingWebhook,V1MutatingWebhookBuilder>{
+
+  V1MutatingWebhookFluent<?> fluent;
+
   public V1MutatingWebhookBuilder() {
     this(new V1MutatingWebhook());
   }
@@ -11,17 +14,16 @@ public class V1MutatingWebhookBuilder extends V1MutatingWebhookFluent<V1Mutating
     this(fluent, new V1MutatingWebhook());
   }
   
-  public V1MutatingWebhookBuilder(V1MutatingWebhookFluent<?> fluent,V1MutatingWebhook instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1MutatingWebhookBuilder(V1MutatingWebhook instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1MutatingWebhookFluent<?> fluent;
   
+  public V1MutatingWebhookBuilder(V1MutatingWebhookFluent<?> fluent,V1MutatingWebhook instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1MutatingWebhook build() {
     V1MutatingWebhook buildable = new V1MutatingWebhook();
     buildable.setAdmissionReviewVersions(fluent.getAdmissionReviewVersions());
@@ -39,5 +41,4 @@ public class V1MutatingWebhookBuilder extends V1MutatingWebhookFluent<V1Mutating
     return buildable;
   }
   
-
 }

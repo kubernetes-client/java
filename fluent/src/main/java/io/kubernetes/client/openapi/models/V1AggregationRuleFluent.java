@@ -1,37 +1,64 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.models.V1AggregationRuleFluent<A>> extends BaseFluent<A>{
+
+  private ArrayList<V1LabelSelectorBuilder> clusterRoleSelectors;
+
   public V1AggregationRuleFluent() {
   }
   
   public V1AggregationRuleFluent(V1AggregationRule instance) {
     this.copyInstance(instance);
   }
-  private ArrayList<V1LabelSelectorBuilder> clusterRoleSelectors;
-  
-  protected void copyInstance(V1AggregationRule instance) {
-    instance = instance != null ? instance : new V1AggregationRule();
-    if (instance != null) {
-      this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
+
+  public A addAllToClusterRoleSelectors(Collection<V1LabelSelector> items) {
+    if (this.clusterRoleSelectors == null) {
+      this.clusterRoleSelectors = new ArrayList();
     }
+    for (V1LabelSelector item : items) {
+        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
+        _visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public ClusterRoleSelectorsNested<A> addNewClusterRoleSelector() {
+    return new ClusterRoleSelectorsNested(-1, null);
+  }
+  
+  public ClusterRoleSelectorsNested<A> addNewClusterRoleSelectorLike(V1LabelSelector item) {
+    return new ClusterRoleSelectorsNested(-1, item);
+  }
+  
+  public A addToClusterRoleSelectors(V1LabelSelector... items) {
+    if (this.clusterRoleSelectors == null) {
+      this.clusterRoleSelectors = new ArrayList();
+    }
+    for (V1LabelSelector item : items) {
+        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
+        _visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToClusterRoleSelectors(int index,V1LabelSelector item) {
@@ -49,91 +76,12 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     return (A) this;
   }
   
-  public A setToClusterRoleSelectors(int index,V1LabelSelector item) {
-    if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
-    }
-    V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-    if (index < 0 || index >= clusterRoleSelectors.size()) {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.add(builder);
-    } else {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToClusterRoleSelectors(V1LabelSelector... items) {
-    if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
-    }
-    for (V1LabelSelector item : items) {
-        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").add(builder);
-        this.clusterRoleSelectors.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToClusterRoleSelectors(Collection<V1LabelSelector> items) {
-    if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
-    }
-    for (V1LabelSelector item : items) {
-        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").add(builder);
-        this.clusterRoleSelectors.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromClusterRoleSelectors(V1LabelSelector... items) {
-    if (this.clusterRoleSelectors == null) {
-      return (A) this;
-    }
-    for (V1LabelSelector item : items) {
-        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").remove(builder);
-        this.clusterRoleSelectors.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromClusterRoleSelectors(Collection<V1LabelSelector> items) {
-    if (this.clusterRoleSelectors == null) {
-      return (A) this;
-    }
-    for (V1LabelSelector item : items) {
-        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").remove(builder);
-        this.clusterRoleSelectors.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromClusterRoleSelectors(Predicate<V1LabelSelectorBuilder> predicate) {
-    if (clusterRoleSelectors == null) {
-      return (A) this;
-    }
-    Iterator<V1LabelSelectorBuilder> each = clusterRoleSelectors.iterator();
-    List visitables = _visitables.get("clusterRoleSelectors");
-    while (each.hasNext()) {
-        V1LabelSelectorBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
+  public V1LabelSelector buildClusterRoleSelector(int index) {
+    return this.clusterRoleSelectors.get(index).build();
   }
   
   public List<V1LabelSelector> buildClusterRoleSelectors() {
     return this.clusterRoleSelectors != null ? build(clusterRoleSelectors) : null;
-  }
-  
-  public V1LabelSelector buildClusterRoleSelector(int index) {
-    return this.clusterRoleSelectors.get(index).build();
   }
   
   public V1LabelSelector buildFirstClusterRoleSelector() {
@@ -153,61 +101,15 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       return null;
   }
   
-  public boolean hasMatchingClusterRoleSelector(Predicate<V1LabelSelectorBuilder> predicate) {
-      for (V1LabelSelectorBuilder item : clusterRoleSelectors) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withClusterRoleSelectors(List<V1LabelSelector> clusterRoleSelectors) {
-    if (this.clusterRoleSelectors != null) {
-      this._visitables.get("clusterRoleSelectors").clear();
+  protected void copyInstance(V1AggregationRule instance) {
+    instance = instance != null ? instance : new V1AggregationRule();
+    if (instance != null) {
+      this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
     }
-    if (clusterRoleSelectors != null) {
-        this.clusterRoleSelectors = new ArrayList();
-        for (V1LabelSelector item : clusterRoleSelectors) {
-          this.addToClusterRoleSelectors(item);
-        }
-    } else {
-      this.clusterRoleSelectors = null;
-    }
-    return (A) this;
-  }
-  
-  public A withClusterRoleSelectors(V1LabelSelector... clusterRoleSelectors) {
-    if (this.clusterRoleSelectors != null) {
-        this.clusterRoleSelectors.clear();
-        _visitables.remove("clusterRoleSelectors");
-    }
-    if (clusterRoleSelectors != null) {
-      for (V1LabelSelector item : clusterRoleSelectors) {
-        this.addToClusterRoleSelectors(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasClusterRoleSelectors() {
-    return this.clusterRoleSelectors != null && !(this.clusterRoleSelectors.isEmpty());
-  }
-  
-  public ClusterRoleSelectorsNested<A> addNewClusterRoleSelector() {
-    return new ClusterRoleSelectorsNested(-1, null);
-  }
-  
-  public ClusterRoleSelectorsNested<A> addNewClusterRoleSelectorLike(V1LabelSelector item) {
-    return new ClusterRoleSelectorsNested(-1, item);
-  }
-  
-  public ClusterRoleSelectorsNested<A> setNewClusterRoleSelectorLike(int index,V1LabelSelector item) {
-    return new ClusterRoleSelectorsNested(index, item);
   }
   
   public ClusterRoleSelectorsNested<A> editClusterRoleSelector(int index) {
-    if (index <= clusterRoleSelectors.size()) {
+    if (clusterRoleSelectors.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "clusterRoleSelectors"));
     }
     return this.setNewClusterRoleSelectorLike(index, this.buildClusterRoleSelector(index));
@@ -259,8 +161,80 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     return true;
   }
   
+  public boolean hasClusterRoleSelectors() {
+    return this.clusterRoleSelectors != null && !(this.clusterRoleSelectors.isEmpty());
+  }
+  
+  public boolean hasMatchingClusterRoleSelector(Predicate<V1LabelSelectorBuilder> predicate) {
+      for (V1LabelSelectorBuilder item : clusterRoleSelectors) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
   public int hashCode() {
     return Objects.hash(clusterRoleSelectors);
+  }
+  
+  public A removeAllFromClusterRoleSelectors(Collection<V1LabelSelector> items) {
+    if (this.clusterRoleSelectors == null) {
+      return (A) this;
+    }
+    for (V1LabelSelector item : items) {
+        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
+        _visitables.get("clusterRoleSelectors").remove(builder);
+        this.clusterRoleSelectors.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromClusterRoleSelectors(V1LabelSelector... items) {
+    if (this.clusterRoleSelectors == null) {
+      return (A) this;
+    }
+    for (V1LabelSelector item : items) {
+        V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
+        _visitables.get("clusterRoleSelectors").remove(builder);
+        this.clusterRoleSelectors.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromClusterRoleSelectors(Predicate<V1LabelSelectorBuilder> predicate) {
+    if (clusterRoleSelectors == null) {
+      return (A) this;
+    }
+    Iterator<V1LabelSelectorBuilder> each = clusterRoleSelectors.iterator();
+    List visitables = _visitables.get("clusterRoleSelectors");
+    while (each.hasNext()) {
+        V1LabelSelectorBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ClusterRoleSelectorsNested<A> setNewClusterRoleSelectorLike(int index,V1LabelSelector item) {
+    return new ClusterRoleSelectorsNested(index, item);
+  }
+  
+  public A setToClusterRoleSelectors(int index,V1LabelSelector item) {
+    if (this.clusterRoleSelectors == null) {
+      this.clusterRoleSelectors = new ArrayList();
+    }
+    V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
+    if (index < 0 || index >= clusterRoleSelectors.size()) {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.add(builder);
+    } else {
+        _visitables.get("clusterRoleSelectors").add(builder);
+        clusterRoleSelectors.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -273,14 +247,44 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withClusterRoleSelectors(List<V1LabelSelector> clusterRoleSelectors) {
+    if (this.clusterRoleSelectors != null) {
+      this._visitables.get("clusterRoleSelectors").clear();
+    }
+    if (clusterRoleSelectors != null) {
+        this.clusterRoleSelectors = new ArrayList();
+        for (V1LabelSelector item : clusterRoleSelectors) {
+          this.addToClusterRoleSelectors(item);
+        }
+    } else {
+      this.clusterRoleSelectors = null;
+    }
+    return (A) this;
+  }
+  
+  public A withClusterRoleSelectors(V1LabelSelector... clusterRoleSelectors) {
+    if (this.clusterRoleSelectors != null) {
+        this.clusterRoleSelectors.clear();
+        _visitables.remove("clusterRoleSelectors");
+    }
+    if (clusterRoleSelectors != null) {
+      for (V1LabelSelector item : clusterRoleSelectors) {
+        this.addToClusterRoleSelectors(item);
+      }
+    }
+    return (A) this;
+  }
   public class ClusterRoleSelectorsNested<N> extends V1LabelSelectorFluent<ClusterRoleSelectorsNested<N>> implements Nested<N>{
+  
+    V1LabelSelectorBuilder builder;
+    int index;
+  
     ClusterRoleSelectorsNested(int index,V1LabelSelector item) {
       this.index = index;
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
-    V1LabelSelectorBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1AggregationRuleFluent.this.setToClusterRoleSelectors(index, builder.build());
     }
@@ -289,7 +293,5 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       return and();
     }
     
-  
   }
-
 }

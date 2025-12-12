@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<A>> extends BaseFluent<A>{
+
+  private String appProtocol;
+  private String name;
+  private Integer port;
+  private String protocol;
+
   public DiscoveryV1EndpointPortFluent() {
   }
   
   public DiscoveryV1EndpointPortFluent(DiscoveryV1EndpointPort instance) {
     this.copyInstance(instance);
   }
-  private String appProtocol;
-  private String name;
-  private Integer port;
-  private String protocol;
-  
+
   protected void copyInstance(DiscoveryV1EndpointPort instance) {
     instance = instance != null ? instance : new DiscoveryV1EndpointPort();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openap
         this.withPort(instance.getPort());
         this.withProtocol(instance.getProtocol());
     }
-  }
-  
-  public String getAppProtocol() {
-    return this.appProtocol;
-  }
-  
-  public A withAppProtocol(String appProtocol) {
-    this.appProtocol = appProtocol;
-    return (A) this;
-  }
-  
-  public boolean hasAppProtocol() {
-    return this.appProtocol != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public Integer getPort() {
-    return this.port;
-  }
-  
-  public A withPort(Integer port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
-  }
-  
-  public String getProtocol() {
-    return this.protocol;
-  }
-  
-  public A withProtocol(String protocol) {
-    this.protocol = protocol;
-    return (A) this;
-  }
-  
-  public boolean hasProtocol() {
-    return this.protocol != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openap
       return false;
     }
     return true;
+  }
+  
+  public String getAppProtocol() {
+    return this.appProtocol;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public Integer getPort() {
+    return this.port;
+  }
+  
+  public String getProtocol() {
+    return this.protocol;
+  }
+  
+  public boolean hasAppProtocol() {
+    return this.appProtocol != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
+  public boolean hasProtocol() {
+    return this.protocol != null;
   }
   
   public int hashCode() {
@@ -142,5 +124,24 @@ public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openap
     return sb.toString();
   }
   
-
+  public A withAppProtocol(String appProtocol) {
+    this.appProtocol = appProtocol;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withPort(Integer port) {
+    this.port = port;
+    return (A) this;
+  }
+  
+  public A withProtocol(String protocol) {
+    this.protocol = protocol;
+    return (A) this;
+  }
+  
 }

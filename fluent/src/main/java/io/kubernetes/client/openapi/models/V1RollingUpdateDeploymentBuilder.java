@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentFluent<V1RollingUpdateDeploymentBuilder> implements VisitableBuilder<V1RollingUpdateDeployment,V1RollingUpdateDeploymentBuilder>{
+
+  V1RollingUpdateDeploymentFluent<?> fluent;
+
   public V1RollingUpdateDeploymentBuilder() {
     this(new V1RollingUpdateDeployment());
   }
@@ -11,17 +14,16 @@ public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentF
     this(fluent, new V1RollingUpdateDeployment());
   }
   
-  public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeploymentFluent<?> fluent,V1RollingUpdateDeployment instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeployment instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1RollingUpdateDeploymentFluent<?> fluent;
   
+  public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeploymentFluent<?> fluent,V1RollingUpdateDeployment instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1RollingUpdateDeployment build() {
     V1RollingUpdateDeployment buildable = new V1RollingUpdateDeployment();
     buildable.setMaxSurge(fluent.getMaxSurge());
@@ -29,5 +31,4 @@ public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentF
     return buildable;
   }
   
-
 }

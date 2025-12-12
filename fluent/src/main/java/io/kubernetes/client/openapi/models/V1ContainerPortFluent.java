@@ -1,30 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerPortFluent<A extends io.kubernetes.client.openapi.models.V1ContainerPortFluent<A>> extends BaseFluent<A>{
+
+  private Integer containerPort;
+  private String hostIP;
+  private Integer hostPort;
+  private String name;
+  private String protocol;
+
   public V1ContainerPortFluent() {
   }
   
   public V1ContainerPortFluent(V1ContainerPort instance) {
     this.copyInstance(instance);
   }
-  private Integer containerPort;
-  private String hostIP;
-  private Integer hostPort;
-  private String name;
-  private String protocol;
-  
+
   protected void copyInstance(V1ContainerPort instance) {
     instance = instance != null ? instance : new V1ContainerPort();
     if (instance != null) {
@@ -34,71 +36,6 @@ public class V1ContainerPortFluent<A extends io.kubernetes.client.openapi.models
         this.withName(instance.getName());
         this.withProtocol(instance.getProtocol());
     }
-  }
-  
-  public Integer getContainerPort() {
-    return this.containerPort;
-  }
-  
-  public A withContainerPort(Integer containerPort) {
-    this.containerPort = containerPort;
-    return (A) this;
-  }
-  
-  public boolean hasContainerPort() {
-    return this.containerPort != null;
-  }
-  
-  public String getHostIP() {
-    return this.hostIP;
-  }
-  
-  public A withHostIP(String hostIP) {
-    this.hostIP = hostIP;
-    return (A) this;
-  }
-  
-  public boolean hasHostIP() {
-    return this.hostIP != null;
-  }
-  
-  public Integer getHostPort() {
-    return this.hostPort;
-  }
-  
-  public A withHostPort(Integer hostPort) {
-    this.hostPort = hostPort;
-    return (A) this;
-  }
-  
-  public boolean hasHostPort() {
-    return this.hostPort != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getProtocol() {
-    return this.protocol;
-  }
-  
-  public A withProtocol(String protocol) {
-    this.protocol = protocol;
-    return (A) this;
-  }
-  
-  public boolean hasProtocol() {
-    return this.protocol != null;
   }
   
   public boolean equals(Object o) {
@@ -128,6 +65,46 @@ public class V1ContainerPortFluent<A extends io.kubernetes.client.openapi.models
       return false;
     }
     return true;
+  }
+  
+  public Integer getContainerPort() {
+    return this.containerPort;
+  }
+  
+  public String getHostIP() {
+    return this.hostIP;
+  }
+  
+  public Integer getHostPort() {
+    return this.hostPort;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getProtocol() {
+    return this.protocol;
+  }
+  
+  public boolean hasContainerPort() {
+    return this.containerPort != null;
+  }
+  
+  public boolean hasHostIP() {
+    return this.hostIP != null;
+  }
+  
+  public boolean hasHostPort() {
+    return this.hostPort != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasProtocol() {
+    return this.protocol != null;
   }
   
   public int hashCode() {
@@ -165,5 +142,29 @@ public class V1ContainerPortFluent<A extends io.kubernetes.client.openapi.models
     return sb.toString();
   }
   
-
+  public A withContainerPort(Integer containerPort) {
+    this.containerPort = containerPort;
+    return (A) this;
+  }
+  
+  public A withHostIP(String hostIP) {
+    this.hostIP = hostIP;
+    return (A) this;
+  }
+  
+  public A withHostPort(Integer hostPort) {
+    this.hostPort = hostPort;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withProtocol(String protocol) {
+    this.protocol = protocol;
+    return (A) this;
+  }
+  
 }

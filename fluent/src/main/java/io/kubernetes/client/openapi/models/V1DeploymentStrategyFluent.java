@@ -1,27 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<A>> extends BaseFluent<A>{
+
+  private V1RollingUpdateDeploymentBuilder rollingUpdate;
+  private String type;
+
   public V1DeploymentStrategyFluent() {
   }
   
   public V1DeploymentStrategyFluent(V1DeploymentStrategy instance) {
     this.copyInstance(instance);
   }
-  private V1RollingUpdateDeploymentBuilder rollingUpdate;
-  private String type;
+
+  public V1RollingUpdateDeployment buildRollingUpdate() {
+    return this.rollingUpdate != null ? this.rollingUpdate.build() : null;
+  }
   
   protected void copyInstance(V1DeploymentStrategy instance) {
     instance = instance != null ? instance : new V1DeploymentStrategy();
@@ -29,38 +35,6 @@ public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.m
         this.withRollingUpdate(instance.getRollingUpdate());
         this.withType(instance.getType());
     }
-  }
-  
-  public V1RollingUpdateDeployment buildRollingUpdate() {
-    return this.rollingUpdate != null ? this.rollingUpdate.build() : null;
-  }
-  
-  public A withRollingUpdate(V1RollingUpdateDeployment rollingUpdate) {
-    this._visitables.remove("rollingUpdate");
-    if (rollingUpdate != null) {
-        this.rollingUpdate = new V1RollingUpdateDeploymentBuilder(rollingUpdate);
-        this._visitables.get("rollingUpdate").add(this.rollingUpdate);
-    } else {
-        this.rollingUpdate = null;
-        this._visitables.get("rollingUpdate").remove(this.rollingUpdate);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasRollingUpdate() {
-    return this.rollingUpdate != null;
-  }
-  
-  public RollingUpdateNested<A> withNewRollingUpdate() {
-    return new RollingUpdateNested(null);
-  }
-  
-  public RollingUpdateNested<A> withNewRollingUpdateLike(V1RollingUpdateDeployment item) {
-    return new RollingUpdateNested(item);
-  }
-  
-  public RollingUpdateNested<A> editRollingUpdate() {
-    return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(null));
   }
   
   public RollingUpdateNested<A> editOrNewRollingUpdate() {
@@ -71,17 +45,8 @@ public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.m
     return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(item));
   }
   
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
+  public RollingUpdateNested<A> editRollingUpdate() {
+    return this.withNewRollingUpdateLike(Optional.ofNullable(this.buildRollingUpdate()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -104,6 +69,18 @@ public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.m
     return true;
   }
   
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasRollingUpdate() {
+    return this.rollingUpdate != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(rollingUpdate, type);
   }
@@ -123,12 +100,39 @@ public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.m
     sb.append("}");
     return sb.toString();
   }
+  
+  public RollingUpdateNested<A> withNewRollingUpdate() {
+    return new RollingUpdateNested(null);
+  }
+  
+  public RollingUpdateNested<A> withNewRollingUpdateLike(V1RollingUpdateDeployment item) {
+    return new RollingUpdateNested(item);
+  }
+  
+  public A withRollingUpdate(V1RollingUpdateDeployment rollingUpdate) {
+    this._visitables.remove("rollingUpdate");
+    if (rollingUpdate != null) {
+        this.rollingUpdate = new V1RollingUpdateDeploymentBuilder(rollingUpdate);
+        this._visitables.get("rollingUpdate").add(this.rollingUpdate);
+    } else {
+        this.rollingUpdate = null;
+        this._visitables.get("rollingUpdate").remove(this.rollingUpdate);
+    }
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
   public class RollingUpdateNested<N> extends V1RollingUpdateDeploymentFluent<RollingUpdateNested<N>> implements Nested<N>{
+  
+    V1RollingUpdateDeploymentBuilder builder;
+  
     RollingUpdateNested(V1RollingUpdateDeployment item) {
       this.builder = new V1RollingUpdateDeploymentBuilder(this, item);
     }
-    V1RollingUpdateDeploymentBuilder builder;
-    
+  
     public N and() {
       return (N) V1DeploymentStrategyFluent.this.withRollingUpdate(builder.build());
     }
@@ -137,7 +141,5 @@ public class V1DeploymentStrategyFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
-
 }

@@ -1,26 +1,21 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
-import java.lang.Object;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
-  public V1ScaleIOPersistentVolumeSourceFluent() {
-  }
-  
-  public V1ScaleIOPersistentVolumeSourceFluent(V1ScaleIOPersistentVolumeSource instance) {
-    this.copyInstance(instance);
-  }
+
   private String fsType;
   private String gateway;
   private String protectionDomain;
@@ -31,6 +26,17 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
   private String storagePool;
   private String system;
   private String volumeName;
+
+  public V1ScaleIOPersistentVolumeSourceFluent() {
+  }
+  
+  public V1ScaleIOPersistentVolumeSourceFluent(V1ScaleIOPersistentVolumeSource instance) {
+    this.copyInstance(instance);
+  }
+
+  public V1SecretReference buildSecretRef() {
+    return this.secretRef != null ? this.secretRef.build() : null;
+  }
   
   protected void copyInstance(V1ScaleIOPersistentVolumeSource instance) {
     instance = instance != null ? instance : new V1ScaleIOPersistentVolumeSource();
@@ -48,90 +54,6 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
     }
   }
   
-  public String getFsType() {
-    return this.fsType;
-  }
-  
-  public A withFsType(String fsType) {
-    this.fsType = fsType;
-    return (A) this;
-  }
-  
-  public boolean hasFsType() {
-    return this.fsType != null;
-  }
-  
-  public String getGateway() {
-    return this.gateway;
-  }
-  
-  public A withGateway(String gateway) {
-    this.gateway = gateway;
-    return (A) this;
-  }
-  
-  public boolean hasGateway() {
-    return this.gateway != null;
-  }
-  
-  public String getProtectionDomain() {
-    return this.protectionDomain;
-  }
-  
-  public A withProtectionDomain(String protectionDomain) {
-    this.protectionDomain = protectionDomain;
-    return (A) this;
-  }
-  
-  public boolean hasProtectionDomain() {
-    return this.protectionDomain != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public V1SecretReference buildSecretRef() {
-    return this.secretRef != null ? this.secretRef.build() : null;
-  }
-  
-  public A withSecretRef(V1SecretReference secretRef) {
-    this._visitables.remove("secretRef");
-    if (secretRef != null) {
-        this.secretRef = new V1SecretReferenceBuilder(secretRef);
-        this._visitables.get("secretRef").add(this.secretRef);
-    } else {
-        this.secretRef = null;
-        this._visitables.get("secretRef").remove(this.secretRef);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSecretRef() {
-    return this.secretRef != null;
-  }
-  
-  public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
-  }
-  
-  public SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
-    return new SecretRefNested(item);
-  }
-  
-  public SecretRefNested<A> editSecretRef() {
-    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
-  }
-  
   public SecretRefNested<A> editOrNewSecretRef() {
     return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(new V1SecretReferenceBuilder().build()));
   }
@@ -140,69 +62,8 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
     return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
   }
   
-  public Boolean getSslEnabled() {
-    return this.sslEnabled;
-  }
-  
-  public A withSslEnabled(Boolean sslEnabled) {
-    this.sslEnabled = sslEnabled;
-    return (A) this;
-  }
-  
-  public boolean hasSslEnabled() {
-    return this.sslEnabled != null;
-  }
-  
-  public String getStorageMode() {
-    return this.storageMode;
-  }
-  
-  public A withStorageMode(String storageMode) {
-    this.storageMode = storageMode;
-    return (A) this;
-  }
-  
-  public boolean hasStorageMode() {
-    return this.storageMode != null;
-  }
-  
-  public String getStoragePool() {
-    return this.storagePool;
-  }
-  
-  public A withStoragePool(String storagePool) {
-    this.storagePool = storagePool;
-    return (A) this;
-  }
-  
-  public boolean hasStoragePool() {
-    return this.storagePool != null;
-  }
-  
-  public String getSystem() {
-    return this.system;
-  }
-  
-  public A withSystem(String system) {
-    this.system = system;
-    return (A) this;
-  }
-  
-  public boolean hasSystem() {
-    return this.system != null;
-  }
-  
-  public String getVolumeName() {
-    return this.volumeName;
-  }
-  
-  public A withVolumeName(String volumeName) {
-    this.volumeName = volumeName;
-    return (A) this;
-  }
-  
-  public boolean hasVolumeName() {
-    return this.volumeName != null;
+  public SecretRefNested<A> editSecretRef() {
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -247,6 +108,82 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
       return false;
     }
     return true;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public String getGateway() {
+    return this.gateway;
+  }
+  
+  public String getProtectionDomain() {
+    return this.protectionDomain;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public Boolean getSslEnabled() {
+    return this.sslEnabled;
+  }
+  
+  public String getStorageMode() {
+    return this.storageMode;
+  }
+  
+  public String getStoragePool() {
+    return this.storagePool;
+  }
+  
+  public String getSystem() {
+    return this.system;
+  }
+  
+  public String getVolumeName() {
+    return this.volumeName;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public boolean hasGateway() {
+    return this.gateway != null;
+  }
+  
+  public boolean hasProtectionDomain() {
+    return this.protectionDomain != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasSecretRef() {
+    return this.secretRef != null;
+  }
+  
+  public boolean hasSslEnabled() {
+    return this.sslEnabled != null;
+  }
+  
+  public boolean hasStorageMode() {
+    return this.storageMode != null;
+  }
+  
+  public boolean hasStoragePool() {
+    return this.storagePool != null;
+  }
+  
+  public boolean hasSystem() {
+    return this.system != null;
+  }
+  
+  public boolean hasVolumeName() {
+    return this.volumeName != null;
   }
   
   public int hashCode() {
@@ -309,19 +246,86 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public A withGateway(String gateway) {
+    this.gateway = gateway;
+    return (A) this;
+  }
+  
+  public SecretRefNested<A> withNewSecretRef() {
+    return new SecretRefNested(null);
+  }
+  
+  public SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
+    return new SecretRefNested(item);
+  }
+  
+  public A withProtectionDomain(String protectionDomain) {
+    this.protectionDomain = protectionDomain;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
+  }
+  
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withSecretRef(V1SecretReference secretRef) {
+    this._visitables.remove("secretRef");
+    if (secretRef != null) {
+        this.secretRef = new V1SecretReferenceBuilder(secretRef);
+        this._visitables.get("secretRef").add(this.secretRef);
+    } else {
+        this.secretRef = null;
+        this._visitables.get("secretRef").remove(this.secretRef);
+    }
+    return (A) this;
   }
   
   public A withSslEnabled() {
     return withSslEnabled(true);
   }
+  
+  public A withSslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+    return (A) this;
+  }
+  
+  public A withStorageMode(String storageMode) {
+    this.storageMode = storageMode;
+    return (A) this;
+  }
+  
+  public A withStoragePool(String storagePool) {
+    this.storagePool = storagePool;
+    return (A) this;
+  }
+  
+  public A withSystem(String system) {
+    this.system = system;
+    return (A) this;
+  }
+  
+  public A withVolumeName(String volumeName) {
+    this.volumeName = volumeName;
+    return (A) this;
+  }
   public class SecretRefNested<N> extends V1SecretReferenceFluent<SecretRefNested<N>> implements Nested<N>{
+  
+    V1SecretReferenceBuilder builder;
+  
     SecretRefNested(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
-    V1SecretReferenceBuilder builder;
-    
+  
     public N and() {
       return (N) V1ScaleIOPersistentVolumeSourceFluent.this.withSecretRef(builder.build());
     }
@@ -330,7 +334,5 @@ public class V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.clien
       return and();
     }
     
-  
   }
-
 }

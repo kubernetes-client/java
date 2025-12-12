@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CronJobSpecBuilder extends V1CronJobSpecFluent<V1CronJobSpecBuilder> implements VisitableBuilder<V1CronJobSpec,V1CronJobSpecBuilder>{
+
+  V1CronJobSpecFluent<?> fluent;
+
   public V1CronJobSpecBuilder() {
     this(new V1CronJobSpec());
   }
@@ -11,17 +14,16 @@ public class V1CronJobSpecBuilder extends V1CronJobSpecFluent<V1CronJobSpecBuild
     this(fluent, new V1CronJobSpec());
   }
   
-  public V1CronJobSpecBuilder(V1CronJobSpecFluent<?> fluent,V1CronJobSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CronJobSpecBuilder(V1CronJobSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CronJobSpecFluent<?> fluent;
   
+  public V1CronJobSpecBuilder(V1CronJobSpecFluent<?> fluent,V1CronJobSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CronJobSpec build() {
     V1CronJobSpec buildable = new V1CronJobSpec();
     buildable.setConcurrencyPolicy(fluent.getConcurrencyPolicy());
@@ -35,5 +37,4 @@ public class V1CronJobSpecBuilder extends V1CronJobSpecFluent<V1CronJobSpecBuild
     return buildable;
   }
   
-
 }

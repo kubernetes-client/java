@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NodeSwapStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeSwapStatusFluent<A>> extends BaseFluent<A>{
+
+  private Long capacity;
+
   public V1NodeSwapStatusFluent() {
   }
   
   public V1NodeSwapStatusFluent(V1NodeSwapStatus instance) {
     this.copyInstance(instance);
   }
-  private Long capacity;
-  
+
   protected void copyInstance(V1NodeSwapStatus instance) {
     instance = instance != null ? instance : new V1NodeSwapStatus();
     if (instance != null) {
       this.withCapacity(instance.getCapacity());
     }
-  }
-  
-  public Long getCapacity() {
-    return this.capacity;
-  }
-  
-  public A withCapacity(Long capacity) {
-    this.capacity = capacity;
-    return (A) this;
-  }
-  
-  public boolean hasCapacity() {
-    return this.capacity != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1NodeSwapStatusFluent<A extends io.kubernetes.client.openapi.model
     return true;
   }
   
+  public Long getCapacity() {
+    return this.capacity;
+  }
+  
+  public boolean hasCapacity() {
+    return this.capacity != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(capacity);
   }
@@ -73,5 +70,9 @@ public class V1NodeSwapStatusFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
-
+  public A withCapacity(Long capacity) {
+    this.capacity = capacity;
+    return (A) this;
+  }
+  
 }

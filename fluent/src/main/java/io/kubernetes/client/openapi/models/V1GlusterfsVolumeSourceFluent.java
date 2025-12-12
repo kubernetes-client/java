@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GlusterfsVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String endpoints;
+  private String path;
+  private Boolean readOnly;
+
   public V1GlusterfsVolumeSourceFluent() {
   }
   
   public V1GlusterfsVolumeSourceFluent(V1GlusterfsVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String endpoints;
-  private String path;
-  private Boolean readOnly;
-  
+
   protected void copyInstance(V1GlusterfsVolumeSource instance) {
     instance = instance != null ? instance : new V1GlusterfsVolumeSource();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.openap
         this.withPath(instance.getPath());
         this.withReadOnly(instance.getReadOnly());
     }
-  }
-  
-  public String getEndpoints() {
-    return this.endpoints;
-  }
-  
-  public A withEndpoints(String endpoints) {
-    this.endpoints = endpoints;
-    return (A) this;
-  }
-  
-  public boolean hasEndpoints() {
-    return this.endpoints != null;
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.openap
       return false;
     }
     return true;
+  }
+  
+  public String getEndpoints() {
+    return this.endpoints;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public boolean hasEndpoints() {
+    return this.endpoints != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
   }
   
   public int hashCode() {
@@ -119,9 +106,23 @@ public class V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.openap
     return sb.toString();
   }
   
+  public A withEndpoints(String endpoints) {
+    this.endpoints = endpoints;
+    return (A) this;
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
 }
