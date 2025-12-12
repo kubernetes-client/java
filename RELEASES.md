@@ -60,6 +60,18 @@ will also be packed on the tag.
 
 In the end, don't forget to clarify the release notes on the GITHUB release.
 
+### Publish the staging artifacts on Sonatype webconsole
+
+Login to the following website to browse all the releases under `io.kubernetes` namespace:
+
+> https://central.sonatype.com/
+
+Click into "Publish" -> "Deployments", you will see a list containg all the history releases
+as well as the pending release waiting for you to confirm manually and publish. Click the
+pending deployment the above github workflow created then click on "Publish" button, and then
+the new release should be present in maven central in ~1 day.
+
+
 ## One time setup
 
 You will need to have the following in place:
