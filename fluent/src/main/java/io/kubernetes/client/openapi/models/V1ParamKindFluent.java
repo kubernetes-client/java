@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ParamKindFluent<A extends io.kubernetes.client.openapi.models.V1ParamKindFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String kind;
+
   public V1ParamKindFluent() {
   }
   
   public V1ParamKindFluent(V1ParamKind instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String kind;
-  
+
   protected void copyInstance(V1ParamKind instance) {
     instance = instance != null ? instance : new V1ParamKind();
     if (instance != null) {
         this.withApiVersion(instance.getApiVersion());
         this.withKind(instance.getKind());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ParamKindFluent<A extends io.kubernetes.client.openapi.models.V1P
     return true;
   }
   
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(apiVersion, kind);
   }
@@ -95,5 +87,14 @@ public class V1ParamKindFluent<A extends io.kubernetes.client.openapi.models.V1P
     return sb.toString();
   }
   
-
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
 }

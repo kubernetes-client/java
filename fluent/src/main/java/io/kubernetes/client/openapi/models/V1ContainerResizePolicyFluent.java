@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerResizePolicyFluent<A extends io.kubernetes.client.openapi.models.V1ContainerResizePolicyFluent<A>> extends BaseFluent<A>{
+
+  private String resourceName;
+  private String restartPolicy;
+
   public V1ContainerResizePolicyFluent() {
   }
   
   public V1ContainerResizePolicyFluent(V1ContainerResizePolicy instance) {
     this.copyInstance(instance);
   }
-  private String resourceName;
-  private String restartPolicy;
-  
+
   protected void copyInstance(V1ContainerResizePolicy instance) {
     instance = instance != null ? instance : new V1ContainerResizePolicy();
     if (instance != null) {
         this.withResourceName(instance.getResourceName());
         this.withRestartPolicy(instance.getRestartPolicy());
     }
-  }
-  
-  public String getResourceName() {
-    return this.resourceName;
-  }
-  
-  public A withResourceName(String resourceName) {
-    this.resourceName = resourceName;
-    return (A) this;
-  }
-  
-  public boolean hasResourceName() {
-    return this.resourceName != null;
-  }
-  
-  public String getRestartPolicy() {
-    return this.restartPolicy;
-  }
-  
-  public A withRestartPolicy(String restartPolicy) {
-    this.restartPolicy = restartPolicy;
-    return (A) this;
-  }
-  
-  public boolean hasRestartPolicy() {
-    return this.restartPolicy != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ContainerResizePolicyFluent<A extends io.kubernetes.client.openap
     return true;
   }
   
+  public String getResourceName() {
+    return this.resourceName;
+  }
+  
+  public String getRestartPolicy() {
+    return this.restartPolicy;
+  }
+  
+  public boolean hasResourceName() {
+    return this.resourceName != null;
+  }
+  
+  public boolean hasRestartPolicy() {
+    return this.restartPolicy != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(resourceName, restartPolicy);
   }
@@ -95,5 +87,14 @@ public class V1ContainerResizePolicyFluent<A extends io.kubernetes.client.openap
     return sb.toString();
   }
   
-
+  public A withResourceName(String resourceName) {
+    this.resourceName = resourceName;
+    return (A) this;
+  }
+  
+  public A withRestartPolicy(String restartPolicy) {
+    this.restartPolicy = restartPolicy;
+    return (A) this;
+  }
+  
 }

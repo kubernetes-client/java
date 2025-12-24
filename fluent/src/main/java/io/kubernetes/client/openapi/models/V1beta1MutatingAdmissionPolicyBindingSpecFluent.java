@@ -1,28 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1MutatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
+
+  private V1beta1MatchResourcesBuilder matchResources;
+  private V1beta1ParamRefBuilder paramRef;
+  private String policyName;
+
   public V1beta1MutatingAdmissionPolicyBindingSpecFluent() {
   }
   
   public V1beta1MutatingAdmissionPolicyBindingSpecFluent(V1beta1MutatingAdmissionPolicyBindingSpec instance) {
     this.copyInstance(instance);
   }
-  private V1beta1MatchResourcesBuilder matchResources;
-  private V1beta1ParamRefBuilder paramRef;
-  private String policyName;
+
+  public V1beta1MatchResources buildMatchResources() {
+    return this.matchResources != null ? this.matchResources.build() : null;
+  }
+  
+  public V1beta1ParamRef buildParamRef() {
+    return this.paramRef != null ? this.paramRef.build() : null;
+  }
   
   protected void copyInstance(V1beta1MutatingAdmissionPolicyBindingSpec instance) {
     instance = instance != null ? instance : new V1beta1MutatingAdmissionPolicyBindingSpec();
@@ -31,34 +41,6 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
         this.withParamRef(instance.getParamRef());
         this.withPolicyName(instance.getPolicyName());
     }
-  }
-  
-  public V1beta1MatchResources buildMatchResources() {
-    return this.matchResources != null ? this.matchResources.build() : null;
-  }
-  
-  public A withMatchResources(V1beta1MatchResources matchResources) {
-    this._visitables.remove("matchResources");
-    if (matchResources != null) {
-        this.matchResources = new V1beta1MatchResourcesBuilder(matchResources);
-        this._visitables.get("matchResources").add(this.matchResources);
-    } else {
-        this.matchResources = null;
-        this._visitables.get("matchResources").remove(this.matchResources);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMatchResources() {
-    return this.matchResources != null;
-  }
-  
-  public MatchResourcesNested<A> withNewMatchResources() {
-    return new MatchResourcesNested(null);
-  }
-  
-  public MatchResourcesNested<A> withNewMatchResourcesLike(V1beta1MatchResources item) {
-    return new MatchResourcesNested(item);
   }
   
   public MatchResourcesNested<A> editMatchResources() {
@@ -73,38 +55,6 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
     return this.withNewMatchResourcesLike(Optional.ofNullable(this.buildMatchResources()).orElse(item));
   }
   
-  public V1beta1ParamRef buildParamRef() {
-    return this.paramRef != null ? this.paramRef.build() : null;
-  }
-  
-  public A withParamRef(V1beta1ParamRef paramRef) {
-    this._visitables.remove("paramRef");
-    if (paramRef != null) {
-        this.paramRef = new V1beta1ParamRefBuilder(paramRef);
-        this._visitables.get("paramRef").add(this.paramRef);
-    } else {
-        this.paramRef = null;
-        this._visitables.get("paramRef").remove(this.paramRef);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasParamRef() {
-    return this.paramRef != null;
-  }
-  
-  public ParamRefNested<A> withNewParamRef() {
-    return new ParamRefNested(null);
-  }
-  
-  public ParamRefNested<A> withNewParamRefLike(V1beta1ParamRef item) {
-    return new ParamRefNested(item);
-  }
-  
-  public ParamRefNested<A> editParamRef() {
-    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(null));
-  }
-  
   public ParamRefNested<A> editOrNewParamRef() {
     return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(new V1beta1ParamRefBuilder().build()));
   }
@@ -113,17 +63,8 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
     return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(item));
   }
   
-  public String getPolicyName() {
-    return this.policyName;
-  }
-  
-  public A withPolicyName(String policyName) {
-    this.policyName = policyName;
-    return (A) this;
-  }
-  
-  public boolean hasPolicyName() {
-    return this.policyName != null;
+  public ParamRefNested<A> editParamRef() {
+    return this.withNewParamRefLike(Optional.ofNullable(this.buildParamRef()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -147,6 +88,22 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
       return false;
     }
     return true;
+  }
+  
+  public String getPolicyName() {
+    return this.policyName;
+  }
+  
+  public boolean hasMatchResources() {
+    return this.matchResources != null;
+  }
+  
+  public boolean hasParamRef() {
+    return this.paramRef != null;
+  }
+  
+  public boolean hasPolicyName() {
+    return this.policyName != null;
   }
   
   public int hashCode() {
@@ -173,12 +130,59 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withMatchResources(V1beta1MatchResources matchResources) {
+    this._visitables.remove("matchResources");
+    if (matchResources != null) {
+        this.matchResources = new V1beta1MatchResourcesBuilder(matchResources);
+        this._visitables.get("matchResources").add(this.matchResources);
+    } else {
+        this.matchResources = null;
+        this._visitables.get("matchResources").remove(this.matchResources);
+    }
+    return (A) this;
+  }
+  
+  public MatchResourcesNested<A> withNewMatchResources() {
+    return new MatchResourcesNested(null);
+  }
+  
+  public MatchResourcesNested<A> withNewMatchResourcesLike(V1beta1MatchResources item) {
+    return new MatchResourcesNested(item);
+  }
+  
+  public ParamRefNested<A> withNewParamRef() {
+    return new ParamRefNested(null);
+  }
+  
+  public ParamRefNested<A> withNewParamRefLike(V1beta1ParamRef item) {
+    return new ParamRefNested(item);
+  }
+  
+  public A withParamRef(V1beta1ParamRef paramRef) {
+    this._visitables.remove("paramRef");
+    if (paramRef != null) {
+        this.paramRef = new V1beta1ParamRefBuilder(paramRef);
+        this._visitables.get("paramRef").add(this.paramRef);
+    } else {
+        this.paramRef = null;
+        this._visitables.get("paramRef").remove(this.paramRef);
+    }
+    return (A) this;
+  }
+  
+  public A withPolicyName(String policyName) {
+    this.policyName = policyName;
+    return (A) this;
+  }
   public class MatchResourcesNested<N> extends V1beta1MatchResourcesFluent<MatchResourcesNested<N>> implements Nested<N>{
+  
+    V1beta1MatchResourcesBuilder builder;
+  
     MatchResourcesNested(V1beta1MatchResources item) {
       this.builder = new V1beta1MatchResourcesBuilder(this, item);
     }
-    V1beta1MatchResourcesBuilder builder;
-    
+  
     public N and() {
       return (N) V1beta1MutatingAdmissionPolicyBindingSpecFluent.this.withMatchResources(builder.build());
     }
@@ -187,14 +191,15 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
       return and();
     }
     
-  
   }
   public class ParamRefNested<N> extends V1beta1ParamRefFluent<ParamRefNested<N>> implements Nested<N>{
+  
+    V1beta1ParamRefBuilder builder;
+  
     ParamRefNested(V1beta1ParamRef item) {
       this.builder = new V1beta1ParamRefBuilder(this, item);
     }
-    V1beta1ParamRefBuilder builder;
-    
+  
     public N and() {
       return (N) V1beta1MutatingAdmissionPolicyBindingSpecFluent.this.withParamRef(builder.build());
     }
@@ -203,7 +208,5 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
       return and();
     }
     
-  
   }
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PriorityLevelConfigurationListBuilder extends V1PriorityLevelConfigurationListFluent<V1PriorityLevelConfigurationListBuilder> implements VisitableBuilder<V1PriorityLevelConfigurationList,V1PriorityLevelConfigurationListBuilder>{
+
+  V1PriorityLevelConfigurationListFluent<?> fluent;
+
   public V1PriorityLevelConfigurationListBuilder() {
     this(new V1PriorityLevelConfigurationList());
   }
@@ -11,17 +14,16 @@ public class V1PriorityLevelConfigurationListBuilder extends V1PriorityLevelConf
     this(fluent, new V1PriorityLevelConfigurationList());
   }
   
-  public V1PriorityLevelConfigurationListBuilder(V1PriorityLevelConfigurationListFluent<?> fluent,V1PriorityLevelConfigurationList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PriorityLevelConfigurationListBuilder(V1PriorityLevelConfigurationList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PriorityLevelConfigurationListFluent<?> fluent;
   
+  public V1PriorityLevelConfigurationListBuilder(V1PriorityLevelConfigurationListFluent<?> fluent,V1PriorityLevelConfigurationList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PriorityLevelConfigurationList build() {
     V1PriorityLevelConfigurationList buildable = new V1PriorityLevelConfigurationList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1PriorityLevelConfigurationListBuilder extends V1PriorityLevelConf
     return buildable;
   }
   
-
 }

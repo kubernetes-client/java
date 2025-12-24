@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.models.V1VolumeErrorFluent<A>> extends BaseFluent<A>{
+
+  private Integer errorCode;
+  private String message;
+  private OffsetDateTime time;
+
   public V1VolumeErrorFluent() {
   }
   
   public V1VolumeErrorFluent(V1VolumeError instance) {
     this.copyInstance(instance);
   }
-  private Integer errorCode;
-  private String message;
-  private OffsetDateTime time;
-  
+
   protected void copyInstance(V1VolumeError instance) {
     instance = instance != null ? instance : new V1VolumeError();
     if (instance != null) {
@@ -31,45 +33,6 @@ public class V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.models.V
         this.withMessage(instance.getMessage());
         this.withTime(instance.getTime());
     }
-  }
-  
-  public Integer getErrorCode() {
-    return this.errorCode;
-  }
-  
-  public A withErrorCode(Integer errorCode) {
-    this.errorCode = errorCode;
-    return (A) this;
-  }
-  
-  public boolean hasErrorCode() {
-    return this.errorCode != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public OffsetDateTime getTime() {
-    return this.time;
-  }
-  
-  public A withTime(OffsetDateTime time) {
-    this.time = time;
-    return (A) this;
-  }
-  
-  public boolean hasTime() {
-    return this.time != null;
   }
   
   public boolean equals(Object o) {
@@ -93,6 +56,30 @@ public class V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.models.V
       return false;
     }
     return true;
+  }
+  
+  public Integer getErrorCode() {
+    return this.errorCode;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public OffsetDateTime getTime() {
+    return this.time;
+  }
+  
+  public boolean hasErrorCode() {
+    return this.errorCode != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasTime() {
+    return this.time != null;
   }
   
   public int hashCode() {
@@ -120,5 +107,19 @@ public class V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
-
+  public A withErrorCode(Integer errorCode) {
+    this.errorCode = errorCode;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withTime(OffsetDateTime time) {
+    this.time = time;
+    return (A) this;
+  }
+  
 }

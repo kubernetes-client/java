@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,6 +46,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -52,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.
  */
 @ApiModel(description = "RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1RuleWithOperations {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
@@ -266,15 +268,10 @@ public class V1RuleWithOperations {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiGroups");
-    openapiFields.add("apiVersions");
-    openapiFields.add("operations");
-    openapiFields.add("resources");
-    openapiFields.add("scope");
+    openapiFields = new HashSet<String>(Arrays.asList("apiGroups", "apiVersions", "operations", "resources", "scope"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -286,7 +283,7 @@ public class V1RuleWithOperations {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RuleWithOperations.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RuleWithOperations is not found in the empty JSON string", V1RuleWithOperations.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1RuleWithOperations is not found in the empty JSON string", V1RuleWithOperations.openapiRequiredFields.toString()));
         }
       }
 
@@ -294,28 +291,28 @@ public class V1RuleWithOperations {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1RuleWithOperations.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RuleWithOperations` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1RuleWithOperations` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("apiGroups") != null && !jsonObj.get("apiGroups").isJsonNull() && !jsonObj.get("apiGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `apiGroups` to be an array in the JSON string but got `%s`", jsonObj.get("apiGroups").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("apiVersions") != null && !jsonObj.get("apiVersions").isJsonNull() && !jsonObj.get("apiVersions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiVersions` to be an array in the JSON string but got `%s`", jsonObj.get("apiVersions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `apiVersions` to be an array in the JSON string but got `%s`", jsonObj.get("apiVersions").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("operations") != null && !jsonObj.get("operations").isJsonNull() && !jsonObj.get("operations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull() && !jsonObj.get("resources").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resources` to be an array in the JSON string but got `%s`", jsonObj.get("resources").toString()));
       }
       if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
       }
   }
 

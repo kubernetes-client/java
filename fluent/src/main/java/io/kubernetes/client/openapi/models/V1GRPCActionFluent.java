@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1GRPCActionFluent<A>> extends BaseFluent<A>{
+
+  private Integer port;
+  private String service;
+
   public V1GRPCActionFluent() {
   }
   
   public V1GRPCActionFluent(V1GRPCAction instance) {
     this.copyInstance(instance);
   }
-  private Integer port;
-  private String service;
-  
+
   protected void copyInstance(V1GRPCAction instance) {
     instance = instance != null ? instance : new V1GRPCAction();
     if (instance != null) {
         this.withPort(instance.getPort());
         this.withService(instance.getService());
     }
-  }
-  
-  public Integer getPort() {
-    return this.port;
-  }
-  
-  public A withPort(Integer port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
-  }
-  
-  public String getService() {
-    return this.service;
-  }
-  
-  public A withService(String service) {
-    this.service = service;
-    return (A) this;
-  }
-  
-  public boolean hasService() {
-    return this.service != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
     return true;
   }
   
+  public Integer getPort() {
+    return this.port;
+  }
+  
+  public String getService() {
+    return this.service;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
+  public boolean hasService() {
+    return this.service != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(port, service);
   }
@@ -96,5 +88,14 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
     return sb.toString();
   }
   
-
+  public A withPort(Integer port) {
+    this.port = port;
+    return (A) this;
+  }
+  
+  public A withService(String service) {
+    this.service = service;
+    return (A) this;
+  }
+  
 }

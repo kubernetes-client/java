@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1StorageClassBuilder extends V1StorageClassFluent<V1StorageClassBuilder> implements VisitableBuilder<V1StorageClass,V1StorageClassBuilder>{
+
+  V1StorageClassFluent<?> fluent;
+
   public V1StorageClassBuilder() {
     this(new V1StorageClass());
   }
@@ -11,17 +14,16 @@ public class V1StorageClassBuilder extends V1StorageClassFluent<V1StorageClassBu
     this(fluent, new V1StorageClass());
   }
   
-  public V1StorageClassBuilder(V1StorageClassFluent<?> fluent,V1StorageClass instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1StorageClassBuilder(V1StorageClass instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1StorageClassFluent<?> fluent;
   
+  public V1StorageClassBuilder(V1StorageClassFluent<?> fluent,V1StorageClass instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1StorageClass build() {
     V1StorageClass buildable = new V1StorageClass();
     buildable.setAllowVolumeExpansion(fluent.getAllowVolumeExpansion());
@@ -37,5 +39,4 @@ public class V1StorageClassBuilder extends V1StorageClassFluent<V1StorageClassBu
     return buildable;
   }
   
-
 }

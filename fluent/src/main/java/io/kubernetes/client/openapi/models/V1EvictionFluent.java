@@ -1,29 +1,39 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1EvictionFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private V1DeleteOptionsBuilder deleteOptions;
+  private String kind;
+  private V1ObjectMetaBuilder metadata;
+
   public V1EvictionFluent() {
   }
   
   public V1EvictionFluent(V1Eviction instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private V1DeleteOptionsBuilder deleteOptions;
-  private String kind;
-  private V1ObjectMetaBuilder metadata;
+
+  public V1DeleteOptions buildDeleteOptions() {
+    return this.deleteOptions != null ? this.deleteOptions.build() : null;
+  }
+  
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
+  }
   
   protected void copyInstance(V1Eviction instance) {
     instance = instance != null ? instance : new V1Eviction();
@@ -35,49 +45,12 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
     }
   }
   
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public V1DeleteOptions buildDeleteOptions() {
-    return this.deleteOptions != null ? this.deleteOptions.build() : null;
-  }
-  
-  public A withDeleteOptions(V1DeleteOptions deleteOptions) {
-    this._visitables.remove("deleteOptions");
-    if (deleteOptions != null) {
-        this.deleteOptions = new V1DeleteOptionsBuilder(deleteOptions);
-        this._visitables.get("deleteOptions").add(this.deleteOptions);
-    } else {
-        this.deleteOptions = null;
-        this._visitables.get("deleteOptions").remove(this.deleteOptions);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasDeleteOptions() {
-    return this.deleteOptions != null;
-  }
-  
-  public DeleteOptionsNested<A> withNewDeleteOptions() {
-    return new DeleteOptionsNested(null);
-  }
-  
-  public DeleteOptionsNested<A> withNewDeleteOptionsLike(V1DeleteOptions item) {
-    return new DeleteOptionsNested(item);
-  }
-  
   public DeleteOptionsNested<A> editDeleteOptions() {
     return this.withNewDeleteOptionsLike(Optional.ofNullable(this.buildDeleteOptions()).orElse(null));
+  }
+  
+  public MetadataNested<A> editMetadata() {
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public DeleteOptionsNested<A> editOrNewDeleteOptions() {
@@ -86,51 +59,6 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
   
   public DeleteOptionsNested<A> editOrNewDeleteOptionsLike(V1DeleteOptions item) {
     return this.withNewDeleteOptionsLike(Optional.ofNullable(this.buildDeleteOptions()).orElse(item));
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
-  }
-  
-  public MetadataNested<A> editMetadata() {
-    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
   }
   
   public MetadataNested<A> editOrNewMetadata() {
@@ -167,6 +95,30 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
     return true;
   }
   
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasDeleteOptions() {
+    return this.deleteOptions != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(apiVersion, deleteOptions, kind, metadata);
   }
@@ -196,12 +148,64 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withDeleteOptions(V1DeleteOptions deleteOptions) {
+    this._visitables.remove("deleteOptions");
+    if (deleteOptions != null) {
+        this.deleteOptions = new V1DeleteOptionsBuilder(deleteOptions);
+        this._visitables.get("deleteOptions").add(this.deleteOptions);
+    } else {
+        this.deleteOptions = null;
+        this._visitables.get("deleteOptions").remove(this.deleteOptions);
+    }
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public DeleteOptionsNested<A> withNewDeleteOptions() {
+    return new DeleteOptionsNested(null);
+  }
+  
+  public DeleteOptionsNested<A> withNewDeleteOptionsLike(V1DeleteOptions item) {
+    return new DeleteOptionsNested(item);
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
   public class DeleteOptionsNested<N> extends V1DeleteOptionsFluent<DeleteOptionsNested<N>> implements Nested<N>{
+  
+    V1DeleteOptionsBuilder builder;
+  
     DeleteOptionsNested(V1DeleteOptions item) {
       this.builder = new V1DeleteOptionsBuilder(this, item);
     }
-    V1DeleteOptionsBuilder builder;
-    
+  
     public N and() {
       return (N) V1EvictionFluent.this.withDeleteOptions(builder.build());
     }
@@ -210,14 +214,15 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
       return and();
     }
     
-  
   }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1EvictionFluent.this.withMetadata(builder.build());
     }
@@ -226,7 +231,5 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
       return and();
     }
     
-  
   }
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ScaleSpecBuilder extends V1ScaleSpecFluent<V1ScaleSpecBuilder> implements VisitableBuilder<V1ScaleSpec,V1ScaleSpecBuilder>{
+
+  V1ScaleSpecFluent<?> fluent;
+
   public V1ScaleSpecBuilder() {
     this(new V1ScaleSpec());
   }
@@ -11,22 +14,20 @@ public class V1ScaleSpecBuilder extends V1ScaleSpecFluent<V1ScaleSpecBuilder> im
     this(fluent, new V1ScaleSpec());
   }
   
-  public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent,V1ScaleSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ScaleSpecBuilder(V1ScaleSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ScaleSpecFluent<?> fluent;
   
+  public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent,V1ScaleSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ScaleSpec build() {
     V1ScaleSpec buildable = new V1ScaleSpec();
     buildable.setReplicas(fluent.getReplicas());
     return buildable;
   }
   
-
 }

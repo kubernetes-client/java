@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,6 +48,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -54,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodCertificateRequestStatus describes the status of the request, and holds the certificate data if the request is issued.
  */
 @ApiModel(description = "PodCertificateRequestStatus describes the status of the request, and holds the certificate data if the request is issued.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1alpha1PodCertificateRequestStatus {
   public static final String SERIALIZED_NAME_BEGIN_REFRESH_AT = "beginRefreshAt";
   @SerializedName(SERIALIZED_NAME_BEGIN_REFRESH_AT)
@@ -244,15 +246,10 @@ public class V1alpha1PodCertificateRequestStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("beginRefreshAt");
-    openapiFields.add("certificateChain");
-    openapiFields.add("conditions");
-    openapiFields.add("notAfter");
-    openapiFields.add("notBefore");
+    openapiFields = new HashSet<String>(Arrays.asList("beginRefreshAt", "certificateChain", "conditions", "notAfter", "notBefore"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -264,7 +261,7 @@ public class V1alpha1PodCertificateRequestStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1PodCertificateRequestStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1PodCertificateRequestStatus is not found in the empty JSON string", V1alpha1PodCertificateRequestStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1alpha1PodCertificateRequestStatus is not found in the empty JSON string", V1alpha1PodCertificateRequestStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -272,19 +269,19 @@ public class V1alpha1PodCertificateRequestStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha1PodCertificateRequestStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1PodCertificateRequestStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha1PodCertificateRequestStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificateChain") != null && !jsonObj.get("certificateChain").isJsonNull()) && !jsonObj.get("certificateChain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificateChain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateChain").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `certificateChain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateChain").toString()));
       }
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("conditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
           }
 
           // validate the optional field `conditions` (array)

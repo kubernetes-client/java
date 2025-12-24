@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,6 +44,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -50,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
  */
 @ApiModel(description = "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1FlockerVolumeSource {
   public static final String SERIALIZED_NAME_DATASET_NAME = "datasetName";
   @SerializedName(SERIALIZED_NAME_DATASET_NAME)
@@ -151,12 +153,10 @@ public class V1FlockerVolumeSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("datasetName");
-    openapiFields.add("datasetUUID");
+    openapiFields = new HashSet<String>(Arrays.asList("datasetName", "datasetUUID"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -168,7 +168,7 @@ public class V1FlockerVolumeSource {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1FlockerVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1FlockerVolumeSource is not found in the empty JSON string", V1FlockerVolumeSource.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1FlockerVolumeSource is not found in the empty JSON string", V1FlockerVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
@@ -176,15 +176,15 @@ public class V1FlockerVolumeSource {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1FlockerVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1FlockerVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1FlockerVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("datasetName") != null && !jsonObj.get("datasetName").isJsonNull()) && !jsonObj.get("datasetName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datasetName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datasetName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `datasetName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datasetName").toString()));
       }
       if ((jsonObj.get("datasetUUID") != null && !jsonObj.get("datasetUUID").isJsonNull()) && !jsonObj.get("datasetUUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datasetUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datasetUUID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `datasetUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datasetUUID").toString()));
       }
   }
 

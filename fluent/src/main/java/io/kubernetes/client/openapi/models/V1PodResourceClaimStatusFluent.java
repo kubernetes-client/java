@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PodResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1PodResourceClaimStatusFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private String resourceClaimName;
+
   public V1PodResourceClaimStatusFluent() {
   }
   
   public V1PodResourceClaimStatusFluent(V1PodResourceClaimStatus instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private String resourceClaimName;
-  
+
   protected void copyInstance(V1PodResourceClaimStatus instance) {
     instance = instance != null ? instance : new V1PodResourceClaimStatus();
     if (instance != null) {
         this.withName(instance.getName());
         this.withResourceClaimName(instance.getResourceClaimName());
     }
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getResourceClaimName() {
-    return this.resourceClaimName;
-  }
-  
-  public A withResourceClaimName(String resourceClaimName) {
-    this.resourceClaimName = resourceClaimName;
-    return (A) this;
-  }
-  
-  public boolean hasResourceClaimName() {
-    return this.resourceClaimName != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1PodResourceClaimStatusFluent<A extends io.kubernetes.client.opena
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getResourceClaimName() {
+    return this.resourceClaimName;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasResourceClaimName() {
+    return this.resourceClaimName != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(name, resourceClaimName);
   }
@@ -95,5 +87,14 @@ public class V1PodResourceClaimStatusFluent<A extends io.kubernetes.client.opena
     return sb.toString();
   }
   
-
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withResourceClaimName(String resourceClaimName) {
+    this.resourceClaimName = resourceClaimName;
+    return (A) this;
+  }
+  
 }

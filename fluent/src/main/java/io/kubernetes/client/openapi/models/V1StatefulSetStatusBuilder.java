@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1StatefulSetStatusBuilder extends V1StatefulSetStatusFluent<V1StatefulSetStatusBuilder> implements VisitableBuilder<V1StatefulSetStatus,V1StatefulSetStatusBuilder>{
+
+  V1StatefulSetStatusFluent<?> fluent;
+
   public V1StatefulSetStatusBuilder() {
     this(new V1StatefulSetStatus());
   }
@@ -11,17 +14,16 @@ public class V1StatefulSetStatusBuilder extends V1StatefulSetStatusFluent<V1Stat
     this(fluent, new V1StatefulSetStatus());
   }
   
-  public V1StatefulSetStatusBuilder(V1StatefulSetStatusFluent<?> fluent,V1StatefulSetStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1StatefulSetStatusBuilder(V1StatefulSetStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1StatefulSetStatusFluent<?> fluent;
   
+  public V1StatefulSetStatusBuilder(V1StatefulSetStatusFluent<?> fluent,V1StatefulSetStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1StatefulSetStatus build() {
     V1StatefulSetStatus buildable = new V1StatefulSetStatus();
     buildable.setAvailableReplicas(fluent.getAvailableReplicas());
@@ -37,5 +39,4 @@ public class V1StatefulSetStatusBuilder extends V1StatefulSetStatusFluent<V1Stat
     return buildable;
   }
   
-
 }

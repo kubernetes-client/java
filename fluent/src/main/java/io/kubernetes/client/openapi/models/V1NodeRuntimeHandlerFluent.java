@@ -1,27 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.models.V1NodeRuntimeHandlerFluent<A>> extends BaseFluent<A>{
+
+  private V1NodeRuntimeHandlerFeaturesBuilder features;
+  private String name;
+
   public V1NodeRuntimeHandlerFluent() {
   }
   
   public V1NodeRuntimeHandlerFluent(V1NodeRuntimeHandler instance) {
     this.copyInstance(instance);
   }
-  private V1NodeRuntimeHandlerFeaturesBuilder features;
-  private String name;
+
+  public V1NodeRuntimeHandlerFeatures buildFeatures() {
+    return this.features != null ? this.features.build() : null;
+  }
   
   protected void copyInstance(V1NodeRuntimeHandler instance) {
     instance = instance != null ? instance : new V1NodeRuntimeHandler();
@@ -29,34 +35,6 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
         this.withFeatures(instance.getFeatures());
         this.withName(instance.getName());
     }
-  }
-  
-  public V1NodeRuntimeHandlerFeatures buildFeatures() {
-    return this.features != null ? this.features.build() : null;
-  }
-  
-  public A withFeatures(V1NodeRuntimeHandlerFeatures features) {
-    this._visitables.remove("features");
-    if (features != null) {
-        this.features = new V1NodeRuntimeHandlerFeaturesBuilder(features);
-        this._visitables.get("features").add(this.features);
-    } else {
-        this.features = null;
-        this._visitables.get("features").remove(this.features);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasFeatures() {
-    return this.features != null;
-  }
-  
-  public FeaturesNested<A> withNewFeatures() {
-    return new FeaturesNested(null);
-  }
-  
-  public FeaturesNested<A> withNewFeaturesLike(V1NodeRuntimeHandlerFeatures item) {
-    return new FeaturesNested(item);
   }
   
   public FeaturesNested<A> editFeatures() {
@@ -69,19 +47,6 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
   
   public FeaturesNested<A> editOrNewFeaturesLike(V1NodeRuntimeHandlerFeatures item) {
     return this.withNewFeaturesLike(Optional.ofNullable(this.buildFeatures()).orElse(item));
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
   }
   
   public boolean equals(Object o) {
@@ -104,6 +69,18 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public boolean hasFeatures() {
+    return this.features != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(features, name);
   }
@@ -123,12 +100,39 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withFeatures(V1NodeRuntimeHandlerFeatures features) {
+    this._visitables.remove("features");
+    if (features != null) {
+        this.features = new V1NodeRuntimeHandlerFeaturesBuilder(features);
+        this._visitables.get("features").add(this.features);
+    } else {
+        this.features = null;
+        this._visitables.get("features").remove(this.features);
+    }
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public FeaturesNested<A> withNewFeatures() {
+    return new FeaturesNested(null);
+  }
+  
+  public FeaturesNested<A> withNewFeaturesLike(V1NodeRuntimeHandlerFeatures item) {
+    return new FeaturesNested(item);
+  }
   public class FeaturesNested<N> extends V1NodeRuntimeHandlerFeaturesFluent<FeaturesNested<N>> implements Nested<N>{
+  
+    V1NodeRuntimeHandlerFeaturesBuilder builder;
+  
     FeaturesNested(V1NodeRuntimeHandlerFeatures item) {
       this.builder = new V1NodeRuntimeHandlerFeaturesBuilder(this, item);
     }
-    V1NodeRuntimeHandlerFeaturesBuilder builder;
-    
+  
     public N and() {
       return (N) V1NodeRuntimeHandlerFluent.this.withFeatures(builder.build());
     }
@@ -137,7 +141,5 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
       return and();
     }
     
-  
   }
-
 }

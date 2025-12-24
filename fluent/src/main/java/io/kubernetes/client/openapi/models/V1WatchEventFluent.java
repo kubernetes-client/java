@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1WatchEventFluent<A>> extends BaseFluent<A>{
+
+  private Object _object;
+  private String type;
+
   public V1WatchEventFluent() {
   }
   
   public V1WatchEventFluent(V1WatchEvent instance) {
     this.copyInstance(instance);
   }
-  private Object _object;
-  private String type;
-  
+
   protected void copyInstance(V1WatchEvent instance) {
     instance = instance != null ? instance : new V1WatchEvent();
     if (instance != null) {
         this.withObject(instance.getObject());
         this.withType(instance.getType());
     }
-  }
-  
-  public Object getObject() {
-    return this._object;
-  }
-  
-  public A withObject(Object _object) {
-    this._object = _object;
-    return (A) this;
-  }
-  
-  public boolean hasObject() {
-    return this._object != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1
     return true;
   }
   
+  public Object getObject() {
+    return this._object;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasObject() {
+    return this._object != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(_object, type);
   }
@@ -95,5 +87,14 @@ public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1
     return sb.toString();
   }
   
-
+  public A withObject(Object _object) {
+    this._object = _object;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

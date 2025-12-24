@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ResourceStatusBuilder extends V1ResourceStatusFluent<V1ResourceStatusBuilder> implements VisitableBuilder<V1ResourceStatus,V1ResourceStatusBuilder>{
+
+  V1ResourceStatusFluent<?> fluent;
+
   public V1ResourceStatusBuilder() {
     this(new V1ResourceStatus());
   }
@@ -11,17 +14,16 @@ public class V1ResourceStatusBuilder extends V1ResourceStatusFluent<V1ResourceSt
     this(fluent, new V1ResourceStatus());
   }
   
-  public V1ResourceStatusBuilder(V1ResourceStatusFluent<?> fluent,V1ResourceStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ResourceStatusBuilder(V1ResourceStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ResourceStatusFluent<?> fluent;
   
+  public V1ResourceStatusBuilder(V1ResourceStatusFluent<?> fluent,V1ResourceStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ResourceStatus build() {
     V1ResourceStatus buildable = new V1ResourceStatus();
     buildable.setName(fluent.getName());
@@ -29,5 +31,4 @@ public class V1ResourceStatusBuilder extends V1ResourceStatusFluent<V1ResourceSt
     return buildable;
   }
   
-
 }

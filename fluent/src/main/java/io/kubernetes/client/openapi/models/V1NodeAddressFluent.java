@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V1NodeAddressFluent<A>> extends BaseFluent<A>{
+
+  private String address;
+  private String type;
+
   public V1NodeAddressFluent() {
   }
   
   public V1NodeAddressFluent(V1NodeAddress instance) {
     this.copyInstance(instance);
   }
-  private String address;
-  private String type;
-  
+
   protected void copyInstance(V1NodeAddress instance) {
     instance = instance != null ? instance : new V1NodeAddress();
     if (instance != null) {
         this.withAddress(instance.getAddress());
         this.withType(instance.getType());
     }
-  }
-  
-  public String getAddress() {
-    return this.address;
-  }
-  
-  public A withAddress(String address) {
-    this.address = address;
-    return (A) this;
-  }
-  
-  public boolean hasAddress() {
-    return this.address != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public String getAddress() {
+    return this.address;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasAddress() {
+    return this.address != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(address, type);
   }
@@ -95,5 +87,14 @@ public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
-
+  public A withAddress(String address) {
+    this.address = address;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1KeyToPathFluent<A>> extends BaseFluent<A>{
+
+  private String key;
+  private Integer mode;
+  private String path;
+
   public V1KeyToPathFluent() {
   }
   
   public V1KeyToPathFluent(V1KeyToPath instance) {
     this.copyInstance(instance);
   }
-  private String key;
-  private Integer mode;
-  private String path;
-  
+
   protected void copyInstance(V1KeyToPath instance) {
     instance = instance != null ? instance : new V1KeyToPath();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
         this.withMode(instance.getMode());
         this.withPath(instance.getPath());
     }
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public Integer getMode() {
-    return this.mode;
-  }
-  
-  public A withMode(Integer mode) {
-    this.mode = mode;
-    return (A) this;
-  }
-  
-  public boolean hasMode() {
-    return this.mode != null;
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
       return false;
     }
     return true;
+  }
+  
+  public String getKey() {
+    return this.key;
+  }
+  
+  public Integer getMode() {
+    return this.mode;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
+  public boolean hasMode() {
+    return this.mode != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
     return sb.toString();
   }
   
-
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
+  }
+  
+  public A withMode(Integer mode) {
+    this.mode = mode;
+    return (A) this;
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
 }

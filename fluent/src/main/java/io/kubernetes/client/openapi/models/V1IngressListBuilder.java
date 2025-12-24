@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1IngressListBuilder extends V1IngressListFluent<V1IngressListBuilder> implements VisitableBuilder<V1IngressList,V1IngressListBuilder>{
+
+  V1IngressListFluent<?> fluent;
+
   public V1IngressListBuilder() {
     this(new V1IngressList());
   }
@@ -11,17 +14,16 @@ public class V1IngressListBuilder extends V1IngressListFluent<V1IngressListBuild
     this(fluent, new V1IngressList());
   }
   
-  public V1IngressListBuilder(V1IngressListFluent<?> fluent,V1IngressList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1IngressListBuilder(V1IngressList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1IngressListFluent<?> fluent;
   
+  public V1IngressListBuilder(V1IngressListFluent<?> fluent,V1IngressList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1IngressList build() {
     V1IngressList buildable = new V1IngressList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1IngressListBuilder extends V1IngressListFluent<V1IngressListBuild
     return buildable;
   }
   
-
 }

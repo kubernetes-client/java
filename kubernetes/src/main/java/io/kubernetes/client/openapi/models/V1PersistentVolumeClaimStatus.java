@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,6 +51,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -57,7 +59,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
 @ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -360,18 +362,10 @@ public class V1PersistentVolumeClaimStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessModes");
-    openapiFields.add("allocatedResourceStatuses");
-    openapiFields.add("allocatedResources");
-    openapiFields.add("capacity");
-    openapiFields.add("conditions");
-    openapiFields.add("currentVolumeAttributesClassName");
-    openapiFields.add("modifyVolumeStatus");
-    openapiFields.add("phase");
+    openapiFields = new HashSet<String>(Arrays.asList("accessModes", "allocatedResourceStatuses", "allocatedResources", "capacity", "conditions", "currentVolumeAttributesClassName", "modifyVolumeStatus", "phase"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -383,7 +377,7 @@ public class V1PersistentVolumeClaimStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeClaimStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeClaimStatus is not found in the empty JSON string", V1PersistentVolumeClaimStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1PersistentVolumeClaimStatus is not found in the empty JSON string", V1PersistentVolumeClaimStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -391,20 +385,20 @@ public class V1PersistentVolumeClaimStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeClaimStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonNull() && !jsonObj.get("accessModes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
       }
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
         JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
         if (jsonArrayconditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("conditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
           }
 
           // validate the optional field `conditions` (array)
@@ -414,14 +408,14 @@ public class V1PersistentVolumeClaimStatus {
         }
       }
       if ((jsonObj.get("currentVolumeAttributesClassName") != null && !jsonObj.get("currentVolumeAttributesClassName").isJsonNull()) && !jsonObj.get("currentVolumeAttributesClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currentVolumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currentVolumeAttributesClassName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `currentVolumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currentVolumeAttributesClassName").toString()));
       }
       // validate the optional field `modifyVolumeStatus`
       if (jsonObj.get("modifyVolumeStatus") != null && !jsonObj.get("modifyVolumeStatus").isJsonNull()) {
         V1ModifyVolumeStatus.validateJsonElement(jsonObj.get("modifyVolumeStatus"));
       }
       if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
       }
   }
 

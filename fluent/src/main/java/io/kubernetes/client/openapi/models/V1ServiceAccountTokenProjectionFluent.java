@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionFluent<A>> extends BaseFluent<A>{
+
+  private String audience;
+  private Long expirationSeconds;
+  private String path;
+
   public V1ServiceAccountTokenProjectionFluent() {
   }
   
   public V1ServiceAccountTokenProjectionFluent(V1ServiceAccountTokenProjection instance) {
     this.copyInstance(instance);
   }
-  private String audience;
-  private Long expirationSeconds;
-  private String path;
-  
+
   protected void copyInstance(V1ServiceAccountTokenProjection instance) {
     instance = instance != null ? instance : new V1ServiceAccountTokenProjection();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
         this.withExpirationSeconds(instance.getExpirationSeconds());
         this.withPath(instance.getPath());
     }
-  }
-  
-  public String getAudience() {
-    return this.audience;
-  }
-  
-  public A withAudience(String audience) {
-    this.audience = audience;
-    return (A) this;
-  }
-  
-  public boolean hasAudience() {
-    return this.audience != null;
-  }
-  
-  public Long getExpirationSeconds() {
-    return this.expirationSeconds;
-  }
-  
-  public A withExpirationSeconds(Long expirationSeconds) {
-    this.expirationSeconds = expirationSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasExpirationSeconds() {
-    return this.expirationSeconds != null;
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
       return false;
     }
     return true;
+  }
+  
+  public String getAudience() {
+    return this.audience;
+  }
+  
+  public Long getExpirationSeconds() {
+    return this.expirationSeconds;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public boolean hasAudience() {
+    return this.audience != null;
+  }
+  
+  public boolean hasExpirationSeconds() {
+    return this.expirationSeconds != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
-
+  public A withAudience(String audience) {
+    this.audience = audience;
+    return (A) this;
+  }
+  
+  public A withExpirationSeconds(Long expirationSeconds) {
+    this.expirationSeconds = expirationSeconds;
+    return (A) this;
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
 }

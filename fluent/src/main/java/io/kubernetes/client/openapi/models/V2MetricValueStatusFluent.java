@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V2MetricValueStatusFluent<A extends io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<A>> extends BaseFluent<A>{
+
+  private Integer averageUtilization;
+  private Quantity averageValue;
+  private Quantity value;
+
   public V2MetricValueStatusFluent() {
   }
   
   public V2MetricValueStatusFluent(V2MetricValueStatus instance) {
     this.copyInstance(instance);
   }
-  private Integer averageUtilization;
-  private Quantity averageValue;
-  private Quantity value;
-  
+
   protected void copyInstance(V2MetricValueStatus instance) {
     instance = instance != null ? instance : new V2MetricValueStatus();
     if (instance != null) {
@@ -31,53 +33,6 @@ public class V2MetricValueStatusFluent<A extends io.kubernetes.client.openapi.mo
         this.withAverageValue(instance.getAverageValue());
         this.withValue(instance.getValue());
     }
-  }
-  
-  public Integer getAverageUtilization() {
-    return this.averageUtilization;
-  }
-  
-  public A withAverageUtilization(Integer averageUtilization) {
-    this.averageUtilization = averageUtilization;
-    return (A) this;
-  }
-  
-  public boolean hasAverageUtilization() {
-    return this.averageUtilization != null;
-  }
-  
-  public Quantity getAverageValue() {
-    return this.averageValue;
-  }
-  
-  public A withAverageValue(Quantity averageValue) {
-    this.averageValue = averageValue;
-    return (A) this;
-  }
-  
-  public boolean hasAverageValue() {
-    return this.averageValue != null;
-  }
-  
-  public A withNewAverageValue(String value) {
-    return (A) this.withAverageValue(new Quantity(value));
-  }
-  
-  public Quantity getValue() {
-    return this.value;
-  }
-  
-  public A withValue(Quantity value) {
-    this.value = value;
-    return (A) this;
-  }
-  
-  public boolean hasValue() {
-    return this.value != null;
-  }
-  
-  public A withNewValue(String value) {
-    return (A) this.withValue(new Quantity(value));
   }
   
   public boolean equals(Object o) {
@@ -101,6 +56,30 @@ public class V2MetricValueStatusFluent<A extends io.kubernetes.client.openapi.mo
       return false;
     }
     return true;
+  }
+  
+  public Integer getAverageUtilization() {
+    return this.averageUtilization;
+  }
+  
+  public Quantity getAverageValue() {
+    return this.averageValue;
+  }
+  
+  public Quantity getValue() {
+    return this.value;
+  }
+  
+  public boolean hasAverageUtilization() {
+    return this.averageUtilization != null;
+  }
+  
+  public boolean hasAverageValue() {
+    return this.averageValue != null;
+  }
+  
+  public boolean hasValue() {
+    return this.value != null;
   }
   
   public int hashCode() {
@@ -128,5 +107,27 @@ public class V2MetricValueStatusFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withAverageUtilization(Integer averageUtilization) {
+    this.averageUtilization = averageUtilization;
+    return (A) this;
+  }
+  
+  public A withAverageValue(Quantity averageValue) {
+    this.averageValue = averageValue;
+    return (A) this;
+  }
+  
+  public A withNewAverageValue(String value) {
+    return (A) this.withAverageValue(new Quantity(value));
+  }
+  
+  public A withNewValue(String value) {
+    return (A) this.withValue(new Quantity(value));
+  }
+  
+  public A withValue(Quantity value) {
+    this.value = value;
+    return (A) this;
+  }
+  
 }
