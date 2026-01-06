@@ -78,7 +78,10 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
         run: |
           # The tests are already executed in the prepare, skipping
-          ./mvnw -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests org.apache.maven.plugins:maven-release-plugin:perform
+          ./mvnw -s /home/runner/.m2/settings.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests org.apache.maven.plugins:maven-release-plugin:perform
+          curl -X POST \
+            -H "Authorization: Bearer $(echo ${{ secrets.SNAPSHOT_UPLOAD_USER }}:${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }} | base64 -w0)" \
+            https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/io.kubernetes -v
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
