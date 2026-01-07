@@ -81,10 +81,11 @@
             <optional>${com.google.auth.google-auth-library-oauth2-http.optional}</optional>
         </dependency>
         <dependency>
-    <groupId>software.amazon.awssdk</groupId>
-    <artifactId>sts</artifactId>
-    <optional>${software.amazon.awssdk.sts.optional}</optional>
-</dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sts</artifactId>
+            <optional>${software.amazon.awssdk.sts.optional}</optional>
+        </dependency>
+
 
         <!-- test dependencies -->
         <dependency>
@@ -93,14 +94,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-params</artifactId>
-    <version>5.12.1</version>
-    <scope>test</scope>
-</dependency>
-
-
-
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>uk.org.webcompere</groupId>
             <artifactId>system-stubs-jupiter</artifactId>

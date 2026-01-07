@@ -42,7 +42,6 @@
     <maven-plugin-version>1.0.0</maven-plugin-version>
     <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <jakarta.annotation.version>3.0.0</jakarta.annotation.version>
     <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
     <snakeyaml.version>2.5</snakeyaml.version>
@@ -50,6 +49,8 @@
     <caffeine.version>2.9.3</caffeine.version>
     <protobuf.version>4.33.2</protobuf.version>
     <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
     <bucket4j.version>8.10.1</bucket4j.version>
     <bouncycastle.version>1.83</bouncycastle.version>
     <gson.version>2.13.2</gson.version>
@@ -264,6 +265,12 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
         <version>${junit-jupiter.version}</version>
         <scope>test</scope>
       </dependency>
