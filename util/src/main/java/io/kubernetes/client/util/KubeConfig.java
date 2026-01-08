@@ -176,6 +176,10 @@ public class KubeConfig {
     return getData(currentCluster, "certificate-authority");
   }
 
+  public String getTlsServerName() {
+    return getData(currentCluster, "tls-server-name");
+  }
+
   public String getClientCertificateFile() {
     return getData(currentUser, "client-certificate");
   }
