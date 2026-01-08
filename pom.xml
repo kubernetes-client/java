@@ -101,6 +101,14 @@
       <organizationUrl>https://kubernetes.io</organizationUrl>
     </developer>
   </developers>
+  <!--
+  NOTE:
+    Dependencies declared in dependencyManagement may appear unused in individual
+    modules, but are required to provide versions for child modules that declare
+    dependencies without explicit versions. Do not remove entries without verifying
+    all module POMs.
+-->
+
 
   <dependencyManagement>
     <dependencies>
