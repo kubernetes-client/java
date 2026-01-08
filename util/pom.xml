@@ -64,11 +64,6 @@
             <artifactId>bcpkix-jdk18on</artifactId>
         </dependency>
         <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sts</artifactId>
-            <optional>${software.amazon.awssdk.sts.optional}</optional>
-        </dependency>
-        <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
         </dependency>
@@ -85,15 +80,22 @@
             <artifactId>google-auth-library-oauth2-http</artifactId>
             <optional>${com.google.auth.google-auth-library-oauth2-http.optional}</optional>
         </dependency>
-        <!-- test dependencies -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sts</artifactId>
+            <optional>${software.amazon.awssdk.sts.optional}</optional>
         </dependency>
+
+
+        <!-- test dependencies -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
